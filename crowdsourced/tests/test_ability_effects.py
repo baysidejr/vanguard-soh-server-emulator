@@ -10,6 +10,17 @@ from test_archive import page
 
 
 class AbilityEffectTests(unittest.TestCase):
+    def test_bellow_details_boundary_preserves_historical_scope(self):
+        r=self.parse('<h2>Effect</h2><div class="tooltip">You bellow, blasting your opponent for 84 to 91 arcane damage.</div><h2>As it was earlier</h2><div class="tooltip">You bellow, blasting your opponent for 132-143 arcane damage. Cost: Submit Info Cast Time: 0 Refresh: 6 Range: 30</div>')
+        self.assertEqual([o['scope'] for o in r['effect_observations']],['current','historical'])
+        self.assertEqual([o['facts'][0]['values'] for o in r['effect_observations']],[[84,91],[132,143]])
+        self.assertIsNone(r['cost'])
+        self.assertIsNone(r['refresh_seconds'])
+
+    def test_bellow_boundary_does_not_discard_unrecognized_prose(self):
+        for suffix in [' Only against undead.', ' Costless attacks only.', ' unless resisted. Cost: 0']:
+            self.assertEqual(effect_facts('You bellow, blasting your opponent for 132-143 arcane damage.'+suffix),[])
+
     def test_signed_effect_stat_modifiers_preserve_labels_and_scope(self):
         facts=effect_facts('+8 Arcane Spell Damage -3 Spiritual Absorption +8% Health')
         self.assertEqual([f['values'] for f in facts],[[8],[-3]])

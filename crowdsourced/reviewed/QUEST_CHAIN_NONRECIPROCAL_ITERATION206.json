@@ -1,0 +1,1353 @@
+{
+  "audit_kind": "nonreciprocal_quest_chain_cached_target_review",
+  "network_requests": 0,
+  "metadata_only": false,
+  "extraction_scope": "Literal linked and unlinked chain observations, including adjacent cached targets; no inferred identity merges or prerequisite rules.",
+  "inputs": [
+    {
+      "path": ".cache/archive/01df45a83b9a139a87f3509eca94969f724b37bd2b4bfe31d070799811570ed8.txt",
+      "sha256": "2abf6a69160a93326332d33ce3cd91c29988dc6d398b09ca246a66a3f7a9ba13"
+    },
+    {
+      "path": ".cache/archive/1703aed429ff673088b2a6f29dd81eaad2adc092f3ac817f154cbe996b3d4e50.txt",
+      "sha256": "b50c668f134cb34490ab3488385dbe9330a916a16c21fe4a8e3090f4378a6986"
+    },
+    {
+      "path": ".cache/archive/2d4d5a0a1837ddd8be4c47039008707f363e5c0b6872d5f088538f2edfb9f79f.txt",
+      "sha256": "a510132c784ab721bcef96ce8dbb04052bc1bffa6d77528e06375960fcb8aadb"
+    },
+    {
+      "path": ".cache/archive/88ed3cbc7266136bd7b3beb0fa896df53816dc7427fed80e07f6087d8bca158b.txt",
+      "sha256": "73398f1e23bf971b3836c80c75f9d5d8433b64017c6621f67eb4ece6b0359d7d"
+    },
+    {
+      "path": ".cache/archive/b9a8010f2dc89c3f0406ba91fd3d5997663cf06dcd2b4c8697193a00bc684481.txt",
+      "sha256": "504c52e5b800a50c4023a78fe11d5021962fece38032de190a102ea6658a64c2"
+    },
+    {
+      "path": ".cache/archive/bec840d0948304d884cfef48444fc087aa399e43b22d3b70e94cb65f2787b8c9.txt",
+      "sha256": "b424c54a18e29c74e1aeb7d734a4036b3b5c3104b9e00956cc91985d9e803313"
+    },
+    {
+      "path": "raw/2026-10-14-055612-990602-archive-bulk/quest.jsonl",
+      "sha256": "1f79902a3b0866edf297a1424a1230f0e713d9f05f77c2ecd8ab8e6225f76cf4"
+    },
+    {
+      "path": "raw/2026-10-14-064613-304096-archive-bulk/quest.jsonl",
+      "sha256": "049a5e6b59c781ea45c75e6b0cbf7c0afab1753f097b407736bafb843adb93ed"
+    },
+    {
+      "path": "raw/2026-10-14-070253-321420-archive-bulk/quest.jsonl",
+      "sha256": "4e0ee62f615c53e4465c7397715af3e398e2c45a243c96e52894e0695386e613"
+    },
+    {
+      "path": "raw/2026-10-14-085933-864919-archive-bulk/quest.jsonl",
+      "sha256": "dcefa28071ada462f362ddd9875432620e0d79f7f813331b55fec2035b726dc4"
+    },
+    {
+      "path": "raw/2026-10-14-090753-904788-archive-bulk/quest.jsonl",
+      "sha256": "e843ab634649b6da7e4fd667b1e3683cf6692c40c55b4001bfb5c04b699bbb88"
+    },
+    {
+      "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+      "sha256": "1b4328e56ac4f992bedda7b7dcf02b00fab8c55047e6c45892af56343fa85648"
+    },
+    {
+      "path": "reviewed/QUEST_CHAIN_RECIPROCITY_ITERATION205.json",
+      "sha256": "28330ed5b909654800bbc57cef97eb871fb96c7db6fc04c50bc52976bb50901f"
+    }
+  ],
+  "reviews": [
+    {
+      "original_edge": {
+        "source_url": "https://vgsoharchive.com/quests/natural-resources",
+        "source_label": "Previous",
+        "target_url": "https://vgsoharchive.com/quests/placing-the-blame",
+        "expected_reciprocal_label": "Next",
+        "result": "expected_label_without_exact_return_link",
+        "prerequisite_enforcement": null,
+        "identity_merge_authorized": false
+      },
+      "target_label_observations": [
+        {
+          "label": "Next",
+          "raw_text": "Placing The Blame - Part 2",
+          "html": "<dd><a href=\"/quests/placing-the-blame-part-2\">Placing The Blame - Part 2</a>\n</dd>",
+          "links": [
+            {
+              "text": "Placing The Blame - Part 2",
+              "href": "/quests/placing-the-blame-part-2",
+              "absolute_url": "https://vgsoharchive.com/quests/placing-the-blame-part-2"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        }
+      ],
+      "finding": "linked_alternate_target",
+      "identity_merge_authorized": false,
+      "prerequisite_enforcement": null,
+      "interpretation": "Exact navigation evidence only. An alternate linked target does not disprove another chain relationship; unlinked combined text does not establish separate resolved quest identities."
+    },
+    {
+      "original_edge": {
+        "source_url": "https://vgsoharchive.com/quests/training-is-wisdom",
+        "source_label": "Previous",
+        "target_url": "https://vgsoharchive.com/quests/the-unforgotten-part-2",
+        "expected_reciprocal_label": "Next",
+        "result": "expected_label_without_exact_return_link",
+        "prerequisite_enforcement": null,
+        "identity_merge_authorized": false
+      },
+      "target_label_observations": [
+        {
+          "label": "Next",
+          "raw_text": "Manifestations Of Jin, Training is Wisdom",
+          "html": "<dd>Manifestations Of Jin, Training is Wisdom\n      </dd>",
+          "links": [],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        }
+      ],
+      "finding": "unlinked_combined_label",
+      "identity_merge_authorized": false,
+      "prerequisite_enforcement": null,
+      "interpretation": "Exact navigation evidence only. An alternate linked target does not disprove another chain relationship; unlinked combined text does not establish separate resolved quest identities."
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://vgsoharchive.com/quests/juu-quest",
+      "cache_path": ".cache/archive/88ed3cbc7266136bd7b3beb0fa896df53816dc7427fed80e07f6087d8bca158b.txt",
+      "cache_sha256": "73398f1e23bf971b3836c80c75f9d5d8433b64017c6621f67eb4ece6b0359d7d",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Kojuko Gluttons",
+          "html": "<dd><a href=\"/quests/kojuko-gluttons\">Kojuko Gluttons</a>\n</dd>",
+          "links": [
+            {
+              "text": "Kojuko Gluttons",
+              "href": "/quests/kojuko-gluttons",
+              "absolute_url": "https://vgsoharchive.com/quests/kojuko-gluttons"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "Kojuko Manhunters, The Unforgotten",
+          "html": "<dd>Kojuko Manhunters, The Unforgotten\n      </dd>",
+          "links": [],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-055612-990602-archive-bulk/quest.jsonl",
+          "line": 64,
+          "record": {
+            "name": "Juu (Quest)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/juu-quest",
+                "title": "Juu (Quest) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T10:01:31+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Oki"
+              ],
+              "location": [
+                "-16529, -49889, 194 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Juu"
+              ],
+              "previous": [
+                "Kojuko Gluttons"
+              ],
+              "next": [
+                "Kojuko Manhunters, The Unforgotten"
+              ],
+              "coin reward": [
+                "50"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Oki",
+                "url": "https://vgsoharchive.com/mobs/oki"
+              },
+              {
+                "name": "Juu",
+                "url": "https://vgsoharchive.com/mobs/juu"
+              },
+              {
+                "name": "Kojuko Gluttons",
+                "url": "https://vgsoharchive.com/quests/kojuko-gluttons"
+              }
+            ],
+            "type": "quest",
+            "level": 5,
+            "zone": "Tanvu",
+            "giver": "Oki",
+            "turn_in": "Juu",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Kojuko Gluttons",
+            "chain_next": "Kojuko Manhunters, The Unforgotten",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 2035,
+          "record": {
+            "name": "Juu (Quest)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/juu-quest",
+                "title": "Juu (Quest) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:45+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Oki"
+              ],
+              "location": [
+                "-16529, -49889, 194 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Juu"
+              ],
+              "previous": [
+                "Kojuko Gluttons"
+              ],
+              "next": [
+                "Kojuko Manhunters, The Unforgotten"
+              ],
+              "coin reward": [
+                "50"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Oki",
+                "url": "https://vgsoharchive.com/mobs/oki"
+              },
+              {
+                "name": "Juu",
+                "url": "https://vgsoharchive.com/mobs/juu"
+              },
+              {
+                "name": "Kojuko Gluttons",
+                "url": "https://vgsoharchive.com/quests/kojuko-gluttons"
+              }
+            ],
+            "type": "quest",
+            "level": 5,
+            "zone": "Tanvu",
+            "giver": "Oki",
+            "turn_in": "Juu",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Kojuko Gluttons",
+            "chain_next": "Kojuko Manhunters, The Unforgotten",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/natural-resources",
+      "cache_path": ".cache/archive/b9a8010f2dc89c3f0406ba91fd3d5997663cf06dcd2b4c8697193a00bc684481.txt",
+      "cache_sha256": "504c52e5b800a50c4023a78fe11d5021962fece38032de190a102ea6658a64c2",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Placing the Blame",
+          "html": "<dd><a href=\"/quests/placing-the-blame\">Placing the Blame</a>\n</dd>",
+          "links": [
+            {
+              "text": "Placing the Blame",
+              "href": "/quests/placing-the-blame",
+              "absolute_url": "https://vgsoharchive.com/quests/placing-the-blame"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "Natural Resources - Part 2",
+          "html": "<dd><a href=\"/quests/natural-resources-part-2\">Natural Resources - Part 2</a>\n</dd>",
+          "links": [
+            {
+              "text": "Natural Resources - Part 2",
+              "href": "/quests/natural-resources-part-2",
+              "absolute_url": "https://vgsoharchive.com/quests/natural-resources-part-2"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-064613-304096-archive-bulk/quest.jsonl",
+          "line": 17,
+          "record": {
+            "name": "Natural Resources",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/natural-resources",
+                "title": "Natural Resources · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T10:47:36+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Colemar Konthari"
+              ],
+              "starts in": [
+                "Vault Of Heroes"
+              ],
+              "location": [
+                "53221, -19635, 31305 in Vault of Heroes (-23, 26)"
+              ],
+              "hand in to": [
+                "Colemar Konthari"
+              ],
+              "previous": [
+                "Placing the Blame"
+              ],
+              "next": [
+                "Natural Resources - Part 2"
+              ],
+              "rating": [
+                "8.0"
+              ],
+              "items needed": [
+                "Empty Griffon Chick Bag"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Vault Of Heroes",
+                "url": "https://vgsoharchive.com/zones/vault-of-heroes"
+              },
+              {
+                "name": "Colemar Konthari",
+                "url": "https://vgsoharchive.com/mobs/colemar-konthari"
+              },
+              {
+                "name": "Placing the Blame",
+                "url": "https://vgsoharchive.com/quests/placing-the-blame"
+              },
+              {
+                "name": "Natural Resources - Part 2",
+                "url": "https://vgsoharchive.com/quests/natural-resources-part-2"
+              },
+              {
+                "name": "Griffon Feather Chain Gloves",
+                "url": "https://vgsoharchive.com/items/griffon-feather-chain-gloves"
+              },
+              {
+                "name": "Griffon Feather Cuffs",
+                "url": "https://vgsoharchive.com/items/griffon-feather-cuffs"
+              },
+              {
+                "name": "Griffon Feather Plate Bracers",
+                "url": "https://vgsoharchive.com/items/griffon-feather-plate-bracers"
+              },
+              {
+                "name": "Griffon Feather Scale Bracers",
+                "url": "https://vgsoharchive.com/items/griffon-feather-scale-bracers"
+              }
+            ],
+            "type": "quest",
+            "level": 11,
+            "zone": "Vault Of Heroes",
+            "giver": "Colemar Konthari",
+            "turn_in": "Colemar Konthari",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Placing the Blame",
+            "chain_next": "Natural Resources - Part 2",
+            "quest_chain": null,
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 2592,
+          "record": {
+            "name": "Natural Resources",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/natural-resources",
+                "title": "Natural Resources · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:47+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Colemar Konthari"
+              ],
+              "starts in": [
+                "Vault Of Heroes"
+              ],
+              "location": [
+                "53221, -19635, 31305 in Vault of Heroes (-23, 26)"
+              ],
+              "hand in to": [
+                "Colemar Konthari"
+              ],
+              "previous": [
+                "Placing the Blame"
+              ],
+              "next": [
+                "Natural Resources - Part 2"
+              ],
+              "rating": [
+                "8.0"
+              ],
+              "items needed": [
+                "Empty Griffon Chick Bag"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Vault Of Heroes",
+                "url": "https://vgsoharchive.com/zones/vault-of-heroes"
+              },
+              {
+                "name": "Colemar Konthari",
+                "url": "https://vgsoharchive.com/mobs/colemar-konthari"
+              },
+              {
+                "name": "Placing the Blame",
+                "url": "https://vgsoharchive.com/quests/placing-the-blame"
+              },
+              {
+                "name": "Natural Resources - Part 2",
+                "url": "https://vgsoharchive.com/quests/natural-resources-part-2"
+              },
+              {
+                "name": "Griffon Feather Chain Gloves",
+                "url": "https://vgsoharchive.com/items/griffon-feather-chain-gloves"
+              },
+              {
+                "name": "Griffon Feather Cuffs",
+                "url": "https://vgsoharchive.com/items/griffon-feather-cuffs"
+              },
+              {
+                "name": "Griffon Feather Plate Bracers",
+                "url": "https://vgsoharchive.com/items/griffon-feather-plate-bracers"
+              },
+              {
+                "name": "Griffon Feather Scale Bracers",
+                "url": "https://vgsoharchive.com/items/griffon-feather-scale-bracers"
+              }
+            ],
+            "type": "quest",
+            "level": 11,
+            "zone": "Vault Of Heroes",
+            "giver": "Colemar Konthari",
+            "turn_in": "Colemar Konthari",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Placing the Blame",
+            "chain_next": "Natural Resources - Part 2",
+            "quest_chain": null,
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/placing-the-blame",
+      "cache_path": ".cache/archive/1703aed429ff673088b2a6f29dd81eaad2adc092f3ac817f154cbe996b3d4e50.txt",
+      "cache_sha256": "b50c668f134cb34490ab3488385dbe9330a916a16c21fe4a8e3090f4378a6986",
+      "chain_observations": [
+        {
+          "label": "Next",
+          "raw_text": "Placing The Blame - Part 2",
+          "html": "<dd><a href=\"/quests/placing-the-blame-part-2\">Placing The Blame - Part 2</a>\n</dd>",
+          "links": [
+            {
+              "text": "Placing The Blame - Part 2",
+              "href": "/quests/placing-the-blame-part-2",
+              "absolute_url": "https://vgsoharchive.com/quests/placing-the-blame-part-2"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-070253-321420-archive-bulk/quest.jsonl",
+          "line": 26,
+          "record": {
+            "name": "Placing the Blame",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/placing-the-blame",
+                "title": "Placing the Blame · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T11:04:56+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Colemar Konthari"
+              ],
+              "starts in": [
+                "Vault Of Heroes"
+              ],
+              "location": [
+                "53221, -19635, 31305 in Vault of Heroes (-23, 26)"
+              ],
+              "hand in to": [
+                "Colemar Konthari"
+              ],
+              "next": [
+                "Placing The Blame - Part 2"
+              ],
+              "rating": [
+                "7.0"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Vault Of Heroes",
+                "url": "https://vgsoharchive.com/zones/vault-of-heroes"
+              },
+              {
+                "name": "Colemar Konthari",
+                "url": "https://vgsoharchive.com/mobs/colemar-konthari"
+              },
+              {
+                "name": "Placing The Blame - Part 2",
+                "url": "https://vgsoharchive.com/quests/placing-the-blame-part-2"
+              }
+            ],
+            "type": "quest",
+            "level": 12,
+            "zone": "Vault Of Heroes",
+            "giver": "Colemar Konthari",
+            "turn_in": "Colemar Konthari",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": "Placing The Blame - Part 2",
+            "quest_chain": null,
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 2804,
+          "record": {
+            "name": "Placing the Blame",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/placing-the-blame",
+                "title": "Placing the Blame · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:48+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Colemar Konthari"
+              ],
+              "starts in": [
+                "Vault Of Heroes"
+              ],
+              "location": [
+                "53221, -19635, 31305 in Vault of Heroes (-23, 26)"
+              ],
+              "hand in to": [
+                "Colemar Konthari"
+              ],
+              "next": [
+                "Placing The Blame - Part 2"
+              ],
+              "rating": [
+                "7.0"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Vault Of Heroes",
+                "url": "https://vgsoharchive.com/zones/vault-of-heroes"
+              },
+              {
+                "name": "Colemar Konthari",
+                "url": "https://vgsoharchive.com/mobs/colemar-konthari"
+              },
+              {
+                "name": "Placing The Blame - Part 2",
+                "url": "https://vgsoharchive.com/quests/placing-the-blame-part-2"
+              }
+            ],
+            "type": "quest",
+            "level": 12,
+            "zone": "Vault Of Heroes",
+            "giver": "Colemar Konthari",
+            "turn_in": "Colemar Konthari",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": null,
+            "chain_next": "Placing The Blame - Part 2",
+            "quest_chain": null,
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/placing-the-blame-part-2",
+      "cache_path": ".cache/archive/bec840d0948304d884cfef48444fc087aa399e43b22d3b70e94cb65f2787b8c9.txt",
+      "cache_sha256": "b424c54a18e29c74e1aeb7d734a4036b3b5c3104b9e00956cc91985d9e803313",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Placing the Blame",
+          "html": "<dd><a href=\"/quests/placing-the-blame\">Placing the Blame</a>\n</dd>",
+          "links": [
+            {
+              "text": "Placing the Blame",
+              "href": "/quests/placing-the-blame",
+              "absolute_url": "https://vgsoharchive.com/quests/placing-the-blame"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-070253-321420-archive-bulk/quest.jsonl",
+          "line": 25,
+          "record": {
+            "name": "Placing The Blame - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/placing-the-blame-part-2",
+                "title": "Placing The Blame - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T11:05:01+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Colemar Konthari"
+              ],
+              "location": [
+                "53221, -19635, 31305 in Vault of Heroes (-23, 26)"
+              ],
+              "series": [
+                "Tahean's Vengeance"
+              ],
+              "previous": [
+                "Placing the Blame"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Colemar Konthari",
+                "url": "https://vgsoharchive.com/mobs/colemar-konthari"
+              },
+              {
+                "name": "Placing the Blame",
+                "url": "https://vgsoharchive.com/quests/placing-the-blame"
+              }
+            ],
+            "type": "quest",
+            "level": 8,
+            "zone": null,
+            "giver": "Colemar Konthari",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Placing the Blame",
+            "chain_next": null,
+            "quest_chain": {
+              "name": "Tahean's Vengeance",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Griffons Slain",
+                "count": 10,
+                "objective": "Griffons Slain (10)"
+              },
+              {
+                "label": "Paws Planted in Eggshells",
+                "count": 10,
+                "objective": "Paws Planted in Eggshells (10)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Griffons Slain (10)",
+                "kind": "kill",
+                "target": null,
+                "count": 10
+              },
+              {
+                "objective": "Paws Planted in Eggshells (10)",
+                "kind": null,
+                "target": null,
+                "count": 10
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 2803,
+          "record": {
+            "name": "Placing The Blame - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/placing-the-blame-part-2",
+                "title": "Placing The Blame - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:48+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Colemar Konthari"
+              ],
+              "location": [
+                "53221, -19635, 31305 in Vault of Heroes (-23, 26)"
+              ],
+              "series": [
+                "Tahean's Vengeance"
+              ],
+              "previous": [
+                "Placing the Blame"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Colemar Konthari",
+                "url": "https://vgsoharchive.com/mobs/colemar-konthari"
+              },
+              {
+                "name": "Placing the Blame",
+                "url": "https://vgsoharchive.com/quests/placing-the-blame"
+              }
+            ],
+            "type": "quest",
+            "level": 8,
+            "zone": null,
+            "giver": "Colemar Konthari",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Placing the Blame",
+            "chain_next": null,
+            "quest_chain": {
+              "name": "Tahean's Vengeance",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Griffons Slain",
+                "count": 10,
+                "objective": "Griffons Slain (10)"
+              },
+              {
+                "label": "Paws Planted in Eggshells",
+                "count": 10,
+                "objective": "Paws Planted in Eggshells (10)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Griffons Slain (10)",
+                "kind": "kill",
+                "target": null,
+                "count": 10
+              },
+              {
+                "objective": "Paws Planted in Eggshells (10)",
+                "kind": null,
+                "target": null,
+                "count": 10
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/the-unforgotten-part-2",
+      "cache_path": ".cache/archive/01df45a83b9a139a87f3509eca94969f724b37bd2b4bfe31d070799811570ed8.txt",
+      "cache_sha256": "2abf6a69160a93326332d33ce3cd91c29988dc6d398b09ca246a66a3f7a9ba13",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Juu (Quest)",
+          "html": "<dd><a href=\"/quests/juu-quest\">Juu (Quest)</a>\n</dd>",
+          "links": [
+            {
+              "text": "Juu (Quest)",
+              "href": "/quests/juu-quest",
+              "absolute_url": "https://vgsoharchive.com/quests/juu-quest"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "Manifestations Of Jin, Training is Wisdom",
+          "html": "<dd>Manifestations Of Jin, Training is Wisdom\n      </dd>",
+          "links": [],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-085933-864919-archive-bulk/quest.jsonl",
+          "line": 52,
+          "record": {
+            "name": "The Unforgotten - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-unforgotten-part-2",
+                "title": "The Unforgotten - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T13:03:52+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Master Tallon Darkfist"
+              ],
+              "location": [
+                "-21690, -62609, 3284 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Master Tallon Darkfist"
+              ],
+              "previous": [
+                "Juu (Quest)"
+              ],
+              "next": [
+                "Manifestations Of Jin, Training is Wisdom"
+              ],
+              "coin reward": [
+                "60"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Master Tallon Darkfist",
+                "url": "https://vgsoharchive.com/mobs/master-tallon-darkfist"
+              },
+              {
+                "name": "Juu (Quest)",
+                "url": "https://vgsoharchive.com/quests/juu-quest"
+              }
+            ],
+            "type": "quest",
+            "level": 6,
+            "zone": "Tanvu",
+            "giver": "Master Tallon Darkfist",
+            "turn_in": "Master Tallon Darkfist",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Juu (Quest)",
+            "chain_next": "Manifestations Of Jin, Training is Wisdom",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Last Words",
+                "count": 1,
+                "objective": "Last Words (1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Last Words (1)",
+                "kind": null,
+                "target": null,
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 4244,
+          "record": {
+            "name": "The Unforgotten - Part 2",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-unforgotten-part-2",
+                "title": "The Unforgotten - Part 2 · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification. Explicit tracker counters extracted, but complete objective coverage or exact targets remain unresolved; candidate_steps are not conversion-ready steps.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:54+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Master Tallon Darkfist"
+              ],
+              "location": [
+                "-21690, -62609, 3284 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Master Tallon Darkfist"
+              ],
+              "previous": [
+                "Juu (Quest)"
+              ],
+              "next": [
+                "Manifestations Of Jin, Training is Wisdom"
+              ],
+              "coin reward": [
+                "60"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Master Tallon Darkfist",
+                "url": "https://vgsoharchive.com/mobs/master-tallon-darkfist"
+              },
+              {
+                "name": "Juu (Quest)",
+                "url": "https://vgsoharchive.com/quests/juu-quest"
+              }
+            ],
+            "type": "quest",
+            "level": 6,
+            "zone": "Tanvu",
+            "giver": "Master Tallon Darkfist",
+            "turn_in": "Master Tallon Darkfist",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Juu (Quest)",
+            "chain_next": "Manifestations Of Jin, Training is Wisdom",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "archive_objective_counters": [
+              {
+                "label": "Last Words",
+                "count": 1,
+                "objective": "Last Words (1)"
+              }
+            ],
+            "candidate_steps": [
+              {
+                "objective": "Last Words (1)",
+                "kind": null,
+                "target": null,
+                "count": 1
+              }
+            ],
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/training-is-wisdom",
+      "cache_path": ".cache/archive/2d4d5a0a1837ddd8be4c47039008707f363e5c0b6872d5f088538f2edfb9f79f.txt",
+      "cache_sha256": "a510132c784ab721bcef96ce8dbb04052bc1bffa6d77528e06375960fcb8aadb",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "The Unforgotten - Part 2",
+          "html": "<dd><a href=\"/quests/the-unforgotten-part-2\">The Unforgotten - Part 2</a>\n</dd>",
+          "links": [
+            {
+              "text": "The Unforgotten - Part 2",
+              "href": "/quests/the-unforgotten-part-2",
+              "absolute_url": "https://vgsoharchive.com/quests/the-unforgotten-part-2"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-090753-904788-archive-bulk/quest.jsonl",
+          "line": 94,
+          "record": {
+            "name": "Training is Wisdom",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/training-is-wisdom",
+                "title": "Training is Wisdom · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T13:15:32+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Master Tallon Darkfist"
+              ],
+              "location": [
+                "-996, -78619, 191 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "previous": [
+                "The Unforgotten - Part 2"
+              ],
+              "coin reward": [
+                "50"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Master Tallon Darkfist",
+                "url": "https://vgsoharchive.com/mobs/master-tallon-darkfist"
+              },
+              {
+                "name": "The Unforgotten - Part 2",
+                "url": "https://vgsoharchive.com/quests/the-unforgotten-part-2"
+              }
+            ],
+            "type": "quest",
+            "level": 6,
+            "zone": "Tanvu",
+            "giver": "Master Tallon Darkfist",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "The Unforgotten - Part 2",
+            "chain_next": null,
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 4389,
+          "record": {
+            "name": "Training is Wisdom",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/training-is-wisdom",
+                "title": "Training is Wisdom · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:54+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Master Tallon Darkfist"
+              ],
+              "location": [
+                "-996, -78619, 191 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "previous": [
+                "The Unforgotten - Part 2"
+              ],
+              "coin reward": [
+                "50"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Master Tallon Darkfist",
+                "url": "https://vgsoharchive.com/mobs/master-tallon-darkfist"
+              },
+              {
+                "name": "The Unforgotten - Part 2",
+                "url": "https://vgsoharchive.com/quests/the-unforgotten-part-2"
+              }
+            ],
+            "type": "quest",
+            "level": 6,
+            "zone": "Tanvu",
+            "giver": "Master Tallon Darkfist",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "The Unforgotten - Part 2",
+            "chain_next": null,
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    }
+  ],
+  "checkpoint_reconciliation": {
+    "authoritative_inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0,
+    "persisted_interval_seconds": 60.0,
+    "collector_lock_exists": false
+  },
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected combined suspension reset/push/restart: blocked by policy. No more specific disposition supplied.",
+    "resumption_conditions": "Recorded policy disposition permitting resumption, then inspect process and lock and use collection.ps1 with preserved queues and 60-second interval."
+  },
+  "validation": {
+    "issues": [],
+    "cached_pages": 6,
+    "chain_observations": 9,
+    "full_archive_records_verified": 12,
+    "input_hashes_verified": 13,
+    "missing_cache_urls": []
+  }
+}

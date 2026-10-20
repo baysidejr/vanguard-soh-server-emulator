@@ -1,0 +1,870 @@
+{
+  "review_kind": "bard_nonnumeric_resistance_debuff_source_review",
+  "parser_version": 78,
+  "input": {
+    "path": "reviewed/BARD_NONNUMERIC_EFFECT_COVERAGE_ITERATION671.json",
+    "sha256": "538f4a543182734d4d9b2024e6dc74d56f20976d0efbe8b83da03e021856abd6"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Naman's Mystical Counterpoint",
+      "source_url": "https://vgsoharchive.com/abilities/naman-s-mystical-counterpoint",
+      "cache": {
+        "path": ".cache/archive/65ade9ce908dc0e4db91c67d336ab942bb76f5b1bbbacd68ec8e8a6055f42bdd.txt",
+        "sha256": "8f8e259e9ac949fc21a0602c6faefe1ec8691b83bae69a3885f4ceaef3a535ef"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 88,
+          "record_sha256": "a1a1c4ca34af865548b2b8d37b1eb2bb5289dc3d5e7a9e7c29b93345e78d0ea5"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This brass embellishment lowers your opponent's arcane resistance.",
+          "literal_sha256": "648d93839ef25eb3f1962c1d8199cd05bd6d29ee7ec70cca4a453fc540febc32",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "direction_reported": "decrease",
+            "resistance_types_reported": [
+              "arcane"
+            ],
+            "target_reported": "opponent",
+            "magnitude": null,
+            "unit": null,
+            "duration_seconds": null,
+            "stacking_rules": null,
+            "resistance_floor": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Naman's Mystical Counterpoint",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/naman-s-mystical-counterpoint",
+              "title": "Naman's Mystical Counterpoint · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 78,
+          "collected_at": "2026-10-19T21:33:23+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "23"
+            ],
+            "level": [
+              "23"
+            ],
+            "song portion": [
+              "Embellishment"
+            ],
+            "instrument": [
+              "Brass"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 23,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This brass embellishment lowers your opponent's arcane resistance.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 23,
+              "raw": "23"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/namans-mystical-counterpoint-138.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Naman's Chilly Counterpoint",
+      "source_url": "https://vgsoharchive.com/abilities/naman-s-chilly-counterpoint",
+      "cache": {
+        "path": ".cache/archive/cb7c99911688ff1af1f0f700503b4c608aabff82f2524c7c573096ea8426d484.txt",
+        "sha256": "a11fedd01c7d265ceb7e05f0ecc5aaebf89370fba1ac12e17e9a04d7c11e3256"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 84,
+          "record_sha256": "9c659d3ffe6abe00f895818d334b5abab9ec6e1fbfc1ab4b1ddffcc9a501ab0a"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This brass embellishment lowers your opponents cold resistance.",
+          "literal_sha256": "fa8d349d4e3057a82538cf0f39586bfefc22be94e8b3561ccf344675d2f8e24a",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "direction_reported": "decrease",
+            "resistance_types_reported": [
+              "cold"
+            ],
+            "target_reported": "opponent",
+            "magnitude": null,
+            "unit": null,
+            "duration_seconds": null,
+            "stacking_rules": null,
+            "resistance_floor": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Naman's Chilly Counterpoint",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/naman-s-chilly-counterpoint",
+              "title": "Naman's Chilly Counterpoint · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 78,
+          "collected_at": "2026-10-19T21:33:23+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "27"
+            ],
+            "level": [
+              "27"
+            ],
+            "energy cost": [
+              "3"
+            ],
+            "song portion": [
+              "Embellishment"
+            ],
+            "instrument": [
+              "Brass"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 27,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 3
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This brass embellishment lowers your opponents cold resistance.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 27,
+              "raw": "27"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              3
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/namans-chilly-counterpoint-145.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Naman's Temporal Counterpoint",
+      "source_url": "https://vgsoharchive.com/abilities/naman-s-temporal-counterpoint",
+      "cache": {
+        "path": ".cache/archive/31ab111d995e3f40708a3eb176ef23f07c9def47d61e21c242123f6723128942.txt",
+        "sha256": "3622e081fe51f48b28a7851eeec2ec4b690b19c59d8ea6894b38b50297dba863"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 91,
+          "record_sha256": "7ae981da9f28afda60be8c72d45d333a1e3c1eb301173d0cfb665f7b450a0606"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This brass embellishment lowers your opponent's physical resistance.",
+          "literal_sha256": "1be8d223306c738b4d1b119e41a1ed2c3db83ebec68794950099dbed678bf69c",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "direction_reported": "decrease",
+            "resistance_types_reported": [
+              "physical"
+            ],
+            "target_reported": "opponent",
+            "magnitude": null,
+            "unit": null,
+            "duration_seconds": null,
+            "stacking_rules": null,
+            "resistance_floor": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Naman's Temporal Counterpoint",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/naman-s-temporal-counterpoint",
+              "title": "Naman's Temporal Counterpoint · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 78,
+          "collected_at": "2026-10-19T21:33:23+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "29"
+            ],
+            "level": [
+              "29"
+            ],
+            "energy cost": [
+              "2"
+            ],
+            "song portion": [
+              "Embellishment"
+            ],
+            "instrument": [
+              "Brass"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 29,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 2
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This brass embellishment lowers your opponent's physical resistance.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 29,
+              "raw": "29"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              2
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/namans-temporal-counterpoint-149.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Naman's Empyreal Counterpoint",
+      "source_url": "https://vgsoharchive.com/abilities/naman-s-empyreal-counterpoint",
+      "cache": {
+        "path": ".cache/archive/4f7e435351b3bdc8c10467c520db77648d0157c5156d90515a188659c25251b3.txt",
+        "sha256": "623a42f2adc10fd4ae738cce6cd11348e3d7405b62c0aee4570fae46ad9dc476"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 85,
+          "record_sha256": "6b1fa7d3c474307c25eb9cd6cec94b4630e510eae730859d16c74933f600a6a8"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This brass embellishment lowers your opponent's spiritual and mental restistance.",
+          "literal_sha256": "5bd05a827ef937dad1cbb66b85e380e388cc17def054f1b68145a36139400e6b",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "direction_reported": "decrease",
+            "resistance_types_reported": [
+              "spiritual",
+              "mental"
+            ],
+            "target_reported": "opponent",
+            "magnitude": null,
+            "unit": null,
+            "duration_seconds": null,
+            "stacking_rules": null,
+            "resistance_floor": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Naman's Empyreal Counterpoint",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/naman-s-empyreal-counterpoint",
+              "title": "Naman's Empyreal Counterpoint · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 78,
+          "collected_at": "2026-10-19T21:33:23+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "31"
+            ],
+            "level": [
+              "31"
+            ],
+            "energy cost": [
+              "3"
+            ],
+            "song portion": [
+              "Embellishment"
+            ],
+            "instrument": [
+              "Brass"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 31,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 3
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This brass embellishment lowers your opponent's spiritual and mental restistance.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 31,
+              "raw": "31"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              3
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/namans-empyreal-counterpoint-152.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Naman's Fiery Counterpoint",
+      "source_url": "https://vgsoharchive.com/abilities/naman-s-fiery-counterpoint",
+      "cache": {
+        "path": ".cache/archive/b6d06a8020c3179aeb0f1c3a52d830334d350ab2800b78c14dd380e7989cfb91.txt",
+        "sha256": "6e3ec88ebd7a331c2292a5fd480728dbd7f1547b137c69e027388d148eed187a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 86,
+          "record_sha256": "427310078ddea7df2bd17d1e8e2efcc996beddac683e66f65ada0189c065946e"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This brass embellishment lowers your opponent's fire resistance.",
+          "literal_sha256": "f811a01ef24c46dcbfd7349566d7d31c350d0825692fbc8b7dff898459ce7f5b",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "direction_reported": "decrease",
+            "resistance_types_reported": [
+              "fire"
+            ],
+            "target_reported": "opponent",
+            "magnitude": null,
+            "unit": null,
+            "duration_seconds": null,
+            "stacking_rules": null,
+            "resistance_floor": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Naman's Fiery Counterpoint",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/naman-s-fiery-counterpoint",
+              "title": "Naman's Fiery Counterpoint · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 78,
+          "collected_at": "2026-10-19T21:33:23+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "34"
+            ],
+            "level": [
+              "34"
+            ],
+            "energy cost": [
+              "2"
+            ],
+            "song portion": [
+              "Embellishment"
+            ],
+            "instrument": [
+              "Brass"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 34,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 2
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This brass embellishment lowers your opponent's fire resistance.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 34,
+              "raw": "34"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              2
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/namans-fiery-counterpoint-158.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Naman's Ruinous Revolution",
+      "source_url": "https://vgsoharchive.com/abilities/naman-s-ruinous-revolution",
+      "cache": {
+        "path": ".cache/archive/0d5de8503d3b1ca2918be3364752183a10cc53f2f0c0a1dc9e3e30bd778ee66f.txt",
+        "sha256": "29d1c1655c98887b49fe52f41fac5c96c91e5fedeef969e0aae04393350284a4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 90,
+          "record_sha256": "f77a25cedfc4fc9084f9bc5ef6f074594a686360c54176a1d3a54d82cbf308fa"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This brass bridge reduces your opponent's arcane, fire and cold resistances.",
+          "literal_sha256": "da4f04295297d349e392bf78b761f6dc0cfdec8cd3ca1e17372a179f03893c96",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "direction_reported": "decrease",
+            "resistance_types_reported": [
+              "arcane",
+              "fire",
+              "cold"
+            ],
+            "target_reported": "opponent",
+            "magnitude": null,
+            "unit": null,
+            "duration_seconds": null,
+            "stacking_rules": null,
+            "resistance_floor": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Naman's Ruinous Revolution",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/naman-s-ruinous-revolution",
+              "title": "Naman's Ruinous Revolution · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 78,
+          "collected_at": "2026-10-19T21:33:23+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "37"
+            ],
+            "level": [
+              "37"
+            ],
+            "energy cost": [
+              "5"
+            ],
+            "song portion": [
+              "Bridge"
+            ],
+            "instrument": [
+              "Brass"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 37,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 5
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This brass bridge reduces your opponent's arcane, fire and cold resistances.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 37,
+              "raw": "37"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              5
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/namans-ruinous-revolution-164.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Naman's Baleful Bridge",
+      "source_url": "https://vgsoharchive.com/abilities/naman-s-baleful-bridge",
+      "cache": {
+        "path": ".cache/archive/ec1d51722dedd5d23e1138b9519dddda7c8c342fa78baaca92db4c1f2898fc15.txt",
+        "sha256": "c5db5065c95adc51bbb70e0740a836800ef9561b644eaa3744882cbfc2f1e367"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 83,
+          "record_sha256": "0009841e32e05226090dce1f43e65582d998d8ae43e3e32aa3f9bcdb45037cd6"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Reduces your opponent's physical, spiritual and mental resistances.",
+          "literal_sha256": "d5c57601b34312827d699eb731f7d208dda0f4322f2af42670455d3af04fd62f",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "direction_reported": "decrease",
+            "resistance_types_reported": [
+              "physical",
+              "spiritual",
+              "mental"
+            ],
+            "target_reported": "opponent",
+            "magnitude": null,
+            "unit": null,
+            "duration_seconds": null,
+            "stacking_rules": null,
+            "resistance_floor": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Naman's Baleful Bridge",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/naman-s-baleful-bridge",
+              "title": "Naman's Baleful Bridge · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 78,
+          "collected_at": "2026-10-19T21:33:23+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "39"
+            ],
+            "level": [
+              "39"
+            ],
+            "energy cost": [
+              "5"
+            ],
+            "song portion": [
+              "Bridge"
+            ],
+            "instrument": [
+              "Brass"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 39,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 5
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Reduces your opponent's physical, spiritual and mental resistances.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 39,
+              "raw": "39"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              5
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/namans-baleful-bridge-168.php"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 7,
+    "source_record_hashes_verified": 7,
+    "literal_hashes_verified": 7,
+    "whole_page_replays": 7,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process show no collector; only unrelated login_stub.py and multiprocessing child",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "review_accounting": {
+    "previous_unreviewed_nonnumeric_sections": 28,
+    "source_sections_reviewed_here": 7,
+    "remaining_unreviewed_nonnumeric_sections": 21,
+    "reviewed_sections_awaiting_parser_implementation": 7
+  },
+  "limitations": [
+    "Magnitude, unit, duration, stacking, resistance floor and operative values remain null.",
+    "The source spelling restistance in Empyreal is preserved in the literal; resistance types are explicitly named.",
+    "Resistance lists do not imply equal magnitudes, shared stacking or reduction below zero.",
+    "These are archive reports without independent historical authentication; no game facts promoted; immutable batches and checkpoints unchanged."
+  ],
+  "next_step": "Implement and test constrained nonnumeric resistance-debuff observations for these seven hash-verified Bard sources."
+}

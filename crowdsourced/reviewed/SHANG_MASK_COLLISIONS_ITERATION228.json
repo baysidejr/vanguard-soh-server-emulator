@@ -1,0 +1,1755 @@
+{
+  "audit_kind": "cached_shang_mask_cross_quest_collision_review",
+  "network_requests": 0,
+  "metadata_only": false,
+  "inputs": [
+    {
+      "path": ".cache/archive/8528116cd7c87eddd952ca660835fe64c2181318c6d19100e5896f2757437e8f.txt",
+      "sha256": "d54378a1fdcafa76d6a8d504b83b794c2fac1afb5d478f8e40829dacdeaef536"
+    },
+    {
+      "path": ".cache/archive/a561c0b7ea948839cf5b9e7cb84a6a0a3db0bfb77c24f7730d40d7550c27715d.txt",
+      "sha256": "a14d796e191df38bcfa80bd6e2467cbe9002f42dddd5564296aebe85acf3ed5b"
+    },
+    {
+      "path": "raw/2026-10-14-045738-770236-archive-bulk/quest.jsonl",
+      "sha256": "aa98502f4f272e9d8914728b257990590a6c62d1f88f3171061730ce2bfd8459"
+    },
+    {
+      "path": "raw/2026-10-14-085113-825945-archive-bulk/quest.jsonl",
+      "sha256": "54792d13cb69de9507f411f5880049502b64fab2649c104a2c5098b288e8476d"
+    },
+    {
+      "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+      "sha256": "1b4328e56ac4f992bedda7b7dcf02b00fab8c55047e6c45892af56343fa85648"
+    },
+    {
+      "path": "reviewed/QUEST_UNFORGOTTEN_CANDIDATES_ITERATION214.json",
+      "sha256": "0575040f980fc75f2e1414e30c45c00cf9fabd3916c8bf495c693267a6da3102"
+    }
+  ],
+  "pages": [
+    {
+      "source_url": "https://vgsoharchive.com/quests/eye-of-the-beholder",
+      "cache_path": ".cache/archive/8528116cd7c87eddd952ca660835fe64c2181318c6d19100e5896f2757437e8f.txt",
+      "cache_sha256": "d54378a1fdcafa76d6a8d504b83b794c2fac1afb5d478f8e40829dacdeaef536",
+      "reward_tooltips": [
+        {
+          "item_name": "None",
+          "tooltip_name": "Shang Mask of Hermits",
+          "item_url": "https://vgsoharchive.com/items/shang-mask-of-hermits",
+          "preceding_heading": "Rewards",
+          "source_list_entry_html": "<li>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/shang-mask-of-hermits\">None</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20062.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Shang Mask of Hermits</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-row type\"><span>Jewelry</span><span>Face</span></span>\n<span class=\"tt-line stat\">+1 Conjuration</span>\n<span class=\"tt-line stat\">+1 Evocation</span>\n<span class=\"tt-line stat\">+1 Alteration</span>\n<span class=\"tt-line stat\">+1 Intelligence</span>\n<span class=\"tt-line stat\">+1 Wisdom</span>\n<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 7</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n</li>",
+          "tooltip_html": "<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20062.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Shang Mask of Hermits</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-row type\"><span>Jewelry</span><span>Face</span></span>\n<span class=\"tt-line stat\">+1 Conjuration</span>\n<span class=\"tt-line stat\">+1 Evocation</span>\n<span class=\"tt-line stat\">+1 Alteration</span>\n<span class=\"tt-line stat\">+1 Intelligence</span>\n<span class=\"tt-line stat\">+1 Wisdom</span>\n<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 7</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span>",
+          "observations": [
+            {
+              "classes": [
+                "tt-line",
+                "name",
+                "tier-common"
+              ],
+              "text": "Shang Mask of Hermits",
+              "html": "<span class=\"tt-line name tier-common\">Shang Mask of Hermits</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "soulbound"
+              ],
+              "text": "Soulbound",
+              "html": "<span class=\"tt-line soulbound\">Soulbound</span>"
+            },
+            {
+              "classes": [
+                "tt-row",
+                "type"
+              ],
+              "text": "Jewelry Face",
+              "html": "<span class=\"tt-row type\"><span>Jewelry</span><span>Face</span></span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Conjuration",
+              "html": "<span class=\"tt-line stat\">+1 Conjuration</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Evocation",
+              "html": "<span class=\"tt-line stat\">+1 Evocation</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Alteration",
+              "html": "<span class=\"tt-line stat\">+1 Alteration</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Intelligence",
+              "html": "<span class=\"tt-line stat\">+1 Intelligence</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Wisdom",
+              "html": "<span class=\"tt-line stat\">+1 Wisdom</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Level: 2 Adventuring",
+              "html": "<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Item Level: 7",
+              "html": "<span class=\"tt-line plain\">Item Level: 7</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Class:",
+              "html": "<span class=\"tt-line plain\">Required Class:</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "classes"
+              ],
+              "text": "Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer",
+              "html": "<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>"
+            }
+          ],
+          "item_detail_cached": false,
+          "item_detail_pending": true,
+          "item_detail_done": false,
+          "canonical_client_id": null,
+          "historical_patch": null,
+          "binding_trigger": null
+        },
+        {
+          "item_name": "Kojuko Mask of Courage",
+          "tooltip_name": "Kojuko Mask of Courage",
+          "item_url": "https://vgsoharchive.com/items/kojuko-mask-of-courage",
+          "preceding_heading": "Rewards",
+          "source_list_entry_html": "<li>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/kojuko-mask-of-courage\">Kojuko Mask of Courage</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20061.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Kojuko Mask of Courage</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+1 Strength</span>\n<span class=\"tt-line stat\">+3 One Handed Piercing</span>\n<span class=\"tt-line stat\">+3 Hand to Hand</span>\n<span class=\"tt-line stat\">+2 Dexterity</span>\n<span class=\"tt-line stat\">+3 Tactic Recognition</span>\n<span class=\"tt-line plain\">Required Level: 6 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 11</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n</li>",
+          "tooltip_html": "<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20061.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Kojuko Mask of Courage</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+1 Strength</span>\n<span class=\"tt-line stat\">+3 One Handed Piercing</span>\n<span class=\"tt-line stat\">+3 Hand to Hand</span>\n<span class=\"tt-line stat\">+2 Dexterity</span>\n<span class=\"tt-line stat\">+3 Tactic Recognition</span>\n<span class=\"tt-line plain\">Required Level: 6 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 11</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span>",
+          "observations": [
+            {
+              "classes": [
+                "tt-line",
+                "name",
+                "tier-common"
+              ],
+              "text": "Kojuko Mask of Courage",
+              "html": "<span class=\"tt-line name tier-common\">Kojuko Mask of Courage</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "soulbound"
+              ],
+              "text": "Soulbound",
+              "html": "<span class=\"tt-line soulbound\">Soulbound</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "type"
+              ],
+              "text": "Jewelry",
+              "html": "<span class=\"tt-line type\">Jewelry</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Strength",
+              "html": "<span class=\"tt-line stat\">+1 Strength</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+3 One Handed Piercing",
+              "html": "<span class=\"tt-line stat\">+3 One Handed Piercing</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+3 Hand to Hand",
+              "html": "<span class=\"tt-line stat\">+3 Hand to Hand</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+2 Dexterity",
+              "html": "<span class=\"tt-line stat\">+2 Dexterity</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+3 Tactic Recognition",
+              "html": "<span class=\"tt-line stat\">+3 Tactic Recognition</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Level: 6 Adventuring",
+              "html": "<span class=\"tt-line plain\">Required Level: 6 Adventuring</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Item Level: 11",
+              "html": "<span class=\"tt-line plain\">Item Level: 11</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Class:",
+              "html": "<span class=\"tt-line plain\">Required Class:</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "classes"
+              ],
+              "text": "Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer",
+              "html": "<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>"
+            }
+          ],
+          "item_detail_cached": false,
+          "item_detail_pending": true,
+          "item_detail_done": false,
+          "canonical_client_id": null,
+          "historical_patch": null,
+          "binding_trigger": null
+        },
+        {
+          "item_name": "Kojuko Mask of Dignity",
+          "tooltip_name": "Kojuko Mask of Dignity",
+          "item_url": "https://vgsoharchive.com/items/kojuko-mask-of-dignity",
+          "preceding_heading": "Rewards",
+          "source_list_entry_html": "<li>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/kojuko-mask-of-dignity\">Kojuko Mask of Dignity</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20061.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Kojuko Mask of Dignity</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+2 Strength</span>\n<span class=\"tt-line stat\">+3 Combat Awareness</span>\n<span class=\"tt-line stat\">+1 Constitution</span>\n<span class=\"tt-line stat\">+3 Parry</span>\n<span class=\"tt-line stat\">+3 Tactic Recognition</span>\n<span class=\"tt-line plain\">Required Level: 6 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 11</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n</li>",
+          "tooltip_html": "<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20061.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Kojuko Mask of Dignity</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+2 Strength</span>\n<span class=\"tt-line stat\">+3 Combat Awareness</span>\n<span class=\"tt-line stat\">+1 Constitution</span>\n<span class=\"tt-line stat\">+3 Parry</span>\n<span class=\"tt-line stat\">+3 Tactic Recognition</span>\n<span class=\"tt-line plain\">Required Level: 6 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 11</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span>",
+          "observations": [
+            {
+              "classes": [
+                "tt-line",
+                "name",
+                "tier-common"
+              ],
+              "text": "Kojuko Mask of Dignity",
+              "html": "<span class=\"tt-line name tier-common\">Kojuko Mask of Dignity</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "soulbound"
+              ],
+              "text": "Soulbound",
+              "html": "<span class=\"tt-line soulbound\">Soulbound</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "type"
+              ],
+              "text": "Jewelry",
+              "html": "<span class=\"tt-line type\">Jewelry</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+2 Strength",
+              "html": "<span class=\"tt-line stat\">+2 Strength</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+3 Combat Awareness",
+              "html": "<span class=\"tt-line stat\">+3 Combat Awareness</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Constitution",
+              "html": "<span class=\"tt-line stat\">+1 Constitution</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+3 Parry",
+              "html": "<span class=\"tt-line stat\">+3 Parry</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+3 Tactic Recognition",
+              "html": "<span class=\"tt-line stat\">+3 Tactic Recognition</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Level: 6 Adventuring",
+              "html": "<span class=\"tt-line plain\">Required Level: 6 Adventuring</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Item Level: 11",
+              "html": "<span class=\"tt-line plain\">Item Level: 11</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Class:",
+              "html": "<span class=\"tt-line plain\">Required Class:</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "classes"
+              ],
+              "text": "Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer",
+              "html": "<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>"
+            }
+          ],
+          "item_detail_cached": false,
+          "item_detail_pending": true,
+          "item_detail_done": false,
+          "canonical_client_id": null,
+          "historical_patch": null,
+          "binding_trigger": null
+        },
+        {
+          "item_name": "Kojuko Mask of Fear",
+          "tooltip_name": "Kojuko Mask of Fear",
+          "item_url": "https://vgsoharchive.com/items/kojuko-mask-of-fear",
+          "preceding_heading": "Rewards",
+          "source_list_entry_html": "<li>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/kojuko-mask-of-fear\">Kojuko Mask of Fear</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20061.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Kojuko Mask of Fear</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+3 Conjuration</span>\n<span class=\"tt-line stat\">+3 Evocation</span>\n<span class=\"tt-line stat\">+2 Vitality</span>\n<span class=\"tt-line stat\">+3 Alteration</span>\n<span class=\"tt-line stat\">+1 Wisdom</span>\n<span class=\"tt-line plain\">Required Level: 6 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 11</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n</li>",
+          "tooltip_html": "<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20061.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Kojuko Mask of Fear</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+3 Conjuration</span>\n<span class=\"tt-line stat\">+3 Evocation</span>\n<span class=\"tt-line stat\">+2 Vitality</span>\n<span class=\"tt-line stat\">+3 Alteration</span>\n<span class=\"tt-line stat\">+1 Wisdom</span>\n<span class=\"tt-line plain\">Required Level: 6 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 11</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span>",
+          "observations": [
+            {
+              "classes": [
+                "tt-line",
+                "name",
+                "tier-common"
+              ],
+              "text": "Kojuko Mask of Fear",
+              "html": "<span class=\"tt-line name tier-common\">Kojuko Mask of Fear</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "soulbound"
+              ],
+              "text": "Soulbound",
+              "html": "<span class=\"tt-line soulbound\">Soulbound</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "type"
+              ],
+              "text": "Jewelry",
+              "html": "<span class=\"tt-line type\">Jewelry</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+3 Conjuration",
+              "html": "<span class=\"tt-line stat\">+3 Conjuration</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+3 Evocation",
+              "html": "<span class=\"tt-line stat\">+3 Evocation</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+2 Vitality",
+              "html": "<span class=\"tt-line stat\">+2 Vitality</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+3 Alteration",
+              "html": "<span class=\"tt-line stat\">+3 Alteration</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Wisdom",
+              "html": "<span class=\"tt-line stat\">+1 Wisdom</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Level: 6 Adventuring",
+              "html": "<span class=\"tt-line plain\">Required Level: 6 Adventuring</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Item Level: 11",
+              "html": "<span class=\"tt-line plain\">Item Level: 11</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Class:",
+              "html": "<span class=\"tt-line plain\">Required Class:</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "classes"
+              ],
+              "text": "Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer",
+              "html": "<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>"
+            }
+          ],
+          "item_detail_cached": false,
+          "item_detail_pending": true,
+          "item_detail_done": false,
+          "canonical_client_id": null,
+          "historical_patch": null,
+          "binding_trigger": null
+        },
+        {
+          "item_name": "Kojuko Mask of Honor",
+          "tooltip_name": "Kojuko Mask of Honor",
+          "item_url": "https://vgsoharchive.com/items/kojuko-mask-of-honor",
+          "preceding_heading": "Rewards",
+          "source_list_entry_html": "<li>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/kojuko-mask-of-honor\">Kojuko Mask of Honor</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20061.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Kojuko Mask of Honor</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+3 Conjuration</span>\n<span class=\"tt-line stat\">+3 Evocation</span>\n<span class=\"tt-line stat\">+3 Alteration</span>\n<span class=\"tt-line stat\">+2 Intelligence</span>\n<span class=\"tt-line stat\">+1 Wisdom</span>\n<span class=\"tt-line plain\">Required Level: 6 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 11</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n</li>",
+          "tooltip_html": "<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20061.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Kojuko Mask of Honor</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+3 Conjuration</span>\n<span class=\"tt-line stat\">+3 Evocation</span>\n<span class=\"tt-line stat\">+3 Alteration</span>\n<span class=\"tt-line stat\">+2 Intelligence</span>\n<span class=\"tt-line stat\">+1 Wisdom</span>\n<span class=\"tt-line plain\">Required Level: 6 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 11</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span>",
+          "observations": [
+            {
+              "classes": [
+                "tt-line",
+                "name",
+                "tier-common"
+              ],
+              "text": "Kojuko Mask of Honor",
+              "html": "<span class=\"tt-line name tier-common\">Kojuko Mask of Honor</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "soulbound"
+              ],
+              "text": "Soulbound",
+              "html": "<span class=\"tt-line soulbound\">Soulbound</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "type"
+              ],
+              "text": "Jewelry",
+              "html": "<span class=\"tt-line type\">Jewelry</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+3 Conjuration",
+              "html": "<span class=\"tt-line stat\">+3 Conjuration</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+3 Evocation",
+              "html": "<span class=\"tt-line stat\">+3 Evocation</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+3 Alteration",
+              "html": "<span class=\"tt-line stat\">+3 Alteration</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+2 Intelligence",
+              "html": "<span class=\"tt-line stat\">+2 Intelligence</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Wisdom",
+              "html": "<span class=\"tt-line stat\">+1 Wisdom</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Level: 6 Adventuring",
+              "html": "<span class=\"tt-line plain\">Required Level: 6 Adventuring</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Item Level: 11",
+              "html": "<span class=\"tt-line plain\">Item Level: 11</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Class:",
+              "html": "<span class=\"tt-line plain\">Required Class:</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "classes"
+              ],
+              "text": "Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer",
+              "html": "<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>"
+            }
+          ],
+          "item_detail_cached": false,
+          "item_detail_pending": true,
+          "item_detail_done": false,
+          "canonical_client_id": null,
+          "historical_patch": null,
+          "binding_trigger": null
+        }
+      ],
+      "full_source_records": [
+        {
+          "path": "raw/2026-10-14-045738-770236-archive-bulk/quest.jsonl",
+          "line": 60,
+          "record": {
+            "name": "Eye Of The Beholder",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/eye-of-the-beholder",
+                "title": "Eye Of The Beholder · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T09:02:37+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Lao'Jin Master Yaol"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "15170,-96190,818"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Master Kaol"
+              ],
+              "previous": [
+                "Ra'Jin Assault"
+              ],
+              "next": [
+                "The Final Tests Of Jin"
+              ],
+              "rating": [
+                "7.0"
+              ],
+              "coin reward": [
+                "70"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Lao'Jin Master Yaol",
+                "url": "https://vgsoharchive.com/mobs/lao-jin-master-yaol"
+              },
+              {
+                "name": "Master Kaol",
+                "url": "https://vgsoharchive.com/mobs/master-kaol"
+              },
+              {
+                "name": "Ra'Jin Assault",
+                "url": "https://vgsoharchive.com/quests/ra-jin-assault"
+              },
+              {
+                "name": "The Final Tests Of Jin",
+                "url": "https://vgsoharchive.com/quests/the-final-tests-of-jin"
+              },
+              {
+                "name": "None",
+                "url": "https://vgsoharchive.com/items/shang-mask-of-hermits"
+              },
+              {
+                "name": "Kojuko Mask of Courage",
+                "url": "https://vgsoharchive.com/items/kojuko-mask-of-courage"
+              },
+              {
+                "name": "Kojuko Mask of Dignity",
+                "url": "https://vgsoharchive.com/items/kojuko-mask-of-dignity"
+              },
+              {
+                "name": "Kojuko Mask of Fear",
+                "url": "https://vgsoharchive.com/items/kojuko-mask-of-fear"
+              },
+              {
+                "name": "Kojuko Mask of Honor",
+                "url": "https://vgsoharchive.com/items/kojuko-mask-of-honor"
+              }
+            ],
+            "type": "quest",
+            "level": 6,
+            "zone": "Tanvu",
+            "giver": "Lao'Jin Master Yaol",
+            "turn_in": "Master Kaol",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Ra'Jin Assault",
+            "chain_next": "The Final Tests Of Jin",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 1321,
+          "record": {
+            "name": "Eye Of The Beholder",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/eye-of-the-beholder",
+                "title": "Eye Of The Beholder · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:42+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Lao'Jin Master Yaol"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "15170,-96190,818"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Master Kaol"
+              ],
+              "previous": [
+                "Ra'Jin Assault"
+              ],
+              "next": [
+                "The Final Tests Of Jin"
+              ],
+              "rating": [
+                "7.0"
+              ],
+              "coin reward": [
+                "70"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Lao'Jin Master Yaol",
+                "url": "https://vgsoharchive.com/mobs/lao-jin-master-yaol"
+              },
+              {
+                "name": "Master Kaol",
+                "url": "https://vgsoharchive.com/mobs/master-kaol"
+              },
+              {
+                "name": "Ra'Jin Assault",
+                "url": "https://vgsoharchive.com/quests/ra-jin-assault"
+              },
+              {
+                "name": "The Final Tests Of Jin",
+                "url": "https://vgsoharchive.com/quests/the-final-tests-of-jin"
+              },
+              {
+                "name": "None",
+                "url": "https://vgsoharchive.com/items/shang-mask-of-hermits"
+              },
+              {
+                "name": "Kojuko Mask of Courage",
+                "url": "https://vgsoharchive.com/items/kojuko-mask-of-courage"
+              },
+              {
+                "name": "Kojuko Mask of Dignity",
+                "url": "https://vgsoharchive.com/items/kojuko-mask-of-dignity"
+              },
+              {
+                "name": "Kojuko Mask of Fear",
+                "url": "https://vgsoharchive.com/items/kojuko-mask-of-fear"
+              },
+              {
+                "name": "Kojuko Mask of Honor",
+                "url": "https://vgsoharchive.com/items/kojuko-mask-of-honor"
+              }
+            ],
+            "type": "quest",
+            "level": 6,
+            "zone": "Tanvu",
+            "giver": "Lao'Jin Master Yaol",
+            "turn_in": "Master Kaol",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Ra'Jin Assault",
+            "chain_next": "The Final Tests Of Jin",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/the-monks-of-shang-village",
+      "cache_path": ".cache/archive/a561c0b7ea948839cf5b9e7cb84a6a0a3db0bfb77c24f7730d40d7550c27715d.txt",
+      "cache_sha256": "a14d796e191df38bcfa80bd6e2467cbe9002f42dddd5564296aebe85acf3ed5b",
+      "reward_tooltips": [
+        {
+          "item_name": "Shang Mask of Dignity",
+          "tooltip_name": "Shang Mask of Dignity",
+          "item_url": "https://vgsoharchive.com/items/shang-mask-of-dignity",
+          "preceding_heading": "Rewards",
+          "source_list_entry_html": "<li>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/shang-mask-of-dignity\">Shang Mask of Dignity</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20062.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Shang Mask of Dignity</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+1 Strength</span>\n<span class=\"tt-line stat\">+1 Combat Awareness</span>\n<span class=\"tt-line stat\">+1 Parry</span>\n<span class=\"tt-line stat\">+1 Tactic Recognition</span>\n<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 7</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n</li>",
+          "tooltip_html": "<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20062.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Shang Mask of Dignity</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+1 Strength</span>\n<span class=\"tt-line stat\">+1 Combat Awareness</span>\n<span class=\"tt-line stat\">+1 Parry</span>\n<span class=\"tt-line stat\">+1 Tactic Recognition</span>\n<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 7</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span>",
+          "observations": [
+            {
+              "classes": [
+                "tt-line",
+                "name",
+                "tier-common"
+              ],
+              "text": "Shang Mask of Dignity",
+              "html": "<span class=\"tt-line name tier-common\">Shang Mask of Dignity</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "soulbound"
+              ],
+              "text": "Soulbound",
+              "html": "<span class=\"tt-line soulbound\">Soulbound</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "type"
+              ],
+              "text": "Jewelry",
+              "html": "<span class=\"tt-line type\">Jewelry</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Strength",
+              "html": "<span class=\"tt-line stat\">+1 Strength</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Combat Awareness",
+              "html": "<span class=\"tt-line stat\">+1 Combat Awareness</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Parry",
+              "html": "<span class=\"tt-line stat\">+1 Parry</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Tactic Recognition",
+              "html": "<span class=\"tt-line stat\">+1 Tactic Recognition</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Level: 2 Adventuring",
+              "html": "<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Item Level: 7",
+              "html": "<span class=\"tt-line plain\">Item Level: 7</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Class:",
+              "html": "<span class=\"tt-line plain\">Required Class:</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "classes"
+              ],
+              "text": "Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer",
+              "html": "<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>"
+            }
+          ],
+          "item_detail_cached": false,
+          "item_detail_pending": true,
+          "item_detail_done": false,
+          "canonical_client_id": null,
+          "historical_patch": null,
+          "binding_trigger": null
+        },
+        {
+          "item_name": "Shang Mask of Hermits",
+          "tooltip_name": "Shang Mask of Hermits",
+          "item_url": "https://vgsoharchive.com/items/shang-mask-of-hermits",
+          "preceding_heading": "Rewards",
+          "source_list_entry_html": "<li>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/shang-mask-of-hermits\">Shang Mask of Hermits</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20062.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Shang Mask of Hermits</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-row type\"><span>Jewelry</span><span>Face</span></span>\n<span class=\"tt-line stat\">+1 Conjuration</span>\n<span class=\"tt-line stat\">+1 Evocation</span>\n<span class=\"tt-line stat\">+1 Alteration</span>\n<span class=\"tt-line stat\">+1 Intelligence</span>\n<span class=\"tt-line stat\">+1 Wisdom</span>\n<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 7</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n</li>",
+          "tooltip_html": "<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20062.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Shang Mask of Hermits</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-row type\"><span>Jewelry</span><span>Face</span></span>\n<span class=\"tt-line stat\">+1 Conjuration</span>\n<span class=\"tt-line stat\">+1 Evocation</span>\n<span class=\"tt-line stat\">+1 Alteration</span>\n<span class=\"tt-line stat\">+1 Intelligence</span>\n<span class=\"tt-line stat\">+1 Wisdom</span>\n<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 7</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span>",
+          "observations": [
+            {
+              "classes": [
+                "tt-line",
+                "name",
+                "tier-common"
+              ],
+              "text": "Shang Mask of Hermits",
+              "html": "<span class=\"tt-line name tier-common\">Shang Mask of Hermits</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "soulbound"
+              ],
+              "text": "Soulbound",
+              "html": "<span class=\"tt-line soulbound\">Soulbound</span>"
+            },
+            {
+              "classes": [
+                "tt-row",
+                "type"
+              ],
+              "text": "Jewelry Face",
+              "html": "<span class=\"tt-row type\"><span>Jewelry</span><span>Face</span></span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Conjuration",
+              "html": "<span class=\"tt-line stat\">+1 Conjuration</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Evocation",
+              "html": "<span class=\"tt-line stat\">+1 Evocation</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Alteration",
+              "html": "<span class=\"tt-line stat\">+1 Alteration</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Intelligence",
+              "html": "<span class=\"tt-line stat\">+1 Intelligence</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Wisdom",
+              "html": "<span class=\"tt-line stat\">+1 Wisdom</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Level: 2 Adventuring",
+              "html": "<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Item Level: 7",
+              "html": "<span class=\"tt-line plain\">Item Level: 7</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Class:",
+              "html": "<span class=\"tt-line plain\">Required Class:</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "classes"
+              ],
+              "text": "Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer",
+              "html": "<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>"
+            }
+          ],
+          "item_detail_cached": false,
+          "item_detail_pending": true,
+          "item_detail_done": false,
+          "canonical_client_id": null,
+          "historical_patch": null,
+          "binding_trigger": null
+        },
+        {
+          "item_name": "Shang Mask of Honor",
+          "tooltip_name": "Shang Mask of Honor",
+          "item_url": "https://vgsoharchive.com/items/shang-mask-of-honor",
+          "preceding_heading": "Rewards",
+          "source_list_entry_html": "<li>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/shang-mask-of-honor\">Shang Mask of Honor</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20062.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Shang Mask of Honor</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+1 One Handed Piercing</span>\n<span class=\"tt-line stat\">+1 Hand to Hand</span>\n<span class=\"tt-line stat\">+1 Dexterity</span>\n<span class=\"tt-line stat\">+1 Tactic Recognition</span>\n<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 7</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n</li>",
+          "tooltip_html": "<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20062.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Shang Mask of Honor</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+1 One Handed Piercing</span>\n<span class=\"tt-line stat\">+1 Hand to Hand</span>\n<span class=\"tt-line stat\">+1 Dexterity</span>\n<span class=\"tt-line stat\">+1 Tactic Recognition</span>\n<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 7</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span>",
+          "observations": [
+            {
+              "classes": [
+                "tt-line",
+                "name",
+                "tier-common"
+              ],
+              "text": "Shang Mask of Honor",
+              "html": "<span class=\"tt-line name tier-common\">Shang Mask of Honor</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "soulbound"
+              ],
+              "text": "Soulbound",
+              "html": "<span class=\"tt-line soulbound\">Soulbound</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "type"
+              ],
+              "text": "Jewelry",
+              "html": "<span class=\"tt-line type\">Jewelry</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 One Handed Piercing",
+              "html": "<span class=\"tt-line stat\">+1 One Handed Piercing</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Hand to Hand",
+              "html": "<span class=\"tt-line stat\">+1 Hand to Hand</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Dexterity",
+              "html": "<span class=\"tt-line stat\">+1 Dexterity</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Tactic Recognition",
+              "html": "<span class=\"tt-line stat\">+1 Tactic Recognition</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Level: 2 Adventuring",
+              "html": "<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Item Level: 7",
+              "html": "<span class=\"tt-line plain\">Item Level: 7</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Class:",
+              "html": "<span class=\"tt-line plain\">Required Class:</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "classes"
+              ],
+              "text": "Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer",
+              "html": "<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>"
+            }
+          ],
+          "item_detail_cached": false,
+          "item_detail_pending": true,
+          "item_detail_done": false,
+          "canonical_client_id": null,
+          "historical_patch": null,
+          "binding_trigger": null
+        },
+        {
+          "item_name": "Shang Mask of Humility",
+          "tooltip_name": "Shang Mask of Humility",
+          "item_url": "https://vgsoharchive.com/items/shang-mask-of-humility",
+          "preceding_heading": "Rewards",
+          "source_list_entry_html": "<li>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/shang-mask-of-humility\">Shang Mask of Humility</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20062.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Shang Mask of Humility</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+1 Conjuration</span>\n<span class=\"tt-line stat\">+1 Evocation</span>\n<span class=\"tt-line stat\">+1 Vitality</span>\n<span class=\"tt-line stat\">+1 Alteration</span>\n<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 7</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n</li>",
+          "tooltip_html": "<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20062.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Shang Mask of Humility</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+1 Conjuration</span>\n<span class=\"tt-line stat\">+1 Evocation</span>\n<span class=\"tt-line stat\">+1 Vitality</span>\n<span class=\"tt-line stat\">+1 Alteration</span>\n<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 7</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span>",
+          "observations": [
+            {
+              "classes": [
+                "tt-line",
+                "name",
+                "tier-common"
+              ],
+              "text": "Shang Mask of Humility",
+              "html": "<span class=\"tt-line name tier-common\">Shang Mask of Humility</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "soulbound"
+              ],
+              "text": "Soulbound",
+              "html": "<span class=\"tt-line soulbound\">Soulbound</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "type"
+              ],
+              "text": "Jewelry",
+              "html": "<span class=\"tt-line type\">Jewelry</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Conjuration",
+              "html": "<span class=\"tt-line stat\">+1 Conjuration</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Evocation",
+              "html": "<span class=\"tt-line stat\">+1 Evocation</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Vitality",
+              "html": "<span class=\"tt-line stat\">+1 Vitality</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Alteration",
+              "html": "<span class=\"tt-line stat\">+1 Alteration</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Level: 2 Adventuring",
+              "html": "<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Item Level: 7",
+              "html": "<span class=\"tt-line plain\">Item Level: 7</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Class:",
+              "html": "<span class=\"tt-line plain\">Required Class:</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "classes"
+              ],
+              "text": "Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer",
+              "html": "<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>"
+            }
+          ],
+          "item_detail_cached": false,
+          "item_detail_pending": true,
+          "item_detail_done": false,
+          "canonical_client_id": null,
+          "historical_patch": null,
+          "binding_trigger": null
+        }
+      ],
+      "full_source_records": [
+        {
+          "path": "raw/2026-10-14-085113-825945-archive-bulk/quest.jsonl",
+          "line": 7,
+          "record": {
+            "name": "The Monks Of Shang Village",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-monks-of-shang-village",
+                "title": "The Monks Of Shang Village · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T12:51:47+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Imperial Officer Yu"
+              ],
+              "starts in": [
+                "Shang Village"
+              ],
+              "location": [
+                "10195, -6661, 2185"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Imperial Officer Yu"
+              ],
+              "previous": [
+                "Report To Officer Yu"
+              ],
+              "next": [
+                "Master Fhungusu"
+              ],
+              "repeatable": [
+                "No"
+              ],
+              "rating": [
+                "0.0"
+              ],
+              "coin reward": [
+                "20"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Shang Village",
+                "url": "https://vgsoharchive.com/zones/shang-village"
+              },
+              {
+                "name": "Imperial Officer Yu",
+                "url": "https://vgsoharchive.com/mobs/imperial-officer-yu"
+              },
+              {
+                "name": "Report To Officer Yu",
+                "url": "https://vgsoharchive.com/quests/report-to-officer-yu"
+              },
+              {
+                "name": "Master Fhungusu",
+                "url": "https://vgsoharchive.com/quests/master-fhungusu"
+              },
+              {
+                "name": "Shang Mask of Dignity",
+                "url": "https://vgsoharchive.com/items/shang-mask-of-dignity"
+              },
+              {
+                "name": "Shang Mask of Hermits",
+                "url": "https://vgsoharchive.com/items/shang-mask-of-hermits"
+              },
+              {
+                "name": "Shang Mask of Honor",
+                "url": "https://vgsoharchive.com/items/shang-mask-of-honor"
+              },
+              {
+                "name": "Shang Mask of Humility",
+                "url": "https://vgsoharchive.com/items/shang-mask-of-humility"
+              }
+            ],
+            "type": "quest",
+            "level": 2,
+            "zone": "Shang Village",
+            "giver": "Imperial Officer Yu",
+            "turn_in": "Imperial Officer Yu",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Report To Officer Yu",
+            "chain_next": "Master Fhungusu",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 4097,
+          "record": {
+            "name": "The Monks Of Shang Village",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-monks-of-shang-village",
+                "title": "The Monks Of Shang Village · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:53+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Imperial Officer Yu"
+              ],
+              "starts in": [
+                "Shang Village"
+              ],
+              "location": [
+                "10195, -6661, 2185"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Imperial Officer Yu"
+              ],
+              "previous": [
+                "Report To Officer Yu"
+              ],
+              "next": [
+                "Master Fhungusu"
+              ],
+              "repeatable": [
+                "No"
+              ],
+              "rating": [
+                "0.0"
+              ],
+              "coin reward": [
+                "20"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Shang Village",
+                "url": "https://vgsoharchive.com/zones/shang-village"
+              },
+              {
+                "name": "Imperial Officer Yu",
+                "url": "https://vgsoharchive.com/mobs/imperial-officer-yu"
+              },
+              {
+                "name": "Report To Officer Yu",
+                "url": "https://vgsoharchive.com/quests/report-to-officer-yu"
+              },
+              {
+                "name": "Master Fhungusu",
+                "url": "https://vgsoharchive.com/quests/master-fhungusu"
+              },
+              {
+                "name": "Shang Mask of Dignity",
+                "url": "https://vgsoharchive.com/items/shang-mask-of-dignity"
+              },
+              {
+                "name": "Shang Mask of Hermits",
+                "url": "https://vgsoharchive.com/items/shang-mask-of-hermits"
+              },
+              {
+                "name": "Shang Mask of Honor",
+                "url": "https://vgsoharchive.com/items/shang-mask-of-honor"
+              },
+              {
+                "name": "Shang Mask of Humility",
+                "url": "https://vgsoharchive.com/items/shang-mask-of-humility"
+              }
+            ],
+            "type": "quest",
+            "level": 2,
+            "zone": "Shang Village",
+            "giver": "Imperial Officer Yu",
+            "turn_in": "Imperial Officer Yu",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": false,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Report To Officer Yu",
+            "chain_next": "Master Fhungusu",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    }
+  ],
+  "findings": [
+    "Link labels and tooltip names are separate literal displays; differing names, including the None link label, are unresolved collisions. No operative item identity or canonical name is assigned.",
+    "Embedded tooltips retain literal quest-page item observations, not independently fetched item details or original client evidence. Archive page links do not establish canonical client IDs.",
+    "Required Level and Item Level are separate observations. Soulbound text does not establish the binding trigger. Class lists, spelling, stats and source list entries are preserved without normalization or identity merges.",
+    "Preceding headings and complete list entry HTML retain reward context. Tooltip presence alone does not prove automatic grant or choice count. Missing item detail pages remain pending.",
+    "Shared archive item URLs associate tooltip displays for comparison only. Repeated displays on the same archive host are not independent historical corroboration. All full source-specific records and HTML are retained above; differing names or fields remain unresolved and withheld from operative item identity and statistics."
+  ],
+  "checkpoint_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "collector_lock_exists": false,
+    "persisted_interval_seconds": 60.0
+  },
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected combined suspension reset/push/restart: blocked by policy. No more specific disposition supplied.",
+    "resumption_conditions": "Recorded policy disposition permitting resumption, then inspect process and lock and use collection.ps1 with preserved queues and 60-second interval."
+  },
+  "remaining_review": {
+    "collection_complete": false,
+    "required_review_complete": false,
+    "next_actionable_batch": "Extract cached Monks of Shang Village objective and navigation variants against The Ra’Jin Grand Master, retaining source-specific claims.",
+    "linked_item_details_uncached": 8,
+    "shared_url_name_collisions_unresolved": 1,
+    "global_required_review_count": null,
+    "global_required_review_count_note": "No authoritative complete extraction/review task inventory exists; collection checkpoints count URLs, not remaining semantic review tasks."
+  },
+  "validation": {
+    "issues": [],
+    "cached_pages": 2,
+    "tooltips_verified": 9,
+    "literal_observations_verified": 105,
+    "full_source_records_verified": 4,
+    "input_hashes_verified": 6,
+    "shared_item_url_comparisons": 1,
+    "name_disagreements": 1,
+    "field_disagreements": 0
+  },
+  "comparisons": [
+    {
+      "item_url": "https://vgsoharchive.com/items/shang-mask-of-hermits",
+      "source_variants": [
+        {
+          "source_url": "https://vgsoharchive.com/quests/eye-of-the-beholder",
+          "link_label": "None",
+          "tooltip_name": "Shang Mask of Hermits",
+          "observations": [
+            {
+              "classes": [
+                "tt-line",
+                "name",
+                "tier-common"
+              ],
+              "text": "Shang Mask of Hermits",
+              "html": "<span class=\"tt-line name tier-common\">Shang Mask of Hermits</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "soulbound"
+              ],
+              "text": "Soulbound",
+              "html": "<span class=\"tt-line soulbound\">Soulbound</span>"
+            },
+            {
+              "classes": [
+                "tt-row",
+                "type"
+              ],
+              "text": "Jewelry Face",
+              "html": "<span class=\"tt-row type\"><span>Jewelry</span><span>Face</span></span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Conjuration",
+              "html": "<span class=\"tt-line stat\">+1 Conjuration</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Evocation",
+              "html": "<span class=\"tt-line stat\">+1 Evocation</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Alteration",
+              "html": "<span class=\"tt-line stat\">+1 Alteration</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Intelligence",
+              "html": "<span class=\"tt-line stat\">+1 Intelligence</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Wisdom",
+              "html": "<span class=\"tt-line stat\">+1 Wisdom</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Level: 2 Adventuring",
+              "html": "<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Item Level: 7",
+              "html": "<span class=\"tt-line plain\">Item Level: 7</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Class:",
+              "html": "<span class=\"tt-line plain\">Required Class:</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "classes"
+              ],
+              "text": "Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer",
+              "html": "<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>"
+            }
+          ]
+        },
+        {
+          "source_url": "https://vgsoharchive.com/quests/the-monks-of-shang-village",
+          "link_label": "Shang Mask of Hermits",
+          "tooltip_name": "Shang Mask of Hermits",
+          "observations": [
+            {
+              "classes": [
+                "tt-line",
+                "name",
+                "tier-common"
+              ],
+              "text": "Shang Mask of Hermits",
+              "html": "<span class=\"tt-line name tier-common\">Shang Mask of Hermits</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "soulbound"
+              ],
+              "text": "Soulbound",
+              "html": "<span class=\"tt-line soulbound\">Soulbound</span>"
+            },
+            {
+              "classes": [
+                "tt-row",
+                "type"
+              ],
+              "text": "Jewelry Face",
+              "html": "<span class=\"tt-row type\"><span>Jewelry</span><span>Face</span></span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Conjuration",
+              "html": "<span class=\"tt-line stat\">+1 Conjuration</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Evocation",
+              "html": "<span class=\"tt-line stat\">+1 Evocation</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Alteration",
+              "html": "<span class=\"tt-line stat\">+1 Alteration</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Intelligence",
+              "html": "<span class=\"tt-line stat\">+1 Intelligence</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "stat"
+              ],
+              "text": "+1 Wisdom",
+              "html": "<span class=\"tt-line stat\">+1 Wisdom</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Level: 2 Adventuring",
+              "html": "<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Item Level: 7",
+              "html": "<span class=\"tt-line plain\">Item Level: 7</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "plain"
+              ],
+              "text": "Required Class:",
+              "html": "<span class=\"tt-line plain\">Required Class:</span>"
+            },
+            {
+              "classes": [
+                "tt-line",
+                "classes"
+              ],
+              "text": "Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer",
+              "html": "<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>"
+            }
+          ]
+        }
+      ],
+      "link_labels_equal": false,
+      "tooltip_names_equal": true,
+      "literal_fields_equal": true,
+      "canonical_client_id": null,
+      "operative_item_name": null,
+      "operative_stats": null,
+      "historical_patch": null
+    }
+  ]
+}

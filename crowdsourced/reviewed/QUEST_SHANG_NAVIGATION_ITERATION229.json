@@ -1,0 +1,685 @@
+{
+  "audit_kind": "cached_quest_objectives_rewards_review",
+  "network_requests": 0,
+  "metadata_only": false,
+  "extraction_scope": "Literal cached objective, description, notes, source attribution and reward observations. Archive transcriptions and variants remain distinct; no historical mechanic verification or identity merge.",
+  "inputs": [
+    {
+      "path": ".cache/archive/457f4b8b223ff23774e41fcfa46e2e043689f02053edcc2756dd21f669167a18.txt",
+      "sha256": "1f9e0f955868016ea7284652fb7295a22c5e53f75e1c2a65dee8be5d01b8ebba"
+    },
+    {
+      "path": ".cache/archive/a561c0b7ea948839cf5b9e7cb84a6a0a3db0bfb77c24f7730d40d7550c27715d.txt",
+      "sha256": "a14d796e191df38bcfa80bd6e2467cbe9002f42dddd5564296aebe85acf3ed5b"
+    },
+    {
+      "path": "raw/2026-10-14-085113-825945-archive-bulk/quest.jsonl",
+      "sha256": "54792d13cb69de9507f411f5880049502b64fab2649c104a2c5098b288e8476d"
+    },
+    {
+      "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+      "sha256": "1b4328e56ac4f992bedda7b7dcf02b00fab8c55047e6c45892af56343fa85648"
+    },
+    {
+      "path": "reviewed/QUEST_UNFORGOTTEN_CANDIDATES_ITERATION214.json",
+      "sha256": "0575040f980fc75f2e1414e30c45c00cf9fabd3916c8bf495c693267a6da3102"
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://vgsoharchive.com/quests/the-ra-jin-grand-master",
+      "cache_path": ".cache/archive/457f4b8b223ff23774e41fcfa46e2e043689f02053edcc2756dd21f669167a18.txt",
+      "cache_sha256": "1f9e0f955868016ea7284652fb7295a22c5e53f75e1c2a65dee8be5d01b8ebba",
+      "observations": [
+        {
+          "label": "Objectives",
+          "text": "Grandmaster Nahuji Slain",
+          "html": "<div class=\"tooltip\">Grandmaster Nahuji Slain</div>",
+          "variant": false
+        },
+        {
+          "label": "What they say",
+          "text": "On offering it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>",
+          "variant": false
+        },
+        {
+          "label": "Notes",
+          "text": "The grand master is in a room at the top of the tower. Lvl 10 4 dot aggro.",
+          "html": "<p class=\"muted\">The grand master is in a room at the top of the tower. Lvl 10 4 dot aggro.</p>",
+          "variant": false
+        },
+        {
+          "label": "Objectives as recorded by photographed in game, Steam community screenshot",
+          "text": "Grandmaster Nahuji Slain (1)",
+          "html": "<div class=\"tooltip\">Grandmaster Nahuji Slain (1)</div>",
+          "variant": true
+        },
+        {
+          "label": "Source",
+          "text": "https://vanguard.fandom.com/wiki/The_Ra'Jin_Grand_Master",
+          "html": "<p class=\"muted\" style=\"word-break:break-all\">https://vanguard.fandom.com/wiki/The_Ra'Jin_Grand_Master</p>",
+          "variant": false
+        },
+        {
+          "label": "Starts with",
+          "text": "Shaof",
+          "html": "<dd><a href=\"/mobs/shaof\">Shaof</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Location",
+          "text": "-3117, -10368, 5709 in Tanvu (-19, 6)",
+          "html": "<dd>-3117, -10368, 5709 in Tanvu (-19, 6)</dd>",
+          "variant": false
+        },
+        {
+          "label": "Previous",
+          "text": "The Final Tests Of Jin",
+          "html": "<dd><a href=\"/quests/the-final-tests-of-jin\">The Final Tests Of Jin</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Coin reward",
+          "text": "0",
+          "html": "<dd>0</dd>",
+          "variant": false
+        },
+        {
+          "label": "Dialogue and attribution in source order",
+          "text": "On offering it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>",
+          "variant": false
+        },
+        {
+          "label": "Dialogue and attribution in source order",
+          "text": "Grand Master Shaof is beaming with pride and admiration at your progress.\n\n\"You have done impressively in your training. You have developed yourself adaquately in your understanding of the Jin. I believe you are ready for one final task.\"\n\n\"The Ra'Jin are led by a grand master of their own. He is secretive and remains hidden within a secret room in the center of the fortress.\"\n\n\"If you are up to the challenge, find others like you and come together to defeat him. Without their grandmaster, the Ra'Jin will be greatly crippled and balance may yet be restored.\"",
+          "html": "<div class=\"tooltip\">Grand Master Shaof is beaming with pride and admiration at your progress.\n\n\"You have done impressively in your training. You have developed yourself adaquately in your understanding of the Jin. I believe you are ready for one final task.\"\n\n\"The Ra'Jin are led by a grand master of their own. He is secretive and remains hidden within a secret room in the center of the fortress.\"\n\n\"If you are up to the challenge, find others like you and come together to defeat him. Without their grandmaster, the Ra'Jin will be greatly crippled and balance may yet be restored.\"\n        </div>",
+          "variant": false
+        },
+        {
+          "label": "Dialogue and attribution in source order",
+          "text": "Recorded by photographed in game by the archive operator.",
+          "html": "<p class=\"muted small\" style=\"margin-top:2px\">\n          Recorded by photographed in game by the archive operator.\n        </p>",
+          "variant": false
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-085113-825945-archive-bulk/quest.jsonl",
+          "line": 55,
+          "record": {
+            "name": "The Ra'Jin Grand Master",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-ra-jin-grand-master",
+                "title": "The Ra'Jin Grand Master · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T12:55:47+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Shaof"
+              ],
+              "location": [
+                "-3117, -10368, 5709 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "previous": [
+                "The Final Tests Of Jin"
+              ],
+              "coin reward": [
+                "0"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Shaof",
+                "url": "https://vgsoharchive.com/mobs/shaof"
+              },
+              {
+                "name": "The Final Tests Of Jin",
+                "url": "https://vgsoharchive.com/quests/the-final-tests-of-jin"
+              }
+            ],
+            "type": "quest",
+            "level": 10,
+            "zone": "Tanvu",
+            "giver": "Shaof",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "The Final Tests Of Jin",
+            "chain_next": null,
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 4145,
+          "record": {
+            "name": "The Ra'Jin Grand Master",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-ra-jin-grand-master",
+                "title": "The Ra'Jin Grand Master · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:53+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Shaof"
+              ],
+              "location": [
+                "-3117, -10368, 5709 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "previous": [
+                "The Final Tests Of Jin"
+              ],
+              "coin reward": [
+                "0"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Shaof",
+                "url": "https://vgsoharchive.com/mobs/shaof"
+              },
+              {
+                "name": "The Final Tests Of Jin",
+                "url": "https://vgsoharchive.com/quests/the-final-tests-of-jin"
+              }
+            ],
+            "type": "quest",
+            "level": 10,
+            "zone": "Tanvu",
+            "giver": "Shaof",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "The Final Tests Of Jin",
+            "chain_next": null,
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/the-monks-of-shang-village",
+      "cache_path": ".cache/archive/a561c0b7ea948839cf5b9e7cb84a6a0a3db0bfb77c24f7730d40d7550c27715d.txt",
+      "cache_sha256": "a14d796e191df38bcfa80bd6e2467cbe9002f42dddd5564296aebe85acf3ed5b",
+      "observations": [
+        {
+          "label": "Objectives",
+          "text": "Slay 4 Shang Monks",
+          "html": "<div class=\"tooltip\">Slay 4 Shang Monks</div>",
+          "variant": false
+        },
+        {
+          "label": "Description",
+          "text": "1) Speak to Imperial Officer Yu in Shang Village.\n2) Slay 4 Shang Monks.\n3) Speak to Imperial Officer Yu in Shang Village.",
+          "html": "<div class=\"tooltip\">1) Speak to Imperial Officer Yu in Shang Village.\n2) Slay 4 Shang Monks.\n3) Speak to Imperial Officer Yu in Shang Village.</div>",
+          "variant": false
+        },
+        {
+          "label": "What they say",
+          "text": "On offering it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>",
+          "variant": false
+        },
+        {
+          "label": "Notes",
+          "text": "Per the Forgotten Horde wiki's Shang Village page, 2007-2008 (http://web.archive.org/web/20080723045202/http://targonor.net/vg/pmwiki.php?n=Main.ShangVillage).",
+          "html": "<p class=\"muted\">Per the Forgotten Horde wiki's Shang Village page, 2007-2008 (http://web.archive.org/web/20080723045202/http://targonor.net/vg/pmwiki.php?n=Main.ShangVillage).</p>",
+          "variant": false
+        },
+        {
+          "label": "Objectives as recorded by fandom",
+          "text": "Shang Monks Slain (4)\nKill 4 Shang Monks, and then return to Imperial Officer Yu.\n...Their defiance of the Emperor cannot go unpunished...",
+          "html": "<div class=\"tooltip\">Shang Monks Slain (4)\nKill 4 Shang Monks, and then return to Imperial Officer Yu.\n...Their defiance of the Emperor cannot go unpunished...</div>",
+          "variant": true
+        },
+        {
+          "label": "Rewards",
+          "text": "Shang Mask of Dignity\nShang Mask of Dignity\nSoulbound\nJewelry\n+1 Strength\n+1 Combat Awareness\n+1 Parry\n+1 Tactic Recognition\nRequired Level: 2 Adventuring\nItem Level: 7\nRequired Class:\nBard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer\nShang Mask of Hermits\nShang Mask of Hermits\nSoulbound\nJewelry\nFace\n+1 Conjuration\n+1 Evocation\n+1 Alteration\n+1 Intelligence\n+1 Wisdom\nRequired Level: 2 Adventuring\nItem Level: 7\nRequired Class:\nBard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer\nShang Mask of Honor\nShang Mask of Honor\nSoulbound\nJewelry\n+1 One Handed Piercing\n+1 Hand to Hand\n+1 Dexterity\n+1 Tactic Recognition\nRequired Level: 2 Adventuring\nItem Level: 7\nRequired Class:\nBard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer\nShang Mask of Humility\nShang Mask of Humility\nSoulbound\nJewelry\n+1 Conjuration\n+1 Evocation\n+1 Vitality\n+1 Alteration\nRequired Level: 2 Adventuring\nItem Level: 7\nRequired Class:\nBard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer",
+          "html": "<ul class=\"plain\">\n<li>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/shang-mask-of-dignity\">Shang Mask of Dignity</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20062.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Shang Mask of Dignity</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+1 Strength</span>\n<span class=\"tt-line stat\">+1 Combat Awareness</span>\n<span class=\"tt-line stat\">+1 Parry</span>\n<span class=\"tt-line stat\">+1 Tactic Recognition</span>\n<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 7</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n</li>\n<li>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/shang-mask-of-hermits\">Shang Mask of Hermits</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20062.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Shang Mask of Hermits</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-row type\"><span>Jewelry</span><span>Face</span></span>\n<span class=\"tt-line stat\">+1 Conjuration</span>\n<span class=\"tt-line stat\">+1 Evocation</span>\n<span class=\"tt-line stat\">+1 Alteration</span>\n<span class=\"tt-line stat\">+1 Intelligence</span>\n<span class=\"tt-line stat\">+1 Wisdom</span>\n<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 7</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n</li>\n<li>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/shang-mask-of-honor\">Shang Mask of Honor</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20062.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Shang Mask of Honor</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+1 One Handed Piercing</span>\n<span class=\"tt-line stat\">+1 Hand to Hand</span>\n<span class=\"tt-line stat\">+1 Dexterity</span>\n<span class=\"tt-line stat\">+1 Tactic Recognition</span>\n<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 7</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n</li>\n<li>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/shang-mask-of-humility\">Shang Mask of Humility</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20062.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Shang Mask of Humility</span>\n<span class=\"tt-line soulbound\">Soulbound</span>\n<span class=\"tt-line type\">Jewelry</span>\n<span class=\"tt-line stat\">+1 Conjuration</span>\n<span class=\"tt-line stat\">+1 Evocation</span>\n<span class=\"tt-line stat\">+1 Vitality</span>\n<span class=\"tt-line stat\">+1 Alteration</span>\n<span class=\"tt-line plain\">Required Level: 2 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 7</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer</span>\n</span>\n</span></span>\n</li>\n</ul>",
+          "variant": false
+        },
+        {
+          "label": "Source",
+          "text": "https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/the-monks-of-shang-village-215.html",
+          "html": "<p class=\"muted\" style=\"word-break:break-all\">https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/the-monks-of-shang-village-215.html</p>",
+          "variant": false
+        },
+        {
+          "label": "Starts with",
+          "text": "Imperial Officer Yu",
+          "html": "<dd><a href=\"/mobs/imperial-officer-yu\">Imperial Officer Yu</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Location",
+          "text": "10195, -6661, 2185",
+          "html": "<dd>10195, -6661, 2185</dd>",
+          "variant": false
+        },
+        {
+          "label": "Hand in to",
+          "text": "Imperial Officer Yu",
+          "html": "<dd><a href=\"/mobs/imperial-officer-yu\">Imperial Officer Yu</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Previous",
+          "text": "Report To Officer Yu",
+          "html": "<dd><a href=\"/quests/report-to-officer-yu\">Report To Officer Yu</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Next",
+          "text": "Master Fhungusu",
+          "html": "<dd><a href=\"/quests/master-fhungusu\">Master Fhungusu</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Coin reward",
+          "text": "20",
+          "html": "<dd>20</dd>",
+          "variant": false
+        },
+        {
+          "label": "Dialogue and attribution in source order",
+          "text": "On offering it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>",
+          "variant": false
+        },
+        {
+          "label": "Dialogue and attribution in source order",
+          "text": "Imperial Officer Yu\nThese monks are not showing any signs of resistance. I am quite sure that we could just walk past them and they would not even react. Regardless, an example must be made of them. Their defiance of the Emperor cannot go unpunished. Kill four of them, and then report back to me for the final attack.",
+          "html": "<div class=\"tooltip\">\n<strong>Imperial Officer Yu</strong><br/>\n          These monks are not showing any signs of resistance. I am quite sure that we could just walk past them and they would not even react. Regardless, an example must be made of them. Their defiance of the Emperor cannot go unpunished. Kill four of them, and then report back to me for the final attack.\n        </div>",
+          "variant": false
+        },
+        {
+          "label": "Dialogue and attribution in source order",
+          "text": "Recorded by\nvanguard.fandom.com\n.",
+          "html": "<p class=\"muted small\" style=\"margin-top:2px\">\n          Recorded by\n            <a href=\"https://vanguard.fandom.com/wiki/The_Monks_of_Shang_Village\" rel=\"noreferrer nofollow\">vanguard.fandom.com</a>.\n        </p>",
+          "variant": false
+        },
+        {
+          "label": "Dialogue and attribution in source order",
+          "text": "While you carry it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            While you carry it</p>",
+          "variant": false
+        },
+        {
+          "label": "Dialogue and attribution in source order",
+          "text": "Imperial Officer Yu\nMost excellent, Officer . The final hour of our assault is at hand.",
+          "html": "<div class=\"tooltip\">\n<strong>Imperial Officer Yu</strong><br/>\n          Most excellent, Officer . The final hour of our assault is at hand.\n        </div>",
+          "variant": false
+        },
+        {
+          "label": "Dialogue and attribution in source order",
+          "text": "Recorded by\nvanguard.fandom.com\n.",
+          "html": "<p class=\"muted small\" style=\"margin-top:2px\">\n          Recorded by\n            <a href=\"https://vanguard.fandom.com/wiki/The_Monks_of_Shang_Village\" rel=\"noreferrer nofollow\">vanguard.fandom.com</a>.\n        </p>",
+          "variant": false
+        },
+        {
+          "label": "Dialogue and attribution in source order",
+          "text": "On finishing it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On finishing it</p>",
+          "variant": false
+        },
+        {
+          "label": "Dialogue and attribution in source order",
+          "text": "Imperial Officer Yu\nI hope you're ready for what comes next, Officer .",
+          "html": "<div class=\"tooltip\">\n<strong>Imperial Officer Yu</strong><br/>\n          I hope you're ready for what comes next, Officer .\n        </div>",
+          "variant": false
+        },
+        {
+          "label": "Dialogue and attribution in source order",
+          "text": "Recorded by\nvanguard.fandom.com\n.",
+          "html": "<p class=\"muted small\" style=\"margin-top:2px\">\n          Recorded by\n            <a href=\"https://vanguard.fandom.com/wiki/The_Monks_of_Shang_Village\" rel=\"noreferrer nofollow\">vanguard.fandom.com</a>.\n        </p>",
+          "variant": false
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-085113-825945-archive-bulk/quest.jsonl",
+          "line": 7,
+          "record": {
+            "name": "The Monks Of Shang Village",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-monks-of-shang-village",
+                "title": "The Monks Of Shang Village · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T12:51:47+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Imperial Officer Yu"
+              ],
+              "starts in": [
+                "Shang Village"
+              ],
+              "location": [
+                "10195, -6661, 2185"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Imperial Officer Yu"
+              ],
+              "previous": [
+                "Report To Officer Yu"
+              ],
+              "next": [
+                "Master Fhungusu"
+              ],
+              "repeatable": [
+                "No"
+              ],
+              "rating": [
+                "0.0"
+              ],
+              "coin reward": [
+                "20"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Shang Village",
+                "url": "https://vgsoharchive.com/zones/shang-village"
+              },
+              {
+                "name": "Imperial Officer Yu",
+                "url": "https://vgsoharchive.com/mobs/imperial-officer-yu"
+              },
+              {
+                "name": "Report To Officer Yu",
+                "url": "https://vgsoharchive.com/quests/report-to-officer-yu"
+              },
+              {
+                "name": "Master Fhungusu",
+                "url": "https://vgsoharchive.com/quests/master-fhungusu"
+              },
+              {
+                "name": "Shang Mask of Dignity",
+                "url": "https://vgsoharchive.com/items/shang-mask-of-dignity"
+              },
+              {
+                "name": "Shang Mask of Hermits",
+                "url": "https://vgsoharchive.com/items/shang-mask-of-hermits"
+              },
+              {
+                "name": "Shang Mask of Honor",
+                "url": "https://vgsoharchive.com/items/shang-mask-of-honor"
+              },
+              {
+                "name": "Shang Mask of Humility",
+                "url": "https://vgsoharchive.com/items/shang-mask-of-humility"
+              }
+            ],
+            "type": "quest",
+            "level": 2,
+            "zone": "Shang Village",
+            "giver": "Imperial Officer Yu",
+            "turn_in": "Imperial Officer Yu",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Report To Officer Yu",
+            "chain_next": "Master Fhungusu",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 4097,
+          "record": {
+            "name": "The Monks Of Shang Village",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/the-monks-of-shang-village",
+                "title": "The Monks Of Shang Village · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:53+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Imperial Officer Yu"
+              ],
+              "starts in": [
+                "Shang Village"
+              ],
+              "location": [
+                "10195, -6661, 2185"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Imperial Officer Yu"
+              ],
+              "previous": [
+                "Report To Officer Yu"
+              ],
+              "next": [
+                "Master Fhungusu"
+              ],
+              "repeatable": [
+                "No"
+              ],
+              "rating": [
+                "0.0"
+              ],
+              "coin reward": [
+                "20"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Shang Village",
+                "url": "https://vgsoharchive.com/zones/shang-village"
+              },
+              {
+                "name": "Imperial Officer Yu",
+                "url": "https://vgsoharchive.com/mobs/imperial-officer-yu"
+              },
+              {
+                "name": "Report To Officer Yu",
+                "url": "https://vgsoharchive.com/quests/report-to-officer-yu"
+              },
+              {
+                "name": "Master Fhungusu",
+                "url": "https://vgsoharchive.com/quests/master-fhungusu"
+              },
+              {
+                "name": "Shang Mask of Dignity",
+                "url": "https://vgsoharchive.com/items/shang-mask-of-dignity"
+              },
+              {
+                "name": "Shang Mask of Hermits",
+                "url": "https://vgsoharchive.com/items/shang-mask-of-hermits"
+              },
+              {
+                "name": "Shang Mask of Honor",
+                "url": "https://vgsoharchive.com/items/shang-mask-of-honor"
+              },
+              {
+                "name": "Shang Mask of Humility",
+                "url": "https://vgsoharchive.com/items/shang-mask-of-humility"
+              }
+            ],
+            "type": "quest",
+            "level": 2,
+            "zone": "Shang Village",
+            "giver": "Imperial Officer Yu",
+            "turn_in": "Imperial Officer Yu",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": false,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Report To Officer Yu",
+            "chain_next": "Master Fhungusu",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "source_url": "https://vgsoharchive.com/quests/the-monks-of-shang-village",
+      "observation": "Primary objective Slay 4 Shang Monks agrees in count with the Fandom-attributed Shang Monks Slain (4) variant. Description includes speaking to Imperial Officer Yu before and after the kills; these are separately retained prose steps, not proof of enforced client objectives.",
+      "operative_objective_definition": null
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/the-monks-of-shang-village",
+      "observation": "Starts with and Hand in to both display Imperial Officer Yu. Previous displays Report To Officer Yu and Next displays Master Fhungusu. Neither navigation label establishes enforced prerequisites or a connection to The Ra’Jin Grand Master.",
+      "enforced_prerequisites": null,
+      "cross_quest_identity_merge": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/the-monks-of-shang-village",
+      "observation": "The displayed location 10195, -6661, 2185 has no chunk label in this detail field. It is retained literally, without assigning an exact NPC spawn or coordinate system. Coin reward 20 has no denomination.",
+      "resolved_spawn": null,
+      "coin_copper": null
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/the-monks-of-shang-village",
+      "observation": "Source links the emulator-hosted MMODB archive. Notes attribute a Shang Village reference to Forgotten Horde wiki in 2007-2008; dialogue is attributed to Fandom. These are cached archive transcriptions, not independently fetched corroborating sources. Offering, carrying and finishing dialogue retain source order and attribution.",
+      "original_sources_verified": false,
+      "historical_patch": null
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/the-ra-jin-grand-master",
+      "observation": "Previous displays The Final Tests Of Jin; Starts with displays Shaof. No Next or Hand in to detail is present. Grandmaster Nahuji Slain and the screenshot-attributed (1) variant are separate displays. Notes describe top of the tower while offering dialogue describes a secret room in the center of the fortress. No connection to the Shang monk quest is established by these fields.",
+      "resolved_spawn": null,
+      "resolved_turn_in": null,
+      "enforced_prerequisites": null
+    },
+    {
+      "observation": "Reward tooltips were separately extracted in SHANG_MASK_COLLISIONS_ITERATION228.json. This review retains the full source reward HTML but does not infer item choice count, historical item identity, binding trigger or complete reward mechanics.",
+      "operative_reward_definition": null
+    }
+  ],
+  "checkpoint_reconciliation": {
+    "authoritative_inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0,
+    "persisted_interval_seconds": 60.0,
+    "collector_lock_exists": false
+  },
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected combined suspension reset/push/restart: blocked by policy. No more specific disposition supplied.",
+    "resumption_conditions": "Recorded policy disposition permitting resumption, then inspect process and lock and use collection.ps1 with preserved queues and 60-second interval."
+  },
+  "validation": {
+    "issues": [],
+    "cached_pages": 2,
+    "literal_observations_verified": 34,
+    "full_archive_records_verified": 4,
+    "input_hashes_verified": 5
+  },
+  "remaining_review": {
+    "required_review_complete": false,
+    "collection_complete": false,
+    "global_semantic_review_count": null,
+    "global_semantic_review_count_note": "URL checkpoint counts do not count completed semantic reviews.",
+    "next_actionable_batch": "Review cached Shang Village dialogue attributions and named NPC references against available source records without identity merges."
+  }
+}

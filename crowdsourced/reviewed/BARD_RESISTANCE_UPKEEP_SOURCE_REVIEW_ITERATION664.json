@@ -1,0 +1,276 @@
+{
+  "review_kind": "bard_resistance_interval_energy_upkeep_source_review",
+  "input": {
+    "path": "reviewed/BARD_NUMERIC_PATTERN_COVERAGE_ITERATION663.json",
+    "sha256": "456ddec8f74588cd84896b59fcfadd3fb5ac823b0db74dda708d3311651aebd8"
+  },
+  "parser_version": 73,
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Feos' Revolution of the Seasons",
+      "source_url": "https://vgsoharchive.com/abilities/feos-revolution-of-the-seasons",
+      "cache": {
+        "path": ".cache/archive/23410e026c4488ba27c0ca566651a773140af69144987f4c5a774ec183cc55d2.txt",
+        "sha256": "e5254d537dbcdad85bea291b2355480ead8e7bcb7850bfea3c1270342c274af6"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 13,
+          "record_sha256": "321f575b8ffdf60d6cc637815a11e3ce1c5780ceb47a46f5007d97ccb5fc240c"
+        }
+      ],
+      "effect_sections": [
+        "Protects you and your group from the elements, increasing your fire, cold and physical resistances by 12 to 16, depending on your level. Costs 6/sec energy."
+      ],
+      "observations": [
+        {
+          "literal": "Protects you and your group from the elements, increasing your fire, cold and physical resistances by 12 to 16, depending on your level. Costs 6/sec energy.",
+          "text_sha256": "ef7428912a977bb35497068f7d0cbfec782f6ac84f4b8977c13b195a85466923",
+          "resistance_range_recorded": {
+            "minimum": 12,
+            "maximum": 16,
+            "resistance_types_literal": [
+              "fire",
+              "cold",
+              "physical"
+            ]
+          },
+          "target_phrase_recorded": "you and your group",
+          "scaling_phrase_recorded": "depending on your level",
+          "level_scaling_formula": null,
+          "energy_upkeep_recorded": {
+            "amount": 6,
+            "amount_literal": "6",
+            "unit_literal": "/sec",
+            "resource_literal": "energy"
+          },
+          "stacking_formula": null,
+          "instrument_scaling": null,
+          "operative_values": null,
+          "recognized_effect_facts": []
+        }
+      ],
+      "whole_page_replay": {
+        "name": "Feos' Revolution of the Seasons",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/feos-revolution-of-the-seasons",
+            "title": "Feos' Revolution of the Seasons · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 73,
+        "collected_at": "2026-10-19T20:25:06+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "35"
+          ],
+          "level": [
+            "35"
+          ],
+          "energy cost": [
+            "6"
+          ],
+          "song portion": [
+            "Bridge"
+          ],
+          "type": [
+            "Bridge"
+          ],
+          "instrument": [
+            "Wind"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 35,
+        "rank": null,
+        "category": "Bridge",
+        "cost": {
+          "energy": 6
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": null,
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 35,
+            "raw": "35"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+        ],
+        "cost_observations": {
+          "energy": [
+            6
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+        ]
+      }
+    },
+    {
+      "name": "Feos' Segue of the Solace",
+      "source_url": "https://vgsoharchive.com/abilities/feos-segue-of-the-solace",
+      "cache": {
+        "path": ".cache/archive/c43037baaaa5bdaa53f7f3433f8a6ce304872ca33a7c46d6b81d5975ece5b537.txt",
+        "sha256": "d0d2bdfcc230dbceab7809eb06138d6b42a1e92944deccd9483824eda7329c34"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "5bf18503d8926c499b2b5cf737f59a7c82228d6087d55160c4e86f47ef0f611c"
+        }
+      ],
+      "effect_sections": [
+        "Surrounds you and your group with shielding sound, increasing your arcane, mental and spiritual resistance by 12 to 16, depending on your level. Costs ?/sec energy."
+      ],
+      "observations": [
+        {
+          "literal": "Surrounds you and your group with shielding sound, increasing your arcane, mental and spiritual resistance by 12 to 16, depending on your level. Costs ?/sec energy.",
+          "text_sha256": "eeafb38ad6a7a4afad0938f5f4971dfcc3d86328a0cd211340a16ccb2fa79766",
+          "resistance_range_recorded": {
+            "minimum": 12,
+            "maximum": 16,
+            "resistance_types_literal": [
+              "arcane",
+              "mental",
+              "spiritual"
+            ]
+          },
+          "target_phrase_recorded": "you and your group",
+          "scaling_phrase_recorded": "depending on your level",
+          "level_scaling_formula": null,
+          "energy_upkeep_recorded": {
+            "amount": null,
+            "amount_literal": "?",
+            "unit_literal": "/sec",
+            "resource_literal": "energy"
+          },
+          "stacking_formula": null,
+          "instrument_scaling": null,
+          "operative_values": null,
+          "recognized_effect_facts": []
+        }
+      ],
+      "whole_page_replay": {
+        "name": "Feos' Segue of the Solace",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/feos-segue-of-the-solace",
+            "title": "Feos' Segue of the Solace · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 73,
+        "collected_at": "2026-10-19T20:25:06+00:00",
+        "archive_fields": {
+          "level": [
+            "40"
+          ],
+          "song portion": [
+            "?"
+          ],
+          "type": [
+            "?"
+          ],
+          "instrument": [
+            "?"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 40,
+        "rank": null,
+        "category": "?",
+        "cost": null,
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": null,
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+        ]
+      }
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 2,
+    "source_record_hashes_verified": 2,
+    "literal_hashes_verified": 2,
+    "whole_page_replays": 2,
+    "issues": 0,
+    "unittest": {
+      "command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+      "tests_passed": 249
+    }
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Single archive transcription does not establish historical mechanics.",
+    "Resistance endpoints and level dependence are printed; level mapping, rank, formula and operative resistance remain unknown.",
+    "Segue upkeep is explicitly unknown (?); Revolution prints 6/sec energy. Neither establishes actual consumption mechanics.",
+    "Original batches remain immutable."
+  ],
+  "next_step": "Implement and test constrained level-dependent resistance intervals and energy upkeep, retaining question-mark upkeep as null."
+}

@@ -1,0 +1,697 @@
+{
+  "review_kind": "bard_cure_and_dispel_source_review",
+  "parser_version": 77,
+  "input": {
+    "path": "reviewed/BARD_NONNUMERIC_EFFECT_COVERAGE_ITERATION671.json",
+    "sha256": "538f4a543182734d4d9b2024e6dc74d56f20976d0efbe8b83da03e021856abd6"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Strain of Purification",
+      "source_url": "https://vgsoharchive.com/abilities/strain-of-purification",
+      "cache": {
+        "path": ".cache/archive/c3aaee832de7b8b83536a4dc2d5051b88b90462d0a89a8dd7303418a9cfeb3ca.txt",
+        "sha256": "19f83e3f54634008138272a9ceac4750d537bd03d52d7479cd4d35746d9b1d00"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 66,
+          "record_sha256": "d285b504971b5fb916bb83f8e1c2182736243f8ca65163b6fb539e04499f4b39"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This voice lyric cures a friendly target of disease. The cure is slow, but constant.",
+          "literal_sha256": "38a68f639821303dbbddf576bf23bc2b1778175013976a65642949c1c0cec45a",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "action_reported": "cure",
+            "condition_reported": "disease",
+            "target_reported": "friendly target",
+            "timing_qualifier_reported": "slow but constant",
+            "enchantment_qualifier_reported": null,
+            "cure_count": null,
+            "pulse_interval_seconds": null,
+            "duration_seconds": null,
+            "dispel_strength": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Strain of Purification",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/strain-of-purification",
+              "title": "Strain of Purification · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 77,
+          "collected_at": "2026-10-19T21:21:00+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "20"
+            ],
+            "level": [
+              "20"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 20,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This voice lyric cures a friendly target of disease. The cure is slow, but constant.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 20,
+              "raw": "20"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com:80/spells/strain-of-purification-134.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Asilam's Anti-Venom Aria",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-anti-venom-aria",
+      "cache": {
+        "path": ".cache/archive/4e034141f04e226c2e49947bf407b7874d9b92aa45e38073a89a76cdb5223371.txt",
+        "sha256": "e2455a3035df0e255148b55a37ee0274da88db1310a1bfe353da33598485cfcf"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 72,
+          "record_sha256": "2f7d5fc22c69d616c1801ce0b27c5150878f9cb600c4e5321d8df40bd1ad0087"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This voice lyric cures a friendly target of poison. The cure is slow, but constant.",
+          "literal_sha256": "50cb654bf3386ed1c8733df52bdf19f9c8a66b7a8cebdd846edc9b4c0b451097",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "action_reported": "cure",
+            "condition_reported": "poison",
+            "target_reported": "friendly target",
+            "timing_qualifier_reported": "slow but constant",
+            "enchantment_qualifier_reported": null,
+            "cure_count": null,
+            "pulse_interval_seconds": null,
+            "duration_seconds": null,
+            "dispel_strength": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Asilam's Anti-Venom Aria",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/asilam-s-anti-venom-aria",
+              "title": "Asilam's Anti-Venom Aria · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 77,
+          "collected_at": "2026-10-19T21:21:00+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "23"
+            ],
+            "level": [
+              "23"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 23,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This voice lyric cures a friendly target of poison. The cure is slow, but constant.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 23,
+              "raw": "23"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/asilams-anti-venom-aria-139.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Asilam's Disenchanting Cry I",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-disenchanting-cry-i",
+      "cache": {
+        "path": ".cache/archive/6b9972b873e996fe2366a9017ecb6692a4a972ef1d26eced1cf44b8c8e710590.txt",
+        "sha256": "9231453a98f6fa94f50e6ed1a318bbbb2c31d1a2781ec839fe40ed50f2c845d6"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 79,
+          "record_sha256": "71995e4dac88a636cf8a15d7d62c5dc3ae24d2ba58d83e07b86b303c2df5e240"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Strips a lesser enchantment from your opponent.",
+          "literal_sha256": "485abe80d83ab6b2b672f76ee91d2f04c535b3922e49d1feccc1b472e59c728f",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "action_reported": "strip_enchantment",
+            "condition_reported": "enchantment",
+            "target_reported": "opponent",
+            "timing_qualifier_reported": null,
+            "enchantment_qualifier_reported": "lesser",
+            "cure_count": null,
+            "pulse_interval_seconds": null,
+            "duration_seconds": null,
+            "dispel_strength": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Asilam's Disenchanting Cry I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/asilam-s-disenchanting-cry-i",
+              "title": "Asilam's Disenchanting Cry I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 77,
+          "collected_at": "2026-10-19T21:21:00+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "28"
+            ],
+            "level": [
+              "28"
+            ],
+            "energy cost": [
+              "103"
+            ],
+            "cast time": [
+              "1.5"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Shout"
+            ],
+            "icon": [
+              "Icon659.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 28,
+          "rank": "I",
+          "category": "Shout",
+          "cost": {
+            "energy": 103
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Strips a lesser enchantment from your opponent.",
+          "icon_name": "Icon659.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 28,
+              "raw": "28"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              103
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Asilam's Disenchanting Strain",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-disenchanting-strain",
+      "cache": {
+        "path": ".cache/archive/94e58f296305f6fa02e1dc87a564b924a2d1e61f2f6a8fa07505edb78c81a311.txt",
+        "sha256": "6627302b172145a162bedd12f8a1db725e847860e899a6fdb00b74ded4d17528"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 82,
+          "record_sha256": "90b86613d78c8ff2f712392463160bfc2c5c48c3d4caa435b7b6e2982e6173d6"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This voice lyric removes enchantment effects over time from a friendly target.",
+          "literal_sha256": "e407ea75ff83204fc610b6f13cb2df28e83a3a28acb59208b6483d953b46efdd",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "action_reported": "remove_enchantment_effects",
+            "condition_reported": "enchantment effects",
+            "target_reported": "friendly target",
+            "timing_qualifier_reported": "over time",
+            "enchantment_qualifier_reported": null,
+            "cure_count": null,
+            "pulse_interval_seconds": null,
+            "duration_seconds": null,
+            "dispel_strength": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Asilam's Disenchanting Strain",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/asilam-s-disenchanting-strain",
+              "title": "Asilam's Disenchanting Strain · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 77,
+          "collected_at": "2026-10-19T21:21:00+00:00",
+          "archive_fields": {
+            "level": [
+              "28"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 28,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This voice lyric removes enchantment effects over time from a friendly target.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/asilams-disenchanting-strain-147.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Asilam's Disenchanting Cry II",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-disenchanting-cry-ii",
+      "cache": {
+        "path": ".cache/archive/81d8777899883ea3adf1496052d169865dc8486e24426dbc5516490142f4055a.txt",
+        "sha256": "7abda8c9be7bc3693b092b79139779eab6f72cf70520e74deb2aa0550b1c9cf2"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 80,
+          "record_sha256": "0bb238878baccbedfdb6875df70725abe75f014a6c1e05205ba1586e6a51b116"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Strips an enchantment from your opponent.",
+          "literal_sha256": "82dcdb528a1d9684d453655d9fbce20108b0d0ab6380ceb70234d8585c64778e",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "action_reported": "strip_enchantment",
+            "condition_reported": "enchantment",
+            "target_reported": "opponent",
+            "timing_qualifier_reported": null,
+            "enchantment_qualifier_reported": null,
+            "cure_count": null,
+            "pulse_interval_seconds": null,
+            "duration_seconds": null,
+            "dispel_strength": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Asilam's Disenchanting Cry II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/asilam-s-disenchanting-cry-ii",
+              "title": "Asilam's Disenchanting Cry II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 77,
+          "collected_at": "2026-10-19T21:21:00+00:00",
+          "archive_fields": {
+            "level": [
+              "38"
+            ],
+            "energy cost": [
+              "136"
+            ],
+            "cast time": [
+              "1.5"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Shout"
+            ],
+            "icon": [
+              "Icon659.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 38,
+          "rank": "II",
+          "category": "Shout",
+          "cost": {
+            "energy": 136
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Strips an enchantment from your opponent.",
+          "icon_name": "Icon659.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "cost_observations": {
+            "energy": [
+              136
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Asilam's Disenchanting Cry III",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-disenchanting-cry-iii",
+      "cache": {
+        "path": ".cache/archive/5eb1cbee9ce2d6257906ac8b676a3bce0a6e44963cb027bdf50641fff689d7af.txt",
+        "sha256": "c16552dfd7c84b475e5bb0b439b591863e08900b38ddec70c6d8e749340e4e85"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 81,
+          "record_sha256": "a5f70c2ae757f5fec39d004bb0b9b918a2eea09abde26d29fd83eee19dfa95f2"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Strips a greater enchantment from your opponent.",
+          "literal_sha256": "811982a48c8418944243899d594430231753de9f1fb761b2a50da04b71e76827",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "action_reported": "strip_enchantment",
+            "condition_reported": "enchantment",
+            "target_reported": "opponent",
+            "timing_qualifier_reported": null,
+            "enchantment_qualifier_reported": "greater",
+            "cure_count": null,
+            "pulse_interval_seconds": null,
+            "duration_seconds": null,
+            "dispel_strength": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Asilam's Disenchanting Cry III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/asilam-s-disenchanting-cry-iii",
+              "title": "Asilam's Disenchanting Cry III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 77,
+          "collected_at": "2026-10-19T21:21:00+00:00",
+          "archive_fields": {
+            "level": [
+              "48"
+            ],
+            "energy cost": [
+              "169"
+            ],
+            "cast time": [
+              "1.5"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Shout"
+            ],
+            "icon": [
+              "Icon659.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 48,
+          "rank": "III",
+          "category": "Shout",
+          "cost": {
+            "energy": 169
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Strips a greater enchantment from your opponent.",
+          "icon_name": "Icon659.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "cost_observations": {
+            "energy": [
+              169
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 6,
+    "source_record_hashes_verified": 6,
+    "literal_hashes_verified": 6,
+    "whole_page_replays": 6,
+    "issues": 0,
+    "required_unittest_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+    "tests_passed": 257
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process show no collector; only unrelated login_stub.py and multiprocessing child",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "review_accounting": {
+    "previous_unreviewed_nonnumeric_sections": 34,
+    "source_sections_reviewed_here": 6,
+    "remaining_unreviewed_nonnumeric_sections": 28,
+    "reviewed_sections_awaiting_parser_implementation": 6
+  },
+  "limitations": [
+    "Cure count, pulse timing, duration, resistance checks and dispel strength are unspecified and remain null.",
+    "Lesser and greater are literal qualifiers, not inferred numeric ranks or dispel strength.",
+    "Unqualified enchantment in Cry II does not establish a tier between lesser and greater.",
+    "Slow but constant and over time do not establish pulse mechanics.",
+    "These are archive source reports, without independent historical authentication; original batches and checkpoints unchanged."
+  ],
+  "next_step": "Implement and test constrained cure and dispel tooltip observations for these six hash-verified Bard sources."
+}

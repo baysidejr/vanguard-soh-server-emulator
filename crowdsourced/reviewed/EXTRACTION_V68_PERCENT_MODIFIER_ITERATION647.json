@@ -1,0 +1,724 @@
+{
+  "review_kind": "parser_v68_percent_modifier_cached_replay",
+  "input": {
+    "path": "reviewed/BARD_PERCENT_MODIFIER_SOURCE_REVIEW_ITERATION646.json",
+    "sha256": "3fbfacc40fb19770d5b38836b7a3252b2ac93a0cb1c82eeee3d2bd476bcb6aad"
+  },
+  "parser_version": 68,
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "source_review": {
+        "name": "Aria of Calm Thoughts",
+        "source_url": "https://vgsoharchive.com/abilities/aria-of-calm-thoughts",
+        "cache": {
+          "path": ".cache/archive/cc53ca3f587cba8949e3de6b6f210faa915e006413f4fdd343ea01b95b60f0d0.txt",
+          "sha256": "e84c96b19616dd0d83abc643ffd33fb5bfc1fd62ddb94ff78b05294483d52ed1"
+        },
+        "source_references": [
+          {
+            "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+            "line": 1,
+            "record_sha256": "ca38f0406cf2e96a30f415741bf826440869c4de86cb51977e442500979c9198"
+          }
+        ],
+        "effect_sections": [
+          "Increases spell accuracy and damage by 3% and spell critical chance by 2%. This component can only be used once in a song."
+        ],
+        "observations": [
+          {
+            "literal": "Increases spell accuracy and damage by 3% and spell critical chance by 2%. This component can only be used once in a song.",
+            "text_sha256": "2cf42b63d6e9f653011f7df905dc19c4de6aba1634508659d03c8fea21ac224c",
+            "modifiers_recorded": [
+              {
+                "attribute_recorded": "spell accuracy",
+                "direction_recorded": "increase",
+                "percent_recorded": 3
+              },
+              {
+                "attribute_recorded": "spell damage",
+                "direction_recorded": "increase",
+                "percent_recorded": 3
+              },
+              {
+                "attribute_recorded": "spell critical chance",
+                "direction_recorded": "increase",
+                "percent_recorded": 2
+              }
+            ],
+            "target_phrase_recorded": null,
+            "restriction_phrase_recorded": "This component can only be used once in a song.",
+            "duration": null,
+            "percentage_calculation": null,
+            "stacking_formula": null,
+            "instrument_scaling": null,
+            "operative_values": null,
+            "recognized_effect_facts": []
+          }
+        ],
+        "whole_page_replay": {
+          "name": "Aria of Calm Thoughts",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/aria-of-calm-thoughts",
+              "title": "Aria of Calm Thoughts \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 67,
+          "collected_at": "2026-10-19T18:33:54+00:00",
+          "archive_fields": {
+            "level in 2007-2008": [
+              "15"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "0"
+            ],
+            "level": [
+              "15"
+            ],
+            "energy cost": [
+              "6"
+            ],
+            "song portion": [
+              "Chorus"
+            ],
+            "cast time": [
+              "0"
+            ],
+            "refresh": [
+              "0s"
+            ],
+            "range": [
+              "5m"
+            ],
+            "type": [
+              "Song Component"
+            ],
+            "instrument": [
+              "Brass"
+            ],
+            "learned from": [
+              "Automatic"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 15,
+          "rank": null,
+          "category": "Song Component",
+          "cost": {
+            "energy": 6
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": 0,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Increases spell accuracy and damage by 3% and spell critical chance by 2%. This component can only be used once in a song.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 15,
+              "raw": "15"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+          ],
+          "cost_observations": {
+            "energy": [
+              6
+            ]
+          },
+          "timing_observations": {
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "0s",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": "Automatic",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:aria-of-calm-thoughts"
+          ]
+        }
+      },
+      "replay_record": {
+        "name": "Aria of Calm Thoughts",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/aria-of-calm-thoughts",
+            "title": "Aria of Calm Thoughts \u00b7 Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 68,
+        "collected_at": "2026-10-19T18:40:11+00:00",
+        "archive_fields": {
+          "level in 2007-2008": [
+            "15"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "15"
+          ],
+          "energy cost": [
+            "6"
+          ],
+          "song portion": [
+            "Chorus"
+          ],
+          "cast time": [
+            "0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "instrument": [
+            "Brass"
+          ],
+          "learned from": [
+            "Automatic"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 15,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 6
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Increases spell accuracy and damage by 3% and spell critical chance by 2%. This component can only be used once in a song.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 15,
+            "raw": "15"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            6
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Automatic",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "percent_modifier_tooltip_observation",
+                "modifiers_recorded": [
+                  {
+                    "attribute_recorded": "spell accuracy",
+                    "direction_recorded": "increase",
+                    "percent_recorded": 3
+                  },
+                  {
+                    "attribute_recorded": "spell damage",
+                    "direction_recorded": "increase",
+                    "percent_recorded": 3
+                  },
+                  {
+                    "attribute_recorded": "spell critical chance",
+                    "direction_recorded": "increase",
+                    "percent_recorded": 2
+                  }
+                ],
+                "target_phrase_recorded": null,
+                "restriction_phrase_recorded": "This component can only be used once in a song.",
+                "duration": null,
+                "percentage_calculation": null,
+                "stacking_formula": null,
+                "instrument_scaling": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:aria-of-calm-thoughts"
+        ]
+      },
+      "parsed_observations": [
+        {
+          "kind": "percent_modifier_tooltip_observation",
+          "modifiers_recorded": [
+            {
+              "attribute_recorded": "spell accuracy",
+              "direction_recorded": "increase",
+              "percent_recorded": 3
+            },
+            {
+              "attribute_recorded": "spell damage",
+              "direction_recorded": "increase",
+              "percent_recorded": 3
+            },
+            {
+              "attribute_recorded": "spell critical chance",
+              "direction_recorded": "increase",
+              "percent_recorded": 2
+            }
+          ],
+          "target_phrase_recorded": null,
+          "restriction_phrase_recorded": "This component can only be used once in a song.",
+          "duration": null,
+          "percentage_calculation": null,
+          "stacking_formula": null,
+          "instrument_scaling": null,
+          "operative_values": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "disposition": "research_observation_only_operative_values_withheld"
+    },
+    {
+      "source_review": {
+        "name": "Tynen's March of the Mire",
+        "source_url": "https://vgsoharchive.com/abilities/tynen-s-march-of-the-mire",
+        "cache": {
+          "path": ".cache/archive/8f1ab7117eabd8f1f8ef2eaf8603ad68fa6a22e0a6f058a08d262ce0dee2064c.txt",
+          "sha256": "e5ee18ed13c1948970d6f225552485bdad4cee6bbf0f09392bdaa8ce96c82224"
+        },
+        "source_references": [
+          {
+            "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+            "line": 90,
+            "record_sha256": "0d9c5e6f57e647201ffe422265d06fd42b8c70babbbba9f7d3e0d69a788596e6"
+          }
+        ],
+        "effect_sections": [
+          "Reduces your opponent's attack speed by 15% and movement by 60%. Does not stack with other snaring components."
+        ],
+        "observations": [
+          {
+            "literal": "Reduces your opponent's attack speed by 15% and movement by 60%. Does not stack with other snaring components.",
+            "text_sha256": "13ab5ca0f32c14489e8e287eaa11456fb7909e6b39c0a46c689d7b71b76687ff",
+            "modifiers_recorded": [
+              {
+                "attribute_recorded": "attack speed",
+                "direction_recorded": "reduction",
+                "percent_recorded": 15
+              },
+              {
+                "attribute_recorded": "movement",
+                "direction_recorded": "reduction",
+                "percent_recorded": 60
+              }
+            ],
+            "target_phrase_recorded": "your opponent",
+            "restriction_phrase_recorded": "Does not stack with other snaring components.",
+            "duration": null,
+            "percentage_calculation": null,
+            "stacking_formula": null,
+            "instrument_scaling": null,
+            "operative_values": null,
+            "recognized_effect_facts": []
+          }
+        ],
+        "whole_page_replay": {
+          "name": "Tynen's March of the Mire",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/tynen-s-march-of-the-mire",
+              "title": "Tynen's March of the Mire \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 67,
+          "collected_at": "2026-10-19T18:33:54+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "21"
+            ],
+            "level in 2007-2008": [
+              "21"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "0"
+            ],
+            "level": [
+              "21"
+            ],
+            "energy cost": [
+              "2"
+            ],
+            "song portion": [
+              "Melody"
+            ],
+            "cast time": [
+              "0"
+            ],
+            "refresh": [
+              "0s"
+            ],
+            "range": [
+              "5m"
+            ],
+            "type": [
+              "Song Component"
+            ],
+            "learned from": [
+              "Automatic"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 21,
+          "rank": null,
+          "category": "Song Component",
+          "cost": {
+            "energy": 2
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": 0,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Reduces your opponent's attack speed by 15% and movement by 60%. Does not stack with other snaring components.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 21,
+              "raw": "21"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 21,
+              "raw": "21"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+          ],
+          "cost_observations": {
+            "energy": [
+              2
+            ]
+          },
+          "timing_observations": {
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "0s",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": "Automatic",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:tynen-s-march-of-the-mire"
+          ]
+        }
+      },
+      "replay_record": {
+        "name": "Tynen's March of the Mire",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/tynen-s-march-of-the-mire",
+            "title": "Tynen's March of the Mire \u00b7 Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 68,
+        "collected_at": "2026-10-19T18:40:11+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "21"
+          ],
+          "level in 2007-2008": [
+            "21"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "21"
+          ],
+          "energy cost": [
+            "2"
+          ],
+          "song portion": [
+            "Melody"
+          ],
+          "cast time": [
+            "0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "learned from": [
+            "Automatic"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 21,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 2
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Reduces your opponent's attack speed by 15% and movement by 60%. Does not stack with other snaring components.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 21,
+            "raw": "21"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 21,
+            "raw": "21"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            2
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Automatic",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "percent_modifier_tooltip_observation",
+                "modifiers_recorded": [
+                  {
+                    "attribute_recorded": "attack speed",
+                    "direction_recorded": "reduction",
+                    "percent_recorded": 15
+                  },
+                  {
+                    "attribute_recorded": "movement",
+                    "direction_recorded": "reduction",
+                    "percent_recorded": 60
+                  }
+                ],
+                "target_phrase_recorded": "your opponent",
+                "restriction_phrase_recorded": "Does not stack with other snaring components.",
+                "duration": null,
+                "percentage_calculation": null,
+                "stacking_formula": null,
+                "instrument_scaling": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:tynen-s-march-of-the-mire"
+        ]
+      },
+      "parsed_observations": [
+        {
+          "kind": "percent_modifier_tooltip_observation",
+          "modifiers_recorded": [
+            {
+              "attribute_recorded": "attack speed",
+              "direction_recorded": "reduction",
+              "percent_recorded": 15
+            },
+            {
+              "attribute_recorded": "movement",
+              "direction_recorded": "reduction",
+              "percent_recorded": 60
+            }
+          ],
+          "target_phrase_recorded": "your opponent",
+          "restriction_phrase_recorded": "Does not stack with other snaring components.",
+          "duration": null,
+          "percentage_calculation": null,
+          "stacking_formula": null,
+          "instrument_scaling": null,
+          "operative_values": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "disposition": "research_observation_only_operative_values_withheld"
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 2,
+    "source_record_hashes_verified": 2,
+    "literal_hashes_verified": 2,
+    "whole_page_replays": 2,
+    "issues": 0,
+    "tests": {
+      "command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+      "passed": 239
+    }
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "next_step": "Review remaining numeric Bard tooltips without recognized effect patterns in the iteration645 coverage audit."
+}

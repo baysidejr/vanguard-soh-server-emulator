@@ -1,0 +1,819 @@
+{
+  "review_kind": "dread_knight_cost_difference_cached_source_review",
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "inputs": [
+    {
+      "path": "reviewed/DREAD_KNIGHT_DETAIL_FIELD_COMPARISON_ITERATION403.json",
+      "sha256": "0af54639c2fe57ddb8a821d6db2694c5d840564a0d62ff061254eb54afebd224"
+    },
+    {
+      "path": "reviewed/DREAD_KNIGHT_LANDING_PAGE_COVERAGE_ITERATION367.json",
+      "sha256": "f0bf7d70a1ff57561cefa25394069645bea2db6a1a8064713f3fce788388d4de"
+    }
+  ],
+  "typed_corpus_files": [
+    {
+      "path": "raw/2026-10-13-213223-406049-archive-enriched-v2/ability.jsonl",
+      "sha256": "a10f811ac5bfc2084cf0eba3ea3305c9ee7e4b9235d8477e4d2ad44c14ea5120"
+    },
+    {
+      "path": "raw/2026-10-13-214014-456434-archive-bulk/ability.jsonl",
+      "sha256": "b9dd2be375e11c1d344166e51c5fe33371f4e846fbd627f1fc3bac32323c6487"
+    },
+    {
+      "path": "raw/2026-10-13-214736-136367-archive-bulk/ability.jsonl",
+      "sha256": "e275a8238bebf0093aa8b279473688b96ac4c9e9781c21b08b637baa790d460c"
+    },
+    {
+      "path": "raw/2026-10-13-214748-908906-archive-enriched-v3/ability.jsonl",
+      "sha256": "fa071e9cea3a26c50a24fd963fb36339362bafac2a650cea28a803d5d36aa3ba"
+    },
+    {
+      "path": "raw/2026-10-13-215037-057896-archive-enriched-v3/ability.jsonl",
+      "sha256": "5d05fe0ff7620c3ccb95a8106f04932b28cf7a55c628185278f675f6a1d8d75d"
+    },
+    {
+      "path": "raw/2026-10-13-215552-162528-archive-bulk/ability.jsonl",
+      "sha256": "29511af10dc0c88c7f9be33b5b06d8593846e0589c6c23829f516ce66bf894d7"
+    },
+    {
+      "path": "raw/2026-10-13-220412-188271-archive-bulk/ability.jsonl",
+      "sha256": "053bacefda830f1bc7d15d26149624cdbbd5887e8c98c5e2e1d250a33cadb3d5"
+    },
+    {
+      "path": "raw/2026-10-13-221232-209491-archive-bulk/ability.jsonl",
+      "sha256": "25cf7152c26a1f1e3bd615738a04107f9255c34b2683ffa7b134fca2cfdc8f29"
+    },
+    {
+      "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+      "sha256": "7b4e164cc25cab1658d7f9bed657faa55eb3bb172aafe2b13f901bbb0935becd"
+    },
+    {
+      "path": "raw/2026-10-13-221620-410288-archive-bulk/ability.jsonl",
+      "sha256": "0344dab5366d788b046044b3f0017d299d3410ec7360655ab43dbf72ab9f5f96"
+    },
+    {
+      "path": "raw/2026-10-13-222359-454426-archive-bulk/ability.jsonl",
+      "sha256": "3a052732cb55ed0c24098195b33f698012b7c46f90da3819dead5e4689c6c820"
+    },
+    {
+      "path": "raw/2026-10-13-222443-632404-archive-bulk/ability.jsonl",
+      "sha256": "3ec34061284ecf93c4b235b2ab088cc064997ba476210c51e0856b485ef11ca8"
+    },
+    {
+      "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+      "sha256": "ad6a7fa36da09725e8a7a8307e292b6571ad797f148e13f37dbe1637251465cb"
+    },
+    {
+      "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+      "sha256": "6e365907cb0113e51a73b9d0aedf485e5b15edd1a5a7e1e8a30bdd6de7ca4c1e"
+    },
+    {
+      "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+      "sha256": "47ad1508de806df0a8e1bc902e5f7fef075a4b3aefb4f23db54ad105687462fc"
+    },
+    {
+      "path": "raw/2026-10-13-224225-751455-archive-item-effects-v8/ability.jsonl",
+      "sha256": "5d316f74516053d57b8c851565527f2e6b79465a433a405dc3735bb38874b209"
+    },
+    {
+      "path": "raw/2026-10-13-224520-125263-archive-bulk/ability.jsonl",
+      "sha256": "72827bdb82e7f7470a31cf333fd9e84034446ab339e0dfb25d02ccd6277a4200"
+    },
+    {
+      "path": "raw/2026-10-13-224806-088768-archive-bulk/ability.jsonl",
+      "sha256": "e58e36e0a90023f6de53f5bbfcb3ec76ba37ce9c7f5d97637ad03b83e52de454"
+    },
+    {
+      "path": "raw/2026-10-13-224932-447760-archive-bulk/ability.jsonl",
+      "sha256": "ff5e2837c41f6a87a28a6cdde449430cfea1f3e98c631be70db3a374b06014df"
+    },
+    {
+      "path": "raw/2026-10-13-225120-105226-archive-historical-levels-v12/ability.jsonl",
+      "sha256": "fc3f3a29c1d410a8064de50368edba187ffdbf4cbc07865d047134dc1eec4375"
+    },
+    {
+      "path": "raw/2026-10-13-225130-635206-archive-bulk/ability.jsonl",
+      "sha256": "3a60c98aeda0f8a3db68ce14bdabb31cdf2ca328315b38f490788f05f277977d"
+    },
+    {
+      "path": "raw/2026-10-13-225313-129033-archive-bulk/ability.jsonl",
+      "sha256": "1f963fbb036d6330dc6971e515c93e576e7d58d524de030473577237423f0e20"
+    },
+    {
+      "path": "raw/2026-10-13-230129-767777-archive-bulk/ability.jsonl",
+      "sha256": "c9c75947ce8d2db430bc10ff2b1ffb923f9e9a5c4b5cf8eaeafeab6afc06dc56"
+    },
+    {
+      "path": "raw/2026-10-13-230323-767791-archive-healing-v14/ability.jsonl",
+      "sha256": "cce21296c3b8264737f1808a595bcc6e879c6bb79d5c9005c593df831f711428"
+    },
+    {
+      "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+      "sha256": "de9de40f5c5aa3ec9faa950cd874cdb93ed0a86a543ea49a2bb2e3a807b3fcfc"
+    },
+    {
+      "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+      "sha256": "fa5ebaea718875d47539fb0b852c3cefeabf24598151c4cf267dbfaea6b39621"
+    },
+    {
+      "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+      "sha256": "c27e9af1fa8753a309b5fbf8eebe8e3eb1b45c241bbbdbccec90fdc8bc3babc5"
+    },
+    {
+      "path": "raw/2026-10-13-234216-582177-archive-bulk/ability.jsonl",
+      "sha256": "637debeff797ae5a1a7fa769a9fbfaf2f0f367ded92df5974bac07257b7b6756"
+    },
+    {
+      "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+      "sha256": "7da9d3d9c004cc0ee46dbbbf6ff6d67f668d442793b5679aab107064446004db"
+    },
+    {
+      "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+      "sha256": "310f8d2956750e38a49f48545c349250440224faa6f742298ec6085df783d431"
+    },
+    {
+      "path": "raw/2026-10-14-000716-738417-archive-bulk/ability.jsonl",
+      "sha256": "aa6b7763ae799c44c6eb26aba1ffba965421c808a70ca8696240db19317e1242"
+    },
+    {
+      "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+      "sha256": "96535898882fe7ff6d9ec4101a17f64df5da3d5b10a13b79f51b0a1a82ddda12"
+    },
+    {
+      "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+      "sha256": "b238057baa6dc1376ade5ed755ae78e83e06f82cbbac74ac2dab25e200aa02d3"
+    },
+    {
+      "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+      "sha256": "82cccecf6852bd48e252243e19ed330dd9efe7f76bf88b6db435495e347f16ef"
+    },
+    {
+      "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+      "sha256": "8a2a30cde41b5c3057085df35d2d3ca9c4f5483915f75032e8da4564020b7aaf"
+    },
+    {
+      "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+      "sha256": "19c3a986f0985e138dab5f0544416bfb889a804f0eb6aa9903a99e21588f2f9c"
+    },
+    {
+      "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+      "sha256": "6da11b1d291ec7593025d149ddcc95e6e6e9f7e9a3f079e8f9d61cc61710f208"
+    },
+    {
+      "path": "raw/2026-10-14-013525-057925-archive-bulk/ability.jsonl",
+      "sha256": "d2a0f087e6e71190d4cedc753c549c42e890078c492b020fc00abf49a6b3da98"
+    },
+    {
+      "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+      "sha256": "2c9529a1adc7bea476d214a42fc03f95aad79068da9456240e0cfce328360bc2"
+    },
+    {
+      "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+      "sha256": "0328193409684ff32f7aa186b07e138be463f51398e708ab2c170482c26a7beb"
+    },
+    {
+      "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+      "sha256": "53c0ff1eb0099be822d342321e6ed9fd6ef28aaea004ba3fe87e046c7aacbb3b"
+    },
+    {
+      "path": "raw/2026-10-14-020845-278689-archive-bulk/ability.jsonl",
+      "sha256": "1085141f3d2ceb77e9274d8a007f905c65137a4a63de8c2aefe25e915d105ec0"
+    },
+    {
+      "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+      "sha256": "4cf3464a0252fb0313ee63f0ceccd3bbf7ea37ec99be59764af32fd47447e765"
+    },
+    {
+      "path": "raw/2026-10-14-022525-353932-archive-bulk/ability.jsonl",
+      "sha256": "e2f1e90a583f21ccb8866348add1c864a5cf0b371f6eca8f54bcf8f78440c7be"
+    },
+    {
+      "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+      "sha256": "3093ff5ee03845807b73462c578935e6e47f838ba2a8689933993d0d8e1e1517"
+    },
+    {
+      "path": "raw/2026-10-14-024205-390272-archive-bulk/ability.jsonl",
+      "sha256": "12cc900249e28bcb60e09c7630706b2a965f3f21820ee01c7acb9cb417e277da"
+    },
+    {
+      "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+      "sha256": "64d8e43ecc5ee6ed305f54be1d75bc91a9682dc32d70acaac7a901c5dca6c5cd"
+    },
+    {
+      "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+      "sha256": "96df6209eee6885f86b6e09c476d805556b15b830ae61b964f71f7ec772da320"
+    },
+    {
+      "path": "raw/2026-10-14-030921-688504-archive-bulk/ability.jsonl",
+      "sha256": "ec4da91b613fdb0a6122e295646853a58e2b3d1235bc8b723e5d5809b5095cdf"
+    },
+    {
+      "path": "raw/2026-10-14-115232-166401-archive-ability-effect-numbers-v26/ability.jsonl",
+      "sha256": "a64bf5aee2e33bb9ff11403a6760d5b540f2a06ed8de1d0709c3a9a0033c6113"
+    },
+    {
+      "path": "raw/2026-10-17-iteration156-shaman-spirit-bonds/ability.jsonl",
+      "sha256": "da9b9751aa87751924cca2d123079cc9d0ad2afe14875f79de200d94283ec4a2"
+    }
+  ],
+  "class_cache": {
+    "path": ".cache/archive/dc8398d623dd9c4aa011757cc9eab64ed4c5bd44faf6576838eab3788e78c1e9.txt",
+    "sha256": "34777604553ba269d48a82753381b39f205d895b3707592c9272101ebf187014"
+  },
+  "provenance_warning": "These are recorded here from the fan wikis, but nobody has yet opened the\n    VGO Emulator client and confirmed them. They may be exactly right, they may\n    carry figures the game never used, or they may not be in the emulator at\n    all — there is no way to tell from the sources alone.\n    \n      Of this class's 169 abilities,\n      115 have had their tooltip read in game, 45 more were seen in the\n      client's spellbook, and 4 were looked for and not\n      found .\n    \n    Where a tooltip has been read it overrides the wikis, and around four in\n    five disagreed with them — so treat the figures below with care.",
+  "rows": [
+    {
+      "printed_cells": {
+        "level": "30",
+        "ability": "Ruin II",
+        "school": "Finishing Attack",
+        "cost": "10",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "Deals 400% of weapon damage plus 239 to 255. Increases Dreadful Countenance. Only usable after Wrack."
+      },
+      "table_index": 2,
+      "row_index": 36,
+      "class_row_html": "<tr>\n<td class=\"num\">30</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/ruin-ii.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/ruin-ii\">Ruin II</a>\n</td>\n<td class=\"muted\">Finishing Attack</td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Deals 400% of weapon damage plus 239 to 255. Increases Dreadful Countenance. Only usable after Wrack.</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/ruin-ii",
+      "detail_cache": {
+        "path": ".cache/archive/a135ab4fab751297d623df9dafdf60dded909b9106192b6c314112160443bd84.txt",
+        "sha256": "a7a050bcd8a007dabee5b71bbc5fcec60589cc0514a82bcc9a2a375bda03a941"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/ruin-ii.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Ruin II\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/dread-knight\">Dread Knight</a>\n    \n    · Level 30\n    · Finishing Attack\n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Deals 400% of weapon damage plus 239 to 255. Increases Dreadful Countenance. Only usable after Wrack.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>30</dd></div>\n</dl>\n<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FDread%20Knight\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\n          \n          2007 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>32\n                <span class=\"muted\">— now 30</span></dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>30</dd></div>\n</dl>\n<div class=\"tooltip\">Lowers your offensive target's damage by 12% and accuracy by 14% for 18 sec. Cost: Submit Info Cast Time: 0 Refresh: 30 Range: 5 Wicked Strike V</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59407\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Dreadful Countenance is a debuff carried by the target, not a buff on the Dread Knight. Many abilities and procs raise it, and they stack — which is why so many tooltips mention increasing it without saying what it is.</p>\n<p class=\"muted\">Previously recorded by The Telon Project as: “Deals 400% weapon damage plus 239 to 255. Increases Dreadful Countenance. Only usable after Wrack” (http://thetelonproject.wikidot.com/abilities:ruin-ii)</p>\n<p class=\"muted\">An earlier reading from VGO Emulator, on a character with different stats, gave: “Deals 400% of weapon damage plus 239 to 255. Increases Dreadful Countenance. Only usable after Wrack”</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>30</dd></div>\n<div><dt>Endurance cost</dt><dd>10</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Requires</dt><dd>Wrack</dd></div>\n<div><dt>Type</dt><dd>Finishing Attack</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:ruin-ii\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "cost_facts": [
+        {
+          "label": "Endurance cost",
+          "value": "10",
+          "html": "<div><dt>Endurance cost</dt><dd>10</dd></div>"
+        }
+      ],
+      "snapshot_cost_projection": {
+        "endurance cost": [
+          "15"
+        ]
+      },
+      "complete_source_record": {
+        "name": "Ruin II",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/rogue-ruin-ii",
+            "title": "Ruin II · Vanguard Archive",
+            "date": null
+          },
+          {
+            "url": "https://vgsoharchive.com/abilities/ruin-ii",
+            "title": "Ruin II · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T06:15:38+00:00",
+        "archive_fields": {
+          "level": [
+            "32"
+          ],
+          "endurance cost": [
+            "15"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "27.0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "requires": [
+            "Stalking your target"
+          ],
+          "type": [
+            "Melee Attack"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Rogue",
+            "url": "https://vgsoharchive.com/classes/rogue"
+          }
+        ],
+        "type": "ability",
+        "class": "Rogue",
+        "level_learned": 32,
+        "rank": "II",
+        "category": "Melee Attack",
+        "cost": {
+          "endurance": 15
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": 27.0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Lowers your offensive target's damage by 12% and accuracy by 14% for 30 sec. Must be stalking your target.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "cost_observations": {
+          "endurance": [
+            15
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ],
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "27.0s",
+              "seconds": 27.0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": "Stalking your target",
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [],
+        "classes_recorded": [
+          "Rogue",
+          "Dread Knight"
+        ],
+        "archive_variants": [
+          {
+            "name": "Ruin II",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/ruin-ii",
+                "title": "Ruin II · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+            "parser_version": 16,
+            "collected_at": "2026-10-14T06:16:33+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "30"
+              ],
+              "level in 2007-2008": [
+                "32 — now 30"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "30"
+              ],
+              "level": [
+                "30"
+              ],
+              "endurance cost": [
+                "10"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "requires": [
+                "Wrack"
+              ],
+              "type": [
+                "Finishing Attack"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Dread Knight",
+                "url": "https://vgsoharchive.com/classes/dread-knight"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Dread Knight",
+            "level_learned": 30,
+            "rank": "II",
+            "category": "Finishing Attack",
+            "cost": {
+              "endurance": 10
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Deals 400% of weapon damage plus 239 to 255. Increases Dreadful Countenance. Only usable after Wrack.",
+            "icon_name": null,
+            "ranks": [],
+            "target_recorded": "Offensive Target",
+            "historical_level_observations": [
+              {
+                "scope": "level in 2007",
+                "level_learned": 30,
+                "raw": "30"
+              },
+              {
+                "scope": "level in 2007-2008",
+                "level_learned": 32,
+                "raw": "32 — now 30"
+              }
+            ],
+            "historical_source_urls_recorded": [
+              "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FDread%20Knight",
+              "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59407"
+            ],
+            "cost_observations": {
+              "endurance": [
+                10
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": "Wrack",
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "effect_observations": [
+              {
+                "scope": "current",
+                "facts": [
+                  {
+                    "kind": "damage_bonus",
+                    "values": [
+                      239
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              }
+            ],
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:ruin-ii"
+            ]
+          }
+        ]
+      },
+      "references": [
+        {
+          "path": "raw/2026-10-14-020845-278689-archive-bulk/ability.jsonl",
+          "line": 92,
+          "record_sha256": "962f0202b718494715a10f357e745798b83a78dbe8b042f2a7b94db895fc0605"
+        }
+      ],
+      "disposition": "Cached class row prints bare cost 10 and cached detail explicitly labels Endurance cost 10, while the immutable detail snapshot stores 15. The reported table/detail difference is therefore not reproduced by the present cached HTML. This is a cache-to-snapshot extraction or source-version discrepancy requiring targeted parser replay and provenance review; neither explanation is established here. Retain complete snapshot and HTML without selecting an operative cost or assigning a resource to the bare class value.",
+      "class_cost_resource": null,
+      "operative_cost": null,
+      "conversion_ready": false
+    },
+    {
+      "printed_cells": {
+        "level": "38",
+        "ability": "Ruin III",
+        "school": "Finishing Attack",
+        "cost": "10",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "Deals 400% of weapon damage plus 310 to 328. Increases Dreadful Countenance. Only usable after Wrack."
+      },
+      "table_index": 3,
+      "row_index": 25,
+      "class_row_html": "<tr>\n<td class=\"num\">38</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/ruin-iii.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/ruin-iii\">Ruin III</a>\n</td>\n<td class=\"muted\">Finishing Attack</td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Deals 400% of weapon damage plus 310 to 328. Increases Dreadful Countenance. Only usable after Wrack.</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/ruin-iii",
+      "detail_cache": {
+        "path": ".cache/archive/2bba4b86e929effb86403eb5a549464bf831aa65916b3215e68f0b4c1a258f86.txt",
+        "sha256": "34b6930473d335196bd6c83d582e11de8cc559658519eeff9f585a727dcefc84"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/ruin-iii.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Ruin III\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/dread-knight\">Dread Knight</a>\n    \n    · Level 38\n    · Finishing Attack\n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Deals 400% of weapon damage plus 310 to 328. Increases Dreadful Countenance. Only usable after Wrack.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>44\n                <span class=\"muted\">— now 38</span></dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>30</dd></div>\n</dl>\n<div class=\"tooltip\">Lowers your offensive target's damage by 14% and accuracy by 16% for 21 sec. Cost: Submit Info Cast Time: 0 Refresh: 30 Range: 5</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59407\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Dreadful Countenance is a debuff carried by the target, not a buff on the Dread Knight. Many abilities and procs raise it, and they stack — which is why so many tooltips mention increasing it without saying what it is.</p>\n<p class=\"muted\">Previously recorded by The Telon Project as: “Deals 400% weapon damage plus 310 to 328. Increases Dreadful Countenance. Only usable after Wrack” (http://thetelonproject.wikidot.com/abilities:ruin-iii)</p>\n<p class=\"muted\">An earlier reading from VGO Emulator, on a character with different stats, gave: “Deals 400% of weapon damage plus 310 to 328. Increases Dreadful Countenance. Only usable after Wrack”</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>38</dd></div>\n<div><dt>Endurance cost</dt><dd>10</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Requires</dt><dd>Wrack</dd></div>\n<div><dt>Type</dt><dd>Finishing Attack</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:ruin-iii\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "cost_facts": [
+        {
+          "label": "Endurance cost",
+          "value": "10",
+          "html": "<div><dt>Endurance cost</dt><dd>10</dd></div>"
+        }
+      ],
+      "snapshot_cost_projection": {
+        "endurance cost": [
+          "15"
+        ]
+      },
+      "complete_source_record": {
+        "name": "Ruin III",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/rogue-ruin-iii",
+            "title": "Ruin III · Vanguard Archive",
+            "date": null
+          },
+          {
+            "url": "https://vgsoharchive.com/abilities/ruin-iii",
+            "title": "Ruin III · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "low",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+        "parser_version": 16,
+        "collected_at": "2026-10-14T06:15:43+00:00",
+        "archive_fields": {
+          "level": [
+            "44"
+          ],
+          "endurance cost": [
+            "15"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "27.0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "requires": [
+            "Stalking your target"
+          ],
+          "type": [
+            "Melee Attack"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Rogue",
+            "url": "https://vgsoharchive.com/classes/rogue"
+          }
+        ],
+        "type": "ability",
+        "class": "Rogue",
+        "level_learned": 44,
+        "rank": "III",
+        "category": "Melee Attack",
+        "cost": {
+          "endurance": 15
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": 27.0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Lowers your offensive target's damage by 14% and accuracy by 16% for 30 sec. Must be stalking your target.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "cost_observations": {
+          "endurance": [
+            15
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ],
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "27.0s",
+              "seconds": 27.0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": "Stalking your target",
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [],
+        "classes_recorded": [
+          "Rogue",
+          "Dread Knight"
+        ],
+        "archive_variants": [
+          {
+            "name": "Ruin III",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/ruin-iii",
+                "title": "Ruin III · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+            "parser_version": 16,
+            "collected_at": "2026-10-14T06:16:38+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "44 — now 38"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "30"
+              ],
+              "level": [
+                "38"
+              ],
+              "endurance cost": [
+                "10"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "requires": [
+                "Wrack"
+              ],
+              "type": [
+                "Finishing Attack"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Dread Knight",
+                "url": "https://vgsoharchive.com/classes/dread-knight"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Dread Knight",
+            "level_learned": 38,
+            "rank": "III",
+            "category": "Finishing Attack",
+            "cost": {
+              "endurance": 10
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Deals 400% of weapon damage plus 310 to 328. Increases Dreadful Countenance. Only usable after Wrack.",
+            "icon_name": null,
+            "ranks": [],
+            "target_recorded": "Offensive Target",
+            "historical_level_observations": [
+              {
+                "scope": "level in 2007-2008",
+                "level_learned": 44,
+                "raw": "44 — now 38"
+              }
+            ],
+            "historical_source_urls_recorded": [
+              "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59407"
+            ],
+            "cost_observations": {
+              "endurance": [
+                10
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": "Wrack",
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "effect_observations": [
+              {
+                "scope": "current",
+                "facts": [
+                  {
+                    "kind": "damage_bonus",
+                    "values": [
+                      310
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              }
+            ],
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:ruin-iii"
+            ]
+          }
+        ]
+      },
+      "references": [
+        {
+          "path": "raw/2026-10-14-020845-278689-archive-bulk/ability.jsonl",
+          "line": 93,
+          "record_sha256": "f1d9923df20c67931b181e62393aeb18b18bfdc742c56aebb689fddd97263f4c"
+        }
+      ],
+      "disposition": "Cached class row prints bare cost 10 and cached detail explicitly labels Endurance cost 10, while the immutable detail snapshot stores 15. The reported table/detail difference is therefore not reproduced by the present cached HTML. This is a cache-to-snapshot extraction or source-version discrepancy requiring targeted parser replay and provenance review; neither explanation is established here. Retain complete snapshot and HTML without selecting an operative cost or assigning a resource to the bare class value.",
+      "class_cost_resource": null,
+      "operative_cost": null,
+      "conversion_ready": false
+    }
+  ],
+  "summary": {
+    "distinct_rows_reviewed": 2,
+    "snapshot_to_cache_cost_discrepancies": 2,
+    "cached_class_detail_numeric_matches": 2,
+    "range_differences_pending": 138,
+    "effect_differences_pending": 20,
+    "absent_detail_tooltips_pending": 23
+  },
+  "limitations": [
+    "Same archive provenance is not independent corroboration.",
+    "Ruin level disagreements remain documented separately in iteration401; no canonical identity, operative cost, class resource or historical applicability resolved.",
+    "Full detail HTML and records preserve historical labels separately from current observations.",
+    "Collection and other class reviews remain incomplete."
+  ],
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "collector_observation": {
+    "collection_ps1_status": "not running",
+    "python_process_inventory_empty": true,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "network_suspension_preserved": true
+  },
+  "validation": {
+    "corpus_hashes_verified": 51,
+    "cached_html_files_verified": 3,
+    "class_rows_verified": 2,
+    "exact_jsonl_lines_verified": 2,
+    "issues": 0
+  }
+}

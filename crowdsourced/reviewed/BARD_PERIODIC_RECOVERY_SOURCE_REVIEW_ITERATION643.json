@@ -1,0 +1,251 @@
+{
+  "review_kind": "bard_periodic_recovery_source_review",
+  "input": {
+    "path": "reviewed/BARD_NUMERIC_PATTERN_COVERAGE_ITERATION642.json",
+    "sha256": "63d2dc66b480f34c15b992d738416317b5acf31c6ce33088a0387c8b5eb5aaa5"
+  },
+  "parser_version": 66,
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Cierl's Healing Harmony",
+      "source_url": "https://vgsoharchive.com/abilities/cierl-s-healing-harmony",
+      "cache": {
+        "path": ".cache/archive/a81f61b2a080297382309405ca4967d0a367eb31893934a4ba124792d9081814.txt",
+        "sha256": "32a1687bf2e8df43a6ce54a65c095a4db338ae1468129c55ea5805c07f2af53d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 41,
+          "record_sha256": "84a9a58a9c0bfaf5547fa289c2edd1371484fa421790f610716d9a5dce951e89"
+        }
+      ],
+      "effect_sections": [
+        "Heals you and your group for 7-9, depending on your level, every 4 seconds. Costs 4/sec energy.",
+        "Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level — the figures above are the ability's own, not what a\r\n        particular character will see."
+      ],
+      "observations": [
+        {
+          "literal": "Heals you and your group for 7-9, depending on your level, every 4 seconds. Costs 4/sec energy.",
+          "text_sha256": "3652ed2692a4ed872105bcc06ca0b9e2f6ac06daf92cd607684cd2b83dc7bfdf",
+          "recovery_resource_recorded": "health",
+          "recovery_minimum_recorded": 7,
+          "recovery_maximum_recorded": 9,
+          "recovery_interval_seconds_recorded": 4,
+          "target_phrase_recorded": "you and your group",
+          "cost_resource_recorded": "energy",
+          "cost_per_second_recorded": 4,
+          "level_dependency_phrase_recorded": "depending on your level",
+          "level_scaling_formula": null,
+          "duration": null,
+          "stacking": null,
+          "eligibility": null,
+          "operative_values": null,
+          "recognized_effect_facts": []
+        }
+      ],
+      "whole_page_replay": {
+        "name": "Cierl's Healing Harmony",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/cierl-s-healing-harmony",
+            "title": "Cierl's Healing Harmony · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 66,
+        "collected_at": "2026-10-19T18:15:33+00:00",
+        "archive_fields": {
+          "level": [
+            "36"
+          ],
+          "energy cost": [
+            "4"
+          ],
+          "song portion": [
+            "Embellishment"
+          ],
+          "type": [
+            "Embellishment"
+          ],
+          "instrument": [
+            "String"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 36,
+        "rank": null,
+        "category": "Embellishment",
+        "cost": {
+          "energy": 4
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Heals you and your group for 7-9, depending on your level, every 4 seconds. Costs 4/sec energy.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "cost_observations": {
+          "energy": [
+            4
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+        ]
+      }
+    },
+    {
+      "name": "Cirel's Counterpoint of Clarity",
+      "source_url": "https://vgsoharchive.com/abilities/cirel-s-counterpoint-of-clarity",
+      "cache": {
+        "path": ".cache/archive/c32a4cddf1e19f5a211005a6e700c658bdecc12343a54b9ae48428987210e884.txt",
+        "sha256": "2dec0db68dc2a642ed61df7c8469ff902cbe63e73c2b494231665578900236fd"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 44,
+          "record_sha256": "92c917060d26665fade4a2fd59e7aa741c92de671a465f5048f81db744c212ea"
+        }
+      ],
+      "effect_sections": [
+        "Restores 6 energy, depending on your level, to your group every 4 seconds. Costs 4/sec energy.",
+        "Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level — the figures above are the ability's own, not what a\r\n        particular character will see."
+      ],
+      "observations": [
+        {
+          "literal": "Restores 6 energy, depending on your level, to your group every 4 seconds. Costs 4/sec energy.",
+          "text_sha256": "78c14f6413bc8006a30f4748d4a25b022b532db7bfe347dabfa6d69f0b5b5a86",
+          "recovery_resource_recorded": "energy",
+          "recovery_minimum_recorded": 6,
+          "recovery_maximum_recorded": 6,
+          "recovery_interval_seconds_recorded": 4,
+          "target_phrase_recorded": "your group",
+          "cost_resource_recorded": "energy",
+          "cost_per_second_recorded": 4,
+          "level_dependency_phrase_recorded": "depending on your level",
+          "level_scaling_formula": null,
+          "duration": null,
+          "stacking": null,
+          "eligibility": null,
+          "operative_values": null,
+          "recognized_effect_facts": []
+        }
+      ],
+      "whole_page_replay": {
+        "name": "Cirel's Counterpoint of Clarity",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/cirel-s-counterpoint-of-clarity",
+            "title": "Cirel's Counterpoint of Clarity · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 66,
+        "collected_at": "2026-10-19T18:15:33+00:00",
+        "archive_fields": {
+          "level": [
+            "50"
+          ],
+          "energy cost": [
+            "4"
+          ],
+          "song portion": [
+            "Embellishment"
+          ],
+          "type": [
+            "Embellishment"
+          ],
+          "instrument": [
+            "String"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 50,
+        "rank": null,
+        "category": "Embellishment",
+        "cost": {
+          "energy": 4
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Restores 6 energy, depending on your level, to your group every 4 seconds. Costs 4/sec energy.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "cost_observations": {
+          "energy": [
+            4
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+        ]
+      }
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 2,
+    "source_record_hashes_verified": 2,
+    "literal_hashes_verified": 2,
+    "whole_page_replays": 2,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Single archive transcriptions do not establish historical mechanics.",
+    "Printed level dependency is preserved without inventing a scaling formula or level mapping.",
+    "The fixed printed energy value does not resolve its level dependence.",
+    "Original batches remain immutable; observations are not operative server values."
+  ],
+  "next_step": "Implement and test constrained periodic health and energy recovery observations for these two tooltips, preserving unknown level scaling."
+}

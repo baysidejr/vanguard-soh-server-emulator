@@ -1,0 +1,363 @@
+{
+  "review_kind": "psionicist_concentrations_table_semantic_review",
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "input_census": {
+    "path": "reviewed/SUPPLEMENTAL_TABLE_CENSUS_ITERATION287.json",
+    "sha256": "fa21423867e1b42361c92f5e6fd8b3a35e104699beecaf34b8d163d47ed5ffd9"
+  },
+  "source_page": {
+    "url": "https://vgsoharchive.com/classes/psionicist/concentrations",
+    "cache_stored_bytes_sha256": "ca272d666244524938c2d525506bbbbf10ad9e9947677778b00046b0965d640b",
+    "cache_normalized_text_sha256": "f4024a39be40c0cd9c4fc58165ac413b89d9e1f4285a018a067493b552562f7f",
+    "sidecar_sha256": "f4024a39be40c0cd9c4fc58165ac413b89d9e1f4285a018a067493b552562f7f",
+    "hash_verification": "sidecar matches stored bytes or UTF-8 text with universal-newline normalization (legacy cache)",
+    "source_records": [
+      {
+        "path": "raw/2026-10-14-030921-688504-archive-bulk/source_pages.json",
+        "record": {
+          "name": "Psionicist — Concentrations",
+          "url": "https://vgsoharchive.com/classes/psionicist/concentrations",
+          "record_kind": "source_page",
+          "fields": {},
+          "headings": [
+            "Level 10",
+            "Level 15",
+            "Level 22",
+            "Level 50"
+          ],
+          "sections": [
+            {
+              "heading": "Level 10",
+              "linked_entities": []
+            },
+            {
+              "heading": "Level 15",
+              "linked_entities": []
+            },
+            {
+              "heading": "Level 22",
+              "linked_entities": []
+            },
+            {
+              "heading": "Level 50",
+              "linked_entities": []
+            }
+          ],
+          "referenced_entities": [],
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/psionicist-concentrations"
+          ],
+          "source_date": null,
+          "parsed_at": "2026-10-14T07:10:21+00:00"
+        },
+        "file_sha256": "c64752ae632ea30467f4802ac69d210962e540b3febb7dd1b0517e4ecde5a982"
+      }
+    ],
+    "table_count": 4,
+    "tables": [
+      {
+        "preceding_heading": "Level 10",
+        "row_count": 1,
+        "rows": [
+          [
+            "",
+            "Concentration: Ethereal Projection Projects you into the ethereal plane, allowing you to absorb 5% of most types of incoming damage for 3 hits."
+          ]
+        ],
+        "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Concentration: Ethereal Projection</strong><br/>\nProjects you into the ethereal plane, allowing you to absorb 5% of most types of incoming damage for 3 hits.</td>\n</tr>\n</table>",
+        "review_status": "unreviewed",
+        "game_fact": false
+      },
+      {
+        "preceding_heading": "Level 15",
+        "row_count": 1,
+        "rows": [
+          [
+            "",
+            "Concentration: Phrenic Rage When this concentration is active your psionic power damage is increased by 25%. The cost of all powers increases by 50%||"
+          ]
+        ],
+        "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Concentration: Phrenic Rage</strong><br/>\nWhen this concentration is active your psionic power damage is increased by 25%. The cost of all powers increases by 50%||</td>\n</tr>\n</table>",
+        "review_status": "unreviewed",
+        "game_fact": false
+      },
+      {
+        "preceding_heading": "Level 22",
+        "row_count": 1,
+        "rows": [
+          [
+            "",
+            "Concentration: Thought Thief When this concentration is active, damaging powers will not deal actual damage, but will instead drain the mind of your opponent, returning the stolen energy to you."
+          ]
+        ],
+        "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Concentration: Thought Thief</strong><br/>\nWhen this concentration is active, damaging powers will not deal actual damage, but will instead drain the mind of your opponent, returning the stolen energy to you.</td>\n</tr>\n</table>",
+        "review_status": "unreviewed",
+        "game_fact": false
+      },
+      {
+        "preceding_heading": "Level 50",
+        "row_count": 1,
+        "rows": [
+          [
+            "",
+            "Concentration: Transcendance Projects you into a transcendent plane every 60 seconds allowing absorbing 15% of most incoming damage types for 6 hits and granting immunity to mind-altering effects such as fear, mesmerization and stun. Spell critical chance is increased by 5%, Single target spell ranges are expanded by 5m and 2% of direct spell damage is returned as health. (Upgrades and replaces Ethereal Projection)"
+          ]
+        ],
+        "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Concentration: Transcendance</strong><br/>\nProjects you into a transcendent plane every 60 seconds allowing absorbing 15% of most incoming damage types for 6 hits and granting immunity to mind-altering effects such as fear, mesmerization and stun. Spell critical chance is increased by 5%, Single target spell ranges are expanded by 5m and 2% of direct spell damage is returned as health. (Upgrades and replaces Ethereal Projection)</td>\n</tr>\n</table>",
+        "review_status": "unreviewed",
+        "game_fact": false
+      }
+    ],
+    "scope": "guide-body when present, otherwise main; navigation may remain and requires review"
+  },
+  "table_evidence": [
+    {
+      "table_index": 0,
+      "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Concentration: Ethereal Projection</strong><br/>\nProjects you into the ethereal plane, allowing you to absorb 5% of most types of incoming damage for 3 hits.</td>\n</tr>\n</table>",
+      "cells_as_printed": [
+        [
+          "",
+          "Concentration: Ethereal Projection Projects you into the ethereal plane, allowing you to absorb 5% of most types of incoming damage for 3 hits."
+        ]
+      ],
+      "review_status": "attributed_claims_only",
+      "game_fact": false
+    },
+    {
+      "table_index": 1,
+      "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Concentration: Phrenic Rage</strong><br/>\nWhen this concentration is active your psionic power damage is increased by 25%. The cost of all powers increases by 50%||</td>\n</tr>\n</table>",
+      "cells_as_printed": [
+        [
+          "",
+          "Concentration: Phrenic Rage When this concentration is active your psionic power damage is increased by 25%. The cost of all powers increases by 50%||"
+        ]
+      ],
+      "review_status": "attributed_claims_only",
+      "game_fact": false
+    },
+    {
+      "table_index": 2,
+      "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Concentration: Thought Thief</strong><br/>\nWhen this concentration is active, damaging powers will not deal actual damage, but will instead drain the mind of your opponent, returning the stolen energy to you.</td>\n</tr>\n</table>",
+      "cells_as_printed": [
+        [
+          "",
+          "Concentration: Thought Thief When this concentration is active, damaging powers will not deal actual damage, but will instead drain the mind of your opponent, returning the stolen energy to you."
+        ]
+      ],
+      "review_status": "attributed_claims_only",
+      "game_fact": false
+    },
+    {
+      "table_index": 3,
+      "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Concentration: Transcendance</strong><br/>\nProjects you into a transcendent plane every 60 seconds allowing absorbing 15% of most incoming damage types for 6 hits and granting immunity to mind-altering effects such as fear, mesmerization and stun. Spell critical chance is increased by 5%, Single target spell ranges are expanded by 5m and 2% of direct spell damage is returned as health. (Upgrades and replaces Ethereal Projection)</td>\n</tr>\n</table>",
+      "cells_as_printed": [
+        [
+          "",
+          "Concentration: Transcendance Projects you into a transcendent plane every 60 seconds allowing absorbing 15% of most incoming damage types for 6 hits and granting immunity to mind-altering effects such as fear, mesmerization and stun. Spell critical chance is increased by 5%, Single target spell ranges are expanded by 5m and 2% of direct spell damage is returned as health. (Upgrades and replaces Ethereal Projection)"
+        ]
+      ],
+      "review_status": "attributed_claims_only",
+      "game_fact": false
+    }
+  ],
+  "claims": [
+    {
+      "id": 1,
+      "source_table_index": 0,
+      "subject_as_printed": "Ethereal Projection",
+      "predicate": "incoming_damage_absorption_percent",
+      "value": 5,
+      "qualifier": "Most damage types; excluded types unknown.",
+      "classification": "mirrored_wiki_reported_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 2,
+      "source_table_index": 0,
+      "subject_as_printed": "Ethereal Projection",
+      "predicate": "hit_limit",
+      "value": 3,
+      "qualifier": null,
+      "classification": "mirrored_wiki_reported_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 3,
+      "source_table_index": 1,
+      "subject_as_printed": "Phrenic Rage",
+      "predicate": "psionic_power_damage_increase_percent",
+      "value": 25,
+      "qualifier": null,
+      "classification": "mirrored_wiki_reported_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 4,
+      "source_table_index": 1,
+      "subject_as_printed": "Phrenic Rage",
+      "predicate": "all_power_cost_increase_percent",
+      "value": 50,
+      "qualifier": "Resource types and stacking unknown; trailing || retained in evidence.",
+      "classification": "mirrored_wiki_reported_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 5,
+      "source_table_index": 2,
+      "subject_as_printed": "Thought Thief",
+      "predicate": "damaging_powers_replace_damage_with_energy_drain",
+      "value": true,
+      "qualifier": "Opponent mind drained and energy returned to caster; amount, conversion and eligible powers unknown.",
+      "classification": "mirrored_wiki_reported_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 6,
+      "source_table_index": 3,
+      "subject_as_printed": "Transcendance",
+      "predicate": "projection_interval_seconds",
+      "value": 60,
+      "qualifier": null,
+      "classification": "mirrored_wiki_reported_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 7,
+      "source_table_index": 3,
+      "subject_as_printed": "Transcendance",
+      "predicate": "incoming_damage_absorption_percent",
+      "value": 15,
+      "qualifier": "Most damage types; excluded types unknown.",
+      "classification": "mirrored_wiki_reported_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 8,
+      "source_table_index": 3,
+      "subject_as_printed": "Transcendance",
+      "predicate": "hit_limit",
+      "value": 6,
+      "qualifier": null,
+      "classification": "mirrored_wiki_reported_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 9,
+      "source_table_index": 3,
+      "subject_as_printed": "Transcendance",
+      "predicate": "mind_altering_effect_immunity_examples",
+      "value": [
+        "fear",
+        "mesmerization",
+        "stun"
+      ],
+      "qualifier": "Source examples are not an exhaustive immunity list.",
+      "classification": "mirrored_wiki_reported_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 10,
+      "source_table_index": 3,
+      "subject_as_printed": "Transcendance",
+      "predicate": "spell_critical_chance_increase_percent",
+      "value": 5,
+      "qualifier": "Percentage versus percentage points unknown.",
+      "classification": "mirrored_wiki_reported_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 11,
+      "source_table_index": 3,
+      "subject_as_printed": "Transcendance",
+      "predicate": "single_target_spell_range_increase_meters",
+      "value": 5,
+      "qualifier": null,
+      "classification": "mirrored_wiki_reported_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 12,
+      "source_table_index": 3,
+      "subject_as_printed": "Transcendance",
+      "predicate": "direct_spell_damage_returned_as_health_percent",
+      "value": 2,
+      "qualifier": "Rounding and eligible damage unknown.",
+      "classification": "mirrored_wiki_reported_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 13,
+      "source_table_index": 3,
+      "subject_as_printed": "Transcendance",
+      "predicate": "upgrades_and_replaces",
+      "value": "Ethereal Projection",
+      "qualifier": "Source relationship only; prerequisite and canonical spell identities unknown.",
+      "classification": "mirrored_wiki_reported_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    }
+  ],
+  "collisions": [],
+  "limitations": [
+    "Mirror evidence is not independent corroboration.",
+    "Historical applicability, canonical identities, damage exclusions, stacking and operative values remain unknown.",
+    "Transcendance spelling retained as printed."
+  ],
+  "validation": {
+    "issues": [],
+    "cached_html_hashes_verified": 1,
+    "original_source_records_verified": 1,
+    "table_html_matches": 4,
+    "table_rows_verified": 4
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "python_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60.0,
+    "network_suspension_preserved": true
+  },
+  "table_coverage_delta": {
+    "previous_explicit_tables": 28,
+    "newly_reviewed_tables": 4,
+    "explicit_tables_after": 32,
+    "pending_table_review_or_coverage_verification": 38
+  },
+  "next_review": "Review cached necromancer minion tables and retain form-specific qualifiers."
+}

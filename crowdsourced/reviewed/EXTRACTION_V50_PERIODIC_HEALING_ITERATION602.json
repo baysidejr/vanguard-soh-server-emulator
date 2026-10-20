@@ -1,0 +1,291 @@
+{
+  "review_kind": "parser_v50_periodic_healing_cached_replay",
+  "input": {
+    "path": "reviewed/BARD_PERIODIC_HEALING_SOURCE_REVIEW_ITERATION601.json",
+    "sha256": "099e3ab5e6d2f966753b45730d9a688505eeef87f512dc9d8a5d30c9bcfe7615"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Cirel's Rhythm of Renewal",
+      "source_url": "https://vgsoharchive.com/abilities/cirel-s-rhythm-of-renewal",
+      "cache": {
+        "path": ".cache/archive/e412b8b8886a9feee551c42ac7b75d9d3ebf1de413e62fad70e03caaf2d161c6.txt",
+        "sha256": "b0221f575dd10881baff8678e7abe0eeaacb0e56a30153176435c8cb88d0f0e1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "d9a03b1f3dde87db47a4b055e067cdc94248f489e25a14150f2b3f44fb7f34e9"
+        }
+      ],
+      "effect_text_sha256": "f9630cf5300a42a99e66c4d3a4a70348042bcd0a10c8b1d68c339202fd8da487",
+      "literal": "Heals your group for 8-40 every 4 secs",
+      "observation": {
+        "healing_minimum_recorded": 8,
+        "healing_maximum_recorded": 40,
+        "pulse_interval_seconds_recorded": 4,
+        "target_phrase_recorded": "your group",
+        "total_duration_seconds": null,
+        "first_pulse_timing": null,
+        "scaling": null,
+        "healing_per_target": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v50_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "periodic_healing_range_observation",
+          "healing_minimum_recorded": 8,
+          "healing_maximum_recorded": 40,
+          "pulse_interval_seconds_recorded": 4,
+          "target_phrase_recorded": "your group",
+          "total_duration_seconds": null,
+          "first_pulse_timing": null,
+          "scaling": null,
+          "healing_per_target": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "periodic_healing_range_observation",
+              "healing_minimum_recorded": 8,
+              "healing_maximum_recorded": 40,
+              "pulse_interval_seconds_recorded": 4,
+              "target_phrase_recorded": "your group",
+              "total_duration_seconds": null,
+              "first_pulse_timing": null,
+              "scaling": null,
+              "healing_per_target": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cirel's Soothing Substitution",
+      "source_url": "https://vgsoharchive.com/abilities/cirel-s-soothing-substitution",
+      "cache": {
+        "path": ".cache/archive/6b8c89fd19eed417be266807d0978b7d84a542956dce2e0b7188c1d9dec2b0c1.txt",
+        "sha256": "1bb91d187fb9f28e2633657a37ef6de54523bd299ac1b0090fa3f1dd786c5118"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "f967268528fad0e6b42b4b288e5bad47fbf676771baa2948b39c852f7372e13b"
+        }
+      ],
+      "effect_text_sha256": "ea860fa526c1a18915e0ca132cf0c06d88266478b46d8d3a5a9b6804159cf2c9",
+      "literal": "Heals your group by 4-6 every 4 seconds.",
+      "observation": {
+        "healing_minimum_recorded": 4,
+        "healing_maximum_recorded": 6,
+        "pulse_interval_seconds_recorded": 4,
+        "target_phrase_recorded": "your group",
+        "total_duration_seconds": null,
+        "first_pulse_timing": null,
+        "scaling": null,
+        "healing_per_target": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v50_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "periodic_healing_range_observation",
+          "healing_minimum_recorded": 4,
+          "healing_maximum_recorded": 6,
+          "pulse_interval_seconds_recorded": 4,
+          "target_phrase_recorded": "your group",
+          "total_duration_seconds": null,
+          "first_pulse_timing": null,
+          "scaling": null,
+          "healing_per_target": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "periodic_healing_range_observation",
+              "healing_minimum_recorded": 4,
+              "healing_maximum_recorded": 6,
+              "pulse_interval_seconds_recorded": 4,
+              "target_phrase_recorded": "your group",
+              "total_duration_seconds": null,
+              "first_pulse_timing": null,
+              "scaling": null,
+              "healing_per_target": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cirel's Healing Phrase",
+      "source_url": "https://vgsoharchive.com/abilities/cirel-s-healing-phrase",
+      "cache": {
+        "path": ".cache/archive/47217c6dc2c28fcae7863859eb07ce9c43793ee2d7bd406f337d3fc61501291b.txt",
+        "sha256": "3f194127498988a449e224b6ccd502fc0ced960f52ecd144c53032e5fd188358"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 45,
+          "record_sha256": "ba094bd71a17ccdd4fbbd8421d37369a5e10595250663afd0f605b017612588b"
+        }
+      ],
+      "effect_text_sha256": "b1b243eef41aa288f0e944bcd01bfbc0089e21a159d0564cde290f76d41b9890",
+      "literal": "A restoring chant that heals you for 40-70 every 4 secs.",
+      "observation": {
+        "healing_minimum_recorded": 40,
+        "healing_maximum_recorded": 70,
+        "pulse_interval_seconds_recorded": 4,
+        "target_phrase_recorded": "you",
+        "total_duration_seconds": null,
+        "first_pulse_timing": null,
+        "scaling": null,
+        "healing_per_target": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v50_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "periodic_healing_range_observation",
+          "healing_minimum_recorded": 40,
+          "healing_maximum_recorded": 70,
+          "pulse_interval_seconds_recorded": 4,
+          "target_phrase_recorded": "you",
+          "total_duration_seconds": null,
+          "first_pulse_timing": null,
+          "scaling": null,
+          "healing_per_target": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "periodic_healing_range_observation",
+              "healing_minimum_recorded": 40,
+              "healing_maximum_recorded": 70,
+              "pulse_interval_seconds_recorded": 4,
+              "target_phrase_recorded": "you",
+              "total_duration_seconds": null,
+              "first_pulse_timing": null,
+              "scaling": null,
+              "healing_per_target": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cirel's Phrase of Renewal",
+      "source_url": "https://vgsoharchive.com/abilities/cirel-s-phrase-of-renewal",
+      "cache": {
+        "path": ".cache/archive/038a73e367b162c96a278e59049a12ae2f0aca3e4fe48e8836da2b2418b0974b.txt",
+        "sha256": "487afac2ef07fae6472dbd9b563eb4064faa8d404932a05a8fd3f333604d2efb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 46,
+          "record_sha256": "f69c798d8381c7f305141ffbb04d56388d628a2406a033d24f0664b23cc4ac26"
+        }
+      ],
+      "effect_text_sha256": "62345634e5c03d461d8a04c97723ad0533988fc16b57ccfb0c5ac466f1b402b6",
+      "literal": "Heals you and your group for 12-18 every 4 secs",
+      "observation": {
+        "healing_minimum_recorded": 12,
+        "healing_maximum_recorded": 18,
+        "pulse_interval_seconds_recorded": 4,
+        "target_phrase_recorded": "you and your group",
+        "total_duration_seconds": null,
+        "first_pulse_timing": null,
+        "scaling": null,
+        "healing_per_target": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v50_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "periodic_healing_range_observation",
+          "healing_minimum_recorded": 12,
+          "healing_maximum_recorded": 18,
+          "pulse_interval_seconds_recorded": 4,
+          "target_phrase_recorded": "you and your group",
+          "total_duration_seconds": null,
+          "first_pulse_timing": null,
+          "scaling": null,
+          "healing_per_target": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "periodic_healing_range_observation",
+              "healing_minimum_recorded": 12,
+              "healing_maximum_recorded": 18,
+              "pulse_interval_seconds_recorded": 4,
+              "target_phrase_recorded": "you and your group",
+              "total_duration_seconds": null,
+              "first_pulse_timing": null,
+              "scaling": null,
+              "healing_per_target": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 4,
+    "source_record_hashes_verified": 4,
+    "exact_effect_section_matches": 4,
+    "whole_page_replays": 4,
+    "issues": 0,
+    "python_tests_passed": 203,
+    "whole_page_observations_verified": 4
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "policy": "Printed healing ranges, target phrases and pulse intervals retained as source claims. Total duration, first pulse timing, scaling and per-target application remain unknown. Original records unchanged; operative values withheld.",
+  "next_step": "Review remaining numeric Bard tooltips for explicit mechanics absent from typed observations.",
+  "parser_version": 50
+}

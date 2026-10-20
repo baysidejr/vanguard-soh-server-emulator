@@ -1,0 +1,769 @@
+{
+  "review_kind": "parser_v61_armor_pulse_cached_replay",
+  "input": {
+    "path": "reviewed/BARD_ARMOR_PULSE_ABSORPTION_SOURCE_REVIEW_ITERATION627.json",
+    "sha256": "e8aa2d532d5a88fda2ead8142425d4f7520ee4be351f3d213a679e37b1fe8c4e"
+  },
+  "parser_version": 61,
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "source_review": {
+        "name": "Irion's Psalm of Shields",
+        "source_url": "https://vgsoharchive.com/abilities/irion-s-psalm-of-shields",
+        "cache": {
+          "path": ".cache/archive/23f928ecc8fd74c15e85bd44cf9a6dd91339cc512a269987a7145e707c483959.txt",
+          "sha256": "3b9861458a3f2b6b8542f33c77b52096d605a8ccff453c4b177607bc705671da"
+        },
+        "source_references": [
+          {
+            "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+            "line": 45,
+            "record_sha256": "e73a8cb6194e481e26a20bef6705c98dedc5f56b899d96007cb449fbe3d4e631"
+          }
+        ],
+        "effect_sections": [
+          "Causes a curtain of sound to protect your group that increases armor class by 25 and absorbs 25 damage each pulse."
+        ],
+        "observations": [
+          {
+            "literal": "Causes a curtain of sound to protect your group that increases armor class by 25 and absorbs 25 damage each pulse.",
+            "text_sha256": "8fd5f308da0e36af8546f06b8661d14d97477c0041dfc2ea1f19276f0db3cf05",
+            "armor_class_increase_recorded": 25,
+            "damage_absorbed_each_pulse_recorded": 25,
+            "energy_per_second_recorded": null,
+            "energy_cost_explicitly_unknown": false,
+            "recipient_phrase_recorded": "your group",
+            "pulse_interval_seconds": null,
+            "absorption_refresh_model": null,
+            "damage_types_absorbed": null,
+            "duration_seconds": null,
+            "scaling": null,
+            "operative_values": null,
+            "recognized_effect_facts": []
+          }
+        ],
+        "whole_page_replay": {
+          "name": "Irion's Psalm of Shields",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/irion-s-psalm-of-shields",
+              "title": "Irion's Psalm of Shields \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 60,
+          "collected_at": "2026-10-19T16:37:39+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "17"
+            ],
+            "level in 2007-2008": [
+              "17"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "0"
+            ],
+            "level": [
+              "17"
+            ],
+            "energy cost": [
+              "5"
+            ],
+            "song portion": [
+              "Chorus"
+            ],
+            "cast time": [
+              "0"
+            ],
+            "refresh": [
+              "0s"
+            ],
+            "range": [
+              "5m"
+            ],
+            "type": [
+              "Song Component"
+            ],
+            "instrument": [
+              "String"
+            ],
+            "learned from": [
+              "Automatic"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 17,
+          "rank": null,
+          "category": "Song Component",
+          "cost": {
+            "energy": 5
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": 0,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Causes a curtain of sound to protect your group that increases armor class by 25 and absorbs 25 damage each pulse.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 17,
+              "raw": "17"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 17,
+              "raw": "17"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+          ],
+          "cost_observations": {
+            "energy": [
+              5
+            ]
+          },
+          "timing_observations": {
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "0s",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": "Automatic",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:irion-s-psalm-of-shields"
+          ]
+        },
+        "disposition": "source_review_pending_constrained_parser",
+        "historical_authentication": null,
+        "operative_values": null
+      },
+      "replay_record": {
+        "name": "Irion's Psalm of Shields",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/irion-s-psalm-of-shields",
+            "title": "Irion's Psalm of Shields \u00b7 Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 61,
+        "collected_at": "2026-10-19T16:43:45+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "17"
+          ],
+          "level in 2007-2008": [
+            "17"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "17"
+          ],
+          "energy cost": [
+            "5"
+          ],
+          "song portion": [
+            "Chorus"
+          ],
+          "cast time": [
+            "0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "instrument": [
+            "String"
+          ],
+          "learned from": [
+            "Automatic"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 17,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 5
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Causes a curtain of sound to protect your group that increases armor class by 25 and absorbs 25 damage each pulse.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 17,
+            "raw": "17"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 17,
+            "raw": "17"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            5
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Automatic",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "armor_pulse_tooltip_observation",
+                "armor_class_increase_recorded": 25,
+                "damage_absorbed_each_pulse_recorded": 25,
+                "energy_per_second_recorded": null,
+                "energy_cost_explicitly_unknown": false,
+                "recipient_phrase_recorded": "your group",
+                "pulse_interval_seconds": null,
+                "absorption_refresh_model": null,
+                "damage_types_absorbed": null,
+                "duration_seconds": null,
+                "scaling": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:irion-s-psalm-of-shields"
+        ]
+      },
+      "parsed_observations": [
+        {
+          "kind": "armor_pulse_tooltip_observation",
+          "armor_class_increase_recorded": 25,
+          "damage_absorbed_each_pulse_recorded": 25,
+          "energy_per_second_recorded": null,
+          "energy_cost_explicitly_unknown": false,
+          "recipient_phrase_recorded": "your group",
+          "pulse_interval_seconds": null,
+          "absorption_refresh_model": null,
+          "damage_types_absorbed": null,
+          "duration_seconds": null,
+          "scaling": null,
+          "operative_values": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "disposition": "research_observation_only_operative_values_withheld"
+    },
+    {
+      "source_review": {
+        "name": "Irion's Hymn of the Bastion",
+        "source_url": "https://vgsoharchive.com/abilities/irion-s-hymn-of-the-bastion",
+        "cache": {
+          "path": ".cache/archive/62a23040dbdee556ecb7d440aa36026d773f60a80ae36f88bae0d96207a5ef1e.txt",
+          "sha256": "f763a59244fede837d4fb2de6b92ea5a9ea8949ef1a814aa8e5eb5c7dd7bc0ad"
+        },
+        "source_references": [
+          {
+            "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+            "line": 52,
+            "record_sha256": "39fb8128f6405987060fbf12d618cdd72ed7efcc4c1fb2ecdc78cdc69c6567c9"
+          }
+        ],
+        "effect_sections": [
+          "Causes a curtain of sound to protect your group that increases armor class by 50 and absorbs 50 damage each pulse. Costs ?/sec energy.",
+          "Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level \u2014 the figures above are the ability's own, not what a\r\n        particular character will see."
+        ],
+        "observations": [
+          {
+            "literal": "Causes a curtain of sound to protect your group that increases armor class by 50 and absorbs 50 damage each pulse. Costs ?/sec energy.",
+            "text_sha256": "03f27c9bd89a641347c4831754e072a008cdbfd3b3d06b36625fe2abfab275bd",
+            "armor_class_increase_recorded": 50,
+            "damage_absorbed_each_pulse_recorded": 50,
+            "energy_per_second_recorded": null,
+            "energy_cost_explicitly_unknown": true,
+            "recipient_phrase_recorded": "your group",
+            "pulse_interval_seconds": null,
+            "absorption_refresh_model": null,
+            "damage_types_absorbed": null,
+            "duration_seconds": null,
+            "scaling": null,
+            "operative_values": null,
+            "recognized_effect_facts": []
+          }
+        ],
+        "whole_page_replay": {
+          "name": "Irion's Hymn of the Bastion",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/irion-s-hymn-of-the-bastion",
+              "title": "Irion's Hymn of the Bastion \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 60,
+          "collected_at": "2026-10-19T16:37:39+00:00",
+          "archive_fields": {
+            "level": [
+              "36"
+            ],
+            "song portion": [
+              "?"
+            ],
+            "type": [
+              "?"
+            ],
+            "instrument": [
+              "?"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 36,
+          "rank": null,
+          "category": "?",
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Causes a curtain of sound to protect your group that increases armor class by 50 and absorbs 50 damage each pulse. Costs ?/sec energy.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+          ]
+        },
+        "disposition": "source_review_pending_constrained_parser",
+        "historical_authentication": null,
+        "operative_values": null
+      },
+      "replay_record": {
+        "name": "Irion's Hymn of the Bastion",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/irion-s-hymn-of-the-bastion",
+            "title": "Irion's Hymn of the Bastion \u00b7 Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 61,
+        "collected_at": "2026-10-19T16:43:45+00:00",
+        "archive_fields": {
+          "level": [
+            "36"
+          ],
+          "song portion": [
+            "?"
+          ],
+          "type": [
+            "?"
+          ],
+          "instrument": [
+            "?"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 36,
+        "rank": null,
+        "category": "?",
+        "cost": null,
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Causes a curtain of sound to protect your group that increases armor class by 50 and absorbs 50 damage each pulse. Costs ?/sec energy.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "armor_pulse_tooltip_observation",
+                "armor_class_increase_recorded": 50,
+                "damage_absorbed_each_pulse_recorded": 50,
+                "energy_per_second_recorded": null,
+                "energy_cost_explicitly_unknown": true,
+                "recipient_phrase_recorded": "your group",
+                "pulse_interval_seconds": null,
+                "absorption_refresh_model": null,
+                "damage_types_absorbed": null,
+                "duration_seconds": null,
+                "scaling": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "original_source_urls": [
+          "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+        ]
+      },
+      "parsed_observations": [
+        {
+          "kind": "armor_pulse_tooltip_observation",
+          "armor_class_increase_recorded": 50,
+          "damage_absorbed_each_pulse_recorded": 50,
+          "energy_per_second_recorded": null,
+          "energy_cost_explicitly_unknown": true,
+          "recipient_phrase_recorded": "your group",
+          "pulse_interval_seconds": null,
+          "absorption_refresh_model": null,
+          "damage_types_absorbed": null,
+          "duration_seconds": null,
+          "scaling": null,
+          "operative_values": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "disposition": "research_observation_only_operative_values_withheld"
+    },
+    {
+      "source_review": {
+        "name": "Irion's Tune of Warding",
+        "source_url": "https://vgsoharchive.com/abilities/irion-s-tune-of-warding",
+        "cache": {
+          "path": ".cache/archive/01c3c209856a348b3de56359899aa1cca046a8f96ac51167809168722280c7d0.txt",
+          "sha256": "02d9ea8695c9a37926cf5cf36da0565da0c8a848c8369031a6d197b344e5b24d"
+        },
+        "source_references": [
+          {
+            "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+            "line": 58,
+            "record_sha256": "a2f561108a1b13e6c18842fe54838ef8e227b6ef1f9b597a27b306f999219134"
+          }
+        ],
+        "effect_sections": [
+          "Increases your group's armor class by 150 and absorbs damage each pulse. Costs 2/sec energy."
+        ],
+        "observations": [
+          {
+            "literal": "Increases your group's armor class by 150 and absorbs damage each pulse. Costs 2/sec energy.",
+            "text_sha256": "042424de3926e14ae22f5209045ba5e18f50ab23755382f1f0c2313a29956077",
+            "armor_class_increase_recorded": 150,
+            "damage_absorbed_each_pulse_recorded": null,
+            "energy_per_second_recorded": 2,
+            "energy_cost_explicitly_unknown": false,
+            "recipient_phrase_recorded": "your group",
+            "pulse_interval_seconds": null,
+            "absorption_refresh_model": null,
+            "damage_types_absorbed": null,
+            "duration_seconds": null,
+            "scaling": null,
+            "operative_values": null,
+            "recognized_effect_facts": []
+          }
+        ],
+        "whole_page_replay": {
+          "name": "Irion's Tune of Warding",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/irion-s-tune-of-warding",
+              "title": "Irion's Tune of Warding \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 60,
+          "collected_at": "2026-10-19T16:37:39+00:00",
+          "archive_fields": {
+            "level": [
+              "50"
+            ],
+            "energy cost": [
+              "2"
+            ],
+            "song portion": [
+              "Melody"
+            ],
+            "type": [
+              "Melody"
+            ],
+            "instrument": [
+              "Voice"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 50,
+          "rank": null,
+          "category": "Melody",
+          "cost": {
+            "energy": 2
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Increases your group's armor class by 150 and absorbs damage each pulse. Costs 2/sec energy.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "cost_observations": {
+            "energy": [
+              2
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+          ]
+        },
+        "disposition": "source_review_pending_constrained_parser",
+        "historical_authentication": null,
+        "operative_values": null
+      },
+      "replay_record": {
+        "name": "Irion's Tune of Warding",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/irion-s-tune-of-warding",
+            "title": "Irion's Tune of Warding \u00b7 Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 61,
+        "collected_at": "2026-10-19T16:43:45+00:00",
+        "archive_fields": {
+          "level": [
+            "50"
+          ],
+          "energy cost": [
+            "2"
+          ],
+          "song portion": [
+            "Melody"
+          ],
+          "type": [
+            "Melody"
+          ],
+          "instrument": [
+            "Voice"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 50,
+        "rank": null,
+        "category": "Melody",
+        "cost": {
+          "energy": 2
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Increases your group's armor class by 150 and absorbs damage each pulse. Costs 2/sec energy.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "cost_observations": {
+          "energy": [
+            2
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "armor_pulse_tooltip_observation",
+                "armor_class_increase_recorded": 150,
+                "damage_absorbed_each_pulse_recorded": null,
+                "energy_per_second_recorded": 2,
+                "energy_cost_explicitly_unknown": false,
+                "recipient_phrase_recorded": "your group",
+                "pulse_interval_seconds": null,
+                "absorption_refresh_model": null,
+                "damage_types_absorbed": null,
+                "duration_seconds": null,
+                "scaling": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "original_source_urls": [
+          "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+        ]
+      },
+      "parsed_observations": [
+        {
+          "kind": "armor_pulse_tooltip_observation",
+          "armor_class_increase_recorded": 150,
+          "damage_absorbed_each_pulse_recorded": null,
+          "energy_per_second_recorded": 2,
+          "energy_cost_explicitly_unknown": false,
+          "recipient_phrase_recorded": "your group",
+          "pulse_interval_seconds": null,
+          "absorption_refresh_model": null,
+          "damage_types_absorbed": null,
+          "duration_seconds": null,
+          "scaling": null,
+          "operative_values": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "disposition": "research_observation_only_operative_values_withheld"
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 3,
+    "source_record_hashes_verified": 3,
+    "literal_hashes_verified": 3,
+    "whole_page_replays": 3,
+    "issues": 0,
+    "tests": {
+      "command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+      "passed": 225
+    }
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "next_step": "Review remaining numeric Bard tooltips without recognized effect patterns in the iteration624 coverage audit."
+}

@@ -1,0 +1,544 @@
+{
+  "review_kind": "bard_nonnumeric_resistance_buff_source_review",
+  "parser_version": 79,
+  "input": {
+    "path": "reviewed/BARD_NONNUMERIC_EFFECT_COVERAGE_ITERATION671.json",
+    "sha256": "538f4a543182734d4d9b2024e6dc74d56f20976d0efbe8b83da03e021856abd6"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Irion's Substitution of Shielding",
+      "source_url": "https://vgsoharchive.com/abilities/irion-s-substitution-of-shielding",
+      "cache": {
+        "path": ".cache/archive/982d07d45c440792685996e2eef7e809e3bfa17544f9412863ac88d44216b79c.txt",
+        "sha256": "e1e574570365a9907b4c1351afcf469ad8ad986bf0a9dc841e0d41e50c6f3ad8"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 46,
+          "record_sha256": "047667f0a2e4298523443b17d1a975955b081c0bd74a5e2b4a4c4c89bc314a2b"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This voice embellishment increases the arcane and physical resistances of you and your allies.",
+          "literal_sha256": "fa9b4be42c242a92c932db18430f84423fc6eeaf1e760cb5a28c70ab1c6f6505",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "direction_reported": "increase",
+            "resistance_types_reported": [
+              "arcane",
+              "physical"
+            ],
+            "resistance_scope_reported": "explicit_named_types",
+            "target_reported": "you and your allies",
+            "magnitude": null,
+            "unit": null,
+            "duration_seconds": null,
+            "stacking_rules": null,
+            "resistance_floor": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Irion's Substitution of Shielding",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/irion-s-substitution-of-shielding",
+              "title": "Irion's Substitution of Shielding · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 79,
+          "collected_at": "2026-10-19T21:45:32+00:00",
+          "archive_fields": {
+            "level": [
+              "15"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 15,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This voice embellishment increases the arcane and physical resistances of you and your allies.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/irions-substitution-of-shielding-125.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Irion's Substitution of the Ether",
+      "source_url": "https://vgsoharchive.com/abilities/irion-s-substitution-of-the-ether",
+      "cache": {
+        "path": ".cache/archive/abed73a8cad1b3554de95b05100ef76e499176bf05809228ec15eac0fbc6616e.txt",
+        "sha256": "b51d4bd5fcead5dd85dc0ed5964be822081ca4455cfd99ef63d279532c61ba4b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+          "line": 56,
+          "record_sha256": "b58ee5559d0f3f53f07b67fe439c000ce5ab8fd83cef8c97553268e6a5992916"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This voice embellishment increases the mental and spiritual resistances of you and your allies.",
+          "literal_sha256": "3fcf151b5b4ddaca9f306589c66657636b23080fa0af4df68906273776d74afb",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "direction_reported": "increase",
+            "resistance_types_reported": [
+              "mental",
+              "spiritual"
+            ],
+            "resistance_scope_reported": "explicit_named_types",
+            "target_reported": "you and your allies",
+            "magnitude": null,
+            "unit": null,
+            "duration_seconds": null,
+            "stacking_rules": null,
+            "resistance_floor": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Irion's Substitution of the Ether",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/irion-s-substitution-of-the-ether",
+              "title": "Irion's Substitution of the Ether · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 79,
+          "collected_at": "2026-10-19T21:45:32+00:00",
+          "archive_fields": {
+            "level": [
+              "21"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 21,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This voice embellishment increases the mental and spiritual resistances of you and your allies.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/irions-substitution-of-the-ether-135.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Illestine's Elemental March",
+      "source_url": "https://vgsoharchive.com/abilities/illestine-s-elemental-march",
+      "cache": {
+        "path": ".cache/archive/41d5bc25a49a988f37c7a8652cb59e5e7654c897a155bebf9edfc22b16a9a101.txt",
+        "sha256": "43b492f2b0f8d7548ae201a4eb4db8de67ee048a192de6327b595377e3a70cb4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+          "line": 77,
+          "record_sha256": "ecf0c6ebe4f4771bee55c8193ffcf88ebb6455c216526f8527a966ced445f7c3"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This percussion melody increases fire and cold resistances of you and your allies.",
+          "literal_sha256": "1472a5053fa6f1c22b384063452d9bd23ab7e20910f554ef5b9ba045a88f2268",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "direction_reported": "increase",
+            "resistance_types_reported": [
+              "fire",
+              "cold"
+            ],
+            "resistance_scope_reported": "explicit_named_types",
+            "target_reported": "you and your allies",
+            "magnitude": null,
+            "unit": null,
+            "duration_seconds": null,
+            "stacking_rules": null,
+            "resistance_floor": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Illestine's Elemental March",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/illestine-s-elemental-march",
+              "title": "Illestine's Elemental March · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 79,
+          "collected_at": "2026-10-19T21:45:32+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "35"
+            ],
+            "level": [
+              "35"
+            ],
+            "energy cost": [
+              "2"
+            ],
+            "song portion": [
+              "Melody"
+            ],
+            "instrument": [
+              "Percussion"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 35,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 2
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This percussion melody increases fire and cold resistances of you and your allies.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 35,
+              "raw": "35"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              2
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/illestines-elemental-march-161.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Suann's Transforming Transition",
+      "source_url": "https://vgsoharchive.com/abilities/suann-s-transforming-transition",
+      "cache": {
+        "path": ".cache/archive/660b7a064a77863a8a73ccf519f05f3db9558dd35080ddc63cbc477b258e07e0.txt",
+        "sha256": "ae1e30b0ba030b6cf315575ac0a78cdb70fc0a2ee2093dacd1b495e721da873e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+          "line": 94,
+          "record_sha256": "2eb76a9b34867357111ebc265780ab13f0e7b7dced91e8acff8cf2ccacb089a7"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Increases all resistance of you and your group.",
+          "literal_sha256": "e48c6e5116b8de8a133364ab0876704fcd62ee3886e0307ba9152988bf3fdfd7",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "direction_reported": "increase",
+            "resistance_types_reported": null,
+            "resistance_scope_reported": "all",
+            "target_reported": "you and your group",
+            "magnitude": null,
+            "unit": null,
+            "duration_seconds": null,
+            "stacking_rules": null,
+            "resistance_floor": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Suann's Transforming Transition",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/suann-s-transforming-transition",
+              "title": "Suann's Transforming Transition · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 79,
+          "collected_at": "2026-10-19T21:45:32+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "43"
+            ],
+            "level": [
+              "43"
+            ],
+            "energy cost": [
+              "7"
+            ],
+            "song portion": [
+              "Bridge"
+            ],
+            "instrument": [
+              "String"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 43,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 7
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Increases all resistance of you and your group.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 43,
+              "raw": "43"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              7
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com:80/spells/suanns-transforming-transition-173.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Irion's Securing Anthem",
+      "source_url": "https://vgsoharchive.com/abilities/irion-s-securing-anthem",
+      "cache": {
+        "path": ".cache/archive/31f4146846f2bbe01b5675363c3075b0aefaa1dd68d9500321d109e31fbba16e.txt",
+        "sha256": "ec4a3d28b4a91f8e6844dca2c73cc5a3bf361e0b189f9ca23614503333b06d57"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+          "line": 55,
+          "record_sha256": "2f77ef4dfad63c0effe763d7cb0353f644924c15ad3e49b935862a483331dd9f"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Increases all resistances of you and your allies.",
+          "literal_sha256": "8125cff85347cb0687c1fa7d4a949b003ad3c378f5c42b96c11a3b6e93a112ed",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "direction_reported": "increase",
+            "resistance_types_reported": null,
+            "resistance_scope_reported": "all",
+            "target_reported": "you and your allies",
+            "magnitude": null,
+            "unit": null,
+            "duration_seconds": null,
+            "stacking_rules": null,
+            "resistance_floor": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Irion's Securing Anthem",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/irion-s-securing-anthem",
+              "title": "Irion's Securing Anthem · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 79,
+          "collected_at": "2026-10-19T21:45:32+00:00",
+          "archive_fields": {
+            "level": [
+              "50"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 50,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Increases all resistances of you and your allies.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/irions-securing-anthem-182.php"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process show no collector; only unrelated login_stub.py and multiprocessing child",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "review_accounting": {
+    "previous_unreviewed_nonnumeric_sections": 21,
+    "source_sections_reviewed_here": 5,
+    "remaining_unreviewed_nonnumeric_sections": 16,
+    "reviewed_sections_awaiting_parser_implementation": 5
+  },
+  "limitations": [
+    "Magnitude, unit, duration, stacking, resistance floor and operative values remain null.",
+    "All resistances is retained as a scope label; individual types remain null when not enumerated.",
+    "Resistance lists do not imply equal magnitudes or shared stacking. Group and allies remain distinct reported target labels.",
+    "These are archive reports without independent historical authentication; no game facts promoted; immutable batches and checkpoints unchanged."
+  ],
+  "next_step": "Implement and test constrained nonnumeric resistance-buff observations for these five hash-verified Bard sources."
+}

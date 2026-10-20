@@ -1,0 +1,529 @@
+{
+  "review_kind": "parser_v65_speed_modifier_cached_replay",
+  "input": {
+    "path": "reviewed/BARD_SPEED_MODIFIER_SOURCE_REVIEW_ITERATION637.json",
+    "sha256": "16e1aafd37867bc4d4b95d6b86072ebfdb447b2454ed4266aff6c6e54eeb260d"
+  },
+  "parser_version": 65,
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "source_review": {
+        "name": "Hazoc's Magical Aria",
+        "source_url": "https://vgsoharchive.com/abilities/hazoc-s-magical-aria",
+        "cache": {
+          "path": ".cache/archive/03294f3cd9def5ada8d79af5f387676befe035e4931dde8758a786cd3a7acad1.txt",
+          "sha256": "3753e31fac7f097fd36e51562c4a6ae357441e20a52beffd30c27cec18e3b87a"
+        },
+        "source_references": [
+          {
+            "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+            "line": 4,
+            "record_sha256": "acb91307d35709bf7c422b2f1a89ce29673572419fbfe4ca8e87197ceadce034"
+          }
+        ],
+        "effect_sections": [
+          "Increase the spell casting speed for your group by 5%"
+        ],
+        "observations": [
+          {
+            "literal": "Increase the spell casting speed for your group by 5%",
+            "text_sha256": "f860dd19cc2b7a55ec450cb71328d164130a8f35a8d31c52528f5a978530607d",
+            "modifier_subject_recorded": "spell casting speed",
+            "direction_recorded": "increase",
+            "percentage_recorded": 5,
+            "target_phrase_recorded": "your group",
+            "stacking": null,
+            "duration": null,
+            "timing_formula": null,
+            "eligibility": null,
+            "operative_values": null,
+            "recognized_effect_facts": []
+          }
+        ],
+        "whole_page_replay": {
+          "name": "Hazoc's Magical Aria",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/hazoc-s-magical-aria",
+              "title": "Hazoc's Magical Aria \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 64,
+          "collected_at": "2026-10-19T17:38:56+00:00",
+          "archive_fields": {
+            "level in 2007-2008": [
+              "25"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "0"
+            ],
+            "level": [
+              "25"
+            ],
+            "energy cost": [
+              "4"
+            ],
+            "song portion": [
+              "Lyric"
+            ],
+            "cast time": [
+              "0"
+            ],
+            "refresh": [
+              "0s"
+            ],
+            "range": [
+              "5m"
+            ],
+            "type": [
+              "Song Component"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 25,
+          "rank": null,
+          "category": "Song Component",
+          "cost": {
+            "energy": 4
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": 0,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Increase the spell casting speed for your group by 5%",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 25,
+              "raw": "25"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+          ],
+          "cost_observations": {
+            "energy": [
+              4
+            ]
+          },
+          "timing_observations": {
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "0s",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:hazoc-s-magical-aria"
+          ]
+        }
+      },
+      "replay_record": {
+        "name": "Hazoc's Magical Aria",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/hazoc-s-magical-aria",
+            "title": "Hazoc's Magical Aria \u00b7 Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 65,
+        "collected_at": "2026-10-19T17:45:04+00:00",
+        "archive_fields": {
+          "level in 2007-2008": [
+            "25"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "25"
+          ],
+          "energy cost": [
+            "4"
+          ],
+          "song portion": [
+            "Lyric"
+          ],
+          "cast time": [
+            "0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 25,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 4
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Increase the spell casting speed for your group by 5%",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 25,
+            "raw": "25"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            4
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "speed_modifier_tooltip_observation",
+                "modifier_subject_recorded": "spell casting speed",
+                "direction_recorded": "increase",
+                "percentage_recorded": 5,
+                "target_phrase_recorded": "your group",
+                "stacking": null,
+                "duration": null,
+                "timing_formula": null,
+                "eligibility": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:hazoc-s-magical-aria"
+        ]
+      },
+      "parsed_observations": [
+        {
+          "kind": "speed_modifier_tooltip_observation",
+          "modifier_subject_recorded": "spell casting speed",
+          "direction_recorded": "increase",
+          "percentage_recorded": 5,
+          "target_phrase_recorded": "your group",
+          "stacking": null,
+          "duration": null,
+          "timing_formula": null,
+          "eligibility": null,
+          "operative_values": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "disposition": "research_observation_only_operative_values_withheld"
+    },
+    {
+      "source_review": {
+        "name": "Tynen's Languorous Lament",
+        "source_url": "https://vgsoharchive.com/abilities/tynen-s-languorous-lament",
+        "cache": {
+          "path": ".cache/archive/6ce9fb4aadeeb1eaf90b41a755cb8e10f8e178a2576f6dd90b9b8b03b4b74e6a.txt",
+          "sha256": "2f5c628a7c19068b8031e5d22e41ba4ffd03d935f86ae57bd84a1fa423d18ba2"
+        },
+        "source_references": [
+          {
+            "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+            "line": 89,
+            "record_sha256": "11479a7e44e8885ecca496df12820eb2bb872472b31db3de23d6bd051e458a86"
+          }
+        ],
+        "effect_sections": [
+          "This brass lyric reduces your opponent's attacks speed by 3%."
+        ],
+        "observations": [
+          {
+            "literal": "This brass lyric reduces your opponent's attacks speed by 3%.",
+            "text_sha256": "3962a289b0ad11f14cb5e282e480ba89c935d675980af2f0dca5f89b83235ac4",
+            "modifier_subject_recorded": "attacks speed",
+            "direction_recorded": "reduce",
+            "percentage_recorded": 3,
+            "target_phrase_recorded": "your opponent",
+            "stacking": null,
+            "duration": null,
+            "timing_formula": null,
+            "eligibility": null,
+            "operative_values": null,
+            "recognized_effect_facts": []
+          }
+        ],
+        "whole_page_replay": {
+          "name": "Tynen's Languorous Lament",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/tynen-s-languorous-lament",
+              "title": "Tynen's Languorous Lament \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 64,
+          "collected_at": "2026-10-19T17:38:56+00:00",
+          "archive_fields": {
+            "level": [
+              "36"
+            ],
+            "energy cost": [
+              "3"
+            ],
+            "song portion": [
+              "Lyric"
+            ],
+            "instrument": [
+              "?"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 36,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 3
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This brass lyric reduces your opponent's attacks speed by 3%.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "cost_observations": {
+            "energy": [
+              3
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+          ]
+        }
+      },
+      "replay_record": {
+        "name": "Tynen's Languorous Lament",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/tynen-s-languorous-lament",
+            "title": "Tynen's Languorous Lament \u00b7 Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 65,
+        "collected_at": "2026-10-19T17:45:04+00:00",
+        "archive_fields": {
+          "level": [
+            "36"
+          ],
+          "energy cost": [
+            "3"
+          ],
+          "song portion": [
+            "Lyric"
+          ],
+          "instrument": [
+            "?"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 36,
+        "rank": null,
+        "category": null,
+        "cost": {
+          "energy": 3
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "This brass lyric reduces your opponent's attacks speed by 3%.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "cost_observations": {
+          "energy": [
+            3
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "speed_modifier_tooltip_observation",
+                "modifier_subject_recorded": "attacks speed",
+                "direction_recorded": "reduce",
+                "percentage_recorded": 3,
+                "target_phrase_recorded": "your opponent",
+                "stacking": null,
+                "duration": null,
+                "timing_formula": null,
+                "eligibility": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "original_source_urls": [
+          "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+        ]
+      },
+      "parsed_observations": [
+        {
+          "kind": "speed_modifier_tooltip_observation",
+          "modifier_subject_recorded": "attacks speed",
+          "direction_recorded": "reduce",
+          "percentage_recorded": 3,
+          "target_phrase_recorded": "your opponent",
+          "stacking": null,
+          "duration": null,
+          "timing_formula": null,
+          "eligibility": null,
+          "operative_values": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "disposition": "research_observation_only_operative_values_withheld"
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 2,
+    "source_record_hashes_verified": 2,
+    "literal_hashes_verified": 2,
+    "whole_page_replays": 2,
+    "issues": 0,
+    "tests": {
+      "command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+      "passed": 233
+    }
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "next_step": "Review remaining numeric Bard tooltips without recognized effect patterns in the iteration634 coverage audit."
+}

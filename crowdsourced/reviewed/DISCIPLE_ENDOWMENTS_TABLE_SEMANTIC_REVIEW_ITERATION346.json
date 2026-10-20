@@ -1,0 +1,346 @@
+{
+  "review_kind": "disciple_endowments_table_semantic_review",
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "input_census": {
+    "path": "reviewed/SUPPLEMENTAL_TABLE_CENSUS_ITERATION287.json",
+    "sha256": "fa21423867e1b42361c92f5e6fd8b3a35e104699beecaf34b8d163d47ed5ffd9"
+  },
+  "source_page": {
+    "url": "https://vgsoharchive.com/classes/disciple/endowments",
+    "cache_stored_bytes_sha256": "fe0224b3a49fe1fded6faa73abcee952541157ea9020e2ee5485cdf1398ed042",
+    "cache_normalized_text_sha256": "d30f00ff33395e1e7ad94dfcbfacd65c4fd074c501005f1bfa24cc119261f00f",
+    "sidecar_sha256": "d30f00ff33395e1e7ad94dfcbfacd65c4fd074c501005f1bfa24cc119261f00f",
+    "hash_verification": "sidecar matches stored bytes or UTF-8 text with universal-newline normalization (legacy cache)",
+    "source_records": [
+      {
+        "path": "raw/2026-10-14-030650-645618-archive-bulk/source_pages.json",
+        "record": {
+          "name": "Disciple — Endowments",
+          "url": "https://vgsoharchive.com/classes/disciple/endowments",
+          "record_kind": "source_page",
+          "fields": {},
+          "headings": [],
+          "sections": [],
+          "referenced_entities": [],
+          "original_source_urls": [],
+          "source_date": null,
+          "parsed_at": "2026-10-14T07:08:00+00:00"
+        },
+        "file_sha256": "6ed525dfdcf17eb31fab21cf230e7c217215ab445dedc90685258eedbf91ccc9"
+      },
+      {
+        "path": "raw/2026-10-14-030849-144792-archive-reference-v18/source_pages.json",
+        "record": {
+          "name": "Disciple — Endowments",
+          "url": "https://vgsoharchive.com/classes/disciple/endowments",
+          "record_kind": "source_page",
+          "fields": {},
+          "headings": [],
+          "sections": [],
+          "referenced_entities": [],
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/disciple-endowments"
+          ],
+          "source_date": null,
+          "parsed_at": "2026-10-14T07:08:49+00:00"
+        },
+        "file_sha256": "db39226b4db9b9d1334df688247588333f05eea4f1bf373a5ddeb644452daa53"
+      }
+    ],
+    "table_count": 1,
+    "tables": [
+      {
+        "preceding_heading": null,
+        "row_count": 3,
+        "rows": [
+          [
+            "",
+            "Endowment of Life: Increases your defensive target's health for 2 minutes and heals them instantly. Effectiveness depends on the level of BW, CK, VH, and vitality. Chain: Blessed Wind > Cyclone Kick > Void Hand",
+            "Level Possible : 4"
+          ],
+          [
+            "",
+            "Endowment of Mastery: Lowers the energy and endurance cost of all abilities by 10% for all group members within 10m for 10 minutes. Chain: Soul Cutter-> Void Hand-> Knife Hand",
+            "Level Possible : 18"
+          ],
+          [
+            "",
+            "Endowment of Enmity: Increases your damage by 10% for 10 minutes. Chain: Cyclone Kick -> Ra'Jin Flare",
+            "Level Possible : 34"
+          ]
+        ],
+        "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Endowment of Life:</strong><br/>\nIncreases your defensive target's health for 2 minutes and heals them instantly. Effectiveness depends on the level of BW, CK, VH, and vitality.\n<p><strong>Chain:</strong> Blessed Wind &gt; Cyclone Kick &gt; Void Hand</p>\n</td>\n<td><strong>Level Possible</strong>: 4</td>\n</tr>\n<tr>\n<td></td>\n<td><strong>Endowment of Mastery:</strong><br/>\nLowers the energy and endurance cost of all abilities by 10% for all group members within 10m for 10 minutes.\n<p><strong>Chain:</strong> Soul Cutter-&gt; Void Hand-&gt; Knife Hand</p>\n</td>\n<td><strong>Level Possible</strong>: 18</td>\n</tr>\n<tr>\n<td></td>\n<td><strong>Endowment of Enmity:</strong><br/>\nIncreases your damage by 10% for 10 minutes.\n<p><strong>Chain:</strong> Cyclone Kick -&gt; Ra'Jin Flare</p>\n</td>\n<td><strong>Level Possible</strong>: 34</td>\n</tr>\n</table>",
+        "review_status": "unreviewed",
+        "game_fact": false
+      }
+    ],
+    "scope": "guide-body when present, otherwise main; navigation may remain and requires review"
+  },
+  "table_evidence": {
+    "table_index": 0,
+    "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Endowment of Life:</strong><br/>\nIncreases your defensive target's health for 2 minutes and heals them instantly. Effectiveness depends on the level of BW, CK, VH, and vitality.\n<p><strong>Chain:</strong> Blessed Wind &gt; Cyclone Kick &gt; Void Hand</p>\n</td>\n<td><strong>Level Possible</strong>: 4</td>\n</tr>\n<tr>\n<td></td>\n<td><strong>Endowment of Mastery:</strong><br/>\nLowers the energy and endurance cost of all abilities by 10% for all group members within 10m for 10 minutes.\n<p><strong>Chain:</strong> Soul Cutter-&gt; Void Hand-&gt; Knife Hand</p>\n</td>\n<td><strong>Level Possible</strong>: 18</td>\n</tr>\n<tr>\n<td></td>\n<td><strong>Endowment of Enmity:</strong><br/>\nIncreases your damage by 10% for 10 minutes.\n<p><strong>Chain:</strong> Cyclone Kick -&gt; Ra'Jin Flare</p>\n</td>\n<td><strong>Level Possible</strong>: 34</td>\n</tr>\n</table>",
+    "rows": [
+      {
+        "row_index": 0,
+        "source_html": "<tr>\n<td></td>\n<td><strong>Endowment of Life:</strong><br/>\nIncreases your defensive target's health for 2 minutes and heals them instantly. Effectiveness depends on the level of BW, CK, VH, and vitality.\n<p><strong>Chain:</strong> Blessed Wind &gt; Cyclone Kick &gt; Void Hand</p>\n</td>\n<td><strong>Level Possible</strong>: 4</td>\n</tr>",
+        "cells_as_printed": [
+          "",
+          "Endowment of Life: Increases your defensive target's health for 2 minutes and heals them instantly. Effectiveness depends on the level of BW, CK, VH, and vitality. Chain: Blessed Wind > Cyclone Kick > Void Hand",
+          "Level Possible : 4"
+        ],
+        "review_status": "reviewed_as_source_claim_only"
+      },
+      {
+        "row_index": 1,
+        "source_html": "<tr>\n<td></td>\n<td><strong>Endowment of Mastery:</strong><br/>\nLowers the energy and endurance cost of all abilities by 10% for all group members within 10m for 10 minutes.\n<p><strong>Chain:</strong> Soul Cutter-&gt; Void Hand-&gt; Knife Hand</p>\n</td>\n<td><strong>Level Possible</strong>: 18</td>\n</tr>",
+        "cells_as_printed": [
+          "",
+          "Endowment of Mastery: Lowers the energy and endurance cost of all abilities by 10% for all group members within 10m for 10 minutes. Chain: Soul Cutter-> Void Hand-> Knife Hand",
+          "Level Possible : 18"
+        ],
+        "review_status": "reviewed_as_source_claim_only"
+      },
+      {
+        "row_index": 2,
+        "source_html": "<tr>\n<td></td>\n<td><strong>Endowment of Enmity:</strong><br/>\nIncreases your damage by 10% for 10 minutes.\n<p><strong>Chain:</strong> Cyclone Kick -&gt; Ra'Jin Flare</p>\n</td>\n<td><strong>Level Possible</strong>: 34</td>\n</tr>",
+        "cells_as_printed": [
+          "",
+          "Endowment of Enmity: Increases your damage by 10% for 10 minutes. Chain: Cyclone Kick -> Ra'Jin Flare",
+          "Level Possible : 34"
+        ],
+        "review_status": "reviewed_as_source_claim_only"
+      }
+    ]
+  },
+  "claims": [
+    {
+      "id": 1,
+      "source_row_index": 0,
+      "subject": "Endowment of Life",
+      "predicate": "health_increase_target",
+      "value": "defensive target",
+      "qualifier": "Amount and health-stat semantics absent.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 2,
+      "source_row_index": 0,
+      "subject": "Endowment of Life",
+      "predicate": "health_increase_duration_minutes",
+      "value": 2,
+      "qualifier": null,
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 3,
+      "source_row_index": 0,
+      "subject": "Endowment of Life",
+      "predicate": "instant_heal_target",
+      "value": "defensive target",
+      "qualifier": "Heal amount absent.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 4,
+      "source_row_index": 0,
+      "subject": "Endowment of Life",
+      "predicate": "effectiveness_dependencies_as_printed",
+      "value": "level of BW, CK, VH, and vitality",
+      "qualifier": "Abbreviation expansion and scaling formula unverified.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 5,
+      "source_row_index": 0,
+      "subject": "Endowment of Life",
+      "predicate": "chain_as_printed",
+      "value": [
+        "Blessed Wind",
+        "Cyclone Kick",
+        "Void Hand"
+      ],
+      "qualifier": "Order preserved; timing windows and failure conditions absent.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 6,
+      "source_row_index": 0,
+      "subject": "Endowment of Life",
+      "predicate": "level_possible_as_printed",
+      "value": 4,
+      "qualifier": "Not independently verified as a required acquisition level.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 7,
+      "source_row_index": 1,
+      "subject": "Endowment of Mastery",
+      "predicate": "energy_and_endurance_cost_reduction_percent",
+      "value": 10,
+      "qualifier": "Printed scope: all abilities; rounding, minimum costs and stacking absent.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 8,
+      "source_row_index": 1,
+      "subject": "Endowment of Mastery",
+      "predicate": "affected_targets",
+      "value": "all group members within 10m",
+      "qualifier": "Boundary behavior and persistent aura versus application range unknown.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 9,
+      "source_row_index": 1,
+      "subject": "Endowment of Mastery",
+      "predicate": "duration_minutes",
+      "value": 10,
+      "qualifier": null,
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 10,
+      "source_row_index": 1,
+      "subject": "Endowment of Mastery",
+      "predicate": "chain_as_printed",
+      "value": [
+        "Soul Cutter",
+        "Void Hand",
+        "Knife Hand"
+      ],
+      "qualifier": null,
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 11,
+      "source_row_index": 1,
+      "subject": "Endowment of Mastery",
+      "predicate": "level_possible_as_printed",
+      "value": 18,
+      "qualifier": "Not independently verified as a required acquisition level.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 12,
+      "source_row_index": 2,
+      "subject": "Endowment of Enmity",
+      "predicate": "self_damage_increase_percent",
+      "value": 10,
+      "qualifier": "Damage categories and stacking absent.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 13,
+      "source_row_index": 2,
+      "subject": "Endowment of Enmity",
+      "predicate": "duration_minutes",
+      "value": 10,
+      "qualifier": null,
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 14,
+      "source_row_index": 2,
+      "subject": "Endowment of Enmity",
+      "predicate": "chain_as_printed",
+      "value": [
+        "Cyclone Kick",
+        "Ra'Jin Flare"
+      ],
+      "qualifier": null,
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 15,
+      "source_row_index": 2,
+      "subject": "Endowment of Enmity",
+      "predicate": "level_possible_as_printed",
+      "value": 34,
+      "qualifier": "Not independently verified as a required acquisition level.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    }
+  ],
+  "limitations": [
+    "Telon Project mirror provenance; not independent corroboration of earlier prose reviews.",
+    "Level Possible is retained as a source label, not converted into an enforced level requirement.",
+    "Life effectiveness formula, heal amount, health increase amount, chain timing, stacking and historical applicability remain unknown.",
+    "No canonical identities or operative server values assigned. Original metadata-only records remain unchanged."
+  ],
+  "validation": {
+    "issues": [],
+    "cached_html_hashes_verified": 1,
+    "original_source_records_verified": 2,
+    "table_html_matches": 1,
+    "table_rows_verified": 3
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "python_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "network_suspension_preserved": true
+  },
+  "table_coverage_delta": {
+    "previous_explicit_tables": 18,
+    "newly_reviewed_tables": 1,
+    "explicit_tables_after": 19,
+    "pending_table_review_or_coverage_verification": 51
+  },
+  "next_review": "Review cached dread-knight stances table, retaining source qualifiers and unknown mechanics."
+}

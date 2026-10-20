@@ -12,6 +12,11 @@ this transport. A robots 404/410 now records missing-file evidence and permits c
 without merging repeated labels or assigning canonical IDs or historical eras.
 Missing article regions fail closed. Pages without infobox observations remain
 metadata only; other article tables and prose still require extraction review.
+Non-infobox tables and paragraph/list blocks are now retained in
+`unreviewed_article_evidence` with source HTML and URL, explicitly marked
+`game_fact: false`. Nested tables are preserved once inside their outer table.
+This evidence capture does not promote navigation or prose to typed facts;
+`reviewed/WIKI_NONINFOBOX_EVIDENCE_ITERATION283.json` records the cached replay.
 The immutable iteration148 cache review verifies the cached main-page hash and
 retains 50 pending article links. The live runner now schedules this parser with a separate resumable queue;
 its discovered articles remain pending until fetched and parsed.
@@ -105,6 +110,16 @@ Parser version 33 preserves explicit mob-page Where they stood entries in map_lo
 Parser version 34 extracts canonical item links from merchant Sells sections, with unknown purchase prices retained as null. Tooltip values are not purchase prices; missing or empty sections retain unknown stock. reviewed/EXTRACTION_V34.json records a 14-page cache-only replay checked against the prior independent DOM audit: 54 stock links, zero network requests and zero structural validation issues. Earlier immutable batches remain unchanged; the running collector retains its loaded parser until a normal restart. Merchant conversion remains withheld where prices are unknown.
 
 Parser version 35 recognizes all 24 canonical sitemap landing/index routes identified in reviewed/INVENTORY_ROOT_PAGE_GAP_REVIEW_20261017.json, including /stats, /skills and /gameplay. These pages publish source metadata and explicit extraction gaps; they do not create guessed typed entities. Normal run startup merges the authoritative inventory into the saved queue, so a graceful stop/restart loads this support and adds the missing roots without manually editing checkpoints. Tests exercise every excluded inventory URL, linked-item discovery and query rejection. Typed extraction and historical review remain pending.
+
+Parser version 37 retains explicitly unit-bearing, ordered ability range intervals
+in `range_interval_reported_by_archive`, without substituting a scalar range.
+Explicit `absent-note` notices produce `emulator_absence_reported_by_archive`,
+with independent verification false and build and historical authentication unknown.
+These archive reports do not verify tooltip figures or establish historical facts.
+`reviewed/WARRIOR_TYPED_OBSERVATIONS_REPLAY_ITERATION572.json` records nine
+hash-verified cache replays: one interval, six absence notices, and two cast values
+whose missing units remain unresolved. All 177 Python tests pass. No network
+requests occurred; suspension, queues and persisted 60-second pacing are preserved.
 
 The continuous runner now schedules one VGOPlayers wiki article before each archive
 batch, using the same process lock, request clock and persisted interval. Discovery

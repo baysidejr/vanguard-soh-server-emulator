@@ -1,0 +1,274 @@
+{
+  "review_kind": "bard_song_cost_targeted_cache_replay",
+  "parser_version": 40,
+  "network_requests": 0,
+  "inputs": [
+    {
+      "path": "reviewed/BARD_EFFECT_PROSE_LOCATION_REVIEW_ITERATION581.json",
+      "sha256": "d5fb154d820332317001030ef53b3e2ab6aafd9dd34c1ac11e41485d6d539225"
+    }
+  ],
+  "policy": "Exact whole-tooltip song-cost reductions only. Resource and units unknown; compound and conditional tooltips withheld. Archive observations are not historical authentication. Immutable originals retained; no operative facts promoted.",
+  "rows": [
+    {
+      "name": "Weirlaun's Minim",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-minim",
+      "cache": {
+        "path": ".cache/archive/af0a30650a96e7636ee9e688ea32aed75f509476dfa78b011017b4b208d8fd28.txt",
+        "sha256": "0119c4f61c13039d6ebc49b38fd815388c64e9a6e2f946ca2afa5c6725b81c33"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 82,
+          "record_sha256": "f038b5e176ee6652d4db5afce22dba8c2ec3e35e7fba178e96db7b3b7dfee867"
+        }
+      ],
+      "observations": [
+        {
+          "source_text": "Reduce song cost by 4.",
+          "text_sha256": "1df20a88f2fe79fbac76ac1780f69528b611eda1a1b3aed6e17013b5f4fc84ac",
+          "facts": [
+            {
+              "kind": "song_cost_reduction_observation",
+              "values": [
+                4
+              ],
+              "resource": null,
+              "unit": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "operative_values": null,
+      "historical_authentication": null
+    },
+    {
+      "name": "Weirlaun's Minor Interlude",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-minor-interlude",
+      "cache": {
+        "path": ".cache/archive/613d3f84cebb736a2e17a2f749ac233d86301a0536c3778ba45aac1f3960d76d.txt",
+        "sha256": "65b247e88fec93886ad10ea38b85afb73057f6cf63f328d7311dc4d1d43e8a35"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 83,
+          "record_sha256": "78b41142c039053274af448e56b4ec4bf91541c3f1950094ef70b1c73a0d6dfc"
+        }
+      ],
+      "observations": [
+        {
+          "source_text": "Reduce song cost by 2",
+          "text_sha256": "303d15de27abf57010c6d4c0c2b1ef870a91aa4d55961c8fdd8d8ba81f18fada",
+          "facts": [
+            {
+              "kind": "song_cost_reduction_observation",
+              "values": [
+                2
+              ],
+              "resource": null,
+              "unit": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "operative_values": null,
+      "historical_authentication": null
+    },
+    {
+      "name": "Weirlaun's Long Rest",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-long-rest",
+      "cache": {
+        "path": ".cache/archive/ad74ac9a9b09bf3ee780cd3cabb4b80454f22b660ec0110be828635325a02f04.txt",
+        "sha256": "645185c33646428ca33b7d7b4dd05ea98ab0768f585e36c37ea3addd132c6e40"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 81,
+          "record_sha256": "92f68bc636d845d95ec3a848eb9db9fbf2599dceeb4503bd01488fc79938f7b9"
+        }
+      ],
+      "observations": [
+        {
+          "source_text": "Reduce song cost by 5",
+          "text_sha256": "46e0053c8cb00f7a6acf2152ccecc2e251e5bbe433690ab733940677880400e1",
+          "facts": [
+            {
+              "kind": "song_cost_reduction_observation",
+              "values": [
+                5
+              ],
+              "resource": null,
+              "unit": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "operative_values": null,
+      "historical_authentication": null
+    },
+    {
+      "name": "Weirlaun's Whole Rest",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-whole-rest",
+      "cache": {
+        "path": ".cache/archive/a1f7b3129180707410d725ddb655e88bb18924d2d2a4faa5b0ee8133e942c467.txt",
+        "sha256": "8cea5f488789534aadb6f83da0e060e63d96d90a768f8938fee6686d5e3f9ec9"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 84,
+          "record_sha256": "543d25d0fdcebf4983a0b0f2a5763629df6642dd83203253a5b1c1e800237062"
+        }
+      ],
+      "observations": [
+        {
+          "source_text": "Reduce Song cost by 7",
+          "text_sha256": "b25e5483afdbe64a8a4acd1df0808791ebdfd06e2699a67456ade3589c87309f",
+          "facts": [
+            {
+              "kind": "song_cost_reduction_observation",
+              "values": [
+                7
+              ],
+              "resource": null,
+              "unit": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "operative_values": null,
+      "historical_authentication": null
+    },
+    {
+      "name": "Weirlaun's Quaver",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-quaver",
+      "cache": {
+        "path": ".cache/archive/dc9dda88b753665edb9adfa54de18f344ed36a63dae96b509cedeabcb543320f.txt",
+        "sha256": "88e8b1df612c17519d4530371e9ff2a440d57bbe2e7a4e54310f6e1d354f99c5"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+          "line": 75,
+          "record_sha256": "e56937faa52c1998fcbf58520c3524109725dc9d90a3c82ecc691dccd577abbb"
+        }
+      ],
+      "observations": [
+        {
+          "source_text": "Reduces song cost by 8",
+          "text_sha256": "cf3c7c555bfdb5fc56d6fed0596f261795d5cbaf772fdd7f0ec56d20a26f6eba",
+          "facts": [
+            {
+              "kind": "song_cost_reduction_observation",
+              "values": [
+                8
+              ],
+              "resource": null,
+              "unit": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "operative_values": null,
+      "historical_authentication": null
+    },
+    {
+      "name": "Weirlaun's Dramatic Pause",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-dramatic-pause",
+      "cache": {
+        "path": ".cache/archive/3465a14c18ad937408ffbb42bfad95ec92b24a80341bad6a7c845270e62e45f5.txt",
+        "sha256": "441251f2f85e6ae159ca7fe1d14c2380a4131ace1ee1eddbc3ec6ddbd241544f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+          "line": 71,
+          "record_sha256": "2854a535938ca142b17a256fd103b4a0b1d515599f24cb5b9374b71ada0c020d"
+        }
+      ],
+      "observations": [
+        {
+          "source_text": "Reduces song cost by 10.",
+          "text_sha256": "f296cb00d88192b5988a664c3a274b0e5fac9bbe80fe0e10662591e146abf4bc",
+          "facts": [
+            {
+              "kind": "song_cost_reduction_observation",
+              "values": [
+                10
+              ],
+              "resource": null,
+              "unit": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "operative_values": null,
+      "historical_authentication": null
+    },
+    {
+      "name": "Weirlaun's Caesura",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-caesura",
+      "cache": {
+        "path": ".cache/archive/0c7430564b54477f20cb1ff3f6f66789e5f17981ff36e4171a56d9bea2e601f2.txt",
+        "sha256": "5393f2f9efff4412cedb72210b349812d926c67f3338a7c366ae9826cec05bbf"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+          "line": 70,
+          "record_sha256": "925630d659a17a9703251ea64dc581f98ad90ee628602f1e6809c716259a0fd1"
+        }
+      ],
+      "observations": [
+        {
+          "source_text": "This rest song reduces song cost by 12.",
+          "text_sha256": "e740ee2d20f3038f339941fbf29dab90f6e9de5472e73d2b25af3fe6b5bbf505",
+          "facts": [
+            {
+              "kind": "song_cost_reduction_observation",
+              "values": [
+                12
+              ],
+              "resource": null,
+              "unit": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "operative_values": null,
+      "historical_authentication": null
+    }
+  ],
+  "validation": {
+    "cached_page_hashes_verified": 150,
+    "source_record_hashes_verified": 150,
+    "issues": 0,
+    "python_tests_passed": 182
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "remaining_review": "Compound song-cost restoration and remaining numeric/non-numeric tooltips require review."
+}

@@ -1,0 +1,590 @@
+{
+  "audit_kind": "avenging_oki_literal_chain_comparison",
+  "network_requests": 0,
+  "metadata_only": false,
+  "extraction_scope": "Literal Avenging Oki and Kojuko Gluttons chain labels; exact source navigation only, without identity resolution or enforced prerequisite inference.",
+  "inputs": [
+    {
+      "path": ".cache/archive/a11bb1c3bc89725712f5b86dd64039cbd2b43a6c186f866eb12cff558bebbfdf.txt",
+      "sha256": "0ec770212c2599e1f311946b4d16c11c88d81aa03c879a1212d3d68e2e2999af"
+    },
+    {
+      "path": ".cache/archive/b1c6ac6b8738eef4397ef58472ff4392fdf405b957d81a55b9550932f196f370.txt",
+      "sha256": "6e58192d3ec28663f92e1de710e587fb5ac626ef4115155011449a7048f27d37"
+    },
+    {
+      "path": "raw/2026-10-14-035058-444718-archive-bulk/quest.jsonl",
+      "sha256": "0d5b72e88d46f5e6ed7cf72dd3669c590edb8f50ad53540188e4c2347cd8db72"
+    },
+    {
+      "path": "raw/2026-10-14-060433-039992-archive-bulk/quest.jsonl",
+      "sha256": "23d879f23577d6d1865d19204c33d9a585cb4240b29e3e23c174aef2b3dca9d3"
+    },
+    {
+      "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+      "sha256": "1b4328e56ac4f992bedda7b7dcf02b00fab8c55047e6c45892af56343fa85648"
+    },
+    {
+      "path": "reviewed/QUEST_CHAIN_JUU_COMPARISON_ITERATION208.json",
+      "sha256": "13e0f908d0f398e8b16d3d431d3ec233e6dab00a82d9740128675894cfdb55e7"
+    }
+  ],
+  "reviews": [],
+  "pages": [
+    {
+      "url": "https://vgsoharchive.com/quests/avenging-oki",
+      "cache_path": ".cache/archive/b1c6ac6b8738eef4397ef58472ff4392fdf405b957d81a55b9550932f196f370.txt",
+      "cache_sha256": "6e58192d3ec28663f92e1de710e587fb5ac626ef4115155011449a7048f27d37",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Finding Oki",
+          "html": "<dd><a href=\"/quests/finding-oki\">Finding Oki</a>\n</dd>",
+          "links": [
+            {
+              "text": "Finding Oki",
+              "href": "/quests/finding-oki",
+              "absolute_url": "https://vgsoharchive.com/quests/finding-oki"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "Oki's Jewels",
+          "html": "<dd><a href=\"/quests/oki-s-jewels\">Oki's Jewels</a>\n</dd>",
+          "links": [
+            {
+              "text": "Oki's Jewels",
+              "href": "/quests/oki-s-jewels",
+              "absolute_url": "https://vgsoharchive.com/quests/oki-s-jewels"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-035058-444718-archive-bulk/quest.jsonl",
+          "line": 1,
+          "record": {
+            "name": "Avenging Oki",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/avenging-oki",
+                "title": "Avenging Oki · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T07:51:02+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Charred Corpse"
+              ],
+              "location": [
+                "-22262, -44361, 231"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Oki"
+              ],
+              "previous": [
+                "Finding Oki"
+              ],
+              "next": [
+                "Oki's Jewels"
+              ],
+              "repeatable": [
+                "No"
+              ],
+              "coin reward": [
+                "30"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Charred Corpse",
+                "url": "https://vgsoharchive.com/mobs/charred-corpse"
+              },
+              {
+                "name": "Oki",
+                "url": "https://vgsoharchive.com/mobs/oki"
+              },
+              {
+                "name": "Finding Oki",
+                "url": "https://vgsoharchive.com/quests/finding-oki"
+              },
+              {
+                "name": "Oki's Jewels",
+                "url": "https://vgsoharchive.com/quests/oki-s-jewels"
+              },
+              {
+                "name": "Turtleshell bag",
+                "url": "https://vgsoharchive.com/items/turtleshell-bag"
+              }
+            ],
+            "type": "quest",
+            "level": 4,
+            "zone": "Tanvu",
+            "giver": "Charred Corpse",
+            "turn_in": "Oki",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Finding Oki",
+            "chain_next": "Oki's Jewels",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 455,
+          "record": {
+            "name": "Avenging Oki",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/avenging-oki",
+                "title": "Avenging Oki · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:38+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Charred Corpse"
+              ],
+              "location": [
+                "-22262, -44361, 231"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Oki"
+              ],
+              "previous": [
+                "Finding Oki"
+              ],
+              "next": [
+                "Oki's Jewels"
+              ],
+              "repeatable": [
+                "No"
+              ],
+              "coin reward": [
+                "30"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Charred Corpse",
+                "url": "https://vgsoharchive.com/mobs/charred-corpse"
+              },
+              {
+                "name": "Oki",
+                "url": "https://vgsoharchive.com/mobs/oki"
+              },
+              {
+                "name": "Finding Oki",
+                "url": "https://vgsoharchive.com/quests/finding-oki"
+              },
+              {
+                "name": "Oki's Jewels",
+                "url": "https://vgsoharchive.com/quests/oki-s-jewels"
+              },
+              {
+                "name": "Turtleshell bag",
+                "url": "https://vgsoharchive.com/items/turtleshell-bag"
+              }
+            ],
+            "type": "quest",
+            "level": 4,
+            "zone": "Tanvu",
+            "giver": "Charred Corpse",
+            "turn_in": "Oki",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": false,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Finding Oki",
+            "chain_next": "Oki's Jewels",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/kojuko-gluttons",
+      "cache_path": ".cache/archive/a11bb1c3bc89725712f5b86dd64039cbd2b43a6c186f866eb12cff558bebbfdf.txt",
+      "cache_sha256": "0ec770212c2599e1f311946b4d16c11c88d81aa03c879a1212d3d68e2e2999af",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Avenging Oki",
+          "html": "<dd><a href=\"/quests/avenging-oki\">Avenging Oki</a>\n</dd>",
+          "links": [
+            {
+              "text": "Avenging Oki",
+              "href": "/quests/avenging-oki",
+              "absolute_url": "https://vgsoharchive.com/quests/avenging-oki"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "Training With Juu",
+          "html": "<dd><a href=\"/quests/training-with-juu\">Training With Juu</a>\n</dd>",
+          "links": [
+            {
+              "text": "Training With Juu",
+              "href": "/quests/training-with-juu",
+              "absolute_url": "https://vgsoharchive.com/quests/training-with-juu"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-060433-039992-archive-bulk/quest.jsonl",
+          "line": 35,
+          "record": {
+            "name": "Kojuko Gluttons",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/kojuko-gluttons",
+                "title": "Kojuko Gluttons · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T10:07:26+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Oki"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-16408, -49970, 187"
+              ],
+              "series": [
+                "Dallerjuba Village"
+              ],
+              "hand in to": [
+                "Oki"
+              ],
+              "also involved": [
+                "Kojuko Glutton"
+              ],
+              "previous": [
+                "Avenging Oki"
+              ],
+              "next": [
+                "Training With Juu"
+              ],
+              "repeatable": [
+                "No"
+              ],
+              "rating": [
+                "8.0"
+              ],
+              "coin reward": [
+                "50"
+              ],
+              "items needed": [
+                "Bloody Glutton Hand"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Oki",
+                "url": "https://vgsoharchive.com/mobs/oki"
+              },
+              {
+                "name": "Kojuko Glutton",
+                "url": "https://vgsoharchive.com/mobs/kojuko-glutton"
+              },
+              {
+                "name": "Avenging Oki",
+                "url": "https://vgsoharchive.com/quests/avenging-oki"
+              },
+              {
+                "name": "Training With Juu",
+                "url": "https://vgsoharchive.com/quests/training-with-juu"
+              },
+              {
+                "name": "Dallerjuba Wool Gloves",
+                "url": "https://vgsoharchive.com/items/dallerjuba-wool-gloves"
+              },
+              {
+                "name": "Dallerjuba Woven Belt",
+                "url": "https://vgsoharchive.com/items/dallerjuba-woven-belt"
+              },
+              {
+                "name": "Kojuko Beatin Flesh Greaves",
+                "url": "https://vgsoharchive.com/items/kojuko-beatin-flesh-greaves"
+              },
+              {
+                "name": "Kojuko Burnt Flesh Greaves",
+                "url": "https://vgsoharchive.com/items/kojuko-burnt-flesh-greaves"
+              },
+              {
+                "name": "Reinforced Dallerjuba Leather Gloves",
+                "url": "https://vgsoharchive.com/items/reinforced-dallerjuba-leather-gloves"
+              }
+            ],
+            "type": "quest",
+            "level": 4,
+            "zone": "Tanvu",
+            "giver": "Oki",
+            "turn_in": "Oki",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Avenging Oki",
+            "chain_next": "Training With Juu",
+            "quest_chain": {
+              "name": "Dallerjuba Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 2107,
+          "record": {
+            "name": "Kojuko Gluttons",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/kojuko-gluttons",
+                "title": "Kojuko Gluttons · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:45+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Oki"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-16408, -49970, 187"
+              ],
+              "series": [
+                "Dallerjuba Village"
+              ],
+              "hand in to": [
+                "Oki"
+              ],
+              "also involved": [
+                "Kojuko Glutton"
+              ],
+              "previous": [
+                "Avenging Oki"
+              ],
+              "next": [
+                "Training With Juu"
+              ],
+              "repeatable": [
+                "No"
+              ],
+              "rating": [
+                "8.0"
+              ],
+              "coin reward": [
+                "50"
+              ],
+              "items needed": [
+                "Bloody Glutton Hand"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Oki",
+                "url": "https://vgsoharchive.com/mobs/oki"
+              },
+              {
+                "name": "Kojuko Glutton",
+                "url": "https://vgsoharchive.com/mobs/kojuko-glutton"
+              },
+              {
+                "name": "Avenging Oki",
+                "url": "https://vgsoharchive.com/quests/avenging-oki"
+              },
+              {
+                "name": "Training With Juu",
+                "url": "https://vgsoharchive.com/quests/training-with-juu"
+              },
+              {
+                "name": "Dallerjuba Wool Gloves",
+                "url": "https://vgsoharchive.com/items/dallerjuba-wool-gloves"
+              },
+              {
+                "name": "Dallerjuba Woven Belt",
+                "url": "https://vgsoharchive.com/items/dallerjuba-woven-belt"
+              },
+              {
+                "name": "Kojuko Beatin Flesh Greaves",
+                "url": "https://vgsoharchive.com/items/kojuko-beatin-flesh-greaves"
+              },
+              {
+                "name": "Kojuko Burnt Flesh Greaves",
+                "url": "https://vgsoharchive.com/items/kojuko-burnt-flesh-greaves"
+              },
+              {
+                "name": "Reinforced Dallerjuba Leather Gloves",
+                "url": "https://vgsoharchive.com/items/reinforced-dallerjuba-leather-gloves"
+              }
+            ],
+            "type": "quest",
+            "level": 4,
+            "zone": "Tanvu",
+            "giver": "Oki",
+            "turn_in": "Oki",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": false,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Avenging Oki",
+            "chain_next": "Training With Juu",
+            "quest_chain": {
+              "name": "Dallerjuba Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    }
+  ],
+  "checkpoint_reconciliation": {
+    "authoritative_inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0,
+    "persisted_interval_seconds": 60.0,
+    "collector_lock_exists": false
+  },
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected combined suspension reset/push/restart: blocked by policy. No more specific disposition supplied.",
+    "resumption_conditions": "Recorded policy disposition permitting resumption, then inspect process and lock and use collection.ps1 with preserved queues and 60-second interval."
+  },
+  "validation": {
+    "issues": [],
+    "cached_pages": 2,
+    "chain_observations": 4,
+    "full_archive_records_verified": 4,
+    "input_hashes_verified": 6,
+    "missing_cache_urls": [],
+    "nonreciprocal_pair_verified": true
+  },
+  "findings": [
+    {
+      "observation": "Kojuko Gluttons Previous links Avenging Oki, whose Next links Oki's Jewels instead of Kojuko Gluttons. These literal labels do not form an exact reciprocal pair.",
+      "prerequisite_enforcement": null,
+      "identity_merge_authorized": false
+    },
+    {
+      "observation": "Avenging Oki Previous links Finding Oki. All printed link targets are retained verbatim; no missing chain edge is supplied.",
+      "canonical_client_id": null
+    }
+  ],
+  "remaining_review": {
+    "next_cached_targets": [
+      "https://vgsoharchive.com/quests/finding-oki",
+      "https://vgsoharchive.com/quests/oki-s-jewels"
+    ],
+    "required_review_complete": false,
+    "collection_complete": false
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "review_kind": "bard_group_attribute_range_targeted_cache_replay",
+  "parser_version": 39,
+  "network_requests": 0,
+  "inputs": [
+    {
+      "path": "reviewed/BARD_EFFECT_PROSE_LOCATION_REVIEW_ITERATION581.json",
+      "sha256": "d5fb154d820332317001030ef53b3e2ab6aafd9dd34c1ac11e41485d6d539225"
+    }
+  ],
+  "policy": "Exact whole-tooltip group-attribute range only. Range scaling unknown; conditions unresolved; observations are archive reports without historical authentication. Original records immutable; no operative facts promoted.",
+  "rows": [
+    {
+      "name": "Emboldening Embellishment",
+      "source_url": "https://vgsoharchive.com/abilities/emboldening-embellishment",
+      "cache": {
+        "path": ".cache/archive/701e46f255fb4f22e2ebf2f6e758c239e560cd3331a35b826197c5e82a3a1d51.txt",
+        "sha256": "44842d1e139c2079e61fd0d145d353bb472f8b48bf5bf61a087da9c34e6ebfbd"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 20,
+          "record_sha256": "72d018c43a02e3e837d7fc1fd6cf621a06a4556a66b5b9b40bcc72a37018a73a"
+        }
+      ],
+      "current_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "group_attribute_range_observation",
+              "attributes_recorded": [
+                "dexterity",
+                "vitality"
+              ],
+              "values": [
+                10,
+                18
+              ],
+              "target_recorded": "your group",
+              "range_basis": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "operative_values": null,
+      "historical_authentication": null
+    }
+  ],
+  "validation": {
+    "cached_page_hashes_verified": 150,
+    "source_record_hashes_verified": 150,
+    "issues": 0,
+    "python_tests_passed": 180
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "remaining_review": "Other numeric tooltip patterns and nonnumeric Effect prose remain pending."
+}

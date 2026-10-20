@@ -1,0 +1,639 @@
+{
+  "review_kind": "parser_v64_periodic_damage_cached_replay",
+  "input": {
+    "path": "reviewed/BARD_PERIODIC_DAMAGE_SOURCE_REVIEW_ITERATION635.json",
+    "sha256": "565d238d45c685914548064bff9216d035d858ac95e855c0b74c2063f92fec29"
+  },
+  "parser_version": 64,
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "source_review": {
+        "name": "Ariezel's Assonance of Pain",
+        "source_url": "https://vgsoharchive.com/abilities/ariezel-s-assonance-of-pain",
+        "cache": {
+          "path": ".cache/archive/0e0241fa6e5c8e4ce2a2ceb1768202db929cb46532527a815fb8a52ecae663a7.txt",
+          "sha256": "16e4e408b9fcfb09a2a0edb9886aa274e615d8383088c8874051f41d5082d7e5"
+        },
+        "source_references": [
+          {
+            "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+            "line": 2,
+            "record_sha256": "6ead04b1e2c82cd2df6868abed31f9e1b67b0aad8124fcc398681d23b916c67b"
+          }
+        ],
+        "effect_sections": [
+          "Deals 12-43 damage to your offensive target every 4 secs"
+        ],
+        "observations": [
+          {
+            "literal": "Deals 12-43 damage to your offensive target every 4 secs",
+            "text_sha256": "9ce0ee9d343103e1e5d1a1a195c4c26b8c6d52a9a88a08ab9f50275127e0eb07",
+            "damage_min_recorded": 12,
+            "damage_max_recorded": 43,
+            "damage_type_recorded": null,
+            "interval_seconds_recorded": 4,
+            "target_phrase_recorded": "your offensive target",
+            "scaling": null,
+            "duration": null,
+            "tick_count": null,
+            "initial_tick_timing": null,
+            "trigger_mechanics": null,
+            "operative_values": null,
+            "recognized_effect_facts": []
+          }
+        ],
+        "whole_page_replay": {
+          "name": "Ariezel's Assonance of Pain",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/ariezel-s-assonance-of-pain",
+              "title": "Ariezel's Assonance of Pain \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 63,
+          "collected_at": "2026-10-19T17:26:59+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "13"
+            ],
+            "level in 2007-2008": [
+              "13"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "0"
+            ],
+            "level": [
+              "13"
+            ],
+            "energy cost": [
+              "2"
+            ],
+            "song portion": [
+              "Chorus"
+            ],
+            "cast time": [
+              "0"
+            ],
+            "refresh": [
+              "0s"
+            ],
+            "range": [
+              "45m"
+            ],
+            "type": [
+              "Song Component"
+            ],
+            "instrument": [
+              "Brass"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 13,
+          "rank": null,
+          "category": "Song Component",
+          "cost": {
+            "energy": 2
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": 0,
+          "duration_seconds": null,
+          "range": {
+            "value": 45,
+            "unit": "m",
+            "raw": "45m"
+          },
+          "tooltip": "Deals 12-43 damage to your offensive target every 4 secs",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 13,
+              "raw": "13"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 13,
+              "raw": "13"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+          ],
+          "cost_observations": {
+            "energy": [
+              2
+            ]
+          },
+          "timing_observations": {
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "0s",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    12,
+                    43
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:ariezel-s-assonance-of-pain"
+          ]
+        }
+      },
+      "replay_record": {
+        "name": "Ariezel's Assonance of Pain",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/ariezel-s-assonance-of-pain",
+            "title": "Ariezel's Assonance of Pain \u00b7 Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+        "parser_version": 64,
+        "collected_at": "2026-10-19T17:33:02+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "13"
+          ],
+          "level in 2007-2008": [
+            "13"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "13"
+          ],
+          "energy cost": [
+            "2"
+          ],
+          "song portion": [
+            "Chorus"
+          ],
+          "cast time": [
+            "0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "45m"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "instrument": [
+            "Brass"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 13,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 2
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 45,
+          "unit": "m",
+          "raw": "45m"
+        },
+        "tooltip": "Deals 12-43 damage to your offensive target every 4 secs",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 13,
+            "raw": "13"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 13,
+            "raw": "13"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            2
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "periodic_damage_tooltip_observation",
+                "damage_min_recorded": 12,
+                "damage_max_recorded": 43,
+                "damage_type_recorded": null,
+                "interval_seconds_recorded": 4,
+                "target_phrase_recorded": "your offensive target",
+                "scaling": null,
+                "duration": null,
+                "tick_count": null,
+                "initial_tick_timing": null,
+                "trigger_mechanics": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          },
+          {
+            "scope": "historical",
+            "facts": [
+              {
+                "kind": "damage_range",
+                "values": [
+                  12,
+                  43
+                ],
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:ariezel-s-assonance-of-pain"
+        ]
+      },
+      "parsed_observations": [
+        {
+          "kind": "periodic_damage_tooltip_observation",
+          "damage_min_recorded": 12,
+          "damage_max_recorded": 43,
+          "damage_type_recorded": null,
+          "interval_seconds_recorded": 4,
+          "target_phrase_recorded": "your offensive target",
+          "scaling": null,
+          "duration": null,
+          "tick_count": null,
+          "initial_tick_timing": null,
+          "trigger_mechanics": null,
+          "operative_values": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "disposition": "research_observation_only_operative_values_withheld"
+    },
+    {
+      "source_review": {
+        "name": "Ariezel's Dirge of Doom",
+        "source_url": "https://vgsoharchive.com/abilities/ariezel-s-dirge-of-doom",
+        "cache": {
+          "path": ".cache/archive/f8db43250fe53b65dc24e8b3191dcbc2f2a7af4dca991223ae5dfad00cbc7bae.txt",
+          "sha256": "4ee86cf2276e551322dbf8c6e87ad293386d5d4a6ab9e44cc9d38914c2ca2ac3"
+        },
+        "source_references": [
+          {
+            "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+            "line": 54,
+            "record_sha256": "3328e08726b8ed1419441341525f08112f2c118dbf344b05615d6719dfe8e9e3"
+          }
+        ],
+        "effect_sections": [
+          "Deals 10 arcane damage to your offensive target every 4 secs."
+        ],
+        "observations": [
+          {
+            "literal": "Deals 10 arcane damage to your offensive target every 4 secs.",
+            "text_sha256": "4e4fbc2750de692879804f35570d05f5be8069ae323e4e894ed3aac68beafc99",
+            "damage_min_recorded": 10,
+            "damage_max_recorded": 10,
+            "damage_type_recorded": "arcane",
+            "interval_seconds_recorded": 4,
+            "target_phrase_recorded": "your offensive target",
+            "scaling": null,
+            "duration": null,
+            "tick_count": null,
+            "initial_tick_timing": null,
+            "trigger_mechanics": null,
+            "operative_values": null,
+            "recognized_effect_facts": []
+          }
+        ],
+        "whole_page_replay": {
+          "name": "Ariezel's Dirge of Doom",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/ariezel-s-dirge-of-doom",
+              "title": "Ariezel's Dirge of Doom \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 63,
+          "collected_at": "2026-10-19T17:26:59+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "26"
+            ],
+            "level": [
+              "26"
+            ],
+            "energy cost": [
+              "5"
+            ],
+            "song portion": [
+              "Verse"
+            ],
+            "type": [
+              "Song Component"
+            ],
+            "instrument": [
+              "Brass"
+            ],
+            "learned from": [
+              "Automatic"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 26,
+          "rank": null,
+          "category": "Song Component",
+          "cost": {
+            "energy": 5
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Deals 10 arcane damage to your offensive target every 4 secs.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 26,
+              "raw": "26"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              5
+            ]
+          },
+          "trainer": "Automatic",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:ariezel-s-dirge-of-doom"
+          ]
+        }
+      },
+      "replay_record": {
+        "name": "Ariezel's Dirge of Doom",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/ariezel-s-dirge-of-doom",
+            "title": "Ariezel's Dirge of Doom \u00b7 Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 64,
+        "collected_at": "2026-10-19T17:33:02+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "26"
+          ],
+          "level": [
+            "26"
+          ],
+          "energy cost": [
+            "5"
+          ],
+          "song portion": [
+            "Verse"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "instrument": [
+            "Brass"
+          ],
+          "learned from": [
+            "Automatic"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 26,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 5
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Deals 10 arcane damage to your offensive target every 4 secs.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 26,
+            "raw": "26"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+        ],
+        "cost_observations": {
+          "energy": [
+            5
+          ]
+        },
+        "trainer": "Automatic",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "periodic_damage_tooltip_observation",
+                "damage_min_recorded": 10,
+                "damage_max_recorded": 10,
+                "damage_type_recorded": "arcane",
+                "interval_seconds_recorded": 4,
+                "target_phrase_recorded": "your offensive target",
+                "scaling": null,
+                "duration": null,
+                "tick_count": null,
+                "initial_tick_timing": null,
+                "trigger_mechanics": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:ariezel-s-dirge-of-doom"
+        ]
+      },
+      "parsed_observations": [
+        {
+          "kind": "periodic_damage_tooltip_observation",
+          "damage_min_recorded": 10,
+          "damage_max_recorded": 10,
+          "damage_type_recorded": "arcane",
+          "interval_seconds_recorded": 4,
+          "target_phrase_recorded": "your offensive target",
+          "scaling": null,
+          "duration": null,
+          "tick_count": null,
+          "initial_tick_timing": null,
+          "trigger_mechanics": null,
+          "operative_values": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "disposition": "research_observation_only_operative_values_withheld"
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 2,
+    "source_record_hashes_verified": 2,
+    "literal_hashes_verified": 2,
+    "whole_page_replays": 2,
+    "issues": 0,
+    "tests": {
+      "command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+      "passed": 231
+    }
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "next_step": "Review remaining numeric Bard tooltips without recognized effect patterns in the iteration634 coverage audit."
+}

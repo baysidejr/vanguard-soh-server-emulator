@@ -1,0 +1,297 @@
+{
+  "review_kind": "dread_knight_stances_table_semantic_review",
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "input_census": {
+    "path": "reviewed/SUPPLEMENTAL_TABLE_CENSUS_ITERATION287.json",
+    "sha256": "fa21423867e1b42361c92f5e6fd8b3a35e104699beecaf34b8d163d47ed5ffd9"
+  },
+  "source_page": {
+    "url": "https://vgsoharchive.com/classes/dread-knight/stances",
+    "cache_stored_bytes_sha256": "dd5f1dcf7bda0f9d93ef61453b3e5d1b05afc395fd9692285015af17b849dbd0",
+    "cache_normalized_text_sha256": "c0e55764434a5581867ef83f9ba842dc16217f66e764935212ea359ecd8ea2c9",
+    "sidecar_sha256": "c0e55764434a5581867ef83f9ba842dc16217f66e764935212ea359ecd8ea2c9",
+    "hash_verification": "sidecar matches stored bytes or UTF-8 text with universal-newline normalization (legacy cache)",
+    "source_records": [
+      {
+        "path": "raw/2026-10-14-030650-645618-archive-bulk/source_pages.json",
+        "record": {
+          "name": "Dread Knight — Stances",
+          "url": "https://vgsoharchive.com/classes/dread-knight/stances",
+          "record_kind": "source_page",
+          "fields": {},
+          "headings": [],
+          "sections": [],
+          "referenced_entities": [],
+          "original_source_urls": [],
+          "source_date": null,
+          "parsed_at": "2026-10-14T07:08:35+00:00"
+        },
+        "file_sha256": "6ed525dfdcf17eb31fab21cf230e7c217215ab445dedc90685258eedbf91ccc9"
+      },
+      {
+        "path": "raw/2026-10-14-030849-144792-archive-reference-v18/source_pages.json",
+        "record": {
+          "name": "Dread Knight — Stances",
+          "url": "https://vgsoharchive.com/classes/dread-knight/stances",
+          "record_kind": "source_page",
+          "fields": {},
+          "headings": [],
+          "sections": [],
+          "referenced_entities": [],
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/adventuring:dread-knight-stances"
+          ],
+          "source_date": null,
+          "parsed_at": "2026-10-14T07:08:49+00:00"
+        },
+        "file_sha256": "db39226b4db9b9d1334df688247588333f05eea4f1bf373a5ddeb644452daa53"
+      }
+    ],
+    "table_count": 1,
+    "tables": [
+      {
+        "preceding_heading": null,
+        "row_count": 3,
+        "rows": [
+          [
+            "",
+            "Ebon Blade: Offensive, adds 15% damage"
+          ],
+          [
+            "",
+            "Armor of Darkness: Defensive, adds 40% aggro and 15% melee mitigation"
+          ],
+          [
+            "",
+            "Shadow Meld: +10% Accuracy, +6% Block, +6% Parry, increased resistances (but not Holy, Shadow, Planar) 55% proc on attack: Increase Dreadful Countenance."
+          ]
+        ],
+        "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Ebon Blade:</strong><br/>\nOffensive, adds 15% damage</td>\n</tr>\n<tr>\n<td></td>\n<td><strong>Armor of Darkness:</strong><br/>\nDefensive, adds 40% aggro and 15% melee mitigation</td>\n</tr>\n<tr>\n<td></td>\n<td><strong>Shadow Meld:</strong><br/>\n+10% Accuracy, +6% Block, +6% Parry, increased resistances (but not Holy, Shadow, Planar) 55% proc on attack: Increase Dreadful Countenance.</td>\n</tr>\n</table>",
+        "review_status": "unreviewed",
+        "game_fact": false
+      }
+    ],
+    "scope": "guide-body when present, otherwise main; navigation may remain and requires review"
+  },
+  "table_evidence": {
+    "table_index": 0,
+    "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Ebon Blade:</strong><br/>\nOffensive, adds 15% damage</td>\n</tr>\n<tr>\n<td></td>\n<td><strong>Armor of Darkness:</strong><br/>\nDefensive, adds 40% aggro and 15% melee mitigation</td>\n</tr>\n<tr>\n<td></td>\n<td><strong>Shadow Meld:</strong><br/>\n+10% Accuracy, +6% Block, +6% Parry, increased resistances (but not Holy, Shadow, Planar) 55% proc on attack: Increase Dreadful Countenance.</td>\n</tr>\n</table>",
+    "rows": [
+      {
+        "row_index": 0,
+        "source_html": "<tr>\n<td></td>\n<td><strong>Ebon Blade:</strong><br/>\nOffensive, adds 15% damage</td>\n</tr>",
+        "cells_as_printed": [
+          "",
+          "Ebon Blade: Offensive, adds 15% damage"
+        ],
+        "review_status": "reviewed_as_source_claim_only"
+      },
+      {
+        "row_index": 1,
+        "source_html": "<tr>\n<td></td>\n<td><strong>Armor of Darkness:</strong><br/>\nDefensive, adds 40% aggro and 15% melee mitigation</td>\n</tr>",
+        "cells_as_printed": [
+          "",
+          "Armor of Darkness: Defensive, adds 40% aggro and 15% melee mitigation"
+        ],
+        "review_status": "reviewed_as_source_claim_only"
+      },
+      {
+        "row_index": 2,
+        "source_html": "<tr>\n<td></td>\n<td><strong>Shadow Meld:</strong><br/>\n+10% Accuracy, +6% Block, +6% Parry, increased resistances (but not Holy, Shadow, Planar) 55% proc on attack: Increase Dreadful Countenance.</td>\n</tr>",
+        "cells_as_printed": [
+          "",
+          "Shadow Meld: +10% Accuracy, +6% Block, +6% Parry, increased resistances (but not Holy, Shadow, Planar) 55% proc on attack: Increase Dreadful Countenance."
+        ],
+        "review_status": "reviewed_as_source_claim_only"
+      }
+    ]
+  },
+  "claims": [
+    {
+      "id": 1,
+      "source_row_index": 0,
+      "subject": "Ebon Blade",
+      "predicate": "stance_role_as_printed",
+      "value": "Offensive",
+      "qualifier": null,
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 2,
+      "source_row_index": 0,
+      "subject": "Ebon Blade",
+      "predicate": "damage_increase_percent",
+      "value": 15,
+      "qualifier": "Damage categories, baseline and stacking unknown.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 3,
+      "source_row_index": 1,
+      "subject": "Armor of Darkness",
+      "predicate": "stance_role_as_printed",
+      "value": "Defensive",
+      "qualifier": null,
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 4,
+      "source_row_index": 1,
+      "subject": "Armor of Darkness",
+      "predicate": "aggro_increase_percent",
+      "value": 40,
+      "qualifier": "Threat formula and applicable actions unknown.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 5,
+      "source_row_index": 1,
+      "subject": "Armor of Darkness",
+      "predicate": "melee_mitigation_increase_percent",
+      "value": 15,
+      "qualifier": "Additive versus multiplicative semantics unknown.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 6,
+      "source_row_index": 2,
+      "subject": "Shadow Meld",
+      "predicate": "accuracy_increase_percent",
+      "value": 10,
+      "qualifier": "Rating versus chance semantics unknown.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 7,
+      "source_row_index": 2,
+      "subject": "Shadow Meld",
+      "predicate": "block_increase_percent",
+      "value": 6,
+      "qualifier": "Rating versus chance semantics unknown.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 8,
+      "source_row_index": 2,
+      "subject": "Shadow Meld",
+      "predicate": "parry_increase_percent",
+      "value": 6,
+      "qualifier": "Rating versus chance semantics unknown.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 9,
+      "source_row_index": 2,
+      "subject": "Shadow Meld",
+      "predicate": "resistance_increase",
+      "value": null,
+      "qualifier": "Amount absent; printed exclusions retained separately.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 10,
+      "source_row_index": 2,
+      "subject": "Shadow Meld",
+      "predicate": "resistance_exclusions_as_printed",
+      "value": [
+        "Holy",
+        "Shadow",
+        "Planar"
+      ],
+      "qualifier": null,
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 11,
+      "source_row_index": 2,
+      "subject": "Shadow Meld",
+      "predicate": "on_attack_proc_percent",
+      "value": 55,
+      "qualifier": "Eligible attacks, cooldown, normalization and proc mechanics unknown; source observation only.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 12,
+      "source_row_index": 2,
+      "subject": "Shadow Meld",
+      "predicate": "proc_effect_as_printed",
+      "value": "Increase Dreadful Countenance",
+      "qualifier": "Magnitude, cap and duration absent.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    }
+  ],
+  "limitations": [
+    "Telon Project mirror provenance; not independent corroboration of earlier prose reviews.",
+    "Percent labels retain the source wording; rating versus chance, additive versus multiplicative semantics and stacking remain unresolved.",
+    "Resistance amount and Dreadful Countenance increment, cap, duration, eligible attacks and proc cooldown remain unknown.",
+    "No canonical identities or operative server values assigned. Original metadata-only records remain unchanged."
+  ],
+  "validation": {
+    "issues": [],
+    "cached_html_hashes_verified": 1,
+    "original_source_records_verified": 2,
+    "table_html_matches": 1,
+    "table_rows_verified": 3
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "python_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "network_suspension_preserved": true
+  },
+  "table_coverage_delta": {
+    "previous_explicit_tables": 19,
+    "newly_reviewed_tables": 1,
+    "explicit_tables_after": 20,
+    "pending_table_review_or_coverage_verification": 50
+  },
+  "next_review": "Review the next unreviewed cached class stance table, preserving source qualifiers and unknown mechanics."
+}

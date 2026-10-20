@@ -1,0 +1,388 @@
+{
+  "review_kind": "constrained_haste_dance_extraction",
+  "parser_version": 76,
+  "input": {
+    "path": "reviewed/BARD_REMAINING_NUMERIC_SOURCE_REVIEW_ITERATION667.json",
+    "sha256": "0c294b3ee54570377f5eec04389a3101bd095c5408fd54c18b84868d87c48ff1"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Hazoc's Harmony of Haste",
+      "source_url": "https://vgsoharchive.com/abilities/hazoc-s-harmony-of-haste",
+      "cache": {
+        "path": ".cache/archive/2b71cc5112303f422bbf896279171ff178559f38ed975a51ffc97ab936d937c3.txt",
+        "sha256": "83e48d6472be9820d12bec71d0b38b3479c5b176f833d3396b5ae44cac0538be"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 27,
+          "record_sha256": "53b47a9d5cc2c42f011b586f550b963d793b2502b5c538a4059a460b2b42f982"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Increases the attack speed of you and your group by 12%. Cost: 2 energy per second Song Portion: Embellishment Instrument: None Cast Time: 0 Refresh: 0 Range: 5",
+          "text_sha256": "753bd84c7236f27cb24a558ad5594c4bbd02c8dc24e3c1d0a4e572299714a5ef",
+          "effect_facts": [
+            {
+              "kind": "attack_speed_energy_upkeep_tooltip_observation",
+              "attack_speed_increase_percent_recorded": 12,
+              "target_phrase_recorded": "you and your group",
+              "energy_upkeep_recorded": {
+                "amount": 2,
+                "unit_literal": "per second",
+                "resource_literal": "energy"
+              },
+              "song_portion_literal": "Embellishment",
+              "instrument_literal": "None",
+              "timing_and_range_literals": {
+                "cast_time": "0",
+                "refresh": "0",
+                "range": "5"
+              },
+              "cast_time_unit": null,
+              "refresh_unit": null,
+              "range_unit": null,
+              "percentage_calculation": null,
+              "upkeep_schedule": null,
+              "stacking_formula": null,
+              "operative_values": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "whole_page_replay": {
+        "name": "Hazoc's Harmony of Haste",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/hazoc-s-harmony-of-haste",
+            "title": "Hazoc's Harmony of Haste · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 76,
+        "collected_at": "2026-10-19T20:56:07+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "18"
+          ],
+          "level in 2007-2008": [
+            "18"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "18"
+          ],
+          "energy cost": [
+            "2"
+          ],
+          "song portion": [
+            "Embellishment"
+          ],
+          "cast time": [
+            "0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "5m"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 18,
+        "rank": null,
+        "category": null,
+        "cost": {
+          "energy": 2
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": null,
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 18,
+            "raw": "18"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 18,
+            "raw": "18"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            2
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "attack_speed_energy_upkeep_tooltip_observation",
+                "attack_speed_increase_percent_recorded": 12,
+                "target_phrase_recorded": "you and your group",
+                "energy_upkeep_recorded": {
+                  "amount": 2,
+                  "unit_literal": "per second",
+                  "resource_literal": "energy"
+                },
+                "song_portion_literal": "Embellishment",
+                "instrument_literal": "None",
+                "timing_and_range_literals": {
+                  "cast_time": "0",
+                  "refresh": "0",
+                  "range": "5"
+                },
+                "cast_time_unit": null,
+                "refresh_unit": null,
+                "range_unit": null,
+                "percentage_calculation": null,
+                "upkeep_schedule": null,
+                "stacking_formula": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "original_source_urls": [
+          "https://web.archive.org/web/20090309055001id_/http://www.tentonhammer.com/node/59432"
+        ]
+      }
+    },
+    {
+      "name": "Bladedancer's Focus",
+      "source_url": "https://vgsoharchive.com/abilities/bladedancer-s-focus",
+      "cache": {
+        "path": ".cache/archive/ea1f58dabed3128d6d3e24fe5b5ebcbb5b08282af6eb292ebdb53633e6e687df.txt",
+        "sha256": "005f0d3ae35dc50cdecd8f241a6f2c2b9a7162e71dafcb843f91d4f201529a8a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-234216-582177-archive-bulk/ability.jsonl",
+          "line": 92,
+          "record_sha256": "9392b07b238403e9c9bad2270c461eb2f28b56fe9ae32b5ad8e0fd2cf1c8a476"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "You move and strike with increased focus and speed, advancing to the last phase of your current dance and increasing melee accuracy and critical chance by 5% for 30 seconds.",
+          "text_sha256": "a5388e1c8aca969665e2bc71538f766f170cf53d7957debb6fe16a099e9f2a02",
+          "effect_facts": [
+            {
+              "kind": "dance_accuracy_critical_tooltip_observation",
+              "melee_accuracy_increase_percent_recorded": 5,
+              "critical_chance_increase_percent_recorded": 5,
+              "duration_seconds_recorded": 30,
+              "dance_transition_phrase_recorded": "advancing to the last phase of your current dance",
+              "percentage_calculation": null,
+              "resulting_critical_probability": null,
+              "dance_phase_identifier": null,
+              "stacking_formula": null,
+              "operative_values": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "whole_page_replay": {
+        "name": "Bladedancer's Focus",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/bladedancer-s-focus",
+            "title": "Bladedancer's Focus · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 76,
+        "collected_at": "2026-10-19T20:56:07+00:00",
+        "archive_fields": {
+          "level": [
+            "44"
+          ],
+          "energy cost": [
+            "38"
+          ],
+          "song portion": [
+            "?"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "10:00s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Self"
+          ],
+          "type": [
+            "Combat Buff"
+          ],
+          "instrument": [
+            "?"
+          ],
+          "icon": [
+            "Icon420.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 44,
+        "rank": null,
+        "category": "Combat Buff",
+        "cost": {
+          "energy": 38
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": null,
+        "icon_name": "Icon420.png",
+        "ranks": [],
+        "target_recorded": "Self",
+        "cost_observations": {
+          "energy": [
+            38
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "dance_accuracy_critical_tooltip_observation",
+                "melee_accuracy_increase_percent_recorded": 5,
+                "critical_chance_increase_percent_recorded": 5,
+                "duration_seconds_recorded": 30,
+                "dance_transition_phrase_recorded": "advancing to the last phase of your current dance",
+                "percentage_calculation": null,
+                "resulting_critical_probability": null,
+                "dance_phase_identifier": null,
+                "stacking_formula": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+        ]
+      }
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 2,
+    "source_record_hashes_verified": 2,
+    "literal_hashes_verified": 2,
+    "whole_page_replays": 2,
+    "issues": 0,
+    "unittest_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+    "tests_passed": 255
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Printed tooltip observations only; historical correctness and operative mechanics remain unverified.",
+    "Hazoc embeds metadata inside Effect prose; numeric cast, refresh and range labels lack units and must not acquire inferred units.",
+    "Fear break-on-hit mode scope and target interval mechanics are unspecified.",
+    "Bladedancer percentage calculation and dance phase identity remain unknown.",
+    "Original immutable batches are unchanged; no extraction completeness claim."
+  ],
+  "next_step": "Refresh Bard numeric-pattern coverage against parser v76 to identify remaining extraction gaps."
+}

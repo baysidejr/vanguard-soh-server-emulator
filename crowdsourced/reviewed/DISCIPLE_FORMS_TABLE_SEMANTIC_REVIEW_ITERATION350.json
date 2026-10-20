@@ -1,0 +1,270 @@
+{
+  "review_kind": "disciple_forms_table_semantic_review",
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "input_census": {
+    "path": "reviewed/SUPPLEMENTAL_TABLE_CENSUS_ITERATION287.json",
+    "sha256": "fa21423867e1b42361c92f5e6fd8b3a35e104699beecaf34b8d163d47ed5ffd9"
+  },
+  "source_page": {
+    "url": "https://vgsoharchive.com/classes/disciple/forms",
+    "cache_stored_bytes_sha256": "07ca72cd7aaa887cbe6ba57e3dd76e80da27aa66239cac38b06f67df3b388713",
+    "cache_normalized_text_sha256": "081ac1d44e887a92b376893bd22e1b5e2df5c82dff3b4f88c67ece260ac4cb41",
+    "sidecar_sha256": "081ac1d44e887a92b376893bd22e1b5e2df5c82dff3b4f88c67ece260ac4cb41",
+    "hash_verification": "sidecar matches stored bytes or UTF-8 text with universal-newline normalization (legacy cache)",
+    "source_records": [
+      {
+        "path": "raw/2026-10-14-030650-645618-archive-bulk/source_pages.json",
+        "record": {
+          "name": "Disciple — Forms",
+          "url": "https://vgsoharchive.com/classes/disciple/forms",
+          "record_kind": "source_page",
+          "fields": {},
+          "headings": [],
+          "sections": [],
+          "referenced_entities": [],
+          "original_source_urls": [],
+          "source_date": null,
+          "parsed_at": "2026-10-14T07:08:05+00:00"
+        },
+        "file_sha256": "6ed525dfdcf17eb31fab21cf230e7c217215ab445dedc90685258eedbf91ccc9"
+      },
+      {
+        "path": "raw/2026-10-14-030849-144792-archive-reference-v18/source_pages.json",
+        "record": {
+          "name": "Disciple — Forms",
+          "url": "https://vgsoharchive.com/classes/disciple/forms",
+          "record_kind": "source_page",
+          "fields": {},
+          "headings": [],
+          "sections": [],
+          "referenced_entities": [],
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/disciple-forms"
+          ],
+          "source_date": null,
+          "parsed_at": "2026-10-14T07:08:49+00:00"
+        },
+        "file_sha256": "db39226b4db9b9d1334df688247588333f05eea4f1bf373a5ddeb644452daa53"
+      }
+    ],
+    "table_count": 1,
+    "tables": [
+      {
+        "preceding_heading": null,
+        "row_count": 2,
+        "rows": [
+          [
+            "",
+            "Celestial Tiger: Increases damage by 20%, critical hit chance by 10% increases energy costs by 50% and regens1 Jin every 8 seconds. When you are in this stance Inner Light is more effective."
+          ],
+          [
+            "",
+            "Immortal Jade Dragon: Increases your dodge chance by 15%, lowers your aggression by 20% on melee attacks and regens 1 jin per every 8 seconds. Also grants Blessed Wind and Kiss of Heaven an instant healing portion."
+          ]
+        ],
+        "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Celestial Tiger:</strong><br/>\nIncreases damage by 20%, critical hit chance by 10% increases energy costs by 50% and regens1 Jin every 8 seconds. When you are in this stance Inner Light is more effective.</td>\n</tr>\n<tr>\n<td></td>\n<td><strong>Immortal Jade Dragon:</strong><br/>\nIncreases your dodge chance by 15%, lowers your aggression by 20% on melee attacks and regens 1 jin per every 8 seconds. Also grants Blessed Wind and Kiss of Heaven an instant healing portion.</td>\n</tr>\n</table>",
+        "review_status": "unreviewed",
+        "game_fact": false
+      }
+    ],
+    "scope": "guide-body when present, otherwise main; navigation may remain and requires review"
+  },
+  "table_evidence": {
+    "table_index": 0,
+    "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Celestial Tiger:</strong><br/>\nIncreases damage by 20%, critical hit chance by 10% increases energy costs by 50% and regens1 Jin every 8 seconds. When you are in this stance Inner Light is more effective.</td>\n</tr>\n<tr>\n<td></td>\n<td><strong>Immortal Jade Dragon:</strong><br/>\nIncreases your dodge chance by 15%, lowers your aggression by 20% on melee attacks and regens 1 jin per every 8 seconds. Also grants Blessed Wind and Kiss of Heaven an instant healing portion.</td>\n</tr>\n</table>",
+    "rows": [
+      {
+        "row_index": 0,
+        "source_html": "<tr>\n<td></td>\n<td><strong>Celestial Tiger:</strong><br/>\nIncreases damage by 20%, critical hit chance by 10% increases energy costs by 50% and regens1 Jin every 8 seconds. When you are in this stance Inner Light is more effective.</td>\n</tr>",
+        "cells_as_printed": [
+          "",
+          "Celestial Tiger: Increases damage by 20%, critical hit chance by 10% increases energy costs by 50% and regens1 Jin every 8 seconds. When you are in this stance Inner Light is more effective."
+        ],
+        "review_status": "reviewed_as_source_claim_only"
+      },
+      {
+        "row_index": 1,
+        "source_html": "<tr>\n<td></td>\n<td><strong>Immortal Jade Dragon:</strong><br/>\nIncreases your dodge chance by 15%, lowers your aggression by 20% on melee attacks and regens 1 jin per every 8 seconds. Also grants Blessed Wind and Kiss of Heaven an instant healing portion.</td>\n</tr>",
+        "cells_as_printed": [
+          "",
+          "Immortal Jade Dragon: Increases your dodge chance by 15%, lowers your aggression by 20% on melee attacks and regens 1 jin per every 8 seconds. Also grants Blessed Wind and Kiss of Heaven an instant healing portion."
+        ],
+        "review_status": "reviewed_as_source_claim_only"
+      }
+    ]
+  },
+  "claims": [
+    {
+      "id": 1,
+      "source_row_index": 0,
+      "subject": "Celestial Tiger",
+      "predicate": "damage_increase_percent",
+      "value": 20,
+      "qualifier": "Damage scope and stacking unknown.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 2,
+      "source_row_index": 0,
+      "subject": "Celestial Tiger",
+      "predicate": "critical_hit_chance_increase_percent_as_printed",
+      "value": 10,
+      "qualifier": "Percentage points versus relative percentage unknown.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 3,
+      "source_row_index": 0,
+      "subject": "Celestial Tiger",
+      "predicate": "energy_cost_increase_percent",
+      "value": 50,
+      "qualifier": "Eligible abilities and rounding unknown.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 4,
+      "source_row_index": 0,
+      "subject": "Celestial Tiger",
+      "predicate": "jin_regenerated",
+      "value": 1,
+      "qualifier": null,
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 5,
+      "source_row_index": 0,
+      "subject": "Celestial Tiger",
+      "predicate": "jin_regeneration_interval_seconds",
+      "value": 8,
+      "qualifier": "Tick phase, cap and combat restrictions unknown.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 6,
+      "source_row_index": 0,
+      "subject": "Celestial Tiger",
+      "predicate": "inner_light_effectiveness_increased",
+      "value": true,
+      "qualifier": "Magnitude and effectiveness metric unknown.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 7,
+      "source_row_index": 1,
+      "subject": "Immortal Jade Dragon",
+      "predicate": "dodge_chance_increase_percent_as_printed",
+      "value": 15,
+      "qualifier": "Percentage points versus relative percentage unknown.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 8,
+      "source_row_index": 1,
+      "subject": "Immortal Jade Dragon",
+      "predicate": "melee_attack_aggression_reduction_percent",
+      "value": 20,
+      "qualifier": "Aggression formula, baseline and stacking unknown.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 9,
+      "source_row_index": 1,
+      "subject": "Immortal Jade Dragon",
+      "predicate": "jin_regenerated",
+      "value": 1,
+      "qualifier": null,
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 10,
+      "source_row_index": 1,
+      "subject": "Immortal Jade Dragon",
+      "predicate": "jin_regeneration_interval_seconds",
+      "value": 8,
+      "qualifier": "Tick phase, cap and combat restrictions unknown.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 11,
+      "source_row_index": 1,
+      "subject": "Immortal Jade Dragon",
+      "predicate": "instant_healing_portion_granted_to",
+      "value": [
+        "Blessed Wind",
+        "Kiss of Heaven"
+      ],
+      "qualifier": "Healing amount and recipient rules unknown.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    }
+  ],
+  "limitations": [
+    "Telon Project mirror provenance; not independent corroboration of other Telonica mirrors or existing prose.",
+    "Chance percentage interpretation, healing magnitude, Jin tick phase and cap, ranks, stacking and historical applicability remain unknown.",
+    "No canonical identities or operative values assigned; original metadata-only records remain unchanged."
+  ],
+  "validation": {
+    "issues": [],
+    "cached_html_hashes_verified": 1,
+    "original_source_records_verified": 2,
+    "table_html_matches": 1,
+    "table_rows_verified": 2
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "python_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60.0,
+    "network_suspension_preserved": true
+  },
+  "table_coverage_delta": {
+    "previous_explicit_tables": 22,
+    "newly_reviewed_tables": 1,
+    "explicit_tables_after": 23,
+    "pending_table_review_or_coverage_verification": 47
+  },
+  "next_review": "Review cached monk styles tables, distinguishing placeholder descriptions from mechanic claims."
+}

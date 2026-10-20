@@ -1,0 +1,3212 @@
+{
+  "review_kind": "monk_class_snapshot_difference_source_review",
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "inputs": [
+    {
+      "path": "reviewed/MONK_TYPED_FIELD_COVERAGE_ITERATION426.json",
+      "sha256": "1d71fc32d12451e437ef8d0734dd5cf485de60e78931d4a636e24cdd1bc22d20"
+    },
+    {
+      "path": "reviewed/MONK_LANDING_PAGE_COVERAGE_ITERATION370.json",
+      "sha256": "a3ce40f0c536c2cfd478f1e89c1513f026ffd514704ea5e539df971736a4f226"
+    }
+  ],
+  "class_cache": {
+    "path": ".cache/archive/7249e7f5e59bea532427e2ca486efcb2575a461d1612c7ae67c360ceb03c82d6.txt",
+    "sha256": "40242a1f44a938f7087338f63605e890a99826de1cd179bd2b687a9d9a3e6f9b"
+  },
+  "provenance_warning": "These are recorded here from the fan wikis, but nobody has yet opened the\n    VGO Emulator client and confirmed them. They may be exactly right, they may\n    carry figures the game never used, or they may not be in the emulator at\n    all — there is no way to tell from the sources alone.\n    \n      Of this class's 166 abilities,\n      115 have had their tooltip read in game.\n    \n    Where a tooltip has been read it overrides the wikis, and around four in\n    five disagreed with them — so treat the figures below with care.",
+  "rows": [
+    {
+      "name": "Swaying Step I",
+      "printed_cells": {
+        "level": "6",
+        "ability": "Swaying Step I",
+        "school": "Drunken Discipline",
+        "cost": "18",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "Your swaying steps confuse your opponent, allowing you 100% dodge for the next 60 sec or until you dodge or activate another..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">6</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/swaying-step-i.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/swaying-step-i\">Swaying Step I</a>\n</td>\n<td class=\"muted\">Drunken Discipline</td>\n<td class=\"num muted\">\n              18\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Your swaying steps confuse your opponent, allowing you 100% dodge for the next 60 sec or until you dodge or activate another...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/swaying-step-i",
+      "detail_cache": {
+        "path": ".cache/archive/6ab18ba6e5826b431cf0e5ddf7feb3fafb1f696b7df1ef6dd2e12358f3d70a65.txt",
+        "sha256": "15b6cd6909b773d23f60e4f60f3c4129a726b8b07a7e4e5c856f6e6692711b58"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/swaying-step-i.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Swaying Step I\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/monk\">Monk</a>\n    \n    · Level 6\n    · Drunken Discipline\n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Your swaying steps confuse your opponent, allowing you 100% dodge for the next 60 sec or until you dodge or activate another ability. This turns off your auto-attack.</div>\n<h2>Ranks</h2>\n<div class=\"scroll\">\n<table>\n<thead><tr><th>Rank</th><th>Level</th><th>Cost</th><th>Effect</th></tr></thead>\n<tbody>\n<tr>\n<td>I</td>\n<td class=\"num\">6</td>\n<td class=\"num\">18</td>\n<td class=\"muted\">100% dodge for 60 sec or 1 use</td>\n</tr>\n</tbody>\n</table>\n</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>6</dd></div>\n<div><dt>Energy then</dt>\n<dd>18</dd></div>\n<div><dt>Cast then</dt><dd>Instant</dd></div>\n<div><dt>Refresh then</dt><dd>15</dd></div>\n</dl>\n<div class=\"tooltip\">Your swaying steps confuse your opponent, allowing you 100% dodge for the next 60 seconds or until you dodge</div>\n<p class=\"muted small\">\n<a href=\"http://www.vanguardmonks.com:80/index.php?option=com_monkabilities&amp;Itemid=56&amp;ability=Swaying+Step+I\" rel=\"noreferrer nofollow\">vanguardmonks.com</a>,\n          \n          2007 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>6</dd></div>\n</dl>\n<div class=\"tooltip\">Your swaying steps confuse your opponent, allowing you 100% dodge for the next 60 seconds or until you dodge or activate another ability. This turns off your auto-attack. Cost: Submit Info Cast Time: Submit Info Refresh: Submit Info Range: Submit Info</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59394\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Available only to a Monk who has taken the Drunken Master style. It appeared in the spellbook when the style was granted at The Way Of The Sway, Part 2 (4812), and a Monk on another path will not have it. Its absence from a Monk's spellbook therefore says which style that Monk follows, not whether the emulator carries the ability.</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>6</dd></div>\n<div><dt>Endurance cost</dt><dd>18</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>30.0s</dd></div>\n<div><dt>Duration</dt><dd>60 sec</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Self</dd></div>\n<div><dt>Type</dt><dd>Defensive</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon440.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"https://vanguard.fandom.com/wiki/Swaying_Step\" rel=\"noreferrer nofollow\">Vanguard Wiki (Fandom)</a>\n<span class=\"muted\">— CC BY-SA</span></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "source_records": [
+        {
+          "name": "Swaying Step I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/swaying-step-i",
+              "title": "Swaying Step I · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/monk",
+              "title": "Monk · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 5,
+          "collected_at": "2026-10-14T02:27:30+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "6"
+            ],
+            "energy then": [
+              "18"
+            ],
+            "cast then": [
+              "Instant"
+            ],
+            "refresh then": [
+              "15"
+            ],
+            "level in 2007-2008": [
+              "6"
+            ],
+            "level": [
+              "6"
+            ],
+            "endurance cost": [
+              "18"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "30.0s"
+            ],
+            "duration": [
+              "60 sec"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "type": [
+              "Defensive"
+            ],
+            "icon": [
+              "Icon440.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Monk",
+              "url": "https://vgsoharchive.com/classes/monk"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Monk",
+          "level_learned": 6,
+          "rank": "I",
+          "category": "Defensive",
+          "cost": {
+            "endurance": 18
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 30.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon440.png",
+          "ranks": [
+            {
+              "rank": "I",
+              "level_learned": 6,
+              "cost_raw": "18"
+            }
+          ],
+          "cost_observations": {
+            "endurance": [
+              18
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://vanguard.fandom.com/wiki/Swaying_Step"
+          ],
+          "classes_recorded": [
+            "Monk"
+          ],
+          "archive_variants": [
+            {
+              "name": "Swaying Step I",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/monk",
+                  "title": "Monk · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 5,
+              "collected_at": "2026-10-14T02:27:34+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Swaying Step I",
+                  "url": "https://vgsoharchive.com/abilities/swaying-step-i"
+                }
+              ],
+              "type": "ability",
+              "class": "Monk",
+              "level_learned": 6,
+              "rank": "I",
+              "category": "Drunken Discipline",
+              "cost": null,
+              "cast_time_seconds": 0,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/swaying-step-i",
+              "cost_recorded": {
+                "value": 18,
+                "resource": null,
+                "raw": "18"
+              },
+              "range_recorded": {
+                "value": 5,
+                "unit": null,
+                "raw": "5"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "Instant"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Swaying Step I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/swaying-step-i",
+              "title": "Swaying Step I · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/monk",
+              "title": "Monk · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 6,
+          "collected_at": "2026-10-14T02:39:00+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "6"
+            ],
+            "energy then": [
+              "18"
+            ],
+            "cast then": [
+              "Instant"
+            ],
+            "refresh then": [
+              "15"
+            ],
+            "level in 2007-2008": [
+              "6"
+            ],
+            "level": [
+              "6"
+            ],
+            "endurance cost": [
+              "18"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "30.0s"
+            ],
+            "duration": [
+              "60 sec"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "type": [
+              "Defensive"
+            ],
+            "icon": [
+              "Icon440.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Monk",
+              "url": "https://vgsoharchive.com/classes/monk"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Monk",
+          "level_learned": 6,
+          "rank": "I",
+          "category": "Defensive",
+          "cost": {
+            "endurance": 18
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 30.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon440.png",
+          "ranks": [
+            {
+              "rank": "I",
+              "level_learned": 6,
+              "cost_raw": "18"
+            }
+          ],
+          "cost_observations": {
+            "endurance": [
+              18
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "30.0s",
+                "seconds": 30.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://vanguard.fandom.com/wiki/Swaying_Step"
+          ],
+          "classes_recorded": [
+            "Monk"
+          ],
+          "archive_variants": [
+            {
+              "name": "Swaying Step I",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/monk",
+                  "title": "Monk · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 6,
+              "collected_at": "2026-10-14T02:39:04+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Swaying Step I",
+                  "url": "https://vgsoharchive.com/abilities/swaying-step-i"
+                }
+              ],
+              "type": "ability",
+              "class": "Monk",
+              "level_learned": 6,
+              "rank": "I",
+              "category": "Drunken Discipline",
+              "cost": null,
+              "cast_time_seconds": 0,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/swaying-step-i",
+              "cost_recorded": {
+                "value": 18,
+                "resource": null,
+                "raw": "18"
+              },
+              "range_recorded": {
+                "value": 5,
+                "unit": null,
+                "raw": "5"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "Instant"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Swaying Step I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/swaying-step-i",
+              "title": "Swaying Step I · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/monk",
+              "title": "Monk · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 7,
+          "collected_at": "2026-10-14T02:40:59+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "6"
+            ],
+            "energy then": [
+              "18"
+            ],
+            "cast then": [
+              "Instant"
+            ],
+            "refresh then": [
+              "15"
+            ],
+            "level in 2007-2008": [
+              "6"
+            ],
+            "level": [
+              "6"
+            ],
+            "endurance cost": [
+              "18"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "30.0s"
+            ],
+            "duration": [
+              "60 sec"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "type": [
+              "Defensive"
+            ],
+            "icon": [
+              "Icon440.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Monk",
+              "url": "https://vgsoharchive.com/classes/monk"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Monk",
+          "level_learned": 6,
+          "rank": "I",
+          "category": "Defensive",
+          "cost": {
+            "endurance": 18
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 30.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon440.png",
+          "ranks": [
+            {
+              "rank": "I",
+              "level_learned": 6,
+              "cost_raw": "18"
+            }
+          ],
+          "cost_observations": {
+            "endurance": [
+              18
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "30.0s",
+                "seconds": 30.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://vanguard.fandom.com/wiki/Swaying_Step"
+          ],
+          "classes_recorded": [
+            "Monk"
+          ],
+          "archive_variants": [
+            {
+              "name": "Swaying Step I",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/monk",
+                  "title": "Monk · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 7,
+              "collected_at": "2026-10-14T02:41:02+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Swaying Step I",
+                  "url": "https://vgsoharchive.com/abilities/swaying-step-i"
+                }
+              ],
+              "type": "ability",
+              "class": "Monk",
+              "level_learned": 6,
+              "rank": "I",
+              "category": "Drunken Discipline",
+              "cost": null,
+              "cast_time_seconds": 0,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/swaying-step-i",
+              "cost_recorded": {
+                "value": 18,
+                "resource": null,
+                "raw": "18"
+              },
+              "range_recorded": {
+                "value": 5,
+                "unit": null,
+                "raw": "5"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "Instant"
+              }
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+          "line": 2615,
+          "record_sha256": "209887b98390c0dd2922a737881e7effea1972fd6726589a4d2996b37a9c3bdf",
+          "parser_version": 5
+        },
+        {
+          "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+          "line": 2615,
+          "record_sha256": "f8b41ead600c2bdc322a2a5c162ffe45399f313d5cf6129d1407590f33f35fe4",
+          "parser_version": 6
+        },
+        {
+          "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+          "line": 2615,
+          "record_sha256": "8b980798fb37ba243a623da19a87aa3a25139ef2247ba2b6dd0797bdc3bea89f",
+          "parser_version": 7
+        }
+      ],
+      "dispositions": {
+        "school": {
+          "status": "merged_detail_category_compared_to_class_school",
+          "note": "Top-level merged record carries detail type; nested class variant preserves printed school. Neither source replaces the other; historical school interpretation remains unresolved."
+        }
+      },
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Ashen Hand I",
+      "printed_cells": {
+        "level": "8",
+        "ability": "Ashen Hand I",
+        "school": "Harmonoius Body",
+        "cost": "6",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "Unleashes a burst of Jin in the form of a single powerful attack that inflicts 200% weapon damage plus 38 to 44."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">8</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/ashen-hand-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/ashen-hand-i\">Ashen Hand I</a>\n</td>\n<td class=\"muted\">Harmonoius Body</td>\n<td class=\"num muted\">\n              6\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Unleashes a burst of Jin in the form of a single powerful attack that inflicts 200% weapon damage plus 38 to 44.</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/ashen-hand-i",
+      "detail_cache": {
+        "path": ".cache/archive/46828dc8e3ccc0c35019386a2aa8bdbbe35820bec90d9cf75ba44ceec12dfb99.txt",
+        "sha256": "5f8fd85e6510bacf4028a31f40c997d39e26c947834383969d518249c7bc8286"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/ashen-hand-i.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Ashen Hand I\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/monk\">Monk</a>\n    \n    · Level 8\n    · Harmonoius Body\n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Unleashes a burst of Jin in the form of a single powerful attack that inflicts 200% weapon damage plus 38 to 44.</div>\n<h2>Ranks</h2>\n<div class=\"scroll\">\n<table>\n<thead><tr><th>Rank</th><th>Level</th><th>Cost</th><th>Effect</th></tr></thead>\n<tbody>\n<tr>\n<td>I</td>\n<td class=\"num\">2</td>\n<td class=\"num\">{{Jin|6}}</td>\n<td class=\"muted\">200% weapon damage plus 14 to 17</td>\n</tr>\n</tbody>\n</table>\n</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>2\n                <span class=\"muted\">— now 8</span></dd></div>\n<div><dt>Energy then</dt>\n<dd>4\n                <span class=\"muted\">— now 6</span></dd></div>\n<div><dt>Cast then</dt><dd>Instant</dd></div>\n</dl>\n<div class=\"tooltip\">Unleashes a burst of Jin in the form of a single powerful attack that inflicts 17 to 20 damage</div>\n<p class=\"muted small\">\n<a href=\"http://www.vanguardmonks.com:80/index.php?option=com_monkabilities&amp;Itemid=56&amp;ability=Ashen+Hand+I\" rel=\"noreferrer nofollow\">vanguardmonks.com</a>,\n          \n          2007 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>2\n                <span class=\"muted\">— now 8</span></dd></div>\n</dl>\n<div class=\"tooltip\">Unleashes a burst of Jin in the form of a single powerful attack that inflicts 400% weapon damage plus 26 to 32. Cost: Submit Info Cast Time: Submit Info Refresh: Submit Info Range: Submit Info</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59394\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Debuff: Vulnerable Soul Wracked</p>\n<p class=\"muted\">The level recorded here was read from the VGO Emulator client. the vanguardmonks.com ability table, captured in 2008 gives a different one, and it is not an error in either: that page describes the game as it stood in 2007 and the emulator runs a much later build, so the Monk's abilities were rebalanced between the two. Forty of the Monk's abilities differ this way.</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>8</dd></div>\n<div><dt>jin cost</dt><dd>6</dd></div>\n<div><dt>Jin cost</dt><dd>4</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Causes</dt><dd>Vulnerable</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Exploits weakness</dt><dd>Soul Wracked</dd></div>\n<div><dt>Type</dt><dd>Harmonious Body</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon687.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:ashen-hand-i\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n<li><a href=\"https://vanguard.fandom.com/wiki/Ashen_Hand\" rel=\"noreferrer nofollow\">Vanguard Wiki (Fandom)</a>\n<span class=\"muted\">— CC BY-SA</span></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "source_records": [
+        {
+          "name": "Ashen Hand I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/ashen-hand-i",
+              "title": "Ashen Hand I · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/monk",
+              "title": "Monk · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 5,
+          "collected_at": "2026-10-14T02:27:28+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "2 — now 8"
+            ],
+            "energy then": [
+              "4 — now 6"
+            ],
+            "cast then": [
+              "Instant"
+            ],
+            "level in 2007-2008": [
+              "2 — now 8"
+            ],
+            "level": [
+              "8"
+            ],
+            "jin cost": [
+              "6",
+              "4"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ],
+            "causes": [
+              "Vulnerable"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Soul Wracked"
+            ],
+            "type": [
+              "Harmonious Body"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ],
+            "icon": [
+              "Icon687.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Monk",
+              "url": "https://vgsoharchive.com/classes/monk"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Monk",
+          "level_learned": 8,
+          "rank": "I",
+          "category": "Harmonious Body",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Unleashes a burst of Jin in the form of a single powerful attack that inflicts 200% weapon damage plus 38 to 44.",
+          "icon_name": "Icon687.png",
+          "ranks": [
+            {
+              "rank": "I",
+              "level_learned": 2,
+              "cost_raw": "{{Jin|6}}"
+            }
+          ],
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": "Vulnerable",
+          "exploits_weakness": "Soul Wracked",
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_bonus",
+                  "values": [
+                    38
+                  ],
+                  "conditions_unparsed": true
+                },
+                {
+                  "kind": "damage_percent",
+                  "values": [
+                    200
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    17,
+                    20
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_bonus",
+                  "values": [
+                    26
+                  ],
+                  "conditions_unparsed": true
+                },
+                {
+                  "kind": "damage_percent",
+                  "values": [
+                    400
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:ashen-hand-i",
+            "https://vanguard.fandom.com/wiki/Ashen_Hand"
+          ],
+          "classes_recorded": [
+            "Monk"
+          ],
+          "archive_variants": [
+            {
+              "name": "Ashen Hand I",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/monk",
+                  "title": "Monk · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 5,
+              "collected_at": "2026-10-14T02:27:34+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Ashen Hand I",
+                  "url": "https://vgsoharchive.com/abilities/ashen-hand-i"
+                }
+              ],
+              "type": "ability",
+              "class": "Monk",
+              "level_learned": 8,
+              "rank": "I",
+              "category": "Harmonoius Body",
+              "cost": null,
+              "cast_time_seconds": 0,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/ashen-hand-i",
+              "cost_recorded": {
+                "value": 6,
+                "resource": null,
+                "raw": "6"
+              },
+              "range_recorded": {
+                "value": 5,
+                "unit": null,
+                "raw": "5"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "Instant"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Ashen Hand I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/ashen-hand-i",
+              "title": "Ashen Hand I · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/monk",
+              "title": "Monk · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 6,
+          "collected_at": "2026-10-14T02:38:59+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "2 — now 8"
+            ],
+            "energy then": [
+              "4 — now 6"
+            ],
+            "cast then": [
+              "Instant"
+            ],
+            "level in 2007-2008": [
+              "2 — now 8"
+            ],
+            "level": [
+              "8"
+            ],
+            "jin cost": [
+              "6",
+              "4"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ],
+            "causes": [
+              "Vulnerable"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Soul Wracked"
+            ],
+            "type": [
+              "Harmonious Body"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ],
+            "icon": [
+              "Icon687.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Monk",
+              "url": "https://vgsoharchive.com/classes/monk"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Monk",
+          "level_learned": 8,
+          "rank": "I",
+          "category": "Harmonious Body",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Unleashes a burst of Jin in the form of a single powerful attack that inflicts 200% weapon damage plus 38 to 44.",
+          "icon_name": "Icon687.png",
+          "ranks": [
+            {
+              "rank": "I",
+              "level_learned": 2,
+              "cost_raw": "{{Jin|6}}"
+            }
+          ],
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": "Vulnerable",
+          "exploits_weakness": "Soul Wracked",
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_bonus",
+                  "values": [
+                    38
+                  ],
+                  "conditions_unparsed": true
+                },
+                {
+                  "kind": "damage_percent",
+                  "values": [
+                    200
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    17,
+                    20
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_bonus",
+                  "values": [
+                    26
+                  ],
+                  "conditions_unparsed": true
+                },
+                {
+                  "kind": "damage_percent",
+                  "values": [
+                    400
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:ashen-hand-i",
+            "https://vanguard.fandom.com/wiki/Ashen_Hand"
+          ],
+          "classes_recorded": [
+            "Monk"
+          ],
+          "archive_variants": [
+            {
+              "name": "Ashen Hand I",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/monk",
+                  "title": "Monk · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 6,
+              "collected_at": "2026-10-14T02:39:04+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Ashen Hand I",
+                  "url": "https://vgsoharchive.com/abilities/ashen-hand-i"
+                }
+              ],
+              "type": "ability",
+              "class": "Monk",
+              "level_learned": 8,
+              "rank": "I",
+              "category": "Harmonoius Body",
+              "cost": null,
+              "cast_time_seconds": 0,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/ashen-hand-i",
+              "cost_recorded": {
+                "value": 6,
+                "resource": null,
+                "raw": "6"
+              },
+              "range_recorded": {
+                "value": 5,
+                "unit": null,
+                "raw": "5"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "Instant"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Ashen Hand I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/ashen-hand-i",
+              "title": "Ashen Hand I · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/monk",
+              "title": "Monk · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 7,
+          "collected_at": "2026-10-14T02:40:57+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "2 — now 8"
+            ],
+            "energy then": [
+              "4 — now 6"
+            ],
+            "cast then": [
+              "Instant"
+            ],
+            "level in 2007-2008": [
+              "2 — now 8"
+            ],
+            "level": [
+              "8"
+            ],
+            "jin cost": [
+              "6",
+              "4"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ],
+            "causes": [
+              "Vulnerable"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Soul Wracked"
+            ],
+            "type": [
+              "Harmonious Body"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ],
+            "icon": [
+              "Icon687.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Monk",
+              "url": "https://vgsoharchive.com/classes/monk"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Monk",
+          "level_learned": 8,
+          "rank": "I",
+          "category": "Harmonious Body",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Unleashes a burst of Jin in the form of a single powerful attack that inflicts 200% weapon damage plus 38 to 44.",
+          "icon_name": "Icon687.png",
+          "ranks": [
+            {
+              "rank": "I",
+              "level_learned": 2,
+              "cost_raw": "{{Jin|6}}"
+            }
+          ],
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": "Vulnerable",
+          "exploits_weakness": "Soul Wracked",
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_bonus",
+                  "values": [
+                    38
+                  ],
+                  "conditions_unparsed": true
+                },
+                {
+                  "kind": "damage_percent",
+                  "values": [
+                    200
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    17,
+                    20
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_bonus",
+                  "values": [
+                    26
+                  ],
+                  "conditions_unparsed": true
+                },
+                {
+                  "kind": "damage_percent",
+                  "values": [
+                    400
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:ashen-hand-i",
+            "https://vanguard.fandom.com/wiki/Ashen_Hand"
+          ],
+          "classes_recorded": [
+            "Monk"
+          ],
+          "archive_variants": [
+            {
+              "name": "Ashen Hand I",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/monk",
+                  "title": "Monk · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 7,
+              "collected_at": "2026-10-14T02:41:02+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Ashen Hand I",
+                  "url": "https://vgsoharchive.com/abilities/ashen-hand-i"
+                }
+              ],
+              "type": "ability",
+              "class": "Monk",
+              "level_learned": 8,
+              "rank": "I",
+              "category": "Harmonoius Body",
+              "cost": null,
+              "cast_time_seconds": 0,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/ashen-hand-i",
+              "cost_recorded": {
+                "value": 6,
+                "resource": null,
+                "raw": "6"
+              },
+              "range_recorded": {
+                "value": 5,
+                "unit": null,
+                "raw": "5"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "Instant"
+              }
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+          "line": 90,
+          "record_sha256": "4b45a9b6227e2c723b4b463ac04b8beb1da3d9cd0e8943017071c384e8974605",
+          "parser_version": 5
+        },
+        {
+          "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+          "line": 90,
+          "record_sha256": "22611dd94e5ee431b34681fd649bfde633d95fdff1304633bc98668fc5feeb37",
+          "parser_version": 6
+        },
+        {
+          "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+          "line": 90,
+          "record_sha256": "e1e75793b15521e2e87bf58c68d3c3d3e9e634b8bef813696d9fbc324a929ca5",
+          "parser_version": 7
+        }
+      ],
+      "dispositions": {
+        "school": {
+          "status": "merged_detail_category_compared_to_class_school",
+          "note": "Top-level merged record carries detail type; nested class variant preserves printed school. Neither source replaces the other; historical school interpretation remains unresolved."
+        }
+      },
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Crescent Kick II",
+      "printed_cells": {
+        "level": "10",
+        "ability": "Crescent Kick II",
+        "school": "Melee Attack",
+        "cost": "10",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "A kick attack that deals 61 to 67 damage. Increases Jin by 2."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">10</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/crescent-kick-ii.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/crescent-kick-ii\">Crescent Kick II</a>\n</td>\n<td class=\"muted\">Melee Attack</td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">A kick attack that deals 61 to 67 damage. Increases Jin by 2.</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/crescent-kick-ii",
+      "detail_cache": {
+        "path": ".cache/archive/950164b31920f26e8e1867e999a337a84fa23063ca3ea1aedd4c92623bf7e96e.txt",
+        "sha256": "677b13bab5a19bee8b12ae1e9002efe3c0ed936cf73aa52baf51d08ad9166ab3"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/crescent-kick-ii.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Crescent Kick II\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/monk\">Monk</a>\n    \n    · Level 10\n    · Melee Attack\n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">A kick attack that deals 61 to 67 damage. Increases Jin by 2.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>12\n                <span class=\"muted\">— now 10</span></dd></div>\n<div><dt>Energy then</dt>\n<dd>15</dd></div>\n<div><dt>Cast then</dt><dd>Instant</dd></div>\n<div><dt>Refresh then</dt><dd>8</dd></div>\n</dl>\n<div class=\"tooltip\">A kicking attack that deals 30 to 36 damage Increases Jin by 2</div>\n<p class=\"muted small\">\n<a href=\"http://www.vanguardmonks.com:80/index.php?option=com_monkabilities&amp;Itemid=56&amp;ability=Crescent+Kick+II\" rel=\"noreferrer nofollow\">vanguardmonks.com</a>,\n          \n          2007 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>12\n                <span class=\"muted\">— now 10</span></dd></div>\n</dl>\n<div class=\"tooltip\">A kicking attack that deals 73 to 82 damage. Increases Jin by 2. Cost: Submit Info Cast Time: Submit Info Refresh: Submit Info Range: Submit Info</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59394\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Debuff: Shaken Staggered</p>\n<p class=\"muted\">Previously recorded by The Telon Project as: “A kicking attack that deals 61 to 67 damage. Icreases Jin by 2” (http://thetelonproject.wikidot.com/abilities:crescent-kick-ii)</p>\n<p class=\"muted\">The level recorded here was read from the VGO Emulator client. the vanguardmonks.com ability table, captured in 2008 gives a different one, and it is not an error in either: that page describes the game as it stood in 2007 and the emulator runs a much later build, so the Monk's abilities were rebalanced between the two. Forty of the Monk's abilities differ this way.</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>10</dd></div>\n<div><dt>Endurance cost</dt><dd>10</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>12.0s</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Causes</dt><dd>Shaken</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Exploits weakness</dt><dd>Staggered</dd></div>\n<div><dt>Type</dt><dd>Dragon Discipline</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:crescent-kick-ii\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "source_records": [
+        {
+          "name": "Crescent Kick II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/crescent-kick-ii",
+              "title": "Crescent Kick II · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/monk",
+              "title": "Monk · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 5,
+          "collected_at": "2026-10-14T02:27:29+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "12 — now 10"
+            ],
+            "energy then": [
+              "15"
+            ],
+            "cast then": [
+              "Instant"
+            ],
+            "refresh then": [
+              "8"
+            ],
+            "level in 2007-2008": [
+              "12 — now 10"
+            ],
+            "level": [
+              "10"
+            ],
+            "endurance cost": [
+              "10"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "12.0s"
+            ],
+            "range": [
+              "5m"
+            ],
+            "causes": [
+              "Shaken"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Staggered"
+            ],
+            "type": [
+              "Dragon Discipline"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Monk",
+              "url": "https://vgsoharchive.com/classes/monk"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Monk",
+          "level_learned": 10,
+          "rank": "II",
+          "category": "Dragon Discipline",
+          "cost": {
+            "endurance": 10
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 12.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "A kick attack that deals 61 to 67 damage. Increases Jin by 2.",
+          "icon_name": null,
+          "ranks": [],
+          "cost_observations": {
+            "endurance": [
+              10
+            ]
+          },
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": "Shaken",
+          "exploits_weakness": "Staggered",
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    61,
+                    67
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    30,
+                    36
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    73,
+                    82
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:crescent-kick-ii"
+          ],
+          "classes_recorded": [
+            "Monk"
+          ],
+          "archive_variants": [
+            {
+              "name": "Crescent Kick II",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/monk",
+                  "title": "Monk · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 5,
+              "collected_at": "2026-10-14T02:27:34+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Crescent Kick II",
+                  "url": "https://vgsoharchive.com/abilities/crescent-kick-ii"
+                }
+              ],
+              "type": "ability",
+              "class": "Monk",
+              "level_learned": 10,
+              "rank": "II",
+              "category": "Melee Attack",
+              "cost": null,
+              "cast_time_seconds": 0,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/crescent-kick-ii",
+              "cost_recorded": {
+                "value": 10,
+                "resource": null,
+                "raw": "10"
+              },
+              "range_recorded": {
+                "value": 5,
+                "unit": null,
+                "raw": "5"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "Instant"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Crescent Kick II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/crescent-kick-ii",
+              "title": "Crescent Kick II · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/monk",
+              "title": "Monk · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 6,
+          "collected_at": "2026-10-14T02:38:59+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "12 — now 10"
+            ],
+            "energy then": [
+              "15"
+            ],
+            "cast then": [
+              "Instant"
+            ],
+            "refresh then": [
+              "8"
+            ],
+            "level in 2007-2008": [
+              "12 — now 10"
+            ],
+            "level": [
+              "10"
+            ],
+            "endurance cost": [
+              "10"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "12.0s"
+            ],
+            "range": [
+              "5m"
+            ],
+            "causes": [
+              "Shaken"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Staggered"
+            ],
+            "type": [
+              "Dragon Discipline"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Monk",
+              "url": "https://vgsoharchive.com/classes/monk"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Monk",
+          "level_learned": 10,
+          "rank": "II",
+          "category": "Dragon Discipline",
+          "cost": {
+            "endurance": 10
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 12.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "A kick attack that deals 61 to 67 damage. Increases Jin by 2.",
+          "icon_name": null,
+          "ranks": [],
+          "cost_observations": {
+            "endurance": [
+              10
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "12.0s",
+                "seconds": 12.0
+              }
+            ]
+          },
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": "Shaken",
+          "exploits_weakness": "Staggered",
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    61,
+                    67
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    30,
+                    36
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    73,
+                    82
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:crescent-kick-ii"
+          ],
+          "classes_recorded": [
+            "Monk"
+          ],
+          "archive_variants": [
+            {
+              "name": "Crescent Kick II",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/monk",
+                  "title": "Monk · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 6,
+              "collected_at": "2026-10-14T02:39:04+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Crescent Kick II",
+                  "url": "https://vgsoharchive.com/abilities/crescent-kick-ii"
+                }
+              ],
+              "type": "ability",
+              "class": "Monk",
+              "level_learned": 10,
+              "rank": "II",
+              "category": "Melee Attack",
+              "cost": null,
+              "cast_time_seconds": 0,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/crescent-kick-ii",
+              "cost_recorded": {
+                "value": 10,
+                "resource": null,
+                "raw": "10"
+              },
+              "range_recorded": {
+                "value": 5,
+                "unit": null,
+                "raw": "5"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "Instant"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Crescent Kick II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/crescent-kick-ii",
+              "title": "Crescent Kick II · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/monk",
+              "title": "Monk · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 7,
+          "collected_at": "2026-10-14T02:40:57+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "12 — now 10"
+            ],
+            "energy then": [
+              "15"
+            ],
+            "cast then": [
+              "Instant"
+            ],
+            "refresh then": [
+              "8"
+            ],
+            "level in 2007-2008": [
+              "12 — now 10"
+            ],
+            "level": [
+              "10"
+            ],
+            "endurance cost": [
+              "10"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "12.0s"
+            ],
+            "range": [
+              "5m"
+            ],
+            "causes": [
+              "Shaken"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Staggered"
+            ],
+            "type": [
+              "Dragon Discipline"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Monk",
+              "url": "https://vgsoharchive.com/classes/monk"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Monk",
+          "level_learned": 10,
+          "rank": "II",
+          "category": "Dragon Discipline",
+          "cost": {
+            "endurance": 10
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 12.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "A kick attack that deals 61 to 67 damage. Increases Jin by 2.",
+          "icon_name": null,
+          "ranks": [],
+          "cost_observations": {
+            "endurance": [
+              10
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "12.0s",
+                "seconds": 12.0
+              }
+            ]
+          },
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": "Shaken",
+          "exploits_weakness": "Staggered",
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    61,
+                    67
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    30,
+                    36
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    73,
+                    82
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:crescent-kick-ii"
+          ],
+          "classes_recorded": [
+            "Monk"
+          ],
+          "archive_variants": [
+            {
+              "name": "Crescent Kick II",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/monk",
+                  "title": "Monk · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 7,
+              "collected_at": "2026-10-14T02:41:02+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Crescent Kick II",
+                  "url": "https://vgsoharchive.com/abilities/crescent-kick-ii"
+                }
+              ],
+              "type": "ability",
+              "class": "Monk",
+              "level_learned": 10,
+              "rank": "II",
+              "category": "Melee Attack",
+              "cost": null,
+              "cast_time_seconds": 0,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/crescent-kick-ii",
+              "cost_recorded": {
+                "value": 10,
+                "resource": null,
+                "raw": "10"
+              },
+              "range_recorded": {
+                "value": 5,
+                "unit": null,
+                "raw": "5"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "Instant"
+              }
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+          "line": 542,
+          "record_sha256": "277543ef6161c8a8b30cf60f63e70012904b1b76a95e4ef4eb046adab387b847",
+          "parser_version": 5
+        },
+        {
+          "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+          "line": 542,
+          "record_sha256": "a52f44cad57ffa3ce0182cb1ac76715524142736d43958f5a756a1a23c5888cf",
+          "parser_version": 6
+        },
+        {
+          "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+          "line": 542,
+          "record_sha256": "4fe772105a45e4c540b805b3479534dcc1815b422e1063a5f8061a4de33a62de",
+          "parser_version": 7
+        }
+      ],
+      "dispositions": {
+        "school": {
+          "status": "merged_detail_category_compared_to_class_school",
+          "note": "Top-level merged record carries detail type; nested class variant preserves printed school. Neither source replaces the other; historical school interpretation remains unresolved."
+        }
+      },
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Reed in the Wind I",
+      "printed_cells": {
+        "level": "16",
+        "ability": "Reed in the Wind I",
+        "school": "unavailable",
+        "cost": "10",
+        "cast": "?",
+        "range": "?",
+        "effect": "You bend and twist like a reed in the wind, making you a very difficult target to strike, increasing your dodge by 50% for 15 sec."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">16</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/reed-in-the-wind-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/reed-in-the-wind-i\">Reed in the Wind I</a>\n</td>\n<td class=\"muted\">unavailable</td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">?</td>\n<td class=\"num muted\">?</td>\n<td class=\"muted\">You bend and twist like a reed in the wind, making you a very difficult target to strike, increasing your dodge by 50% for 15 sec.</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/reed-in-the-wind-i",
+      "detail_cache": {
+        "path": ".cache/archive/aedb353d19cb7bac0b24fbed6737a3fcd4bac2c837859d0639063286a1042800.txt",
+        "sha256": "d0a86746cffdb1fba80bcfbbf0fe925b873aee7da1a5152ce95462a6ee633cbc"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/reed-in-the-wind-i.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Reed in the Wind I\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/monk\">Monk</a>\n    \n    · Level 16\n    · unavailable\n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">You bend and twist like a reed in the wind, making you a very difficult target to strike, increasing your dodge by 50% for 15 sec.</div>\n<h2>Ranks</h2>\n<div class=\"scroll\">\n<table>\n<thead><tr><th>Rank</th><th>Level</th><th>Cost</th><th>Effect</th></tr></thead>\n<tbody>\n<tr>\n<td>14</td>\n<td class=\"num\">439</td>\n<td class=\"num\">Goading Slap</td>\n<td class=\"muted\">I</td>\n</tr>\n<tr>\n<td>18</td>\n<td class=\"num\">440</td>\n<td class=\"num\">Swaying Step</td>\n<td class=\"muted\">II</td>\n</tr>\n<tr>\n<td>10</td>\n<td class=\"num\">467</td>\n<td class=\"num\">Storm Stride</td>\n<td class=\"muted\">I</td>\n</tr>\n<tr>\n<td>1</td>\n<td class=\"num\">507</td>\n<td class=\"num\">Iron Resolve</td>\n<td class=\"muted\">I</td>\n</tr>\n<tr>\n<td>10</td>\n<td class=\"num\">507</td>\n<td class=\"num\">Iron Resolve</td>\n<td class=\"muted\">II</td>\n</tr>\n<tr>\n<td>10</td>\n<td class=\"num\">534</td>\n<td class=\"num\">Jin Surge</td>\n<td class=\"muted\">I</td>\n</tr>\n<tr>\n<td>14</td>\n<td class=\"num\">566</td>\n<td class=\"num\">Thousand Fists</td>\n<td class=\"muted\">I</td>\n</tr>\n<tr>\n<td>10</td>\n<td class=\"num\">590</td>\n<td class=\"num\">Secret of Flames</td>\n<td class=\"muted\">I</td>\n</tr>\n<tr>\n<td>18</td>\n<td class=\"num\">590</td>\n<td class=\"num\">Secret of Flames</td>\n<td class=\"muted\">II</td>\n</tr>\n<tr>\n<td>8</td>\n<td class=\"num\">595</td>\n<td class=\"num\">Stinging Backfist</td>\n<td class=\"muted\">I</td>\n</tr>\n<tr>\n<td>10</td>\n<td class=\"num\">595</td>\n<td class=\"num\">Flying Kick</td>\n<td class=\"muted\">II</td>\n</tr>\n<tr>\n<td>14</td>\n<td class=\"num\">595</td>\n<td class=\"num\">Stinging Backfis</td>\n<td class=\"muted\">I</td>\n</tr>\n<tr>\n<td>4</td>\n<td class=\"num\">617</td>\n<td class=\"num\">Whirling Storm</td>\n<td class=\"muted\">I</td>\n</tr>\n<tr>\n<td>14</td>\n<td class=\"num\">617</td>\n<td class=\"num\">Whirling Storm</td>\n<td class=\"muted\">II</td>\n</tr>\n<tr>\n<td>18</td>\n<td class=\"num\">622</td>\n<td class=\"num\">Quivering Palm</td>\n<td class=\"muted\">I</td>\n</tr>\n<tr>\n<td>14</td>\n<td class=\"num\">623</td>\n<td class=\"num\">Waning Palm</td>\n<td class=\"muted\">I</td>\n</tr>\n<tr>\n<td>2</td>\n<td class=\"num\">626</td>\n<td class=\"num\">Crescent Kick</td>\n<td class=\"muted\">I</td>\n</tr>\n<tr>\n<td>10</td>\n<td class=\"num\">626</td>\n<td class=\"num\">Crescent Kick</td>\n<td class=\"muted\">II</td>\n</tr>\n<tr>\n<td>18</td>\n<td class=\"num\">626</td>\n<td class=\"num\">Crescent Kick</td>\n<td class=\"muted\">III</td>\n</tr>\n<tr>\n<td>14</td>\n<td class=\"num\">650</td>\n<td class=\"num\">Enlightenment</td>\n<td class=\"muted\"></td>\n</tr>\n<tr>\n<td>4</td>\n<td class=\"num\">665</td>\n<td class=\"num\">Ignore Pain</td>\n<td class=\"muted\">I</td>\n</tr>\n<tr>\n<td>18</td>\n<td class=\"num\">665</td>\n<td class=\"num\">Ignore Pain</td>\n<td class=\"muted\">II</td>\n</tr>\n<tr>\n<td>18</td>\n<td class=\"num\">667</td>\n<td class=\"num\">Divine Typhoon</td>\n<td class=\"muted\">I</td>\n</tr>\n<tr>\n<td>8</td>\n<td class=\"num\">687</td>\n<td class=\"num\">Ashen Hand</td>\n<td class=\"muted\">I</td>\n</tr>\n<tr>\n<td>18</td>\n<td class=\"num\">687</td>\n<td class=\"num\">Ashen Hand</td>\n<td class=\"muted\">II</td>\n</tr>\n<tr>\n<td>6</td>\n<td class=\"num\">702</td>\n<td class=\"num\">Feign Death</td>\n<td class=\"muted\">I</td>\n</tr>\n<tr>\n<td>1</td>\n<td class=\"num\">706</td>\n<td class=\"num\">Boundless Fist</td>\n<td class=\"muted\">I</td>\n</tr>\n<tr>\n<td>6</td>\n<td class=\"num\">706</td>\n<td class=\"num\">Boundless Fist</td>\n<td class=\"muted\">I</td>\n</tr>\n<tr>\n<td>14</td>\n<td class=\"num\">706</td>\n<td class=\"num\">Boundless Fist</td>\n<td class=\"muted\">III</td>\n</tr>\n<tr>\n<td>15</td>\n<td class=\"num\">716</td>\n<td class=\"num\">Aum of the Harmonious Path</td>\n<td class=\"muted\"></td>\n</tr>\n</tbody>\n</table>\n</div>\n<h2>Learned from</h2>\n<p class=\"muted\">\n          This ability is not sold by a trainer. It is learned by fighting these\n          creatures.\n        </p>\n<ul class=\"plain\">\n<li>\n<a href=\"/mobs/infineum-simularum\">Infineum Simularum</a>\n              \n              \n                — <a href=\"/zones/coterie-infineum-sanctuary\">Coterie Infineum Sanctuary</a>\n<br/><span class=\"muted\">southern Infineum mine fields [a player guide on JeuxOnLine]</span>\n</li>\n<li>\n<a href=\"/mobs/meteor-crawler\">Meteor Crawler</a>\n              \n              \n                — <a href=\"/zones/ruins-of-trengal-keep\">Ruins of Trengal Keep</a>\n</li>\n</ul>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>26\n                <span class=\"muted\">— now 16</span></dd></div>\n<div><dt>Energy then</dt>\n<dd>40</dd></div>\n<div><dt>Cast then</dt><dd>Instant</dd></div>\n</dl>\n<div class=\"tooltip\">You bend and twist like a reed in the wind, making you a very difficult target to strike, increasing your dodge by 50% for 10 sec</div>\n<p class=\"muted small\">\n<a href=\"http://www.vanguardmonks.com:80/index.php?option=com_monkabilities&amp;Itemid=56&amp;ability=Reed+in+the+Wind+I\" rel=\"noreferrer nofollow\">vanguardmonks.com</a>,\n          \n          2007 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Harmonious Body Learned outside Trengal's Keep at the meteor area, kill Meteor spiders with melee only slowly.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>16</dd></div>\n<div><dt>Source</dt><dd>Learned in the world</dd></div>\n<div><dt>Endurance cost</dt><dd>10</dd></div>\n<div><dt>Cast time</dt><dd>?</dd></div>\n<div><dt>Refresh</dt><dd>?s</dd></div>\n<div><dt>Range</dt><dd>?m</dd></div>\n<div><dt>Target</dt><dd>Self</dd></div>\n<div><dt>Type</dt><dd>Skill or Spell</dd></div>\n<div><dt>Learned from</dt><dd>Ruins of Trengal Keep; Coterie Infineum Sanctuary</dd></div>\n<div><dt>From item</dt><dd>Meteor Crawlers</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon443.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:reed-in-the-wind-i\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n<li><a href=\"https://vanguard.fandom.com/wiki/Monk\" rel=\"noreferrer nofollow\">Vanguard Wiki (Fandom)</a>\n<span class=\"muted\">— CC BY-SA</span></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "source_records": [
+        {
+          "name": "Reed in the Wind I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/reed-in-the-wind-i",
+              "title": "Reed in the Wind I · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/monk",
+              "title": "Monk · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 5,
+          "collected_at": "2026-10-14T02:27:30+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "26 — now 16"
+            ],
+            "energy then": [
+              "40"
+            ],
+            "cast then": [
+              "Instant"
+            ],
+            "level": [
+              "16"
+            ],
+            "source": [
+              "Learned in the world"
+            ],
+            "endurance cost": [
+              "10"
+            ],
+            "cast time": [
+              "?"
+            ],
+            "refresh": [
+              "?s"
+            ],
+            "range": [
+              "?m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "type": [
+              "Skill or Spell"
+            ],
+            "learned from": [
+              "Ruins of Trengal Keep; Coterie Infineum Sanctuary"
+            ],
+            "from item": [
+              "Meteor Crawlers"
+            ],
+            "icon": [
+              "Icon443.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Monk",
+              "url": "https://vgsoharchive.com/classes/monk"
+            },
+            {
+              "name": "Infineum Simularum",
+              "url": "https://vgsoharchive.com/mobs/infineum-simularum"
+            },
+            {
+              "name": "Coterie Infineum Sanctuary",
+              "url": "https://vgsoharchive.com/zones/coterie-infineum-sanctuary"
+            },
+            {
+              "name": "Meteor Crawler",
+              "url": "https://vgsoharchive.com/mobs/meteor-crawler"
+            },
+            {
+              "name": "Ruins of Trengal Keep",
+              "url": "https://vgsoharchive.com/zones/ruins-of-trengal-keep"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Monk",
+          "level_learned": 16,
+          "rank": "I",
+          "category": "Skill or Spell",
+          "cost": {
+            "endurance": 10
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": null,
+          "icon_name": "Icon443.png",
+          "ranks": [],
+          "cost_observations": {
+            "endurance": [
+              10
+            ]
+          },
+          "trainer": "Ruins of Trengal Keep; Coterie Infineum Sanctuary",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:reed-in-the-wind-i",
+            "https://vanguard.fandom.com/wiki/Monk"
+          ],
+          "classes_recorded": [
+            "Monk"
+          ],
+          "archive_variants": [
+            {
+              "name": "Reed in the Wind I",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/monk",
+                  "title": "Monk · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 5,
+              "collected_at": "2026-10-14T02:27:34+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Reed in the Wind I",
+                  "url": "https://vgsoharchive.com/abilities/reed-in-the-wind-i"
+                }
+              ],
+              "type": "ability",
+              "class": "Monk",
+              "level_learned": 16,
+              "rank": "I",
+              "category": "unavailable",
+              "cost": null,
+              "cast_time_seconds": null,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/reed-in-the-wind-i",
+              "cost_recorded": {
+                "value": 10,
+                "resource": null,
+                "raw": "10"
+              },
+              "range_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "?"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "?"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reed in the Wind I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/reed-in-the-wind-i",
+              "title": "Reed in the Wind I · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/monk",
+              "title": "Monk · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 6,
+          "collected_at": "2026-10-14T02:39:00+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "26 — now 16"
+            ],
+            "energy then": [
+              "40"
+            ],
+            "cast then": [
+              "Instant"
+            ],
+            "level": [
+              "16"
+            ],
+            "source": [
+              "Learned in the world"
+            ],
+            "endurance cost": [
+              "10"
+            ],
+            "cast time": [
+              "?"
+            ],
+            "refresh": [
+              "?s"
+            ],
+            "range": [
+              "?m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "type": [
+              "Skill or Spell"
+            ],
+            "learned from": [
+              "Ruins of Trengal Keep; Coterie Infineum Sanctuary"
+            ],
+            "from item": [
+              "Meteor Crawlers"
+            ],
+            "icon": [
+              "Icon443.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Monk",
+              "url": "https://vgsoharchive.com/classes/monk"
+            },
+            {
+              "name": "Infineum Simularum",
+              "url": "https://vgsoharchive.com/mobs/infineum-simularum"
+            },
+            {
+              "name": "Coterie Infineum Sanctuary",
+              "url": "https://vgsoharchive.com/zones/coterie-infineum-sanctuary"
+            },
+            {
+              "name": "Meteor Crawler",
+              "url": "https://vgsoharchive.com/mobs/meteor-crawler"
+            },
+            {
+              "name": "Ruins of Trengal Keep",
+              "url": "https://vgsoharchive.com/zones/ruins-of-trengal-keep"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Monk",
+          "level_learned": 16,
+          "rank": "I",
+          "category": "Skill or Spell",
+          "cost": {
+            "endurance": 10
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": null,
+          "icon_name": "Icon443.png",
+          "ranks": [],
+          "cost_observations": {
+            "endurance": [
+              10
+            ]
+          },
+          "trainer": "Ruins of Trengal Keep; Coterie Infineum Sanctuary",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:reed-in-the-wind-i",
+            "https://vanguard.fandom.com/wiki/Monk"
+          ],
+          "classes_recorded": [
+            "Monk"
+          ],
+          "archive_variants": [
+            {
+              "name": "Reed in the Wind I",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/monk",
+                  "title": "Monk · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 6,
+              "collected_at": "2026-10-14T02:39:04+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Reed in the Wind I",
+                  "url": "https://vgsoharchive.com/abilities/reed-in-the-wind-i"
+                }
+              ],
+              "type": "ability",
+              "class": "Monk",
+              "level_learned": 16,
+              "rank": "I",
+              "category": "unavailable",
+              "cost": null,
+              "cast_time_seconds": null,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/reed-in-the-wind-i",
+              "cost_recorded": {
+                "value": 10,
+                "resource": null,
+                "raw": "10"
+              },
+              "range_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "?"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "?"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reed in the Wind I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/reed-in-the-wind-i",
+              "title": "Reed in the Wind I · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/monk",
+              "title": "Monk · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Malformed rank row withheld; rank table requires review. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 7,
+          "collected_at": "2026-10-14T02:40:58+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "26 — now 16"
+            ],
+            "energy then": [
+              "40"
+            ],
+            "cast then": [
+              "Instant"
+            ],
+            "level": [
+              "16"
+            ],
+            "source": [
+              "Learned in the world"
+            ],
+            "endurance cost": [
+              "10"
+            ],
+            "cast time": [
+              "?"
+            ],
+            "refresh": [
+              "?s"
+            ],
+            "range": [
+              "?m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "type": [
+              "Skill or Spell"
+            ],
+            "learned from": [
+              "Ruins of Trengal Keep; Coterie Infineum Sanctuary"
+            ],
+            "from item": [
+              "Meteor Crawlers"
+            ],
+            "icon": [
+              "Icon443.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Monk",
+              "url": "https://vgsoharchive.com/classes/monk"
+            },
+            {
+              "name": "Infineum Simularum",
+              "url": "https://vgsoharchive.com/mobs/infineum-simularum"
+            },
+            {
+              "name": "Coterie Infineum Sanctuary",
+              "url": "https://vgsoharchive.com/zones/coterie-infineum-sanctuary"
+            },
+            {
+              "name": "Meteor Crawler",
+              "url": "https://vgsoharchive.com/mobs/meteor-crawler"
+            },
+            {
+              "name": "Ruins of Trengal Keep",
+              "url": "https://vgsoharchive.com/zones/ruins-of-trengal-keep"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Monk",
+          "level_learned": 16,
+          "rank": "I",
+          "category": "Skill or Spell",
+          "cost": {
+            "endurance": 10
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": null,
+          "icon_name": "Icon443.png",
+          "ranks": [],
+          "cost_observations": {
+            "endurance": [
+              10
+            ]
+          },
+          "trainer": "Ruins of Trengal Keep; Coterie Infineum Sanctuary",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:reed-in-the-wind-i",
+            "https://vanguard.fandom.com/wiki/Monk"
+          ],
+          "classes_recorded": [
+            "Monk"
+          ],
+          "archive_variants": [
+            {
+              "name": "Reed in the Wind I",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/monk",
+                  "title": "Monk · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 7,
+              "collected_at": "2026-10-14T02:41:02+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Reed in the Wind I",
+                  "url": "https://vgsoharchive.com/abilities/reed-in-the-wind-i"
+                }
+              ],
+              "type": "ability",
+              "class": "Monk",
+              "level_learned": 16,
+              "rank": "I",
+              "category": "unavailable",
+              "cost": null,
+              "cast_time_seconds": null,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/reed-in-the-wind-i",
+              "cost_recorded": {
+                "value": 10,
+                "resource": null,
+                "raw": "10"
+              },
+              "range_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "?"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "?"
+              }
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+          "line": 1979,
+          "record_sha256": "409c1a9950cafad0347f00d7b9ad1eb4a8d7c336f572e4cf764d97bebac447eb",
+          "parser_version": 5
+        },
+        {
+          "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+          "line": 1979,
+          "record_sha256": "4dacf443ea3eb4541d53cdc218a57c83acc1ba17c6de9efc13f967c6f2c95a89",
+          "parser_version": 6
+        },
+        {
+          "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+          "line": 1979,
+          "record_sha256": "801e922e1e0a5a545e95b881d8dd61a91da8e160b381f58dac3added6638e2d7",
+          "parser_version": 7
+        }
+      ],
+      "dispositions": {
+        "school": {
+          "status": "merged_detail_category_compared_to_class_school",
+          "note": "Top-level merged record carries detail type; nested class variant preserves printed school. Neither source replaces the other; historical school interpretation remains unresolved."
+        }
+      },
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Quivering Palm I",
+      "printed_cells": {
+        "level": "18",
+        "ability": "Quivering Palm I",
+        "school": null,
+        "cost": "10",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "Strikes your opponent dealing 125% weapon damage plus 49 to 55, and making their body quiver, lowering damage by 50% for 15..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">18</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/quivering-palm-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/quivering-palm-i\">Quivering Palm I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Strikes your opponent dealing 125% weapon damage plus 49 to 55, and making their body quiver, lowering damage by 50% for 15...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/quivering-palm-i",
+      "detail_cache": {
+        "path": ".cache/archive/4412a3f114e8e6bbcb0c71035ebff4ddb72c78413fcfa11160e8a93e22626889.txt",
+        "sha256": "2ddd816f14dd4bf32d84196d4ee57bf88a181385ceb10c8c064d66129594be5a"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/quivering-palm-i.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Quivering Palm I\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/monk\">Monk</a>\n    \n    · Level 18\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Strikes your opponent dealing 125% weapon damage plus 49 to 55, and making their body quiver, lowering damage by 50% for 15 sec. A counterattack.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>18</dd></div>\n<div><dt>Energy then</dt>\n<dd>38</dd></div>\n<div><dt>Cast then</dt><dd>Instant</dd></div>\n</dl>\n<div class=\"tooltip\">Strikes your opponent dealing 113 to 123 damage and making their body quiver, lowering damage by ??% for 8 seconds</div>\n<p class=\"muted small\">\n<a href=\"http://www.vanguardmonks.com:80/index.php?option=com_monkabilities&amp;Itemid=56&amp;ability=Quivering+Palm+I\" rel=\"noreferrer nofollow\">vanguardmonks.com</a>,\n          \n          2007 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>18</dd></div>\n</dl>\n<div class=\"tooltip\">Strikes your opponent, dealing 125% weapon damage plus 53 to 60, and making their body quiver, lowering damage by 50% for 8 seconds. Cost: Submit Info Cast Time: Submit Info Refresh: Submit Info Range: Submit Info Swaying Step II</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59394\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">Previously recorded by The Telon Project as: “Strikes your opponent, dealing 125% weapon damage plus 49 to 55, and making their body quiver, lowering damage by 50% for 15 sec” (http://thetelonproject.wikidot.com/abilities:quivering-palm-i)</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>18</dd></div>\n<div><dt>Endurance cost</dt><dd>10</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Offensive Target</dd></div>\n<div><dt>Type</dt><dd>Harmonious Body</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:quivering-palm-i\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "source_records": [
+        {
+          "name": "Quivering Palm I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/quivering-palm-i",
+              "title": "Quivering Palm I · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/monk",
+              "title": "Monk · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 5,
+          "collected_at": "2026-10-14T02:27:30+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "18"
+            ],
+            "energy then": [
+              "38"
+            ],
+            "cast then": [
+              "Instant"
+            ],
+            "level in 2007-2008": [
+              "18"
+            ],
+            "level": [
+              "18"
+            ],
+            "endurance cost": [
+              "10"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Harmonious Body"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Monk",
+              "url": "https://vgsoharchive.com/classes/monk"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Monk",
+          "level_learned": 18,
+          "rank": "I",
+          "category": "Harmonious Body",
+          "cost": {
+            "endurance": 10
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Strikes your opponent dealing 125% weapon damage plus 49 to 55, and making their body quiver, lowering damage by 50% for 15 sec. A counterattack.",
+          "icon_name": null,
+          "ranks": [],
+          "cost_observations": {
+            "endurance": [
+              10
+            ]
+          },
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_bonus",
+                  "values": [
+                    49
+                  ],
+                  "conditions_unparsed": true
+                },
+                {
+                  "kind": "damage_percent",
+                  "values": [
+                    125
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_bonus",
+                  "values": [
+                    53
+                  ],
+                  "conditions_unparsed": true
+                },
+                {
+                  "kind": "damage_percent",
+                  "values": [
+                    125
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:quivering-palm-i"
+          ],
+          "classes_recorded": [
+            "Monk"
+          ],
+          "archive_variants": [
+            {
+              "name": "Quivering Palm I",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/monk",
+                  "title": "Monk · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 5,
+              "collected_at": "2026-10-14T02:27:34+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Quivering Palm I",
+                  "url": "https://vgsoharchive.com/abilities/quivering-palm-i"
+                }
+              ],
+              "type": "ability",
+              "class": "Monk",
+              "level_learned": 18,
+              "rank": "I",
+              "category": null,
+              "cost": null,
+              "cast_time_seconds": 0,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/quivering-palm-i",
+              "cost_recorded": {
+                "value": 10,
+                "resource": null,
+                "raw": "10"
+              },
+              "range_recorded": {
+                "value": 5,
+                "unit": null,
+                "raw": "5"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "Instant"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Quivering Palm I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/quivering-palm-i",
+              "title": "Quivering Palm I · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/monk",
+              "title": "Monk · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 6,
+          "collected_at": "2026-10-14T02:39:00+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "18"
+            ],
+            "energy then": [
+              "38"
+            ],
+            "cast then": [
+              "Instant"
+            ],
+            "level in 2007-2008": [
+              "18"
+            ],
+            "level": [
+              "18"
+            ],
+            "endurance cost": [
+              "10"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Harmonious Body"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Monk",
+              "url": "https://vgsoharchive.com/classes/monk"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Monk",
+          "level_learned": 18,
+          "rank": "I",
+          "category": "Harmonious Body",
+          "cost": {
+            "endurance": 10
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Strikes your opponent dealing 125% weapon damage plus 49 to 55, and making their body quiver, lowering damage by 50% for 15 sec. A counterattack.",
+          "icon_name": null,
+          "ranks": [],
+          "cost_observations": {
+            "endurance": [
+              10
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_bonus",
+                  "values": [
+                    49
+                  ],
+                  "conditions_unparsed": true
+                },
+                {
+                  "kind": "damage_percent",
+                  "values": [
+                    125
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_bonus",
+                  "values": [
+                    53
+                  ],
+                  "conditions_unparsed": true
+                },
+                {
+                  "kind": "damage_percent",
+                  "values": [
+                    125
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:quivering-palm-i"
+          ],
+          "classes_recorded": [
+            "Monk"
+          ],
+          "archive_variants": [
+            {
+              "name": "Quivering Palm I",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/monk",
+                  "title": "Monk · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 6,
+              "collected_at": "2026-10-14T02:39:04+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Quivering Palm I",
+                  "url": "https://vgsoharchive.com/abilities/quivering-palm-i"
+                }
+              ],
+              "type": "ability",
+              "class": "Monk",
+              "level_learned": 18,
+              "rank": "I",
+              "category": null,
+              "cost": null,
+              "cast_time_seconds": 0,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/quivering-palm-i",
+              "cost_recorded": {
+                "value": 10,
+                "resource": null,
+                "raw": "10"
+              },
+              "range_recorded": {
+                "value": 5,
+                "unit": null,
+                "raw": "5"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "Instant"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Quivering Palm I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/quivering-palm-i",
+              "title": "Quivering Palm I · Vanguard Archive",
+              "date": null
+            },
+            {
+              "url": "https://vgsoharchive.com/classes/monk",
+              "title": "Monk · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+          "parser_version": 7,
+          "collected_at": "2026-10-14T02:40:58+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "18"
+            ],
+            "energy then": [
+              "38"
+            ],
+            "cast then": [
+              "Instant"
+            ],
+            "level in 2007-2008": [
+              "18"
+            ],
+            "level": [
+              "18"
+            ],
+            "endurance cost": [
+              "10"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Harmonious Body"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Monk",
+              "url": "https://vgsoharchive.com/classes/monk"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Monk",
+          "level_learned": 18,
+          "rank": "I",
+          "category": "Harmonious Body",
+          "cost": {
+            "endurance": 10
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Strikes your opponent dealing 125% weapon damage plus 49 to 55, and making their body quiver, lowering damage by 50% for 15 sec. A counterattack.",
+          "icon_name": null,
+          "ranks": [],
+          "cost_observations": {
+            "endurance": [
+              10
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_bonus",
+                  "values": [
+                    49
+                  ],
+                  "conditions_unparsed": true
+                },
+                {
+                  "kind": "damage_percent",
+                  "values": [
+                    125
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_bonus",
+                  "values": [
+                    53
+                  ],
+                  "conditions_unparsed": true
+                },
+                {
+                  "kind": "damage_percent",
+                  "values": [
+                    125
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:quivering-palm-i"
+          ],
+          "classes_recorded": [
+            "Monk"
+          ],
+          "archive_variants": [
+            {
+              "name": "Quivering Palm I",
+              "sources": [
+                {
+                  "url": "https://vgsoharchive.com/classes/monk",
+                  "title": "Monk · Vanguard Archive",
+                  "date": null
+                }
+              ],
+              "confidence": "medium",
+              "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+              "parser_version": 7,
+              "collected_at": "2026-10-14T02:41:02+00:00",
+              "archive_fields": {},
+              "referenced_entities": [
+                {
+                  "name": "Quivering Palm I",
+                  "url": "https://vgsoharchive.com/abilities/quivering-palm-i"
+                }
+              ],
+              "type": "ability",
+              "class": "Monk",
+              "level_learned": 18,
+              "rank": "I",
+              "category": null,
+              "cost": null,
+              "cast_time_seconds": 0,
+              "refresh_seconds": null,
+              "duration_seconds": null,
+              "range": null,
+              "tooltip": null,
+              "ability_ref_url": "https://vgsoharchive.com/abilities/quivering-palm-i",
+              "cost_recorded": {
+                "value": 10,
+                "resource": null,
+                "raw": "10"
+              },
+              "range_recorded": {
+                "value": 5,
+                "unit": null,
+                "raw": "5"
+              },
+              "cast_recorded": {
+                "value": null,
+                "unit": null,
+                "raw": "Instant"
+              }
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+          "line": 1931,
+          "record_sha256": "02cfd20ee1fe929f0e70124b34db1d1c96afc8252f399d2e33c55eefc576aa38",
+          "parser_version": 5
+        },
+        {
+          "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+          "line": 1931,
+          "record_sha256": "16a082c72b2cef971d6e522ae69e85612f14baeffde776c51f83d24417059000",
+          "parser_version": 6
+        },
+        {
+          "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+          "line": 1931,
+          "record_sha256": "8d08d6dca631aed1f3dc0f344e7cbc9457a0aa10b1bde833953ce9a3946a4213",
+          "parser_version": 7
+        }
+      ],
+      "dispositions": {
+        "effect": {
+          "status": "exact_prefix_display_truncation",
+          "omitted_suffix": " sec. A counterattack."
+        }
+      },
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "summary": {
+    "school_differences_reviewed": 4,
+    "merged_detail_categories_with_matching_nested_class_school": 4,
+    "effect_differences_reviewed": 1,
+    "exact_prefix_display_truncations": 1
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "run_lock_present": false,
+    "python_processes": 0,
+    "persisted_interval_seconds": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Merged records are not pure class-table snapshots; class source membership alone does not establish field provenance.",
+    "All original records and conflicting labels retained; no canonical IDs, units or historical mechanics inferred.",
+    "Same-provenance mirrors and parser snapshots are not independent corroboration.",
+    "Detail-field comparisons for remaining Monk rows and full collection remain pending."
+  ],
+  "validation": {
+    "cached_files_verified": 6,
+    "source_references_verified": 15,
+    "issues": 0
+  }
+}

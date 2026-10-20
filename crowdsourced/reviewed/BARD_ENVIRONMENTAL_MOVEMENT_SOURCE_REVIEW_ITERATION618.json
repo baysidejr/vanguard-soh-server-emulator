@@ -1,0 +1,377 @@
+{
+  "review_kind": "bard_environmental_movement_source_review",
+  "input": {
+    "path": "reviewed/BARD_EFFECT_PROSE_LOCATION_REVIEW_ITERATION581.json",
+    "sha256": "d5fb154d820332317001030ef53b3e2ab6aafd9dd34c1ac11e41485d6d539225"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "parser_version": 56,
+  "rows": [
+    {
+      "name": "Briel's Trill of the Clouds",
+      "source_url": "https://vgsoharchive.com/abilities/briel-s-trill-of-the-clouds",
+      "cache": {
+        "path": ".cache/archive/73d54ae98fa72017d633a3650c762a4823bea1e7dc9bb78c32b2242eac18f424.txt",
+        "sha256": "26be460a0ae3ed2d7cc6e97c9222abd058968849346e2445762ff50b4226ab14"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 8,
+          "record_sha256": "0869206509f508c2c6d5da21add1a653298ef4840fa3155709a40ae29e3ea8f5"
+        }
+      ],
+      "literal": "Whistling this little tune will cause you and your nearby group mates to levitate for 60 minutes.",
+      "effect_text_sha256": "de75f1ab615d320efca09c7cb02159271581d08221a06cb64f99ac19aab2c055",
+      "observation": {
+        "action_recorded": "levitate",
+        "target_phrase_recorded": "you and your nearby group mates",
+        "duration_minutes_recorded": 60,
+        "nearby_radius": null,
+        "height": null,
+        "combat_applicability": null
+      },
+      "recognized_effect_facts": [],
+      "whole_page_replay": {
+        "name": "Briel's Trill of the Clouds",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/briel-s-trill-of-the-clouds",
+            "title": "Briel's Trill of the Clouds · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 56,
+        "collected_at": "2026-10-19T15:40:40+00:00",
+        "archive_fields": {
+          "level in 2007-2008": [
+            "20"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "20"
+          ],
+          "energy cost": [
+            "52"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Group"
+          ],
+          "type": [
+            "Shout"
+          ],
+          "icon": [
+            "Icon518.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 20,
+        "rank": null,
+        "category": "Shout",
+        "cost": {
+          "energy": 52
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": "Whistling this little tune will cause you and your nearby group mates to levitate for 60 minutes.",
+        "icon_name": "Icon518.png",
+        "ranks": [],
+        "target_recorded": "Group",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 20,
+            "raw": "20"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            52
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ],
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+        ]
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "target_level_limit": null,
+      "player_target_applicability": null,
+      "disposition": "source_review_pending_constrained_parser"
+    },
+    {
+      "name": "Asilam's Dirge of the Mariner",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-dirge-of-the-mariner",
+      "cache": {
+        "path": ".cache/archive/7334db98933a8b866f20b966a80ae481d0383fe7fbc9cb434f79495e7f554ca8.txt",
+        "sha256": "925a6a972c0ac2ce9b4182c3ac84a3a1d3f99f4a19807e097806d56092053c6c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 78,
+          "record_sha256": "7d569f54fc25657f54aebb57d55589789e9abbce18225e0d79c4847a17b47e95"
+        }
+      ],
+      "literal": "Enables your group to breathe underwater. Costs 7/sec energy.",
+      "effect_text_sha256": "87bfbb80dea690d3010ee24ad50558231d85ccf0637b92ac40ee1e51c0b4c137",
+      "observation": {
+        "action_recorded": "breathe underwater",
+        "target_phrase_recorded": "your group",
+        "energy_per_second_recorded": 7,
+        "duration": null,
+        "upkeep_timing": null
+      },
+      "recognized_effect_facts": [],
+      "whole_page_replay": {
+        "name": "Asilam's Dirge of the Mariner",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/asilam-s-dirge-of-the-mariner",
+            "title": "Asilam's Dirge of the Mariner · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 56,
+        "collected_at": "2026-10-19T15:40:40+00:00",
+        "archive_fields": {
+          "level": [
+            "34"
+          ],
+          "energy cost": [
+            "7"
+          ],
+          "song portion": [
+            "Verse"
+          ],
+          "type": [
+            "Verse"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 34,
+        "rank": null,
+        "category": "Verse",
+        "cost": {
+          "energy": 7
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Enables your group to breathe underwater. Costs 7/sec energy.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "cost_observations": {
+          "energy": [
+            7
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+        ]
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "target_level_limit": null,
+      "player_target_applicability": null,
+      "disposition": "source_review_pending_constrained_parser"
+    },
+    {
+      "name": "Briel's Segue of the Sky",
+      "source_url": "https://vgsoharchive.com/abilities/briel-s-segue-of-the-sky",
+      "cache": {
+        "path": ".cache/archive/cddc8539b8ceb10c0dcc18fbb23d57676cc1ed518d66c42cb83ceaf745d35051.txt",
+        "sha256": "71e1a4f77f99bdea901b1b74c647514d20a10f8a884e5e544eb6acf6f5d3357c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 97,
+          "record_sha256": "e98fe211784526001b009b7843ea235b7fd851c1bf33fd1e89a15963af005d14"
+        }
+      ],
+      "literal": "Levitates your group off of the ground. Costs 6/sec energy.",
+      "effect_text_sha256": "e2ef3d838e1d45e467af3b43b484a13a6512f5445b0c2544beb83a19a30bbc62",
+      "observation": {
+        "action_recorded": "Levitates",
+        "target_phrase_recorded": "your group",
+        "energy_per_second_recorded": 6,
+        "height": null,
+        "combat_applicability": null,
+        "upkeep_timing": null
+      },
+      "recognized_effect_facts": [],
+      "whole_page_replay": {
+        "name": "Briel's Segue of the Sky",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/briel-s-segue-of-the-sky",
+            "title": "Briel's Segue of the Sky · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 56,
+        "collected_at": "2026-10-19T15:40:40+00:00",
+        "archive_fields": {
+          "level": [
+            "40"
+          ],
+          "energy cost": [
+            "6"
+          ],
+          "song portion": [
+            "Bridge"
+          ],
+          "type": [
+            "Bridge"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 40,
+        "rank": null,
+        "category": "Bridge",
+        "cost": {
+          "energy": 6
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Levitates your group off of the ground. Costs 6/sec energy.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "cost_observations": {
+          "energy": [
+            6
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "https://web.archive.org/web/20090313082010id_/http://www.tentonhammer.com/node/59433"
+        ]
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "target_level_limit": null,
+      "player_target_applicability": null,
+      "disposition": "source_review_pending_constrained_parser"
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 3,
+    "source_record_hashes_verified": 3,
+    "literal_hashes_verified": 3,
+    "whole_page_replays": 3,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Archive tooltip is an emulator observation, not independently authenticated live-era evidence.",
+    "Levitation and underwater breathing remain distinct observations; energy upkeep is separate from duration.",
+    "Levitation height, nearby radius, combat applicability, stacking and upkeep timing remain unknown; no movement speed or immunity is inferred.",
+    "Original immutable source records remain unchanged; observations are not operative mechanics."
+  ],
+  "next_step": "Implement and test constrained levitation and underwater-breathing observations for the three reviewed tooltips, retaining unknown height, radius and upkeep timing."
+}

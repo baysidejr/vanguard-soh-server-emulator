@@ -1,0 +1,692 @@
+{
+  "audit_kind": "cached_mob_quest_collision_review",
+  "network_requests": 0,
+  "metadata_only": false,
+  "inputs": [
+    {
+      "path": ".cache/archive/3e376330e136547541df0af38e12698e3a25978ac1792ae484ca201270631eae.txt",
+      "sha256": "c83fddc99ebfd59dfddc1ec72c58ed210321816c381249375d0956991af3498e"
+    },
+    {
+      "path": ".cache/archive/457f4b8b223ff23774e41fcfa46e2e043689f02053edcc2756dd21f669167a18.txt",
+      "sha256": "1f9e0f955868016ea7284652fb7295a22c5e53f75e1c2a65dee8be5d01b8ebba"
+    },
+    {
+      "path": "raw/2026-10-14-085113-825945-archive-bulk/quest.jsonl",
+      "sha256": "54792d13cb69de9507f411f5880049502b64fab2649c104a2c5098b288e8476d"
+    },
+    {
+      "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+      "sha256": "1b4328e56ac4f992bedda7b7dcf02b00fab8c55047e6c45892af56343fa85648"
+    },
+    {
+      "path": "raw/2026-10-15-005532-662266-archive-bulk/creature.jsonl",
+      "sha256": "054416a4305ad4e3c7be25889139d8cb2840d331274236f83e22a3d089e8734a"
+    },
+    {
+      "path": "raw/2026-10-15-005532-662266-archive-bulk/loot.jsonl",
+      "sha256": "f5169804a9c707eab548127556e693dbed3cb69c84496ce729e0b6ea452d76e6"
+    },
+    {
+      "path": "reviewed/QUEST_RA_JIN_GRAND_MASTER_ITERATION223.json",
+      "sha256": "d0b970a643992f218c0a99488f07cd94b5e5215ac27371c4ad2a8d683fafad9c"
+    }
+  ],
+  "mob_page": {
+    "url": "https://vgsoharchive.com/mobs/grandmaster-nahuji",
+    "cache_path": ".cache/archive/3e376330e136547541df0af38e12698e3a25978ac1792ae484ca201270631eae.txt",
+    "cache_sha256": "c83fddc99ebfd59dfddc1ec72c58ed210321816c381249375d0956991af3498e",
+    "header_text": "Grandmaster Nahuji",
+    "detail_observations": [
+      {
+        "label": "Zone",
+        "text": "Tanvu",
+        "html": "<dd>Tanvu</dd>"
+      },
+      {
+        "label": "Difficulty",
+        "text": "2 dots",
+        "html": "<dd>2 dots</dd>"
+      },
+      {
+        "label": "Behaviour",
+        "text": "Aggressive",
+        "html": "<dd>Aggressive</dd>"
+      },
+      {
+        "label": "Type",
+        "text": "Feature Monster",
+        "html": "<dd>Feature Monster</dd>"
+      },
+      {
+        "label": "Spawn",
+        "text": "static",
+        "html": "<dd>static</dd>"
+      },
+      {
+        "label": "Respawn",
+        "text": "> 1",
+        "html": "<dd>&gt; 1</dd>"
+      },
+      {
+        "label": "Location",
+        "text": "-21773, -4170, 10096",
+        "html": "<dd><code>-21773, -4170, 10096</code></dd>"
+      },
+      {
+        "label": "Chunk",
+        "text": "Tanvu",
+        "html": "<dd>Tanvu</dd>"
+      },
+      {
+        "label": "Continent",
+        "text": "Thestra",
+        "html": "<dd>Thestra</dd>"
+      }
+    ],
+    "loot_rows": [
+      {
+        "cells": [
+          "Grandmaster's Clasp Grandmaster's Clasp Medium Armor Chest 66 Armor Class +6 Strength +6 Dexterity +33 Hit Points +33 Energy Required Class: Bard, Paladin, Cleric, Inquisitor, Monk, Ranger, Dread Knight, Rogue, Shaman, Disciple, Warrior, Berserker curse",
+          "",
+          ""
+        ],
+        "html": "<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-rare\" href=\"/items/grandmaster-s-clasp\">Grandmaster's Clasp</a>\n<span class=\"tt\" role=\"note\">\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-rare\">Grandmaster's Clasp</span>\n<span class=\"tt-row type\"><span>Medium Armor</span><span>Chest</span></span>\n<span class=\"tt-line stat\">66 Armor Class</span>\n<span class=\"tt-line stat\">+6 Strength</span>\n<span class=\"tt-line stat\">+6 Dexterity</span>\n<span class=\"tt-line stat\">+33 Hit Points</span>\n<span class=\"tt-line stat\">+33 Energy</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Inquisitor, Monk, Ranger, Dread Knight, Rogue, Shaman, Disciple, Warrior, Berserker</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">curse</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>",
+        "links": [
+          {
+            "text": "Grandmaster's Clasp",
+            "href": "/items/grandmaster-s-clasp"
+          }
+        ]
+      },
+      {
+        "cells": [
+          "Grandmaster's Guard Grandmaster's Guard Heavy Armor Chest 96 Armor Class +6 Strength +6 Constitution +50 Hit Points +16 Energy Required Level: 6 Adventuring Item Level: 11 Required Class: Bard, Paladin, Cleric, Monk, Ranger, Dread Knight, Rogue, Shaman, Disciple, Warrior curse",
+          "",
+          ""
+        ],
+        "html": "<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-rare\" href=\"/items/grandmaster-s-guard\">Grandmaster's Guard</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20028.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-rare\">Grandmaster's Guard</span>\n<span class=\"tt-row type\"><span>Heavy Armor</span><span>Chest</span></span>\n<span class=\"tt-line stat\">96 Armor Class</span>\n<span class=\"tt-line stat\">+6 Strength</span>\n<span class=\"tt-line stat\">+6 Constitution</span>\n<span class=\"tt-line stat\">+50 Hit Points</span>\n<span class=\"tt-line stat\">+16 Energy</span>\n<span class=\"tt-line plain\">Required Level: 6 Adventuring</span>\n<span class=\"tt-line plain\">Item Level: 11</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Monk, Ranger, Dread Knight, Rogue, Shaman, Disciple, Warrior</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">curse</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>",
+        "links": [
+          {
+            "text": "Grandmaster's Guard",
+            "href": "/items/grandmaster-s-guard"
+          }
+        ]
+      },
+      {
+        "cells": [
+          "Tokudan Boots mmodb",
+          "",
+          ""
+        ],
+        "html": "<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-uncommon\" href=\"/items/tokudan-boots\">Tokudan Boots</a></span>\n<br/><span class=\"muted\">mmodb</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>",
+        "links": [
+          {
+            "text": "Tokudan Boots",
+            "href": "/items/tokudan-boots"
+          }
+        ]
+      },
+      {
+        "cells": [
+          "Tokudan Wristguards Tokudan Wristguards Medium Armor Wrists 14 Armor Class +1 Strength +1 Vitality +14 Hit Points Item Level: 13 Required Class: Bard, Paladin, Cleric, Inquisitor, Monk, Ranger, Dread Knight, Rogue, Shaman, Disciple, Warrior, Berserker mmodb",
+          "",
+          ""
+        ],
+        "html": "<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-uncommon\" href=\"/items/tokudan-wristguards\">Tokudan Wristguards</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20032.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-uncommon\">Tokudan Wristguards</span>\n<span class=\"tt-row type\"><span>Medium Armor</span><span>Wrists</span></span>\n<span class=\"tt-line stat\">14 Armor Class</span>\n<span class=\"tt-line stat\">+1 Strength</span>\n<span class=\"tt-line stat\">+1 Vitality</span>\n<span class=\"tt-line stat\">+14 Hit Points</span>\n<span class=\"tt-line plain\">Item Level: 13</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Inquisitor, Monk, Ranger, Dread Knight, Rogue, Shaman, Disciple, Warrior, Berserker</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">mmodb</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>",
+        "links": [
+          {
+            "text": "Tokudan Wristguards",
+            "href": "/items/tokudan-wristguards"
+          }
+        ]
+      },
+      {
+        "cells": [
+          "Layered Cotton Robe Layered Cotton Robe Mount Chest 9 Armor Class Required Level: 1 Mount Item Level: 6 Required Class: Bard, Cleric, Druid, Psionicist, Monk, Ranger, Rogue, Shaman, Sorcerer, Disciple, Blood Mage, Necromancer, Berserker curse",
+          "",
+          ""
+        ],
+        "html": "<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-mundane\" href=\"/items/layered-cotton-robe\">Layered Cotton Robe</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20034.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-mundane\">Layered Cotton Robe</span>\n<span class=\"tt-row type\"><span>Mount</span><span>Chest</span></span>\n<span class=\"tt-line stat\">9 Armor Class</span>\n<span class=\"tt-line plain\">Required Level: 1 Mount</span>\n<span class=\"tt-line plain\">Item Level: 6</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Cleric, Druid, Psionicist, Monk, Ranger, Rogue, Shaman, Sorcerer, Disciple, Blood Mage, Necromancer, Berserker</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">curse</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>",
+        "links": [
+          {
+            "text": "Layered Cotton Robe",
+            "href": "/items/layered-cotton-robe"
+          }
+        ]
+      },
+      {
+        "cells": [
+          "Shredded Ulvari Tooth Shredded Ulvari Tooth Misc Required Class: Bard, Paladin, Cleric, Druid, Inquisitor, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer, Berserker This item cannot be deconstructed. curse",
+          "",
+          ""
+        ],
+        "html": "<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/shredded-ulvari-tooth\">Shredded Ulvari Tooth</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20109.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Shredded Ulvari Tooth</span>\n<span class=\"tt-line type\">Misc</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Inquisitor, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer, Berserker</span>\n<span class=\"tt-line muted\">This item cannot be deconstructed.</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">curse</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>",
+        "links": [
+          {
+            "text": "Shredded Ulvari Tooth",
+            "href": "/items/shredded-ulvari-tooth"
+          }
+        ]
+      },
+      {
+        "cells": [
+          "Cracked Ulvari Heart Cracked Ulvari Heart Misc Item Level: 10 Required Class: Bard, Paladin, Cleric, Druid, Inquisitor, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer, Berserker curse",
+          "",
+          ""
+        ],
+        "html": "<tr>\n<td>\n<span class=\"tipwrap\"><a class=\"tier-common\" href=\"/items/cracked-ulvari-heart\">Cracked Ulvari Heart</a>\n<span class=\"tt\" role=\"note\"><img alt=\"\" class=\"tt-icon\" height=\"36\" loading=\"lazy\" src=\"/static/vgoicons/20196.png\" width=\"36\"/>\n<span class=\"tt-fields\">\n<span class=\"tt-line name tier-common\">Cracked Ulvari Heart</span>\n<span class=\"tt-line type\">Misc</span>\n<span class=\"tt-line plain\">Item Level: 10</span>\n<span class=\"tt-line plain\">Required Class:</span>\n<span class=\"tt-line classes\">Bard, Paladin, Cleric, Druid, Inquisitor, Psionicist, Monk, Ranger, Dread Knight, Rogue, Shaman, Sorcerer, Disciple, Warrior, Blood Mage, Necromancer, Berserker</span>\n</span>\n</span></span>\n<br/><span class=\"muted\">curse</span>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num\">\n</td>\n</tr>",
+        "links": [
+          {
+            "text": "Cracked Ulvari Heart",
+            "href": "/items/cracked-ulvari-heart"
+          }
+        ]
+      }
+    ],
+    "full_source_records": [
+      {
+        "path": "raw/2026-10-15-005532-662266-archive-bulk/creature.jsonl",
+        "line": 81,
+        "record": {
+          "name": "Grandmaster Nahuji",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/grandmaster-nahuji",
+              "title": "Grandmaster Nahuji · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. The archive groups NPCs, containers and creatures together; no explicit NPC role or quest-giver relationship was found. Entity kind/model requires review. Unknown models, health, combat values, respawns and precise spawns are not filled. An absent loot section does not mean no drops.",
+          "parser_version": 31,
+          "collected_at": "2026-10-15T05:03:15+00:00",
+          "archive_fields": {
+            "zone": [
+              "Tanvu"
+            ],
+            "difficulty": [
+              "2 dots"
+            ],
+            "behaviour": [
+              "Aggressive"
+            ],
+            "type": [
+              "Feature Monster"
+            ],
+            "spawn": [
+              "static"
+            ],
+            "respawn": [
+              "> 1"
+            ],
+            "location": [
+              "-21773, -4170, 10096"
+            ],
+            "chunk": [
+              "Tanvu"
+            ],
+            "continent": [
+              "Thestra"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Grandmaster's Clasp",
+              "url": "https://vgsoharchive.com/items/grandmaster-s-clasp"
+            },
+            {
+              "name": "Grandmaster's Guard",
+              "url": "https://vgsoharchive.com/items/grandmaster-s-guard"
+            },
+            {
+              "name": "Tokudan Boots",
+              "url": "https://vgsoharchive.com/items/tokudan-boots"
+            },
+            {
+              "name": "Tokudan Wristguards",
+              "url": "https://vgsoharchive.com/items/tokudan-wristguards"
+            },
+            {
+              "name": "Layered Cotton Robe",
+              "url": "https://vgsoharchive.com/items/layered-cotton-robe"
+            },
+            {
+              "name": "Shredded Ulvari Tooth",
+              "url": "https://vgsoharchive.com/items/shredded-ulvari-tooth"
+            },
+            {
+              "name": "Cracked Ulvari Heart",
+              "url": "https://vgsoharchive.com/items/cracked-ulvari-heart"
+            }
+          ],
+          "type": "creature",
+          "level": 10,
+          "zone": "Tanvu",
+          "health": null,
+          "damage": null,
+          "creature_kind": null,
+          "difficulty": "2 dots",
+          "spawn_areas": [],
+          "aggressive": null,
+          "aggro_range": null,
+          "respawn_time": null,
+          "zones_recorded": [
+            "Tanvu"
+          ],
+          "loot_ref": "Grandmaster Nahuji",
+          "original_source_urls": []
+        }
+      },
+      {
+        "path": "raw/2026-10-15-005532-662266-archive-bulk/loot.jsonl",
+        "line": 17,
+        "record": {
+          "name": "Grandmaster Nahuji",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/mobs/grandmaster-nahuji",
+              "title": "Grandmaster Nahuji · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "low",
+          "notes": "Observed sample frequencies, not developer drop probabilities. Quantity ranges unknown. Not safe as a production loot table.",
+          "parser_version": 31,
+          "collected_at": "2026-10-15T05:03:15+00:00",
+          "archive_fields": {
+            "zone": [
+              "Tanvu"
+            ],
+            "difficulty": [
+              "2 dots"
+            ],
+            "behaviour": [
+              "Aggressive"
+            ],
+            "type": [
+              "Feature Monster"
+            ],
+            "spawn": [
+              "static"
+            ],
+            "respawn": [
+              "> 1"
+            ],
+            "location": [
+              "-21773, -4170, 10096"
+            ],
+            "chunk": [
+              "Tanvu"
+            ],
+            "continent": [
+              "Thestra"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Grandmaster's Clasp",
+              "url": "https://vgsoharchive.com/items/grandmaster-s-clasp"
+            },
+            {
+              "name": "Grandmaster's Guard",
+              "url": "https://vgsoharchive.com/items/grandmaster-s-guard"
+            },
+            {
+              "name": "Tokudan Boots",
+              "url": "https://vgsoharchive.com/items/tokudan-boots"
+            },
+            {
+              "name": "Tokudan Wristguards",
+              "url": "https://vgsoharchive.com/items/tokudan-wristguards"
+            },
+            {
+              "name": "Layered Cotton Robe",
+              "url": "https://vgsoharchive.com/items/layered-cotton-robe"
+            },
+            {
+              "name": "Shredded Ulvari Tooth",
+              "url": "https://vgsoharchive.com/items/shredded-ulvari-tooth"
+            },
+            {
+              "name": "Cracked Ulvari Heart",
+              "url": "https://vgsoharchive.com/items/cracked-ulvari-heart"
+            }
+          ],
+          "type": "loot",
+          "source": "Grandmaster Nahuji",
+          "drops": [
+            {
+              "item": "Grandmaster's Clasp",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/grandmaster-s-clasp"
+            },
+            {
+              "item": "Grandmaster's Guard",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/grandmaster-s-guard"
+            },
+            {
+              "item": "Tokudan Boots",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/tokudan-boots"
+            },
+            {
+              "item": "Tokudan Wristguards",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/tokudan-wristguards"
+            },
+            {
+              "item": "Layered Cotton Robe",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/layered-cotton-robe"
+            },
+            {
+              "item": "Shredded Ulvari Tooth",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/shredded-ulvari-tooth"
+            },
+            {
+              "item": "Cracked Ulvari Heart",
+              "chance": null,
+              "quantity": null,
+              "observed_sample": "",
+              "url": "https://vgsoharchive.com/items/cracked-ulvari-heart"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "quest_page": {
+    "url": "https://vgsoharchive.com/quests/the-ra-jin-grand-master",
+    "cache_path": ".cache/archive/457f4b8b223ff23774e41fcfa46e2e043689f02053edcc2756dd21f669167a18.txt",
+    "cache_sha256": "1f9e0f955868016ea7284652fb7295a22c5e53f75e1c2a65dee8be5d01b8ebba",
+    "observations": [
+      {
+        "label": "Objectives",
+        "text": "Grandmaster Nahuji Slain",
+        "html": "<div class=\"tooltip\">Grandmaster Nahuji Slain</div>",
+        "variant": false
+      },
+      {
+        "label": "What they say",
+        "text": "On offering it",
+        "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>",
+        "variant": false
+      },
+      {
+        "label": "Notes",
+        "text": "The grand master is in a room at the top of the tower. Lvl 10 4 dot aggro.",
+        "html": "<p class=\"muted\">The grand master is in a room at the top of the tower. Lvl 10 4 dot aggro.</p>",
+        "variant": false
+      },
+      {
+        "label": "Objectives as recorded by photographed in game, Steam community screenshot",
+        "text": "Grandmaster Nahuji Slain (1)",
+        "html": "<div class=\"tooltip\">Grandmaster Nahuji Slain (1)</div>",
+        "variant": true
+      },
+      {
+        "label": "Source",
+        "text": "https://vanguard.fandom.com/wiki/The_Ra'Jin_Grand_Master",
+        "html": "<p class=\"muted\" style=\"word-break:break-all\">https://vanguard.fandom.com/wiki/The_Ra'Jin_Grand_Master</p>",
+        "variant": false
+      },
+      {
+        "label": "Starts with",
+        "text": "Shaof",
+        "html": "<dd><a href=\"/mobs/shaof\">Shaof</a>\n</dd>",
+        "variant": false
+      },
+      {
+        "label": "Location",
+        "text": "-3117, -10368, 5709 in Tanvu (-19, 6)",
+        "html": "<dd>-3117, -10368, 5709 in Tanvu (-19, 6)</dd>",
+        "variant": false
+      },
+      {
+        "label": "Previous",
+        "text": "The Final Tests Of Jin",
+        "html": "<dd><a href=\"/quests/the-final-tests-of-jin\">The Final Tests Of Jin</a>\n</dd>",
+        "variant": false
+      },
+      {
+        "label": "Coin reward",
+        "text": "0",
+        "html": "<dd>0</dd>",
+        "variant": false
+      },
+      {
+        "label": "Offering dialogue and attribution",
+        "text": "On offering it",
+        "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>",
+        "variant": false
+      },
+      {
+        "label": "Offering dialogue and attribution",
+        "text": "Grand Master Shaof is beaming with pride and admiration at your progress.\n\n\"You have done impressively in your training. You have developed yourself adaquately in your understanding of the Jin. I believe you are ready for one final task.\"\n\n\"The Ra'Jin are led by a grand master of their own. He is secretive and remains hidden within a secret room in the center of the fortress.\"\n\n\"If you are up to the challenge, find others like you and come together to defeat him. Without their grandmaster, the Ra'Jin will be greatly crippled and balance may yet be restored.\"",
+        "html": "<div class=\"tooltip\">Grand Master Shaof is beaming with pride and admiration at your progress.\n\n\"You have done impressively in your training. You have developed yourself adaquately in your understanding of the Jin. I believe you are ready for one final task.\"\n\n\"The Ra'Jin are led by a grand master of their own. He is secretive and remains hidden within a secret room in the center of the fortress.\"\n\n\"If you are up to the challenge, find others like you and come together to defeat him. Without their grandmaster, the Ra'Jin will be greatly crippled and balance may yet be restored.\"\n        </div>",
+        "variant": false
+      },
+      {
+        "label": "Offering dialogue and attribution",
+        "text": "Recorded by photographed in game by the archive operator.",
+        "html": "<p class=\"muted small\" style=\"margin-top:2px\">\n          Recorded by photographed in game by the archive operator.\n        </p>",
+        "variant": false
+      }
+    ],
+    "archive_source_records": [
+      {
+        "path": "raw/2026-10-14-085113-825945-archive-bulk/quest.jsonl",
+        "line": 55,
+        "record": {
+          "name": "The Ra'Jin Grand Master",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/quests/the-ra-jin-grand-master",
+              "title": "The Ra'Jin Grand Master · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+          "parser_version": 18,
+          "collected_at": "2026-10-14T12:55:47+00:00",
+          "archive_fields": {
+            "starts with": [
+              "Shaof"
+            ],
+            "location": [
+              "-3117, -10368, 5709 in Tanvu (-19, 6)"
+            ],
+            "series": [
+              "Shang Village"
+            ],
+            "previous": [
+              "The Final Tests Of Jin"
+            ],
+            "coin reward": [
+              "0"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Tanvu",
+              "url": "https://vgsoharchive.com/zones/tanvu"
+            },
+            {
+              "name": "Shaof",
+              "url": "https://vgsoharchive.com/mobs/shaof"
+            },
+            {
+              "name": "The Final Tests Of Jin",
+              "url": "https://vgsoharchive.com/quests/the-final-tests-of-jin"
+            }
+          ],
+          "type": "quest",
+          "level": 10,
+          "zone": "Tanvu",
+          "giver": "Shaof",
+          "turn_in": null,
+          "prerequisites": null,
+          "steps": null,
+          "repeatable": null,
+          "start_text": null,
+          "completion_text": null,
+          "description": null,
+          "summary": null,
+          "rewards": {
+            "xp": null,
+            "coin_copper": null,
+            "items": null,
+            "choice": null
+          },
+          "chain_previous": "The Final Tests Of Jin",
+          "chain_next": null,
+          "quest_chain": {
+            "name": "Shang Village",
+            "position": null
+          },
+          "original_source_urls": []
+        }
+      },
+      {
+        "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+        "line": 4145,
+        "record": {
+          "name": "The Ra'Jin Grand Master",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/quests/the-ra-jin-grand-master",
+              "title": "The Ra'Jin Grand Master · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+          "parser_version": 19,
+          "collected_at": "2026-10-14T14:48:53+00:00",
+          "archive_fields": {
+            "starts with": [
+              "Shaof"
+            ],
+            "location": [
+              "-3117, -10368, 5709 in Tanvu (-19, 6)"
+            ],
+            "series": [
+              "Shang Village"
+            ],
+            "previous": [
+              "The Final Tests Of Jin"
+            ],
+            "coin reward": [
+              "0"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Tanvu",
+              "url": "https://vgsoharchive.com/zones/tanvu"
+            },
+            {
+              "name": "Shaof",
+              "url": "https://vgsoharchive.com/mobs/shaof"
+            },
+            {
+              "name": "The Final Tests Of Jin",
+              "url": "https://vgsoharchive.com/quests/the-final-tests-of-jin"
+            }
+          ],
+          "type": "quest",
+          "level": 10,
+          "zone": "Tanvu",
+          "giver": "Shaof",
+          "turn_in": null,
+          "prerequisites": null,
+          "steps": null,
+          "repeatable": null,
+          "start_text": null,
+          "completion_text": null,
+          "description": null,
+          "summary": null,
+          "rewards": {
+            "xp": null,
+            "coin_copper": null,
+            "items": null,
+            "choice": null
+          },
+          "chain_previous": "The Final Tests Of Jin",
+          "chain_next": null,
+          "quest_chain": {
+            "name": "Shang Village",
+            "position": null
+          },
+          "original_source_urls": []
+        }
+      }
+    ]
+  },
+  "findings": [
+    {
+      "observation": "Mob header prints Level 10 and Tanvu; details print 2 dots, Aggressive, Feature Monster, static, respawn > 1, location -21773, -4170, 10096, chunk Tanvu and continent Thestra. Quest notes instead report Lvl 10 4 dot aggro. Preserve this difficulty collision and the continent label without geographical correction or a name-only identity merge.",
+      "canonical_identity": null,
+      "resolved_difficulty": null,
+      "resolved_continent": null,
+      "respawn_seconds": null,
+      "coordinate_system": null
+    },
+    {
+      "observation": "Seven linked loot rows are displayed. Page warns frequencies derive from an unrecorded kill sample. No operative drop probability or complete loot table is established. Embedded item tooltips are contextual transcriptions, not fetched item pages.",
+      "operative_drop_probabilities": null,
+      "complete_loot_table": null
+    },
+    {
+      "observation": "The quest target name matches the mob title, but this alone does not establish canonical client identity, precise spawn or historical patch equivalence. Both complete source records and cached HTML observations are retained.",
+      "canonical_client_id": null,
+      "historical_patch": null
+    }
+  ],
+  "checkpoint_reconciliation": {
+    "authoritative_inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0,
+    "persisted_interval_seconds": 60.0,
+    "collector_lock_exists": false
+  },
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected combined suspension reset/push/restart: blocked by policy. No more specific disposition supplied.",
+    "resumption_conditions": "Recorded policy disposition permitting resumption, then inspect process and lock and use collection.ps1 with preserved queues and 60-second interval."
+  },
+  "validation": {
+    "issues": [],
+    "cached_pages": 2,
+    "mob_detail_observations_verified": 9,
+    "loot_rows_verified": 7,
+    "full_source_records_verified": 4,
+    "input_hashes_verified": 7
+  },
+  "remaining_review": {
+    "collection_complete": false,
+    "required_review_complete": false,
+    "next_actionable_batch": "Review cached Grandmaster's Clasp and Grandmaster's Guard item pages against the mob tooltip and loot references; withhold operative drop probabilities and name-only identity merges."
+  }
+}

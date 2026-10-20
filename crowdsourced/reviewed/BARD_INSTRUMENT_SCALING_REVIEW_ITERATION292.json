@@ -1,0 +1,454 @@
+{
+  "review_kind": "bard_instrument_scaling_and_stacking_claims",
+  "network_requests": 0,
+  "input_sha256": {
+    "reviewed/BARD_COMPOSITION_REVIEW_ITERATION290.json": "7e901300a86d398f7fb26eeb46e2c4ac72b886dc6e836c018c1f3bf2154a6d38"
+  },
+  "source": {
+    "url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+    "cache_stored_bytes_sha256": "64acdb07c442feddc3040270bd90131a60148a8387c83d83af7d0c9f38761dd1",
+    "cache_normalized_text_sha256": "2c70f1a08a68af313698c1bb723a63aa22a1130cdd716ba524d27843c5430578",
+    "sidecar_sha256": "2c70f1a08a68af313698c1bb723a63aa22a1130cdd716ba524d27843c5430578",
+    "hash_verification": "sidecar matches stored bytes or UTF-8 text with universal-newline normalization (legacy cache)",
+    "source_records": [
+      {
+        "path": "raw/2026-10-14-030650-645618-archive-bulk/source_pages.json",
+        "record": {
+          "name": "Bard — Song Composition Guide",
+          "url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+          "record_kind": "source_page",
+          "fields": {},
+          "headings": [
+            "Basic Song Composition:",
+            "Introduction",
+            "Putting it all together (Basic Version):",
+            "Energy Regeneration",
+            "Instruments and Instrument Mods",
+            "The Composer"
+          ],
+          "sections": [
+            {
+              "heading": "Basic Song Composition:",
+              "linked_entities": []
+            },
+            {
+              "heading": "Introduction",
+              "linked_entities": []
+            },
+            {
+              "heading": "Putting it all together (Basic Version):",
+              "linked_entities": []
+            },
+            {
+              "heading": "Energy Regeneration",
+              "linked_entities": []
+            },
+            {
+              "heading": "Instruments and Instrument Mods",
+              "linked_entities": []
+            },
+            {
+              "heading": "The Composer",
+              "linked_entities": []
+            }
+          ],
+          "referenced_entities": [],
+          "original_source_urls": [],
+          "source_date": null,
+          "parsed_at": "2026-10-14T07:07:10+00:00"
+        },
+        "file_sha256": "6ed525dfdcf17eb31fab21cf230e7c217215ab445dedc90685258eedbf91ccc9"
+      },
+      {
+        "path": "raw/2026-10-14-030849-144792-archive-reference-v18/source_pages.json",
+        "record": {
+          "name": "Bard — Song Composition Guide",
+          "url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+          "record_kind": "source_page",
+          "fields": {},
+          "headings": [
+            "Basic Song Composition:",
+            "Introduction",
+            "Putting it all together (Basic Version):",
+            "Energy Regeneration",
+            "Instruments and Instrument Mods",
+            "How Instruments Work:",
+            "Instrument Mod Explanation",
+            "Voice Mods",
+            "Instrument Facts",
+            "The Composer"
+          ],
+          "sections": [
+            {
+              "heading": "Basic Song Composition:",
+              "linked_entities": []
+            },
+            {
+              "heading": "Introduction",
+              "linked_entities": []
+            },
+            {
+              "heading": "Putting it all together (Basic Version):",
+              "linked_entities": []
+            },
+            {
+              "heading": "Energy Regeneration",
+              "linked_entities": []
+            },
+            {
+              "heading": "Instruments and Instrument Mods",
+              "linked_entities": []
+            },
+            {
+              "heading": "How Instruments Work:",
+              "linked_entities": []
+            },
+            {
+              "heading": "Instrument Mod Explanation",
+              "linked_entities": []
+            },
+            {
+              "heading": "Voice Mods",
+              "linked_entities": []
+            },
+            {
+              "heading": "Instrument Facts",
+              "linked_entities": []
+            },
+            {
+              "heading": "The Composer",
+              "linked_entities": []
+            }
+          ],
+          "referenced_entities": [],
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/song-composition-guide"
+          ],
+          "source_date": null,
+          "parsed_at": "2026-10-14T07:08:49+00:00"
+        },
+        "file_sha256": "db39226b4db9b9d1334df688247588333f05eea4f1bf373a5ddeb644452daa53"
+      }
+    ],
+    "table_count": 1,
+    "tables": [
+      {
+        "preceding_heading": "Putting it all together (Basic Version):",
+        "row_count": 4,
+        "rows": [
+          [
+            "Melody",
+            "Anthem of War",
+            "2 energy / sec"
+          ],
+          [
+            "Embellishments",
+            "Harmony of War",
+            "4 energy / sec x3 = 12 energy / sec"
+          ],
+          [
+            "Lyrics",
+            "Hazoc's Hasty Lyric",
+            "3 energy / sec"
+          ],
+          [
+            "",
+            "Total Cost:",
+            "17 energy / sec"
+          ]
+        ],
+        "source_html": "<table>\n<tr>\n<td>Melody</td>\n<td>Anthem of War</td>\n<td>2 energy / sec</td>\n</tr>\n<tr>\n<td>Embellishments</td>\n<td>Harmony of War</td>\n<td>4 energy / sec x3 = 12 energy / sec</td>\n</tr>\n<tr>\n<td>Lyrics</td>\n<td>Hazoc's Hasty Lyric</td>\n<td>3 energy / sec</td>\n</tr>\n<tr>\n<td></td>\n<td>Total Cost:</td>\n<td>17 energy / sec</td>\n</tr>\n</table>",
+        "review_status": "unreviewed",
+        "game_fact": false
+      }
+    ],
+    "scope": "guide-body when present, otherwise main; navigation may remain and requires review"
+  },
+  "observations": [
+    {
+      "observation_kind": "modifier_types",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 26,
+        "text_as_printed": "There are five instrument mods currently used: Percussion, String, Wind, Brass and Voice. Each has it's own place in the scheme of things and are generally specialized to certain types of song components. However, in many cases, a mod will affect more than one type of song. Instrument mod effects will primarily be found on 2H Instruments that take the place of your melee weapons. In rare cases, you will be able to gain armor or parrying daggers that will have an an instrument mod on it as well. ALL Voice mods discovered have been on armor and there are currently no instrument based voice mods. First we'll look at how instrument mods work and then we'll take a look at the different types and what they are generally used for.",
+        "source_html": "<p>There are five instrument mods currently used: Percussion, String, Wind, Brass and Voice. Each has it's own place in the scheme of things and are generally specialized to certain types of song components. However, in many cases, a mod will affect more than one type of song. Instrument mod effects will primarily be found on 2H Instruments that take the place of your melee weapons. In rare cases, you will be able to gain armor or parrying daggers that will have an an instrument mod on it as well. ALL Voice mods discovered have been on armor and there are currently no instrument based voice mods. First we'll look at how instrument mods work and then we'll take a look at the different types and what they are generally used for.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "types_as_printed": [
+          "Percussion",
+          "String",
+          "Wind",
+          "Brass",
+          "Voice"
+        ],
+        "voice_location_claim": "all discovered on armor; no instrument based voice mods"
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "trainer_instruments",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 27,
+        "text_as_printed": "Tip: Basic versions (approx. 1.8-2.0 mod) of Brass, Wind, Drum and String can be purchased at Bard Trainers. As you gain Tynen's Run Speed Melody and your Regen melody, you will also want to purchase the appropriate instrument (Drum and String respectively).",
+        "source_html": "<p>Tip: Basic versions (approx. 1.8-2.0 mod) of Brass, Wind, Drum and String can be purchased at Bard Trainers. As you gain Tynen's Run Speed Melody and your Regen melody, you will also want to purchase the appropriate instrument (Drum and String respectively).</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "approximate_modifier_range": [
+          1.8,
+          2.0
+        ],
+        "availability": "basic Brass, Wind, Drum and String at Bard Trainers"
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "balance_commentary",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 28,
+        "text_as_printed": "Instruments are the defining factor of a bard. Without an instrument, many of our song components are simply too weak to bother with using when compared to their cost. When adding the appropriate instrument mod however, the component begins to blossom into a very powerful song. The majority of our song components are actually balanced using a 3.0 instrument mod effect (more on this shortly). As such, anytime you are not using an instrument, you can not expect the song component to be nearly as strong as it would be if you had the mod. By using an instrument and the right combination of components, your songs will be stronger than any classes buffs combined with only a few exceptions.",
+        "source_html": "<p>Instruments are the defining factor of a bard. Without an instrument, many of our song components are simply too weak to bother with using when compared to their cost. When adding the appropriate instrument mod however, the component begins to blossom into a very powerful song. The majority of our song components are actually balanced using a 3.0 instrument mod effect (more on this shortly). As such, anytime you are not using an instrument, you can not expect the song component to be nearly as strong as it would be if you had the mod. By using an instrument and the right combination of components, your songs will be stronger than any classes buffs combined with only a few exceptions.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "majority_component_balance_modifier_as_claimed": 3.0,
+        "scope": "author commentary; no complete component list"
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "equipment_and_effect_updates",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 29,
+        "text_as_printed": "Most instruments are two-handed items and require that you remove weapons in order to use them. This means that you will not be capable of engaging in melee combat. However, when using a two-handed instrument you are still able to use your ranged attack. Yes, it doesn't seem physically possible to play a guitar and shoot a crossbow at the same time, but that's how it works in Vanguard. Through the usage of macros, specifically the /remove and /wear macros, you can quickly and easily switch between instruments and weapons as needed in order to optimize your effects. Keep in mind, the instant you remove your instrument, the song will revert to a lesser version. Likewise, when adding an instrument, the effect is also instant in all but a few circumstances. One exception to the 2H rule is Voice Mods. Voice Mods are the primary mod on which the majority of our combat song components are based upon and, since they are all on armor, it allows you to engage in melee combat while increasing your melee based song.",
+        "source_html": "<p>Most instruments are two-handed items and require that you remove weapons in order to use them. This means that you will not be capable of engaging in melee combat. However, when using a two-handed instrument you are still able to use your ranged attack. Yes, it doesn't seem physically possible to play a guitar and shoot a crossbow at the same time, but that's how it works in Vanguard. Through the usage of macros, specifically the /remove and /wear macros, you can quickly and easily switch between instruments and weapons as needed in order to optimize your effects. Keep in mind, the instant you remove your instrument, the song will revert to a lesser version. Likewise, when adding an instrument, the effect is also instant in all but a few circumstances. One exception to the 2H rule is Voice Mods. Voice Mods are the primary mod on which the majority of our combat song components are based upon and, since they are all on armor, it allows you to engage in melee combat while increasing your melee based song.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "two_handed_instrument": "precludes melee; ranged attack remains available",
+        "removal": "song immediately reverts",
+        "equipping": "immediate except unspecified circumstances",
+        "macros_as_printed": [
+          "/remove",
+          "/wear"
+        ]
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "scaling_examples",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 31,
+        "text_as_printed": "The above is an example of a typical two-handed instrument. Every instrument will have a line describing the type of instrument as well as the amount of the instrument modifier. In the above example the Drum is a 2.36 Percussion Mod. Most song components are affected by an instrument and are labeled as such in the tool tip for the component. When a component says that it is percussion based, whatever effect the component gives will be multiplied by the affect of the instrument mod. In example, Tynen's Melody of Acceleration delivers a whopping 29% bonus to your run speed. By equipping the drum above, the same component will now yield 29% x 2.36 = 68.44% Run Speed bonus. In the case of Cirel's Rhythm of Renewal, the component will regen 68 pts of health at L50. Using a 2.71 String mod we will increase the 68 health regen to 184 regen / 4 seconds.",
+        "source_html": "<p>The above is an example of a typical two-handed instrument. Every instrument will have a line describing the type of instrument as well as the amount of the instrument modifier. In the above example the Drum is a 2.36 Percussion Mod. Most song components are affected by an instrument and are labeled as such in the tool tip for the component. When a component says that it is percussion based, whatever effect the component gives will be multiplied by the affect of the instrument mod. In example, Tynen's Melody of Acceleration delivers a whopping 29% bonus to your run speed. By equipping the drum above, the same component will now yield 29% x 2.36 = 68.44% Run Speed bonus. In the case of Cirel's Rhythm of Renewal, the component will regen 68 pts of health at L50. Using a 2.71 String mod we will increase the 68 health regen to 184 regen / 4 seconds.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "run_speed_base_percent": 29,
+        "percussion_modifier": 2.36,
+        "printed_result_percent": 68.44,
+        "health_base_at_level_50": 68,
+        "string_modifier": 2.71,
+        "printed_health_result": 184,
+        "health_period_seconds": 4
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "voice_scaling_examples",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 35,
+        "text_as_printed": "Both songs are based on a voice instrument. In the case of Anthem of War a voice mod will directly increase the %. With Vee's Visage for instance, a 1.40 voice mod, Anthem of War will give +21% damage instead of +15%. Harmony of War will give 28 instead of 20.",
+        "source_html": "<p>Both songs are based on a voice instrument. In the case of Anthem of War a voice mod will directly increase the %. With Vee's Visage for instance, a 1.40 voice mod, Anthem of War will give +21% damage instead of +15%. Harmony of War will give 28 instead of 20.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "example_item": "Vee’s Visage (apostrophe normalized for label only)",
+        "voice_modifier": 1.4,
+        "Anthem_of_War_percent": [
+          15,
+          21
+        ],
+        "Harmony_of_War_example": [
+          20,
+          28
+        ],
+        "strength_scaling": null,
+        "full_damage_range_scaling": null
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "same_type_stacking",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 37,
+        "text_as_printed": "Like instrument mods do NOT stack. IE…You can't use a drum and a breastplate with a 1.15 percussion mod on it and get both effects. Whichever effect is higher will take precedence. The same is true for Voice mods.",
+        "source_html": "<li>Like instrument mods do NOT stack. IE…You can't use a drum and a breastplate with a 1.15 percussion mod on it and get both effects. Whichever effect is higher will take precedence. The same is true for Voice mods.</li>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "rule_as_printed": "Like instrument mods do NOT stack; highest takes precedence",
+        "voice_explicitly_included": true
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "different_type_stacking",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 38,
+        "text_as_printed": "Different instrument mods DO stack. You can stack 1 of each type. So you can have a 1.40 voice mod and a 2.8 Brass Mod and they will both work.",
+        "source_html": "<li>Different instrument mods DO stack. You can stack 1 of each type. So you can have a 1.40 voice mod and a 2.8 Brass Mod and they will both work.</li>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "rule_as_printed": "one of each type may work together",
+        "example_voice": 1.4,
+        "example_brass": 2.8
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "one_handed_equipment",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 39,
+        "text_as_printed": "One-Handed instruments are secondary slot only and are weaker than two-handed instruments.",
+        "source_html": "<li>One-Handed instruments are secondary slot only and are weaker than two-handed instruments.</li>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "slot_as_printed": "secondary only",
+        "relative_strength_as_printed": "weaker than two-handed"
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    },
+    {
+      "observation_kind": "parry_dagger_commentary",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 40,
+        "text_as_printed": "Parry Daggers are another form of one-handed instrument that also gives a great defensive boost. These are particularly effective when soloing. The best is a L40 1.25 voice mod parry dagger that is relatively common.",
+        "source_html": "<li>Parry Daggers are another form of one-handed instrument that also gives a great defensive boost. These are particularly effective when soloing. The best is a L40 1.25 voice mod parry dagger that is relatively common.</li>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "example_level": 40,
+        "example_voice_modifier": 1.25,
+        "best_and_common_claim": "author assessment; not verified inventory"
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_unverified_claim"
+    }
+  ],
+  "internal_checks": [
+    {
+      "expression": "29 * 2.36 = 68.44",
+      "matches": true
+    },
+    {
+      "expression": "68 * 2.71 = 184.28; printed 184 omits fractional part",
+      "matches": true
+    },
+    {
+      "expression": "15 * 1.40 = 21",
+      "matches": true
+    },
+    {
+      "expression": "20 * 1.40 = 28",
+      "matches": true
+    }
+  ],
+  "ambiguities": [
+    {
+      "issue": "184 from 184.28 does not distinguish truncation from nearest-integer rounding, nor UI from actual effect precision.",
+      "evidence_block_indices": [
+        31
+      ],
+      "resolution": "No operative rounding rule."
+    },
+    {
+      "issue": "Voice example scales only Harmony upper endpoint; neither Strength nor lower endpoint scaling is demonstrated.",
+      "evidence_block_indices": [
+        34,
+        35
+      ],
+      "resolution": "Unshown fields remain null."
+    },
+    {
+      "issue": "Upcoming one-handed instruments conflict temporally with present-tense secondary-slot and parry-dagger statements; armor-only Voice claim also conflicts with parry-dagger Voice example.",
+      "evidence_block_indices": [
+        26,
+        30,
+        39,
+        40
+      ],
+      "resolution": "Preserve full claims separately; no universal equipment availability or historical date assigned."
+    }
+  ],
+  "policy": "Source claims and arithmetic checks do not verify game mechanics. Shared Telon Project mirrors are not independent corroboration. No operative import or name-only identity matching. Network suspension preserved.",
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "summary": {
+    "pages": 1,
+    "observations": 10,
+    "arithmetic_checks": 4,
+    "ambiguities": 3,
+    "validation_issues": 0
+  },
+  "remaining_work": "Composer controls and component-slot progression require review; broader supplemental extraction and pending downloads remain open."
+}

@@ -1,0 +1,204 @@
+{
+  "review_kind": "bard_explicit_seconds_cache_replay",
+  "parser_version": 38,
+  "network_requests": 0,
+  "input": {
+    "path": "reviewed/BARD_TIMING_UNITS_REVIEW_ITERATION578.json",
+    "sha256": "66f45102215cef3cd91007f27601dd40e7534c57ecde41f42b8a19cf02c5b945"
+  },
+  "policy": "Archive observations remain separate from historically authenticated and operative game facts. Original immutable records unchanged. No units inferred for unresolved values.",
+  "observations": [
+    {
+      "name": "Suann's Call of Slumber",
+      "source_url": "https://vgsoharchive.com/abilities/suann-s-call-of-slumber",
+      "cache": {
+        "path": ".cache/archive/d057a8fcf73d7ccb0e4faf6544e285c74c5fbf255a9baf44ffe7666db577be2b.txt",
+        "sha256": "b8704814f8e5c6972222de6fc234e04904fb9a4bb2057c20054a3c808312d146"
+      },
+      "original_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 71,
+          "record_sha256": "51a2c11cc3963ad9ca80fa3410aadfbe2d332fb772f523c0cf6ed91b80502395"
+        }
+      ],
+      "label": "Duration",
+      "literal": "18 secs",
+      "field": "duration_seconds",
+      "seconds_reported_by_archive": 18,
+      "timing_observations": {
+        "refresh_seconds": [
+          {
+            "label": "refresh",
+            "raw": "2.0s",
+            "seconds": 2.0
+          }
+        ],
+        "duration_seconds": [
+          {
+            "label": "duration",
+            "raw": "18 secs",
+            "seconds": 18
+          }
+        ]
+      },
+      "replayed_source_record": {
+        "name": "Suann's Call of Slumber",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/suann-s-call-of-slumber",
+            "title": "Suann's Call of Slumber · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 38,
+        "collected_at": "2026-10-19T11:28:21+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "20"
+          ],
+          "level in 2007-2008": [
+            "20"
+          ],
+          "cast then": [
+            "2"
+          ],
+          "refresh then": [
+            "2"
+          ],
+          "level": [
+            "20"
+          ],
+          "energy cost": [
+            "6"
+          ],
+          "cast time": [
+            "2.0"
+          ],
+          "refresh": [
+            "2.0s"
+          ],
+          "duration": [
+            "18 secs"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "type": [
+            "Shout"
+          ],
+          "icon": [
+            "Icon405.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 20,
+        "rank": null,
+        "category": "Shout",
+        "cost": {
+          "energy": 6
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 2.0,
+        "duration_seconds": 18,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": "Lulls the target, preventing it from assisting nearby allies for 18 seconds.",
+        "icon_name": "Icon405.png",
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 20,
+            "raw": "20"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 20,
+            "raw": "20"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            6
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "2.0s",
+              "seconds": 2.0
+            }
+          ],
+          "duration_seconds": [
+            {
+              "label": "duration",
+              "raw": "18 secs",
+              "seconds": 18
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+        ]
+      },
+      "historical_authentication": null,
+      "operative_values": null
+    }
+  ],
+  "validation": {
+    "cached_page_hashes_verified": 60,
+    "timing_cases_replayed": 61,
+    "new_explicit_seconds_observations": 1,
+    "unresolved_values_still_null": 60,
+    "issues": 0,
+    "python_tests_passed": 178
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval_seconds": 60.0,
+    "network_suspension_preserved": true
+  },
+  "next_step": "Audit Bard current effect labels against typed effect observations for remaining cached extraction gaps."
+}

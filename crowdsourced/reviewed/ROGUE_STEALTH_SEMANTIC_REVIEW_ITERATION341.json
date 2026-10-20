@@ -1,0 +1,293 @@
+{
+  "review_kind": "rogue_stealth_semantic_review",
+  "network_requests": 0,
+  "source_pages": [
+    {
+      "url": "https://vgsoharchive.com/classes/rogue/stealth",
+      "cache_stored_bytes_sha256": "4c8dedbd79b0dbafc8ba4865e201b97e89a2c82560d231d772696b78a7984514",
+      "source_records": [
+        {
+          "path": "raw/2026-10-14-030921-688504-archive-bulk/source_pages.json",
+          "record": {
+            "name": "Rogue — Stealth",
+            "url": "https://vgsoharchive.com/classes/rogue/stealth",
+            "record_kind": "source_page",
+            "fields": {},
+            "headings": [
+              "Regaining Stealth During Combat",
+              "Stealth and Perception Mechanics"
+            ],
+            "sections": [
+              {
+                "heading": "Regaining Stealth During Combat",
+                "linked_entities": []
+              },
+              {
+                "heading": "Stealth and Perception Mechanics",
+                "linked_entities": []
+              }
+            ],
+            "referenced_entities": [],
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/adventuring:rogue-stealth"
+            ],
+            "source_date": null,
+            "parsed_at": "2026-10-14T07:11:01+00:00"
+          },
+          "file_sha256": "c64752ae632ea30467f4802ac69d210962e540b3febb7dd1b0517e4ecde5a982"
+        }
+      ],
+      "scope": "guide-body if present, otherwise main; navigation may remain",
+      "prose_evidence": [
+        {
+          "block_index": 0,
+          "tag": "p",
+          "text_as_printed": "from tentophammer.com",
+          "source_html": "<p><sub>from tentophammer.com</sub></p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 1,
+          "tag": "p",
+          "text_as_printed": "Attacks while stealthed cause more damage.Rogues stay in stealth mode for most, if not all, group combat.As long as the rogue does not get aggro, he will remain stealthed. Rogues are able to stalk their targets prior to attacking, (or during a fight if the rogue is not attacking) giving the rogue an accuracy bonus. Targeting the mob within a close distance and not attacking it, builds up this accuracy bonus. Accuracy bonuses add increased damage to the attack.",
+          "source_html": "<p>Attacks while stealthed cause more damage.Rogues stay in stealth mode for most, if not all, group combat.As long as the rogue does not get aggro, he will remain stealthed. Rogues are able to stalk their targets prior to attacking, (or during a fight if the rogue is not attacking) giving the rogue an accuracy bonus. Targeting the mob within a close distance and not attacking it, builds up this accuracy bonus. Accuracy bonuses add increased damage to the attack.</p>",
+          "preceding_heading": null,
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 2,
+          "tag": "p",
+          "text_as_printed": "The rogue can regain stealth during combat, if she does not have aggro, by using her abilities to distract the mob. By using abilities such as Flash Powder, the rogue can distract the mob(s) so they don’t perceive her, thereby allowing her to regain stealth.",
+          "source_html": "<p>The rogue can regain stealth during combat, if she does not have aggro, by using her abilities to distract the mob. By using abilities such as Flash Powder, the rogue can distract the mob(s) so they don’t perceive her, thereby allowing her to regain stealth.</p>",
+          "preceding_heading": "Regaining Stealth During Combat",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        },
+        {
+          "block_index": 3,
+          "tag": "p",
+          "text_as_printed": "Vanguard NPC’s have a perception and aggro radius. Their perception radius is generally larger than their agro radius. What this means is a mob might perceive you and break your stealth, but it will not attack you if you are outside of its aggro radius.",
+          "source_html": "<p>Vanguard NPC’s have a perception and aggro radius. Their perception radius is generally larger than their agro radius. What this means is a mob might perceive you and break your stealth, but it will not attack you if you are outside of its aggro radius.</p>",
+          "preceding_heading": "Stealth and Perception Mechanics",
+          "review_status": "pending_semantic_review",
+          "game_fact": false
+        }
+      ],
+      "canonical_client_id": null,
+      "historical_applicability": null
+    }
+  ],
+  "claims": [
+    {
+      "id": 1,
+      "source_url": "https://vgsoharchive.com/classes/rogue/stealth",
+      "source_block": 0,
+      "subject": "Rogue stealth guide",
+      "predicate": "printed_attribution",
+      "value": "tentophammer.com",
+      "qualifier": "Mirrored attribution, not independent corroboration or a verified original publication date.",
+      "classification": "undated_mirrored_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 2,
+      "source_url": "https://vgsoharchive.com/classes/rogue/stealth",
+      "source_block": 1,
+      "subject": "Stealthed attacks",
+      "predicate": "reported_damage_comparison",
+      "value": "More damage",
+      "qualifier": "No multiplier or formula given.",
+      "classification": "undated_mirrored_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 3,
+      "source_url": "https://vgsoharchive.com/classes/rogue/stealth",
+      "source_block": 1,
+      "subject": "Rogue group combat",
+      "predicate": "reported_play_pattern",
+      "value": "Most or all combat in stealth",
+      "qualifier": "Contributor generalization, not an enforced rule.",
+      "classification": "undated_mirrored_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 4,
+      "source_url": "https://vgsoharchive.com/classes/rogue/stealth",
+      "source_block": 1,
+      "subject": "Rogue stealth",
+      "predicate": "reported_retention_condition",
+      "value": "Remains stealthed as long as rogue does not get aggro",
+      "qualifier": "Other break conditions and exceptions unverified.",
+      "classification": "undated_mirrored_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 5,
+      "source_url": "https://vgsoharchive.com/classes/rogue/stealth",
+      "source_block": 1,
+      "subject": "Stalking",
+      "predicate": "reported_activation_context",
+      "value": "Target a nearby mob without attacking; possible before attack or during fight while not attacking",
+      "qualifier": "Exact distance and required duration absent.",
+      "classification": "undated_mirrored_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 6,
+      "source_url": "https://vgsoharchive.com/classes/rogue/stealth",
+      "source_block": 1,
+      "subject": "Stalking",
+      "predicate": "reported_accuracy_effect",
+      "value": "Builds an accuracy bonus",
+      "qualifier": "Magnitude, buildup rate, cap and decay absent.",
+      "classification": "undated_mirrored_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 7,
+      "source_url": "https://vgsoharchive.com/classes/rogue/stealth",
+      "source_block": 1,
+      "subject": "Accuracy bonus",
+      "predicate": "reported_damage_effect",
+      "value": "Increases attack damage",
+      "qualifier": "Relationship between accuracy, hit chance and damage is unspecified; no formula inferred.",
+      "classification": "undated_mirrored_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 8,
+      "source_url": "https://vgsoharchive.com/classes/rogue/stealth",
+      "source_block": 2,
+      "subject": "Combat stealth recovery",
+      "predicate": "reported_requirement",
+      "value": "No aggro and use distraction abilities",
+      "qualifier": "Complete eligibility conditions unknown.",
+      "classification": "undated_mirrored_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 9,
+      "source_url": "https://vgsoharchive.com/classes/rogue/stealth",
+      "source_block": 2,
+      "subject": "Flash Powder",
+      "predicate": "reported_effect",
+      "value": "Distracts mobs so they do not perceive rogue, allowing stealth recovery",
+      "qualifier": "Target count, duration, range, resource cost and recast absent.",
+      "classification": "undated_mirrored_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 10,
+      "source_url": "https://vgsoharchive.com/classes/rogue/stealth",
+      "source_block": 3,
+      "subject": "NPC perception radius",
+      "predicate": "reported_comparison",
+      "value": "Generally larger than aggro radius",
+      "qualifier": "Contributor qualifier preserved; not universal radii.",
+      "classification": "undated_mirrored_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 11,
+      "source_url": "https://vgsoharchive.com/classes/rogue/stealth",
+      "source_block": 3,
+      "subject": "NPC perception",
+      "predicate": "reported_stealth_effect",
+      "value": "May perceive rogue and break stealth without attacking outside aggro radius",
+      "qualifier": "Exact perception calculation and encounter exceptions unresolved.",
+      "classification": "undated_mirrored_contributor_claim",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    }
+  ],
+  "block_reviews": [
+    {
+      "source_url": "https://vgsoharchive.com/classes/rogue/stealth",
+      "block_index": 0,
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/rogue/stealth",
+      "block_index": 1,
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/rogue/stealth",
+      "block_index": 2,
+      "review_status": "reviewed_as_source_claim_only"
+    },
+    {
+      "source_url": "https://vgsoharchive.com/classes/rogue/stealth",
+      "block_index": 3,
+      "review_status": "reviewed_as_source_claim_only"
+    }
+  ],
+  "ambiguities": [
+    {
+      "details": "Accuracy-to-damage relationship, stealth break exceptions and distraction mechanics remain contributor assertions; no operative combat formulas inferred.",
+      "operative_value": null
+    },
+    {
+      "details": "Historical era, canonical ability identifiers, perception distances, stalking buildup and exact damage scaling remain unresolved.",
+      "operative_value": null
+    }
+  ],
+  "limitations": [
+    "Mirrored wiki prose is not independent corroboration or authenticated live-era evidence.",
+    "Tables, image content, exact ability ranks and complete mechanics require separate review.",
+    "Remaining tracked prose count follows iteration340; broader table and source coverage remain incomplete."
+  ],
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "python_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "network_suspension_preserved": true
+  },
+  "review_counts": {
+    "reviewed_blocks": 4,
+    "source_claims": 11,
+    "remaining_tracked_prose_backlog_blocks": 116
+  },
+  "validation": {
+    "issues": [],
+    "cached_html_hashes_verified": 1,
+    "source_records_verified": 1,
+    "prose_blocks_verified": 4
+  }
+}

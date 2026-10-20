@@ -1,0 +1,1018 @@
+{
+  "audit_kind": "training_with_juu_literal_chain_comparison",
+  "network_requests": 0,
+  "metadata_only": false,
+  "extraction_scope": "Literal Training With Juu and adjacent chain labels compared with Juu (Quest); no identity resolution or enforced prerequisite inference.",
+  "inputs": [
+    {
+      "path": ".cache/archive/18bf43e12c7dde5a4e7336f5990ac3bcc3bbe0d7fe71cf58d509a221aeab199a.txt",
+      "sha256": "8e0caafe4ab7a199851ae43a7b4736415b1443f3d37122e9aa9c4a63e2a856fe"
+    },
+    {
+      "path": ".cache/archive/88ed3cbc7266136bd7b3beb0fa896df53816dc7427fed80e07f6087d8bca158b.txt",
+      "sha256": "73398f1e23bf971b3836c80c75f9d5d8433b64017c6621f67eb4ece6b0359d7d"
+    },
+    {
+      "path": ".cache/archive/a11bb1c3bc89725712f5b86dd64039cbd2b43a6c186f866eb12cff558bebbfdf.txt",
+      "sha256": "0ec770212c2599e1f311946b4d16c11c88d81aa03c879a1212d3d68e2e2999af"
+    },
+    {
+      "path": ".cache/archive/af837ff97ffb7c5bd77e0d469ddc0fd2327d03fc412c8d6cabf2f0b45511b3ad.txt",
+      "sha256": "cdf402fe9692facf0540c7cb4920e076934eb630c01f9af758e1ae5eafb20fb8"
+    },
+    {
+      "path": "raw/2026-10-14-055612-990602-archive-bulk/quest.jsonl",
+      "sha256": "1f79902a3b0866edf297a1424a1230f0e713d9f05f77c2ecd8ab8e6225f76cf4"
+    },
+    {
+      "path": "raw/2026-10-14-060433-039992-archive-bulk/quest.jsonl",
+      "sha256": "23d879f23577d6d1865d19204c33d9a585cb4240b29e3e23c174aef2b3dca9d3"
+    },
+    {
+      "path": "raw/2026-10-14-090753-904788-archive-bulk/quest.jsonl",
+      "sha256": "e843ab634649b6da7e4fd667b1e3683cf6692c40c55b4001bfb5c04b699bbb88"
+    },
+    {
+      "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+      "sha256": "1b4328e56ac4f992bedda7b7dcf02b00fab8c55047e6c45892af56343fa85648"
+    },
+    {
+      "path": "reviewed/QUEST_CHAIN_COMBINED_CANDIDATES_ITERATION207.json",
+      "sha256": "dc16e1faedae3a0925727bbbddaa84ebc6669839fa68319a14bbbf340b37a35f"
+    }
+  ],
+  "reviews": [],
+  "pages": [
+    {
+      "url": "https://vgsoharchive.com/quests/juu-quest",
+      "cache_path": ".cache/archive/88ed3cbc7266136bd7b3beb0fa896df53816dc7427fed80e07f6087d8bca158b.txt",
+      "cache_sha256": "73398f1e23bf971b3836c80c75f9d5d8433b64017c6621f67eb4ece6b0359d7d",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Kojuko Gluttons",
+          "html": "<dd><a href=\"/quests/kojuko-gluttons\">Kojuko Gluttons</a>\n</dd>",
+          "links": [
+            {
+              "text": "Kojuko Gluttons",
+              "href": "/quests/kojuko-gluttons",
+              "absolute_url": "https://vgsoharchive.com/quests/kojuko-gluttons"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "Kojuko Manhunters, The Unforgotten",
+          "html": "<dd>Kojuko Manhunters, The Unforgotten\n      </dd>",
+          "links": [],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-055612-990602-archive-bulk/quest.jsonl",
+          "line": 64,
+          "record": {
+            "name": "Juu (Quest)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/juu-quest",
+                "title": "Juu (Quest) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T10:01:31+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Oki"
+              ],
+              "location": [
+                "-16529, -49889, 194 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Juu"
+              ],
+              "previous": [
+                "Kojuko Gluttons"
+              ],
+              "next": [
+                "Kojuko Manhunters, The Unforgotten"
+              ],
+              "coin reward": [
+                "50"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Oki",
+                "url": "https://vgsoharchive.com/mobs/oki"
+              },
+              {
+                "name": "Juu",
+                "url": "https://vgsoharchive.com/mobs/juu"
+              },
+              {
+                "name": "Kojuko Gluttons",
+                "url": "https://vgsoharchive.com/quests/kojuko-gluttons"
+              }
+            ],
+            "type": "quest",
+            "level": 5,
+            "zone": "Tanvu",
+            "giver": "Oki",
+            "turn_in": "Juu",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Kojuko Gluttons",
+            "chain_next": "Kojuko Manhunters, The Unforgotten",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 2035,
+          "record": {
+            "name": "Juu (Quest)",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/juu-quest",
+                "title": "Juu (Quest) · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:45+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Oki"
+              ],
+              "location": [
+                "-16529, -49889, 194 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Juu"
+              ],
+              "previous": [
+                "Kojuko Gluttons"
+              ],
+              "next": [
+                "Kojuko Manhunters, The Unforgotten"
+              ],
+              "coin reward": [
+                "50"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Oki",
+                "url": "https://vgsoharchive.com/mobs/oki"
+              },
+              {
+                "name": "Juu",
+                "url": "https://vgsoharchive.com/mobs/juu"
+              },
+              {
+                "name": "Kojuko Gluttons",
+                "url": "https://vgsoharchive.com/quests/kojuko-gluttons"
+              }
+            ],
+            "type": "quest",
+            "level": 5,
+            "zone": "Tanvu",
+            "giver": "Oki",
+            "turn_in": "Juu",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Kojuko Gluttons",
+            "chain_next": "Kojuko Manhunters, The Unforgotten",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/kojuko-gluttons",
+      "cache_path": ".cache/archive/a11bb1c3bc89725712f5b86dd64039cbd2b43a6c186f866eb12cff558bebbfdf.txt",
+      "cache_sha256": "0ec770212c2599e1f311946b4d16c11c88d81aa03c879a1212d3d68e2e2999af",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Avenging Oki",
+          "html": "<dd><a href=\"/quests/avenging-oki\">Avenging Oki</a>\n</dd>",
+          "links": [
+            {
+              "text": "Avenging Oki",
+              "href": "/quests/avenging-oki",
+              "absolute_url": "https://vgsoharchive.com/quests/avenging-oki"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "Training With Juu",
+          "html": "<dd><a href=\"/quests/training-with-juu\">Training With Juu</a>\n</dd>",
+          "links": [
+            {
+              "text": "Training With Juu",
+              "href": "/quests/training-with-juu",
+              "absolute_url": "https://vgsoharchive.com/quests/training-with-juu"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-060433-039992-archive-bulk/quest.jsonl",
+          "line": 35,
+          "record": {
+            "name": "Kojuko Gluttons",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/kojuko-gluttons",
+                "title": "Kojuko Gluttons · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T10:07:26+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Oki"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-16408, -49970, 187"
+              ],
+              "series": [
+                "Dallerjuba Village"
+              ],
+              "hand in to": [
+                "Oki"
+              ],
+              "also involved": [
+                "Kojuko Glutton"
+              ],
+              "previous": [
+                "Avenging Oki"
+              ],
+              "next": [
+                "Training With Juu"
+              ],
+              "repeatable": [
+                "No"
+              ],
+              "rating": [
+                "8.0"
+              ],
+              "coin reward": [
+                "50"
+              ],
+              "items needed": [
+                "Bloody Glutton Hand"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Oki",
+                "url": "https://vgsoharchive.com/mobs/oki"
+              },
+              {
+                "name": "Kojuko Glutton",
+                "url": "https://vgsoharchive.com/mobs/kojuko-glutton"
+              },
+              {
+                "name": "Avenging Oki",
+                "url": "https://vgsoharchive.com/quests/avenging-oki"
+              },
+              {
+                "name": "Training With Juu",
+                "url": "https://vgsoharchive.com/quests/training-with-juu"
+              },
+              {
+                "name": "Dallerjuba Wool Gloves",
+                "url": "https://vgsoharchive.com/items/dallerjuba-wool-gloves"
+              },
+              {
+                "name": "Dallerjuba Woven Belt",
+                "url": "https://vgsoharchive.com/items/dallerjuba-woven-belt"
+              },
+              {
+                "name": "Kojuko Beatin Flesh Greaves",
+                "url": "https://vgsoharchive.com/items/kojuko-beatin-flesh-greaves"
+              },
+              {
+                "name": "Kojuko Burnt Flesh Greaves",
+                "url": "https://vgsoharchive.com/items/kojuko-burnt-flesh-greaves"
+              },
+              {
+                "name": "Reinforced Dallerjuba Leather Gloves",
+                "url": "https://vgsoharchive.com/items/reinforced-dallerjuba-leather-gloves"
+              }
+            ],
+            "type": "quest",
+            "level": 4,
+            "zone": "Tanvu",
+            "giver": "Oki",
+            "turn_in": "Oki",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Avenging Oki",
+            "chain_next": "Training With Juu",
+            "quest_chain": {
+              "name": "Dallerjuba Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 2107,
+          "record": {
+            "name": "Kojuko Gluttons",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/kojuko-gluttons",
+                "title": "Kojuko Gluttons · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:45+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Oki"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-16408, -49970, 187"
+              ],
+              "series": [
+                "Dallerjuba Village"
+              ],
+              "hand in to": [
+                "Oki"
+              ],
+              "also involved": [
+                "Kojuko Glutton"
+              ],
+              "previous": [
+                "Avenging Oki"
+              ],
+              "next": [
+                "Training With Juu"
+              ],
+              "repeatable": [
+                "No"
+              ],
+              "rating": [
+                "8.0"
+              ],
+              "coin reward": [
+                "50"
+              ],
+              "items needed": [
+                "Bloody Glutton Hand"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Oki",
+                "url": "https://vgsoharchive.com/mobs/oki"
+              },
+              {
+                "name": "Kojuko Glutton",
+                "url": "https://vgsoharchive.com/mobs/kojuko-glutton"
+              },
+              {
+                "name": "Avenging Oki",
+                "url": "https://vgsoharchive.com/quests/avenging-oki"
+              },
+              {
+                "name": "Training With Juu",
+                "url": "https://vgsoharchive.com/quests/training-with-juu"
+              },
+              {
+                "name": "Dallerjuba Wool Gloves",
+                "url": "https://vgsoharchive.com/items/dallerjuba-wool-gloves"
+              },
+              {
+                "name": "Dallerjuba Woven Belt",
+                "url": "https://vgsoharchive.com/items/dallerjuba-woven-belt"
+              },
+              {
+                "name": "Kojuko Beatin Flesh Greaves",
+                "url": "https://vgsoharchive.com/items/kojuko-beatin-flesh-greaves"
+              },
+              {
+                "name": "Kojuko Burnt Flesh Greaves",
+                "url": "https://vgsoharchive.com/items/kojuko-burnt-flesh-greaves"
+              },
+              {
+                "name": "Reinforced Dallerjuba Leather Gloves",
+                "url": "https://vgsoharchive.com/items/reinforced-dallerjuba-leather-gloves"
+              }
+            ],
+            "type": "quest",
+            "level": 4,
+            "zone": "Tanvu",
+            "giver": "Oki",
+            "turn_in": "Oki",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": false,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Avenging Oki",
+            "chain_next": "Training With Juu",
+            "quest_chain": {
+              "name": "Dallerjuba Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/kojuko-manhunters",
+      "cache_path": ".cache/archive/af837ff97ffb7c5bd77e0d469ddc0fd2327d03fc412c8d6cabf2f0b45511b3ad.txt",
+      "cache_sha256": "cdf402fe9692facf0540c7cb4920e076934eb630c01f9af758e1ae5eafb20fb8",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Training With Juu",
+          "html": "<dd><a href=\"/quests/training-with-juu\">Training With Juu</a>\n</dd>",
+          "links": [
+            {
+              "text": "Training With Juu",
+              "href": "/quests/training-with-juu",
+              "absolute_url": "https://vgsoharchive.com/quests/training-with-juu"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        },
+        {
+          "label": "Next",
+          "raw_text": "The Unforgotten",
+          "html": "<dd><a href=\"/quests/the-unforgotten\">The Unforgotten</a>\n</dd>",
+          "links": [
+            {
+              "text": "The Unforgotten",
+              "href": "/quests/the-unforgotten",
+              "absolute_url": "https://vgsoharchive.com/quests/the-unforgotten"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-060433-039992-archive-bulk/quest.jsonl",
+          "line": 36,
+          "record": {
+            "name": "Kojuko Manhunters",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/kojuko-manhunters",
+                "title": "Kojuko Manhunters · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T10:07:31+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Juu"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-21770, -62875, 3344"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Juu"
+              ],
+              "previous": [
+                "Training With Juu"
+              ],
+              "next": [
+                "The Unforgotten"
+              ],
+              "repeatable": [
+                "No"
+              ],
+              "rating": [
+                "8.0"
+              ],
+              "coin reward": [
+                "60"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Juu",
+                "url": "https://vgsoharchive.com/mobs/juu"
+              },
+              {
+                "name": "Training With Juu",
+                "url": "https://vgsoharchive.com/quests/training-with-juu"
+              },
+              {
+                "name": "The Unforgotten",
+                "url": "https://vgsoharchive.com/quests/the-unforgotten"
+              },
+              {
+                "name": "Dallerjuba Studded Breaches",
+                "url": "https://vgsoharchive.com/items/dallerjuba-studded-breaches"
+              },
+              {
+                "name": "Dallerjuba Wool Leggings",
+                "url": "https://vgsoharchive.com/items/dallerjuba-wool-leggings"
+              },
+              {
+                "name": "Dallerjuba Woven Breaches",
+                "url": "https://vgsoharchive.com/items/dallerjuba-woven-breaches"
+              },
+              {
+                "name": "Kojuko Drop Hoop",
+                "url": "https://vgsoharchive.com/items/kojuko-drop-hoop"
+              },
+              {
+                "name": "Kojuko Ear",
+                "url": "https://vgsoharchive.com/items/kojuko-ear"
+              },
+              {
+                "name": "Kojuko Hoop",
+                "url": "https://vgsoharchive.com/items/kojuko-hoop"
+              },
+              {
+                "name": "Kojuko Stud",
+                "url": "https://vgsoharchive.com/items/kojuko-stud"
+              },
+              {
+                "name": "Reinforced Dallerjuba Leather Breaches",
+                "url": "https://vgsoharchive.com/items/reinforced-dallerjuba-leather-breaches"
+              }
+            ],
+            "type": "quest",
+            "level": 4,
+            "zone": "Tanvu",
+            "giver": "Juu",
+            "turn_in": "Juu",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Training With Juu",
+            "chain_next": "The Unforgotten",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 2108,
+          "record": {
+            "name": "Kojuko Manhunters",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/kojuko-manhunters",
+                "title": "Kojuko Manhunters · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:45+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Juu"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-21770, -62875, 3344"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Juu"
+              ],
+              "previous": [
+                "Training With Juu"
+              ],
+              "next": [
+                "The Unforgotten"
+              ],
+              "repeatable": [
+                "No"
+              ],
+              "rating": [
+                "8.0"
+              ],
+              "coin reward": [
+                "60"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Juu",
+                "url": "https://vgsoharchive.com/mobs/juu"
+              },
+              {
+                "name": "Training With Juu",
+                "url": "https://vgsoharchive.com/quests/training-with-juu"
+              },
+              {
+                "name": "The Unforgotten",
+                "url": "https://vgsoharchive.com/quests/the-unforgotten"
+              },
+              {
+                "name": "Dallerjuba Studded Breaches",
+                "url": "https://vgsoharchive.com/items/dallerjuba-studded-breaches"
+              },
+              {
+                "name": "Dallerjuba Wool Leggings",
+                "url": "https://vgsoharchive.com/items/dallerjuba-wool-leggings"
+              },
+              {
+                "name": "Dallerjuba Woven Breaches",
+                "url": "https://vgsoharchive.com/items/dallerjuba-woven-breaches"
+              },
+              {
+                "name": "Kojuko Drop Hoop",
+                "url": "https://vgsoharchive.com/items/kojuko-drop-hoop"
+              },
+              {
+                "name": "Kojuko Ear",
+                "url": "https://vgsoharchive.com/items/kojuko-ear"
+              },
+              {
+                "name": "Kojuko Hoop",
+                "url": "https://vgsoharchive.com/items/kojuko-hoop"
+              },
+              {
+                "name": "Kojuko Stud",
+                "url": "https://vgsoharchive.com/items/kojuko-stud"
+              },
+              {
+                "name": "Reinforced Dallerjuba Leather Breaches",
+                "url": "https://vgsoharchive.com/items/reinforced-dallerjuba-leather-breaches"
+              }
+            ],
+            "type": "quest",
+            "level": 4,
+            "zone": "Tanvu",
+            "giver": "Juu",
+            "turn_in": "Juu",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": false,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Training With Juu",
+            "chain_next": "The Unforgotten",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/training-with-juu",
+      "cache_path": ".cache/archive/18bf43e12c7dde5a4e7336f5990ac3bcc3bbe0d7fe71cf58d509a221aeab199a.txt",
+      "cache_sha256": "8e0caafe4ab7a199851ae43a7b4736415b1443f3d37122e9aa9c4a63e2a856fe",
+      "chain_observations": [
+        {
+          "label": "Previous",
+          "raw_text": "Kojuko Gluttons",
+          "html": "<dd><a href=\"/quests/kojuko-gluttons\">Kojuko Gluttons</a>\n</dd>",
+          "links": [
+            {
+              "text": "Kojuko Gluttons",
+              "href": "/quests/kojuko-gluttons",
+              "absolute_url": "https://vgsoharchive.com/quests/kojuko-gluttons"
+            }
+          ],
+          "prerequisite_enforcement": null,
+          "canonical_client_id": null
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-090753-904788-archive-bulk/quest.jsonl",
+          "line": 93,
+          "record": {
+            "name": "Training With Juu",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/training-with-juu",
+                "title": "Training With Juu · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T13:15:47+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Oki"
+              ],
+              "location": [
+                "-16408, -49970, 187"
+              ],
+              "previous": [
+                "Kojuko Gluttons"
+              ],
+              "repeatable": [
+                "No"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Oki",
+                "url": "https://vgsoharchive.com/mobs/oki"
+              },
+              {
+                "name": "Kojuko Gluttons",
+                "url": "https://vgsoharchive.com/quests/kojuko-gluttons"
+              }
+            ],
+            "type": "quest",
+            "level": 5,
+            "zone": "Tanvu",
+            "giver": "Oki",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Kojuko Gluttons",
+            "chain_next": null,
+            "quest_chain": null,
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 4388,
+          "record": {
+            "name": "Training With Juu",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/training-with-juu",
+                "title": "Training With Juu · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:54+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Oki"
+              ],
+              "location": [
+                "-16408, -49970, 187"
+              ],
+              "previous": [
+                "Kojuko Gluttons"
+              ],
+              "repeatable": [
+                "No"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Oki",
+                "url": "https://vgsoharchive.com/mobs/oki"
+              },
+              {
+                "name": "Kojuko Gluttons",
+                "url": "https://vgsoharchive.com/quests/kojuko-gluttons"
+              }
+            ],
+            "type": "quest",
+            "level": 5,
+            "zone": "Tanvu",
+            "giver": "Oki",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": false,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Kojuko Gluttons",
+            "chain_next": null,
+            "quest_chain": null,
+            "original_source_urls": []
+          }
+        }
+      ]
+    }
+  ],
+  "checkpoint_reconciliation": {
+    "authoritative_inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0,
+    "persisted_interval_seconds": 60.0,
+    "collector_lock_exists": false
+  },
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected combined suspension reset/push/restart: blocked by policy. No more specific disposition supplied.",
+    "resumption_conditions": "Recorded policy disposition permitting resumption, then inspect process and lock and use collection.ps1 with preserved queues and 60-second interval."
+  },
+  "validation": {
+    "issues": [],
+    "cached_pages": 4,
+    "chain_observations": 7,
+    "full_archive_records_verified": 8,
+    "input_hashes_verified": 9,
+    "missing_cache_urls": [],
+    "exact_reciprocal_pairs_verified": 1,
+    "absent_next_label_verified": true
+  },
+  "findings": [
+    {
+      "observation": "Kojuko Gluttons Next links Training With Juu, whose Previous links Kojuko Gluttons: exact reciprocal navigation.",
+      "prerequisite_enforcement": null
+    },
+    {
+      "observation": "Kojuko Manhunters Previous links Training With Juu; Training With Juu has no labelled Next field in cached HTML.",
+      "scope": "Absent label is not evidence that progression is impossible.",
+      "prerequisite_enforcement": null
+    },
+    {
+      "observation": "Juu (Quest) and Training With Juu both display Previous Kojuko Gluttons but remain distinct source URLs; no identity merge is supported by shared chain text.",
+      "identity_merge_authorized": false,
+      "canonical_client_id": null
+    }
+  ]
+}

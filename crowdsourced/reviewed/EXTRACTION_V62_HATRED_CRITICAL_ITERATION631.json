@@ -1,0 +1,658 @@
+{
+  "review_kind": "parser_v62_hatred_critical_cached_replay",
+  "input": {
+    "path": "reviewed/BARD_HATRED_CRITICAL_CHANCE_SOURCE_REVIEW_ITERATION630.json",
+    "sha256": "e4246894e535648266909368f27793b691d40070a8608c1929426f51f45c7733"
+  },
+  "parser_version": 62,
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "source_review": {
+        "name": "Calming Lullaby",
+        "source_url": "https://vgsoharchive.com/abilities/calming-lullaby",
+        "cache": {
+          "path": ".cache/archive/0d627a7e91be458689fa67882de791198482d6fd616b8a8fb671a8eaa67fba6c.txt",
+          "sha256": "87b49838fbacd05a55b09e856b871031caa6ad60ab7fccc1ad70c00407a21c2e"
+        },
+        "source_references": [
+          {
+            "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+            "line": 11,
+            "record_sha256": "894d980680e153187480dd60ad1be2c105df04eebf4804e776f0fe6bad3d0d32"
+          }
+        ],
+        "effect_sections": [
+          "Calms your opponent, reducing their hatred of you by 30%."
+        ],
+        "observations": [
+          {
+            "literal": "Calms your opponent, reducing their hatred of you by 30%.",
+            "hatred_reduction_percent_recorded": 30,
+            "subject_phrase_recorded": "your opponent",
+            "hatred_target_phrase_recorded": "you",
+            "threat_formula": null,
+            "threat_floor": null,
+            "duration_seconds": null,
+            "text_sha256": "2e42921a75b46dc63c569fb47e81eb27cb7b3bcc30f9df22e59c15b47f29727a",
+            "recognized_effect_facts": [],
+            "scaling": null,
+            "operative_values": null
+          }
+        ],
+        "whole_page_replay": {
+          "name": "Calming Lullaby",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/calming-lullaby",
+              "title": "Calming Lullaby \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 61,
+          "collected_at": "2026-10-19T16:56:10+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "12"
+            ],
+            "level in 2007-2008": [
+              "12"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "2"
+            ],
+            "level": [
+              "12"
+            ],
+            "energy cost": [
+              "26"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "2.0s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Shout"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 12,
+          "rank": null,
+          "category": "Shout",
+          "cost": {
+            "energy": 26
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 2.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Calms your opponent, reducing their hatred of you by 30%.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 12,
+              "raw": "12"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 12,
+              "raw": "12"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+          ],
+          "cost_observations": {
+            "energy": [
+              26
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "2.0s",
+                "seconds": 2.0
+              }
+            ]
+          },
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:calming-lullaby"
+          ]
+        },
+        "disposition": "source_review_pending_constrained_parser",
+        "historical_authentication": null,
+        "operative_values": null
+      },
+      "replay_record": {
+        "name": "Calming Lullaby",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/calming-lullaby",
+            "title": "Calming Lullaby \u00b7 Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 62,
+        "collected_at": "2026-10-19T17:02:22+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "12"
+          ],
+          "level in 2007-2008": [
+            "12"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "2"
+          ],
+          "level": [
+            "12"
+          ],
+          "energy cost": [
+            "26"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "2.0s"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "type": [
+            "Shout"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 12,
+        "rank": null,
+        "category": "Shout",
+        "cost": {
+          "energy": 26
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": 2.0,
+        "duration_seconds": null,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": "Calms your opponent, reducing their hatred of you by 30%.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 12,
+            "raw": "12"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 12,
+            "raw": "12"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            26
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ],
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "2.0s",
+              "seconds": 2.0
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "hatred_reduction_tooltip_observation",
+                "hatred_reduction_percent_recorded": 30,
+                "subject_phrase_recorded": "your opponent",
+                "hatred_target_phrase_recorded": "you",
+                "threat_formula": null,
+                "threat_floor": null,
+                "duration_seconds": null,
+                "scaling": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:calming-lullaby"
+        ]
+      },
+      "parsed_observations": [
+        {
+          "kind": "hatred_reduction_tooltip_observation",
+          "hatred_reduction_percent_recorded": 30,
+          "subject_phrase_recorded": "your opponent",
+          "hatred_target_phrase_recorded": "you",
+          "threat_formula": null,
+          "threat_floor": null,
+          "duration_seconds": null,
+          "scaling": null,
+          "operative_values": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "disposition": "research_observation_only_operative_values_withheld"
+    },
+    {
+      "source_review": {
+        "name": "Singing Blade",
+        "source_url": "https://vgsoharchive.com/abilities/singing-blade",
+        "cache": {
+          "path": ".cache/archive/98102ef150d0b5152d019ba800bc23f02d8592d2e5b3fa16447af8e6aa73c6d4.txt",
+          "sha256": "89ef5585a30f12c5b78debefedbc0cfeaf4f8ed70bb8e982107b9144d0b69779"
+        },
+        "source_references": [
+          {
+            "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+            "line": 64,
+            "record_sha256": "172ba58af6be79daeddbb4b2d011eedb97f05a0dfbbc1de38eebb50615ffd82e"
+          }
+        ],
+        "effect_sections": [
+          "Your strikes become more precise as your weapons begin to sing, increasing critical chance by 100% for 3 sec."
+        ],
+        "observations": [
+          {
+            "literal": "Your strikes become more precise as your weapons begin to sing, increasing critical chance by 100% for 3 sec.",
+            "critical_chance_increase_percent_recorded": 100,
+            "duration_seconds_recorded": 3,
+            "relative_or_percentage_point_increase": null,
+            "resulting_critical_probability": null,
+            "eligible_attack_types": null,
+            "text_sha256": "3b6ad3b600ff24b7dc87399dc5decfda8271c0212fdb015c6c75c21ff1c8d691",
+            "recognized_effect_facts": [],
+            "scaling": null,
+            "operative_values": null
+          }
+        ],
+        "whole_page_replay": {
+          "name": "Singing Blade",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/singing-blade",
+              "title": "Singing Blade \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 61,
+          "collected_at": "2026-10-19T16:56:10+00:00",
+          "archive_fields": {
+            "level in 2007-2008": [
+              "14"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "06"
+            ],
+            "level": [
+              "14"
+            ],
+            "energy cost": [
+              "39"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "1:00s"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "type": [
+              "Weapon Buff"
+            ],
+            "icon": [
+              "Icon552.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 14,
+          "rank": null,
+          "category": "Weapon Buff",
+          "cost": {
+            "energy": 39
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Your strikes become more precise as your weapons begin to sing, increasing critical chance by 100% for 3 sec.",
+          "icon_name": "Icon552.png",
+          "ranks": [],
+          "target_recorded": "Self",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 14,
+              "raw": "14"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+          ],
+          "cost_observations": {
+            "energy": [
+              39
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+          ]
+        },
+        "disposition": "source_review_pending_constrained_parser",
+        "historical_authentication": null,
+        "operative_values": null
+      },
+      "replay_record": {
+        "name": "Singing Blade",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/singing-blade",
+            "title": "Singing Blade \u00b7 Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 62,
+        "collected_at": "2026-10-19T17:02:22+00:00",
+        "archive_fields": {
+          "level in 2007-2008": [
+            "14"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "06"
+          ],
+          "level": [
+            "14"
+          ],
+          "energy cost": [
+            "39"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "1:00s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "target": [
+            "Self"
+          ],
+          "type": [
+            "Weapon Buff"
+          ],
+          "icon": [
+            "Icon552.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 14,
+        "rank": null,
+        "category": "Weapon Buff",
+        "cost": {
+          "energy": 39
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Your strikes become more precise as your weapons begin to sing, increasing critical chance by 100% for 3 sec.",
+        "icon_name": "Icon552.png",
+        "ranks": [],
+        "target_recorded": "Self",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 14,
+            "raw": "14"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            39
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "critical_chance_tooltip_observation",
+                "critical_chance_increase_percent_recorded": 100,
+                "duration_seconds_recorded": 3,
+                "relative_or_percentage_point_increase": null,
+                "resulting_critical_probability": null,
+                "eligible_attack_types": null,
+                "scaling": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+        ]
+      },
+      "parsed_observations": [
+        {
+          "kind": "critical_chance_tooltip_observation",
+          "critical_chance_increase_percent_recorded": 100,
+          "duration_seconds_recorded": 3,
+          "relative_or_percentage_point_increase": null,
+          "resulting_critical_probability": null,
+          "eligible_attack_types": null,
+          "scaling": null,
+          "operative_values": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "disposition": "research_observation_only_operative_values_withheld"
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 2,
+    "source_record_hashes_verified": 2,
+    "literal_hashes_verified": 2,
+    "whole_page_replays": 2,
+    "issues": 0,
+    "tests": {
+      "command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+      "passed": 227
+    }
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "next_step": "Review remaining numeric Bard tooltips without recognized effect patterns in the iteration629 coverage audit."
+}

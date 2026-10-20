@@ -1,0 +1,488 @@
+{
+  "audit_kind": "cached_quest_objectives_rewards_review",
+  "network_requests": 0,
+  "metadata_only": false,
+  "extraction_scope": "Literal cached objective, description, notes, source attribution and reward observations. Archive transcriptions and variants remain distinct; no historical mechanic verification or identity merge.",
+  "inputs": [
+    {
+      "path": ".cache/archive/2d4d5a0a1837ddd8be4c47039008707f363e5c0b6872d5f088538f2edfb9f79f.txt",
+      "sha256": "a510132c784ab721bcef96ce8dbb04052bc1bffa6d77528e06375960fcb8aadb"
+    },
+    {
+      "path": ".cache/archive/713f7f5f908c98ce45afe2095dd8fd958b6d1b978e3ba2a1f548f907c00d4b9b.txt",
+      "sha256": "638ca7b4128738628da69185dd8bc98abb7eb409311ca87de3b7cc9277c478c4"
+    },
+    {
+      "path": "raw/2026-10-14-062933-156742-archive-bulk/quest.jsonl",
+      "sha256": "647ace4080bd9fa5dd00ec6bfe7dd3bb3eb8fab0fed2b8a2a524e0beff26cb16"
+    },
+    {
+      "path": "raw/2026-10-14-090753-904788-archive-bulk/quest.jsonl",
+      "sha256": "e843ab634649b6da7e4fd667b1e3683cf6692c40c55b4001bfb5c04b699bbb88"
+    },
+    {
+      "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+      "sha256": "1b4328e56ac4f992bedda7b7dcf02b00fab8c55047e6c45892af56343fa85648"
+    },
+    {
+      "path": "reviewed/QUEST_UNFORGOTTEN_CANDIDATES_ITERATION214.json",
+      "sha256": "0575040f980fc75f2e1414e30c45c00cf9fabd3916c8bf495c693267a6da3102"
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://vgsoharchive.com/quests/manifestations-of-jin",
+      "cache_path": ".cache/archive/713f7f5f908c98ce45afe2095dd8fd958b6d1b978e3ba2a1f548f907c00d4b9b.txt",
+      "cache_sha256": "638ca7b4128738628da69185dd8bc98abb7eb409311ca87de3b7cc9277c478c4",
+      "observations": [
+        {
+          "label": "Objectives",
+          "text": "Absorb the Four Manifestations",
+          "html": "<div class=\"tooltip\">Absorb the Four Manifestations</div>",
+          "variant": false
+        },
+        {
+          "label": "Description",
+          "text": "1) Speak to Master Tallon Darkfist in Tanvu. You must collect a few manifestations.\n2) Turn so the water if on your left and the land is on your right, and start running along the coast. You will almost immediately run into the second manifestation, Liquid Essence of Jin, that wanders along the coastline. (-4478, -73853, +227)\n3) Keep running in the same direction and you will run into a gazebo like structure. In the middle of the gazebo is the first manifestation. (-8876, -76338, +1449).\n4) Head directly north-northeast and about 2/3 of the way up the hill in a very small building, you'll find the fourth manifestation. (-935, -91864, +1861).\n5) Head west-northwest and over the far side you will find a circular group of pylons. In the middle of there is the third manifestation. (-25671, -86395, +2489)\n6) Return to Master Tallon Darkfist in Tanvu for your reward.",
+          "html": "<div class=\"tooltip\">1) Speak to Master Tallon Darkfist in Tanvu. You must collect a few manifestations.\n2) Turn so the water if on your left and the land is on your right, and start running along the coast. You will almost immediately run into the second manifestation, Liquid Essence of Jin, that wanders along the coastline. (-4478, -73853, +227)\n3) Keep running in the same direction and you will run into a gazebo like structure. In the middle of the gazebo is the first manifestation. (-8876, -76338, +1449).\n4) Head directly north-northeast and about 2/3 of the way up the hill in a very small building, you'll find the fourth manifestation. (-935, -91864, +1861).\n5) Head west-northwest and over the far side you will find a circular group of pylons. In the middle of there is the third manifestation. (-25671, -86395, +2489)\n6) Return to Master Tallon Darkfist in Tanvu for your reward.</div>",
+          "variant": false
+        },
+        {
+          "label": "Notes",
+          "text": "Master Tallon Darkfist roams near the beach.\nYou have to hail the essence to advance the quest. This does not need to be in exact order.\nFlowing Essence of Jin -8715, -76174, 1450 in Tanvu (-19, 6) - in a Gazebo.\nLiquid Essence of Jin -1844, -78464, 176 in Tanvu (-19, 6) - on the beach.\nForest Essence of Jin -26678, -87056, 2429 in Tanvu (-19, 6) - in a circle of standing stones.\nFiery Essences of Jin -806, -92205, 1868 in Tanvu (-19, 6) - in a little shrine.",
+          "html": "<p class=\"muted\">Master Tallon Darkfist roams near the beach.\nYou have to hail the essence to advance the quest. This does not need to be in exact order.\nFlowing Essence of Jin -8715, -76174, 1450 in Tanvu (-19, 6) - in a Gazebo.\nLiquid Essence of Jin -1844, -78464, 176 in Tanvu (-19, 6) - on the beach.\nForest Essence of Jin -26678, -87056, 2429 in Tanvu (-19, 6) - in a circle of standing stones.\nFiery Essences of Jin -806, -92205, 1868 in Tanvu (-19, 6) - in a little shrine.</p>",
+          "variant": false
+        },
+        {
+          "label": "Objectives as recorded by fandom",
+          "text": "Absorb the First Manifestation\nAbsorb the Second Manifestation\nAbsorb the Third Manifestation\nAbsorb the Fourth Manifestation\nHollow Faded Crystal (1)",
+          "html": "<div class=\"tooltip\">Absorb the First Manifestation\nAbsorb the Second Manifestation\nAbsorb the Third Manifestation\nAbsorb the Fourth Manifestation\nHollow Faded Crystal (1)</div>",
+          "variant": true
+        },
+        {
+          "label": "Source",
+          "text": "https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/manifestations-of-jin-321.html",
+          "html": "<p class=\"muted\" style=\"word-break:break-all\">https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/manifestations-of-jin-321.html</p>",
+          "variant": false
+        },
+        {
+          "label": "Coin reward",
+          "text": "50 c",
+          "html": "<dd>50 c</dd>",
+          "variant": false
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-062933-156742-archive-bulk/quest.jsonl",
+          "line": 44,
+          "record": {
+            "name": "Manifestations Of Jin",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/manifestations-of-jin",
+                "title": "Manifestations Of Jin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T10:33:11+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Master Tallon Darkfist"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-996, -78619, 191 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Master Tallon Darkfist"
+              ],
+              "previous": [
+                "The Unforgotten part 2"
+              ],
+              "next": [
+                "A Jin Divided"
+              ],
+              "rating": [
+                "7.0"
+              ],
+              "coin reward": [
+                "50 c"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Master Tallon Darkfist",
+                "url": "https://vgsoharchive.com/mobs/master-tallon-darkfist"
+              },
+              {
+                "name": "The Unforgotten part 2",
+                "url": "https://vgsoharchive.com/quests/the-unforgotten-part-2"
+              },
+              {
+                "name": "A Jin Divided",
+                "url": "https://vgsoharchive.com/quests/a-jin-divided"
+              }
+            ],
+            "type": "quest",
+            "level": 6,
+            "zone": "Tanvu",
+            "giver": "Master Tallon Darkfist",
+            "turn_in": "Master Tallon Darkfist",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "The Unforgotten part 2",
+            "chain_next": "A Jin Divided",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 2418,
+          "record": {
+            "name": "Manifestations Of Jin",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/manifestations-of-jin",
+                "title": "Manifestations Of Jin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:46+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Master Tallon Darkfist"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-996, -78619, 191 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Master Tallon Darkfist"
+              ],
+              "previous": [
+                "The Unforgotten part 2"
+              ],
+              "next": [
+                "A Jin Divided"
+              ],
+              "rating": [
+                "7.0"
+              ],
+              "coin reward": [
+                "50 c"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Master Tallon Darkfist",
+                "url": "https://vgsoharchive.com/mobs/master-tallon-darkfist"
+              },
+              {
+                "name": "The Unforgotten part 2",
+                "url": "https://vgsoharchive.com/quests/the-unforgotten-part-2"
+              },
+              {
+                "name": "A Jin Divided",
+                "url": "https://vgsoharchive.com/quests/a-jin-divided"
+              }
+            ],
+            "type": "quest",
+            "level": 6,
+            "zone": "Tanvu",
+            "giver": "Master Tallon Darkfist",
+            "turn_in": "Master Tallon Darkfist",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "The Unforgotten part 2",
+            "chain_next": "A Jin Divided",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/training-is-wisdom",
+      "cache_path": ".cache/archive/2d4d5a0a1837ddd8be4c47039008707f363e5c0b6872d5f088538f2edfb9f79f.txt",
+      "cache_sha256": "a510132c784ab721bcef96ce8dbb04052bc1bffa6d77528e06375960fcb8aadb",
+      "observations": [
+        {
+          "label": "Objectives",
+          "text": "Find TRAINERNAME nearby, up the hill.\nLearn abilities from TRAINERNAME.",
+          "html": "<div class=\"tooltip\">Find TRAINERNAME nearby, up the hill.\nLearn abilities from TRAINERNAME.</div>",
+          "variant": false
+        },
+        {
+          "label": "Source",
+          "text": "https://vanguard.fandom.com/wiki/Training_is_Wisdom",
+          "html": "<p class=\"muted\" style=\"word-break:break-all\">https://vanguard.fandom.com/wiki/Training_is_Wisdom</p>",
+          "variant": false
+        },
+        {
+          "label": "Coin reward",
+          "text": "50",
+          "html": "<dd>50</dd>",
+          "variant": false
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-090753-904788-archive-bulk/quest.jsonl",
+          "line": 94,
+          "record": {
+            "name": "Training is Wisdom",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/training-is-wisdom",
+                "title": "Training is Wisdom · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T13:15:32+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Master Tallon Darkfist"
+              ],
+              "location": [
+                "-996, -78619, 191 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "previous": [
+                "The Unforgotten - Part 2"
+              ],
+              "coin reward": [
+                "50"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Master Tallon Darkfist",
+                "url": "https://vgsoharchive.com/mobs/master-tallon-darkfist"
+              },
+              {
+                "name": "The Unforgotten - Part 2",
+                "url": "https://vgsoharchive.com/quests/the-unforgotten-part-2"
+              }
+            ],
+            "type": "quest",
+            "level": 6,
+            "zone": "Tanvu",
+            "giver": "Master Tallon Darkfist",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "The Unforgotten - Part 2",
+            "chain_next": null,
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 4389,
+          "record": {
+            "name": "Training is Wisdom",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/training-is-wisdom",
+                "title": "Training is Wisdom · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:54+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Master Tallon Darkfist"
+              ],
+              "location": [
+                "-996, -78619, 191 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "previous": [
+                "The Unforgotten - Part 2"
+              ],
+              "coin reward": [
+                "50"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Master Tallon Darkfist",
+                "url": "https://vgsoharchive.com/mobs/master-tallon-darkfist"
+              },
+              {
+                "name": "The Unforgotten - Part 2",
+                "url": "https://vgsoharchive.com/quests/the-unforgotten-part-2"
+              }
+            ],
+            "type": "quest",
+            "level": 6,
+            "zone": "Tanvu",
+            "giver": "Master Tallon Darkfist",
+            "turn_in": null,
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "The Unforgotten - Part 2",
+            "chain_next": null,
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "source_url": "https://vgsoharchive.com/quests/manifestations-of-jin",
+      "observation": "Primary objective says absorb four manifestations. A separately labelled fandom account enumerates first through fourth manifestations and Hollow Faded Crystal (1). Preserve the variant separately; do not add the crystal to a unified operative objective.",
+      "canonical_objective_steps": null,
+      "variant_resolution": null
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/manifestations-of-jin",
+      "observation": "Description and Notes print different coordinate observations for manifestations. Notes state hailing advances the quest and exact order is unnecessary; these are archive prose claims, not verified server mechanics. Preserve both sections without selecting canonical spawn coordinates.",
+      "canonical_spawn_coordinates": null,
+      "verified_mechanics": null
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/training-is-wisdom",
+      "observation": "Objectives retain literal TRAINERNAME placeholders. Trainer identity and abilities to learn are unresolved.",
+      "trainer_identity": null,
+      "required_abilities": null
+    },
+    {
+      "observation": "Manifestations Of Jin prints Coin reward 50 c; Training is Wisdom prints 50 without a denomination. Preserve the literal rewards; the unitless amount cannot establish copper. Neither page establishes branch exclusivity.",
+      "training_is_wisdom_coin_copper": null,
+      "branch_exclusivity": null
+    }
+  ],
+  "checkpoint_reconciliation": {
+    "authoritative_inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0,
+    "persisted_interval_seconds": 60.0,
+    "collector_lock_exists": false
+  },
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected combined suspension reset/push/restart: blocked by policy. No more specific disposition supplied.",
+    "resumption_conditions": "Recorded policy disposition permitting resumption, then inspect process and lock and use collection.ps1 with preserved queues and 60-second interval."
+  },
+  "validation": {
+    "issues": [],
+    "cached_pages": 2,
+    "literal_observations_verified": 9,
+    "full_archive_records_verified": 4,
+    "input_hashes_verified": 6
+  },
+  "remaining_review": {
+    "required_review_complete": false,
+    "collection_complete": false,
+    "next_actionable_batch": "Review cached A Jin Divided objectives and variants against Manifestations Of Jin, keeping conflicting accounts separate."
+  }
+}

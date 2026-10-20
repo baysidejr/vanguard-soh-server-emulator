@@ -1,0 +1,407 @@
+{
+  "review_kind": "bard_guide_tactical_advice",
+  "network_requests": 0,
+  "input_sha256": {
+    "reviewed/BARD_COMPOSITION_REVIEW_ITERATION290.json": "7e901300a86d398f7fb26eeb46e2c4ac72b886dc6e836c018c1f3bf2154a6d38"
+  },
+  "source": {
+    "url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+    "cache_stored_bytes_sha256": "64acdb07c442feddc3040270bd90131a60148a8387c83d83af7d0c9f38761dd1",
+    "cache_normalized_text_sha256": "2c70f1a08a68af313698c1bb723a63aa22a1130cdd716ba524d27843c5430578",
+    "sidecar_sha256": "2c70f1a08a68af313698c1bb723a63aa22a1130cdd716ba524d27843c5430578",
+    "hash_verification": "sidecar matches stored bytes or UTF-8 text with universal-newline normalization (legacy cache)",
+    "source_records": [
+      {
+        "path": "raw/2026-10-14-030650-645618-archive-bulk/source_pages.json",
+        "record": {
+          "name": "Bard — Song Composition Guide",
+          "url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+          "record_kind": "source_page",
+          "fields": {},
+          "headings": [
+            "Basic Song Composition:",
+            "Introduction",
+            "Putting it all together (Basic Version):",
+            "Energy Regeneration",
+            "Instruments and Instrument Mods",
+            "The Composer"
+          ],
+          "sections": [
+            {
+              "heading": "Basic Song Composition:",
+              "linked_entities": []
+            },
+            {
+              "heading": "Introduction",
+              "linked_entities": []
+            },
+            {
+              "heading": "Putting it all together (Basic Version):",
+              "linked_entities": []
+            },
+            {
+              "heading": "Energy Regeneration",
+              "linked_entities": []
+            },
+            {
+              "heading": "Instruments and Instrument Mods",
+              "linked_entities": []
+            },
+            {
+              "heading": "The Composer",
+              "linked_entities": []
+            }
+          ],
+          "referenced_entities": [],
+          "original_source_urls": [],
+          "source_date": null,
+          "parsed_at": "2026-10-14T07:07:10+00:00"
+        },
+        "file_sha256": "6ed525dfdcf17eb31fab21cf230e7c217215ab445dedc90685258eedbf91ccc9"
+      },
+      {
+        "path": "raw/2026-10-14-030849-144792-archive-reference-v18/source_pages.json",
+        "record": {
+          "name": "Bard — Song Composition Guide",
+          "url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+          "record_kind": "source_page",
+          "fields": {},
+          "headings": [
+            "Basic Song Composition:",
+            "Introduction",
+            "Putting it all together (Basic Version):",
+            "Energy Regeneration",
+            "Instruments and Instrument Mods",
+            "How Instruments Work:",
+            "Instrument Mod Explanation",
+            "Voice Mods",
+            "Instrument Facts",
+            "The Composer"
+          ],
+          "sections": [
+            {
+              "heading": "Basic Song Composition:",
+              "linked_entities": []
+            },
+            {
+              "heading": "Introduction",
+              "linked_entities": []
+            },
+            {
+              "heading": "Putting it all together (Basic Version):",
+              "linked_entities": []
+            },
+            {
+              "heading": "Energy Regeneration",
+              "linked_entities": []
+            },
+            {
+              "heading": "Instruments and Instrument Mods",
+              "linked_entities": []
+            },
+            {
+              "heading": "How Instruments Work:",
+              "linked_entities": []
+            },
+            {
+              "heading": "Instrument Mod Explanation",
+              "linked_entities": []
+            },
+            {
+              "heading": "Voice Mods",
+              "linked_entities": []
+            },
+            {
+              "heading": "Instrument Facts",
+              "linked_entities": []
+            },
+            {
+              "heading": "The Composer",
+              "linked_entities": []
+            }
+          ],
+          "referenced_entities": [],
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/song-composition-guide"
+          ],
+          "source_date": null,
+          "parsed_at": "2026-10-14T07:08:49+00:00"
+        },
+        "file_sha256": "db39226b4db9b9d1334df688247588333f05eea4f1bf373a5ddeb644452daa53"
+      }
+    ],
+    "table_count": 1,
+    "tables": [
+      {
+        "preceding_heading": "Putting it all together (Basic Version):",
+        "row_count": 4,
+        "rows": [
+          [
+            "Melody",
+            "Anthem of War",
+            "2 energy / sec"
+          ],
+          [
+            "Embellishments",
+            "Harmony of War",
+            "4 energy / sec x3 = 12 energy / sec"
+          ],
+          [
+            "Lyrics",
+            "Hazoc's Hasty Lyric",
+            "3 energy / sec"
+          ],
+          [
+            "",
+            "Total Cost:",
+            "17 energy / sec"
+          ]
+        ],
+        "source_html": "<table>\n<tr>\n<td>Melody</td>\n<td>Anthem of War</td>\n<td>2 energy / sec</td>\n</tr>\n<tr>\n<td>Embellishments</td>\n<td>Harmony of War</td>\n<td>4 energy / sec x3 = 12 energy / sec</td>\n</tr>\n<tr>\n<td>Lyrics</td>\n<td>Hazoc's Hasty Lyric</td>\n<td>3 energy / sec</td>\n</tr>\n<tr>\n<td></td>\n<td>Total Cost:</td>\n<td>17 energy / sec</td>\n</tr>\n</table>",
+        "review_status": "unreviewed",
+        "game_fact": false
+      }
+    ],
+    "scope": "guide-body when present, otherwise main; navigation may remain and requires review"
+  },
+  "observations": [
+    {
+      "observation_kind": "energy_budget_recommendation",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 9,
+        "text_as_printed": "A common mistake as you gain more components is to make a song where the total amount of Song Cost is equal to the value of the rests…ie…if your song has a cost of 10, you add 10 pts of rest for a total song cost of 0. By creating songs with a cost of 0, you are completely forgoing your NER and wasting any benefits you may be gaining from Vitality. Therefore, except in cases where energy is extremely precious (lot’s of mobs to Crowd Control for instance), your songs should have a cost that at least equals your vitality’s NER. In addition, it’s ok to exceed your NER as well to create even stronger songs by sacrificing your energy at a higher rate.",
+        "source_html": "<p>A common mistake as you gain more components is to make a song where the total amount of Song Cost is equal to the value of the rests…ie…if your song has a cost of 10, you add 10 pts of rest for a total song cost of 0. By creating songs with a cost of 0, you are completely forgoing your NER and wasting any benefits you may be gaining from Vitality. Therefore, except in cases where energy is extremely precious (lot’s of mobs to Crowd Control for instance), your songs should have a cost that at least equals your vitality’s NER. In addition, it’s ok to exceed your NER as well to create even stronger songs by sacrificing your energy at a higher rate.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "recommended_cost_relation": "at least NER except when energy is precious",
+        "zero_cost_song_discouraged_by_author": true
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_advice_or_unverified_claim"
+    },
+    {
+      "observation_kind": "two_song_variants_strategy",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 13,
+        "text_as_printed": "By exceeding your NER and total rest value, you are increasing the potency and effects of your song. Many bards, myself included, have two variations of every song type. One variation has a cost that is equal to or less than our NER. This variation is used when energy conservation is necessary for situations such as crowd control or using shouts. The second variation exceeds the NER by 2-15 pts depending on what I want out of the song. By building a combat song without rests, you boost your parties DPS greatly but for a much shorter amount of time. This is the bard’s version of “burst” damage; pushing out the strongest song possible and burning through all your energy to pay for the effect. A good strategy for this type of song building is to play the high cost song at the beginning of a fight and then as your energy approaches 30% or so, switch back over the low cost song in order to regen.",
+        "source_html": "<p>By exceeding your NER and total rest value, you are increasing the potency and effects of your song. Many bards, myself included, have two variations of every song type. One variation has a cost that is equal to or less than our NER. This variation is used when energy conservation is necessary for situations such as crowd control or using shouts. The second variation exceeds the NER by 2-15 pts depending on what I want out of the song. By building a combat song without rests, you boost your parties DPS greatly but for a much shorter amount of time. This is the bard’s version of “burst” damage; pushing out the strongest song possible and burning through all your energy to pay for the effect. A good strategy for this type of song building is to play the high cost song at the beginning of a fight and then as your energy approaches 30% or so, switch back over the low cost song in order to regen.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "conservation_variant_cost": "equal to or below NER",
+        "burst_variant_excess_over_NER_as_printed": [
+          2,
+          15
+        ],
+        "suggested_switch_energy_percent_approximate": 30,
+        "universally_optimal_threshold": null
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_advice_or_unverified_claim"
+    },
+    {
+      "observation_kind": "vitality_build_opinion",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 18,
+        "text_as_printed": "Of the three methods to increase your NER, that of increasing Vitality is one of the weakest. Regardless, to some bards every bit helps. It is quite possible to increase you're NER to 15 through the correct race, stat point allotment and gear combination. (Most bards run around with a NER of 9-12). It is still undecided as to how important Vitality is to the bard but it is the author's opinion that most bard builds should increase vitality enough to obtain a NER of at least 11 points.",
+        "source_html": "<p>Of the three methods to increase your NER, that of increasing Vitality is one of the weakest. Regardless, to some bards every bit helps. It is quite possible to increase you're NER to 15 through the correct race, stat point allotment and gear combination. (Most bards run around with a NER of 9-12). It is still undecided as to how important Vitality is to the bard but it is the author's opinion that most bard builds should increase vitality enough to obtain a NER of at least 11 points.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "author_recommended_NER_minimum": 11,
+        "reported_typical_NER_range": [
+          9,
+          12
+        ],
+        "reported_possible_NER": 15,
+        "verified_build_or_race": null
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_advice_or_unverified_claim"
+    },
+    {
+      "observation_kind": "trainer_instrument_tip",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 27,
+        "text_as_printed": "Tip: Basic versions (approx. 1.8-2.0 mod) of Brass, Wind, Drum and String can be purchased at Bard Trainers. As you gain Tynen's Run Speed Melody and your Regen melody, you will also want to purchase the appropriate instrument (Drum and String respectively).",
+        "source_html": "<p>Tip: Basic versions (approx. 1.8-2.0 mod) of Brass, Wind, Drum and String can be purchased at Bard Trainers. As you gain Tynen's Run Speed Melody and your Regen melody, you will also want to purchase the appropriate instrument (Drum and String respectively).</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "approximate_modifier_range": [
+          1.8,
+          2.0
+        ],
+        "instrument_types_as_printed": [
+          "Brass",
+          "Wind",
+          "Drum",
+          "String"
+        ],
+        "run_speed_recommendation": "Drum",
+        "regeneration_recommendation": "String",
+        "trainer_identity": null,
+        "price": null
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_advice_or_unverified_claim"
+    },
+    {
+      "observation_kind": "equipment_switching_claim",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 29,
+        "text_as_printed": "Most instruments are two-handed items and require that you remove weapons in order to use them. This means that you will not be capable of engaging in melee combat. However, when using a two-handed instrument you are still able to use your ranged attack. Yes, it doesn't seem physically possible to play a guitar and shoot a crossbow at the same time, but that's how it works in Vanguard. Through the usage of macros, specifically the /remove and /wear macros, you can quickly and easily switch between instruments and weapons as needed in order to optimize your effects. Keep in mind, the instant you remove your instrument, the song will revert to a lesser version. Likewise, when adding an instrument, the effect is also instant in all but a few circumstances. One exception to the 2H rule is Voice Mods. Voice Mods are the primary mod on which the majority of our combat song components are based upon and, since they are all on armor, it allows you to engage in melee combat while increasing your melee based song.",
+        "source_html": "<p>Most instruments are two-handed items and require that you remove weapons in order to use them. This means that you will not be capable of engaging in melee combat. However, when using a two-handed instrument you are still able to use your ranged attack. Yes, it doesn't seem physically possible to play a guitar and shoot a crossbow at the same time, but that's how it works in Vanguard. Through the usage of macros, specifically the /remove and /wear macros, you can quickly and easily switch between instruments and weapons as needed in order to optimize your effects. Keep in mind, the instant you remove your instrument, the song will revert to a lesser version. Likewise, when adding an instrument, the effect is also instant in all but a few circumstances. One exception to the 2H rule is Voice Mods. Voice Mods are the primary mod on which the majority of our combat song components are based upon and, since they are all on armor, it allows you to engage in melee combat while increasing your melee based song.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "two_handed_instrument_precludes_melee_claim": true,
+        "ranged_attack_still_available_claim": true,
+        "commands_as_printed": [
+          "/remove",
+          "/wear"
+        ],
+        "instrument_removal_effect": "song reverts to lesser version immediately",
+        "instrument_addition_effect": "instant except unspecified circumstances",
+        "exception_details": null
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_advice_or_unverified_claim"
+    },
+    {
+      "observation_kind": "instrument_use_opinion",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 32,
+        "text_as_printed": "Many song components are simply not designed to be used without an instrument and will otherwise be nearly useless. These will all be discussed later but it is important to note that we are based around instruments and instruments are a heavy part of the bard. If you have delusions of being a bard and never holding an instrument then please save your group the trouble and play a ranger or rogue.",
+        "source_html": "<p>Many song components are simply not designed to be used without an instrument and will otherwise be nearly useless. These will all be discussed later but it is important to note that we are based around instruments and instruments are a heavy part of the bard. If you have delusions of being a bard and never holding an instrument then please save your group the trouble and play a ranger or rogue.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "author_discourages_instrument_free_builds": true,
+        "quantified_effectiveness": null
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_advice_or_unverified_claim"
+    },
+    {
+      "observation_kind": "offensive_role_opinion",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 33,
+        "text_as_printed": "A separate section will be given to voice mods. Voice Mods are by far the \"most used\" instrument by a bard. We are an offensive fighter and our primary purpose is to provide better offensive capabilities to a group. We do so by a variety of methods the strongest of which is our +damage. We are capable of adding direct +damage (ie +16 damage) as well as a % of damagel (+15%). Let's take a look at two examples.",
+        "source_html": "<p>A separate section will be given to voice mods. Voice Mods are by far the \"most used\" instrument by a bard. We are an offensive fighter and our primary purpose is to provide better offensive capabilities to a group. We do so by a variety of methods the strongest of which is our +damage. We are capable of adding direct +damage (ie +16 damage) as well as a % of damagel (+15%). Let's take a look at two examples.</p>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "author_described_primary_role": "improve group offensive capabilities",
+        "role_is_enforced_mechanic": null
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_advice_or_unverified_claim"
+    },
+    {
+      "observation_kind": "parry_dagger_solo_recommendation",
+      "source_url": "https://vgsoharchive.com/classes/bard/song-composition-guide",
+      "evidence": {
+        "block_index": 40,
+        "text_as_printed": "Parry Daggers are another form of one-handed instrument that also gives a great defensive boost. These are particularly effective when soloing. The best is a L40 1.25 voice mod parry dagger that is relatively common.",
+        "source_html": "<li>Parry Daggers are another form of one-handed instrument that also gives a great defensive boost. These are particularly effective when soloing. The best is a L40 1.25 voice mod parry dagger that is relatively common.</li>",
+        "game_fact": false,
+        "review_status": "unreviewed_prose"
+      },
+      "claims_as_printed": {
+        "author_described_best_dagger_level": 40,
+        "voice_modifier_as_printed": 1.25,
+        "item_identity": null,
+        "drop_frequency": null
+      },
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_mechanics": null,
+      "status": "source_attributed_advice_or_unverified_claim"
+    }
+  ],
+  "ambiguities": [
+    {
+      "issue": "Author build targets and switch thresholds are situational recommendations, not universal mechanics.",
+      "evidence_block_indices": [
+        9,
+        13,
+        18
+      ],
+      "resolution": "Retain attribution; no optimal build or enforced threshold assigned."
+    },
+    {
+      "issue": "Instrument section has undated upcoming-patch language alongside present-tense one-handed equipment claims.",
+      "full_source_evidence": [
+        {
+          "block_index": 30,
+          "text_as_printed": "With an upcoming patch we will see the introduction of one-handed instruments. I have personally tested the effects of 1H String and I am very excited at the potential of these new instruments. This section will later be revised to reflect those changes.",
+          "source_html": "<p>With an upcoming patch we will see the introduction of one-handed instruments. I have personally tested the effects of 1H String and I am very excited at the potential of these new instruments. This section will later be revised to reflect those changes.</p>",
+          "game_fact": false,
+          "review_status": "unreviewed_prose"
+        },
+        {
+          "block_index": 39,
+          "text_as_printed": "One-Handed instruments are secondary slot only and are weaker than two-handed instruments.",
+          "source_html": "<li>One-Handed instruments are secondary slot only and are weaker than two-handed instruments.</li>",
+          "game_fact": false,
+          "review_status": "unreviewed_prose"
+        },
+        {
+          "block_index": 40,
+          "text_as_printed": "Parry Daggers are another form of one-handed instrument that also gives a great defensive boost. These are particularly effective when soloing. The best is a L40 1.25 voice mod parry dagger that is relatively common.",
+          "source_html": "<li>Parry Daggers are another form of one-handed instrument that also gives a great defensive boost. These are particularly effective when soloing. The best is a L40 1.25 voice mod parry dagger that is relatively common.</li>",
+          "game_fact": false,
+          "review_status": "unreviewed_prose"
+        }
+      ],
+      "resolution": "Historical applicability and named dagger identity remain null; no vendor or loot table inferred."
+    }
+  ],
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "summary": {
+    "pages": 1,
+    "observations": 8,
+    "validation_issues": 0
+  },
+  "policy": "Offline cached evidence only. Network suspension preserved. Advice is not an operative game fact.",
+  "remaining_work": "Audit all 50 guide prose blocks against accumulated reviews for coverage and outstanding claims; continue other supplemental extraction and pending downloads."
+}

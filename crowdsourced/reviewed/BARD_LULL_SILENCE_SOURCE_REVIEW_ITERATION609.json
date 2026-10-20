@@ -1,0 +1,304 @@
+{
+  "review_kind": "bard_lull_silence_source_review",
+  "input": {
+    "path": "reviewed/BARD_EFFECT_PROSE_LOCATION_REVIEW_ITERATION581.json",
+    "sha256": "d5fb154d820332317001030ef53b3e2ab6aafd9dd34c1ac11e41485d6d539225"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "parser_version": 52,
+  "rows": [
+    {
+      "name": "Suann's Call of Slumber",
+      "source_url": "https://vgsoharchive.com/abilities/suann-s-call-of-slumber",
+      "cache": {
+        "path": ".cache/archive/d057a8fcf73d7ccb0e4faf6544e285c74c5fbf255a9baf44ffe7666db577be2b.txt",
+        "sha256": "b8704814f8e5c6972222de6fc234e04904fb9a4bb2057c20054a3c808312d146"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 71,
+          "record_sha256": "51a2c11cc3963ad9ca80fa3410aadfbe2d332fb772f523c0cf6ed91b80502395"
+        }
+      ],
+      "literal": "Lulls the target, preventing it from assisting nearby allies for 18 seconds.",
+      "effect_text_sha256": "8ed94ab1cf74b500c05bf41aea72600017f34a8d7e0f4fbc032932fe7ce1c9e3",
+      "observation": {
+        "effect_word_recorded": "Lulls",
+        "target_phrase_recorded": "the target",
+        "prevents_assisting_nearby_allies_recorded": true,
+        "duration_seconds_recorded": 18,
+        "assistance_radius": null,
+        "prevents_actions": null,
+        "prevents_movement": null
+      },
+      "recognized_effect_facts": [],
+      "whole_page_replay": {
+        "name": "Suann's Call of Slumber",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/suann-s-call-of-slumber",
+            "title": "Suann's Call of Slumber · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 52,
+        "collected_at": "2026-10-19T14:43:05+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "20"
+          ],
+          "level in 2007-2008": [
+            "20"
+          ],
+          "cast then": [
+            "2"
+          ],
+          "refresh then": [
+            "2"
+          ],
+          "level": [
+            "20"
+          ],
+          "energy cost": [
+            "6"
+          ],
+          "cast time": [
+            "2.0"
+          ],
+          "refresh": [
+            "2.0s"
+          ],
+          "duration": [
+            "18 secs"
+          ],
+          "range": [
+            "25m"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "type": [
+            "Shout"
+          ],
+          "icon": [
+            "Icon405.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 20,
+        "rank": null,
+        "category": "Shout",
+        "cost": {
+          "energy": 6
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 2.0,
+        "duration_seconds": 18,
+        "range": {
+          "value": 25,
+          "unit": "m",
+          "raw": "25m"
+        },
+        "tooltip": "Lulls the target, preventing it from assisting nearby allies for 18 seconds.",
+        "icon_name": "Icon405.png",
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 20,
+            "raw": "20"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 20,
+            "raw": "20"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            6
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "2.0s",
+              "seconds": 2.0
+            }
+          ],
+          "duration_seconds": [
+            {
+              "label": "duration",
+              "raw": "18 secs",
+              "seconds": 18
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+        ]
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "target_level_limit": null,
+      "player_target_applicability": null,
+      "disposition": "source_review_pending_constrained_parser"
+    },
+    {
+      "name": "Sendune's Scream of Silence",
+      "source_url": "https://vgsoharchive.com/abilities/sendune-s-scream-of-silence",
+      "cache": {
+        "path": ".cache/archive/97d7730a24b6133bf353bb97e0cffe4a4c2e2a518ad373860ba60c462ac3d46b.txt",
+        "sha256": "356f67b88d8909383c180083fa88b12ffe16b0765d4bdb23c032f7dbc3a85e3b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 47,
+          "record_sha256": "e2f5b28bbdfe417528c7812bc72de96f5b5df865f4927afe5bebf3f8ee96f587"
+        }
+      ],
+      "literal": "Silences your opponent, preventing the casting of most spells for 10 seconds.",
+      "effect_text_sha256": "de03ac3ca6f842aaa54a12861500afbce58f6fbe78d348d4c09bea2a3a333302",
+      "observation": {
+        "effect_word_recorded": "Silences",
+        "target_phrase_recorded": "your opponent",
+        "prevents_casting_recorded": "most spells",
+        "duration_seconds_recorded": 10,
+        "spell_exceptions": null,
+        "interrupts_active_cast": null,
+        "prevents_nonspell_abilities": null
+      },
+      "recognized_effect_facts": [],
+      "whole_page_replay": {
+        "name": "Sendune's Scream of Silence",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/sendune-s-scream-of-silence",
+            "title": "Sendune's Scream of Silence · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 52,
+        "collected_at": "2026-10-19T14:43:05+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "42"
+          ],
+          "level": [
+            "42"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 42,
+        "rank": null,
+        "category": null,
+        "cost": null,
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Silences your opponent, preventing the casting of most spells for 10 seconds.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 42,
+            "raw": "42"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+        ],
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "http://vg.mmodb.com:80/spells/sendunes-scream-of-silence-97.php"
+        ]
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "target_level_limit": null,
+      "player_target_applicability": null,
+      "disposition": "source_review_pending_constrained_parser"
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 2,
+    "source_record_hashes_verified": 2,
+    "literal_hashes_verified": 2,
+    "whole_page_replays": 2,
+    "issues": 0,
+    "tests": {
+      "command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+      "passed": 207
+    }
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Archive tooltip is an emulator observation, not independently authenticated live-era evidence.",
+    "Lull does not establish immobilization, full action prevention or aggression reset.",
+    "Most spells explicitly leaves unspecified exceptions to silence.",
+    "Original immutable source records remain unchanged; observations are not operative mechanics."
+  ],
+  "next_step": "Implement and test narrowly scoped lull and silence observations from these exact tooltips, preserving unspecified spell exceptions and assistance semantics."
+}

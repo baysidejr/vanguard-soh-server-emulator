@@ -1,0 +1,980 @@
+{
+  "review_kind": "parser_v54_group_movement_cached_replay",
+  "input": {
+    "path": "reviewed/BARD_GROUP_MOVEMENT_SOURCE_REVIEW_ITERATION611.json",
+    "sha256": "7bbfac3cf1c0ac0f04324542d32fddfd338b4a2240c6b2b92e053083dd237afb"
+  },
+  "parser_version": 54,
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Tynen's Melody of Acceleration",
+      "source_url": "https://vgsoharchive.com/abilities/tynen-s-melody-of-acceleration",
+      "cache": {
+        "path": ".cache/archive/bcf6594d51ea06181f6a2604ce2f0f99a98ee955edbb4642e40856f0eb805e60.txt",
+        "sha256": "662263a632b445160d9e8849dce52ffb34bca8d0a22c879ee0d74a5eb2697d11"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 75,
+          "record_sha256": "5abd5ec59bbf0cdbb5ccc4d2721456293b4a2bb285eb17b08ffbd6b164ff7cd4"
+        }
+      ],
+      "literal": "Increases the movement speed of your group by 29%",
+      "effect_text_sha256": "bb6d3cef714f49b64e800730e40f09b65181f348c569081279adf03fd5853efd",
+      "observation": {
+        "effect_word_recorded": "Increases",
+        "target_phrase_recorded": "your group",
+        "movement_word_recorded": "movement speed",
+        "increase_percent_recorded": 29,
+        "stacking": null,
+        "scaling": null,
+        "base_movement_speed": null
+      },
+      "recognized_effect_facts": [],
+      "whole_page_replay": {
+        "name": "Tynen's Melody of Acceleration",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/tynen-s-melody-of-acceleration",
+            "title": "Tynen's Melody of Acceleration \u00b7 Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 53,
+        "collected_at": "2026-10-19T14:56:02+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "6"
+          ],
+          "level in 2007-2008": [
+            "6"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "6"
+          ],
+          "energy cost": [
+            "2"
+          ],
+          "song portion": [
+            "Melody"
+          ],
+          "cast time": [
+            "0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "instrument": [
+            "Percussion"
+          ],
+          "learned from": [
+            "Automatic"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 6,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 2
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Increases the movement speed of your group by 29%",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 6,
+            "raw": "6"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 6,
+            "raw": "6"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            2
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Automatic",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:tynen-s-melody-of-acceleration"
+        ]
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "target_level_limit": null,
+      "player_target_applicability": null,
+      "disposition": "research_observation_only_operative_values_withheld",
+      "parsed_observation": {
+        "kind": "group_movement_tooltip_observation",
+        "effect_word_recorded": "Increases",
+        "target_phrase_recorded": "your group",
+        "movement_word_recorded": "movement speed",
+        "increase_percent_recorded": 29,
+        "stacking": null,
+        "scaling": null,
+        "base_movement_speed": null,
+        "percent_interpretation": null,
+        "combat_applicability": null,
+        "duration_seconds": null,
+        "operative_values": null,
+        "conditions_unparsed": true
+      },
+      "replay_record": {
+        "name": "Tynen's Melody of Acceleration",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/tynen-s-melody-of-acceleration",
+            "title": "Tynen's Melody of Acceleration \u00b7 Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 54,
+        "collected_at": "2026-10-19T15:02:30+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "6"
+          ],
+          "level in 2007-2008": [
+            "6"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "6"
+          ],
+          "energy cost": [
+            "2"
+          ],
+          "song portion": [
+            "Melody"
+          ],
+          "cast time": [
+            "0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "instrument": [
+            "Percussion"
+          ],
+          "learned from": [
+            "Automatic"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 6,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 2
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Increases the movement speed of your group by 29%",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 6,
+            "raw": "6"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 6,
+            "raw": "6"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            2
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Automatic",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "group_movement_tooltip_observation",
+                "effect_word_recorded": "Increases",
+                "target_phrase_recorded": "your group",
+                "movement_word_recorded": "movement speed",
+                "increase_percent_recorded": 29,
+                "stacking": null,
+                "scaling": null,
+                "base_movement_speed": null,
+                "percent_interpretation": null,
+                "combat_applicability": null,
+                "duration_seconds": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:tynen-s-melody-of-acceleration"
+        ]
+      }
+    },
+    {
+      "name": "Tynen's Strain of the Swift",
+      "source_url": "https://vgsoharchive.com/abilities/tynen-s-strain-of-the-swift",
+      "cache": {
+        "path": ".cache/archive/05df69f4af678486c3afde3dc733f65f89f6dfb6d4020324c707ea82810c376b.txt",
+        "sha256": "7581a71ff9f137f02ab26b486c624c4eee9451e26d7d1eb91306a69eeafc223b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 77,
+          "record_sha256": "6cd167baf3c608272d08be0a91a388a60fad99b1c53cc1e6685642b2d6f6ae71"
+        }
+      ],
+      "literal": "Increases the movement rate of your group by 3%.",
+      "effect_text_sha256": "aae853bf9477a286b925449b47adfa2d0cffec3267dbec64d9650acd251c2f4c",
+      "observation": {
+        "effect_word_recorded": "Increases",
+        "target_phrase_recorded": "your group",
+        "movement_word_recorded": "movement rate",
+        "increase_percent_recorded": 3,
+        "stacking": null,
+        "scaling": null,
+        "base_movement_speed": null
+      },
+      "recognized_effect_facts": [],
+      "whole_page_replay": {
+        "name": "Tynen's Strain of the Swift",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/tynen-s-strain-of-the-swift",
+            "title": "Tynen's Strain of the Swift \u00b7 Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 53,
+        "collected_at": "2026-10-19T14:56:02+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "9"
+          ],
+          "level in 2007-2008": [
+            "9"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "9"
+          ],
+          "energy cost": [
+            "3"
+          ],
+          "song portion": [
+            "Lyric"
+          ],
+          "cast time": [
+            "0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "instrument": [
+            "Percussion"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 9,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 3
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Increases the movement rate of your group by 3%.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 9,
+            "raw": "9"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 9,
+            "raw": "9"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            3
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:tynen-s-strain-of-the-swift"
+        ]
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "target_level_limit": null,
+      "player_target_applicability": null,
+      "disposition": "research_observation_only_operative_values_withheld",
+      "parsed_observation": {
+        "kind": "group_movement_tooltip_observation",
+        "effect_word_recorded": "Increases",
+        "target_phrase_recorded": "your group",
+        "movement_word_recorded": "movement rate",
+        "increase_percent_recorded": 3,
+        "stacking": null,
+        "scaling": null,
+        "base_movement_speed": null,
+        "percent_interpretation": null,
+        "combat_applicability": null,
+        "duration_seconds": null,
+        "operative_values": null,
+        "conditions_unparsed": true
+      },
+      "replay_record": {
+        "name": "Tynen's Strain of the Swift",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/tynen-s-strain-of-the-swift",
+            "title": "Tynen's Strain of the Swift \u00b7 Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 54,
+        "collected_at": "2026-10-19T15:02:30+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "9"
+          ],
+          "level in 2007-2008": [
+            "9"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "9"
+          ],
+          "energy cost": [
+            "3"
+          ],
+          "song portion": [
+            "Lyric"
+          ],
+          "cast time": [
+            "0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "instrument": [
+            "Percussion"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 9,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 3
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Increases the movement rate of your group by 3%.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 9,
+            "raw": "9"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 9,
+            "raw": "9"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            3
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "group_movement_tooltip_observation",
+                "effect_word_recorded": "Increases",
+                "target_phrase_recorded": "your group",
+                "movement_word_recorded": "movement rate",
+                "increase_percent_recorded": 3,
+                "stacking": null,
+                "scaling": null,
+                "base_movement_speed": null,
+                "percent_interpretation": null,
+                "combat_applicability": null,
+                "duration_seconds": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:tynen-s-strain-of-the-swift"
+        ]
+      }
+    },
+    {
+      "name": "Tynen's Speedy Substitution",
+      "source_url": "https://vgsoharchive.com/abilities/tynen-s-speedy-substitution",
+      "cache": {
+        "path": ".cache/archive/deb6d0f968bd27ced224baa7d3cf20125f99fc226f5275bd09ed0bd636d3af00.txt",
+        "sha256": "f7bf23de56925353ab51223f9537823df67a2e958f3a8cebec9b182ba42805d8"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 76,
+          "record_sha256": "46b5f6b919323090ee944c4fb028f3de686e7605b98f7d89cb553fc9394a3853"
+        }
+      ],
+      "literal": "Increases the movement rate of your group by 2%.",
+      "effect_text_sha256": "97fa6cafabf4c23c953a493a13254172e76a0e700abce3c083998387b34e1cd6",
+      "observation": {
+        "effect_word_recorded": "Increases",
+        "target_phrase_recorded": "your group",
+        "movement_word_recorded": "movement rate",
+        "increase_percent_recorded": 2,
+        "stacking": null,
+        "scaling": null,
+        "base_movement_speed": null
+      },
+      "recognized_effect_facts": [],
+      "whole_page_replay": {
+        "name": "Tynen's Speedy Substitution",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/tynen-s-speedy-substitution",
+            "title": "Tynen's Speedy Substitution \u00b7 Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 53,
+        "collected_at": "2026-10-19T14:56:02+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "10"
+          ],
+          "level in 2007-2008": [
+            "10"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "10"
+          ],
+          "energy cost": [
+            "2"
+          ],
+          "song portion": [
+            "Embellishment"
+          ],
+          "cast time": [
+            "0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "instrument": [
+            "Percussion"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 10,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 2
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Increases the movement rate of your group by 2%.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 10,
+            "raw": "10"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 10,
+            "raw": "10"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            2
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:tynen-s-speedy-substitution"
+        ]
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "target_level_limit": null,
+      "player_target_applicability": null,
+      "disposition": "research_observation_only_operative_values_withheld",
+      "parsed_observation": {
+        "kind": "group_movement_tooltip_observation",
+        "effect_word_recorded": "Increases",
+        "target_phrase_recorded": "your group",
+        "movement_word_recorded": "movement rate",
+        "increase_percent_recorded": 2,
+        "stacking": null,
+        "scaling": null,
+        "base_movement_speed": null,
+        "percent_interpretation": null,
+        "combat_applicability": null,
+        "duration_seconds": null,
+        "operative_values": null,
+        "conditions_unparsed": true
+      },
+      "replay_record": {
+        "name": "Tynen's Speedy Substitution",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/tynen-s-speedy-substitution",
+            "title": "Tynen's Speedy Substitution \u00b7 Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 54,
+        "collected_at": "2026-10-19T15:02:30+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "10"
+          ],
+          "level in 2007-2008": [
+            "10"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "10"
+          ],
+          "energy cost": [
+            "2"
+          ],
+          "song portion": [
+            "Embellishment"
+          ],
+          "cast time": [
+            "0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "instrument": [
+            "Percussion"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 10,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 2
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Increases the movement rate of your group by 2%.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 10,
+            "raw": "10"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 10,
+            "raw": "10"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            2
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "group_movement_tooltip_observation",
+                "effect_word_recorded": "Increases",
+                "target_phrase_recorded": "your group",
+                "movement_word_recorded": "movement rate",
+                "increase_percent_recorded": 2,
+                "stacking": null,
+                "scaling": null,
+                "base_movement_speed": null,
+                "percent_interpretation": null,
+                "combat_applicability": null,
+                "duration_seconds": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:tynen-s-speedy-substitution"
+        ]
+      }
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 3,
+    "source_record_hashes_verified": 3,
+    "literal_hashes_verified": 3,
+    "whole_page_replays": 3,
+    "issues": 0,
+    "tests": {
+      "command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+      "passed": 211
+    }
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "next_step": "Review remaining numeric Bard tooltips without recognized effect patterns in the iteration606 coverage audit."
+}

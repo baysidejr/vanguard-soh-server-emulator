@@ -1,0 +1,250 @@
+{
+  "review_kind": "bard_group_disease_and_poison_counter_removal_manual_review",
+  "input": {
+    "path": "reviewed/BARD_EFFECT_PROSE_LOCATION_REVIEW_ITERATION581.json",
+    "sha256": "d5fb154d820332317001030ef53b3e2ab6aafd9dd34c1ac11e41485d6d539225"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Hue of Purity I",
+      "source_url": "https://vgsoharchive.com/abilities/hue-of-purity-i",
+      "cache": {
+        "path": ".cache/archive/af467ff1e1d77e95ee5d2438d822dcf23e364eab2c43e00e953a52d75ba19626.txt",
+        "sha256": "77578c4c2496c56cfb908696cfcc4338eb0a4c5ea341f74b2b3d31f30f3575be"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 35,
+          "record_sha256": "77cb1a4bbf449aa440bd54f6c60039be6dd73f38157267735ec292cfa18da661"
+        }
+      ],
+      "evidence": {
+        "selector": ".tooltip",
+        "literal": "Purifies all group members within 15m, removing 2 disease counters.",
+        "tooltip_text_sha256": "80648ac8c89af2ef28780dc1283d010cf5322ec5770a57a068f371187bddd5d3"
+      },
+      "observations": [
+        {
+          "kind": "group_counter_removal_observation",
+          "counter_type_recorded": "disease",
+          "counters_removed": 2,
+          "target_recorded": "all group members",
+          "radius_recorded": {
+            "value": 15,
+            "unit": "m"
+          },
+          "conditions_unparsed": true
+        }
+      ],
+      "operative_values": null,
+      "historical_authentication": null,
+      "notes": "Explicit counter count is not a number of complete debuffs cured. Radius is not cast range; no target cap, cure priority or historical era inferred. Adjacent embedded Details labels excluded."
+    },
+    {
+      "name": "Asilam's Cry of Curing I",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-cry-of-curing-i",
+      "cache": {
+        "path": ".cache/archive/e26b0b679feddf360d4c157833ffcabab92e81b81826501b97fda5465d19b663.txt",
+        "sha256": "6aa929b1d511a0c97bc59d079c67eb8676e742d8882bed613c29e09d554e6932"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 75,
+          "record_sha256": "fe0890e46589b154c0304fd7f0e67cc3157bdff8bfecfd57a4978cf1deccc99c"
+        }
+      ],
+      "evidence": {
+        "selector": ".tooltip",
+        "literal": "Cures all group members within 15m, removing 2 poison counters.",
+        "tooltip_text_sha256": "bdc29009961a0db006a37dd7c8c186d783230c2e961fdaff38335f8974ca5ffe"
+      },
+      "observations": [
+        {
+          "kind": "group_counter_removal_observation",
+          "counter_type_recorded": "poison",
+          "counters_removed": 2,
+          "target_recorded": "all group members",
+          "radius_recorded": {
+            "value": 15,
+            "unit": "m"
+          },
+          "conditions_unparsed": true
+        }
+      ],
+      "operative_values": null,
+      "historical_authentication": null,
+      "notes": "Explicit counter count is not a number of complete debuffs cured. Radius is not cast range; no target cap, cure priority or historical era inferred. Adjacent embedded Details labels excluded."
+    },
+    {
+      "name": "Hue of Purity II",
+      "source_url": "https://vgsoharchive.com/abilities/hue-of-purity-ii",
+      "cache": {
+        "path": ".cache/archive/f757d524050093bae1258a9652837ae2400256b1f9f0cfcf1be9b2200c9ff152.txt",
+        "sha256": "80d6f48f3fa743d25de6579a2322357058abd31426419512ae416cad5ac0356a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+          "line": 55,
+          "record_sha256": "ee8123618bcaff09de680ed3e891b650790f75e310bd61c306932b9cc5a33564"
+        }
+      ],
+      "evidence": {
+        "selector": ".tooltip",
+        "literal": "Purifies all group members within 15m, removing 3 disease counters.",
+        "tooltip_text_sha256": "ca70b49c34cd99a52d2ab69397fb4c6682049562e5cd5860eec0900277b221a9"
+      },
+      "observations": [
+        {
+          "kind": "group_counter_removal_observation",
+          "counter_type_recorded": "disease",
+          "counters_removed": 3,
+          "target_recorded": "all group members",
+          "radius_recorded": {
+            "value": 15,
+            "unit": "m"
+          },
+          "conditions_unparsed": true
+        }
+      ],
+      "operative_values": null,
+      "historical_authentication": null,
+      "notes": "Explicit counter count is not a number of complete debuffs cured. Radius is not cast range; no target cap, cure priority or historical era inferred. Adjacent embedded Details labels excluded."
+    },
+    {
+      "name": "Asilam's Cry of Curing II",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-cry-of-curing-ii",
+      "cache": {
+        "path": ".cache/archive/a0bddab363b06a6b4198a899df80fed6c96cbee4fa8eb4f28aaa9d58eec4f647.txt",
+        "sha256": "21571c367cd72b47b3fe3bc93ec90a29baee7b45e69977e324456f9f3d3fc713"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 76,
+          "record_sha256": "93900024ab4bb23fd38b2d28b4232d318d3d3f0ec303c82d96302427516dcef0"
+        }
+      ],
+      "evidence": {
+        "selector": ".tooltip",
+        "literal": "Cures all group members within 15m, removing 3 poison counters.",
+        "tooltip_text_sha256": "54697ab3235c3796f62367e1b3e6e759b35660604aa1868d88864e689f0f6a32"
+      },
+      "observations": [
+        {
+          "kind": "group_counter_removal_observation",
+          "counter_type_recorded": "poison",
+          "counters_removed": 3,
+          "target_recorded": "all group members",
+          "radius_recorded": {
+            "value": 15,
+            "unit": "m"
+          },
+          "conditions_unparsed": true
+        }
+      ],
+      "operative_values": null,
+      "historical_authentication": null,
+      "notes": "Explicit counter count is not a number of complete debuffs cured. Radius is not cast range; no target cap, cure priority or historical era inferred. Adjacent embedded Details labels excluded."
+    },
+    {
+      "name": "Hue of Purity III",
+      "source_url": "https://vgsoharchive.com/abilities/hue-of-purity-iii",
+      "cache": {
+        "path": ".cache/archive/ff72ea2325960bbf10a01578d45b593c1f2418d21e29d1f0200d56888e1433b0.txt",
+        "sha256": "c5b7ffced3466527109971012f46a6135712b15cf2f6cb0085611e34be4eaf0e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+          "line": 56,
+          "record_sha256": "8596cd552188cfc43170b7501b3a83f61a6bc569510dc3db7755fe465237208b"
+        }
+      ],
+      "evidence": {
+        "selector": ".tooltip",
+        "literal": "Purifies all group members within 15m, removing 4 disease counters.",
+        "tooltip_text_sha256": "4de151c9f97fade4d723a3d042b0053f5dfc36e34bfd35193c7e66ea1da936c0"
+      },
+      "observations": [
+        {
+          "kind": "group_counter_removal_observation",
+          "counter_type_recorded": "disease",
+          "counters_removed": 4,
+          "target_recorded": "all group members",
+          "radius_recorded": {
+            "value": 15,
+            "unit": "m"
+          },
+          "conditions_unparsed": true
+        }
+      ],
+      "operative_values": null,
+      "historical_authentication": null,
+      "notes": "Explicit counter count is not a number of complete debuffs cured. Radius is not cast range; no target cap, cure priority or historical era inferred. Adjacent embedded Details labels excluded."
+    },
+    {
+      "name": "Asilam's Cry of Curing III",
+      "source_url": "https://vgsoharchive.com/abilities/asilam-s-cry-of-curing-iii",
+      "cache": {
+        "path": ".cache/archive/e886ae7e8a340e8970d85aeb675a589f37bdfe904d2fd20f52a37f2d942e3bd1.txt",
+        "sha256": "9c305703fd4dcf733f8f0879aff84cd355d4feb654ed1985a8cf1d211859cd5d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 77,
+          "record_sha256": "5870d825154a793055cc006bca1f6d0512834227e0ccb10daaa4618a2b5a7309"
+        }
+      ],
+      "evidence": {
+        "selector": ".tooltip",
+        "literal": "Cures all group members within 15m, removing 4 poison counters.",
+        "tooltip_text_sha256": "c281e48e756d9dba96963f48305f9729db6b2335d9e6c5881ff37e7c98465dfc"
+      },
+      "observations": [
+        {
+          "kind": "group_counter_removal_observation",
+          "counter_type_recorded": "poison",
+          "counters_removed": 4,
+          "target_recorded": "all group members",
+          "radius_recorded": {
+            "value": 15,
+            "unit": "m"
+          },
+          "conditions_unparsed": true
+        }
+      ],
+      "operative_values": null,
+      "historical_authentication": null,
+      "notes": "Explicit counter count is not a number of complete debuffs cured. Radius is not cast range; no target cap, cure priority or historical era inferred. Adjacent embedded Details labels excluded."
+    }
+  ],
+  "validation": {
+    "cached_page_hashes_verified": 6,
+    "source_record_hashes_verified": 6,
+    "exact_tooltip_matches": 6,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped; collection.ps1 Status and actual process inspection performed",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "policy": "Manual sourced observations only. Immutable original records unchanged; counter removals are not full-effect cures. Unknown operational semantics remain withheld.",
+  "next_step": "Implement and test narrowly scoped group counter-removal extraction against these six reviewed cases."
+}

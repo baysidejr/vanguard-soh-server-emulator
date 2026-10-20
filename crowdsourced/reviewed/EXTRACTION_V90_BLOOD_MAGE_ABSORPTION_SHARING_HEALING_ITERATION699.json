@@ -1,0 +1,972 @@
+{
+  "review_kind": "constrained_blood_mage_absorption_sharing_healing_extraction",
+  "parser_version": 90,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_ABSORPTION_SHARING_HEALING_SOURCE_REVIEW_ITERATION698.json",
+    "sha256": "8ed165486bf48406b4a5d6d14c3a02e5ac27c6d7a876957b367c27487e14fb63"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Life Husk I",
+      "source_url": "https://vgsoharchive.com/abilities/life-husk-i",
+      "cache": {
+        "path": ".cache/archive/56e891a47f14473eab17195b4cf498f2fe2164b78704cccaed8e394c96e8f09c.txt",
+        "sha256": "05680d138257d5fdbe57dca96320afb815203f0f6a3cf84b70a2b0a8e2311564"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 27,
+          "record_sha256": "4708e6eb0fa200a347874ad289eb23f0a77b0d067a1cd612be8345c683bf096b"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Covers you in a husk of energy, absorbing all incoming damage for 6 seconds. Consumes a vial of blood.",
+          "literal_sha256": "b4d1d5b964fb6b3cbbb18cc9b40474a5a6541861e6b108fc45a11e09e5e41229",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_absorption_sharing_healing_observation",
+              "effect_phrase_recorded": "Covers you in a husk of energy, absorbing all incoming damage for 6 seconds. Consumes a vial of blood.",
+              "conditions_unparsed": true,
+              "effect_reported": "incoming_damage_absorption",
+              "recipient_reported": "you",
+              "damage_scope_reported": "all incoming damage",
+              "duration_seconds": 6,
+              "consumed_component_reported": "vial of blood",
+              "canonical_component_id": null,
+              "absorption_limit": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Life Husk I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/life-husk-i",
+              "title": "Life Husk I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 90,
+          "collected_at": "2026-10-20T00:01:19+00:00",
+          "archive_fields": {
+            "energy then": [
+              "26 — now 44"
+            ],
+            "cast then": [
+              "0",
+              "0"
+            ],
+            "refresh then": [
+              "5",
+              "5:00"
+            ],
+            "level in 2007": [
+              "8 — now 14"
+            ],
+            "level in 2007-2008": [
+              "8 — now 14"
+            ],
+            "level": [
+              "14"
+            ],
+            "energy cost": [
+              "44"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "5:00s"
+            ],
+            "duration": [
+              "6 seconds"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "requires": [
+              "A vial of blood"
+            ],
+            "type": [
+              "Self Alteration"
+            ],
+            "icon": [
+              "Icon531.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 14,
+          "rank": "I",
+          "category": "Self Alteration",
+          "cost": {
+            "energy": 44
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": 6,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Covers you in a husk of energy, absorbing all incoming damage for 6 seconds. Consumes a vial of blood.",
+          "icon_name": "Icon531.png",
+          "ranks": [],
+          "target_recorded": "Self",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 8,
+              "raw": "8 — now 14"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 8,
+              "raw": "8 — now 14"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130606143144id_/http://wiki.silkyvenom.com/index.php/Life_Husk_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              44
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "duration_seconds": [
+              {
+                "label": "duration",
+                "raw": "6 seconds",
+                "seconds": 6
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": "A vial of blood",
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_absorption_sharing_healing_observation",
+                  "effect_phrase_recorded": "Covers you in a husk of energy, absorbing all incoming damage for 6 seconds. Consumes a vial of blood.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "incoming_damage_absorption",
+                  "recipient_reported": "you",
+                  "damage_scope_reported": "all incoming damage",
+                  "duration_seconds": 6,
+                  "consumed_component_reported": "vial of blood",
+                  "canonical_component_id": null,
+                  "absorption_limit": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/life-husk-i-1009.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Recovering Burst I",
+      "source_url": "https://vgsoharchive.com/abilities/recovering-burst-i",
+      "cache": {
+        "path": ".cache/archive/981c1b50910f101abb0b3674f98a7054c0e75c8f07dac8c432f23eee2302a8ce.txt",
+        "sha256": "44a1d05f6b5168e03a0ef2666b77bff399b61ba292c84e017a5cb9c7da6ebc87"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 31,
+          "record_sha256": "adefaab415f03d8b440a8c23f52fc5655a4ab8aadb372747a4e1a708195e1795"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Releases a burst of life, healing all allies within 10m by 533. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "98c1eacade1844d51d894a44fd7f024f5bf18cc09c8cbc58b23b33a227795a6c",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_absorption_sharing_healing_observation",
+              "effect_phrase_recorded": "Releases a burst of life, healing all allies within 10m by 533. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "area_healing_with_blood_union_bonus",
+              "recipient_reported": "all allies within 10m",
+              "radius_meters": 10,
+              "health_amount": 533,
+              "healing_bonus_percent_per_blood_union_level": 2,
+              "bonus_basis": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Recovering Burst I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/recovering-burst-i",
+              "title": "Recovering Burst I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 90,
+          "collected_at": "2026-10-20T00:01:19+00:00",
+          "archive_fields": {
+            "energy then": [
+              "347 — now 360",
+              "89 — now 360"
+            ],
+            "cast then": [
+              "4.5",
+              "4.5",
+              "4.5"
+            ],
+            "level in 2007": [
+              "14"
+            ],
+            "level in 2007-2008": [
+              "14"
+            ],
+            "level": [
+              "14"
+            ],
+            "health and energy cost": [
+              "360"
+            ],
+            "health cost": [
+              "88"
+            ],
+            "cast time": [
+              "4.5"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "10m"
+            ],
+            "target": [
+              "Your Group"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon680.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 14,
+          "rank": "I",
+          "category": "Heal",
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 10,
+            "unit": "m",
+            "raw": "10m"
+          },
+          "tooltip": "Releases a burst of life, healing all allies within 10m by 533. Heals for an extra 2% per level of Blood Union.",
+          "icon_name": "Icon680.png",
+          "ranks": [],
+          "target_recorded": "Your Group",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 14,
+              "raw": "14"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 14,
+              "raw": "14"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033214id_/http://wiki.silkyvenom.com/index.php/Recovering_Burst_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_absorption_sharing_healing_observation",
+                  "effect_phrase_recorded": "Releases a burst of life, healing all allies within 10m by 533. Heals for an extra 2% per level of Blood Union.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "area_healing_with_blood_union_bonus",
+                  "recipient_reported": "all allies within 10m",
+                  "radius_meters": 10,
+                  "health_amount": 533,
+                  "healing_bonus_percent_per_blood_union_level": 2,
+                  "bonus_basis": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/recovering-burst-i-785.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Scarring Pact",
+      "source_url": "https://vgsoharchive.com/abilities/scarring-pact",
+      "cache": {
+        "path": ".cache/archive/5062ab1fb08ddf6e36590e55e1d030ae4c90240c899ff7d8825120c26e1a4193.txt",
+        "sha256": "fea4c82db3f3ba0eccaae30734e898a11c500e838ed40165b49ad577b4ef7231"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 36,
+          "record_sha256": "8aaebfccefffe43e89df7cdb118e3ce8f3b0bbb5677deefbe87fd447229533f0"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Bonds you with a single ally, allowing you to split incoming damage amongst each other. The ally who is hit takes 85% of the incoming damage; you take 125% of the remaining damage. Only 1 Pact may be active at a time.",
+          "literal_sha256": "325d25e257e1056eec95aa08df7d579a74518412cadb91963bfbfb57f6e8fde0",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_absorption_sharing_healing_observation",
+              "effect_phrase_recorded": "Bonds you with a single ally, allowing you to split incoming damage amongst each other. The ally who is hit takes 85% of the incoming damage; you take 125% of the remaining damage. Only 1 Pact may be active at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "incoming_damage_sharing",
+              "recipient_reported": "a single ally",
+              "hit_ally_damage_percent": 85,
+              "caster_percent_of_remaining_damage": 125,
+              "maximum_active_pacts": 1,
+              "rounding_rules": null,
+              "damage_transfer_order": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Scarring Pact",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/scarring-pact",
+              "title": "Scarring Pact · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 90,
+          "collected_at": "2026-10-20T00:01:19+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "14"
+            ],
+            "level in 2007-2008": [
+              "14"
+            ],
+            "level": [
+              "14"
+            ],
+            "energy cost": [
+              "44"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "Until severed"
+            ],
+            "range": [
+              "50m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon543.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 14,
+          "rank": null,
+          "category": "Alteration",
+          "cost": {
+            "energy": 44
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 50,
+            "unit": "m",
+            "raw": "50m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon543.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 14,
+              "raw": "14"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 14,
+              "raw": "14"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              44
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_absorption_sharing_healing_observation",
+                  "effect_phrase_recorded": "Bonds you with a single ally, allowing you to split incoming damage amongst each other. The ally who is hit takes 85% of the incoming damage; you take 125% of the remaining damage. Only 1 Pact may be active at a time.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "incoming_damage_sharing",
+                  "recipient_reported": "a single ally",
+                  "hit_ally_damage_percent": 85,
+                  "caster_percent_of_remaining_damage": 125,
+                  "maximum_active_pacts": 1,
+                  "rounding_rules": null,
+                  "damage_transfer_order": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://vg.mmodb.com:80/spells/scarring-pact-776.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sever Pacts",
+      "source_url": "https://vgsoharchive.com/abilities/sever-pacts",
+      "cache": {
+        "path": ".cache/archive/d60bbc18df34e0d68b7e0007eb1eca57ac3bcb240579667f457864de17390773.txt",
+        "sha256": "57a7577916133d8b26b450051820c743af29355435bcb35065a3cb20945c91aa"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 38,
+          "record_sha256": "2262bf4da1affa9ecb9a8b4dd2cf097a85a0f5ef2a4a5076e8c1b2fb46b0a2b6"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Severs all pacts you have made that link you to other allies. Ends all Blood Pacts within 500m of you; ends all Scarring Pacts within 500m of you.",
+          "literal_sha256": "dd86ce49e99e0025f3dcd92145bc78f16e3a589b27d1ba6c0519012c7f6eb364",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_absorption_sharing_healing_observation",
+              "effect_phrase_recorded": "Severs all pacts you have made that link you to other allies. Ends all Blood Pacts within 500m of you; ends all Scarring Pacts within 500m of you.",
+              "conditions_unparsed": true,
+              "effect_reported": "pact_removal",
+              "pact_types_reported": [
+                "Blood Pacts",
+                "Scarring Pacts"
+              ],
+              "radius_meters": 500,
+              "recipient_reported": "all pacts you have made that link you to other allies",
+              "canonical_ability_ids": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Sever Pacts",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/sever-pacts",
+              "title": "Sever Pacts · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 90,
+          "collected_at": "2026-10-20T00:01:19+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "level in 2007": [
+              "14"
+            ],
+            "level in 2007-2008": [
+              "14"
+            ],
+            "level": [
+              "14"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon573.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 14,
+          "rank": null,
+          "category": "Alteration",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": 0,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon573.png",
+          "ranks": [],
+          "target_recorded": "Self",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 14,
+              "raw": "14"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 14,
+              "raw": "14"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034656id_/http://wiki.silkyvenom.com/index.php/Sever_Pacts",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "duration_seconds": [
+              {
+                "label": "duration",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_absorption_sharing_healing_observation",
+                  "effect_phrase_recorded": "Severs all pacts you have made that link you to other allies. Ends all Blood Pacts within 500m of you; ends all Scarring Pacts within 500m of you.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "pact_removal",
+                  "pact_types_reported": [
+                    "Blood Pacts",
+                    "Scarring Pacts"
+                  ],
+                  "radius_meters": 500,
+                  "recipient_reported": "all pacts you have made that link you to other allies",
+                  "canonical_ability_ids": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://vg.mmodb.com:80/spells/sever-pacts-777.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infuse Health III",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-iii",
+      "cache": {
+        "path": ".cache/archive/5bd74f27812f92557b35cc90cf7119a7023f993908cad9798ee2a0f148793b18.txt",
+        "sha256": "ce7467eb7bcab7b2af9b7c48462feb71e5cd29c92a28edb26bc9c597d20bec58"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 26,
+          "record_sha256": "4a692914e34e92abbf63243d929c60333bd1ca787b219d35e8bb55fbe7e11ad9"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Infuses 545 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "80c669fad81b37616e0caae3b719a7a88590b6dcf36a96e85582b9232074ea2c",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_absorption_sharing_healing_observation",
+              "effect_phrase_recorded": "Infuses 545 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "healing_with_blood_union_bonus",
+              "recipient_reported": "your defensive target",
+              "health_amount": 545,
+              "healing_bonus_percent_per_blood_union_level": 2,
+              "bonus_basis": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Infuse Health III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/infuse-health-iii",
+              "title": "Infuse Health III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 90,
+          "collected_at": "2026-10-20T00:01:19+00:00",
+          "archive_fields": {
+            "energy then": [
+              "157 — now 248",
+              "243 — now 248"
+            ],
+            "cast then": [
+              "1.5",
+              "1.5",
+              "1.5"
+            ],
+            "level in 2007": [
+              "16"
+            ],
+            "level in 2007-2008": [
+              "16"
+            ],
+            "level": [
+              "16"
+            ],
+            "energy cost": [
+              "248"
+            ],
+            "cast time": [
+              "1.5"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "30m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon679.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 16,
+          "rank": "III",
+          "category": "Heal",
+          "cost": {
+            "energy": 248
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 30,
+            "unit": "m",
+            "raw": "30m"
+          },
+          "tooltip": "Infuses 545 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+          "icon_name": "Icon679.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 16,
+              "raw": "16"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 16,
+              "raw": "16"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033025id_/http://wiki.silkyvenom.com/index.php/Infuse_Health_III",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              248
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_absorption_sharing_healing_observation",
+                  "effect_phrase_recorded": "Infuses 545 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "healing_with_blood_union_bonus",
+                  "recipient_reported": "your defensive target",
+                  "health_amount": 545,
+                  "healing_bonus_percent_per_blood_union_level": 2,
+                  "bonus_basis": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0,
+    "required_unittest_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+    "tests_passed": 284
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process inspection found no Python collector",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60,
+    "network_suspension_preserved": true
+  },
+  "remaining_numeric_sections_requiring_literal_review": 100,
+  "reviewed_sections_awaiting_parser_implementation": 0,
+  "limitations": [
+    "Source review candidates are not typed game facts or operative server mechanics.",
+    "Healing bonus arithmetic and damage-sharing order and rounding remain unknown.",
+    "Damage sharing percentages retain their distinct reported bases; no combined damage formula is inferred.",
+    "Named blood component and pact types do not establish canonical client IDs.",
+    "No name-only matching or inferred canonical client IDs; immutable source records retained.",
+    "Exact source observations only; no operative combat values or independent historical authentication."
+  ],
+  "next_step": "Review the remaining 100 Blood Mage numeric effect sections against exact cached prose."
+}

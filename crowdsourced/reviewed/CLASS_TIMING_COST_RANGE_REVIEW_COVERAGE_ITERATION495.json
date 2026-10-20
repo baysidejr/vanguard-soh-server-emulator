@@ -1,0 +1,714 @@
+{
+  "review_kind": "all_class_timing_cost_range_omission_review_coverage_audit",
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "classes": [
+    {
+      "class": "BARD",
+      "field_coverage_source": {
+        "path": "reviewed/BARD_TYPED_FIELD_COVERAGE_ITERATION380.json",
+        "sha256": "9e849e3eebb0bfcdd78b39f562b6a10c889a8ed65b5db7f67e17ef14a08de55c"
+      },
+      "coverage_summary": {
+        "school:literal_equal": 47,
+        "cost:literal_equal": 192,
+        "cast:literal_equal": 157,
+        "range:literal_equal": 156,
+        "effect:typed_field_absent": 223,
+        "cost:table_blank": 31,
+        "school:table_blank": 176,
+        "cast:table_blank": 66,
+        "range:table_blank": 67
+      },
+      "timing_cost_range_absent_row_status_counts": {},
+      "omission_reviews": [],
+      "disposition": "no_absent_timing_cost_range_status_in_coverage",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "class": "BLOOD_MAGE",
+      "field_coverage_source": {
+        "path": "reviewed/BLOOD_MAGE_TYPED_FIELD_COVERAGE_ITERATION386.json",
+        "sha256": "1175715e1b761d7d3d7c7003778f3733c7f6e5f76691e19f3f644cb5525dd8b4"
+      },
+      "coverage_summary": {
+        "school:table_blank": 173,
+        "cost:literal_equal": 155,
+        "cast:literal_equal": 172,
+        "range:literal_equal": 173,
+        "effect:typed_field_absent": 166,
+        "school:literal_equal": 8,
+        "cost:table_blank": 26,
+        "cast:table_blank": 9,
+        "range:table_blank": 8,
+        "effect:table_blank": 15
+      },
+      "timing_cost_range_absent_row_status_counts": {},
+      "omission_reviews": [],
+      "disposition": "no_absent_timing_cost_range_status_in_coverage",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "class": "CLERIC",
+      "field_coverage_source": {
+        "path": "reviewed/CLERIC_TYPED_FIELD_COVERAGE_ITERATION395.json",
+        "sha256": "95e76caf8375362e2fc1c7090e713eaa1b2e5d9ae92f6d07d42045ebba7998fb"
+      },
+      "coverage_summary": {
+        "school:literal_equal": 83,
+        "cost:literal_equal": 135,
+        "cast:literal_equal": 180,
+        "range:literal_equal": 179,
+        "effect:typed_field_absent": 197,
+        "school:table_blank": 115,
+        "cost:table_blank": 63,
+        "cast:table_blank": 18,
+        "range:table_blank": 19,
+        "effect:table_blank": 1
+      },
+      "timing_cost_range_absent_row_status_counts": {},
+      "omission_reviews": [],
+      "disposition": "no_absent_timing_cost_range_status_in_coverage",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "class": "DISCIPLE",
+      "field_coverage_source": {
+        "path": "reviewed/DISCIPLE_TYPED_FIELD_COVERAGE_ITERATION410.json",
+        "sha256": "c214a640a41a7725ab02151525556c9fe305d241af5e43c3f0963cf92cc46b8e"
+      },
+      "coverage_summary": {
+        "school:literal_equal": 48,
+        "cost:literal_equal": 121,
+        "cast:literal_equal": 198,
+        "range:literal_equal": 191,
+        "effect:typed_field_absent": 216,
+        "school:table_blank": 178,
+        "cost:table_blank": 105,
+        "range:table_blank": 35,
+        "cast:table_blank": 28,
+        "effect:table_blank": 10
+      },
+      "timing_cost_range_absent_row_status_counts": {},
+      "omission_reviews": [],
+      "disposition": "no_absent_timing_cost_range_status_in_coverage",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "class": "DREAD_KNIGHT",
+      "field_coverage_source": {
+        "path": "reviewed/DREAD_KNIGHT_TYPED_FIELD_COVERAGE_ITERATION402.json",
+        "sha256": "00313bd88f1cf4e225121b36b370ffa337ced7a2c91d47bea73180010ae8d34c"
+      },
+      "coverage_summary": {
+        "school:literal_equal": 145,
+        "cost:literal_equal": 157,
+        "cast:literal_equal": 164,
+        "range:literal_equal": 138,
+        "effect:typed_field_absent": 166,
+        "cost:table_blank": 12,
+        "school:table_blank": 24,
+        "cast:table_blank": 5,
+        "range:table_blank": 31,
+        "effect:table_blank": 3
+      },
+      "timing_cost_range_absent_row_status_counts": {},
+      "omission_reviews": [],
+      "disposition": "no_absent_timing_cost_range_status_in_coverage",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "class": "DRUID",
+      "field_coverage_source": {
+        "path": "reviewed/DRUID_TYPED_FIELD_COVERAGE_ITERATION418.json",
+        "sha256": "a5f45c679278889d8ee17527ed8c9013ae41f7cb0a7ef33f2ef5e3a083faedbb"
+      },
+      "coverage_summary": {
+        "school:literal_equal": 58,
+        "cost:typed_field_absent": 35,
+        "cost:literal_equal": 138,
+        "cast:typed_field_absent": 40,
+        "cast:literal_equal": 180,
+        "range:typed_field_absent": 40,
+        "range:literal_equal": 178,
+        "effect:typed_field_absent": 184,
+        "effect:literal_equal": 30,
+        "school:table_blank": 138,
+        "cost:table_blank": 58,
+        "school:literal_difference_requires_review": 3,
+        "effect:literal_difference_requires_review": 2,
+        "school:typed_field_absent": 5,
+        "cast:table_blank": 16,
+        "range:table_blank": 18,
+        "effect:table_blank": 12
+      },
+      "timing_cost_range_absent_row_status_counts": {
+        "cost:typed_field_absent": 35,
+        "cast:typed_field_absent": 40,
+        "range:typed_field_absent": 40
+      },
+      "omission_reviews": [
+        {
+          "path": "reviewed/DRUID_TIMING_COST_RANGE_OMISSION_REVIEW_ITERATION493.json",
+          "sha256": "bf099ddaf27f7991f16a90b503b83ab89add23dd1f1b3195d60de1309b02242b",
+          "summary": {
+            "rows": 40,
+            "source_records": 120,
+            "field_dispositions": {
+              "cost:nested_literal_preserved": 105,
+              "cast:nested_literal_preserved": 120,
+              "range:nested_literal_preserved": 120
+            }
+          },
+          "limitations": [
+            "Top-level nulls are not evidence of absent mechanics. Matching nested snapshots preserve source strings without promoting them.",
+            "Full parent source records retained; no canonical identities, units, historical applicability or operative values inferred.",
+            "Same-provenance snapshots are not independent corroboration.",
+            "Collection and remaining extraction review are incomplete."
+          ]
+        }
+      ],
+      "disposition": "nested_evidence_review_published",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "class": "MONK",
+      "field_coverage_source": {
+        "path": "reviewed/MONK_TYPED_FIELD_COVERAGE_ITERATION426.json",
+        "sha256": "1d71fc32d12451e437ef8d0734dd5cf485de60e78931d4a636e24cdd1bc22d20"
+      },
+      "coverage_summary": {
+        "school:literal_equal": 11,
+        "cost:typed_field_absent": 20,
+        "cost:literal_equal": 76,
+        "cast:typed_field_absent": 34,
+        "cast:literal_equal": 120,
+        "range:typed_field_absent": 34,
+        "range:literal_equal": 118,
+        "effect:typed_field_absent": 135,
+        "effect:literal_equal": 27,
+        "school:table_blank": 133,
+        "cost:table_blank": 68,
+        "school:literal_difference_requires_review": 4,
+        "cast:table_blank": 24,
+        "range:table_blank": 26,
+        "effect:table_blank": 9,
+        "effect:literal_difference_requires_review": 1,
+        "rows_with_class_snapshots": 144,
+        "rows_without_class_snapshots": 20
+      },
+      "timing_cost_range_absent_row_status_counts": {
+        "cost:typed_field_absent": 20,
+        "cast:typed_field_absent": 34,
+        "range:typed_field_absent": 34
+      },
+      "omission_reviews": [
+        {
+          "path": "reviewed/MONK_TIMING_COST_RANGE_OMISSION_REVIEW_ITERATION494.json",
+          "sha256": "0e88dfc423c28836690b4975fff8dce2175dc47437e6a18651e66b953fad87ff",
+          "summary": {
+            "rows": 34,
+            "source_records": 102,
+            "field_dispositions": {
+              "cost:nested_literal_preserved": 60,
+              "cast:nested_literal_preserved": 102,
+              "range:nested_literal_preserved": 102
+            }
+          },
+          "limitations": [
+            "Top-level nulls are not evidence of absent mechanics. Matching nested snapshots preserve source strings without promoting them.",
+            "Full parent source records retained; no canonical identities, units, historical applicability or operative values inferred.",
+            "Same-provenance snapshots are not independent corroboration.",
+            "Collection and remaining extraction review are incomplete."
+          ]
+        }
+      ],
+      "disposition": "nested_evidence_review_published",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "class": "NECROMANCER",
+      "field_coverage_source": {
+        "path": "reviewed/NECROMANCER_TYPED_FIELD_COVERAGE_ITERATION440.json",
+        "sha256": "089430670234ff10c9cd97ed4004953c564a34b6d682d6447442752aa1b3713a"
+      },
+      "coverage_summary": {
+        "school:literal_equal": 173,
+        "cost:table_blank": 29,
+        "cast:literal_equal": 172,
+        "cast:typed_field_absent": 48,
+        "range:literal_equal": 170,
+        "range:typed_field_absent": 47,
+        "effect:literal_equal": 34,
+        "effect:typed_field_absent": 182,
+        "cost:literal_equal": 158,
+        "cost:typed_field_absent": 41,
+        "school:literal_difference_requires_review": 7,
+        "range:table_blank": 17,
+        "effect:literal_difference_requires_review": 8,
+        "school:table_blank": 14,
+        "cast:table_blank": 15,
+        "effect:table_blank": 5,
+        "rows_with_class_snapshots": 187,
+        "rows_without_class_snapshots": 0
+      },
+      "timing_cost_range_absent_row_status_counts": {
+        "cast:typed_field_absent": 48,
+        "range:typed_field_absent": 47,
+        "cost:typed_field_absent": 41
+      },
+      "omission_reviews": [
+        {
+          "path": "reviewed/NECROMANCER_TIMING_COST_RANGE_OMISSION_REVIEW_ITERATION492.json",
+          "sha256": "81662f471cc68a2c4c974dfc6d1f5514ed772ad54c5fc9b4b735930008d5ebbb",
+          "summary": {
+            "rows": 48,
+            "source_records": 148,
+            "field_dispositions": {
+              "cast:nested_literal_preserved": 148,
+              "range:nested_literal_preserved": 145,
+              "cost:nested_literal_preserved": 124
+            }
+          },
+          "limitations": [
+            "Top-level nulls are not evidence of absent mechanics. Matching nested snapshots preserve source strings without promoting them.",
+            "Full parent source records retained; no canonical identities, units, historical applicability or operative values inferred.",
+            "Same-provenance snapshots are not independent corroboration.",
+            "Collection and remaining extraction review are incomplete."
+          ]
+        }
+      ],
+      "disposition": "nested_evidence_review_published",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "class": "PALADIN",
+      "field_coverage_source": {
+        "path": "reviewed/PALADIN_TYPED_FIELD_COVERAGE_ITERATION447.json",
+        "sha256": "c186e018afdbddc0c6c0d790e1385aeffe99569cf35d7ddcc1b5326d4804072e"
+      },
+      "coverage_summary": {
+        "school:table_blank": 172,
+        "cost:table_blank": 37,
+        "cast:literal_equal": 201,
+        "cast:typed_field_absent": 51,
+        "range:literal_equal": 158,
+        "range:typed_field_absent": 51,
+        "effect:typed_field_absent": 206,
+        "school:literal_difference_requires_review": 10,
+        "school:literal_equal": 35,
+        "cost:literal_equal": 169,
+        "cost:typed_field_absent": 39,
+        "effect:literal_equal": 27,
+        "effect:literal_difference_requires_review": 3,
+        "range:table_blank": 48,
+        "cast:table_blank": 5,
+        "rows_with_class_snapshots": 207,
+        "rows_without_class_snapshots": 4
+      },
+      "timing_cost_range_absent_row_status_counts": {
+        "cast:typed_field_absent": 51,
+        "range:typed_field_absent": 51,
+        "cost:typed_field_absent": 39
+      },
+      "omission_reviews": [
+        {
+          "path": "reviewed/PALADIN_TIMING_COST_RANGE_OMISSION_REVIEW_ITERATION452.json",
+          "sha256": "baa260d2bbd107f589de4743980973f06ecacbbf4d97b239b072f56609984271",
+          "summary": {
+            "rows": 51,
+            "source_records": 204,
+            "field_dispositions": {
+              "cast:nested_literal_preserved": 204,
+              "range:nested_literal_preserved": 204,
+              "cost:nested_literal_preserved": 156
+            }
+          },
+          "limitations": [
+            "Top-level nulls are not evidence of absent mechanics. Matching nested snapshots preserve source strings without promoting them.",
+            "Full parent source records retained; no canonical identities, units, historical applicability or operative values inferred.",
+            "Same-provenance snapshots are not independent corroboration.",
+            "Collection and remaining extraction review are incomplete."
+          ]
+        }
+      ],
+      "disposition": "nested_evidence_review_published",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "class": "PSIONICIST",
+      "field_coverage_source": {
+        "path": "reviewed/PSIONICIST_TYPED_FIELD_COVERAGE_ITERATION454.json",
+        "sha256": "99914b6f82448e47c6c707c655994fb9ebcf077477193b71d6e729264e2a54b6"
+      },
+      "coverage_summary": {
+        "school:literal_equal": 170,
+        "cost:literal_equal": 163,
+        "cost:typed_field_absent": 44,
+        "cast:literal_equal": 194,
+        "cast:typed_field_absent": 48,
+        "range:literal_equal": 165,
+        "range:typed_field_absent": 48,
+        "effect:literal_equal": 25,
+        "effect:typed_field_absent": 219,
+        "school:table_blank": 52,
+        "cost:table_blank": 59,
+        "school:literal_difference_requires_review": 4,
+        "effect:literal_difference_requires_review": 5,
+        "cast:table_blank": 28,
+        "range:table_blank": 57,
+        "effect:table_blank": 3,
+        "rows_with_class_snapshots": 222,
+        "rows_without_class_snapshots": 0
+      },
+      "timing_cost_range_absent_row_status_counts": {
+        "cost:typed_field_absent": 44,
+        "cast:typed_field_absent": 48,
+        "range:typed_field_absent": 48
+      },
+      "omission_reviews": [
+        {
+          "path": "reviewed/PSIONICIST_TIMING_COST_RANGE_OMISSION_REVIEW_ITERATION458.json",
+          "sha256": "0c537e45751b753024e1e2649d095d4468081c68c982322ce761c13abcdeaa91",
+          "summary": {
+            "rows": 48,
+            "source_records": 192,
+            "field_dispositions": {
+              "cost:nested_literal_preserved": 176,
+              "cast:nested_literal_preserved": 192,
+              "range:nested_literal_preserved": 192
+            }
+          },
+          "limitations": [
+            "Top-level nulls are not evidence of absent mechanics. Matching nested snapshots preserve source strings without promoting them.",
+            "Full parent source records retained; no canonical identities, units, historical applicability or operative values inferred.",
+            "Same-provenance snapshots are not independent corroboration.",
+            "Collection and remaining extraction review are incomplete."
+          ]
+        }
+      ],
+      "disposition": "nested_evidence_review_published",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "class": "RANGER",
+      "field_coverage_source": {
+        "path": "reviewed/RANGER_TYPED_FIELD_COVERAGE_ITERATION461.json",
+        "sha256": "972e552363c408aa59adcb66e3ea0f20f2632ad3115ff5e98a2441e91eda9ba4"
+      },
+      "coverage_summary": {
+        "school:literal_equal": 85,
+        "cost:literal_equal": 147,
+        "cost:typed_field_absent": 36,
+        "cast:literal_equal": 194,
+        "cast:typed_field_absent": 51,
+        "range:literal_equal": 192,
+        "range:typed_field_absent": 50,
+        "effect:literal_equal": 32,
+        "effect:typed_field_absent": 194,
+        "school:table_blank": 112,
+        "cost:table_blank": 50,
+        "school:literal_difference_requires_review": 9,
+        "range:table_blank": 5,
+        "cast:table_blank": 3,
+        "effect:literal_difference_requires_review": 3,
+        "effect:table_blank": 3,
+        "rows_with_class_snapshots": 197,
+        "rows_without_class_snapshots": 0
+      },
+      "timing_cost_range_absent_row_status_counts": {
+        "cost:typed_field_absent": 36,
+        "cast:typed_field_absent": 51,
+        "range:typed_field_absent": 50
+      },
+      "omission_reviews": [
+        {
+          "path": "reviewed/RANGER_TIMING_COST_RANGE_OMISSION_REVIEW_ITERATION465.json",
+          "sha256": "119a44bdf43015adf446cf51d6fdc891cf8236613720011080f00c372df12062",
+          "summary": {
+            "rows": 51,
+            "source_records": 204,
+            "field_dispositions": {
+              "cost:nested_literal_preserved": 144,
+              "cast:nested_literal_preserved": 204,
+              "range:nested_literal_preserved": 200
+            }
+          },
+          "limitations": [
+            "Top-level nulls are not evidence of absent mechanics. Matching nested snapshots preserve source strings without promoting them.",
+            "Full parent source records retained; no canonical identities, units, historical applicability or operative values inferred.",
+            "Same-provenance snapshots are not independent corroboration.",
+            "Collection and remaining extraction review are incomplete."
+          ]
+        }
+      ],
+      "disposition": "nested_evidence_review_published",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "class": "ROGUE",
+      "field_coverage_source": {
+        "path": "reviewed/ROGUE_TYPED_FIELD_COVERAGE_ITERATION469.json",
+        "sha256": "d8217f538c24a8bc6745210c0c69161c9bad535b383d23de3552da530171bec7"
+      },
+      "coverage_summary": {
+        "school:table_blank": 130,
+        "cost:table_blank": 18,
+        "cast:typed_field_absent": 44,
+        "cast:literal_equal": 130,
+        "range:table_blank": 3,
+        "effect:typed_field_absent": 118,
+        "effect:literal_equal": 26,
+        "cost:typed_field_absent": 39,
+        "cost:literal_equal": 114,
+        "range:typed_field_absent": 43,
+        "range:literal_equal": 129,
+        "school:literal_difference_requires_review": 1,
+        "school:literal_equal": 3,
+        "effect:literal_difference_requires_review": 2,
+        "effect:table_blank": 14,
+        "cast:table_blank": 2,
+        "rows_with_class_snapshots": 133,
+        "rows_without_class_snapshots": 2
+      },
+      "timing_cost_range_absent_row_status_counts": {
+        "cast:typed_field_absent": 44,
+        "cost:typed_field_absent": 39,
+        "range:typed_field_absent": 43
+      },
+      "omission_reviews": [
+        {
+          "path": "reviewed/ROGUE_TIMING_COST_RANGE_OMISSION_REVIEW_ITERATION473.json",
+          "sha256": "dd0170c3366916b57b5c76b9b1bc4090791790e872016a94acf7b9eb1b7e60f7",
+          "summary": {
+            "rows": 44,
+            "source_records": 176,
+            "field_dispositions": {
+              "cast:nested_literal_preserved": 176,
+              "cost:nested_literal_preserved": 156,
+              "range:nested_literal_preserved": 172
+            }
+          },
+          "limitations": [
+            "Top-level nulls are not evidence of absent mechanics. Matching nested snapshots preserve source strings without promoting them.",
+            "Full parent source records retained; no canonical identities, units, historical applicability or operative values inferred.",
+            "Same-provenance snapshots are not independent corroboration.",
+            "Collection and remaining extraction review are incomplete."
+          ]
+        }
+      ],
+      "disposition": "nested_evidence_review_published",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "class": "SHAMAN",
+      "field_coverage_source": {
+        "path": "reviewed/SHAMAN_TYPED_FIELD_COVERAGE_ITERATION476.json",
+        "sha256": "e848370a9ce3e7ff492a0b4b6bceaeddabed0e1b349f7fff1fddda9ce314971a"
+      },
+      "coverage_summary": {
+        "school:table_blank": 58,
+        "cost:table_blank": 63,
+        "cast:table_blank": 17,
+        "range:table_blank": 49,
+        "effect:table_blank": 1,
+        "school:typed_field_absent": 15,
+        "school:literal_equal": 81,
+        "cast:typed_field_absent": 27,
+        "cast:literal_equal": 122,
+        "range:typed_field_absent": 21,
+        "range:literal_equal": 90,
+        "effect:typed_field_absent": 138,
+        "effect:literal_equal": 23,
+        "cost:typed_field_absent": 12,
+        "cost:literal_equal": 76,
+        "effect:literal_difference_requires_review": 2,
+        "rows_with_class_snapshots": 139,
+        "rows_without_class_snapshots": 0
+      },
+      "timing_cost_range_absent_row_status_counts": {
+        "cast:typed_field_absent": 27,
+        "range:typed_field_absent": 21,
+        "cost:typed_field_absent": 12
+      },
+      "omission_reviews": [
+        {
+          "path": "reviewed/SHAMAN_TIMING_COST_RANGE_OMISSION_REVIEW_ITERATION479.json",
+          "sha256": "ab13ce316fb55e068c6f2acd5c996bcc4b022e3bce18ee46b5e495a90420e2eb",
+          "summary": {
+            "rows": 27,
+            "source_records": 108,
+            "field_dispositions": {
+              "cast:nested_literal_preserved": 108,
+              "range:nested_literal_preserved": 84,
+              "cost:nested_literal_preserved": 48
+            }
+          },
+          "limitations": [
+            "Top-level nulls are not evidence of absent mechanics. Matching nested snapshots preserve source strings without promoting them.",
+            "Full parent source records retained; no canonical identities, units, historical applicability or operative values inferred.",
+            "Same-provenance snapshots are not independent corroboration.",
+            "Collection and remaining extraction review are incomplete."
+          ]
+        }
+      ],
+      "disposition": "nested_evidence_review_published",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "class": "SORCERER",
+      "field_coverage_source": {
+        "path": "reviewed/SORCERER_TYPED_FIELD_COVERAGE_ITERATION481.json",
+        "sha256": "44893334fcf3afa9addc888582ae1352c0725b07786905134fc0f9b1dbbda912"
+      },
+      "coverage_summary": {
+        "school:literal_equal": 67,
+        "cost:typed_field_absent": 40,
+        "cost:literal_equal": 135,
+        "cast:typed_field_absent": 44,
+        "cast:literal_equal": 162,
+        "range:typed_field_absent": 44,
+        "range:literal_equal": 163,
+        "effect:typed_field_absent": 162,
+        "school:table_blank": 98,
+        "cost:table_blank": 30,
+        "effect:literal_equal": 26,
+        "effect:literal_difference_requires_review": 2,
+        "school:literal_difference_requires_review": 2,
+        "cast:table_blank": 3,
+        "range:table_blank": 2,
+        "effect:table_blank": 3,
+        "rows_with_class_snapshots": 165,
+        "rows_without_class_snapshots": 0
+      },
+      "timing_cost_range_absent_row_status_counts": {
+        "cost:typed_field_absent": 40,
+        "cast:typed_field_absent": 44,
+        "range:typed_field_absent": 44
+      },
+      "omission_reviews": [
+        {
+          "path": "reviewed/SORCERER_TIMING_COST_RANGE_OMISSION_REVIEW_ITERATION485.json",
+          "sha256": "50b4d7833f24a6c0bb1aed6b2e608c09f0becb4c2e1acd836061814e62713e7e",
+          "summary": {
+            "rows": 44,
+            "source_records": 187,
+            "field_dispositions": {
+              "cost:nested_literal_preserved": 170,
+              "cast:nested_literal_preserved": 187,
+              "range:nested_literal_preserved": 187
+            }
+          },
+          "limitations": [
+            "Top-level nulls are not evidence of absent mechanics. Matching nested snapshots preserve source strings without promoting them.",
+            "Full parent source records retained; no canonical identities, units, historical applicability or operative values inferred.",
+            "Same-provenance snapshots are not independent corroboration.",
+            "Collection and remaining extraction review are incomplete."
+          ]
+        }
+      ],
+      "disposition": "nested_evidence_review_published",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "class": "WARRIOR",
+      "field_coverage_source": {
+        "path": "reviewed/WARRIOR_TYPED_FIELD_COVERAGE_ITERATION487.json",
+        "sha256": "1a88e33b52b730245e163fdc8ea3d3be97fdf861a672c7068236e05123003a49"
+      },
+      "coverage_summary": {
+        "school:table_blank": 35,
+        "cost:table_blank": 44,
+        "cast:table_blank": 7,
+        "range:table_blank": 8,
+        "effect:typed_field_absent": 196,
+        "school:literal_equal": 168,
+        "cost:literal_equal": 159,
+        "cost:typed_field_absent": 42,
+        "cast:literal_equal": 196,
+        "cast:typed_field_absent": 51,
+        "range:literal_equal": 195,
+        "range:typed_field_absent": 51,
+        "effect:literal_equal": 40,
+        "school:literal_difference_requires_review": 22,
+        "effect:literal_difference_requires_review": 4,
+        "effect:table_blank": 7,
+        "rows_with_class_snapshots": 203,
+        "rows_without_class_snapshots": 0
+      },
+      "timing_cost_range_absent_row_status_counts": {
+        "cost:typed_field_absent": 42,
+        "cast:typed_field_absent": 51,
+        "range:typed_field_absent": 51
+      },
+      "omission_reviews": [
+        {
+          "path": "reviewed/WARRIOR_TIMING_COST_RANGE_OMISSION_REVIEW_ITERATION491.json",
+          "sha256": "e6508a1dd9345203804fb2c8b8467a0ca7b813df96249672e88cc45cc7d9327e",
+          "summary": {
+            "rows": 51,
+            "source_records": 255,
+            "field_dispositions": {
+              "cost:nested_literal_preserved": 210,
+              "cast:nested_literal_preserved": 255,
+              "range:nested_literal_preserved": 255
+            }
+          },
+          "limitations": [
+            "Top-level nulls are not evidence of absent mechanics. Matching nested snapshots preserve source strings without promoting them.",
+            "Full parent source records retained; no canonical identities, units, historical applicability or operative values inferred.",
+            "Same-provenance snapshots are not independent corroboration.",
+            "Collection and remaining extraction review are incomplete."
+          ]
+        }
+      ],
+      "disposition": "nested_evidence_review_published",
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "summary": {
+    "classes_audited": 15,
+    "classes_with_omissions": 10,
+    "published_omission_reviews": 10,
+    "uncovered_classes_with_omissions": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "python_processes_observed": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "This audit covers absent cost/cast/range statuses in the published class-table coverage artifacts only. It does not establish complete archive extraction or resolve differences in other fields.",
+    "Five classes have no absent timing/cost/range status; no empty omission artifacts are published for them.",
+    "Counts are source row/status observations, not distinct abilities or independent corroboration. Published nested evidence reviews do not authorize promotion of operative values.",
+    "Historical applicability, canonical identity, detail-page disagreements and other extraction gaps remain unresolved. Collection remains incomplete."
+  ],
+  "next_review": "Audit effect and school difference review coverage across all fifteen class field-coverage artifacts."
+}

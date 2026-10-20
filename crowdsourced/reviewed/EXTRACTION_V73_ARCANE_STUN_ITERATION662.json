@@ -1,0 +1,207 @@
+{
+  "review_kind": "constrained_arcane_damage_stun_extraction",
+  "parser_version": 73,
+  "input": {
+    "path": "reviewed/BARD_ARCANE_STUN_SOURCE_REVIEW_ITERATION661.json",
+    "sha256": "8222233dd6d6e103cee1ba11cdc762121f22feabc666c91b0d5797c202dae305"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Eaon's Booming Bellow",
+      "source_url": "https://vgsoharchive.com/abilities/eaon-s-booming-bellow",
+      "cache": {
+        "path": ".cache/archive/5ba9e1468b40b7de58028f8e54ce125d2bc69cd38158de503635ff7823a620f9.txt",
+        "sha256": "0064fa7f86a8f7bc10828aec6e4dd709dc455dff7aeb5c489787335018cebf1b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 97,
+          "record_sha256": "da11b061ce5f4a59647081a651a5dfdbf82de60553fc62b1f16b33c1e64d20ee"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "You release a deep, booming bellow, smashing your opponent for 790 to 832 arcane damage and stunning it for 4 sec.",
+          "text_sha256": "25683da9a612de6b9371306d246b641fd08f680b5170507e7b4ade5863fef47d",
+          "effect_facts": [
+            {
+              "kind": "arcane_damage_stun_tooltip_observation",
+              "damage_range_recorded": {
+                "minimum": 790,
+                "maximum": 832,
+                "damage_type_literal": "arcane"
+              },
+              "stun_duration_recorded": {
+                "amount": 4,
+                "unit_literal": "sec"
+              },
+              "target_phrase_recorded": "your opponent",
+              "range_scaling_basis": null,
+              "damage_formula": null,
+              "stun_immunity_rules": null,
+              "stun_break_conditions": null,
+              "stacking_formula": null,
+              "instrument_scaling": null,
+              "operative_values": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ],
+      "whole_page_replay": {
+        "name": "Eaon's Booming Bellow",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/eaon-s-booming-bellow",
+            "title": "Eaon's Booming Bellow · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 73,
+        "collected_at": "2026-10-19T20:12:42+00:00",
+        "archive_fields": {
+          "level": [
+            "46"
+          ],
+          "energy cost": [
+            "117"
+          ],
+          "cast time": [
+            "Instant"
+          ],
+          "refresh": [
+            "2:00s"
+          ],
+          "range": [
+            "30m"
+          ],
+          "causes": [
+            "Stunned"
+          ],
+          "target": [
+            "Offensive Target"
+          ],
+          "type": [
+            "Shout"
+          ],
+          "icon": [
+            "Icon20753.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 46,
+        "rank": null,
+        "category": "Shout",
+        "cost": {
+          "energy": 117
+        },
+        "cast_time_seconds": 0,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": {
+          "value": 30,
+          "unit": "m",
+          "raw": "30m"
+        },
+        "tooltip": "You release a deep, booming bellow, smashing your opponent for 790 to 832 arcane damage and stunning it for 4 sec.",
+        "icon_name": "Icon20753.png",
+        "ranks": [],
+        "target_recorded": "Offensive Target",
+        "cost_observations": {
+          "energy": [
+            117
+          ]
+        },
+        "timing_observations": {
+          "cast_time_seconds": [
+            {
+              "label": "cast time",
+              "raw": "Instant",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": "Stunned",
+        "exploits_weakness": null,
+        "effect_observations": [
+          {
+            "scope": "current",
+            "facts": [
+              {
+                "kind": "arcane_damage_stun_tooltip_observation",
+                "damage_range_recorded": {
+                  "minimum": 790,
+                  "maximum": 832,
+                  "damage_type_literal": "arcane"
+                },
+                "stun_duration_recorded": {
+                  "amount": 4,
+                  "unit_literal": "sec"
+                },
+                "target_phrase_recorded": "your opponent",
+                "range_scaling_basis": null,
+                "damage_formula": null,
+                "stun_immunity_rules": null,
+                "stun_break_conditions": null,
+                "stacking_formula": null,
+                "instrument_scaling": null,
+                "operative_values": null,
+                "conditions_unparsed": true
+              }
+            ]
+          }
+        ],
+        "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+        ]
+      }
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "literal_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "issues": 0,
+    "unittest_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+    "tests_passed": 249
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Single archive transcription does not establish historical mechanics.",
+    "Damage endpoints are printed observations; rank, scaling basis, rounding and operative damage remain unknown.",
+    "Stun duration is printed; immunity, resistance and break conditions remain unknown.",
+    "Original batches remain immutable."
+  ],
+  "next_step": "Refresh Bard numeric-pattern coverage against parser v73 to identify remaining unextracted observations."
+}

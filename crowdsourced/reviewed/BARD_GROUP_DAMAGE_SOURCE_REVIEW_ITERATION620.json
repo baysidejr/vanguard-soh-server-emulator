@@ -1,0 +1,514 @@
+{
+  "review_kind": "bard_group_damage_source_review",
+  "input": {
+    "path": "reviewed/BARD_EFFECT_PROSE_LOCATION_REVIEW_ITERATION581.json",
+    "sha256": "d5fb154d820332317001030ef53b3e2ab6aafd9dd34c1ac11e41485d6d539225"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "parser_version": 57,
+  "rows": [
+    {
+      "name": "Mellarien's Anthem of War",
+      "source_url": "https://vgsoharchive.com/abilities/mellarien-s-anthem-of-war",
+      "cache": {
+        "path": ".cache/archive/4c212c5ec37722f2ef76b3793bb5e831d991295efab87a0aae99f3fa150f37e3.txt",
+        "sha256": "80fae266283c88552a29bca1a2b4c3faab06ea04160fc08a4ab26ee1c43047ef"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 49,
+          "record_sha256": "2769ac90a3224b190bb1e2dc9a4cbc317ffd7be448ad83124fce11284b2d5731"
+        }
+      ],
+      "literal": "Increases the damage of your group by 15%, strength, intelligence by 6-30 and AC by 8-62. Does not stack with Mellarien's Requiem of War",
+      "effect_text_sha256": "5f868adf6348cd811b4bbcb35a4d4781275dccf5ab5b321c455949dbd0358d28",
+      "observation": {
+        "damage_percent_recorded": 15,
+        "strength_range_recorded": [
+          6,
+          30
+        ],
+        "intelligence_range_recorded": [
+          6,
+          30
+        ],
+        "ac_range_recorded": [
+          8,
+          62
+        ],
+        "does_not_stack_with_recorded": "Mellarien's Requiem of War",
+        "percentage_base": null,
+        "range_scaling": null
+      },
+      "recognized_effect_facts": [],
+      "whole_page_replay": {
+        "name": "Mellarien's Anthem of War",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/mellarien-s-anthem-of-war",
+            "title": "Mellarien's Anthem of War · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 57,
+        "collected_at": "2026-10-19T15:53:07+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "1"
+          ],
+          "level in 2007-2008": [
+            "1"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "1"
+          ],
+          "energy cost": [
+            "2"
+          ],
+          "song portion": [
+            "Melody"
+          ],
+          "cast time": [
+            "0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "instrument": [
+            "Voice"
+          ],
+          "learned from": [
+            "Automatic"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 1,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 2
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Increases the damage of your group by 15%, strength, intelligence by 6-30 and AC by 8-62. Does not stack with Mellarien's Requiem of War",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 1,
+            "raw": "1"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 1,
+            "raw": "1"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            2
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Automatic",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:mellarien-s-anthem-of-war"
+        ]
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "target_level_limit": null,
+      "player_target_applicability": null,
+      "disposition": "source_review_pending_constrained_parser"
+    },
+    {
+      "name": "Mellarien's Harmony of War",
+      "source_url": "https://vgsoharchive.com/abilities/mellarien-s-harmony-of-war",
+      "cache": {
+        "path": ".cache/archive/418e6f4adb6e35fb44a5d7a27f169d1d3ef28a7f4402261c1668627cccd0cee1.txt",
+        "sha256": "afc203e1a7c84f13564aa4679f76ed59a33c3687d9dcb0c53d8ca11e74c04593"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 50,
+          "record_sha256": "39cc096d8cea59d4cd3b8d9b7a2586b9ad95701ee0a4dbada2d6cb1f87a5bb44"
+        }
+      ],
+      "literal": "Increases the damage of your group by 12-20.",
+      "effect_text_sha256": "2b9bc5caa3d33b248a3e293f1a6ca7e9b56aabaf56057f9aa3e55e0272861390",
+      "observation": {
+        "damage_range_recorded": [
+          12,
+          20
+        ],
+        "damage_unit": null,
+        "range_scaling": null,
+        "stacking": null
+      },
+      "recognized_effect_facts": [],
+      "whole_page_replay": {
+        "name": "Mellarien's Harmony of War",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/mellarien-s-harmony-of-war",
+            "title": "Mellarien's Harmony of War · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 57,
+        "collected_at": "2026-10-19T15:53:07+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "2"
+          ],
+          "level in 2007-2008": [
+            "2"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "2"
+          ],
+          "energy cost": [
+            "4"
+          ],
+          "song portion": [
+            "Embellishment"
+          ],
+          "cast time": [
+            "0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "instrument": [
+            "Voice"
+          ],
+          "learned from": [
+            "Automatic"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 2,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 4
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Increases the damage of your group by 12-20.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 2,
+            "raw": "2"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 2,
+            "raw": "2"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            4
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Automatic",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:mellarien-s-harmony-of-war"
+        ]
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "target_level_limit": null,
+      "player_target_applicability": null,
+      "disposition": "source_review_pending_constrained_parser"
+    },
+    {
+      "name": "Mellarien's Requiem of War",
+      "source_url": "https://vgsoharchive.com/abilities/mellarien-s-requiem-of-war",
+      "cache": {
+        "path": ".cache/archive/c0e32de047256c3e316a6fca396608fc682eeac1e0b4e1fe6486345b23b3e4d9.txt",
+        "sha256": "3767451ec563d63cd4db895de6aae8ea875d11414ca353a2554ee753c824e4e7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 51,
+          "record_sha256": "820ba92d04058983b63408eb12d888f87ce008d2975cb8d46974ad1c6af00a93"
+        }
+      ],
+      "literal": "Increase the damage of your group by 5%, does not stack with Mellarien's Anthem of War",
+      "effect_text_sha256": "ddcffa924e700bb4264a1a5ecd6848eddc368ba9563c0a0c2ca1f41fa75bd57c",
+      "observation": {
+        "damage_percent_recorded": 5,
+        "does_not_stack_with_recorded": "Mellarien's Anthem of War",
+        "percentage_base": null,
+        "range_scaling": null
+      },
+      "recognized_effect_facts": [],
+      "whole_page_replay": {
+        "name": "Mellarien's Requiem of War",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/mellarien-s-requiem-of-war",
+            "title": "Mellarien's Requiem of War · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+        "parser_version": 57,
+        "collected_at": "2026-10-19T15:53:07+00:00",
+        "archive_fields": {
+          "level in 2007": [
+            "12"
+          ],
+          "level in 2007-2008": [
+            "12"
+          ],
+          "cast then": [
+            "0"
+          ],
+          "refresh then": [
+            "0"
+          ],
+          "level": [
+            "12"
+          ],
+          "energy cost": [
+            "5"
+          ],
+          "song portion": [
+            "Chorus"
+          ],
+          "cast time": [
+            "0"
+          ],
+          "refresh": [
+            "0s"
+          ],
+          "range": [
+            "5m"
+          ],
+          "type": [
+            "Song Component"
+          ],
+          "instrument": [
+            "Voice"
+          ],
+          "learned from": [
+            "Class Trainers"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          },
+          {
+            "name": "every ability that changed",
+            "url": "https://vgsoharchive.com/abilities/as-it-was"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 12,
+        "rank": null,
+        "category": "Song Component",
+        "cost": {
+          "energy": 5
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": 0,
+        "duration_seconds": null,
+        "range": {
+          "value": 5,
+          "unit": "m",
+          "raw": "5m"
+        },
+        "tooltip": "Increase the damage of your group by 5%, does not stack with Mellarien's Anthem of War",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "historical_level_observations": [
+          {
+            "scope": "level in 2007",
+            "level_learned": 12,
+            "raw": "12"
+          },
+          {
+            "scope": "level in 2007-2008",
+            "level_learned": 12,
+            "raw": "12"
+          }
+        ],
+        "historical_source_urls_recorded": [
+          "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard",
+          "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59432"
+        ],
+        "cost_observations": {
+          "energy": [
+            5
+          ]
+        },
+        "timing_observations": {
+          "refresh_seconds": [
+            {
+              "label": "refresh",
+              "raw": "0s",
+              "seconds": 0
+            }
+          ]
+        },
+        "trainer": "Class Trainers",
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/abilities:mellarien-s-requiem-of-war"
+        ]
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "target_level_limit": null,
+      "player_target_applicability": null,
+      "disposition": "source_review_pending_constrained_parser"
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 3,
+    "source_record_hashes_verified": 3,
+    "literal_hashes_verified": 3,
+    "whole_page_replays": 3,
+    "issues": 0,
+    "python_tests_passed": 217,
+    "test_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q"
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Archive transcriptions are not independently authenticated live-era evidence.",
+    "Harmony prints 12-20 without a unit; no percent sign or flat-damage mechanic is inferred.",
+    "Anthem prints strength, intelligence by 6-30 as a shared phrase; attribute scaling and AC units remain unknown.",
+    "Anthem and Requiem explicitly name a non-stacking exception; no general stacking rules are inferred.",
+    "Percentage base, damage scope, duration, radius, patch era and operative values remain unknown."
+  ],
+  "next_step": "Implement and test constrained group-damage tooltip observations, preserving unlabelled Harmony units and named non-stacking exceptions."
+}

@@ -1,0 +1,4115 @@
+{
+  "review_kind": "paladin_effect_difference_cached_html_review",
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "inputs": [
+    {
+      "path": "reviewed/PALADIN_DETAIL_FIELD_COMPARISON_ITERATION508.json",
+      "sha256": "b29afe2d4dddcb5726cb516062c173d03862f77f4787d8dd2fade24ecbe5044b"
+    },
+    {
+      "path": "reviewed/PALADIN_LANDING_PAGE_COVERAGE_ITERATION372.json",
+      "sha256": "f4d2fefcd1f9df7db182be199b92a3646d9c077ce0e571ed5333e88c586fb031"
+    }
+  ],
+  "typed_corpus_files": [
+    {
+      "path": "raw/2026-10-13-213223-406049-archive-enriched-v2/ability.jsonl",
+      "sha256": "a10f811ac5bfc2084cf0eba3ea3305c9ee7e4b9235d8477e4d2ad44c14ea5120"
+    },
+    {
+      "path": "raw/2026-10-13-214014-456434-archive-bulk/ability.jsonl",
+      "sha256": "b9dd2be375e11c1d344166e51c5fe33371f4e846fbd627f1fc3bac32323c6487"
+    },
+    {
+      "path": "raw/2026-10-13-214736-136367-archive-bulk/ability.jsonl",
+      "sha256": "e275a8238bebf0093aa8b279473688b96ac4c9e9781c21b08b637baa790d460c"
+    },
+    {
+      "path": "raw/2026-10-13-214748-908906-archive-enriched-v3/ability.jsonl",
+      "sha256": "fa071e9cea3a26c50a24fd963fb36339362bafac2a650cea28a803d5d36aa3ba"
+    },
+    {
+      "path": "raw/2026-10-13-215037-057896-archive-enriched-v3/ability.jsonl",
+      "sha256": "5d05fe0ff7620c3ccb95a8106f04932b28cf7a55c628185278f675f6a1d8d75d"
+    },
+    {
+      "path": "raw/2026-10-13-215552-162528-archive-bulk/ability.jsonl",
+      "sha256": "29511af10dc0c88c7f9be33b5b06d8593846e0589c6c23829f516ce66bf894d7"
+    },
+    {
+      "path": "raw/2026-10-13-220412-188271-archive-bulk/ability.jsonl",
+      "sha256": "053bacefda830f1bc7d15d26149624cdbbd5887e8c98c5e2e1d250a33cadb3d5"
+    },
+    {
+      "path": "raw/2026-10-13-221232-209491-archive-bulk/ability.jsonl",
+      "sha256": "25cf7152c26a1f1e3bd615738a04107f9255c34b2683ffa7b134fca2cfdc8f29"
+    },
+    {
+      "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+      "sha256": "7b4e164cc25cab1658d7f9bed657faa55eb3bb172aafe2b13f901bbb0935becd"
+    },
+    {
+      "path": "raw/2026-10-13-221620-410288-archive-bulk/ability.jsonl",
+      "sha256": "0344dab5366d788b046044b3f0017d299d3410ec7360655ab43dbf72ab9f5f96"
+    },
+    {
+      "path": "raw/2026-10-13-222359-454426-archive-bulk/ability.jsonl",
+      "sha256": "3a052732cb55ed0c24098195b33f698012b7c46f90da3819dead5e4689c6c820"
+    },
+    {
+      "path": "raw/2026-10-13-222443-632404-archive-bulk/ability.jsonl",
+      "sha256": "3ec34061284ecf93c4b235b2ab088cc064997ba476210c51e0856b485ef11ca8"
+    },
+    {
+      "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+      "sha256": "ad6a7fa36da09725e8a7a8307e292b6571ad797f148e13f37dbe1637251465cb"
+    },
+    {
+      "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+      "sha256": "6e365907cb0113e51a73b9d0aedf485e5b15edd1a5a7e1e8a30bdd6de7ca4c1e"
+    },
+    {
+      "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+      "sha256": "47ad1508de806df0a8e1bc902e5f7fef075a4b3aefb4f23db54ad105687462fc"
+    },
+    {
+      "path": "raw/2026-10-13-224225-751455-archive-item-effects-v8/ability.jsonl",
+      "sha256": "5d316f74516053d57b8c851565527f2e6b79465a433a405dc3735bb38874b209"
+    },
+    {
+      "path": "raw/2026-10-13-224520-125263-archive-bulk/ability.jsonl",
+      "sha256": "72827bdb82e7f7470a31cf333fd9e84034446ab339e0dfb25d02ccd6277a4200"
+    },
+    {
+      "path": "raw/2026-10-13-224806-088768-archive-bulk/ability.jsonl",
+      "sha256": "e58e36e0a90023f6de53f5bbfcb3ec76ba37ce9c7f5d97637ad03b83e52de454"
+    },
+    {
+      "path": "raw/2026-10-13-224932-447760-archive-bulk/ability.jsonl",
+      "sha256": "ff5e2837c41f6a87a28a6cdde449430cfea1f3e98c631be70db3a374b06014df"
+    },
+    {
+      "path": "raw/2026-10-13-225120-105226-archive-historical-levels-v12/ability.jsonl",
+      "sha256": "fc3f3a29c1d410a8064de50368edba187ffdbf4cbc07865d047134dc1eec4375"
+    },
+    {
+      "path": "raw/2026-10-13-225130-635206-archive-bulk/ability.jsonl",
+      "sha256": "3a60c98aeda0f8a3db68ce14bdabb31cdf2ca328315b38f490788f05f277977d"
+    },
+    {
+      "path": "raw/2026-10-13-225313-129033-archive-bulk/ability.jsonl",
+      "sha256": "1f963fbb036d6330dc6971e515c93e576e7d58d524de030473577237423f0e20"
+    },
+    {
+      "path": "raw/2026-10-13-230129-767777-archive-bulk/ability.jsonl",
+      "sha256": "c9c75947ce8d2db430bc10ff2b1ffb923f9e9a5c4b5cf8eaeafeab6afc06dc56"
+    },
+    {
+      "path": "raw/2026-10-13-230323-767791-archive-healing-v14/ability.jsonl",
+      "sha256": "cce21296c3b8264737f1808a595bcc6e879c6bb79d5c9005c593df831f711428"
+    },
+    {
+      "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+      "sha256": "de9de40f5c5aa3ec9faa950cd874cdb93ed0a86a543ea49a2bb2e3a807b3fcfc"
+    },
+    {
+      "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+      "sha256": "fa5ebaea718875d47539fb0b852c3cefeabf24598151c4cf267dbfaea6b39621"
+    },
+    {
+      "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+      "sha256": "c27e9af1fa8753a309b5fbf8eebe8e3eb1b45c241bbbdbccec90fdc8bc3babc5"
+    },
+    {
+      "path": "raw/2026-10-13-234216-582177-archive-bulk/ability.jsonl",
+      "sha256": "637debeff797ae5a1a7fa769a9fbfaf2f0f367ded92df5974bac07257b7b6756"
+    },
+    {
+      "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+      "sha256": "7da9d3d9c004cc0ee46dbbbf6ff6d67f668d442793b5679aab107064446004db"
+    },
+    {
+      "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+      "sha256": "310f8d2956750e38a49f48545c349250440224faa6f742298ec6085df783d431"
+    },
+    {
+      "path": "raw/2026-10-14-000716-738417-archive-bulk/ability.jsonl",
+      "sha256": "aa6b7763ae799c44c6eb26aba1ffba965421c808a70ca8696240db19317e1242"
+    },
+    {
+      "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+      "sha256": "96535898882fe7ff6d9ec4101a17f64df5da3d5b10a13b79f51b0a1a82ddda12"
+    },
+    {
+      "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+      "sha256": "b238057baa6dc1376ade5ed755ae78e83e06f82cbbac74ac2dab25e200aa02d3"
+    },
+    {
+      "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+      "sha256": "82cccecf6852bd48e252243e19ed330dd9efe7f76bf88b6db435495e347f16ef"
+    },
+    {
+      "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+      "sha256": "8a2a30cde41b5c3057085df35d2d3ca9c4f5483915f75032e8da4564020b7aaf"
+    },
+    {
+      "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+      "sha256": "19c3a986f0985e138dab5f0544416bfb889a804f0eb6aa9903a99e21588f2f9c"
+    },
+    {
+      "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+      "sha256": "6da11b1d291ec7593025d149ddcc95e6e6e9f7e9a3f079e8f9d61cc61710f208"
+    },
+    {
+      "path": "raw/2026-10-14-013525-057925-archive-bulk/ability.jsonl",
+      "sha256": "d2a0f087e6e71190d4cedc753c549c42e890078c492b020fc00abf49a6b3da98"
+    },
+    {
+      "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+      "sha256": "2c9529a1adc7bea476d214a42fc03f95aad79068da9456240e0cfce328360bc2"
+    },
+    {
+      "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+      "sha256": "0328193409684ff32f7aa186b07e138be463f51398e708ab2c170482c26a7beb"
+    },
+    {
+      "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+      "sha256": "53c0ff1eb0099be822d342321e6ed9fd6ef28aaea004ba3fe87e046c7aacbb3b"
+    },
+    {
+      "path": "raw/2026-10-14-020845-278689-archive-bulk/ability.jsonl",
+      "sha256": "1085141f3d2ceb77e9274d8a007f905c65137a4a63de8c2aefe25e915d105ec0"
+    },
+    {
+      "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+      "sha256": "4cf3464a0252fb0313ee63f0ceccd3bbf7ea37ec99be59764af32fd47447e765"
+    },
+    {
+      "path": "raw/2026-10-14-022525-353932-archive-bulk/ability.jsonl",
+      "sha256": "e2f1e90a583f21ccb8866348add1c864a5cf0b371f6eca8f54bcf8f78440c7be"
+    },
+    {
+      "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+      "sha256": "3093ff5ee03845807b73462c578935e6e47f838ba2a8689933993d0d8e1e1517"
+    },
+    {
+      "path": "raw/2026-10-14-024205-390272-archive-bulk/ability.jsonl",
+      "sha256": "12cc900249e28bcb60e09c7630706b2a965f3f21820ee01c7acb9cb417e277da"
+    },
+    {
+      "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+      "sha256": "64d8e43ecc5ee6ed305f54be1d75bc91a9682dc32d70acaac7a901c5dca6c5cd"
+    },
+    {
+      "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+      "sha256": "96df6209eee6885f86b6e09c476d805556b15b830ae61b964f71f7ec772da320"
+    },
+    {
+      "path": "raw/2026-10-14-030921-688504-archive-bulk/ability.jsonl",
+      "sha256": "ec4da91b613fdb0a6122e295646853a58e2b3d1235bc8b723e5d5809b5095cdf"
+    },
+    {
+      "path": "raw/2026-10-14-115232-166401-archive-ability-effect-numbers-v26/ability.jsonl",
+      "sha256": "a64bf5aee2e33bb9ff11403a6760d5b540f2a06ed8de1d0709c3a9a0033c6113"
+    },
+    {
+      "path": "raw/2026-10-17-iteration156-shaman-spirit-bonds/ability.jsonl",
+      "sha256": "da9b9751aa87751924cca2d123079cc9d0ad2afe14875f79de200d94283ec4a2"
+    }
+  ],
+  "class_cache": {
+    "path": ".cache/archive/c4e1188683f84711884ab389127fc860328841663f765f60318831af32efa597.txt",
+    "sha256": "175a45f3ad598c58692358924dab0b22d1c238c701f499cdadf030ec9e66499b"
+  },
+  "class_provenance_warning": "Archive compilation preserves fan-source and modern emulator observations; individual row provenance and live-era accuracy remain unresolved.",
+  "rows": [
+    {
+      "name": "Devout Foeman I",
+      "table_index": 0,
+      "row_index": 6,
+      "printed_cells": {
+        "level": "6",
+        "ability": "Devout Foeman I",
+        "school": "Defensive Maneuver",
+        "cost": "20",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">6</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/devout-foeman-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/devout-foeman-i\">Devout Foeman I</a>\n</td>\n<td class=\"muted\">Defensive Maneuver</td>\n<td class=\"num muted\">\n              20\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/devout-foeman-i",
+      "detail_cache": {
+        "path": ".cache/archive/8afcb46c5c637f42bab9bbda32d63d8f6e7db2878e6bf0383807b83a020e84da.txt",
+        "sha256": "32e939fd7f8550bc41f78945ac391202512b30e33406ef50b9b591691325aee4"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/devout-foeman-i.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Devout Foeman I\n  </h1>\n<p class=\"muted\">Also recorded as\n      Devout Foreman I</p>\n<p class=\"muted\">\n<a href=\"/classes/paladin\">Paladin</a>\n    \n    · Level 6\n    · Defensive Maneuver\n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>6</dd></div>\n</dl>\n<div class=\"tooltip\">Raises your chances to block incoming attacks by 100% for 60 seconds or until you block. Requires a shield. Energy Cost: 0</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59401\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Requires a shield.</p>\n<p class=\"muted\">Confirmed present in the VGO Emulator client: it appears in the Paladin's Adventuring spellbook, captured in full (201 entries over 9 pages) on a level 50 character. The tooltip has not been read, so the figures below still come from the source credited above.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>6</dd></div>\n<div><dt>Endurance cost</dt><dd>20</dd></div>\n<div><dt>Virtue points</dt><dd>0</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Self</dd></div>\n<div><dt>Type</dt><dd>Skill or Spell</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Confirmed to exist in the VGO Emulator</strong>\n<span class=\"muted\">— it appears in the class spellbook,\n              but its tooltip has not been read, so the figures below are still\n              the wikis’</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:devout-foeman-i\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "detail_snapshot_groups": [
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "endurance cost": [
+                "20"
+              ]
+            },
+            "cast": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ],
+            "effect": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack."
+          },
+          "field_comparisons": {
+            "school": "detail_field_absent",
+            "cost": "literal_equal",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Devout Foeman I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/devout-foeman-i",
+                "title": "Devout Foeman I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/paladin",
+                "title": "Paladin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 4,
+            "collected_at": "2026-10-14T02:14:35+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "6"
+              ],
+              "level": [
+                "6"
+              ],
+              "endurance cost": [
+                "20"
+              ],
+              "virtue points": [
+                "0"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 6,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "endurance": 20
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                20
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "spellbook existence only; numerical tooltip unverified",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:devout-foeman-i"
+            ],
+            "classes_recorded": [
+              "Paladin"
+            ],
+            "archive_variants": [
+              {
+                "name": "Devout Foeman I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/paladin",
+                    "title": "Paladin · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 4,
+                "collected_at": "2026-10-14T02:14:39+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Devout Foeman I",
+                    "url": "https://vgsoharchive.com/abilities/devout-foeman-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Paladin",
+                "level_learned": 6,
+                "rank": "I",
+                "category": "Defensive Maneuver",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/devout-foeman-i",
+                "cost_recorded": {
+                  "value": 20,
+                  "resource": null,
+                  "raw": "20"
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+              "line": 709,
+              "record_sha256": "8b1a428d15e14afe0bb29cbecae3622d53eb5317199bf7bf167bed504244f0b6"
+            }
+          ]
+        },
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "endurance cost": [
+                "20"
+              ]
+            },
+            "cast": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ],
+            "effect": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack."
+          },
+          "field_comparisons": {
+            "school": "detail_field_absent",
+            "cost": "literal_equal",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Devout Foeman I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/devout-foeman-i",
+                "title": "Devout Foeman I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/paladin",
+                "title": "Paladin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 5,
+            "collected_at": "2026-10-14T02:27:29+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "6"
+              ],
+              "level": [
+                "6"
+              ],
+              "endurance cost": [
+                "20"
+              ],
+              "virtue points": [
+                "0"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 6,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "endurance": 20
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                20
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "spellbook existence only; numerical tooltip unverified",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:devout-foeman-i"
+            ],
+            "classes_recorded": [
+              "Paladin"
+            ],
+            "archive_variants": [
+              {
+                "name": "Devout Foeman I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/paladin",
+                    "title": "Paladin · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 5,
+                "collected_at": "2026-10-14T02:27:34+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Devout Foeman I",
+                    "url": "https://vgsoharchive.com/abilities/devout-foeman-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Paladin",
+                "level_learned": 6,
+                "rank": "I",
+                "category": "Defensive Maneuver",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/devout-foeman-i",
+                "cost_recorded": {
+                  "value": 20,
+                  "resource": null,
+                  "raw": "20"
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+              "line": 709,
+              "record_sha256": "dab5d88d6e18115d43a8ded28f75e8562a0b3bd60b02d18004f8ee74fafb7ef9"
+            }
+          ]
+        },
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "endurance cost": [
+                "20"
+              ]
+            },
+            "cast": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ],
+            "effect": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack."
+          },
+          "field_comparisons": {
+            "school": "detail_field_absent",
+            "cost": "literal_equal",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Devout Foeman I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/devout-foeman-i",
+                "title": "Devout Foeman I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/paladin",
+                "title": "Paladin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 6,
+            "collected_at": "2026-10-14T02:38:59+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "6"
+              ],
+              "level": [
+                "6"
+              ],
+              "endurance cost": [
+                "20"
+              ],
+              "virtue points": [
+                "0"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 6,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "endurance": 20
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                20
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "spellbook existence only; numerical tooltip unverified",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:devout-foeman-i"
+            ],
+            "classes_recorded": [
+              "Paladin"
+            ],
+            "archive_variants": [
+              {
+                "name": "Devout Foeman I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/paladin",
+                    "title": "Paladin · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 6,
+                "collected_at": "2026-10-14T02:39:04+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Devout Foeman I",
+                    "url": "https://vgsoharchive.com/abilities/devout-foeman-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Paladin",
+                "level_learned": 6,
+                "rank": "I",
+                "category": "Defensive Maneuver",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/devout-foeman-i",
+                "cost_recorded": {
+                  "value": 20,
+                  "resource": null,
+                  "raw": "20"
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+              "line": 709,
+              "record_sha256": "40982dbdc37149b8417e82f972a522ecc14aa24b6d012d9dd71d8bdc077b9237"
+            }
+          ]
+        },
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "endurance cost": [
+                "20"
+              ]
+            },
+            "cast": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ],
+            "effect": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack."
+          },
+          "field_comparisons": {
+            "school": "detail_field_absent",
+            "cost": "literal_equal",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Devout Foeman I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/devout-foeman-i",
+                "title": "Devout Foeman I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/paladin",
+                "title": "Paladin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 7,
+            "collected_at": "2026-10-14T02:40:58+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "6"
+              ],
+              "level": [
+                "6"
+              ],
+              "endurance cost": [
+                "20"
+              ],
+              "virtue points": [
+                "0"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 6,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "endurance": 20
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                20
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "spellbook existence only; numerical tooltip unverified",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:devout-foeman-i"
+            ],
+            "classes_recorded": [
+              "Paladin"
+            ],
+            "archive_variants": [
+              {
+                "name": "Devout Foeman I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/paladin",
+                    "title": "Paladin · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 7,
+                "collected_at": "2026-10-14T02:41:03+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Devout Foeman I",
+                    "url": "https://vgsoharchive.com/abilities/devout-foeman-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Paladin",
+                "level_learned": 6,
+                "rank": "I",
+                "category": "Defensive Maneuver",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/devout-foeman-i",
+                "cost_recorded": {
+                  "value": 20,
+                  "resource": null,
+                  "raw": "20"
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+              "line": 709,
+              "record_sha256": "fdabda6824ecd1982eaeddc58a96e241cdca584c122ba9930cd0ced40dc7d4e3"
+            }
+          ]
+        },
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "endurance cost": [
+                "20"
+              ]
+            },
+            "cast": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ],
+            "effect": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack."
+          },
+          "field_comparisons": {
+            "school": "detail_field_absent",
+            "cost": "literal_equal",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Devout Foeman I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/devout-foeman-i",
+                "title": "Devout Foeman I · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+            "parser_version": 12,
+            "collected_at": "2026-10-14T02:51:20+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "6"
+              ],
+              "level": [
+                "6"
+              ],
+              "endurance cost": [
+                "20"
+              ],
+              "virtue points": [
+                "0"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 6,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "endurance": 20
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack.",
+            "icon_name": null,
+            "ranks": [],
+            "target_recorded": "Self",
+            "historical_level_observations": [
+              {
+                "scope": "level in 2007-2008",
+                "level_learned": 6,
+                "raw": "6"
+              }
+            ],
+            "historical_source_urls_recorded": [
+              "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59401"
+            ],
+            "cost_observations": {
+              "endurance": [
+                20
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "spellbook existence only; numerical tooltip unverified",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:devout-foeman-i"
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-225120-105226-archive-historical-levels-v12/ability.jsonl",
+              "line": 109,
+              "record_sha256": "63ef21433cff6467bc14ff26ee36a412832f3888ebfabbb009fb95135ca416cc"
+            }
+          ]
+        }
+      ],
+      "disposition": "Class effect is an exact prefix of each associated full tooltip followed by literal three-dot truncation. Full tooltip text is present in cached detail main HTML after whitespace normalization. No contradictory shared prefix observed; this does not establish historical accuracy or complete mechanics.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Boon of Vol Anari I",
+      "table_index": 1,
+      "row_index": 1,
+      "printed_cells": {
+        "level": "12",
+        "ability": "Boon of Vol Anari I",
+        "school": "Weapon Buff",
+        "cost": "31",
+        "cast": "2.0",
+        "range": "5",
+        "effect": "Allows you a chance to deal additional damage to undead targets with every melee attack. You cannot have more than one Boon..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">12</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/boon-of-vol-anari-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/boon-of-vol-anari-i\">Boon of Vol Anari I</a>\n</td>\n<td class=\"muted\">Weapon Buff</td>\n<td class=\"num muted\">\n              31\n            </td>\n<td class=\"muted\">2.0</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Allows you a chance to deal additional damage to undead targets with every melee attack. You cannot have more than one Boon...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/boon-of-vol-anari-i",
+      "detail_cache": {
+        "path": ".cache/archive/685ec83783a0984f33afcc97a9f6b6d4306da535f1ae32eb5e72e273b37b9a77.txt",
+        "sha256": "1af12c0ceb962da4004a789af39bee751a068bc176fe71cfa951f131e78ec119"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/boon-of-vol-anari-i.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Boon of Vol Anari I\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/paladin\">Paladin</a>\n    \n    · Level 12\n    · Weapon Buff\n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Allows you a chance to deal additional damage to undead targets with every melee attack. You cannot have more than one Boon affecting your weapons.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>8\n                <span class=\"muted\">— now 12</span></dd></div>\n</dl>\n<div class=\"tooltip\">Allows you the chance to deal additional damage to undead targets. You cannot have more than one boon affecting your weapons. Energy Cost: 25</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59401\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Confirmed present in the VGO Emulator client: it appears in the Paladin's Adventuring spellbook, captured in full (201 entries over 9 pages) on a level 50 character. The tooltip has not been read, so the figures below still come from the source credited above.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>12</dd></div>\n<div><dt>Energy cost</dt><dd>31</dd></div>\n<div><dt>Virtue points</dt><dd>0</dd></div>\n<div><dt>Cast time</dt><dd>2.0</dd></div>\n<div><dt>Duration</dt><dd>10 Minutes</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Self</dd></div>\n<div><dt>Type</dt><dd>Skill or Spell</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Confirmed to exist in the VGO Emulator</strong>\n<span class=\"muted\">— it appears in the class spellbook,\n              but its tooltip has not been read, so the figures below are still\n              the wikis’</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:boon-of-vol-anari-i\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "detail_snapshot_groups": [
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "energy cost": [
+                "31"
+              ]
+            },
+            "cast": [
+              "2.0"
+            ],
+            "range": [
+              "5m"
+            ],
+            "effect": "Allows you a chance to deal additional damage to undead targets with every melee attack. You cannot have more than one Boon affecting your weapons."
+          },
+          "field_comparisons": {
+            "school": "detail_field_absent",
+            "cost": "literal_equal",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Boon of Vol Anari I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/boon-of-vol-anari-i",
+                "title": "Boon of Vol Anari I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/paladin",
+                "title": "Paladin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 4,
+            "collected_at": "2026-10-14T02:14:34+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "8 — now 12"
+              ],
+              "level": [
+                "12"
+              ],
+              "energy cost": [
+                "31"
+              ],
+              "virtue points": [
+                "0"
+              ],
+              "cast time": [
+                "2.0"
+              ],
+              "duration": [
+                "10 Minutes"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 12,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "energy": 31
+            },
+            "cast_time_seconds": null,
+            "refresh_seconds": null,
+            "duration_seconds": 600,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Allows you a chance to deal additional damage to undead targets with every melee attack. You cannot have more than one Boon affecting your weapons.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "energy": [
+                31
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "spellbook existence only; numerical tooltip unverified",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:boon-of-vol-anari-i"
+            ],
+            "classes_recorded": [
+              "Paladin"
+            ],
+            "archive_variants": [
+              {
+                "name": "Boon of Vol Anari I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/paladin",
+                    "title": "Paladin · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 4,
+                "collected_at": "2026-10-14T02:14:39+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Boon of Vol Anari I",
+                    "url": "https://vgsoharchive.com/abilities/boon-of-vol-anari-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Paladin",
+                "level_learned": 12,
+                "rank": "I",
+                "category": "Weapon Buff",
+                "cost": null,
+                "cast_time_seconds": null,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/boon-of-vol-anari-i",
+                "cost_recorded": {
+                  "value": 31,
+                  "resource": null,
+                  "raw": "31"
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": 2.0,
+                  "unit": null,
+                  "raw": "2.0"
+                }
+              }
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+              "line": 357,
+              "record_sha256": "189b631800817b0b471a5e3c05f9cab4d2376cb2fd7ed17beccd62485b177c8b"
+            }
+          ]
+        },
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "energy cost": [
+                "31"
+              ]
+            },
+            "cast": [
+              "2.0"
+            ],
+            "range": [
+              "5m"
+            ],
+            "effect": "Allows you a chance to deal additional damage to undead targets with every melee attack. You cannot have more than one Boon affecting your weapons."
+          },
+          "field_comparisons": {
+            "school": "detail_field_absent",
+            "cost": "literal_equal",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Boon of Vol Anari I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/boon-of-vol-anari-i",
+                "title": "Boon of Vol Anari I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/paladin",
+                "title": "Paladin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 5,
+            "collected_at": "2026-10-14T02:27:29+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "8 — now 12"
+              ],
+              "level": [
+                "12"
+              ],
+              "energy cost": [
+                "31"
+              ],
+              "virtue points": [
+                "0"
+              ],
+              "cast time": [
+                "2.0"
+              ],
+              "duration": [
+                "10 Minutes"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 12,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "energy": 31
+            },
+            "cast_time_seconds": null,
+            "refresh_seconds": null,
+            "duration_seconds": 600,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Allows you a chance to deal additional damage to undead targets with every melee attack. You cannot have more than one Boon affecting your weapons.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "energy": [
+                31
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "spellbook existence only; numerical tooltip unverified",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:boon-of-vol-anari-i"
+            ],
+            "classes_recorded": [
+              "Paladin"
+            ],
+            "archive_variants": [
+              {
+                "name": "Boon of Vol Anari I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/paladin",
+                    "title": "Paladin · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 5,
+                "collected_at": "2026-10-14T02:27:34+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Boon of Vol Anari I",
+                    "url": "https://vgsoharchive.com/abilities/boon-of-vol-anari-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Paladin",
+                "level_learned": 12,
+                "rank": "I",
+                "category": "Weapon Buff",
+                "cost": null,
+                "cast_time_seconds": null,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/boon-of-vol-anari-i",
+                "cost_recorded": {
+                  "value": 31,
+                  "resource": null,
+                  "raw": "31"
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": 2.0,
+                  "unit": null,
+                  "raw": "2.0"
+                }
+              }
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+              "line": 357,
+              "record_sha256": "f637384cc5888f1cd4fcdeaa6f2b1bc809be92c2a93db625baa874c2ebc3de4f"
+            }
+          ]
+        },
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "energy cost": [
+                "31"
+              ]
+            },
+            "cast": [
+              "2.0"
+            ],
+            "range": [
+              "5m"
+            ],
+            "effect": "Allows you a chance to deal additional damage to undead targets with every melee attack. You cannot have more than one Boon affecting your weapons."
+          },
+          "field_comparisons": {
+            "school": "detail_field_absent",
+            "cost": "literal_equal",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Boon of Vol Anari I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/boon-of-vol-anari-i",
+                "title": "Boon of Vol Anari I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/paladin",
+                "title": "Paladin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 6,
+            "collected_at": "2026-10-14T02:38:59+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "8 — now 12"
+              ],
+              "level": [
+                "12"
+              ],
+              "energy cost": [
+                "31"
+              ],
+              "virtue points": [
+                "0"
+              ],
+              "cast time": [
+                "2.0"
+              ],
+              "duration": [
+                "10 Minutes"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 12,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "energy": 31
+            },
+            "cast_time_seconds": null,
+            "refresh_seconds": null,
+            "duration_seconds": 600,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Allows you a chance to deal additional damage to undead targets with every melee attack. You cannot have more than one Boon affecting your weapons.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "energy": [
+                31
+              ]
+            },
+            "timing_observations": {
+              "duration_seconds": [
+                {
+                  "label": "duration",
+                  "raw": "10 Minutes",
+                  "seconds": 600
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "spellbook existence only; numerical tooltip unverified",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:boon-of-vol-anari-i"
+            ],
+            "classes_recorded": [
+              "Paladin"
+            ],
+            "archive_variants": [
+              {
+                "name": "Boon of Vol Anari I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/paladin",
+                    "title": "Paladin · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 6,
+                "collected_at": "2026-10-14T02:39:04+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Boon of Vol Anari I",
+                    "url": "https://vgsoharchive.com/abilities/boon-of-vol-anari-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Paladin",
+                "level_learned": 12,
+                "rank": "I",
+                "category": "Weapon Buff",
+                "cost": null,
+                "cast_time_seconds": null,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/boon-of-vol-anari-i",
+                "cost_recorded": {
+                  "value": 31,
+                  "resource": null,
+                  "raw": "31"
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": 2.0,
+                  "unit": null,
+                  "raw": "2.0"
+                }
+              }
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+              "line": 357,
+              "record_sha256": "37aefcef6cec393d2b71e1604907a9bfdea49ad88f4db3e5524bb5891e504da9"
+            }
+          ]
+        },
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "energy cost": [
+                "31"
+              ]
+            },
+            "cast": [
+              "2.0"
+            ],
+            "range": [
+              "5m"
+            ],
+            "effect": "Allows you a chance to deal additional damage to undead targets with every melee attack. You cannot have more than one Boon affecting your weapons."
+          },
+          "field_comparisons": {
+            "school": "detail_field_absent",
+            "cost": "literal_equal",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Boon of Vol Anari I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/boon-of-vol-anari-i",
+                "title": "Boon of Vol Anari I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/paladin",
+                "title": "Paladin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 7,
+            "collected_at": "2026-10-14T02:40:57+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "8 — now 12"
+              ],
+              "level": [
+                "12"
+              ],
+              "energy cost": [
+                "31"
+              ],
+              "virtue points": [
+                "0"
+              ],
+              "cast time": [
+                "2.0"
+              ],
+              "duration": [
+                "10 Minutes"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 12,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "energy": 31
+            },
+            "cast_time_seconds": null,
+            "refresh_seconds": null,
+            "duration_seconds": 600,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Allows you a chance to deal additional damage to undead targets with every melee attack. You cannot have more than one Boon affecting your weapons.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "energy": [
+                31
+              ]
+            },
+            "timing_observations": {
+              "duration_seconds": [
+                {
+                  "label": "duration",
+                  "raw": "10 Minutes",
+                  "seconds": 600
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "spellbook existence only; numerical tooltip unverified",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:boon-of-vol-anari-i"
+            ],
+            "classes_recorded": [
+              "Paladin"
+            ],
+            "archive_variants": [
+              {
+                "name": "Boon of Vol Anari I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/paladin",
+                    "title": "Paladin · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 7,
+                "collected_at": "2026-10-14T02:41:03+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Boon of Vol Anari I",
+                    "url": "https://vgsoharchive.com/abilities/boon-of-vol-anari-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Paladin",
+                "level_learned": 12,
+                "rank": "I",
+                "category": "Weapon Buff",
+                "cost": null,
+                "cast_time_seconds": null,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/boon-of-vol-anari-i",
+                "cost_recorded": {
+                  "value": 31,
+                  "resource": null,
+                  "raw": "31"
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": 2.0,
+                  "unit": null,
+                  "raw": "2.0"
+                }
+              }
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+              "line": 357,
+              "record_sha256": "eb4d10ee75b388f562a834b42468c4a2f8c2d29ec3d479ef443c50209c6ea12b"
+            }
+          ]
+        },
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "energy cost": [
+                "31"
+              ]
+            },
+            "cast": [
+              "2.0"
+            ],
+            "range": [
+              "5m"
+            ],
+            "effect": "Allows you a chance to deal additional damage to undead targets with every melee attack. You cannot have more than one Boon affecting your weapons."
+          },
+          "field_comparisons": {
+            "school": "detail_field_absent",
+            "cost": "literal_equal",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Boon of Vol Anari I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/boon-of-vol-anari-i",
+                "title": "Boon of Vol Anari I · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+            "parser_version": 12,
+            "collected_at": "2026-10-14T02:51:20+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "8 — now 12"
+              ],
+              "level": [
+                "12"
+              ],
+              "energy cost": [
+                "31"
+              ],
+              "virtue points": [
+                "0"
+              ],
+              "cast time": [
+                "2.0"
+              ],
+              "duration": [
+                "10 Minutes"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 12,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "energy": 31
+            },
+            "cast_time_seconds": null,
+            "refresh_seconds": null,
+            "duration_seconds": 600,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Allows you a chance to deal additional damage to undead targets with every melee attack. You cannot have more than one Boon affecting your weapons.",
+            "icon_name": null,
+            "ranks": [],
+            "target_recorded": "Self",
+            "historical_level_observations": [
+              {
+                "scope": "level in 2007-2008",
+                "level_learned": 8,
+                "raw": "8 — now 12"
+              }
+            ],
+            "historical_source_urls_recorded": [
+              "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59401"
+            ],
+            "cost_observations": {
+              "energy": [
+                31
+              ]
+            },
+            "timing_observations": {
+              "duration_seconds": [
+                {
+                  "label": "duration",
+                  "raw": "10 Minutes",
+                  "seconds": 600
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "spellbook existence only; numerical tooltip unverified",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:boon-of-vol-anari-i"
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-225120-105226-archive-historical-levels-v12/ability.jsonl",
+              "line": 57,
+              "record_sha256": "e65f0e55b45ddf1fb60dcdcbfa93da39a65b64b6e8829e30a55ee090bad794cf"
+            }
+          ]
+        }
+      ],
+      "disposition": "Class effect is an exact prefix of each associated full tooltip followed by literal three-dot truncation. Full tooltip text is present in cached detail main HTML after whitespace normalization. No contradictory shared prefix observed; this does not establish historical accuracy or complete mechanics.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Zeal",
+      "table_index": 1,
+      "row_index": 8,
+      "printed_cells": {
+        "level": "12",
+        "ability": "Zeal",
+        "school": null,
+        "cost": null,
+        "cast": "Instant",
+        "range": "5",
+        "effect": "Fills you with a righteous zeal, striking twice with every special melee attack and causing all attacks to cost half of the..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">12</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/zeal.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/zeal\">Zeal</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Fills you with a righteous zeal, striking twice with every special melee attack and causing all attacks to cost half of the...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/zeal",
+      "detail_cache": {
+        "path": ".cache/archive/28402a55402d35847de6b5232cae657040fc61425049d8e8f97dc816619f009d.txt",
+        "sha256": "66ddfa07d2b5d59ae2e8cbf90382f6ff19f5be10dd0e9b3d73460e552ff74f57"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/zeal.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Zeal\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/paladin\">Paladin</a>\n    \n    · Level 12\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Fills you with a righteous zeal, striking twice with every special melee attack and causing all attacks to cost half of the normal endurance.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>24\n                <span class=\"muted\">— now 12</span></dd></div>\n</dl>\n<div class=\"tooltip\">Fills you with a rightous zeal, stricking twice with every special melee attack and causing all attacks to caost half of the nornal endurance. Energy Cost: 0</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59401\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">An earlier reading from VGO Emulator, on a character with different stats, gave: “Causes all of your special attacks to strike twice”</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>12</dd></div>\n<div><dt>Virtue points</dt><dd>3</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Refresh</dt><dd>3:00s</dd></div>\n<div><dt>Duration</dt><dd>2 Minutes</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Self</dd></div>\n<div><dt>Type</dt><dd>Gift of Virtue</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon534.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n<li><a href=\"http://vg.mmodb.com:80/spells/zeal-501.php\" rel=\"noreferrer nofollow\">mmodb</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "detail_snapshot_groups": [
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {},
+            "cast": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ],
+            "effect": "Fills you with a righteous zeal, striking twice with every special melee attack and causing all attacks to cost half of the normal endurance."
+          },
+          "field_comparisons": {
+            "school": "table_blank",
+            "cost": "table_blank",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Zeal",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/zeal",
+                "title": "Zeal · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/paladin",
+                "title": "Paladin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 4,
+            "collected_at": "2026-10-14T02:14:36+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "24 — now 12"
+              ],
+              "level": [
+                "12"
+              ],
+              "virtue points": [
+                "3"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "3:00s"
+              ],
+              "duration": [
+                "2 Minutes"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Gift of Virtue"
+              ],
+              "icon": [
+                "Icon534.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 12,
+            "rank": null,
+            "category": "Gift of Virtue",
+            "cost": null,
+            "cast_time_seconds": 0,
+            "refresh_seconds": null,
+            "duration_seconds": 120,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Fills you with a righteous zeal, striking twice with every special melee attack and causing all attacks to cost half of the normal endurance.",
+            "icon_name": "Icon534.png",
+            "ranks": [],
+            "trainer": null,
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://vg.mmodb.com:80/spells/zeal-501.php"
+            ],
+            "classes_recorded": [
+              "Paladin"
+            ],
+            "archive_variants": [
+              {
+                "name": "Zeal",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/paladin",
+                    "title": "Paladin · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 4,
+                "collected_at": "2026-10-14T02:14:39+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Zeal",
+                    "url": "https://vgsoharchive.com/abilities/zeal"
+                  }
+                ],
+                "type": "ability",
+                "class": "Paladin",
+                "level_learned": 12,
+                "rank": null,
+                "category": null,
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/zeal",
+                "cost_recorded": {
+                  "value": null,
+                  "resource": null,
+                  "raw": null
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+              "line": 3008,
+              "record_sha256": "daa5566ee652295c2b7b0fef49f9259d8ae08c8641e807ea04919c4d8222052d"
+            }
+          ]
+        },
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {},
+            "cast": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ],
+            "effect": "Fills you with a righteous zeal, striking twice with every special melee attack and causing all attacks to cost half of the normal endurance."
+          },
+          "field_comparisons": {
+            "school": "table_blank",
+            "cost": "table_blank",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Zeal",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/zeal",
+                "title": "Zeal · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/paladin",
+                "title": "Paladin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 5,
+            "collected_at": "2026-10-14T02:27:31+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "24 — now 12"
+              ],
+              "level": [
+                "12"
+              ],
+              "virtue points": [
+                "3"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "3:00s"
+              ],
+              "duration": [
+                "2 Minutes"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Gift of Virtue"
+              ],
+              "icon": [
+                "Icon534.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 12,
+            "rank": null,
+            "category": "Gift of Virtue",
+            "cost": null,
+            "cast_time_seconds": 0,
+            "refresh_seconds": null,
+            "duration_seconds": 120,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Fills you with a righteous zeal, striking twice with every special melee attack and causing all attacks to cost half of the normal endurance.",
+            "icon_name": "Icon534.png",
+            "ranks": [],
+            "trainer": null,
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://vg.mmodb.com:80/spells/zeal-501.php"
+            ],
+            "classes_recorded": [
+              "Paladin"
+            ],
+            "archive_variants": [
+              {
+                "name": "Zeal",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/paladin",
+                    "title": "Paladin · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 5,
+                "collected_at": "2026-10-14T02:27:34+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Zeal",
+                    "url": "https://vgsoharchive.com/abilities/zeal"
+                  }
+                ],
+                "type": "ability",
+                "class": "Paladin",
+                "level_learned": 12,
+                "rank": null,
+                "category": null,
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/zeal",
+                "cost_recorded": {
+                  "value": null,
+                  "resource": null,
+                  "raw": null
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+              "line": 3008,
+              "record_sha256": "a847e145d32d9bcedbd1413bfcfe08f4406bfa013ed16981ee967a07fa388982"
+            }
+          ]
+        },
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {},
+            "cast": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ],
+            "effect": "Fills you with a righteous zeal, striking twice with every special melee attack and causing all attacks to cost half of the normal endurance."
+          },
+          "field_comparisons": {
+            "school": "table_blank",
+            "cost": "table_blank",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Zeal",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/zeal",
+                "title": "Zeal · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/paladin",
+                "title": "Paladin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 6,
+            "collected_at": "2026-10-14T02:39:01+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "24 — now 12"
+              ],
+              "level": [
+                "12"
+              ],
+              "virtue points": [
+                "3"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "3:00s"
+              ],
+              "duration": [
+                "2 Minutes"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Gift of Virtue"
+              ],
+              "icon": [
+                "Icon534.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 12,
+            "rank": null,
+            "category": "Gift of Virtue",
+            "cost": null,
+            "cast_time_seconds": 0,
+            "refresh_seconds": null,
+            "duration_seconds": 120,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Fills you with a righteous zeal, striking twice with every special melee attack and causing all attacks to cost half of the normal endurance.",
+            "icon_name": "Icon534.png",
+            "ranks": [],
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "duration_seconds": [
+                {
+                  "label": "duration",
+                  "raw": "2 Minutes",
+                  "seconds": 120
+                }
+              ]
+            },
+            "trainer": null,
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://vg.mmodb.com:80/spells/zeal-501.php"
+            ],
+            "classes_recorded": [
+              "Paladin"
+            ],
+            "archive_variants": [
+              {
+                "name": "Zeal",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/paladin",
+                    "title": "Paladin · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 6,
+                "collected_at": "2026-10-14T02:39:04+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Zeal",
+                    "url": "https://vgsoharchive.com/abilities/zeal"
+                  }
+                ],
+                "type": "ability",
+                "class": "Paladin",
+                "level_learned": 12,
+                "rank": null,
+                "category": null,
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/zeal",
+                "cost_recorded": {
+                  "value": null,
+                  "resource": null,
+                  "raw": null
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+              "line": 3008,
+              "record_sha256": "f2baf601d14bf687d7ef9b8eeb0f7ac69451fb82e85d87c137e1e6437f00de33"
+            }
+          ]
+        },
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {},
+            "cast": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ],
+            "effect": "Fills you with a righteous zeal, striking twice with every special melee attack and causing all attacks to cost half of the normal endurance."
+          },
+          "field_comparisons": {
+            "school": "table_blank",
+            "cost": "table_blank",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Zeal",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/zeal",
+                "title": "Zeal · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/paladin",
+                "title": "Paladin · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 7,
+            "collected_at": "2026-10-14T02:40:59+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "24 — now 12"
+              ],
+              "level": [
+                "12"
+              ],
+              "virtue points": [
+                "3"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "3:00s"
+              ],
+              "duration": [
+                "2 Minutes"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Gift of Virtue"
+              ],
+              "icon": [
+                "Icon534.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 12,
+            "rank": null,
+            "category": "Gift of Virtue",
+            "cost": null,
+            "cast_time_seconds": 0,
+            "refresh_seconds": null,
+            "duration_seconds": 120,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Fills you with a righteous zeal, striking twice with every special melee attack and causing all attacks to cost half of the normal endurance.",
+            "icon_name": "Icon534.png",
+            "ranks": [],
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "duration_seconds": [
+                {
+                  "label": "duration",
+                  "raw": "2 Minutes",
+                  "seconds": 120
+                }
+              ]
+            },
+            "trainer": null,
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://vg.mmodb.com:80/spells/zeal-501.php"
+            ],
+            "classes_recorded": [
+              "Paladin"
+            ],
+            "archive_variants": [
+              {
+                "name": "Zeal",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/paladin",
+                    "title": "Paladin · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 7,
+                "collected_at": "2026-10-14T02:41:03+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Zeal",
+                    "url": "https://vgsoharchive.com/abilities/zeal"
+                  }
+                ],
+                "type": "ability",
+                "class": "Paladin",
+                "level_learned": 12,
+                "rank": null,
+                "category": null,
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/zeal",
+                "cost_recorded": {
+                  "value": null,
+                  "resource": null,
+                  "raw": null
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+              "line": 3008,
+              "record_sha256": "1198b1aa1076fa6a2bc6a002a523f1c2b7876ccd9de7822d6fd722cd2db96214"
+            }
+          ]
+        },
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {},
+            "cast": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ],
+            "effect": "Fills you with a righteous zeal, striking twice with every special melee attack and causing all attacks to cost half of the normal endurance."
+          },
+          "field_comparisons": {
+            "school": "table_blank",
+            "cost": "table_blank",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Zeal",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/zeal",
+                "title": "Zeal · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+            "parser_version": 12,
+            "collected_at": "2026-10-14T02:51:22+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "24 — now 12"
+              ],
+              "level": [
+                "12"
+              ],
+              "virtue points": [
+                "3"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "3:00s"
+              ],
+              "duration": [
+                "2 Minutes"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Gift of Virtue"
+              ],
+              "icon": [
+                "Icon534.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 12,
+            "rank": null,
+            "category": "Gift of Virtue",
+            "cost": null,
+            "cast_time_seconds": 0,
+            "refresh_seconds": null,
+            "duration_seconds": 120,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Fills you with a righteous zeal, striking twice with every special melee attack and causing all attacks to cost half of the normal endurance.",
+            "icon_name": "Icon534.png",
+            "ranks": [],
+            "target_recorded": "Self",
+            "historical_level_observations": [
+              {
+                "scope": "level in 2007-2008",
+                "level_learned": 24,
+                "raw": "24 — now 12"
+              }
+            ],
+            "historical_source_urls_recorded": [
+              "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59401"
+            ],
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "duration_seconds": [
+                {
+                  "label": "duration",
+                  "raw": "2 Minutes",
+                  "seconds": 120
+                }
+              ]
+            },
+            "trainer": null,
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://vg.mmodb.com:80/spells/zeal-501.php"
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-225120-105226-archive-historical-levels-v12/ability.jsonl",
+              "line": 488,
+              "record_sha256": "426c0fe5001b57a4a417c464f7c61fe3d1fb61a084ee3ab6a3203ed9a7bd430c"
+            }
+          ]
+        }
+      ],
+      "disposition": "Class effect is an exact prefix of each associated full tooltip followed by literal three-dot truncation. Full tooltip text is present in cached detail main HTML after whitespace normalization. No contradictory shared prefix observed; this does not establish historical accuracy or complete mechanics.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Healing Touch I",
+      "table_index": 1,
+      "row_index": 12,
+      "printed_cells": {
+        "level": "14",
+        "ability": "Healing Touch I",
+        "school": null,
+        "cost": "108",
+        "cast": "2.5",
+        "range": "30",
+        "effect": "Heals your defensive target for 461."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">14</td>\n<td>\n<a href=\"/abilities/paladin-healing-touch-i\">Healing Touch I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              108\n            </td>\n<td class=\"muted\">2.5</td>\n<td class=\"num muted\">30</td>\n<td class=\"muted\">Heals your defensive target for 461.</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i",
+      "detail_cache": {
+        "path": ".cache/archive/0dab27a7d455156b0b76a4adf236c75fe9eb293add6076d44adc843429c1adb4.txt",
+        "sha256": "76da9bae889ad54ba46ea589dc7a9b2e1c5a746f64e5048cc3e364285c8031c1"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n    \n    Healing Touch I\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/paladin\">Paladin</a>\n    \n    · Level 14\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Heals your defensive target for 461.</div>\n<p class=\"muted small figure-note\">\n        Damage, healing and hate in Vanguard scale with your stats, skills and\n        level — the figures above are the ability's own, not what a\n        particular character will see.\n      </p>\n<h2>Notes</h2>\n<p class=\"muted\">The Cleric has a Healing Touch of its own, and it is a different ability rather than the same one shared. Compared at matching levels the Cleric's heals for more every time -- 23% more at rank I, narrowing to 10% by rank V -- which fits the Paladin being the heavier-armoured, lesser-healing half of the pair.</p>\n<p class=\"muted\">Energy efficiency differs between the two classes by a near-constant factor. Healing per point of energy spent runs 1.9 to 2.0 times better on the Paladin than on the Cleric at every matching level -- the Paladin heals less per cast, as expected, but costs less than half as much energy to do it. A ratio that steady across five ranks looks deliberate rather than accidental, but it is worth confirming which side carries the intended numbers.</p>\n<p class=\"muted\">Read from the in-game tooltip in VGO Emulator. Bracketed damage figures shown in game are the skill- and level-adjusted values for that character and are not recorded here.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>14</dd></div>\n<div><dt>energy cost</dt><dd>108</dd></div>\n<div><dt>Cast time</dt><dd>2.5</dd></div>\n<div><dt>Range</dt><dd>30m</dd></div>\n<div><dt>Target</dt><dd>Defensive Target</dd></div>\n<div><dt>Type</dt><dd>Alteration</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Verified from the in-game tooltip</strong>\n<span class=\"muted\">— these figures override the wikis</span></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "detail_snapshot_groups": [
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "energy cost": [
+                "67"
+              ]
+            },
+            "cast": [
+              "1.5"
+            ],
+            "range": [
+              "30m"
+            ],
+            "effect": "Heals your defensive target for 117."
+          },
+          "field_comparisons": {
+            "school": "table_blank",
+            "cost": "literal_difference_requires_source_review",
+            "cast": "literal_difference_requires_source_review",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Healing Touch I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/healing-touch-i",
+                "title": "Healing Touch I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i",
+                "title": "Healing Touch I · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 14,
+            "collected_at": "2026-10-14T03:03:23+00:00",
+            "archive_fields": {
+              "level in 2007": [
+                "1"
+              ],
+              "level in 2007-2008": [
+                "4 — now 1"
+              ],
+              "level": [
+                "1"
+              ],
+              "energy cost": [
+                "67"
+              ],
+              "virtue points": [
+                "0"
+              ],
+              "cast time": [
+                "1.5"
+              ],
+              "refresh": [
+                "0s"
+              ],
+              "range": [
+                "30m"
+              ],
+              "target": [
+                "Defensive Target"
+              ],
+              "type": [
+                "Alteration"
+              ],
+              "learned from": [
+                "Starting Ability (Level 1)"
+              ],
+              "icon": [
+                "Icon679.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Cleric",
+                "url": "https://vgsoharchive.com/classes/cleric"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Cleric",
+            "level_learned": 1,
+            "rank": "I",
+            "category": "Alteration",
+            "cost": {
+              "energy": 67
+            },
+            "cast_time_seconds": null,
+            "refresh_seconds": 0,
+            "duration_seconds": null,
+            "range": {
+              "value": 30,
+              "unit": "m",
+              "raw": "30m"
+            },
+            "tooltip": "Heals your defensive target for 117.",
+            "icon_name": "Icon679.png",
+            "ranks": [
+              {
+                "rank": "I",
+                "level_learned": 1,
+                "cost_raw": "68"
+              },
+              {
+                "rank": "II",
+                "level_learned": 8,
+                "cost_raw": "??"
+              },
+              {
+                "rank": "III",
+                "level_learned": 16,
+                "cost_raw": "??"
+              },
+              {
+                "rank": "IV",
+                "level_learned": 24,
+                "cost_raw": "??"
+              },
+              {
+                "rank": "V",
+                "level_learned": 32,
+                "cost_raw": "??"
+              },
+              {
+                "rank": "VI",
+                "level_learned": 40,
+                "cost_raw": "??"
+              },
+              {
+                "rank": "VII",
+                "level_learned": 48,
+                "cost_raw": "??"
+              }
+            ],
+            "target_recorded": "Defensive Target",
+            "historical_level_observations": [
+              {
+                "scope": "level in 2007",
+                "level_learned": 1,
+                "raw": "1"
+              },
+              {
+                "scope": "level in 2007-2008",
+                "level_learned": 4,
+                "raw": "4 — now 1"
+              }
+            ],
+            "historical_source_urls_recorded": [
+              "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FCleric",
+              "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59401"
+            ],
+            "cost_observations": {
+              "energy": [
+                67
+              ]
+            },
+            "timing_observations": {
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "0s",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": "Starting Ability (Level 1)",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "effect_observations": [
+              {
+                "scope": "current",
+                "facts": [
+                  {
+                    "kind": "healing_amount",
+                    "values": [
+                      117
+                    ],
+                    "target_recorded": "your defensive target",
+                    "radius_recorded": null,
+                    "duration_seconds": null,
+                    "conditions_unparsed": true
+                  }
+                ]
+              }
+            ],
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:healing-touch-i",
+              "https://vanguard.fandom.com/wiki/Healing_Touch_I"
+            ],
+            "classes_recorded": [
+              "Cleric",
+              "Paladin"
+            ],
+            "archive_variants": [
+              {
+                "name": "Healing Touch I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/abilities/paladin-healing-touch-i",
+                    "title": "Healing Touch I · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+                "parser_version": 14,
+                "collected_at": "2026-10-14T03:03:23+00:00",
+                "archive_fields": {
+                  "level": [
+                    "14"
+                  ],
+                  "energy cost": [
+                    "108"
+                  ],
+                  "cast time": [
+                    "2.5"
+                  ],
+                  "range": [
+                    "30m"
+                  ],
+                  "target": [
+                    "Defensive Target"
+                  ],
+                  "type": [
+                    "Alteration"
+                  ]
+                },
+                "referenced_entities": [
+                  {
+                    "name": "Paladin",
+                    "url": "https://vgsoharchive.com/classes/paladin"
+                  }
+                ],
+                "type": "ability",
+                "class": "Paladin",
+                "level_learned": 14,
+                "rank": "I",
+                "category": "Alteration",
+                "cost": {
+                  "energy": 108
+                },
+                "cast_time_seconds": null,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": {
+                  "value": 30,
+                  "unit": "m",
+                  "raw": "30m"
+                },
+                "tooltip": "Heals your defensive target for 461.",
+                "icon_name": null,
+                "ranks": [],
+                "target_recorded": "Defensive Target",
+                "cost_observations": {
+                  "energy": [
+                    108
+                  ]
+                },
+                "trainer": null,
+                "requirements": null,
+                "causes_weakness": null,
+                "exploits_weakness": null,
+                "effect_observations": [
+                  {
+                    "scope": "current",
+                    "facts": [
+                      {
+                        "kind": "healing_amount",
+                        "values": [
+                          461
+                        ],
+                        "target_recorded": "your defensive target",
+                        "radius_recorded": null,
+                        "duration_seconds": null,
+                        "conditions_unparsed": true
+                      }
+                    ]
+                  }
+                ],
+                "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+                "original_source_urls": []
+              }
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-230323-767791-archive-healing-v14/ability.jsonl",
+              "line": 20,
+              "record_sha256": "2b09da08ced0db2fbb6610ad307d9d190a589c054b04211446bdc88ab5c874ac"
+            }
+          ]
+        }
+      ],
+      "disposition": "Merged-record identity collision: class table and exact-linked Paladin cached detail both print healing 461. The aggregate source record projects Cleric healing 117 while retaining Paladin healing 461 inside archive_variants. Exact-linked variant verified; aggregate top-level projection must not be treated as Paladin evidence. Full source record and DOM preserved. Collision remains withheld; no canonical identities or operative values promoted.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Boon of Vol Anari II",
+      "table_index": 2,
+      "row_index": 3,
+      "printed_cells": {
+        "level": "22",
+        "ability": "Boon of Vol Anari II",
+        "school": "Weapon Buff",
+        "cost": "44",
+        "cast": "2.0",
+        "range": "5",
+        "effect": "Allows you a chance to deal additional damage to undead targets with every melee attack. You cannot have more than one Boon..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">22</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/boon-of-vol-anari-ii.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/boon-of-vol-anari-ii\">Boon of Vol Anari II</a>\n</td>\n<td class=\"muted\">Weapon Buff</td>\n<td class=\"num muted\">\n              44\n            </td>\n<td class=\"muted\">2.0</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Allows you a chance to deal additional damage to undead targets with every melee attack. You cannot have more than one Boon...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/boon-of-vol-anari-ii",
+      "detail_cache": {
+        "path": ".cache/archive/6b8afa7be0d7a0c9be3e668e8eaba01460edd8d32097463d49175e3fe44167bc.txt",
+        "sha256": "2501e61b23b4279d705a24f8a28bb1a605b7c7ee96ef78b44dd0bb6cee5bc114"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/boon-of-vol-anari-ii.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Boon of Vol Anari II\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/paladin\">Paladin</a>\n    \n    · Level 22\n    · Weapon Buff\n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Allows you a chance to deal additional damage to undead targets with every melee attack. You cannot have more than one Boon affecting your weapons.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>22</dd></div>\n</dl>\n<div class=\"tooltip\">Allows you the chance to deal additional damage to undead targets. You cannot have more than one boon affecting your weapons. Energy Cost: 44</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59401\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Confirmed present in the VGO Emulator client: it appears in the Paladin's Adventuring spellbook, captured in full (201 entries over 9 pages) on a level 50 character. The tooltip has not been read, so the figures below still come from the source credited above.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>22</dd></div>\n<div><dt>Energy cost</dt><dd>44</dd></div>\n<div><dt>Virtue points</dt><dd>0</dd></div>\n<div><dt>Cast time</dt><dd>2.0</dd></div>\n<div><dt>Duration</dt><dd>10 Minutes</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Self</dd></div>\n<div><dt>Type</dt><dd>Skill or Spell</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Confirmed to exist in the VGO Emulator</strong>\n<span class=\"muted\">— it appears in the class spellbook,\n              but its tooltip has not been read, so the figures below are still\n              the wikis’</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:boon-of-vol-anari-ii\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "detail_snapshot_groups": [
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "energy cost": [
+                "44"
+              ]
+            },
+            "cast": [
+              "2.0"
+            ],
+            "range": [
+              "5m"
+            ],
+            "effect": "Allows you a chance to deal additional damage to undead targets with every melee attack. You cannot have more than one Boon affecting your weapons."
+          },
+          "field_comparisons": {
+            "school": "detail_field_absent",
+            "cost": "literal_equal",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Boon of Vol Anari II",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/boon-of-vol-anari-ii",
+                "title": "Boon of Vol Anari II · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+            "parser_version": 16,
+            "collected_at": "2026-10-14T03:56:50+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "22"
+              ],
+              "level": [
+                "22"
+              ],
+              "energy cost": [
+                "44"
+              ],
+              "virtue points": [
+                "0"
+              ],
+              "cast time": [
+                "2.0"
+              ],
+              "duration": [
+                "10 Minutes"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 22,
+            "rank": "II",
+            "category": "Skill or Spell",
+            "cost": {
+              "energy": 44
+            },
+            "cast_time_seconds": null,
+            "refresh_seconds": null,
+            "duration_seconds": 600,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Allows you a chance to deal additional damage to undead targets with every melee attack. You cannot have more than one Boon affecting your weapons.",
+            "icon_name": null,
+            "ranks": [],
+            "target_recorded": "Self",
+            "historical_level_observations": [
+              {
+                "scope": "level in 2007-2008",
+                "level_learned": 22,
+                "raw": "22"
+              }
+            ],
+            "historical_source_urls_recorded": [
+              "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59401"
+            ],
+            "cost_observations": {
+              "energy": [
+                44
+              ]
+            },
+            "timing_observations": {
+              "duration_seconds": [
+                {
+                  "label": "duration",
+                  "raw": "10 Minutes",
+                  "seconds": 600
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "spellbook existence only; numerical tooltip unverified",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:boon-of-vol-anari-ii"
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+              "line": 73,
+              "record_sha256": "ae0272d9d1209f1356fd22ba9258dc5c90e0589e53e8342137df900c2716af3b"
+            }
+          ]
+        }
+      ],
+      "disposition": "Class effect is an exact prefix of each associated full tooltip followed by literal three-dot truncation. Full tooltip text is present in cached detail main HTML after whitespace normalization. No contradictory shared prefix observed; this does not establish historical accuracy or complete mechanics.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Devout Foeman II",
+      "table_index": 2,
+      "row_index": 13,
+      "printed_cells": {
+        "level": "26",
+        "ability": "Devout Foeman II",
+        "school": "Defensive Maneuver",
+        "cost": "20",
+        "cast": "Instant",
+        "range": "5",
+        "effect": "Raises your chance to block incoming attacks by 140% for 60 seconds or until you block or activate another ability. This turns..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">26</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/devout-foeman-ii.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/devout-foeman-ii\">Devout Foeman II</a>\n</td>\n<td class=\"muted\">Defensive Maneuver</td>\n<td class=\"num muted\">\n              20\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Raises your chance to block incoming attacks by 140% for 60 seconds or until you block or activate another ability. This turns...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/devout-foeman-ii",
+      "detail_cache": {
+        "path": ".cache/archive/09e47cc97974b5f975d89fd0e83765d6e0084b0011614f4e44e568d7dea078da.txt",
+        "sha256": "0cda8061e8e202b260e59f79d25b72e7f52a31004499515ec787aed2a8800d29"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/devout-foeman-ii.png\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Devout Foeman II\n  </h1>\n<p class=\"muted\">Also recorded as\n      Devout Foreman II</p>\n<p class=\"muted\">\n<a href=\"/classes/paladin\">Paladin</a>\n    \n    · Level 26\n    · Defensive Maneuver\n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Raises your chance to block incoming attacks by 140% for 60 seconds or until you block or activate another ability. This turns off your auto-attack.</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>26</dd></div>\n</dl>\n<div class=\"tooltip\">Raises your chances to block incoming attacks by 140% for 60 seconds or until you block. Requires a shield.</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59402\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Requires a shield.</p>\n<p class=\"muted\">Confirmed present in the VGO Emulator client: it appears in the Paladin's Adventuring spellbook, captured in full (201 entries over 9 pages) on a level 50 character. The tooltip has not been read, so the figures below still come from the source credited above.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>26</dd></div>\n<div><dt>Endurance cost</dt><dd>20</dd></div>\n<div><dt>Virtue points</dt><dd>0</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Range</dt><dd>5m</dd></div>\n<div><dt>Target</dt><dd>Offensive</dd></div>\n<div><dt>Type</dt><dd>Skill or Spell</dd></div>\n<div><dt>Learned from</dt><dd>Class Trainers</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Confirmed to exist in the VGO Emulator</strong>\n<span class=\"muted\">— it appears in the class spellbook,\n              but its tooltip has not been read, so the figures below are still\n              the wikis’</span></li>\n<li><a href=\"http://thetelonproject.wikidot.com/abilities:devout-foeman-ii\" rel=\"noreferrer nofollow\">The Telon Project</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "detail_snapshot_groups": [
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "endurance cost": [
+                "20"
+              ]
+            },
+            "cast": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ],
+            "effect": "Raises your chance to block incoming attacks by 140% for 60 seconds or until you block or activate another ability. This turns off your auto-attack."
+          },
+          "field_comparisons": {
+            "school": "detail_field_absent",
+            "cost": "literal_equal",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Devout Foeman II",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/devout-foeman-ii",
+                "title": "Devout Foeman II · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+            "parser_version": 16,
+            "collected_at": "2026-10-14T04:19:15+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "26"
+              ],
+              "level": [
+                "26"
+              ],
+              "endurance cost": [
+                "20"
+              ],
+              "virtue points": [
+                "0"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Offensive"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 26,
+            "rank": "II",
+            "category": "Skill or Spell",
+            "cost": {
+              "endurance": 20
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Raises your chance to block incoming attacks by 140% for 60 seconds or until you block or activate another ability. This turns off your auto-attack.",
+            "icon_name": null,
+            "ranks": [],
+            "target_recorded": "Offensive",
+            "historical_level_observations": [
+              {
+                "scope": "level in 2007-2008",
+                "level_learned": 26,
+                "raw": "26"
+              }
+            ],
+            "historical_source_urls_recorded": [
+              "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59402"
+            ],
+            "cost_observations": {
+              "endurance": [
+                20
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "spellbook existence only; numerical tooltip unverified",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:devout-foeman-ii"
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+              "line": 44,
+              "record_sha256": "03b1c4cd45e70752fc7396dba065e8823218e226c1575e523b7a7f77a9b17978"
+            }
+          ]
+        }
+      ],
+      "disposition": "Class effect is an exact prefix of each associated full tooltip followed by literal three-dot truncation. Full tooltip text is present in cached detail main HTML after whitespace normalization. No contradictory shared prefix observed; this does not establish historical accuracy or complete mechanics.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Oath I",
+      "table_index": 2,
+      "row_index": 18,
+      "printed_cells": {
+        "level": "28",
+        "ability": "Blood Oath I",
+        "school": null,
+        "cost": "49",
+        "cast": "Instant",
+        "range": "15",
+        "effect": "Self buff increasing the your damage and accuracy against your target (5 min) (buff wears off if you switch targets) ( learned..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">28</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/blood-oath-i.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/blood-oath-i\">Blood Oath I</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              49\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">15</td>\n<td class=\"muted\">Self buff increasing the your damage and accuracy against your target (5 min) (buff wears off if you switch targets) ( learned...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/blood-oath-i",
+      "detail_cache": {
+        "path": ".cache/archive/b2caa7ac17e8c55bc18b806f46e17ecd8f95d9a3a72f288a9ffc1d5da9e3ce60.txt",
+        "sha256": "7821a8663bb9099bf7005cbf7363a79d9734224599e40a6f38b925153bb6f7ee"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/blood-oath-i.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Blood Oath I\n  </h1>\n<p class=\"muted\">Also recorded as\n      Blood Oath</p>\n<p class=\"muted\">\n<a href=\"/classes/paladin\">Paladin</a>\n    \n    · Level 28\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Self buff increasing the your damage and accuracy against your target (5 min) (buff wears off if you switch targets) ( learned ability )</div>\n<h2>Alternate description</h2>\n<p class=\"muted\">\n        A second source words this differently; both are kept rather than\n        one being discarded.\n      </p>\n<div class=\"tooltip\">You swear a blood oath to destroy your enemy. Granting you increased prowess in battle until you switch targets.</div>\n<h2>Learned from</h2>\n<p class=\"muted\">\n          This ability is not sold by a trainer. It is learned by fighting these\n          creatures.\n        </p>\n<ul class=\"plain\">\n<li>\n<a href=\"/mobs/stormlord-spellsworn\">Stormlord Spellsworn</a>\n              \n              \n                — <a href=\"/zones/ruins-of-trengal-keep\">Ruins of Trengal Keep</a>\n</li>\n</ul>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>28</dd></div>\n<div><dt>Source</dt><dd>Learned in the world</dd></div>\n<div><dt>Energy cost</dt><dd>49</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Range</dt><dd>15m</dd></div>\n<div><dt>Learned from</dt><dd>Ruins of Trengal Keep</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon708.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><a href=\"https://web.archive.org/web/20211025003636id_/https://vgoplayers.com/wiki/index.php/Paladin\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "detail_snapshot_groups": [
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "energy cost": [
+                "49"
+              ]
+            },
+            "cast": [
+              "Instant"
+            ],
+            "range": [
+              "15m"
+            ],
+            "effect": "Self buff increasing the your damage and accuracy against your target (5 min) (buff wears off if you switch targets) ( learned ability )"
+          },
+          "field_comparisons": {
+            "school": "table_blank",
+            "cost": "literal_equal",
+            "cast": "literal_equal",
+            "range": "literal_difference_requires_source_review",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Blood Oath I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/blood-oath-i",
+                "title": "Blood Oath I · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+            "parser_version": 16,
+            "collected_at": "2026-10-14T03:52:25+00:00",
+            "archive_fields": {
+              "level": [
+                "28"
+              ],
+              "source": [
+                "Learned in the world"
+              ],
+              "energy cost": [
+                "49"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "range": [
+                "15m"
+              ],
+              "learned from": [
+                "Ruins of Trengal Keep"
+              ],
+              "icon": [
+                "Icon708.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              },
+              {
+                "name": "Stormlord Spellsworn",
+                "url": "https://vgsoharchive.com/mobs/stormlord-spellsworn"
+              },
+              {
+                "name": "Ruins of Trengal Keep",
+                "url": "https://vgsoharchive.com/zones/ruins-of-trengal-keep"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 28,
+            "rank": "I",
+            "category": null,
+            "cost": {
+              "energy": 49
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": {
+              "value": 15,
+              "unit": "m",
+              "raw": "15m"
+            },
+            "tooltip": "Self buff increasing the your damage and accuracy against your target (5 min) (buff wears off if you switch targets) ( learned ability )",
+            "icon_name": "Icon708.png",
+            "ranks": [],
+            "target_recorded": null,
+            "cost_observations": {
+              "energy": [
+                49
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": "Ruins of Trengal Keep",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "original_source_urls": [
+              "https://web.archive.org/web/20211025003636id_/https://vgoplayers.com/wiki/index.php/Paladin"
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+              "line": 22,
+              "record_sha256": "e8cf78fcdb0027d84605e039024a9eb0047b1aef501f4e9965d5f4b04d0550a2"
+            }
+          ]
+        }
+      ],
+      "disposition": "Class effect is an exact prefix of each associated full tooltip followed by literal three-dot truncation. Full tooltip text is present in cached detail main HTML after whitespace normalization. No contradictory shared prefix observed; this does not establish historical accuracy or complete mechanics.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Oath II",
+      "table_index": 3,
+      "row_index": 24,
+      "printed_cells": {
+        "level": "38",
+        "ability": "Blood Oath II",
+        "school": null,
+        "cost": "55",
+        "cast": "Instant",
+        "range": null,
+        "effect": "Self buff increasing the your damage and accuracy against your target (5 min) (buff wears off if you switch targets) ( learned..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">38</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/blood-oath-ii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/blood-oath-ii\">Blood Oath II</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              55\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\"></td>\n<td class=\"muted\">Self buff increasing the your damage and accuracy against your target (5 min) (buff wears off if you switch targets) ( learned...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/blood-oath-ii",
+      "detail_cache": {
+        "path": ".cache/archive/1b41db17c4e3c751d56df4a171362e4418b2c64c9fbecfceb5249efcac0fd133.txt",
+        "sha256": "7bc745483f29bb6e517c601e335693d0c504a8679d0917ae7b369bb61dfd701b"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/blood-oath-ii.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Blood Oath II\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/paladin\">Paladin</a>\n    \n    · Level 38\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Self buff increasing the your damage and accuracy against your target (5 min) (buff wears off if you switch targets) ( learned ability )</div>\n<h2>Learned from</h2>\n<p class=\"muted\">\n          This ability is not sold by a trainer. It is learned by fighting these\n          creatures.\n        </p>\n<ul class=\"plain\">\n<li>\n<a href=\"/mobs/silver-knight-of-verael\">Silver Knight of Verael</a>\n              \n              \n                — <a href=\"/zones/ruins-of-vol-tuniel\">Ruins of Vol Tuniel</a>\n</li>\n</ul>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>38</dd></div>\n<div><dt>Source</dt><dd>Learned in the world</dd></div>\n<div><dt>Energy cost</dt><dd>55</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon708.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><a href=\"https://web.archive.org/web/20211025003636id_/https://vgoplayers.com/wiki/index.php/Paladin\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "detail_snapshot_groups": [
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "energy cost": [
+                "55"
+              ]
+            },
+            "cast": [
+              "Instant"
+            ],
+            "range": [],
+            "effect": "Self buff increasing the your damage and accuracy against your target (5 min) (buff wears off if you switch targets) ( learned ability )"
+          },
+          "field_comparisons": {
+            "school": "table_blank",
+            "cost": "literal_equal",
+            "cast": "literal_equal",
+            "range": "table_blank",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Blood Oath II",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/blood-oath-ii",
+                "title": "Blood Oath II · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+            "parser_version": 16,
+            "collected_at": "2026-10-14T03:52:30+00:00",
+            "archive_fields": {
+              "level": [
+                "38"
+              ],
+              "source": [
+                "Learned in the world"
+              ],
+              "energy cost": [
+                "55"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "icon": [
+                "Icon708.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              },
+              {
+                "name": "Silver Knight of Verael",
+                "url": "https://vgsoharchive.com/mobs/silver-knight-of-verael"
+              },
+              {
+                "name": "Ruins of Vol Tuniel",
+                "url": "https://vgsoharchive.com/zones/ruins-of-vol-tuniel"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 38,
+            "rank": "II",
+            "category": null,
+            "cost": {
+              "energy": 55
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": null,
+            "tooltip": "Self buff increasing the your damage and accuracy against your target (5 min) (buff wears off if you switch targets) ( learned ability )",
+            "icon_name": "Icon708.png",
+            "ranks": [],
+            "target_recorded": null,
+            "cost_observations": {
+              "energy": [
+                55
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": null,
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "original_source_urls": [
+              "https://web.archive.org/web/20211025003636id_/https://vgoplayers.com/wiki/index.php/Paladin"
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+              "line": 23,
+              "record_sha256": "2dbe67ff3a379e0affab5c55df195c640667512603e5d1e83f6cbe6633a33510"
+            }
+          ]
+        }
+      ],
+      "disposition": "Class effect is an exact prefix of each associated full tooltip followed by literal three-dot truncation. Full tooltip text is present in cached detail main HTML after whitespace normalization. No contradictory shared prefix observed; this does not establish historical accuracy or complete mechanics.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Shield of Resolve",
+      "table_index": 3,
+      "row_index": 31,
+      "printed_cells": {
+        "level": "38",
+        "ability": "Shield of Resolve",
+        "school": null,
+        "cost": "56",
+        "cast": "Instant",
+        "range": null,
+        "effect": "Imbues your shield with a chance to restore your group's endurance when hit or with shield attacks (only allowed one shield..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">38</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/shield-of-resolve.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/shield-of-resolve\">Shield of Resolve</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              56\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\"></td>\n<td class=\"muted\">Imbues your shield with a chance to restore your group's endurance when hit or with shield attacks (only allowed one shield...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/shield-of-resolve",
+      "detail_cache": {
+        "path": ".cache/archive/6c56b9678b3086a60806b2497d501dc8d59fb306c0a4e3d83a3a19863af508c1.txt",
+        "sha256": "38073be2766ec53620e841c504f1c01c521aee4a7c274854c13184bcd926af11"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/shield-of-resolve.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Shield of Resolve\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/paladin\">Paladin</a>\n    \n    · Level 38\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Imbues your shield with a chance to restore your group's endurance when hit or with shield attacks (only allowed one shield consecration at a time)</div>\n<h2>As it was earlier</h2>\n<p class=\"muted small\">\n        What guides written while Vanguard was running recorded for this\n        ability. Kept beside the current figures rather than replacing them\n        — the game was rebalanced across its life, so both are right for\n        their own year.\n      </p>\n<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>38</dd></div>\n</dl>\n<div class=\"tooltip\">Consecrates your shield, imbuing it with the power of resolve. Incoming attacks have a chance of restoring your endurance. Shield attacks also gain a small chance to restore the endurance of an ally. Only one shield consecration may be active at a time.</div>\n<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59402\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\n          \n          2007-2008 ·\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>\n<h2>Notes</h2>\n<p class=\"muted\">Confirmed present in the VGO Emulator client: it appears in the Paladin's Adventuring spellbook, captured in full (201 entries over 9 pages) on a level 50 character. The tooltip has not been read, so the figures below still come from the source credited above.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>38</dd></div>\n<div><dt>Energy cost</dt><dd>56</dd></div>\n<div><dt>Virtue points</dt><dd>0</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon582.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><strong>Confirmed to exist in the VGO Emulator</strong>\n<span class=\"muted\">— it appears in the class spellbook,\n              but its tooltip has not been read, so the figures below are still\n              the wikis’</span></li>\n<li><a href=\"https://web.archive.org/web/20211025003636id_/https://vgoplayers.com/wiki/index.php/Paladin\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "detail_snapshot_groups": [
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "energy cost": [
+                "56"
+              ]
+            },
+            "cast": [
+              "Instant"
+            ],
+            "range": [],
+            "effect": "Imbues your shield with a chance to restore your group's endurance when hit or with shield attacks (only allowed one shield consecration at a time)"
+          },
+          "field_comparisons": {
+            "school": "table_blank",
+            "cost": "literal_equal",
+            "cast": "literal_equal",
+            "range": "table_blank",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Shield of Resolve",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/shield-of-resolve",
+                "title": "Shield of Resolve · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+            "parser_version": 16,
+            "collected_at": "2026-10-14T06:25:38+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "38"
+              ],
+              "level": [
+                "38"
+              ],
+              "energy cost": [
+                "56"
+              ],
+              "virtue points": [
+                "0"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "icon": [
+                "Icon582.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 38,
+            "rank": null,
+            "category": null,
+            "cost": {
+              "energy": 56
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": null,
+            "tooltip": "Imbues your shield with a chance to restore your group's endurance when hit or with shield attacks (only allowed one shield consecration at a time)",
+            "icon_name": "Icon582.png",
+            "ranks": [],
+            "target_recorded": null,
+            "historical_level_observations": [
+              {
+                "scope": "level in 2007-2008",
+                "level_learned": 38,
+                "raw": "38"
+              }
+            ],
+            "historical_source_urls_recorded": [
+              "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59402"
+            ],
+            "cost_observations": {
+              "energy": [
+                56
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": null,
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "spellbook existence only; numerical tooltip unverified",
+            "original_source_urls": [
+              "https://web.archive.org/web/20211025003636id_/https://vgoplayers.com/wiki/index.php/Paladin"
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-14-022525-353932-archive-bulk/ability.jsonl",
+              "line": 3,
+              "record_sha256": "8af8a4a2dcad3de8857e8082c866217140355ca36313465adb0340fadcff7caa"
+            }
+          ]
+        }
+      ],
+      "disposition": "Class effect is an exact prefix of each associated full tooltip followed by literal three-dot truncation. Full tooltip text is present in cached detail main HTML after whitespace normalization. No contradictory shared prefix observed; this does not establish historical accuracy or complete mechanics.",
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Oath III",
+      "table_index": 4,
+      "row_index": 41,
+      "printed_cells": {
+        "level": "50",
+        "ability": "Blood Oath III",
+        "school": null,
+        "cost": "73",
+        "cast": "Instant",
+        "range": null,
+        "effect": "Self buff increasing the your damage and accuracy against your target (5 min) (buff wears off if you switch targets) ( learned..."
+      },
+      "class_row_html": "<tr>\n<td class=\"num\">50</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/blood-oath-iii.webp\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/blood-oath-iii\">Blood Oath III</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n              73\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\"></td>\n<td class=\"muted\">Self buff increasing the your damage and accuracy against your target (5 min) (buff wears off if you switch targets) ( learned...</td>\n</tr>",
+      "detail_url": "https://vgsoharchive.com/abilities/blood-oath-iii",
+      "detail_cache": {
+        "path": ".cache/archive/9d1ef2300d86d9660e8b08f41b9d9c02c0065574bd1fec1c2a5767d405d4f8a6.txt",
+        "sha256": "b1bffe76a3cd677f4ac8678f67b4447c6d8121d6eb423a1ed21713cad6312599"
+      },
+      "detail_main_html": "<main class=\"wrap\">\n<div class=\"detail-head\">\n<h1>\n<img alt=\"\" height=\"40\" src=\"/static/icons/blood-oath-iii.webp\" style=\"vertical-align:-8px;margin-right:8px;border:1px solid var(--line)\" width=\"40\"/>\n    \n    Blood Oath III\n  </h1>\n<p class=\"muted\">\n<a href=\"/classes/paladin\">Paladin</a>\n    \n    · Level 50\n    \n    \n  </p>\n</div>\n<div class=\"cols\">\n<div>\n<h2>Effect</h2>\n<div class=\"tooltip\">Self buff increasing the your damage and accuracy against your target (5 min) (buff wears off if you switch targets) ( learned ability )</div>\n<h2>Learned from</h2>\n<p class=\"muted\">\n          This ability is not sold by a trainer. It is learned by fighting these\n          creatures.\n        </p>\n<ul class=\"plain\">\n<li>\n<a href=\"/mobs/crypt-watcher\">Crypt Watcher</a>\n              \n              \n                — <a href=\"/zones/nusibe-necropolis\">Nusibe Necropolis</a>\n</li>\n</ul>\n<h2>Notes</h2>\n<p class=\"muted\">A second, malformed record of this ability (“Blood Oath III (lvl 48]”) put it at level 48 rather than 50. The malformed row carried nothing else and has been removed, but the two sources disagree on the level and it is worth checking.</p>\n</div>\n<div>\n<h2>Details</h2>\n<dl class=\"kv\">\n<div><dt>Level</dt><dd>50</dd></div>\n<div><dt>Source</dt><dd>Learned in the world</dd></div>\n<div><dt>Energy cost</dt><dd>73</dd></div>\n<div><dt>Cast time</dt><dd>Instant</dd></div>\n<div><dt>Icon</dt><dd class=\"muted\">Icon708.png</dd></div>\n</dl>\n<h2>Sources</h2>\n<ul class=\"plain\">\n<li><a href=\"https://web.archive.org/web/20211025003636id_/https://vgoplayers.com/wiki/index.php/Paladin\" rel=\"noreferrer nofollow\">vgoplayers wiki (via the Wayback Machine)</a></li>\n</ul>\n</div>\n</div>\n<p style=\"margin-top:26px\"><a href=\"/abilities\">← All abilities</a></p>\n</main>",
+      "detail_snapshot_groups": [
+        {
+          "detail_projection": {
+            "school": [],
+            "cost": {
+              "energy cost": [
+                "73"
+              ]
+            },
+            "cast": [
+              "Instant"
+            ],
+            "range": [],
+            "effect": "Self buff increasing the your damage and accuracy against your target (5 min) (buff wears off if you switch targets) ( learned ability )"
+          },
+          "field_comparisons": {
+            "school": "table_blank",
+            "cost": "literal_equal",
+            "cast": "literal_equal",
+            "range": "table_blank",
+            "effect": "literal_difference_requires_source_review"
+          },
+          "source_record": {
+            "name": "Blood Oath III",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/blood-oath-iii",
+                "title": "Blood Oath III · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+            "parser_version": 16,
+            "collected_at": "2026-10-14T03:52:35+00:00",
+            "archive_fields": {
+              "level": [
+                "50"
+              ],
+              "source": [
+                "Learned in the world"
+              ],
+              "energy cost": [
+                "73"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "icon": [
+                "Icon708.png"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Paladin",
+                "url": "https://vgsoharchive.com/classes/paladin"
+              },
+              {
+                "name": "Crypt Watcher",
+                "url": "https://vgsoharchive.com/mobs/crypt-watcher"
+              },
+              {
+                "name": "Nusibe Necropolis",
+                "url": "https://vgsoharchive.com/zones/nusibe-necropolis"
+              }
+            ],
+            "type": "ability",
+            "class": "Paladin",
+            "level_learned": 50,
+            "rank": "III",
+            "category": null,
+            "cost": {
+              "energy": 73
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": null,
+            "tooltip": "Self buff increasing the your damage and accuracy against your target (5 min) (buff wears off if you switch targets) ( learned ability )",
+            "icon_name": "Icon708.png",
+            "ranks": [],
+            "target_recorded": null,
+            "cost_observations": {
+              "energy": [
+                73
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ]
+            },
+            "trainer": null,
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "original_source_urls": [
+              "https://web.archive.org/web/20211025003636id_/https://vgoplayers.com/wiki/index.php/Paladin"
+            ]
+          },
+          "references": [
+            {
+              "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+              "line": 24,
+              "record_sha256": "c1c18b044a556c932f9d782c9dc0daf3dbb9146b88b57c6e5d371d4baa0d8edf"
+            }
+          ]
+        }
+      ],
+      "disposition": "Class effect is an exact prefix of each associated full tooltip followed by literal three-dot truncation. Full tooltip text is present in cached detail main HTML after whitespace normalization. No contradictory shared prefix observed; this does not establish historical accuracy or complete mechanics.",
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "summary": {
+    "distinct_class_rows_reviewed": 10,
+    "snapshot_groups_reviewed": 22,
+    "exact_prefix_truncations": 9,
+    "withheld_merged_record_identity_collisions": 1
+  },
+  "qualifications": [
+    "Only exact printed names and linked detail URLs were associated. No name-only identity merge.",
+    "Historical observations remain separate inside full immutable source records.",
+    "Archive wiki and modern emulator observations have unresolved historical applicability. Same-provenance mirrors are not independent corroboration.",
+    "Operative values remain null. Collection and other field reviews remain incomplete."
+  ],
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "collector_observation": {
+    "collection_ps1_status": "not running",
+    "python_process_inventory_empty": true,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60.0,
+    "network_suspension_preserved": true
+  },
+  "validation": {
+    "corpus_hashes_verified": 51,
+    "cached_html_files_verified": 11,
+    "exact_source_records_verified": 22,
+    "class_effect_cells_verified": 10,
+    "issues": 0
+  }
+}

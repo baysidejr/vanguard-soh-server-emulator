@@ -1,0 +1,686 @@
+{
+  "audit_kind": "cached_quest_objectives_rewards_review",
+  "network_requests": 0,
+  "metadata_only": false,
+  "extraction_scope": "Literal cached objective, description, notes, source attribution and reward observations. Archive transcriptions and variants remain distinct; no historical mechanic verification or identity merge.",
+  "inputs": [
+    {
+      "path": ".cache/archive/c6e0bb545930ae82bb26c77af2921278856bf32c16784afab2879ae6963c0424.txt",
+      "sha256": "c97c06742882abc1df56030f12c7116abae76652c81583968f35d42d53cbab33"
+    },
+    {
+      "path": ".cache/archive/d14a24df1602955c4e8ec5b8c86668d8986d6c76c1cdd7937034dd8cd6e7278c.txt",
+      "sha256": "55254543c14ed5c31fdc666781db871f4c3bce3028f8cea14676912bc7ec8790"
+    },
+    {
+      "path": "raw/2026-10-14-052252-905340-archive-bulk/quest.jsonl",
+      "sha256": "2d6cde3997b8a09d390092636c40e9f3d7dbd39b91140b6d7f3061884ac0769b"
+    },
+    {
+      "path": "raw/2026-10-14-071113-377387-archive-bulk/quest.jsonl",
+      "sha256": "7065888da85eb3efeef8d5e08f22ee2d8a9ab8c1a9fafa1564b92ca750b508f4"
+    },
+    {
+      "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+      "sha256": "1b4328e56ac4f992bedda7b7dcf02b00fab8c55047e6c45892af56343fa85648"
+    },
+    {
+      "path": "reviewed/QUEST_UNFORGOTTEN_CANDIDATES_ITERATION214.json",
+      "sha256": "0575040f980fc75f2e1414e30c45c00cf9fabd3916c8bf495c693267a6da3102"
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://vgsoharchive.com/quests/ghost-wind-academy",
+      "cache_path": ".cache/archive/c6e0bb545930ae82bb26c77af2921278856bf32c16784afab2879ae6963c0424.txt",
+      "cache_sha256": "c97c06742882abc1df56030f12c7116abae76652c81583968f35d42d53cbab33",
+      "observations": [
+        {
+          "label": "Objectives",
+          "text": "Speak to Lao'Jin Master Yaol",
+          "html": "<div class=\"tooltip\">Speak to Lao'Jin Master Yaol</div>",
+          "variant": false
+        },
+        {
+          "label": "Description",
+          "text": "1) Speak to Master Tallon Darkfist in Tanvu.\n2) Speak to Lao'Jin Master Yaol, north of Tallon Darkfist.",
+          "html": "<div class=\"tooltip\">1) Speak to Master Tallon Darkfist in Tanvu.\n2) Speak to Lao'Jin Master Yaol, north of Tallon Darkfist.</div>",
+          "variant": false
+        },
+        {
+          "label": "What they say",
+          "text": "On offering it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>",
+          "variant": false
+        },
+        {
+          "label": "Notes",
+          "text": "15164, -96048, 843 in Tanvu (-19, 6).",
+          "html": "<p class=\"muted\">15164, -96048, 843 in Tanvu (-19, 6).</p>",
+          "variant": false
+        },
+        {
+          "label": "Objectives as recorded by fandom",
+          "text": "Head north from Master Tallon's house in search of Ghost Wind Academy, one of the few remaining places the Lao'Jin can be studied.\nOnce there, speak with the school's Headmaster: Master Yaol.",
+          "html": "<div class=\"tooltip\">Head north from Master Tallon's house in search of Ghost Wind Academy, one of the few remaining places the Lao'Jin can be studied.\nOnce there, speak with the school's Headmaster: Master Yaol.</div>",
+          "variant": true
+        },
+        {
+          "label": "Source",
+          "text": "https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/ghost-wind-academy-331.html",
+          "html": "<p class=\"muted\" style=\"word-break:break-all\">https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/ghost-wind-academy-331.html</p>",
+          "variant": false
+        },
+        {
+          "label": "Reported disagreements",
+          "text": "5 recorded\n    disagreements about this\n    quest — level (fandom) , level (the Forgotten Horde wiki) , next quest (silkyvenom) , prev quest (silkyvenom) , starts zone (mmodb) .",
+          "html": "<p class=\"muted\">\n    5 recorded\n    disagreements about this\n    quest —\n    <a href=\"/disagreements?kind=quest&amp;field=level\">level</a> <span class=\"muted\">(fandom)</span>, <a href=\"/disagreements?kind=quest&amp;field=level\">level</a> <span class=\"muted\">(the Forgotten Horde wiki)</span>, <a href=\"/disagreements?kind=quest&amp;field=next_quest\">next quest</a> <span class=\"muted\">(silkyvenom)</span>, <a href=\"/disagreements?kind=quest&amp;field=prev_quest\">prev quest</a> <span class=\"muted\">(silkyvenom)</span>, <a href=\"/disagreements?kind=quest&amp;field=starts_zone\">starts zone</a> <span class=\"muted\">(mmodb)</span>.\n  </p>",
+          "variant": false
+        },
+        {
+          "label": "Starts with",
+          "text": "Master Tallon Darkfist",
+          "html": "<dd><a href=\"/mobs/master-tallon-darkfist\">Master Tallon Darkfist</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Location",
+          "text": "-1521, -79480, 382 in Tanvu (-19, 6)",
+          "html": "<dd>-1521, -79480, 382 in Tanvu (-19, 6)</dd>",
+          "variant": false
+        },
+        {
+          "label": "Hand in to",
+          "text": "Lao'Jin Master Yaol",
+          "html": "<dd><a href=\"/mobs/lao-jin-master-yaol\">Lao'Jin Master Yaol</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Previous",
+          "text": "Walking With Lao'Jin",
+          "html": "<dd><a href=\"/quests/walking-with-lao-jin\">Walking With Lao'Jin</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Next",
+          "text": "Ra'Jin Assault",
+          "html": "<dd><a href=\"/quests/ra-jin-assault\">Ra'Jin Assault</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Coin reward",
+          "text": "50",
+          "html": "<dd>50</dd>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "On offering it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On offering it</p>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "Master Tallon Darkfist\n\"We have not always hidden in small villages and shacks outside of Tanvu. Before the Ulvari came, our school stood proud. Our students were honored and revered. But times have changed.\"\n\n\"The emperor refused to aid us in the battle against the Ulvari; instead, he blamed us for their incursion. We are no longer welcome.\"\n\n\"Hidden nearby is the Ghost Wind Academy, one of the last remaining compounds where Lao'Jin can be studied. I want you to go there and speak with the Headmaster. We are done for now.\"",
+          "html": "<div class=\"tooltip\">\n<strong>Master Tallon Darkfist</strong><br/>\n          \"We have not always hidden in small villages and shacks outside of Tanvu. Before the Ulvari came, our school stood proud. Our students were honored and revered. But times have changed.\"\n\n\"The emperor refused to aid us in the battle against the Ulvari; instead, he blamed us for their incursion. We are no longer welcome.\"\n\n\"Hidden nearby is the Ghost Wind Academy, one of the last remaining compounds where Lao'Jin can be studied. I want you to go there and speak with the Headmaster. We are done for now.\"\n        </div>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "Recorded by photographed in game by the archive operator.",
+          "html": "<p class=\"muted small\" style=\"margin-top:2px\">\n          Recorded by photographed in game by the archive operator.\n        </p>",
+          "variant": false
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-052252-905340-archive-bulk/quest.jsonl",
+          "line": 74,
+          "record": {
+            "name": "Ghost Wind Academy",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/ghost-wind-academy",
+                "title": "Ghost Wind Academy · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T09:29:06+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Master Tallon Darkfist"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-1521, -79480, 382 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Tanvu"
+              ],
+              "hand in to": [
+                "Lao'Jin Master Yaol"
+              ],
+              "also involved": [
+                "Master Yaol"
+              ],
+              "previous": [
+                "Walking With Lao'Jin"
+              ],
+              "next": [
+                "Ra'Jin Assault"
+              ],
+              "rating": [
+                "7.0"
+              ],
+              "coin reward": [
+                "50"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Master Tallon Darkfist",
+                "url": "https://vgsoharchive.com/mobs/master-tallon-darkfist"
+              },
+              {
+                "name": "Lao'Jin Master Yaol",
+                "url": "https://vgsoharchive.com/mobs/lao-jin-master-yaol"
+              },
+              {
+                "name": "Master Yaol",
+                "url": "https://vgsoharchive.com/mobs/master-yaol"
+              },
+              {
+                "name": "Walking With Lao'Jin",
+                "url": "https://vgsoharchive.com/quests/walking-with-lao-jin"
+              },
+              {
+                "name": "Ra'Jin Assault",
+                "url": "https://vgsoharchive.com/quests/ra-jin-assault"
+              }
+            ],
+            "type": "quest",
+            "level": 7,
+            "zone": "Tanvu",
+            "giver": "Master Tallon Darkfist",
+            "turn_in": "Lao'Jin Master Yaol",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Walking With Lao'Jin",
+            "chain_next": "Ra'Jin Assault",
+            "quest_chain": {
+              "name": "Tanvu",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 1637,
+          "record": {
+            "name": "Ghost Wind Academy",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/ghost-wind-academy",
+                "title": "Ghost Wind Academy · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:43+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Master Tallon Darkfist"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "-1521, -79480, 382 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Tanvu"
+              ],
+              "hand in to": [
+                "Lao'Jin Master Yaol"
+              ],
+              "also involved": [
+                "Master Yaol"
+              ],
+              "previous": [
+                "Walking With Lao'Jin"
+              ],
+              "next": [
+                "Ra'Jin Assault"
+              ],
+              "rating": [
+                "7.0"
+              ],
+              "coin reward": [
+                "50"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Master Tallon Darkfist",
+                "url": "https://vgsoharchive.com/mobs/master-tallon-darkfist"
+              },
+              {
+                "name": "Lao'Jin Master Yaol",
+                "url": "https://vgsoharchive.com/mobs/lao-jin-master-yaol"
+              },
+              {
+                "name": "Master Yaol",
+                "url": "https://vgsoharchive.com/mobs/master-yaol"
+              },
+              {
+                "name": "Walking With Lao'Jin",
+                "url": "https://vgsoharchive.com/quests/walking-with-lao-jin"
+              },
+              {
+                "name": "Ra'Jin Assault",
+                "url": "https://vgsoharchive.com/quests/ra-jin-assault"
+              }
+            ],
+            "type": "quest",
+            "level": 7,
+            "zone": "Tanvu",
+            "giver": "Master Tallon Darkfist",
+            "turn_in": "Lao'Jin Master Yaol",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Walking With Lao'Jin",
+            "chain_next": "Ra'Jin Assault",
+            "quest_chain": {
+              "name": "Tanvu",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://vgsoharchive.com/quests/ra-jin-assault",
+      "cache_path": ".cache/archive/d14a24df1602955c4e8ec5b8c86668d8986d6c76c1cdd7937034dd8cd6e7278c.txt",
+      "cache_sha256": "55254543c14ed5c31fdc666781db871f4c3bce3028f8cea14676912bc7ec8790",
+      "observations": [
+        {
+          "label": "Objectives",
+          "text": "Slay 5 Ra'Jin Warriors",
+          "html": "<div class=\"tooltip\">Slay 5 Ra'Jin Warriors</div>",
+          "variant": false
+        },
+        {
+          "label": "Description",
+          "text": "1) Speak to Lao'Jin Master Yaol in Tanvu.\n2) Slay 5 Ra'Jin Warriors at the beach outside of the school.\n3) Return to Lao'Jin Master Yaol.",
+          "html": "<div class=\"tooltip\">1) Speak to Lao'Jin Master Yaol in Tanvu.\n2) Slay 5 Ra'Jin Warriors at the beach outside of the school.\n3) Return to Lao'Jin Master Yaol.</div>",
+          "variant": false
+        },
+        {
+          "label": "What they say",
+          "text": "On taking it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On taking it</p>",
+          "variant": false
+        },
+        {
+          "label": "Notes",
+          "text": "Per the Forgotten Horde wiki's Tanvu page (Ghost Wind Academy), 2007-2008 (http://web.archive.org/web/20080723045202/http://targonor.net/vg/pmwiki.php?n=Main.Tanvu).",
+          "html": "<p class=\"muted\">Per the Forgotten Horde wiki's Tanvu page (Ghost Wind Academy), 2007-2008 (http://web.archive.org/web/20080723045202/http://targonor.net/vg/pmwiki.php?n=Main.Tanvu).</p>",
+          "variant": false
+        },
+        {
+          "label": "Objectives as recorded by fandom",
+          "text": "Ra'Jin Warriors Slain (5)\nGo to the beach outside of the school, slay 5 Ra'Jin Warriors, and then report back to Master Yaol.",
+          "html": "<div class=\"tooltip\">Ra'Jin Warriors Slain (5)\nGo to the beach outside of the school, slay 5 Ra'Jin Warriors, and then report back to Master Yaol.</div>",
+          "variant": true
+        },
+        {
+          "label": "Source",
+          "text": "https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/rajin-assault-326.html",
+          "html": "<p class=\"muted\" style=\"word-break:break-all\">https://www.vgoemulator.net/archive/MMODB%20Vanguard/vg.mmodb.com/quests/rajin-assault-326.html</p>",
+          "variant": false
+        },
+        {
+          "label": "Starts with",
+          "text": "Lao'Jin Master Yaol",
+          "html": "<dd><a href=\"/mobs/lao-jin-master-yaol\">Lao'Jin Master Yaol</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Location",
+          "text": "15164, -96048, 843 in Tanvu (-19, 6)",
+          "html": "<dd>15164, -96048, 843 in Tanvu (-19, 6)</dd>",
+          "variant": false
+        },
+        {
+          "label": "Hand in to",
+          "text": "Lao'Jin Master Yaol",
+          "html": "<dd><a href=\"/mobs/lao-jin-master-yaol\">Lao'Jin Master Yaol</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Previous",
+          "text": "Ghost Wind Academy",
+          "html": "<dd><a href=\"/quests/ghost-wind-academy\">Ghost Wind Academy</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Next",
+          "text": "Eye of the Beholder",
+          "html": "<dd><a href=\"/quests/eye-of-the-beholder\">Eye of the Beholder</a>\n</dd>",
+          "variant": false
+        },
+        {
+          "label": "Coin reward",
+          "text": "60",
+          "html": "<dd>60</dd>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "On taking it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On taking it</p>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "Lao'Jin Master Yaol\nMaster Yaol tells you, \"One day you may become as powerful as I, but it is quite unlikely.\"",
+          "html": "<div class=\"tooltip\">\n<strong>Lao'Jin Master Yaol</strong><br/>\n          Master Yaol tells you, \"One day you may become as powerful as I, but it is quite unlikely.\"\n        </div>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "Recorded by photographed in game by the archive operator.",
+          "html": "<p class=\"muted small\" style=\"margin-top:2px\">\n          Recorded by photographed in game by the archive operator.\n        </p>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "On finishing it",
+          "html": "<p class=\"muted small\" style=\"margin-bottom:2px\">\n            On finishing it</p>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "Lao'Jin Master Yaol\nMaster Yaol tells you, \"Very good, Psionicist. You have helped greatly in the fight against the Ra'Jin.\"\n\n\"We should be able to fend off the rest of the Ra'Jin, but I must now turn my concern to the safety of the students.\"\n\n\"I have one final task for you.\"",
+          "html": "<div class=\"tooltip\">\n<strong>Lao'Jin Master Yaol</strong><br/>\n          Master Yaol tells you, \"Very good, Psionicist. You have helped greatly in the fight against the Ra'Jin.\"\n\n\"We should be able to fend off the rest of the Ra'Jin, but I must now turn my concern to the safety of the students.\"\n\n\"I have one final task for you.\"\n        </div>",
+          "variant": false
+        },
+        {
+          "label": "Offering dialogue and attribution",
+          "text": "Recorded by photographed in game by the archive operator.",
+          "html": "<p class=\"muted small\" style=\"margin-top:2px\">\n          Recorded by photographed in game by the archive operator.\n        </p>",
+          "variant": false
+        }
+      ],
+      "archive_source_records": [
+        {
+          "path": "raw/2026-10-14-071113-377387-archive-bulk/quest.jsonl",
+          "line": 72,
+          "record": {
+            "name": "Ra'Jin Assault",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/ra-jin-assault",
+                "title": "Ra'Jin Assault · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 18,
+            "collected_at": "2026-10-14T11:17:11+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Lao'Jin Master Yaol"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "15164, -96048, 843 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Lao'Jin Master Yaol"
+              ],
+              "previous": [
+                "Ghost Wind Academy"
+              ],
+              "next": [
+                "Eye of the Beholder"
+              ],
+              "rating": [
+                "7.0"
+              ],
+              "coin reward": [
+                "60"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Lao'Jin Master Yaol",
+                "url": "https://vgsoharchive.com/mobs/lao-jin-master-yaol"
+              },
+              {
+                "name": "Ghost Wind Academy",
+                "url": "https://vgsoharchive.com/quests/ghost-wind-academy"
+              },
+              {
+                "name": "Eye of the Beholder",
+                "url": "https://vgsoharchive.com/quests/eye-of-the-beholder"
+              }
+            ],
+            "type": "quest",
+            "level": 6,
+            "zone": "Tanvu",
+            "giver": "Lao'Jin Master Yaol",
+            "turn_in": "Lao'Jin Master Yaol",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Ghost Wind Academy",
+            "chain_next": "Eye of the Beholder",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        },
+        {
+          "path": "raw/2026-10-14-104836-313648-archive-quests-v19/quest.jsonl",
+          "line": 2950,
+          "record": {
+            "name": "Ra'Jin Assault",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/quests/ra-jin-assault",
+                "title": "Ra'Jin Assault · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "medium",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Unknown objective triggers and missing dialogue remain unresolved. Previous/next links are not enforced prerequisites. Partial counter matches are not a complete quest specification.",
+            "parser_version": 19,
+            "collected_at": "2026-10-14T14:48:48+00:00",
+            "archive_fields": {
+              "starts with": [
+                "Lao'Jin Master Yaol"
+              ],
+              "starts in": [
+                "Tanvu"
+              ],
+              "location": [
+                "15164, -96048, 843 in Tanvu (-19, 6)"
+              ],
+              "series": [
+                "Shang Village"
+              ],
+              "hand in to": [
+                "Lao'Jin Master Yaol"
+              ],
+              "previous": [
+                "Ghost Wind Academy"
+              ],
+              "next": [
+                "Eye of the Beholder"
+              ],
+              "rating": [
+                "7.0"
+              ],
+              "coin reward": [
+                "60"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Tanvu",
+                "url": "https://vgsoharchive.com/zones/tanvu"
+              },
+              {
+                "name": "Lao'Jin Master Yaol",
+                "url": "https://vgsoharchive.com/mobs/lao-jin-master-yaol"
+              },
+              {
+                "name": "Ghost Wind Academy",
+                "url": "https://vgsoharchive.com/quests/ghost-wind-academy"
+              },
+              {
+                "name": "Eye of the Beholder",
+                "url": "https://vgsoharchive.com/quests/eye-of-the-beholder"
+              }
+            ],
+            "type": "quest",
+            "level": 6,
+            "zone": "Tanvu",
+            "giver": "Lao'Jin Master Yaol",
+            "turn_in": "Lao'Jin Master Yaol",
+            "prerequisites": null,
+            "steps": null,
+            "repeatable": null,
+            "start_text": null,
+            "completion_text": null,
+            "description": null,
+            "summary": null,
+            "rewards": {
+              "xp": null,
+              "coin_copper": null,
+              "items": null,
+              "choice": null
+            },
+            "chain_previous": "Ghost Wind Academy",
+            "chain_next": "Eye of the Beholder",
+            "quest_chain": {
+              "name": "Shang Village",
+              "position": null
+            },
+            "original_source_urls": []
+          }
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "source_url": "https://vgsoharchive.com/quests/ra-jin-assault",
+      "observation": "Primary objective specifies slaying five Ra'Jin Warriors. Fandom variant also prints five and adds reporting to Master Yaol; both literal accounts retained. Lao'Jin Master Yaol and Master Yaol remain source strings without identity merge.",
+      "canonical_client_id": null
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/ra-jin-assault",
+      "observation": "Previous links Ghost Wind Academy, reciprocating that page's Next. Next links Eye of the Beholder. This page reports one level disagreement attributed to wiki.silkyvenom.com:80, not a navigation disagreement.",
+      "enforced_prerequisites": null,
+      "resolved_level": null
+    },
+    {
+      "source_url": "https://vgsoharchive.com/quests/ra-jin-assault",
+      "observation": "Coin reward 60 has no denomination; conversion to copper withheld. Notes attribute an account to Forgotten Horde wiki Tanvu page, 2007-2008; linked original was not fetched in this review. Dialogue screenshot attribution belongs to the archive; original screenshot was not verified.",
+      "coin_copper": null,
+      "original_screenshot_verified": false
+    }
+  ],
+  "checkpoint_reconciliation": {
+    "authoritative_inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0,
+    "persisted_interval_seconds": 60.0,
+    "collector_lock_exists": false
+  },
+  "suspension": {
+    "preserved": true,
+    "cause": "Automatic approval review rejected combined suspension reset/push/restart: blocked by policy. No more specific disposition supplied.",
+    "resumption_conditions": "Recorded policy disposition permitting resumption, then inspect process and lock and use collection.ps1 with preserved queues and 60-second interval."
+  },
+  "validation": {
+    "issues": [],
+    "cached_pages": 2,
+    "literal_observations_verified": 34,
+    "full_archive_records_verified": 4,
+    "input_hashes_verified": 6
+  },
+  "remaining_review": {
+    "required_review_complete": false,
+    "collection_complete": false,
+    "next_actionable_batch": "Review cached Eye of the Beholder objectives and reward evidence against Ra Jin Assault navigation, preserving source variants."
+  }
+}

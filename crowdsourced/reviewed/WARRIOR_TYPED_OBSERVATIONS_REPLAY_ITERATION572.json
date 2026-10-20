@@ -1,0 +1,970 @@
+{
+  "review_kind": "parser_v37_targeted_warrior_cache_replay",
+  "parser_version": 37,
+  "network_requests": 0,
+  "input": {
+    "path": "reviewed/WARRIOR_REMAINING_PARSER_REVIEW_ITERATION571.json",
+    "sha256": "199b7810668c6309ab0ab6e1cd8becc5ffcfd8974e24c77d7116e8666aef031d"
+  },
+  "rows": [
+    {
+      "source_url": "https://vgsoharchive.com/abilities/primal-fury",
+      "cache": {
+        "path": ".cache/archive/7cb4be6a1e424552b3db6618ecfea9c643d8326df1e53364d37f62ec5b8a37ca.txt",
+        "sha256": "32959761fe32cc6468fc7ea78289c677cbf7098754e24aa5df4299b70185ee27"
+      },
+      "records": [
+        {
+          "name": "Primal Fury",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/primal-fury",
+              "title": "Primal Fury \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 37,
+          "collected_at": "2026-10-19T10:43:37+00:00",
+          "archive_fields": {
+            "level": [
+              "8"
+            ],
+            "cast time": [
+              "1.0"
+            ],
+            "range": [
+              "5m"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Warrior",
+              "url": "https://vgsoharchive.com/classes/warrior"
+            }
+          ],
+          "type": "ability",
+          "class": "Warrior",
+          "level_learned": 8,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": null,
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/primal-fury-374.php"
+          ]
+        }
+      ],
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/abilities/infuriating-shot-i",
+      "cache": {
+        "path": ".cache/archive/4ab5368596b89b1df608d5d83eea9a84ce2c470c6fdad76f6fd166b05437bc34.txt",
+        "sha256": "fd0f27f1f9683fa58d73d2ad1aa3d4e26a539b7c8c299ce85cb3ceb3c863fcae"
+      },
+      "records": [
+        {
+          "name": "Infuriating Shot I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/infuriating-shot-i",
+              "title": "Infuriating Shot I \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 37,
+          "collected_at": "2026-10-19T10:43:37+00:00",
+          "archive_fields": {
+            "level in 2007-2008": [
+              "14"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "8"
+            ],
+            "level": [
+              "14"
+            ],
+            "energy cost": [
+              "66"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "8.0s"
+            ],
+            "range": [
+              "5 - 20m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Ranged Attack"
+            ],
+            "learned from": [
+              "Class Trainers"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Warrior",
+              "url": "https://vgsoharchive.com/classes/warrior"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Warrior",
+          "level_learned": 14,
+          "rank": "I",
+          "category": "Ranged Attack",
+          "cost": {
+            "energy": 66
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 8.0,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "A stinging shot that deals 109 to 118 and increases hate by 234.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 14,
+              "raw": "14"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59388"
+          ],
+          "cost_observations": {
+            "energy": [
+              66
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "8.0s",
+                "seconds": 8.0
+              }
+            ]
+          },
+          "range_interval_reported_by_archive": {
+            "minimum": 5,
+            "maximum": 20,
+            "unit": "m",
+            "raw": "5 - 20m",
+            "historical_authentication": null
+          },
+          "trainer": "Class Trainers",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:infuriating-shot-i"
+          ]
+        }
+      ],
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/abilities/diehard",
+      "cache": {
+        "path": ".cache/archive/154d8c51546346410c61e2b74f8acdefea2bd19d022aa44811b1f3963e464cb8.txt",
+        "sha256": "53d3dc76c3887fa393549f4f22c39aa131ceec7a25fbf1338721ef8fd1f237dd"
+      },
+      "records": [
+        {
+          "name": "Diehard",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/diehard",
+              "title": "Diehard \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 37,
+          "collected_at": "2026-10-19T10:43:37+00:00",
+          "archive_fields": {
+            "level in 2007-2008": [
+              "20"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "180"
+            ],
+            "level": [
+              "20"
+            ],
+            "cast time": [
+              "0"
+            ],
+            "refresh": [
+              "180s"
+            ],
+            "range": [
+              "5m"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Warrior",
+              "url": "https://vgsoharchive.com/classes/warrior"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Warrior",
+          "level_learned": 20,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": 180,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Toughens you so that you are harder to kill. When your life drops below 15%, you gain a 25% increase in mitigation.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 20,
+              "raw": "20"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59388"
+          ],
+          "timing_observations": {
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "180s",
+                "seconds": 180
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "https://web.archive.org/web/20130207071222id_/http://www.tentonhammer.com/node/59388"
+          ]
+        }
+      ],
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/abilities/command-attack-i",
+      "cache": {
+        "path": ".cache/archive/4ef82a0eb7a06121b30b72f12c310ed4af5988e92cac15f33f93c3f20e51d7b3.txt",
+        "sha256": "a75ed0b5fdd79c53c7fc90079a0f3be1d4e452ad79e459ff70f4e85860b0e32f"
+      },
+      "records": [
+        {
+          "name": "Command: Attack I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/command-attack-i",
+              "title": "Command: Attack I \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 37,
+          "collected_at": "2026-10-19T10:43:37+00:00",
+          "archive_fields": {
+            "level": [
+              "6"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Warrior",
+              "url": "https://vgsoharchive.com/classes/warrior"
+            },
+            {
+              "name": "everything else missing from it",
+              "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+            }
+          ],
+          "type": "ability",
+          "class": "Warrior",
+          "level_learned": 6,
+          "rank": "I",
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "By following this command, your defensive target will be granted a 25% damage increase on their next 2 attacks.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_percent",
+                  "values": [
+                    25
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "emulator_absence_reported_by_archive": {
+            "reported_absent": true,
+            "independently_verified": false,
+            "emulator_build": null,
+            "historical_authentication": null
+          },
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/command-attack-i-344.php"
+          ]
+        }
+      ],
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/abilities/taunting-strike-i",
+      "cache": {
+        "path": ".cache/archive/805b0696d2417e3b9e5ccfbb64c63f79c4cc05b4ece14517fd6dcf8ba9aadb51.txt",
+        "sha256": "2d248f4c128c0e710c8966b1f066ec057da277f9ad2a4de90612122ea17c1a68"
+      },
+      "records": [
+        {
+          "name": "Taunting Strike I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/taunting-strike-i",
+              "title": "Taunting Strike I \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 37,
+          "collected_at": "2026-10-19T10:43:37+00:00",
+          "archive_fields": {
+            "level": [
+              "10"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Offensive"
+            ],
+            "type": [
+              "Melee Attack"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Warrior",
+              "url": "https://vgsoharchive.com/classes/warrior"
+            },
+            {
+              "name": "everything else missing from it",
+              "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+            }
+          ],
+          "type": "ability",
+          "class": "Warrior",
+          "level_learned": 10,
+          "rank": "I",
+          "category": "Melee Attack",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "This attack deals 75% weapon damage plus 11 and instills great anger in your enemy.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": "Offensive",
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_bonus",
+                  "values": [
+                    11
+                  ],
+                  "conditions_unparsed": true
+                },
+                {
+                  "kind": "damage_percent",
+                  "values": [
+                    75
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "emulator_absence_reported_by_archive": {
+            "reported_absent": true,
+            "independently_verified": false,
+            "emulator_build": null,
+            "historical_authentication": null
+          },
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/taunting-strike-i-406.php"
+          ]
+        }
+      ],
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/abilities/leap-attack-i",
+      "cache": {
+        "path": ".cache/archive/c59d84ceb4f561293fa56c8d17b5008c64e73ff97d300f57328e861c0ccf10ca.txt",
+        "sha256": "420cb8f15d5b2dc18ed68757a31ba41ce8ab8000fd218d8feac0b5da7d4b4ef5"
+      },
+      "records": [
+        {
+          "name": "Leap Attack I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/leap-attack-i",
+              "title": "Leap Attack I \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 37,
+          "collected_at": "2026-10-19T10:43:37+00:00",
+          "archive_fields": {
+            "level in 2007-2008": [
+              "12"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "6"
+            ],
+            "level": [
+              "12"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "6s"
+            ],
+            "range": [
+              "10m"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Warrior",
+              "url": "https://vgsoharchive.com/classes/warrior"
+            },
+            {
+              "name": "everything else missing from it",
+              "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Warrior",
+          "level_learned": 12,
+          "rank": "I",
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": 6,
+          "duration_seconds": null,
+          "range": {
+            "value": 10,
+            "unit": "m",
+            "raw": "10m"
+          },
+          "tooltip": "You leap at your enemy and strike, inflicting 125% weapon damage plus 15.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 12,
+              "raw": "12"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59388"
+          ],
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "6s",
+                "seconds": 6
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_bonus",
+                  "values": [
+                    15
+                  ],
+                  "conditions_unparsed": true
+                },
+                {
+                  "kind": "damage_percent",
+                  "values": [
+                    125
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_percent",
+                  "values": [
+                    125
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "emulator_absence_reported_by_archive": {
+            "reported_absent": true,
+            "independently_verified": false,
+            "emulator_build": null,
+            "historical_authentication": null
+          },
+          "original_source_urls": [
+            "http://vg.mmodb.com:80/spells/leap-attack-i-369.php"
+          ]
+        }
+      ],
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/abilities/shield-bash-i",
+      "cache": {
+        "path": ".cache/archive/1e4db30dbf04f22f40b17ecb318f90aa2856894aad6ea9860f2a0b5a2e930cd9.txt",
+        "sha256": "82347a889f19f924872258d392772abde145a21dc4150cb0f78f3dd7c16efdbc"
+      },
+      "records": [
+        {
+          "name": "Shield Bash I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/shield-bash-i",
+              "title": "Shield Bash I \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 37,
+          "collected_at": "2026-10-19T10:43:37+00:00",
+          "archive_fields": {
+            "level": [
+              "12"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Warrior",
+              "url": "https://vgsoharchive.com/classes/warrior"
+            },
+            {
+              "name": "everything else missing from it",
+              "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+            }
+          ],
+          "type": "ability",
+          "class": "Warrior",
+          "level_learned": 12,
+          "rank": "I",
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "You bash the target with your shield, dealing 34 to 40 damage and stunning them for 2 seconds. Greatly increases hate.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "emulator_absence_reported_by_archive": {
+            "reported_absent": true,
+            "independently_verified": false,
+            "emulator_build": null,
+            "historical_authentication": null
+          },
+          "original_source_urls": [
+            "http://vg.mmodb.com:80/spells/shield-bash-i-386.php"
+          ]
+        }
+      ],
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/abilities/defenseless-i",
+      "cache": {
+        "path": ".cache/archive/beae19547eee70c22ef13e5b1b4f882ab81a1ec2a9fbfa12f759957bdfa47841.txt",
+        "sha256": "fd151476e3861a89f7cdea8a758280b1f000e441b5ddb8404b0ad93bfc34426a"
+      },
+      "records": [
+        {
+          "name": "Defenseless I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/defenseless-i",
+              "title": "Defenseless I \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 37,
+          "collected_at": "2026-10-19T10:43:37+00:00",
+          "archive_fields": {
+            "level": [
+              "14"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Warrior",
+              "url": "https://vgsoharchive.com/classes/warrior"
+            },
+            {
+              "name": "everything else missing from it",
+              "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+            }
+          ],
+          "type": "ability",
+          "class": "Warrior",
+          "level_learned": 14,
+          "rank": "I",
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "A finishing attack which deals 42 to 49 damage and reduces your enemy's armor by 35% for 60 seconds.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    42,
+                    49
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "emulator_absence_reported_by_archive": {
+            "reported_absent": true,
+            "independently_verified": false,
+            "emulator_build": null,
+            "historical_authentication": null
+          },
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/defenseless-i-350.php"
+          ]
+        }
+      ],
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "source_url": "https://vgsoharchive.com/abilities/command-defend-i",
+      "cache": {
+        "path": ".cache/archive/fbda2f66a011729de536bdb1407e5269efc1ea4a65ce900065ab8020bbbdf4db.txt",
+        "sha256": "4aa08bec27d8e511704abd3f18f83e207f34537a34fb53cfa6d924f34f9742f7"
+      },
+      "records": [
+        {
+          "name": "Command: Defend I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/command-defend-i",
+              "title": "Command: Defend I \u00b7 Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 37,
+          "collected_at": "2026-10-19T10:43:37+00:00",
+          "archive_fields": {
+            "level": [
+              "18"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "range": [
+              "5m"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Warrior",
+              "url": "https://vgsoharchive.com/classes/warrior"
+            },
+            {
+              "name": "everything else missing from it",
+              "url": "https://vgsoharchive.com/abilities/not-in-the-emulator"
+            }
+          ],
+          "type": "ability",
+          "class": "Warrior",
+          "level_learned": 18,
+          "rank": "I",
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "By following this command, your defensive target will be granted a 40% increase to mitigation for the next 3 incoming attacks.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "emulator_absence_reported_by_archive": {
+            "reported_absent": true,
+            "independently_verified": false,
+            "emulator_build": null,
+            "historical_authentication": null
+          },
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/command-defend-i-345.php"
+          ]
+        }
+      ],
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "validation": {
+    "cached_page_hashes": 9,
+    "range_intervals": 1,
+    "emulator_absence_notices": 6,
+    "unitless_cast_preserved": 2,
+    "issues": 0
+  },
+  "limitations": [
+    "Archive reports are not independent emulator verification or historical authentication.",
+    "Earlier source records remain immutable; operative values remain withheld."
+  ]
+}

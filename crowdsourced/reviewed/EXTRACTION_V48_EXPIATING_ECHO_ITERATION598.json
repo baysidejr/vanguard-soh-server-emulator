@@ -1,0 +1,291 @@
+{
+  "review_kind": "parser_v48_expiating_echo_cached_replay",
+  "input": {
+    "path": "reviewed/BARD_EXPIATING_ECHO_SOURCE_REVIEW_ITERATION597.json",
+    "sha256": "1a6234f25d57b7a8f892aa42eb2908bd4a2cc377dd64cc48619010c3a8f68fe3"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Weirlaun's Expiating Echo I",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-expiating-echo-i",
+      "cache": {
+        "path": ".cache/archive/4c4f50580fe542f92e4fd5ac432500b53e06af64a5c4eebdef0601576430b785.txt",
+        "sha256": "fca7ec0a7fae50fc1ebf043253597e09b71220c0c991b68a305fe8adab57a64b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 80,
+          "record_sha256": "44b4dec273885f48910ffaa72f813e8deca97b834ff3b04ddc1aad6f406a88cc"
+        }
+      ],
+      "effect_text_sha256": "4d4572108cd353fcf52f59727527d0fa3afe34a7f4c4d67ee8519409709e8d2c",
+      "literal": "You shout after a successful parry, dealing 144 to 153 damage and restoring 50 of your endurance. Only usable after you parry.",
+      "observation": {
+        "damage_minimum_recorded": 144,
+        "damage_maximum_recorded": 153,
+        "endurance_restored_recorded": 50,
+        "prerequisite_recorded": "successful parry",
+        "damage_school": null,
+        "damage_target": null,
+        "activation_window_seconds": null,
+        "scaling": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v48_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "parry_damage_endurance_observation",
+          "damage_minimum_recorded": 144,
+          "damage_maximum_recorded": 153,
+          "endurance_restored_recorded": 50,
+          "prerequisite_recorded": "successful parry",
+          "damage_school": null,
+          "damage_target": null,
+          "activation_window_seconds": null,
+          "scaling": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "parry_damage_endurance_observation",
+              "damage_minimum_recorded": 144,
+              "damage_maximum_recorded": 153,
+              "endurance_restored_recorded": 50,
+              "prerequisite_recorded": "successful parry",
+              "damage_school": null,
+              "damage_target": null,
+              "activation_window_seconds": null,
+              "scaling": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Weirlaun's Expiating Echo II",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-expiating-echo-ii",
+      "cache": {
+        "path": ".cache/archive/285405fa40cb49bfc525faf420fe91f0ddc0c10f56ce4571df9d810b04ed0946.txt",
+        "sha256": "c58456ac61059970ac8078ca3e9edded8c8b51bd997f4a0ced0921ef459b5df8"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+          "line": 72,
+          "record_sha256": "83588ad2bd0584562998742096cb62255954dcce824f82d9596972470cb8d892"
+        }
+      ],
+      "effect_text_sha256": "9e10e43af0a669c088c44638784b0be4599fbdcb265c63aab3b4e5bc10e315c0",
+      "literal": "You shout after a successful parry, dealing 210 to 222 damage and restoring 50 of your endurance. Only usable after you parry.",
+      "observation": {
+        "damage_minimum_recorded": 210,
+        "damage_maximum_recorded": 222,
+        "endurance_restored_recorded": 50,
+        "prerequisite_recorded": "successful parry",
+        "damage_school": null,
+        "damage_target": null,
+        "activation_window_seconds": null,
+        "scaling": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v48_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "parry_damage_endurance_observation",
+          "damage_minimum_recorded": 210,
+          "damage_maximum_recorded": 222,
+          "endurance_restored_recorded": 50,
+          "prerequisite_recorded": "successful parry",
+          "damage_school": null,
+          "damage_target": null,
+          "activation_window_seconds": null,
+          "scaling": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "parry_damage_endurance_observation",
+              "damage_minimum_recorded": 210,
+              "damage_maximum_recorded": 222,
+              "endurance_restored_recorded": 50,
+              "prerequisite_recorded": "successful parry",
+              "damage_school": null,
+              "damage_target": null,
+              "activation_window_seconds": null,
+              "scaling": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Weirlaun's Expiating Echo III",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-expiating-echo-iii",
+      "cache": {
+        "path": ".cache/archive/b071a59425d922c5e1bcf697a401ccc2ffc96512e20f06ec7916c367bfeb305d.txt",
+        "sha256": "833672061c6e3b9e1f328c8224ae729c379b5a18b6811261a9012bba1b92d0f9"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+          "line": 73,
+          "record_sha256": "6d31c60c0c17e1244c5c223a9c1e91105fc04661c256d65ffdc176bb87597acc"
+        }
+      ],
+      "effect_text_sha256": "891b10ae200655a671fe5ff5cfdfb072fc1666e7763c9b4910dbee8c7e87967d",
+      "literal": "You shout after a successful parry, dealing 282 to 298 damage and restoring 50 of your endurance. Only usable after you parry.",
+      "observation": {
+        "damage_minimum_recorded": 282,
+        "damage_maximum_recorded": 298,
+        "endurance_restored_recorded": 50,
+        "prerequisite_recorded": "successful parry",
+        "damage_school": null,
+        "damage_target": null,
+        "activation_window_seconds": null,
+        "scaling": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v48_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "parry_damage_endurance_observation",
+          "damage_minimum_recorded": 282,
+          "damage_maximum_recorded": 298,
+          "endurance_restored_recorded": 50,
+          "prerequisite_recorded": "successful parry",
+          "damage_school": null,
+          "damage_target": null,
+          "activation_window_seconds": null,
+          "scaling": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "parry_damage_endurance_observation",
+              "damage_minimum_recorded": 282,
+              "damage_maximum_recorded": 298,
+              "endurance_restored_recorded": 50,
+              "prerequisite_recorded": "successful parry",
+              "damage_school": null,
+              "damage_target": null,
+              "activation_window_seconds": null,
+              "scaling": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Weirlaun's Expiating Echo IV",
+      "source_url": "https://vgsoharchive.com/abilities/weirlaun-s-expiating-echo-iv",
+      "cache": {
+        "path": ".cache/archive/2dc2dde164dfeaf3abfc93997131c0474f1c321081d5c4269fa70ff71b2beb07.txt",
+        "sha256": "27e293c4497a72a0627c2d002e8e80fc96536406c5e77bbefc6c892d9eb2f61e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+          "line": 74,
+          "record_sha256": "808eb6e3b1815cac49b76dc59f2a54ed267b0143256d7fa4385f4d08e1799dc2"
+        }
+      ],
+      "effect_text_sha256": "dbf115859283e7ac377d7b178ebe0b239bc70287f1971b56e19b9ea7eb94ca48",
+      "literal": "You shout after a successful parry, dealing 336 to 355 damage and restoring 50 of your endurance. Only usable after you parry.",
+      "observation": {
+        "damage_minimum_recorded": 336,
+        "damage_maximum_recorded": 355,
+        "endurance_restored_recorded": 50,
+        "prerequisite_recorded": "successful parry",
+        "damage_school": null,
+        "damage_target": null,
+        "activation_window_seconds": null,
+        "scaling": null
+      },
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "parser_v48_whole_page_replay_verified",
+      "parsed_facts": [
+        {
+          "kind": "parry_damage_endurance_observation",
+          "damage_minimum_recorded": 336,
+          "damage_maximum_recorded": 355,
+          "endurance_restored_recorded": 50,
+          "prerequisite_recorded": "successful parry",
+          "damage_school": null,
+          "damage_target": null,
+          "activation_window_seconds": null,
+          "scaling": null,
+          "conditions_unparsed": true
+        }
+      ],
+      "whole_page_effect_observations": [
+        {
+          "scope": "current",
+          "facts": [
+            {
+              "kind": "parry_damage_endurance_observation",
+              "damage_minimum_recorded": 336,
+              "damage_maximum_recorded": 355,
+              "endurance_restored_recorded": 50,
+              "prerequisite_recorded": "successful parry",
+              "damage_school": null,
+              "damage_target": null,
+              "activation_window_seconds": null,
+              "scaling": null,
+              "conditions_unparsed": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 4,
+    "source_record_hashes_verified": 4,
+    "exact_effect_section_matches": 4,
+    "whole_page_replays": 4,
+    "issues": 0,
+    "python_tests_passed": 199,
+    "whole_page_observations_verified": 4
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "policy": "Explicit printed damage ranges, endurance restoration and parry prerequisite retained as sourced research. Damage school, damage target, activation window, scaling and live-era authenticity remain unknown. Distinct ranks remain separate. Original records unchanged and no operative facts promoted.",
+  "next_step": "Review remaining numeric Bard tooltips for explicit mechanics absent from typed observations.",
+  "parser_version": 48
+}

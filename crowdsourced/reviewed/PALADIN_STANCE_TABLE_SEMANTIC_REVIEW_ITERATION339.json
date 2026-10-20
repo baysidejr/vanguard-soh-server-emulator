@@ -1,0 +1,208 @@
+{
+  "review_kind": "paladin_stance_table_semantic_review",
+  "network_requests": 0,
+  "source_url": "https://vgsoharchive.com/classes/paladin/stances",
+  "cache_stored_bytes_sha256": "ba18ec7ed42dd53a454390fd06b0d39f1e279fcbbd776a7117ede0c7a4a12c7d",
+  "source_records": [
+    {
+      "path": "raw/2026-10-14-030921-688504-archive-bulk/source_pages.json",
+      "record": {
+        "name": "Paladin — Stances",
+        "url": "https://vgsoharchive.com/classes/paladin/stances",
+        "record_kind": "source_page",
+        "fields": {},
+        "headings": [],
+        "sections": [],
+        "referenced_entities": [],
+        "original_source_urls": [
+          "http://thetelonproject.wikidot.com/adventuring:paladin-stances"
+        ],
+        "source_date": null,
+        "parsed_at": "2026-10-14T07:10:11+00:00"
+      },
+      "file_sha256": "c64752ae632ea30467f4802ac69d210962e540b3febb7dd1b0517e4ecde5a982"
+    }
+  ],
+  "table_evidence": {
+    "table_index": 0,
+    "source_html": "<table>\n<tr>\n<td></td>\n<td><strong>Aura of Divine Power :</strong><br/>\nThe Paladin projects an aura of power which increases the damage of the Paladin's group by 10% and their accuracy by 5%.</td>\n</tr>\n<tr>\n<td></td>\n<td><strong>Aura of Shielding:</strong><br/>\nThe Paladin projects a defensive aura which increases his or her mitigation by 15% and their ability to generate hate by 40%, adds armor class scaled to level, and reduces their damage by 10%. Nearby allies gain armor class scaled to level.</td>\n</tr>\n<tr>\n<td></td>\n<td><strong>Aura of Replenishment :</strong><br/>\nThe Paladin projects a calming aura, increasing regeneration rates for the Paladin and his or her group members. .</td>\n</tr>\n</table>",
+    "rows": [
+      {
+        "row_index": 0,
+        "text_as_printed": "Aura of Divine Power : The Paladin projects an aura of power which increases the damage of the Paladin's group by 10% and their accuracy by 5%.",
+        "source_html": "<tr>\n<td></td>\n<td><strong>Aura of Divine Power :</strong><br/>\nThe Paladin projects an aura of power which increases the damage of the Paladin's group by 10% and their accuracy by 5%.</td>\n</tr>",
+        "review_status": "reviewed_as_source_claim_only"
+      },
+      {
+        "row_index": 1,
+        "text_as_printed": "Aura of Shielding: The Paladin projects a defensive aura which increases his or her mitigation by 15% and their ability to generate hate by 40%, adds armor class scaled to level, and reduces their damage by 10%. Nearby allies gain armor class scaled to level.",
+        "source_html": "<tr>\n<td></td>\n<td><strong>Aura of Shielding:</strong><br/>\nThe Paladin projects a defensive aura which increases his or her mitigation by 15% and their ability to generate hate by 40%, adds armor class scaled to level, and reduces their damage by 10%. Nearby allies gain armor class scaled to level.</td>\n</tr>",
+        "review_status": "reviewed_as_source_claim_only"
+      },
+      {
+        "row_index": 2,
+        "text_as_printed": "Aura of Replenishment : The Paladin projects a calming aura, increasing regeneration rates for the Paladin and his or her group members. .",
+        "source_html": "<tr>\n<td></td>\n<td><strong>Aura of Replenishment :</strong><br/>\nThe Paladin projects a calming aura, increasing regeneration rates for the Paladin and his or her group members. .</td>\n</tr>",
+        "review_status": "reviewed_as_source_claim_only"
+      }
+    ]
+  },
+  "claims": [
+    {
+      "id": 1,
+      "source_url": "https://vgsoharchive.com/classes/paladin/stances",
+      "source_table_index": 0,
+      "source_row_index": 0,
+      "subject": "Aura of Divine Power",
+      "predicate": "group_damage_increase_percent",
+      "value": 10,
+      "qualifier": "Affected damage categories and stacking rules absent.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 2,
+      "source_url": "https://vgsoharchive.com/classes/paladin/stances",
+      "source_table_index": 0,
+      "source_row_index": 0,
+      "subject": "Aura of Divine Power",
+      "predicate": "group_accuracy_increase_percent",
+      "value": 5,
+      "qualifier": "Percent versus percentage-point interpretation unresolved.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 3,
+      "source_url": "https://vgsoharchive.com/classes/paladin/stances",
+      "source_table_index": 0,
+      "source_row_index": 1,
+      "subject": "Aura of Shielding",
+      "predicate": "paladin_mitigation_increase_percent",
+      "value": 15,
+      "qualifier": "Additive versus multiplicative interpretation unresolved.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 4,
+      "source_url": "https://vgsoharchive.com/classes/paladin/stances",
+      "source_table_index": 0,
+      "source_row_index": 1,
+      "subject": "Aura of Shielding",
+      "predicate": "paladin_hate_generation_increase_percent",
+      "value": 40,
+      "qualifier": "Hate sources and stacking rules absent.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 5,
+      "source_url": "https://vgsoharchive.com/classes/paladin/stances",
+      "source_table_index": 0,
+      "source_row_index": 1,
+      "subject": "Aura of Shielding",
+      "predicate": "paladin_armor_class",
+      "value": "scaled to level",
+      "qualifier": "Scaling formula absent.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 6,
+      "source_url": "https://vgsoharchive.com/classes/paladin/stances",
+      "source_table_index": 0,
+      "source_row_index": 1,
+      "subject": "Aura of Shielding",
+      "predicate": "paladin_damage_reduction_percent",
+      "value": 10,
+      "qualifier": "Affected damage categories absent.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 7,
+      "source_url": "https://vgsoharchive.com/classes/paladin/stances",
+      "source_table_index": 0,
+      "source_row_index": 1,
+      "subject": "Aura of Shielding",
+      "predicate": "nearby_allies_armor_class",
+      "value": "scaled to level",
+      "qualifier": "Scaling formula and nearby radius absent.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    },
+    {
+      "id": 8,
+      "source_url": "https://vgsoharchive.com/classes/paladin/stances",
+      "source_table_index": 0,
+      "source_row_index": 2,
+      "subject": "Aura of Replenishment",
+      "predicate": "regeneration_rates",
+      "value": "increased for Paladin and group members",
+      "qualifier": "Regenerating resources, amounts, tick intervals and range absent.",
+      "classification": "mirrored_wiki_reported_mechanic",
+      "canonical_client_id": null,
+      "historical_applicability": null,
+      "operative_server_value": null
+    }
+  ],
+  "ambiguities": [
+    {
+      "details": "Level-10 acquisition prose does not individually name the two new stances; table has no acquisition-level column. No per-stance level is promoted from table order.",
+      "operative_value": null
+    },
+    {
+      "details": "Regeneration resources, rate, radius, armor scaling formula, duration, stacking and historical applicability remain unknown.",
+      "operative_value": null
+    }
+  ],
+  "limitations": [
+    "Same Telon Project mirror provenance as preceding prose review; not independent corroboration.",
+    "Numeric claims are research observations, not operative server values or verified historical rules.",
+    "This review covers one stance table; the 132 remaining prose backlog blocks are unchanged and other table coverage remains incomplete."
+  ],
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "python_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "network_suspension_preserved": true
+  },
+  "review_counts": {
+    "reviewed_tables": 1,
+    "reviewed_table_rows": 3,
+    "source_claims": 8,
+    "remaining_prose_backlog_blocks": 132
+  },
+  "validation": {
+    "issues": [],
+    "cached_html_hashes_verified": 1,
+    "source_records_verified": 1,
+    "table_rows_verified": 3
+  }
+}

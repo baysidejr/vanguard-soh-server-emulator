@@ -1,0 +1,836 @@
+{
+  "review_kind": "bard_remaining_nonnumeric_combat_source_review",
+  "parser_version": 83,
+  "input": {
+    "path": "reviewed/BARD_NONNUMERIC_EFFECT_COVERAGE_ITERATION671.json",
+    "sha256": "538f4a543182734d4d9b2024e6dc74d56f20976d0efbe8b83da03e021856abd6"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Ariezel's Resounding Reverberation",
+      "source_url": "https://vgsoharchive.com/abilities/ariezel-s-resounding-reverberation",
+      "cache": {
+        "path": ".cache/archive/11f573a34c31426f5a6763f4ccec87b4a2795f2dfc950ec1fc810741b240b802.txt",
+        "sha256": "6015127c5ea6708b2d0c82509e75e497a0f5ba1b706545225180e4c7cf6b2631"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 57,
+          "record_sha256": "8434a8e5492063c3906a69551fb279b616fe1f700ef29ce579d82c45082fde11"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This voice lyric deals damage to anyone who attack you and your allies.",
+          "literal_sha256": "21b571eea061417d2278dcb9b69f37bdf69d278ec1e330dc9f4ca2af01fadd30",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "reactive_damage",
+            "recipient_reported": "anyone who attack you and your allies",
+            "trigger_reported": "attack you and your allies",
+            "damage_type_reported": null,
+            "magnitude": null,
+            "unit": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Ariezel's Resounding Reverberation",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/ariezel-s-resounding-reverberation",
+              "title": "Ariezel's Resounding Reverberation · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 83,
+          "collected_at": "2026-10-19T22:34:47+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "32"
+            ],
+            "level": [
+              "32"
+            ],
+            "energy cost": [
+              "3"
+            ],
+            "song portion": [
+              "Lyric"
+            ],
+            "instrument": [
+              "Voice"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 32,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 3
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This voice lyric deals damage to anyone who attack you and your allies.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 32,
+              "raw": "32"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              3
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/ariezels-resounding-reverberation-155.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gamael's Blades of Venom",
+      "source_url": "https://vgsoharchive.com/abilities/gamael-s-blades-of-venom",
+      "cache": {
+        "path": ".cache/archive/4acf77afd0f118e816e3d3d7104378da71976bba44395260bba16679ec4d77e8.txt",
+        "sha256": "badda2fc38330e3873e414e0bbe270288011e8ba82982b332183fb88b7fc63b7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "4a3bc4914b2290ed2be868997451ed14f8b33c3e9cc21591506ec27b4c0714ba"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This brass lyric adds additional poison damage to the attacks of you and your allies. Instrument modifiers alter proc chance.",
+          "literal_sha256": "728a625df222a775657087e8aee7a17c384c7e1f306dfa9632e92deb1632b9a9",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "additional_attack_damage",
+            "damage_type_reported": "poison",
+            "target_reported": "you and your allies",
+            "proc_modifier_reported": "Instrument modifiers alter proc chance",
+            "proc_chance": null,
+            "magnitude": null,
+            "unit": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Gamael's Blades of Venom",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/gamael-s-blades-of-venom",
+              "title": "Gamael's Blades of Venom · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 83,
+          "collected_at": "2026-10-19T22:34:47+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "35 — now 32"
+            ],
+            "level": [
+              "32"
+            ],
+            "energy cost": [
+              "3"
+            ],
+            "song portion": [
+              "Lyric"
+            ],
+            "instrument": [
+              "Brass"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 32,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 3
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This brass lyric adds additional poison damage to the attacks of you and your allies. Instrument modifiers alter proc chance.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 35,
+              "raw": "35 — now 32"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              3
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/gamaels-blades-of-venom-154.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Illestine's Revolution of the Seasons",
+      "source_url": "https://vgsoharchive.com/abilities/illestine-s-revolution-of-the-seasons",
+      "cache": {
+        "path": ".cache/archive/5c14ce1e9b25db93de0fa0bc07626ca558947904d992dc5490c8e50f91d656c8.txt",
+        "sha256": "f9f691061a32fe72e24b99328e09253a92532f0733b40405ac835f13dfc61307"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+          "line": 79,
+          "record_sha256": "5c148189c9db44f57250a5ca28c1a2a0e419cbfb066eff346dfe1af22d9d74e7"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This wind bridge protects you and your allies from fire and cold.",
+          "literal_sha256": "0b222672882427aa625cd96e97c7454ca4c51cb105c6572746fb12bdfc8c62bd",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "protection",
+            "damage_types_reported": [
+              "fire",
+              "cold"
+            ],
+            "target_reported": "you and your allies",
+            "protection_mechanism": null,
+            "magnitude": null,
+            "unit": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Illestine's Revolution of the Seasons",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/illestine-s-revolution-of-the-seasons",
+              "title": "Illestine's Revolution of the Seasons · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 83,
+          "collected_at": "2026-10-19T22:34:47+00:00",
+          "archive_fields": {
+            "level": [
+              "35"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 35,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This wind bridge protects you and your allies from fire and cold.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/illestines-revolution-of-the-seasons-160.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ariezel's Confusing Chorus",
+      "source_url": "https://vgsoharchive.com/abilities/ariezel-s-confusing-chorus",
+      "cache": {
+        "path": ".cache/archive/c987e25df1bcdc58d734204c02fe24bddea9373197edb64aaaecc8dabc1466b6.txt",
+        "sha256": "321285753188fe9913a1834186b7901221fc1559427b414d6f4e2ad36cd6abc6"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+          "line": 52,
+          "record_sha256": "9d322dff7d32ba6ebe8193674f8bb1062690ab0a029a23217f05fe972b552894"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This brass chorus confuses your opponent, reducing accuracy and increasing the cost of their spells.",
+          "literal_sha256": "ee4fd7aa9ac26c06883cfc1ccbd2e6fc645c9de4a943d293a25a95f8c92c35c9",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "confusion",
+            "target_reported": "your opponent",
+            "modifiers_reported": [
+              {
+                "stat": "accuracy",
+                "direction": "decrease"
+              },
+              {
+                "stat": "spell_cost",
+                "direction": "increase"
+              }
+            ],
+            "magnitude": null,
+            "unit": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Ariezel's Confusing Chorus",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/ariezel-s-confusing-chorus",
+              "title": "Ariezel's Confusing Chorus · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 83,
+          "collected_at": "2026-10-19T22:34:47+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "37"
+            ],
+            "level": [
+              "37"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 37,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This brass chorus confuses your opponent, reducing accuracy and increasing the cost of their spells.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 37,
+              "raw": "37"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/ariezels-confusing-chorus-165.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Naman's Guardian Rhythm",
+      "source_url": "https://vgsoharchive.com/abilities/naman-s-guardian-rhythm",
+      "cache": {
+        "path": ".cache/archive/8e1196c52fea07ba978972c653e439e5f7696aa53bf9d7a3aceb9257a9130def.txt",
+        "sha256": "6fa9faa52c0b66e548a23f87719aa3e98489e8151c0e7f80a14bbb2dbadb6335"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 87,
+          "record_sha256": "9dadd43b211b83400fbacb76e081199893dd7ba8766b1664e00fd83d75e51d11"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Increases resistance to physical, mental, arcane and increases armor class.",
+          "literal_sha256": "a4a00c5dcafbff98e8f0266920627fb030faa0a3d33ae8d8442f95abc1e0850b",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "stat_increase",
+            "target_reported": null,
+            "modifiers_reported": [
+              {
+                "stat": "resistance",
+                "types": [
+                  "physical",
+                  "mental",
+                  "arcane"
+                ]
+              },
+              {
+                "stat": "armor_class"
+              }
+            ],
+            "magnitude": null,
+            "unit": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Naman's Guardian Rhythm",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/naman-s-guardian-rhythm",
+              "title": "Naman's Guardian Rhythm · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 83,
+          "collected_at": "2026-10-19T22:34:47+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "50 — now 40"
+            ],
+            "level": [
+              "40"
+            ],
+            "energy cost": [
+              "2"
+            ],
+            "song portion": [
+              "Melody"
+            ],
+            "instrument": [
+              "Percussion"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 40,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 2
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Increases resistance to physical, mental, arcane and increases armor class.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 50,
+              "raw": "50 — now 40"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              2
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/namans-guardian-rhythm-169.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Psalm of the Dance",
+      "source_url": "https://vgsoharchive.com/abilities/psalm-of-the-dance",
+      "cache": {
+        "path": ".cache/archive/b1e12dcaae944503dbc55708c2437123d0e4a43a19ccb31632f1de5d96b17390.txt",
+        "sha256": "3ec292dfea89a554768b0a2d2918184d1e71975985be88ba48725034aac74a5a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 19,
+          "record_sha256": "ae97d29d8c4af5d50fa1a69833a1767961d0ceb874fc7c147396ff96fe2d543c"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Speeds up the rate at which bard dance forms are progressed.",
+          "literal_sha256": "8a74433611bba9c7ab6a6a7e8228c272b395a8f66ec1a3a3b79fd30cf9052f3a",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "faster_dance_form_progression",
+            "class_reported": "bard",
+            "progression_rate": null,
+            "magnitude": null,
+            "unit": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Psalm of the Dance",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/psalm-of-the-dance",
+              "title": "Psalm of the Dance · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 83,
+          "collected_at": "2026-10-19T22:34:47+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "44"
+            ],
+            "level": [
+              "44"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 44,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Speeds up the rate at which bard dance forms are progressed.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 44,
+              "raw": "44"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/psalm-of-the-dance-175.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fasant's Segue of Sundering",
+      "source_url": "https://vgsoharchive.com/abilities/fasant-s-segue-of-sundering",
+      "cache": {
+        "path": ".cache/archive/1ee44ae5ff84f351b79ee39c12f1798e33efcc824081d81aa3a79daafdbbc60d.txt",
+        "sha256": "32f23214183ba45e41eb36cc83064bce65b38bc997ccf114f90680664996cace"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 79,
+          "record_sha256": "58ed11ee1150c6448e82ca3421197da94c4138cf92387884fd6afb6667718b6f"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Reduces your opponent's armor class and strength. Deals damage over time.",
+          "literal_sha256": "7b9a77d0d9637cfc2ff187379f375c1119befb2b9a25f8b1a05132191168af56",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "compound_debuff_and_periodic_damage",
+            "target_reported": "your opponent",
+            "modifiers_reported": [
+              {
+                "stat": "armor_class",
+                "direction": "decrease"
+              },
+              {
+                "stat": "strength",
+                "direction": "decrease"
+              }
+            ],
+            "damage_type_reported": null,
+            "magnitude": null,
+            "unit": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Fasant's Segue of Sundering",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/fasant-s-segue-of-sundering",
+              "title": "Fasant's Segue of Sundering · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 83,
+          "collected_at": "2026-10-19T22:34:47+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "50"
+            ],
+            "level": [
+              "50"
+            ],
+            "energy cost": [
+              "6"
+            ],
+            "song portion": [
+              "Bridge"
+            ],
+            "instrument": [
+              "Voice"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 50,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 6
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Reduces your opponent's armor class and strength. Deals damage over time.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 50,
+              "raw": "50"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              6
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/fasants-segue-of-sundering-180.php"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 7,
+    "source_record_hashes_verified": 7,
+    "literal_hashes_verified": 7,
+    "whole_page_replays": 7,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process show no collect_archive process",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "review_accounting": {
+    "previous_unreviewed_nonnumeric_sections": 7,
+    "source_sections_reviewed_here": 7,
+    "remaining_unreviewed_nonnumeric_sections": 0,
+    "reviewed_sections_awaiting_parser_implementation": 7
+  },
+  "limitations": [
+    "Candidates are source review, not typed game facts or operative server mechanics.",
+    "Protection from fire and cold does not establish resistance, absorption or immunity.",
+    "Instrument modifiers alter proc chance without specifying direction, magnitude or formula.",
+    "Reactive damage trigger and recipient wording retained literally; no attack type or reflection formula inferred.",
+    "Unspecified magnitude, timing, stacking, target and historical applicability remain null.",
+    "Zero remaining sections refers only to the iteration671 nonnumeric review inventory; archive collection and other extraction remain incomplete."
+  ],
+  "next_step": "Implement and test constrained reactive-damage and poison attack-damage observations from the reviewed Bard sources."
+}

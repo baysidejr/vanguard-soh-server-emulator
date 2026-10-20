@@ -1,0 +1,477 @@
+{
+  "review_kind": "constrained_speed_damage_extraction",
+  "parser_version": 83,
+  "input": {
+    "path": "reviewed/BARD_NONNUMERIC_SPEED_DAMAGE_SOURCE_REVIEW_ITERATION683.json",
+    "sha256": "706f38752e731c61a102cf90359223ec2c167590a4a1bdb932f3fa38f68e4246"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Tynen's Chant of Chains",
+      "source_url": "https://vgsoharchive.com/abilities/tynen-s-chant-of-chains",
+      "cache": {
+        "path": ".cache/archive/1871389dedf0c87036be2b75c3177dedef16b5e565e11b7bda06133158c0ee9c.txt",
+        "sha256": "2bbba06bee3a81d0e684c43ace385f9cc6130680c705dbf526e8cce8fa7f09b2"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 87,
+          "record_sha256": "31573629ee7ff5bdf2f5ffad72d6d1c9f41652a29a5de37ea838437d256b7f87"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This brass verse reduces your opponent's movement speed.",
+          "literal_sha256": "fbf38e88812508da2eb4973bce2c038034b42bfb24ece57d46a1c150b0bc62e2",
+          "effect_facts": [
+            {
+              "kind": "speed_damage_tooltip_observation",
+              "effect_phrase_recorded": "This brass verse reduces your opponent's movement speed.",
+              "conditions_unparsed": true,
+              "direction_reported": "decrease",
+              "stat_reported": "movement_speed",
+              "target_reported": "your opponent",
+              "attack_scope_reported": null,
+              "qualitative_magnitude_reported": null,
+              "magnitude": null,
+              "unit": null,
+              "tick_interval_seconds": null,
+              "duration_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Tynen's Chant of Chains",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/tynen-s-chant-of-chains",
+              "title": "Tynen's Chant of Chains · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 83,
+          "collected_at": "2026-10-19T22:28:31+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "33"
+            ],
+            "level": [
+              "33"
+            ],
+            "energy cost": [
+              "7"
+            ],
+            "song portion": [
+              "Verse"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 33,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 7
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This brass verse reduces your opponent's movement speed.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 33,
+              "raw": "33"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              7
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "speed_damage_tooltip_observation",
+                  "effect_phrase_recorded": "This brass verse reduces your opponent's movement speed.",
+                  "conditions_unparsed": true,
+                  "direction_reported": "decrease",
+                  "stat_reported": "movement_speed",
+                  "target_reported": "your opponent",
+                  "attack_scope_reported": null,
+                  "qualitative_magnitude_reported": null,
+                  "magnitude": null,
+                  "unit": null,
+                  "tick_interval_seconds": null,
+                  "duration_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/tynens-chant-of-chains-157.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tynen's Coda of Velocity",
+      "source_url": "https://vgsoharchive.com/abilities/tynen-s-coda-of-velocity",
+      "cache": {
+        "path": ".cache/archive/b8ae355a69f30cf813bb5dbcbe8fb2b6c29dbeaa4334e3b299c2c730c8d4c61a.txt",
+        "sha256": "b213e9c137ae1b3e1e13b975627684ea29b0fec5d0dfd7f2bbb425371b87612f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 88,
+          "record_sha256": "0d75926c51e6f5b2d40a34d621e19c7fa117be336b9d6877f4a013d468dd92c4"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Causes your feet to move at great speeds, increasing your movement speed.",
+          "literal_sha256": "ca5e66e5246f981190c6eb3fbf3bf7355b229c9b85c8c045113b15fa08d6a209",
+          "effect_facts": [
+            {
+              "kind": "speed_damage_tooltip_observation",
+              "effect_phrase_recorded": "Causes your feet to move at great speeds, increasing your movement speed.",
+              "conditions_unparsed": true,
+              "direction_reported": "increase",
+              "stat_reported": "movement_speed",
+              "target_reported": "you",
+              "attack_scope_reported": null,
+              "qualitative_magnitude_reported": null,
+              "magnitude": null,
+              "unit": null,
+              "tick_interval_seconds": null,
+              "duration_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Tynen's Coda of Velocity",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/tynen-s-coda-of-velocity",
+              "title": "Tynen's Coda of Velocity · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 83,
+          "collected_at": "2026-10-19T22:28:31+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "49"
+            ],
+            "level": [
+              "49"
+            ],
+            "energy cost": [
+              "7"
+            ],
+            "song portion": [
+              "Coda"
+            ],
+            "instrument": [
+              "Percussion"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 49,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 7
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Causes your feet to move at great speeds, increasing your movement speed.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 49,
+              "raw": "49"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              7
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "speed_damage_tooltip_observation",
+                  "effect_phrase_recorded": "Causes your feet to move at great speeds, increasing your movement speed.",
+                  "conditions_unparsed": true,
+                  "direction_reported": "increase",
+                  "stat_reported": "movement_speed",
+                  "target_reported": "you",
+                  "attack_scope_reported": null,
+                  "qualitative_magnitude_reported": null,
+                  "magnitude": null,
+                  "unit": null,
+                  "tick_interval_seconds": null,
+                  "duration_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/tynens-coda-of-velocity-179.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mellarien's Victorious Finale",
+      "source_url": "https://vgsoharchive.com/abilities/mellarien-s-victorious-finale",
+      "cache": {
+        "path": ".cache/archive/ba71376c41967462737d8c3cbafe65f87341f2a043e8df47dc39918fc6dba1cf.txt",
+        "sha256": "fcf1545a2ec22e1a1f9c5d2df8646694085a822908dc7d2fdcd097b2b1098666"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-013525-057925-archive-bulk/ability.jsonl",
+          "line": 91,
+          "record_sha256": "67ff30ea2d0b58d2efa22c813ea76b3aa728cdedf165c3460c774aa0bcff8cc4"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Increases damage of all attacks made by you or your allies by a small amount.",
+          "literal_sha256": "093f78dfcbb9b736f2fe22018f998f1c2cd20ef17e185b3c80c42ae364f3c7c6",
+          "effect_facts": [
+            {
+              "kind": "speed_damage_tooltip_observation",
+              "effect_phrase_recorded": "Increases damage of all attacks made by you or your allies by a small amount.",
+              "conditions_unparsed": true,
+              "direction_reported": "increase",
+              "stat_reported": "attack_damage",
+              "target_reported": "you or your allies",
+              "attack_scope_reported": "all attacks",
+              "qualitative_magnitude_reported": "small amount",
+              "magnitude": null,
+              "unit": null,
+              "tick_interval_seconds": null,
+              "duration_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Mellarien's Victorious Finale",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/mellarien-s-victorious-finale",
+              "title": "Mellarien's Victorious Finale · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 83,
+          "collected_at": "2026-10-19T22:28:31+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "50"
+            ],
+            "level": [
+              "50"
+            ],
+            "energy cost": [
+              "8"
+            ],
+            "song portion": [
+              "Coda"
+            ],
+            "instrument": [
+              "Voice"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Bard",
+              "url": "https://vgsoharchive.com/classes/bard"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Bard",
+          "level_learned": 50,
+          "rank": null,
+          "category": null,
+          "cost": {
+            "energy": 8
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Increases damage of all attacks made by you or your allies by a small amount.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 50,
+              "raw": "50"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBard"
+          ],
+          "cost_observations": {
+            "energy": [
+              8
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "speed_damage_tooltip_observation",
+                  "effect_phrase_recorded": "Increases damage of all attacks made by you or your allies by a small amount.",
+                  "conditions_unparsed": true,
+                  "direction_reported": "increase",
+                  "stat_reported": "attack_damage",
+                  "target_reported": "you or your allies",
+                  "attack_scope_reported": "all attacks",
+                  "qualitative_magnitude_reported": "small amount",
+                  "magnitude": null,
+                  "unit": null,
+                  "tick_interval_seconds": null,
+                  "duration_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/mellariens-victorious-finale-181.php"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 3,
+    "source_record_hashes_verified": 3,
+    "literal_hashes_verified": 3,
+    "whole_page_replays": 3,
+    "issues": 0,
+    "required_unittest_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+    "tests_passed": 270
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process inspection found no Python collector",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60,
+    "network_suspension_preserved": true
+  },
+  "remaining_unreviewed_nonnumeric_sections": 7,
+  "limitations": [
+    "Source wording reports movement-speed direction and target without a numeric magnitude.",
+    "Small amount is qualitative, not a numerical damage bonus; all attacks is retained without inventing damage types or stacking.",
+    "Duration, magnitude, units, stacking and historical applicability remain null.",
+    "Exact source observations only; no operative combat values or independent historical authentication."
+  ],
+  "next_step": "Review the remaining 7 Bard nonnumeric mechanic sections for constrained extraction candidates."
+}

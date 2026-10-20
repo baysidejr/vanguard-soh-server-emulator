@@ -1,0 +1,128 @@
+{
+  "review_kind": "bard_mesmerize_source_review",
+  "input": {
+    "path": "reviewed/BARD_EFFECT_PROSE_LOCATION_REVIEW_ITERATION581.json",
+    "sha256": "d5fb154d820332317001030ef53b3e2ab6aafd9dd34c1ac11e41485d6d539225"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "parser_version": 51,
+  "rows": [
+    {
+      "name": "Suann's Entrancing Trill",
+      "source_url": "https://vgsoharchive.com/abilities/suann-s-entrancing-trill",
+      "cache": {
+        "path": ".cache/archive/11debc7ee9de3a96ffea11a0dedc7f92fd4c6cdfd2f24285fd5e51597fb8a612.txt",
+        "sha256": "29b937502efbff932f8b6ba7add28b735a5731dc1ed9ea70fb60cbc29cab883e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 72,
+          "record_sha256": "751c426cdf7dd39fe0592bb95fa25ea53cf37160a3cd1c8de7f3a9255b2986ff"
+        }
+      ],
+      "literal": "Mesmerizes your opponent, preventing any actions and movement for 18 seconds or 1 hit. Mesmerized targets begin to regenerate after 4 sec. Only one target can be mesmerized at once.",
+      "effect_text_sha256": "64406bde094d302ff9130c5676a9aa912b439f2ee26a8d387df0cd4991562c8e",
+      "observation": {
+        "effect_word_recorded": "Mesmerizes",
+        "prevents_actions_recorded": true,
+        "prevents_movement_recorded": true,
+        "duration_seconds_recorded": 18,
+        "hit_expiry_count_recorded": 1,
+        "regeneration_delay_seconds_recorded": 4,
+        "maximum_mesmerized_targets_recorded": 1,
+        "hit_definition": null,
+        "regeneration_resource": null,
+        "regeneration_rate": null,
+        "regeneration_after_expiry": null,
+        "target_level_limit": null,
+        "player_target_applicability": null
+      },
+      "separate_labelled_duration_seconds": 9,
+      "duration_collision": {
+        "tooltip_seconds": 18,
+        "labelled_seconds": 9,
+        "resolution": null,
+        "disposition": "withhold_operative_duration_preserve_both_sources"
+      },
+      "archive_verification_notice": "tooltip read in VGO Emulator; not independently verified by this collector",
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "source_review_pending_constrained_parser"
+    },
+    {
+      "name": "Suann's Call of the Night",
+      "source_url": "https://vgsoharchive.com/abilities/suann-s-call-of-the-night",
+      "cache": {
+        "path": ".cache/archive/09f8892e7992e7c1166de98a71811a74780f0e57ee0bb8d21e26a2fbe6f82ca6.txt",
+        "sha256": "384c9a8e68010c0383a4c5fdca3da83a3732f6349131f3824f51575a1aa492f0"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+          "line": 91,
+          "record_sha256": "943209e5ce9a20d065b53eeb001e32176a7b2c997b8d5916c60fe8f1eb297d74"
+        }
+      ],
+      "literal": "Mesmerizes your opponent, preventing any actions and movement for 24 seconds or 1 hit. Mesmerized targets begin to regenerate after 4 sec. Only one target can be mesmerized at once.",
+      "effect_text_sha256": "66848362cfb6231009865f2a69516269293a4e39f5dba6032eda5536ff578339",
+      "observation": {
+        "effect_word_recorded": "Mesmerizes",
+        "prevents_actions_recorded": true,
+        "prevents_movement_recorded": true,
+        "duration_seconds_recorded": 24,
+        "hit_expiry_count_recorded": 1,
+        "regeneration_delay_seconds_recorded": 4,
+        "maximum_mesmerized_targets_recorded": 1,
+        "hit_definition": null,
+        "regeneration_resource": null,
+        "regeneration_rate": null,
+        "regeneration_after_expiry": null,
+        "target_level_limit": null,
+        "player_target_applicability": null
+      },
+      "separate_labelled_duration_seconds": null,
+      "duration_collision": null,
+      "archive_verification_notice": "tooltip read in VGO Emulator; not independently verified by this collector",
+      "operative_values": null,
+      "historical_authentication": null,
+      "disposition": "source_review_pending_constrained_parser"
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 2,
+    "source_record_hashes_verified": 2,
+    "literal_hashes_verified": 2,
+    "whole_page_replays": 2,
+    "issues": 0,
+    "tests": {
+      "command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+      "passed": 205
+    }
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Current archive tooltip is reported as read in VGO Emulator; not independent live-era authentication.",
+    "Entrancing Trill labelled duration conflicts with tooltip; both preserved and operative duration withheld.",
+    "One-hit expiry does not establish which attack types count; regeneration resource and rate remain unknown.",
+    "Original immutable source records remain unchanged."
+  ],
+  "next_step": "Implement and test constrained mesmerize observations for these two exact prose cases, preserving the Trill duration collision and unknown hit and regeneration semantics."
+}

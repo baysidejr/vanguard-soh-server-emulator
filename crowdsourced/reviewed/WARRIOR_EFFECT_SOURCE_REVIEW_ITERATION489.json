@@ -1,0 +1,3030 @@
+{
+  "review_kind": "warrior_effect_source_review",
+  "input_review": {
+    "path": "reviewed/WARRIOR_TYPED_FIELD_COVERAGE_ITERATION487.json",
+    "sha256": "1a88e33b52b730245e163fdc8ea3d3be97fdf861a672c7068236e05123003a49"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "class_cache": {
+    "path": ".cache/archive/fa386bea8f80ea015d957c8305c0215d326479517164249d2b69aa1658aa776f.txt",
+    "sha256": "74ef5c71c554b71841081875b0c461aef89fddcca061a600ad18e404f8aad1c3"
+  },
+  "typed_corpus_files": [
+    {
+      "path": "raw/2026-10-13-213223-406049-archive-enriched-v2/ability.jsonl",
+      "sha256": "a10f811ac5bfc2084cf0eba3ea3305c9ee7e4b9235d8477e4d2ad44c14ea5120"
+    },
+    {
+      "path": "raw/2026-10-13-214014-456434-archive-bulk/ability.jsonl",
+      "sha256": "b9dd2be375e11c1d344166e51c5fe33371f4e846fbd627f1fc3bac32323c6487"
+    },
+    {
+      "path": "raw/2026-10-13-214736-136367-archive-bulk/ability.jsonl",
+      "sha256": "e275a8238bebf0093aa8b279473688b96ac4c9e9781c21b08b637baa790d460c"
+    },
+    {
+      "path": "raw/2026-10-13-214748-908906-archive-enriched-v3/ability.jsonl",
+      "sha256": "fa071e9cea3a26c50a24fd963fb36339362bafac2a650cea28a803d5d36aa3ba"
+    },
+    {
+      "path": "raw/2026-10-13-215037-057896-archive-enriched-v3/ability.jsonl",
+      "sha256": "5d05fe0ff7620c3ccb95a8106f04932b28cf7a55c628185278f675f6a1d8d75d"
+    },
+    {
+      "path": "raw/2026-10-13-215552-162528-archive-bulk/ability.jsonl",
+      "sha256": "29511af10dc0c88c7f9be33b5b06d8593846e0589c6c23829f516ce66bf894d7"
+    },
+    {
+      "path": "raw/2026-10-13-220412-188271-archive-bulk/ability.jsonl",
+      "sha256": "053bacefda830f1bc7d15d26149624cdbbd5887e8c98c5e2e1d250a33cadb3d5"
+    },
+    {
+      "path": "raw/2026-10-13-221232-209491-archive-bulk/ability.jsonl",
+      "sha256": "25cf7152c26a1f1e3bd615738a04107f9255c34b2683ffa7b134fca2cfdc8f29"
+    },
+    {
+      "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+      "sha256": "7b4e164cc25cab1658d7f9bed657faa55eb3bb172aafe2b13f901bbb0935becd"
+    },
+    {
+      "path": "raw/2026-10-13-221620-410288-archive-bulk/ability.jsonl",
+      "sha256": "0344dab5366d788b046044b3f0017d299d3410ec7360655ab43dbf72ab9f5f96"
+    },
+    {
+      "path": "raw/2026-10-13-222359-454426-archive-bulk/ability.jsonl",
+      "sha256": "3a052732cb55ed0c24098195b33f698012b7c46f90da3819dead5e4689c6c820"
+    },
+    {
+      "path": "raw/2026-10-13-222443-632404-archive-bulk/ability.jsonl",
+      "sha256": "3ec34061284ecf93c4b235b2ab088cc064997ba476210c51e0856b485ef11ca8"
+    },
+    {
+      "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+      "sha256": "ad6a7fa36da09725e8a7a8307e292b6571ad797f148e13f37dbe1637251465cb"
+    },
+    {
+      "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+      "sha256": "6e365907cb0113e51a73b9d0aedf485e5b15edd1a5a7e1e8a30bdd6de7ca4c1e"
+    },
+    {
+      "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+      "sha256": "47ad1508de806df0a8e1bc902e5f7fef075a4b3aefb4f23db54ad105687462fc"
+    },
+    {
+      "path": "raw/2026-10-13-224225-751455-archive-item-effects-v8/ability.jsonl",
+      "sha256": "5d316f74516053d57b8c851565527f2e6b79465a433a405dc3735bb38874b209"
+    },
+    {
+      "path": "raw/2026-10-13-224520-125263-archive-bulk/ability.jsonl",
+      "sha256": "72827bdb82e7f7470a31cf333fd9e84034446ab339e0dfb25d02ccd6277a4200"
+    },
+    {
+      "path": "raw/2026-10-13-224806-088768-archive-bulk/ability.jsonl",
+      "sha256": "e58e36e0a90023f6de53f5bbfcb3ec76ba37ce9c7f5d97637ad03b83e52de454"
+    },
+    {
+      "path": "raw/2026-10-13-224932-447760-archive-bulk/ability.jsonl",
+      "sha256": "ff5e2837c41f6a87a28a6cdde449430cfea1f3e98c631be70db3a374b06014df"
+    },
+    {
+      "path": "raw/2026-10-13-225120-105226-archive-historical-levels-v12/ability.jsonl",
+      "sha256": "fc3f3a29c1d410a8064de50368edba187ffdbf4cbc07865d047134dc1eec4375"
+    },
+    {
+      "path": "raw/2026-10-13-225130-635206-archive-bulk/ability.jsonl",
+      "sha256": "3a60c98aeda0f8a3db68ce14bdabb31cdf2ca328315b38f490788f05f277977d"
+    },
+    {
+      "path": "raw/2026-10-13-225313-129033-archive-bulk/ability.jsonl",
+      "sha256": "1f963fbb036d6330dc6971e515c93e576e7d58d524de030473577237423f0e20"
+    },
+    {
+      "path": "raw/2026-10-13-230129-767777-archive-bulk/ability.jsonl",
+      "sha256": "c9c75947ce8d2db430bc10ff2b1ffb923f9e9a5c4b5cf8eaeafeab6afc06dc56"
+    },
+    {
+      "path": "raw/2026-10-13-230323-767791-archive-healing-v14/ability.jsonl",
+      "sha256": "cce21296c3b8264737f1808a595bcc6e879c6bb79d5c9005c593df831f711428"
+    },
+    {
+      "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+      "sha256": "de9de40f5c5aa3ec9faa950cd874cdb93ed0a86a543ea49a2bb2e3a807b3fcfc"
+    },
+    {
+      "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+      "sha256": "fa5ebaea718875d47539fb0b852c3cefeabf24598151c4cf267dbfaea6b39621"
+    },
+    {
+      "path": "raw/2026-10-13-233405-002344-archive-bulk/ability.jsonl",
+      "sha256": "c27e9af1fa8753a309b5fbf8eebe8e3eb1b45c241bbbdbccec90fdc8bc3babc5"
+    },
+    {
+      "path": "raw/2026-10-13-234216-582177-archive-bulk/ability.jsonl",
+      "sha256": "637debeff797ae5a1a7fa769a9fbfaf2f0f367ded92df5974bac07257b7b6756"
+    },
+    {
+      "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+      "sha256": "7da9d3d9c004cc0ee46dbbbf6ff6d67f668d442793b5679aab107064446004db"
+    },
+    {
+      "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+      "sha256": "310f8d2956750e38a49f48545c349250440224faa6f742298ec6085df783d431"
+    },
+    {
+      "path": "raw/2026-10-14-000716-738417-archive-bulk/ability.jsonl",
+      "sha256": "aa6b7763ae799c44c6eb26aba1ffba965421c808a70ca8696240db19317e1242"
+    },
+    {
+      "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+      "sha256": "96535898882fe7ff6d9ec4101a17f64df5da3d5b10a13b79f51b0a1a82ddda12"
+    },
+    {
+      "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+      "sha256": "b238057baa6dc1376ade5ed755ae78e83e06f82cbbac74ac2dab25e200aa02d3"
+    },
+    {
+      "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+      "sha256": "82cccecf6852bd48e252243e19ed330dd9efe7f76bf88b6db435495e347f16ef"
+    },
+    {
+      "path": "raw/2026-10-14-011028-432074-archive-bulk/ability.jsonl",
+      "sha256": "8a2a30cde41b5c3057085df35d2d3ca9c4f5483915f75032e8da4564020b7aaf"
+    },
+    {
+      "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+      "sha256": "19c3a986f0985e138dab5f0544416bfb889a804f0eb6aa9903a99e21588f2f9c"
+    },
+    {
+      "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+      "sha256": "6da11b1d291ec7593025d149ddcc95e6e6e9f7e9a3f079e8f9d61cc61710f208"
+    },
+    {
+      "path": "raw/2026-10-14-013525-057925-archive-bulk/ability.jsonl",
+      "sha256": "d2a0f087e6e71190d4cedc753c549c42e890078c492b020fc00abf49a6b3da98"
+    },
+    {
+      "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+      "sha256": "2c9529a1adc7bea476d214a42fc03f95aad79068da9456240e0cfce328360bc2"
+    },
+    {
+      "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+      "sha256": "0328193409684ff32f7aa186b07e138be463f51398e708ab2c170482c26a7beb"
+    },
+    {
+      "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+      "sha256": "53c0ff1eb0099be822d342321e6ed9fd6ef28aaea004ba3fe87e046c7aacbb3b"
+    },
+    {
+      "path": "raw/2026-10-14-020845-278689-archive-bulk/ability.jsonl",
+      "sha256": "1085141f3d2ceb77e9274d8a007f905c65137a4a63de8c2aefe25e915d105ec0"
+    },
+    {
+      "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+      "sha256": "4cf3464a0252fb0313ee63f0ceccd3bbf7ea37ec99be59764af32fd47447e765"
+    },
+    {
+      "path": "raw/2026-10-14-022525-353932-archive-bulk/ability.jsonl",
+      "sha256": "e2f1e90a583f21ccb8866348add1c864a5cf0b371f6eca8f54bcf8f78440c7be"
+    },
+    {
+      "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+      "sha256": "3093ff5ee03845807b73462c578935e6e47f838ba2a8689933993d0d8e1e1517"
+    },
+    {
+      "path": "raw/2026-10-14-024205-390272-archive-bulk/ability.jsonl",
+      "sha256": "12cc900249e28bcb60e09c7630706b2a965f3f21820ee01c7acb9cb417e277da"
+    },
+    {
+      "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+      "sha256": "64d8e43ecc5ee6ed305f54be1d75bc91a9682dc32d70acaac7a901c5dca6c5cd"
+    },
+    {
+      "path": "raw/2026-10-14-025845-452311-archive-bulk/ability.jsonl",
+      "sha256": "96df6209eee6885f86b6e09c476d805556b15b830ae61b964f71f7ec772da320"
+    },
+    {
+      "path": "raw/2026-10-14-030921-688504-archive-bulk/ability.jsonl",
+      "sha256": "ec4da91b613fdb0a6122e295646853a58e2b3d1235bc8b723e5d5809b5095cdf"
+    },
+    {
+      "path": "raw/2026-10-14-115232-166401-archive-ability-effect-numbers-v26/ability.jsonl",
+      "sha256": "a64bf5aee2e33bb9ff11403a6760d5b540f2a06ed8de1d0709c3a9a0033c6113"
+    },
+    {
+      "path": "raw/2026-10-17-iteration156-shaman-spirit-bonds/ability.jsonl",
+      "sha256": "da9b9751aa87751924cca2d123079cc9d0ad2afe14875f79de200d94283ec4a2"
+    }
+  ],
+  "rows": [
+    {
+      "name": "Adamant Foeman I",
+      "table_index": 0,
+      "row_index": 8,
+      "class_row_html": "<tr>\n<td class=\"num\">6</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/adamant-foeman-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/adamant-foeman-i\">Adamant Foeman I</a>\n</td>\n<td class=\"muted\">Defensive Maneuver</td>\n<td class=\"num muted\">\n              15\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns...</td>\n</tr>",
+      "printed_effect": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns...",
+      "snapshots": [
+        {
+          "reference": {
+            "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+            "line": 11,
+            "record_sha256": "d5f8da9e66e3061983c26addb5fa137ff7698c5ad2bbd9b7bfbef78f0f61d656",
+            "parser_version": 4
+          },
+          "source_record": {
+            "name": "Adamant Foeman I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/adamant-foeman-i",
+                "title": "Adamant Foeman I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/warrior",
+                "title": "Warrior · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 4,
+            "collected_at": "2026-10-14T02:14:34+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "8 — now 6"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "30"
+              ],
+              "level": [
+                "6"
+              ],
+              "endurance cost": [
+                "15"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "30.0s"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "requires": [
+                "Dual Wield"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Warrior",
+                "url": "https://vgsoharchive.com/classes/warrior"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Warrior",
+            "level_learned": 6,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "endurance": 15
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 30.0,
+            "duration_seconds": null,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                15
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": "Dual Wield",
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:adamant-foeman-i"
+            ],
+            "classes_recorded": [
+              "Warrior"
+            ],
+            "archive_variants": [
+              {
+                "name": "Adamant Foeman I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/warrior",
+                    "title": "Warrior · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 4,
+                "collected_at": "2026-10-14T02:14:40+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Adamant Foeman I",
+                    "url": "https://vgsoharchive.com/abilities/adamant-foeman-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Warrior",
+                "level_learned": 6,
+                "rank": "I",
+                "category": "Defensive Maneuver",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/adamant-foeman-i",
+                "cost_recorded": {
+                  "value": 15,
+                  "resource": null,
+                  "raw": "15"
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/adamant-foeman-i",
+          "detail_cache": {
+            "path": ".cache/archive/4acc4b2ccc3e0b787065f22096ec283c7eb3898e790fa36245a91ff7fe3fef5c.txt",
+            "sha256": "655b3227f1df4e312733fbeaf6ddba02e3b49691fbaaf161be3d0d99972082cb"
+          },
+          "effect_literal": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+            "line": 11,
+            "record_sha256": "cb4b779ef6a0dc3814b3dc503fe66b2e9cd9dc5f72143c0c8305a49a72fe38ae",
+            "parser_version": 5
+          },
+          "source_record": {
+            "name": "Adamant Foeman I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/adamant-foeman-i",
+                "title": "Adamant Foeman I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/warrior",
+                "title": "Warrior · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 5,
+            "collected_at": "2026-10-14T02:27:28+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "8 — now 6"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "30"
+              ],
+              "level": [
+                "6"
+              ],
+              "endurance cost": [
+                "15"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "30.0s"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "requires": [
+                "Dual Wield"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Warrior",
+                "url": "https://vgsoharchive.com/classes/warrior"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Warrior",
+            "level_learned": 6,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "endurance": 15
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 30.0,
+            "duration_seconds": null,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                15
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": "Dual Wield",
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:adamant-foeman-i"
+            ],
+            "classes_recorded": [
+              "Warrior"
+            ],
+            "archive_variants": [
+              {
+                "name": "Adamant Foeman I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/warrior",
+                    "title": "Warrior · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 5,
+                "collected_at": "2026-10-14T02:27:35+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Adamant Foeman I",
+                    "url": "https://vgsoharchive.com/abilities/adamant-foeman-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Warrior",
+                "level_learned": 6,
+                "rank": "I",
+                "category": "Defensive Maneuver",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/adamant-foeman-i",
+                "cost_recorded": {
+                  "value": 15,
+                  "resource": null,
+                  "raw": "15"
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/adamant-foeman-i",
+          "detail_cache": {
+            "path": ".cache/archive/4acc4b2ccc3e0b787065f22096ec283c7eb3898e790fa36245a91ff7fe3fef5c.txt",
+            "sha256": "655b3227f1df4e312733fbeaf6ddba02e3b49691fbaaf161be3d0d99972082cb"
+          },
+          "effect_literal": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+            "line": 11,
+            "record_sha256": "cd4578b6e9c3999db5840964c72c91284dc29a122a9f742d396227dee5a255fc",
+            "parser_version": 6
+          },
+          "source_record": {
+            "name": "Adamant Foeman I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/adamant-foeman-i",
+                "title": "Adamant Foeman I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/warrior",
+                "title": "Warrior · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 6,
+            "collected_at": "2026-10-14T02:38:59+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "8 — now 6"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "30"
+              ],
+              "level": [
+                "6"
+              ],
+              "endurance cost": [
+                "15"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "30.0s"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "requires": [
+                "Dual Wield"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Warrior",
+                "url": "https://vgsoharchive.com/classes/warrior"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Warrior",
+            "level_learned": 6,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "endurance": 15
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 30.0,
+            "duration_seconds": null,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                15
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "30.0s",
+                  "seconds": 30.0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": "Dual Wield",
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:adamant-foeman-i"
+            ],
+            "classes_recorded": [
+              "Warrior"
+            ],
+            "archive_variants": [
+              {
+                "name": "Adamant Foeman I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/warrior",
+                    "title": "Warrior · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 6,
+                "collected_at": "2026-10-14T02:39:05+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Adamant Foeman I",
+                    "url": "https://vgsoharchive.com/abilities/adamant-foeman-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Warrior",
+                "level_learned": 6,
+                "rank": "I",
+                "category": "Defensive Maneuver",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/adamant-foeman-i",
+                "cost_recorded": {
+                  "value": 15,
+                  "resource": null,
+                  "raw": "15"
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/adamant-foeman-i",
+          "detail_cache": {
+            "path": ".cache/archive/4acc4b2ccc3e0b787065f22096ec283c7eb3898e790fa36245a91ff7fe3fef5c.txt",
+            "sha256": "655b3227f1df4e312733fbeaf6ddba02e3b49691fbaaf161be3d0d99972082cb"
+          },
+          "effect_literal": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+            "line": 11,
+            "record_sha256": "9df4a510631a1df50703b6b169e7ef4fed8f5b8e9a3c8551ead46c3acf654501",
+            "parser_version": 7
+          },
+          "source_record": {
+            "name": "Adamant Foeman I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/adamant-foeman-i",
+                "title": "Adamant Foeman I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/warrior",
+                "title": "Warrior · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 7,
+            "collected_at": "2026-10-14T02:40:57+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "8 — now 6"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "30"
+              ],
+              "level": [
+                "6"
+              ],
+              "endurance cost": [
+                "15"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "30.0s"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "requires": [
+                "Dual Wield"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Warrior",
+                "url": "https://vgsoharchive.com/classes/warrior"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Warrior",
+            "level_learned": 6,
+            "rank": "I",
+            "category": "Skill or Spell",
+            "cost": {
+              "endurance": 15
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 30.0,
+            "duration_seconds": null,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                15
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "30.0s",
+                  "seconds": 30.0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": "Dual Wield",
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:adamant-foeman-i"
+            ],
+            "classes_recorded": [
+              "Warrior"
+            ],
+            "archive_variants": [
+              {
+                "name": "Adamant Foeman I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/warrior",
+                    "title": "Warrior · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 7,
+                "collected_at": "2026-10-14T02:41:04+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Adamant Foeman I",
+                    "url": "https://vgsoharchive.com/abilities/adamant-foeman-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Warrior",
+                "level_learned": 6,
+                "rank": "I",
+                "category": "Defensive Maneuver",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/adamant-foeman-i",
+                "cost_recorded": {
+                  "value": 15,
+                  "resource": null,
+                  "raw": "15"
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/adamant-foeman-i",
+          "detail_cache": {
+            "path": ".cache/archive/4acc4b2ccc3e0b787065f22096ec283c7eb3898e790fa36245a91ff7fe3fef5c.txt",
+            "sha256": "655b3227f1df4e312733fbeaf6ddba02e3b49691fbaaf161be3d0d99972082cb"
+          },
+          "effect_literal": "Raises your chance to block incoming attacks by 100% for 60 seconds or until you block or activate another ability. This turns off your auto-attack.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        }
+      ],
+      "disposition": "class_table_display_truncation",
+      "canonical_client_id": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Defensive Stance",
+      "table_index": 0,
+      "row_index": 12,
+      "class_row_html": "<tr>\n<td class=\"num\">8</td>\n<td>\n<a href=\"/abilities/defensive-stance\">Defensive Stance</a>\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\">\n</td>\n<td class=\"muted\"></td>\n<td class=\"num muted\"></td>\n<td class=\"muted\">You focus on defense, gaining Commander's Presence, 15% melee mitigation and 45% more hate generation. While dual-wielding...</td>\n</tr>",
+      "printed_effect": "You focus on defense, gaining Commander's Presence, 15% melee mitigation and 45% more hate generation. While dual-wielding...",
+      "snapshots": [
+        {
+          "reference": {
+            "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+            "line": 656,
+            "record_sha256": "3bef7f3c1269c85e9b7283c57d8a3cc62fe45850549b5983ec8b3579c5431374",
+            "parser_version": 4
+          },
+          "source_record": {
+            "name": "Defensive Stance",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/defensive-stance",
+                "title": "Defensive Stance · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/warrior",
+                "title": "Warrior · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 4,
+            "collected_at": "2026-10-14T02:14:35+00:00",
+            "archive_fields": {
+              "level": [
+                "8"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Warrior",
+                "url": "https://vgsoharchive.com/classes/warrior"
+              }
+            ],
+            "type": "ability",
+            "class": "Warrior",
+            "level_learned": 8,
+            "rank": null,
+            "category": null,
+            "cost": null,
+            "cast_time_seconds": null,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": null,
+            "tooltip": "You focus on defense, gaining Commander's Presence, 15% melee mitigation and 45% more hate generation. While dual-wielding weapons, you also gain 28% chance to block.",
+            "icon_name": null,
+            "ranks": [],
+            "trainer": null,
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://vg.mmodb.com/spells/defensive-stance-410.php"
+            ],
+            "classes_recorded": [
+              "Warrior"
+            ],
+            "archive_variants": [
+              {
+                "name": "Defensive Stance",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/warrior",
+                    "title": "Warrior · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 4,
+                "collected_at": "2026-10-14T02:14:40+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Defensive Stance",
+                    "url": "https://vgsoharchive.com/abilities/defensive-stance"
+                  }
+                ],
+                "type": "ability",
+                "class": "Warrior",
+                "level_learned": 8,
+                "rank": null,
+                "category": null,
+                "cost": null,
+                "cast_time_seconds": null,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/defensive-stance",
+                "cost_recorded": {
+                  "value": null,
+                  "resource": null,
+                  "raw": null
+                },
+                "range_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": null
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": null
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/defensive-stance",
+          "detail_cache": {
+            "path": ".cache/archive/fba31781008b4d32eaaf511dc726956266dc3a279dd5df123a2f030612133c99.txt",
+            "sha256": "25678e532f69caaf77d5823cece8c20070284636ae080c7fa7686ea5a4a9885d"
+          },
+          "effect_literal": "You focus on defense, gaining Commander's Presence, 15% melee mitigation and 45% more hate generation. While dual-wielding weapons, you also gain 28% chance to block.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+            "line": 656,
+            "record_sha256": "6da373ea47af5e0a769186acdaf72af6f3cc7ba3896cd13ac809106810cf2140",
+            "parser_version": 5
+          },
+          "source_record": {
+            "name": "Defensive Stance",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/defensive-stance",
+                "title": "Defensive Stance · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/warrior",
+                "title": "Warrior · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 5,
+            "collected_at": "2026-10-14T02:27:29+00:00",
+            "archive_fields": {
+              "level": [
+                "8"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Warrior",
+                "url": "https://vgsoharchive.com/classes/warrior"
+              }
+            ],
+            "type": "ability",
+            "class": "Warrior",
+            "level_learned": 8,
+            "rank": null,
+            "category": null,
+            "cost": null,
+            "cast_time_seconds": null,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": null,
+            "tooltip": "You focus on defense, gaining Commander's Presence, 15% melee mitigation and 45% more hate generation. While dual-wielding weapons, you also gain 28% chance to block.",
+            "icon_name": null,
+            "ranks": [],
+            "trainer": null,
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://vg.mmodb.com/spells/defensive-stance-410.php"
+            ],
+            "classes_recorded": [
+              "Warrior"
+            ],
+            "archive_variants": [
+              {
+                "name": "Defensive Stance",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/warrior",
+                    "title": "Warrior · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 5,
+                "collected_at": "2026-10-14T02:27:35+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Defensive Stance",
+                    "url": "https://vgsoharchive.com/abilities/defensive-stance"
+                  }
+                ],
+                "type": "ability",
+                "class": "Warrior",
+                "level_learned": 8,
+                "rank": null,
+                "category": null,
+                "cost": null,
+                "cast_time_seconds": null,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/defensive-stance",
+                "cost_recorded": {
+                  "value": null,
+                  "resource": null,
+                  "raw": null
+                },
+                "range_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": null
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": null
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/defensive-stance",
+          "detail_cache": {
+            "path": ".cache/archive/fba31781008b4d32eaaf511dc726956266dc3a279dd5df123a2f030612133c99.txt",
+            "sha256": "25678e532f69caaf77d5823cece8c20070284636ae080c7fa7686ea5a4a9885d"
+          },
+          "effect_literal": "You focus on defense, gaining Commander's Presence, 15% melee mitigation and 45% more hate generation. While dual-wielding weapons, you also gain 28% chance to block.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+            "line": 656,
+            "record_sha256": "f127e89353592c4ae133976ab2587af47e9d97d2231bd45ae72b27988629bdbc",
+            "parser_version": 6
+          },
+          "source_record": {
+            "name": "Defensive Stance",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/defensive-stance",
+                "title": "Defensive Stance · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/warrior",
+                "title": "Warrior · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 6,
+            "collected_at": "2026-10-14T02:38:59+00:00",
+            "archive_fields": {
+              "level": [
+                "8"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Warrior",
+                "url": "https://vgsoharchive.com/classes/warrior"
+              }
+            ],
+            "type": "ability",
+            "class": "Warrior",
+            "level_learned": 8,
+            "rank": null,
+            "category": null,
+            "cost": null,
+            "cast_time_seconds": null,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": null,
+            "tooltip": "You focus on defense, gaining Commander's Presence, 15% melee mitigation and 45% more hate generation. While dual-wielding weapons, you also gain 28% chance to block.",
+            "icon_name": null,
+            "ranks": [],
+            "trainer": null,
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://vg.mmodb.com/spells/defensive-stance-410.php"
+            ],
+            "classes_recorded": [
+              "Warrior"
+            ],
+            "archive_variants": [
+              {
+                "name": "Defensive Stance",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/warrior",
+                    "title": "Warrior · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 6,
+                "collected_at": "2026-10-14T02:39:05+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Defensive Stance",
+                    "url": "https://vgsoharchive.com/abilities/defensive-stance"
+                  }
+                ],
+                "type": "ability",
+                "class": "Warrior",
+                "level_learned": 8,
+                "rank": null,
+                "category": null,
+                "cost": null,
+                "cast_time_seconds": null,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/defensive-stance",
+                "cost_recorded": {
+                  "value": null,
+                  "resource": null,
+                  "raw": null
+                },
+                "range_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": null
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": null
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/defensive-stance",
+          "detail_cache": {
+            "path": ".cache/archive/fba31781008b4d32eaaf511dc726956266dc3a279dd5df123a2f030612133c99.txt",
+            "sha256": "25678e532f69caaf77d5823cece8c20070284636ae080c7fa7686ea5a4a9885d"
+          },
+          "effect_literal": "You focus on defense, gaining Commander's Presence, 15% melee mitigation and 45% more hate generation. While dual-wielding weapons, you also gain 28% chance to block.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+            "line": 656,
+            "record_sha256": "1f034eb958c3afaa2ff6bd567d366925b40eaea5cb04159df7de2aa3e533d455",
+            "parser_version": 7
+          },
+          "source_record": {
+            "name": "Defensive Stance",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/defensive-stance",
+                "title": "Defensive Stance · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/warrior",
+                "title": "Warrior · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 7,
+            "collected_at": "2026-10-14T02:40:58+00:00",
+            "archive_fields": {
+              "level": [
+                "8"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Warrior",
+                "url": "https://vgsoharchive.com/classes/warrior"
+              }
+            ],
+            "type": "ability",
+            "class": "Warrior",
+            "level_learned": 8,
+            "rank": null,
+            "category": null,
+            "cost": null,
+            "cast_time_seconds": null,
+            "refresh_seconds": null,
+            "duration_seconds": null,
+            "range": null,
+            "tooltip": "You focus on defense, gaining Commander's Presence, 15% melee mitigation and 45% more hate generation. While dual-wielding weapons, you also gain 28% chance to block.",
+            "icon_name": null,
+            "ranks": [],
+            "trainer": null,
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://vg.mmodb.com/spells/defensive-stance-410.php"
+            ],
+            "classes_recorded": [
+              "Warrior"
+            ],
+            "archive_variants": [
+              {
+                "name": "Defensive Stance",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/warrior",
+                    "title": "Warrior · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 7,
+                "collected_at": "2026-10-14T02:41:04+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Defensive Stance",
+                    "url": "https://vgsoharchive.com/abilities/defensive-stance"
+                  }
+                ],
+                "type": "ability",
+                "class": "Warrior",
+                "level_learned": 8,
+                "rank": null,
+                "category": null,
+                "cost": null,
+                "cast_time_seconds": null,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/defensive-stance",
+                "cost_recorded": {
+                  "value": null,
+                  "resource": null,
+                  "raw": null
+                },
+                "range_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": null
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": null
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/defensive-stance",
+          "detail_cache": {
+            "path": ".cache/archive/fba31781008b4d32eaaf511dc726956266dc3a279dd5df123a2f030612133c99.txt",
+            "sha256": "25678e532f69caaf77d5823cece8c20070284636ae080c7fa7686ea5a4a9885d"
+          },
+          "effect_literal": "You focus on defense, gaining Commander's Presence, 15% melee mitigation and 45% more hate generation. While dual-wielding weapons, you also gain 28% chance to block.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        }
+      ],
+      "disposition": "class_table_display_truncation",
+      "canonical_client_id": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Assail I",
+      "table_index": 1,
+      "row_index": 16,
+      "class_row_html": "<tr>\n<td class=\"num\">16</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/assail-i.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/assail-i\">Assail I</a>\n</td>\n<td class=\"muted\">Counterattack</td>\n<td class=\"num muted\">\n              10\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">5</td>\n<td class=\"muted\">Counterattack after a successful block, inflicting 300% weapon damage plus 91 to 99 and stunning your opponent for 1 sec....</td>\n</tr>",
+      "printed_effect": "Counterattack after a successful block, inflicting 300% weapon damage plus 91 to 99 and stunning your opponent for 1 sec....",
+      "snapshots": [
+        {
+          "reference": {
+            "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+            "line": 110,
+            "record_sha256": "25d1cd4f4f743c5d02c94a4b099d9ad53c4d766f5d48ada2eb8c8194c2eec13f",
+            "parser_version": 4
+          },
+          "source_record": {
+            "name": "Assail I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/assail-i",
+                "title": "Assail I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/warrior",
+                "title": "Warrior · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 4,
+            "collected_at": "2026-10-14T02:14:34+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "16"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "8"
+              ],
+              "level": [
+                "16"
+              ],
+              "endurance cost": [
+                "10"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "8.0s"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "requires": [
+                "Dual wield; a successful block"
+              ],
+              "type": [
+                "Counterattack"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Warrior",
+                "url": "https://vgsoharchive.com/classes/warrior"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Warrior",
+            "level_learned": 16,
+            "rank": "I",
+            "category": "Counterattack",
+            "cost": {
+              "endurance": 10
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 8.0,
+            "duration_seconds": null,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Counterattack after a successful block, inflicting 300% weapon damage plus 91 to 99 and stunning your opponent for 1 sec. Requires dual wield.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                10
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": "Dual wield; a successful block",
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "effect_observations": [
+              {
+                "scope": "current",
+                "facts": [
+                  {
+                    "kind": "damage_bonus",
+                    "values": [
+                      91
+                    ],
+                    "conditions_unparsed": true
+                  },
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      300
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              },
+              {
+                "scope": "historical",
+                "facts": [
+                  {
+                    "kind": "damage_bonus",
+                    "values": [
+                      49
+                    ],
+                    "conditions_unparsed": true
+                  },
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      125
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              }
+            ],
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:assail-i"
+            ],
+            "classes_recorded": [
+              "Warrior"
+            ],
+            "archive_variants": [
+              {
+                "name": "Assail I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/warrior",
+                    "title": "Warrior · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 4,
+                "collected_at": "2026-10-14T02:14:40+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Assail I",
+                    "url": "https://vgsoharchive.com/abilities/assail-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Warrior",
+                "level_learned": 16,
+                "rank": "I",
+                "category": "Counterattack",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/assail-i",
+                "cost_recorded": {
+                  "value": 10,
+                  "resource": null,
+                  "raw": "10"
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/assail-i",
+          "detail_cache": {
+            "path": ".cache/archive/d14f0fa327f4449b40f57560e8c5ac8194e84efde5627f92987e671caed96954.txt",
+            "sha256": "10176abd2fd6348ca907f57384a7cde6805723d8ee585d12e4b9f83fe49afa3c"
+          },
+          "effect_literal": "Counterattack after a successful block, inflicting 300% weapon damage plus 91 to 99 and stunning your opponent for 1 sec. Requires dual wield.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+            "line": 110,
+            "record_sha256": "cc592345df7a997c7ac046370969cf327590c85e599a9787f292f4145c2be6bd",
+            "parser_version": 5
+          },
+          "source_record": {
+            "name": "Assail I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/assail-i",
+                "title": "Assail I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/warrior",
+                "title": "Warrior · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 5,
+            "collected_at": "2026-10-14T02:27:28+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "16"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "8"
+              ],
+              "level": [
+                "16"
+              ],
+              "endurance cost": [
+                "10"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "8.0s"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "requires": [
+                "Dual wield; a successful block"
+              ],
+              "type": [
+                "Counterattack"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Warrior",
+                "url": "https://vgsoharchive.com/classes/warrior"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Warrior",
+            "level_learned": 16,
+            "rank": "I",
+            "category": "Counterattack",
+            "cost": {
+              "endurance": 10
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 8.0,
+            "duration_seconds": null,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Counterattack after a successful block, inflicting 300% weapon damage plus 91 to 99 and stunning your opponent for 1 sec. Requires dual wield.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                10
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": "Dual wield; a successful block",
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "effect_observations": [
+              {
+                "scope": "current",
+                "facts": [
+                  {
+                    "kind": "damage_bonus",
+                    "values": [
+                      91
+                    ],
+                    "conditions_unparsed": true
+                  },
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      300
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              },
+              {
+                "scope": "historical",
+                "facts": [
+                  {
+                    "kind": "damage_bonus",
+                    "values": [
+                      49
+                    ],
+                    "conditions_unparsed": true
+                  },
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      125
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              }
+            ],
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:assail-i"
+            ],
+            "classes_recorded": [
+              "Warrior"
+            ],
+            "archive_variants": [
+              {
+                "name": "Assail I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/warrior",
+                    "title": "Warrior · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 5,
+                "collected_at": "2026-10-14T02:27:35+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Assail I",
+                    "url": "https://vgsoharchive.com/abilities/assail-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Warrior",
+                "level_learned": 16,
+                "rank": "I",
+                "category": "Counterattack",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/assail-i",
+                "cost_recorded": {
+                  "value": 10,
+                  "resource": null,
+                  "raw": "10"
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/assail-i",
+          "detail_cache": {
+            "path": ".cache/archive/d14f0fa327f4449b40f57560e8c5ac8194e84efde5627f92987e671caed96954.txt",
+            "sha256": "10176abd2fd6348ca907f57384a7cde6805723d8ee585d12e4b9f83fe49afa3c"
+          },
+          "effect_literal": "Counterattack after a successful block, inflicting 300% weapon damage plus 91 to 99 and stunning your opponent for 1 sec. Requires dual wield.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+            "line": 110,
+            "record_sha256": "3630a3624707af8e4685b9e2b978eba82842bcb8eceb0593a26c2b623893f340",
+            "parser_version": 6
+          },
+          "source_record": {
+            "name": "Assail I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/assail-i",
+                "title": "Assail I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/warrior",
+                "title": "Warrior · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 6,
+            "collected_at": "2026-10-14T02:38:59+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "16"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "8"
+              ],
+              "level": [
+                "16"
+              ],
+              "endurance cost": [
+                "10"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "8.0s"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "requires": [
+                "Dual wield; a successful block"
+              ],
+              "type": [
+                "Counterattack"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Warrior",
+                "url": "https://vgsoharchive.com/classes/warrior"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Warrior",
+            "level_learned": 16,
+            "rank": "I",
+            "category": "Counterattack",
+            "cost": {
+              "endurance": 10
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 8.0,
+            "duration_seconds": null,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Counterattack after a successful block, inflicting 300% weapon damage plus 91 to 99 and stunning your opponent for 1 sec. Requires dual wield.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                10
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "8.0s",
+                  "seconds": 8.0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": "Dual wield; a successful block",
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "effect_observations": [
+              {
+                "scope": "current",
+                "facts": [
+                  {
+                    "kind": "damage_bonus",
+                    "values": [
+                      91
+                    ],
+                    "conditions_unparsed": true
+                  },
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      300
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              },
+              {
+                "scope": "historical",
+                "facts": [
+                  {
+                    "kind": "damage_bonus",
+                    "values": [
+                      49
+                    ],
+                    "conditions_unparsed": true
+                  },
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      125
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              }
+            ],
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:assail-i"
+            ],
+            "classes_recorded": [
+              "Warrior"
+            ],
+            "archive_variants": [
+              {
+                "name": "Assail I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/warrior",
+                    "title": "Warrior · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 6,
+                "collected_at": "2026-10-14T02:39:05+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Assail I",
+                    "url": "https://vgsoharchive.com/abilities/assail-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Warrior",
+                "level_learned": 16,
+                "rank": "I",
+                "category": "Counterattack",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/assail-i",
+                "cost_recorded": {
+                  "value": 10,
+                  "resource": null,
+                  "raw": "10"
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/assail-i",
+          "detail_cache": {
+            "path": ".cache/archive/d14f0fa327f4449b40f57560e8c5ac8194e84efde5627f92987e671caed96954.txt",
+            "sha256": "10176abd2fd6348ca907f57384a7cde6805723d8ee585d12e4b9f83fe49afa3c"
+          },
+          "effect_literal": "Counterattack after a successful block, inflicting 300% weapon damage plus 91 to 99 and stunning your opponent for 1 sec. Requires dual wield.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+            "line": 110,
+            "record_sha256": "556dd0058dbcb176d30c57340ab57907390e341e95a47a48ee1f31e1858405a6",
+            "parser_version": 7
+          },
+          "source_record": {
+            "name": "Assail I",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/assail-i",
+                "title": "Assail I · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/warrior",
+                "title": "Warrior · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 7,
+            "collected_at": "2026-10-14T02:40:57+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "16"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "8"
+              ],
+              "level": [
+                "16"
+              ],
+              "endurance cost": [
+                "10"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "8.0s"
+              ],
+              "range": [
+                "5m"
+              ],
+              "target": [
+                "Offensive Target"
+              ],
+              "requires": [
+                "Dual wield; a successful block"
+              ],
+              "type": [
+                "Counterattack"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Warrior",
+                "url": "https://vgsoharchive.com/classes/warrior"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Warrior",
+            "level_learned": 16,
+            "rank": "I",
+            "category": "Counterattack",
+            "cost": {
+              "endurance": 10
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 8.0,
+            "duration_seconds": null,
+            "range": {
+              "value": 5,
+              "unit": "m",
+              "raw": "5m"
+            },
+            "tooltip": "Counterattack after a successful block, inflicting 300% weapon damage plus 91 to 99 and stunning your opponent for 1 sec. Requires dual wield.",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "endurance": [
+                10
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "8.0s",
+                  "seconds": 8.0
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": "Dual wield; a successful block",
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "effect_observations": [
+              {
+                "scope": "current",
+                "facts": [
+                  {
+                    "kind": "damage_bonus",
+                    "values": [
+                      91
+                    ],
+                    "conditions_unparsed": true
+                  },
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      300
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              },
+              {
+                "scope": "historical",
+                "facts": [
+                  {
+                    "kind": "damage_bonus",
+                    "values": [
+                      49
+                    ],
+                    "conditions_unparsed": true
+                  },
+                  {
+                    "kind": "damage_percent",
+                    "values": [
+                      125
+                    ],
+                    "conditions_unparsed": true
+                  }
+                ]
+              }
+            ],
+            "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:assail-i"
+            ],
+            "classes_recorded": [
+              "Warrior"
+            ],
+            "archive_variants": [
+              {
+                "name": "Assail I",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/warrior",
+                    "title": "Warrior · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 7,
+                "collected_at": "2026-10-14T02:41:04+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Assail I",
+                    "url": "https://vgsoharchive.com/abilities/assail-i"
+                  }
+                ],
+                "type": "ability",
+                "class": "Warrior",
+                "level_learned": 16,
+                "rank": "I",
+                "category": "Counterattack",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/assail-i",
+                "cost_recorded": {
+                  "value": 10,
+                  "resource": null,
+                  "raw": "10"
+                },
+                "range_recorded": {
+                  "value": 5,
+                  "unit": null,
+                  "raw": "5"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/assail-i",
+          "detail_cache": {
+            "path": ".cache/archive/d14f0fa327f4449b40f57560e8c5ac8194e84efde5627f92987e671caed96954.txt",
+            "sha256": "10176abd2fd6348ca907f57384a7cde6805723d8ee585d12e4b9f83fe49afa3c"
+          },
+          "effect_literal": "Counterattack after a successful block, inflicting 300% weapon damage plus 91 to 99 and stunning your opponent for 1 sec. Requires dual wield.",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        }
+      ],
+      "disposition": "class_table_display_truncation",
+      "canonical_client_id": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Volley",
+      "table_index": 1,
+      "row_index": 19,
+      "class_row_html": "<tr>\n<td class=\"num\">16</td>\n<td>\n<img alt=\"\" height=\"22\" src=\"/static/icons/volley.png\" style=\"vertical-align:-5px;margin-right:6px\" width=\"22\"/>\n<a href=\"/abilities/volley\">Volley</a>\n</td>\n<td class=\"muted\">Order</td>\n<td class=\"num muted\">\n              32\n            </td>\n<td class=\"muted\">Instant</td>\n<td class=\"num muted\">20</td>\n<td class=\"muted\">You order nearby allies to fire a volley at your opponent. Increases the damage and critical hit chance of ranged attacks and...</td>\n</tr>",
+      "printed_effect": "You order nearby allies to fire a volley at your opponent. Increases the damage and critical hit chance of ranged attacks and...",
+      "snapshots": [
+        {
+          "reference": {
+            "path": "raw/2026-10-13-221434-123320-archive-enriched-v4/ability.jsonl",
+            "line": 2887,
+            "record_sha256": "2fd93391d8436353c3b168a6394ff0292206915205b81ff1522ade441160cb6f",
+            "parser_version": 4
+          },
+          "source_record": {
+            "name": "Volley",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/volley",
+                "title": "Volley · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/warrior",
+                "title": "Warrior · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 4,
+            "collected_at": "2026-10-14T02:14:36+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "16"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "11"
+              ],
+              "level": [
+                "16"
+              ],
+              "energy cost": [
+                "32"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "11s"
+              ],
+              "range": [
+                "20m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Warrior",
+                "url": "https://vgsoharchive.com/classes/warrior"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Warrior",
+            "level_learned": 16,
+            "rank": null,
+            "category": "Skill or Spell",
+            "cost": {
+              "energy": 32
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 11,
+            "duration_seconds": null,
+            "range": {
+              "value": 20,
+              "unit": "m",
+              "raw": "20m"
+            },
+            "tooltip": "You order nearby allies to fire a volley at your opponent. Increases the damage and critical hit chance of ranged attacks and spells by 5%",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "energy": [
+                32
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "spellbook existence only; numerical tooltip unverified",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:volley"
+            ],
+            "classes_recorded": [
+              "Warrior"
+            ],
+            "archive_variants": [
+              {
+                "name": "Volley",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/warrior",
+                    "title": "Warrior · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 4,
+                "collected_at": "2026-10-14T02:14:40+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Volley",
+                    "url": "https://vgsoharchive.com/abilities/volley"
+                  }
+                ],
+                "type": "ability",
+                "class": "Warrior",
+                "level_learned": 16,
+                "rank": null,
+                "category": "Order",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/volley",
+                "cost_recorded": {
+                  "value": 32,
+                  "resource": null,
+                  "raw": "32"
+                },
+                "range_recorded": {
+                  "value": 20,
+                  "unit": null,
+                  "raw": "20"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/volley",
+          "detail_cache": {
+            "path": ".cache/archive/2e69a3fc27ca582b7e3370620cdfc7a4f50a66184135c9b9861356d73c6b899b.txt",
+            "sha256": "ed052e75269fc8867c2ea4eaab944b2223c2a782bfd2644364b2ccc7c8cbc049"
+          },
+          "effect_literal": "You order nearby allies to fire a volley at your opponent. Increases the damage and critical hit chance of ranged attacks and spells by 5%",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-222728-325817-archive-enriched-v5/ability.jsonl",
+            "line": 2887,
+            "record_sha256": "79976c1be9c26e2f9891be2a692cf604e9f923217ad7403d758a61506ec0e7f4",
+            "parser_version": 5
+          },
+          "source_record": {
+            "name": "Volley",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/volley",
+                "title": "Volley · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/warrior",
+                "title": "Warrior · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 5,
+            "collected_at": "2026-10-14T02:27:31+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "16"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "11"
+              ],
+              "level": [
+                "16"
+              ],
+              "energy cost": [
+                "32"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "11s"
+              ],
+              "range": [
+                "20m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Warrior",
+                "url": "https://vgsoharchive.com/classes/warrior"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Warrior",
+            "level_learned": 16,
+            "rank": null,
+            "category": "Skill or Spell",
+            "cost": {
+              "energy": 32
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 11,
+            "duration_seconds": null,
+            "range": {
+              "value": 20,
+              "unit": "m",
+              "raw": "20m"
+            },
+            "tooltip": "You order nearby allies to fire a volley at your opponent. Increases the damage and critical hit chance of ranged attacks and spells by 5%",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "energy": [
+                32
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "spellbook existence only; numerical tooltip unverified",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:volley"
+            ],
+            "classes_recorded": [
+              "Warrior"
+            ],
+            "archive_variants": [
+              {
+                "name": "Volley",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/warrior",
+                    "title": "Warrior · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 5,
+                "collected_at": "2026-10-14T02:27:35+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Volley",
+                    "url": "https://vgsoharchive.com/abilities/volley"
+                  }
+                ],
+                "type": "ability",
+                "class": "Warrior",
+                "level_learned": 16,
+                "rank": null,
+                "category": "Order",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/volley",
+                "cost_recorded": {
+                  "value": 32,
+                  "resource": null,
+                  "raw": "32"
+                },
+                "range_recorded": {
+                  "value": 20,
+                  "unit": null,
+                  "raw": "20"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/volley",
+          "detail_cache": {
+            "path": ".cache/archive/2e69a3fc27ca582b7e3370620cdfc7a4f50a66184135c9b9861356d73c6b899b.txt",
+            "sha256": "ed052e75269fc8867c2ea4eaab944b2223c2a782bfd2644364b2ccc7c8cbc049"
+          },
+          "effect_literal": "You order nearby allies to fire a volley at your opponent. Increases the damage and critical hit chance of ranged attacks and spells by 5%",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-223857-981144-archive-enriched-v6/ability.jsonl",
+            "line": 2887,
+            "record_sha256": "fec4b56d693c16f9f99287378ea8a737ebd644c88943a0949ae91c7693cfc5e5",
+            "parser_version": 6
+          },
+          "source_record": {
+            "name": "Volley",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/volley",
+                "title": "Volley · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/warrior",
+                "title": "Warrior · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 6,
+            "collected_at": "2026-10-14T02:39:01+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "16"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "11"
+              ],
+              "level": [
+                "16"
+              ],
+              "energy cost": [
+                "32"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "11s"
+              ],
+              "range": [
+                "20m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Warrior",
+                "url": "https://vgsoharchive.com/classes/warrior"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Warrior",
+            "level_learned": 16,
+            "rank": null,
+            "category": "Skill or Spell",
+            "cost": {
+              "energy": 32
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 11,
+            "duration_seconds": null,
+            "range": {
+              "value": 20,
+              "unit": "m",
+              "raw": "20m"
+            },
+            "tooltip": "You order nearby allies to fire a volley at your opponent. Increases the damage and critical hit chance of ranged attacks and spells by 5%",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "energy": [
+                32
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "11s",
+                  "seconds": 11
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "spellbook existence only; numerical tooltip unverified",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:volley"
+            ],
+            "classes_recorded": [
+              "Warrior"
+            ],
+            "archive_variants": [
+              {
+                "name": "Volley",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/warrior",
+                    "title": "Warrior · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 6,
+                "collected_at": "2026-10-14T02:39:05+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Volley",
+                    "url": "https://vgsoharchive.com/abilities/volley"
+                  }
+                ],
+                "type": "ability",
+                "class": "Warrior",
+                "level_learned": 16,
+                "rank": null,
+                "category": "Order",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/volley",
+                "cost_recorded": {
+                  "value": 32,
+                  "resource": null,
+                  "raw": "32"
+                },
+                "range_recorded": {
+                  "value": 20,
+                  "unit": null,
+                  "raw": "20"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/volley",
+          "detail_cache": {
+            "path": ".cache/archive/2e69a3fc27ca582b7e3370620cdfc7a4f50a66184135c9b9861356d73c6b899b.txt",
+            "sha256": "ed052e75269fc8867c2ea4eaab944b2223c2a782bfd2644364b2ccc7c8cbc049"
+          },
+          "effect_literal": "You order nearby allies to fire a volley at your opponent. Increases the damage and critical hit chance of ranged attacks and spells by 5%",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        },
+        {
+          "reference": {
+            "path": "raw/2026-10-13-224056-514671-archive-enriched-v7/ability.jsonl",
+            "line": 2887,
+            "record_sha256": "6e9747d6faec8d01ef2e9970185ad97ee0125b1c446d9e9fc13714f7e3a5ae22",
+            "parser_version": 7
+          },
+          "source_record": {
+            "name": "Volley",
+            "sources": [
+              {
+                "url": "https://vgsoharchive.com/abilities/volley",
+                "title": "Volley · Vanguard Archive",
+                "date": null
+              },
+              {
+                "url": "https://vgsoharchive.com/classes/warrior",
+                "title": "Warrior · Vanguard Archive",
+                "date": null
+              }
+            ],
+            "confidence": "low",
+            "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Same name appears on more than one page; possible distinct entities. See archive_variants.",
+            "parser_version": 7,
+            "collected_at": "2026-10-14T02:40:59+00:00",
+            "archive_fields": {
+              "level in 2007-2008": [
+                "16"
+              ],
+              "cast then": [
+                "0"
+              ],
+              "refresh then": [
+                "11"
+              ],
+              "level": [
+                "16"
+              ],
+              "energy cost": [
+                "32"
+              ],
+              "cast time": [
+                "Instant"
+              ],
+              "refresh": [
+                "11s"
+              ],
+              "range": [
+                "20m"
+              ],
+              "target": [
+                "Self"
+              ],
+              "type": [
+                "Skill or Spell"
+              ],
+              "learned from": [
+                "Class Trainers"
+              ]
+            },
+            "referenced_entities": [
+              {
+                "name": "Warrior",
+                "url": "https://vgsoharchive.com/classes/warrior"
+              },
+              {
+                "name": "every ability that changed",
+                "url": "https://vgsoharchive.com/abilities/as-it-was"
+              }
+            ],
+            "type": "ability",
+            "class": "Warrior",
+            "level_learned": 16,
+            "rank": null,
+            "category": "Skill or Spell",
+            "cost": {
+              "energy": 32
+            },
+            "cast_time_seconds": 0,
+            "refresh_seconds": 11,
+            "duration_seconds": null,
+            "range": {
+              "value": 20,
+              "unit": "m",
+              "raw": "20m"
+            },
+            "tooltip": "You order nearby allies to fire a volley at your opponent. Increases the damage and critical hit chance of ranged attacks and spells by 5%",
+            "icon_name": null,
+            "ranks": [],
+            "cost_observations": {
+              "energy": [
+                32
+              ]
+            },
+            "timing_observations": {
+              "cast_time_seconds": [
+                {
+                  "label": "cast time",
+                  "raw": "Instant",
+                  "seconds": 0
+                }
+              ],
+              "refresh_seconds": [
+                {
+                  "label": "refresh",
+                  "raw": "11s",
+                  "seconds": 11
+                }
+              ]
+            },
+            "trainer": "Class Trainers",
+            "requirements": null,
+            "causes_weakness": null,
+            "exploits_weakness": null,
+            "verification_reported_by_archive": "spellbook existence only; numerical tooltip unverified",
+            "original_source_urls": [
+              "http://thetelonproject.wikidot.com/abilities:volley"
+            ],
+            "classes_recorded": [
+              "Warrior"
+            ],
+            "archive_variants": [
+              {
+                "name": "Volley",
+                "sources": [
+                  {
+                    "url": "https://vgsoharchive.com/classes/warrior",
+                    "title": "Warrior · Vanguard Archive",
+                    "date": null
+                  }
+                ],
+                "confidence": "medium",
+                "notes": "Explicit class-table facts. Cost resource and bare timing/range units are unknown; effect prose and truncated tooltips are not copied. Individual ability page still needs review.",
+                "parser_version": 7,
+                "collected_at": "2026-10-14T02:41:04+00:00",
+                "archive_fields": {},
+                "referenced_entities": [
+                  {
+                    "name": "Volley",
+                    "url": "https://vgsoharchive.com/abilities/volley"
+                  }
+                ],
+                "type": "ability",
+                "class": "Warrior",
+                "level_learned": 16,
+                "rank": null,
+                "category": "Order",
+                "cost": null,
+                "cast_time_seconds": 0,
+                "refresh_seconds": null,
+                "duration_seconds": null,
+                "range": null,
+                "tooltip": null,
+                "ability_ref_url": "https://vgsoharchive.com/abilities/volley",
+                "cost_recorded": {
+                  "value": 32,
+                  "resource": null,
+                  "raw": "32"
+                },
+                "range_recorded": {
+                  "value": 20,
+                  "unit": null,
+                  "raw": "20"
+                },
+                "cast_recorded": {
+                  "value": null,
+                  "unit": null,
+                  "raw": "Instant"
+                }
+              }
+            ]
+          },
+          "primary_source_url": "https://vgsoharchive.com/abilities/volley",
+          "detail_cache": {
+            "path": ".cache/archive/2e69a3fc27ca582b7e3370620cdfc7a4f50a66184135c9b9861356d73c6b899b.txt",
+            "sha256": "ed052e75269fc8867c2ea4eaab944b2223c2a782bfd2644364b2ccc7c8cbc049"
+          },
+          "effect_literal": "You order nearby allies to fire a volley at your opponent. Increases the damage and critical hit chance of ranged attacks and spells by 5%",
+          "comparison": "class_literal_without_ellipsis_is_exact_prefix_of_detail_tooltip"
+        }
+      ],
+      "disposition": "class_table_display_truncation",
+      "canonical_client_id": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "summary": {
+    "effect_difference_rows_reviewed": 4,
+    "exact_source_references": 16,
+    "detail_pages": 4,
+    "disposition": "All four class strings end in ellipsis; removing that literal ellipsis yields an exact prefix of the cached detail tooltip."
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50,
+    "alternate_done": 0
+  },
+  "validation": {
+    "issues": 0,
+    "corpus_hashes_verified": 51
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "python_processes_observed": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Merged top-level tooltips are attributed to primary detail URLs, not automatically to every URL in their source list.",
+    "Full published records are retained for research. No operative mechanics, canonical identities, historical dates or missing class text are inferred.",
+    "Same-provenance snapshots are not independent corroboration. Modern emulator observations do not establish live-era mechanics.",
+    "Absent typed effects and rows without strict class snapshots remain separate coverage work."
+  ]
+}

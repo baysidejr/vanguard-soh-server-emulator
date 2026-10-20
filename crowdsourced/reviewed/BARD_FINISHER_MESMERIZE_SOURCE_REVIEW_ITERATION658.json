@@ -1,0 +1,240 @@
+{
+  "review_kind": "bard_finisher_mesmerize_source_review",
+  "input": {
+    "path": "reviewed/BARD_NUMERIC_PATTERN_COVERAGE_ITERATION657.json",
+    "sha256": "a05b5337093c3b6e4d2eceab6d7a8e4191a4fba5615c0f3c2341ef9b4b45c3f6"
+  },
+  "parser_version": 71,
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Fox Overtake the Hare I",
+      "source_url": "https://vgsoharchive.com/abilities/fox-overtake-the-hare-i",
+      "cache": {
+        "path": ".cache/archive/8c6198a117c89b2630f0caa4cf8b3d538f3594e9c3867200a179bc2aef8eda62.txt",
+        "sha256": "f2fbc828578b480f451f9b15e09bcebf7190df130fbc8d0ff73b3af7a892d591"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 90,
+          "record_sha256": "89722e9eb9c680af57028a46ba12b01ee2c658f6d62887905137ff50084bec11"
+        }
+      ],
+      "effect_sections": [
+        "Deals 400% of normal damage. This ability is only available when a target is below 20% health.",
+        "Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level — the figures above are the ability's own, not what a\r\n        particular character will see."
+      ],
+      "observations": [
+        {
+          "literal": "Deals 400% of normal damage. This ability is only available when a target is below 20% health.",
+          "text_sha256": "c2f2328d4b2ad2446e5a567743dffd5875c8cf049461e9defa98da5f45d9ca4d",
+          "damage_percent_of_normal_recorded": 400,
+          "availability_condition_recorded": {
+            "target_health_percent": 20,
+            "comparison_literal": "below",
+            "comparison": "strictly_less_than"
+          },
+          "effect_literal": null,
+          "target_phrase_recorded": "a target",
+          "duration_recorded": null,
+          "normal_damage_definition": null,
+          "damage_type": null,
+          "health_denominator": null,
+          "condition_evaluation_timing": null,
+          "mesmerize_break_conditions": null,
+          "immunity_rules": null,
+          "stacking_formula": null,
+          "instrument_scaling": null,
+          "operative_values": null,
+          "recognized_effect_facts": []
+        }
+      ],
+      "whole_page_replay": {
+        "name": "Fox Overtake the Hare I",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/fox-overtake-the-hare-i",
+            "title": "Fox Overtake the Hare I · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 71,
+        "collected_at": "2026-10-19T19:47:43+00:00",
+        "archive_fields": {
+          "level": [
+            "30"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 30,
+        "rank": "I",
+        "category": null,
+        "cost": null,
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Deals 400% of normal damage. This ability is only available when a target is below 20% health.",
+        "icon_name": null,
+        "ranks": [],
+        "target_recorded": null,
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "http://vg.mmodb.com/spells/fox-overtake-the-hare-i-84.php"
+        ]
+      }
+    },
+    {
+      "name": "Suann's Nocturnal Call",
+      "source_url": "https://vgsoharchive.com/abilities/suann-s-nocturnal-call",
+      "cache": {
+        "path": ".cache/archive/6eaf2e27e9c9bb6f2519147422acde64001082e4a62bada029994c27020a9091.txt",
+        "sha256": "3cf9c06cddcd7ab4b03ce8737a4a15f2124bef91927e4a6bd27d14faa3bbee12"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+          "line": 92,
+          "record_sha256": "d8a38f173750130624a16455424ba06c778744890d741a827449ab3a258b797b"
+        }
+      ],
+      "effect_sections": [
+        "Single target mesmerize (28 sec)"
+      ],
+      "observations": [
+        {
+          "literal": "Single target mesmerize (28 sec)",
+          "text_sha256": "253df5cdd41054ea8526267ff124579a8d593b70d8513ce01ae20c7587601cdb",
+          "damage_percent_of_normal_recorded": null,
+          "availability_condition_recorded": null,
+          "effect_literal": "mesmerize",
+          "target_phrase_recorded": "Single target",
+          "duration_recorded": {
+            "amount": 28,
+            "unit_literal": "sec"
+          },
+          "normal_damage_definition": null,
+          "damage_type": null,
+          "health_denominator": null,
+          "condition_evaluation_timing": null,
+          "mesmerize_break_conditions": null,
+          "immunity_rules": null,
+          "stacking_formula": null,
+          "instrument_scaling": null,
+          "operative_values": null,
+          "recognized_effect_facts": []
+        }
+      ],
+      "whole_page_replay": {
+        "name": "Suann's Nocturnal Call",
+        "sources": [
+          {
+            "url": "https://vgsoharchive.com/abilities/suann-s-nocturnal-call",
+            "title": "Suann's Nocturnal Call · Vanguard Archive",
+            "date": null
+          }
+        ],
+        "confidence": "medium",
+        "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+        "parser_version": 71,
+        "collected_at": "2026-10-19T19:47:43+00:00",
+        "archive_fields": {
+          "level": [
+            "50"
+          ],
+          "energy cost": [
+            "185"
+          ],
+          "cast time": [
+            "1.0"
+          ],
+          "icon": [
+            "Icon449.png"
+          ]
+        },
+        "referenced_entities": [
+          {
+            "name": "Bard",
+            "url": "https://vgsoharchive.com/classes/bard"
+          }
+        ],
+        "type": "ability",
+        "class": "Bard",
+        "level_learned": 50,
+        "rank": null,
+        "category": null,
+        "cost": {
+          "energy": 185
+        },
+        "cast_time_seconds": null,
+        "refresh_seconds": null,
+        "duration_seconds": null,
+        "range": null,
+        "tooltip": "Single target mesmerize (28 sec)",
+        "icon_name": "Icon449.png",
+        "ranks": [],
+        "target_recorded": null,
+        "cost_observations": {
+          "energy": [
+            185
+          ]
+        },
+        "trainer": null,
+        "requirements": null,
+        "causes_weakness": null,
+        "exploits_weakness": null,
+        "original_source_urls": [
+          "https://web.archive.org/web/20220517115718id_/https://vgoplayers.com/wiki/index.php/Bard"
+        ]
+      }
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 2,
+    "source_record_hashes_verified": 2,
+    "literal_hashes_verified": 2,
+    "whole_page_replays": 2,
+    "issues": 0,
+    "unittest_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+    "tests_passed": 245
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "collector_process_observed": false,
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60.0,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Single archive transcriptions do not establish historical mechanics.",
+    "Normal damage is undefined; no damage type, weapon formula, rounding or operative server values are inferred.",
+    "Below 20% is a strict printed availability condition; the health denominator and evaluation timing remain unknown.",
+    "Mesmerize duration is a printed observation; break conditions, immunity rules and scaling remain unknown.",
+    "Original batches remain immutable."
+  ],
+  "next_step": "Implement and test constrained normal-damage percentage, target-health availability and mesmerize-duration observations for these two reviewed tooltips."
+}
