@@ -1,0 +1,166 @@
+{
+  "review_kind": "blood_mage_flesh_menders_ritual_iv_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Flesh Mender's Ritual IV",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-mender-s-ritual-iv",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/355748665d41b2addac8a0bfaf384fdc6849548872ce93a9f5299319f6bd7678.txt",
+        "sha256": "af5937c5caac592200f93607f43608fe31f894416b74a027ca97ede321bb0dd6"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 59,
+          "record_sha256": "369f0cdcbd79881e8ff2f3d0dc70082d9272905eb6ac6d9cc49671d55d80a05c"
+        }
+      ],
+      "literal_sha256": "ba1cd6f5d4ddf420bcdf75153b89740b588ae131497da610eac48f2eeb20ed39",
+      "source_literal": "Cast then 0 Refresh then 1",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>1</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Cast then",
+          "value_literal": "0",
+          "direct_value_literal": "0",
+          "numeric_value": 0,
+          "comparison_literal": null,
+          "unit": null
+        },
+        {
+          "label": "Refresh then",
+          "value_literal": "1",
+          "direct_value_literal": "1",
+          "numeric_value": 1,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Flesh Mender's Ritual IV",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-mender-s-ritual-iv",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/355748665d41b2addac8a0bfaf384fdc6849548872ce93a9f5299319f6bd7678.txt",
+        "sha256": "af5937c5caac592200f93607f43608fe31f894416b74a027ca97ede321bb0dd6"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 59,
+          "record_sha256": "369f0cdcbd79881e8ff2f3d0dc70082d9272905eb6ac6d9cc49671d55d80a05c"
+        }
+      ],
+      "literal_sha256": "a2d3cba55e11eb2c5cefed174f181b7809e334269ab534a5414e6ff7a0c45b29",
+      "source_literal": "This ritual heals an ally, other than yourself, for 4362 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater",
+      "source_html": "<div class=\"tooltip\">This ritual heals an ally, other than yourself, for 4362 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater</div>",
+      "reviewed_observations": {
+        "effect_literal": "This ritual heals an ally, other than yourself, for 4362 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater",
+        "healing_total": 4362,
+        "duration_seconds": 20,
+        "target_literal": "an ally, other than yourself",
+        "blood_union_reduction": 3,
+        "blood_union_required_minimum": 3,
+        "tick_interval_seconds": null,
+        "tick_count": null,
+        "stacking_rules": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Flesh Mender's Ritual IV",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-mender-s-ritual-iv",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/355748665d41b2addac8a0bfaf384fdc6849548872ce93a9f5299319f6bd7678.txt",
+        "sha256": "af5937c5caac592200f93607f43608fe31f894416b74a027ca97ede321bb0dd6"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 59,
+          "record_sha256": "369f0cdcbd79881e8ff2f3d0dc70082d9272905eb6ac6d9cc49671d55d80a05c"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227034157id_/http://wiki.silkyvenom.com/index.php/Flesh_Mender's_Ritual_IV\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227034157id_/http://wiki.silkyvenom.com/index.php/Flesh_Mender's_Ritual_IV"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 3,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 3,
+    "label_value_comparisons": 2,
+    "exact_mechanic_literal_comparisons": 1,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 208,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Historical healing and Blood Union values are archive claims, not independently authenticated live-era evidence. Bare timing units, tick cadence and operative values remain null; attribution is metadata."
+  ],
+  "next_step": "Review Flesh Rend IV historical level and attribution sections against cached evidence.",
+  "review_accounting": {
+    "section_reviews": 3,
+    "newly_covered_scope_nodes": 3
+  }
+}
