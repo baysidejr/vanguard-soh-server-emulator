@@ -18,6 +18,75 @@ def effect_facts(value):
     """Numeric observations, not a complete combat formula or guessed condition tree."""
     facts = []
     num = r'(\d+(?:\.\d+)?)'
+    # Exact Blood Mage literals source-reviewed in iteration710.
+    symbiote_hate_ritual_union = {'Steals 220 to 234 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.': {'effect_reported': 'health_steal_defensive_target_return',
+                                                                                                                                                                                                   'recipient_reported': 'your '
+                                                                                                                                                                                                                         'defensive '
+                                                                                                                                                                                                                         'target',
+                                                                                                                                                                                                   'health_stolen_min': 220,
+                                                                                                                                                                                                   'health_stolen_max': 234,
+                                                                                                                                                                                                   'health_return_percent': 130,
+                                                                                                                                                                                                   'returned_portion_increase_percent_per_blood_union_level': 10,
+                                                                                                                                                                                                   'blood_union_increase': 1,
+                                                                                                                                                                                                   'return_scaling_base': None,
+                                                                                                                                                                                                   'duration_seconds': None,
+                                                                                                                                                                                                   'tick_interval_seconds': None,
+                                                                                                                                                                                                   'stacking_rules': None,
+                                                                                                                                                                                                   'operative_values': None,
+                                                                                                                                                                                                   'historical_authentication': None},
+ 'Attaches a frenzied symbiote to an ally, increasing their damage by 20 for 1 hour. Expends 1 Frenzied Symbiote. Only 1 Symbiote allowed on a target at a time.': {'effect_reported': 'ally_damage_buff_symbiote',
+                                                                                                                                                                    'recipient_reported': 'an '
+                                                                                                                                                                                          'ally',
+                                                                                                                                                                    'damage_increase': 20,
+                                                                                                                                                                    'duration_seconds': 3600,
+                                                                                                                                                                    'expended_item_reported': 'Frenzied '
+                                                                                                                                                                                              'Symbiote',
+                                                                                                                                                                    'expended_item_count': 1,
+                                                                                                                                                                    'symbiote_limit_per_target': 1,
+                                                                                                                                                                    'damage_application_rules': None,
+                                                                                                                                                                    'tick_interval_seconds': None,
+                                                                                                                                                                    'stacking_rules': None,
+                                                                                                                                                                    'operative_values': None,
+                                                                                                                                                                    'historical_authentication': None},
+ "Numbs your opponent's mind, lowering your hate by 2729.": {'effect_reported': 'hate_reduction',
+                                                             'recipient_reported': 'your opponent',
+                                                             'hate_reduction': 2729,
+                                                             'duration_seconds': None,
+                                                             'tick_interval_seconds': None,
+                                                             'stacking_rules': None,
+                                                             'operative_values': None,
+                                                             'historical_authentication': None},
+ 'This ritual severs life from all opponents within 10m, dealing 275 to 291 damage and 377 to 398 over 10 sec. Reduces Blood Union by 3. Only usable from Blood Union 3.': {'effect_reported': 'area_direct_and_over_time_damage',
+                                                                                                                                                                            'recipient_reported': 'all '
+                                                                                                                                                                                                  'opponents '
+                                                                                                                                                                                                  'within '
+                                                                                                                                                                                                  '10m',
+                                                                                                                                                                            'radius_meters': 10,
+                                                                                                                                                                            'damage_min': 275,
+                                                                                                                                                                            'damage_max': 291,
+                                                                                                                                                                            'damage_over_time_min': 377,
+                                                                                                                                                                            'damage_over_time_max': 398,
+                                                                                                                                                                            'duration_seconds': 10,
+                                                                                                                                                                            'blood_union_reduction': 3,
+                                                                                                                                                                            'required_blood_union': 3,
+                                                                                                                                                                            'tick_interval_seconds': None,
+                                                                                                                                                                            'stacking_rules': None,
+                                                                                                                                                                            'operative_values': None,
+                                                                                                                                                                            'historical_authentication': None},
+ 'Forms a strong union with your opponent, dealing 569 to 600 damage over 24 sec. Increases Blood Union by 2.': {'effect_reported': 'damage_over_time_blood_union_gain',
+                                                                                                                 'recipient_reported': 'your '
+                                                                                                                                       'opponent',
+                                                                                                                 'damage_over_time_min': 569,
+                                                                                                                 'damage_over_time_max': 600,
+                                                                                                                 'duration_seconds': 24,
+                                                                                                                 'blood_union_increase': 2,
+                                                                                                                 'tick_interval_seconds': None,
+                                                                                                                 'stacking_rules': None,
+                                                                                                                 'operative_values': None,
+                                                                                                                 'historical_authentication': None}}.get(value.strip())
+    if symbiote_hate_ritual_union:
+        facts.append(dict(kind="blood_mage_symbiote_hate_ritual_union_observation",
+            effect_phrase_recorded=value.strip(), conditions_unparsed=True, **symbiote_hate_ritual_union))
     # Exact Blood Mage literals source-reviewed in iteration708.
     control_party_effect = {'Constricts the movement of your opponent, rooting them in place for 45 seconds. Has a 60% chance to break on hit.': {'effect_reported': 'root_with_break_chance',
                                                                                                                        'recipient_reported': 'your '
