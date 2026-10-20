@@ -1,0 +1,527 @@
+{
+  "review_kind": "blood_mage_area_healing_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Recovering Burst I",
+      "source_url": "https://vgsoharchive.com/abilities/recovering-burst-i",
+      "cache": {
+        "path": ".cache/archive/981c1b50910f101abb0b3674f98a7054c0e75c8f07dac8c432f23eee2302a8ce.txt",
+        "sha256": "44a1d05f6b5168e03a0ef2666b77bff399b61ba292c84e017a5cb9c7da6ebc87"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 31,
+          "record_sha256": "adefaab415f03d8b440a8c23f52fc5655a4ab8aadb372747a4e1a708195e1795"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Releases a burst of life, healing all allies within 10m by 533. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "98c1eacade1844d51d894a44fd7f024f5bf18cc09c8cbc58b23b33a227795a6c",
+          "field_comparisons": [
+            {
+              "field": "health_amount",
+              "source_value": 533,
+              "extracted_value": 533,
+              "equal": true
+            },
+            {
+              "field": "radius_meters",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "all allies within 10m",
+              "extracted_value": "all allies within 10m",
+              "equal": true
+            },
+            {
+              "field": "healing_bonus_percent_per_blood_union_level",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "bonus_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_absorption_sharing_healing_observation",
+              "effect_phrase_recorded": "Releases a burst of life, healing all allies within 10m by 533. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "area_healing_with_blood_union_bonus",
+              "recipient_reported": "all allies within 10m",
+              "radius_meters": 10,
+              "health_amount": 533,
+              "healing_bonus_percent_per_blood_union_level": 2,
+              "bonus_basis": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Recovering Burst II",
+      "source_url": "https://vgsoharchive.com/abilities/recovering-burst-ii",
+      "cache": {
+        "path": ".cache/archive/0de6d8d621f7f4846e22e8a9f99813a0e189049243e0e6211ecb23015b1c9404.txt",
+        "sha256": "b8733d4ef2ac07a1673ac07b62ff771982f6300c167000f7152e457c6f493acf"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 83,
+          "record_sha256": "1bc00dc2ae308cb984f7b0160d403c4052efbd6a8137d910e6ca7f6a0e3f8565"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Releases a burst of life, healing all allies within 10m by 791. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "1acf165a5e060a473794257a0413a88a1abeddee3a1ea914c3dc7966c78a773e",
+          "field_comparisons": [
+            {
+              "field": "health_amount",
+              "source_value": 791,
+              "extracted_value": 791,
+              "equal": true
+            },
+            {
+              "field": "radius_meters",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "all allies within 10m",
+              "extracted_value": "all allies within 10m",
+              "equal": true
+            },
+            {
+              "field": "healing_bonus_percent_per_blood_union_level",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "bonus_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_damage_pact_levitation_healing_observation",
+              "effect_phrase_recorded": "Releases a burst of life, healing all allies within 10m by 791. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "area_healing_with_blood_union_bonus",
+              "recipient_reported": "all allies within 10m",
+              "radius_meters": 10,
+              "health_amount": 791,
+              "healing_bonus_percent_per_blood_union_level": 2,
+              "bonus_basis": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Recovering Burst III",
+      "source_url": "https://vgsoharchive.com/abilities/recovering-burst-iii",
+      "cache": {
+        "path": ".cache/archive/b778a5f093bc3919245030789e9110f4eeb00e16cc7f267a35b6380c751e4bb9.txt",
+        "sha256": "e7d8501ff2db7df575bc0ecddb90c2e506b5ba82aefefc9ad69e5ef3b6eb9b06"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 84,
+          "record_sha256": "e456465d65c54fe490dc09f26e08d6f3a9146a1004920a075cdf1720d90057aa"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Releases a burst of life, healing all allies within 10m by 1067. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "46730fae34441c228000808b46cfe29d8d36fc4d64304f4ae2c35c3654350276",
+          "field_comparisons": [
+            {
+              "field": "healing_amount",
+              "source_value": 1067,
+              "extracted_value": 1067,
+              "equal": true
+            },
+            {
+              "field": "radius_meters",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "all allies",
+              "extracted_value": "all allies",
+              "equal": true
+            },
+            {
+              "field": "extra_healing_percent_per_blood_union_level",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "scaling_base",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "radius_origin",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_group_ritual_counter_healing_observation",
+              "effect_phrase_recorded": "Releases a burst of life, healing all allies within 10m by 1067. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "area_ally_healing_union_scaling",
+              "healing_amount": 1067,
+              "recipient_reported": "all allies",
+              "radius_meters": 10,
+              "radius_origin": null,
+              "extra_healing_percent_per_blood_union_level": 2,
+              "scaling_base": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Recovering Burst IV",
+      "source_url": "https://vgsoharchive.com/abilities/recovering-burst-iv",
+      "cache": {
+        "path": ".cache/archive/f36d361d5a85e677bd6d010a6b8a549d33de184d03f8b27b0fd1e082c9c5bd52.txt",
+        "sha256": "d5d3bfce5fde59df5045902817b2e4198d06428a00893bd6990eaa77be9b9078"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 85,
+          "record_sha256": "f29945eea523d6f7184ffc9ec7041ffad1dbdf39448bf2c0d2ccb79dce3cff06"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Releases a burst of life, healing all allies within 10m by 1361. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "9d29326f22b36fc8871ac4ddc63a4fbccf8c4f189ddf469ffc4a0195aa8ef202",
+          "field_comparisons": [
+            {
+              "field": "healing_amount",
+              "source_value": 1361,
+              "extracted_value": 1361,
+              "equal": true
+            },
+            {
+              "field": "radius_meters",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "all allies within 10m",
+              "extracted_value": "all allies within 10m",
+              "equal": true
+            },
+            {
+              "field": "extra_healing_percent_per_blood_union_level",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "scaling_base",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "radius_origin",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_conversion_armor_healing_energy_symbiote_observation",
+              "effect_phrase_recorded": "Releases a burst of life, healing all allies within 10m by 1361. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "area_ally_healing_union_scaling",
+              "recipient_reported": "all allies within 10m",
+              "radius_meters": 10,
+              "radius_origin": null,
+              "healing_amount": 1361,
+              "extra_healing_percent_per_blood_union_level": 2,
+              "scaling_base": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Recovering Burst V",
+      "source_url": "https://vgsoharchive.com/abilities/recovering-burst-v",
+      "cache": {
+        "path": ".cache/archive/5261178caac07a15d335cf03398d81d5c526873ee2c156bc3ddec679359ceee5.txt",
+        "sha256": "25d3d2f8d3d5bc99738b28d748feba1c5e0c3c770e0860aa25d254b907df72be"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 86,
+          "record_sha256": "f20f24b470f8b8a09ae7fb95957aa962d75479b7d2f7857a094c224e0784b1ad"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Releases a burst of life, healing all allies within 10m by 1673. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "1cc2c6fcce06572bda7793c2fbeef6c869636be2d58b9f1490f57eaeec943b2d",
+          "field_comparisons": [
+            {
+              "field": "healing_amount",
+              "source_value": 1673,
+              "extracted_value": 1673,
+              "equal": true
+            },
+            {
+              "field": "radius_meters",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "all_allies_within_range",
+              "extracted_value": "all_allies_within_range",
+              "equal": true
+            },
+            {
+              "field": "healing_bonus_percent_per_blood_union_level",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "percentage_bonus_combination_rule",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_gift_rend_burst_infusion_transmutation_observation",
+              "effect_phrase_recorded": "Releases a burst of life, healing all allies within 10m by 1673. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "area_ally_healing",
+              "healing_amount": 1673,
+              "radius_meters": 10,
+              "recipient_reported": "all_allies_within_range",
+              "healing_bonus_percent_per_blood_union_level": 2,
+              "percentage_bonus_combination_rule": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "literal_hashes_verified": 5,
+    "field_comparisons_passed": 42,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 41,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Five current area-healing sections reviewed; full abilities, historical and alternate scopes remain pending.",
+    "Blood Union bonus basis and combination rules remain unknown. Radius origin is not inferred from within 10m.",
+    "No canonical IDs, operative values or historical authentication are inferred."
+  ],
+  "next_step": "Review remaining Blood Mage spell-counter healing clauses against cached prose."
+}
