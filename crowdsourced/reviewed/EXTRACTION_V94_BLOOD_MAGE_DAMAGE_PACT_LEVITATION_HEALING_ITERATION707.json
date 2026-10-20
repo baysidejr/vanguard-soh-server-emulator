@@ -1,0 +1,960 @@
+{
+  "review_kind": "constrained_blood_mage_damage_pact_levitation_healing_extraction",
+  "parser_version": 94,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_DAMAGE_PACT_LEVITATION_HEALING_SOURCE_REVIEW_ITERATION706.json",
+    "sha256": "558890a055400af9b7aff494ca595f5f6cfddfe28fe61bf133f415fdb6b676f9"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Blood Pact",
+      "source_url": "https://vgsoharchive.com/abilities/blood-pact",
+      "cache": {
+        "path": ".cache/archive/e9a33fb656a4ec20313e3369161dd5812c9080b3cbd5f36c71e428bcaffcad34.txt",
+        "sha256": "f65fda434cfe36ec103c3ab327d8a484b0e7643575d3780cfd56171f5bc299c3"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 25,
+          "record_sha256": "e04744bb7bdac3623ede7a3fc27fcb1b438d7a73c53e552126c57e26e095e830"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Bonds you with your allies, allowing you to split incoming damage amongst each other. The ally who is hit takes 70% of the incoming damage; the rest of the group splits 200% of the remaining damage.",
+          "literal_sha256": "8b67c54bbcc5a480ba17356b004f43e2f9cee0b2ce88e4bbdc746907ffe357ff",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_damage_pact_levitation_healing_observation",
+              "effect_phrase_recorded": "Bonds you with your allies, allowing you to split incoming damage amongst each other. The ally who is hit takes 70% of the incoming damage; the rest of the group splits 200% of the remaining damage.",
+              "conditions_unparsed": true,
+              "effect_reported": "group_incoming_damage_sharing",
+              "hit_ally_damage_percent": 70,
+              "group_percent_of_remaining_damage": 200,
+              "group_distribution_rule": null,
+              "rounding_rules": null,
+              "damage_transfer_order": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Blood Pact",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/blood-pact",
+              "title": "Blood Pact · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 94,
+          "collected_at": "2026-10-20T00:51:51+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "22"
+            ],
+            "level in 2007-2008": [
+              "22"
+            ],
+            "level": [
+              "22"
+            ],
+            "energy cost": [
+              "132"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "75m"
+            ],
+            "target": [
+              "Your Group"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon682.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 22,
+          "rank": null,
+          "category": "Alteration",
+          "cost": {
+            "energy": 132
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 75,
+            "unit": "m",
+            "raw": "75m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon682.png",
+          "ranks": [],
+          "target_recorded": "Your Group",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 22,
+              "raw": "22"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 22,
+              "raw": "22"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              132
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_damage_pact_levitation_healing_observation",
+                  "effect_phrase_recorded": "Bonds you with your allies, allowing you to split incoming damage amongst each other. The ally who is hit takes 70% of the incoming damage; the rest of the group splits 200% of the remaining damage.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "group_incoming_damage_sharing",
+                  "hit_ally_damage_percent": 70,
+                  "group_percent_of_remaining_damage": 200,
+                  "group_distribution_rule": null,
+                  "rounding_rules": null,
+                  "damage_transfer_order": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/blood-pact-795.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Flesh Rend I",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-rend-i",
+      "cache": {
+        "path": ".cache/archive/d8979061fa8e266c8c32d520f47b5e59cf74b35e757477713928d85ebfb9259c.txt",
+        "sha256": "ea026fd25aa5ebaa09f9ad6e0f211c7d5b11bb7a5c27a088bdefd3eb6d41b481"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 61,
+          "record_sha256": "5876696aa6674db09fbbfacce38477c398accb58d79edeb344b38217e3649441"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Causes the flesh of your opponent to split and tear, dealing 557 to 588 damage. Increases Blood Union by 3.",
+          "literal_sha256": "60d727c0bc1d7b120b677972071ed7cb9cab68fcb6c89a147e32d77d8db83112",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_damage_pact_levitation_healing_observation",
+              "effect_phrase_recorded": "Causes the flesh of your opponent to split and tear, dealing 557 to 588 damage. Increases Blood Union by 3.",
+              "conditions_unparsed": true,
+              "effect_reported": "damage_blood_union_gain",
+              "recipient_reported": "your opponent",
+              "damage_min": 557,
+              "damage_max": 588,
+              "blood_union_increase": 3,
+              "damage_type": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Flesh Rend I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/flesh-rend-i",
+              "title": "Flesh Rend I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 94,
+          "collected_at": "2026-10-20T00:51:51+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "22"
+            ],
+            "level in 2007-2008": [
+              "22"
+            ],
+            "energy then": [
+              "146 — now 149"
+            ],
+            "refresh then": [
+              "15.0"
+            ],
+            "level": [
+              "22"
+            ],
+            "energy cost": [
+              "149"
+            ],
+            "blood union": [
+              "3"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "15.0s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Physical Finish"
+            ],
+            "icon": [
+              "Icon20752.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 22,
+          "rank": "I",
+          "category": "Physical Finish",
+          "cost": {
+            "energy": 149
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 15.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Causes the flesh of your opponent to split and tear, dealing 557 to 588 damage. Increases Blood Union by 3.",
+          "icon_name": "Icon20752.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 22,
+              "raw": "22"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 22,
+              "raw": "22"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              149
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "15.0s",
+                "seconds": 15.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_damage_pact_levitation_healing_observation",
+                  "effect_phrase_recorded": "Causes the flesh of your opponent to split and tear, dealing 557 to 588 damage. Increases Blood Union by 3.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "damage_blood_union_gain",
+                  "recipient_reported": "your opponent",
+                  "damage_min": 557,
+                  "damage_max": 588,
+                  "blood_union_increase": 3,
+                  "damage_type": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hollow Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/hollow-symbiote",
+      "cache": {
+        "path": ".cache/archive/88881e55a76b5e14238590e0b11ac1038b43d80b31d5325be06e92edff14924e.txt",
+        "sha256": "99ea1baef20164f9d404fc4ee02e6570609b3c92fa52a0b59c6299b8c79ba176"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+          "line": 46,
+          "record_sha256": "5a77f62f788a2cb6f1cd98954d9a73c88ac222f68b756df206b330941451ee5e"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a hollow symbiote to a targets group, allowing them to float off of the ground for 1 hour. Expends 1 Hollow Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "90edbfaa1e6e7df37b8aedac583ab5ed21383d174925f5a52bec95a587db3aeb",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_damage_pact_levitation_healing_observation",
+              "effect_phrase_recorded": "Attaches a hollow symbiote to a targets group, allowing them to float off of the ground for 1 hour. Expends 1 Hollow Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "group_levitation_symbiote",
+              "recipient_reported": "a targets group",
+              "duration_seconds": 3600,
+              "consumed_component_reported": "Hollow Symbiote",
+              "component_quantity": 1,
+              "maximum_symbiotes_per_target": 1,
+              "canonical_component_id": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Hollow Symbiote",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/hollow-symbiote",
+              "title": "Hollow Symbiote · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 94,
+          "collected_at": "2026-10-20T00:51:51+00:00",
+          "archive_fields": {
+            "cast then": [
+              "2",
+              "2.0"
+            ],
+            "level in 2007": [
+              "22"
+            ],
+            "level in 2007-2008": [
+              "22"
+            ],
+            "energy then": [
+              "1"
+            ],
+            "level": [
+              "22"
+            ],
+            "energy cost": [
+              "1"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "requires": [
+              "1 Hollow Symbiote"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon650.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 22,
+          "rank": null,
+          "category": "Alteration",
+          "cost": {
+            "energy": 1
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon650.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 22,
+              "raw": "22"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 22,
+              "raw": "22"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033016id_/http://wiki.silkyvenom.com/index.php/Hollow_Symbiote",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              1
+            ]
+          },
+          "trainer": null,
+          "requirements": "1 Hollow Symbiote",
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_damage_pact_levitation_healing_observation",
+                  "effect_phrase_recorded": "Attaches a hollow symbiote to a targets group, allowing them to float off of the ground for 1 hour. Expends 1 Hollow Symbiote. Only 1 Symbiote allowed on a target at a time.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "group_levitation_symbiote",
+                  "recipient_reported": "a targets group",
+                  "duration_seconds": 3600,
+                  "consumed_component_reported": "Hollow Symbiote",
+                  "component_quantity": 1,
+                  "maximum_symbiotes_per_target": 1,
+                  "canonical_component_id": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Recovering Burst II",
+      "source_url": "https://vgsoharchive.com/abilities/recovering-burst-ii",
+      "cache": {
+        "path": ".cache/archive/0de6d8d621f7f4846e22e8a9f99813a0e189049243e0e6211ecb23015b1c9404.txt",
+        "sha256": "b8733d4ef2ac07a1673ac07b62ff771982f6300c167000f7152e457c6f493acf"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 83,
+          "record_sha256": "1bc00dc2ae308cb984f7b0160d403c4052efbd6a8137d910e6ca7f6a0e3f8565"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Releases a burst of life, healing all allies within 10m by 791. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "1acf165a5e060a473794257a0413a88a1abeddee3a1ea914c3dc7966c78a773e",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_damage_pact_levitation_healing_observation",
+              "effect_phrase_recorded": "Releases a burst of life, healing all allies within 10m by 791. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "area_healing_with_blood_union_bonus",
+              "recipient_reported": "all allies within 10m",
+              "radius_meters": 10,
+              "health_amount": 791,
+              "healing_bonus_percent_per_blood_union_level": 2,
+              "bonus_basis": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Recovering Burst II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/recovering-burst-ii",
+              "title": "Recovering Burst II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 94,
+          "collected_at": "2026-10-20T00:51:51+00:00",
+          "archive_fields": {
+            "energy then": [
+              "541 — now 505",
+              "132 — now 505"
+            ],
+            "cast then": [
+              "4.5",
+              "4.5",
+              "4.5"
+            ],
+            "level in 2007": [
+              "22"
+            ],
+            "level in 2007-2008": [
+              "22"
+            ],
+            "level": [
+              "22"
+            ],
+            "health and energy cost": [
+              "505"
+            ],
+            "health cost": [
+              "131"
+            ],
+            "cast time": [
+              "4.5"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "10m"
+            ],
+            "target": [
+              "Your Group"
+            ],
+            "type": [
+              "Heal"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 22,
+          "rank": "II",
+          "category": "Heal",
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 10,
+            "unit": "m",
+            "raw": "10m"
+          },
+          "tooltip": "Releases a burst of life, healing all allies within 10m by 791. Heals for an extra 2% per level of Blood Union.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": "Your Group",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 22,
+              "raw": "22"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 22,
+              "raw": "22"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034526id_/http://wiki.silkyvenom.com/index.php/Recovering_Burst_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_damage_pact_levitation_healing_observation",
+                  "effect_phrase_recorded": "Releases a burst of life, healing all allies within 10m by 791. Heals for an extra 2% per level of Blood Union.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "area_healing_with_blood_union_bonus",
+                  "recipient_reported": "all allies within 10m",
+                  "radius_meters": 10,
+                  "health_amount": 791,
+                  "healing_bonus_percent_per_blood_union_level": 2,
+                  "bonus_basis": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20090302072913id_/http://www.tentonhammer.com/node/59450"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Transfusion of Serak I",
+      "source_url": "https://vgsoharchive.com/abilities/transfusion-of-serak-i",
+      "cache": {
+        "path": ".cache/archive/7de532c9284d1d6d88cf9516c0bf35251fe8105113df0e7a205cb6623bffcd44.txt",
+        "sha256": "1d2b8299ebfe9f3b68870b72cd1b36e2dfe71e638c9bf92b87ac96104a871914"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 71,
+          "record_sha256": "be839d5889dcf4d0f97fc10ec2d086b0afad80e7c429bf0f65209c7a8b7a4df0"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Heals for 635 health over 16 seconds.",
+          "literal_sha256": "34171fa3c6fb87e3ea9052362271cbee80ba780936439ccc3ee1dbcc1374df5c",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_damage_pact_levitation_healing_observation",
+              "effect_phrase_recorded": "Heals for 635 health over 16 seconds.",
+              "conditions_unparsed": true,
+              "effect_reported": "periodic_healing",
+              "health_amount_total": 635,
+              "duration_seconds": 16,
+              "healing_per_tick": null,
+              "recipient_reported": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Transfusion of Serak I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/transfusion-of-serak-i",
+              "title": "Transfusion of Serak I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 94,
+          "collected_at": "2026-10-20T00:51:51+00:00",
+          "archive_fields": {
+            "energy then": [
+              "143 — now 169",
+              "34 — now 169"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "8",
+              "8.0"
+            ],
+            "level in 2007": [
+              "22"
+            ],
+            "level in 2007-2008": [
+              "22"
+            ],
+            "level": [
+              "22"
+            ],
+            "health and energy cost": [
+              "169"
+            ],
+            "health cost": [
+              "34"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "8.0s"
+            ],
+            "range": [
+              "30m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon452.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 22,
+          "rank": "I",
+          "category": "Heal",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": 8.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 30,
+            "unit": "m",
+            "raw": "30m"
+          },
+          "tooltip": "Heals for 635 health over 16 seconds.",
+          "icon_name": "Icon452.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 22,
+              "raw": "22"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 22,
+              "raw": "22"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033413id_/http://wiki.silkyvenom.com/index.php/Transfusion_of_Serak_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "8.0s",
+                "seconds": 8.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_damage_pact_levitation_healing_observation",
+                  "effect_phrase_recorded": "Heals for 635 health over 16 seconds.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "periodic_healing",
+                  "health_amount_total": 635,
+                  "duration_seconds": 16,
+                  "healing_per_tick": null,
+                  "recipient_reported": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0,
+    "required_unittest_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+    "tests_passed": 292
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process inspection found no Python collector",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60,
+    "network_suspension_preserved": true
+  },
+  "remaining_numeric_sections_requiring_literal_review": 80,
+  "reviewed_sections_awaiting_parser_implementation": 0,
+  "limitations": [
+    "Transfusion of Serak I specifies total healing and duration; recipient and tick size remain null.",
+    "Blood Pact percentages retain their distinct reported bases; group allocation, transfer order and rounding remain unknown.",
+    "Hollow Symbiote explicitly consumes one named component; its canonical client ID remains unknown. Healing bonus basis remains unknown.",
+    "No name-only matching or inferred canonical client IDs; immutable source records retained.",
+    "Exact source observations only; no operative combat values or independent historical authentication."
+  ],
+  "next_step": "Review the remaining 80 Blood Mage numeric effect sections against exact cached prose."
+}
