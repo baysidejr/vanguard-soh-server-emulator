@@ -1,0 +1,1938 @@
+{
+  "review_kind": "blood_mage_health_steal_return_field_review",
+  "parser_version": 114,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Entwining Vein I",
+      "source_url": "https://vgsoharchive.com/abilities/entwining-vein-i",
+      "cache": {
+        "path": ".cache/archive/34ed5200ddde540e9f53c56d6a44c063fd0ffd0fcd56022810acde22e2fc06e7.txt",
+        "sha256": "b3d49942051c1b737c806b5f0ec2273f32ba62d7c85321fc7359798d47efbfaf"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 16,
+          "record_sha256": "bd8e76fe0de2ba96be5a8f3495150db479191687060ec180b671b849fc159584"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 120 to 130 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+          "literal_sha256": "f8866d17c61c7699a312d08d8d226f159c59ccdf9c45e1c30a855f299bdc2c38",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_min",
+              "source_value": 120,
+              "extracted_value": 120,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_max",
+              "source_value": 130,
+              "extracted_value": 130,
+              "equal": true
+            },
+            {
+              "field": "return_percent",
+              "source_value": 130,
+              "extracted_value": 130,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_bonus_percent_per_blood_union_level",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "bonus_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "blood_union_gain_points",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your defensive target",
+              "extracted_value": "your defensive target",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_transfer_ritual_observation",
+              "effect_phrase_recorded": "Steals 120 to 130 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_and_return",
+              "health_stolen_min": 120,
+              "health_stolen_max": 130,
+              "return_percent": 130,
+              "recipient_reported": "your defensive target",
+              "returned_portion_bonus_percent_per_blood_union_level": 10,
+              "blood_union_gain_points": 1,
+              "bonus_basis": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Blood Tribute I",
+      "source_url": "https://vgsoharchive.com/abilities/blood-tribute-i",
+      "cache": {
+        "path": ".cache/archive/39b206fc4916c5b167bbb8f91d3a4d0aadc8479a0bd132e08cd1e7cc0b720ff4.txt",
+        "sha256": "dd67e303af2fd7527052e27eaf2d2b7cccbe4b0443aa80f846b91781253a60a8"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 4,
+          "record_sha256": "880e9d0ba1fcaf555cc6f73bbdf2ddc3ccb96ae13689c047eba40d3b8ea62bfa"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 218 to 232 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.",
+          "literal_sha256": "efbc21334ceae10d89df825ebddd80884d404db2df255f8fb4e5f0f0404a65a7",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_min",
+              "source_value": 218,
+              "extracted_value": 218,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_max",
+              "source_value": 232,
+              "extracted_value": 232,
+              "equal": true
+            },
+            {
+              "field": "return_percent",
+              "source_value": 100,
+              "extracted_value": 100,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_bonus_percent_per_blood_union_level",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "bonus_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "blood_union_gain_points",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "allies within 10m of the caster",
+              "extracted_value": "allies within 10m of the caster",
+              "equal": true
+            },
+            {
+              "field": "recipient_radius_meters",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_transfer_ritual_observation",
+              "effect_phrase_recorded": "Steals 218 to 232 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_and_return",
+              "health_stolen_min": 218,
+              "health_stolen_max": 232,
+              "return_percent": 100,
+              "recipient_reported": "allies within 10m of the caster",
+              "recipient_radius_meters": 10,
+              "returned_portion_bonus_percent_per_blood_union_level": 10,
+              "blood_union_gain_points": 2,
+              "bonus_basis": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Blood Tribute II",
+      "source_url": "https://vgsoharchive.com/abilities/blood-tribute-ii",
+      "cache": {
+        "path": ".cache/archive/ef73a76ed7b7b7bf676a52cec18330ac372af6ee904056baf00b27699d9f08dd.txt",
+        "sha256": "c4d955d5e640c5c559c062e5ae116ac0f3beec224e2973d9e4fd343f2ae02668"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 5,
+          "record_sha256": "1d49fa8702f55ec7520c169733e094e27591727a3b675338074e6f1eadf6b89b"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 303 to 322 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.",
+          "literal_sha256": "fba934f38d67c90115eb6f110fb95397b82c82a5fc5f636bb5a470b1d414de8a",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_steal_min",
+              "source_value": 303,
+              "extracted_value": 303,
+              "equal": true
+            },
+            {
+              "field": "health_steal_max",
+              "source_value": 322,
+              "extracted_value": 322,
+              "equal": true
+            },
+            {
+              "field": "returned_health_percent",
+              "source_value": 100,
+              "extracted_value": 100,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_bonus_percent_per_blood_union_level",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "bonus_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "blood_union_gain",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "allies within 10m of the caster",
+              "extracted_value": "allies within 10m of the caster",
+              "equal": true
+            },
+            {
+              "field": "radius_meters",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "return_allocation",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_control_health_return_hate_observation",
+              "effect_phrase_recorded": "Steals 303 to 322 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_area_return",
+              "health_steal_min": 303,
+              "health_steal_max": 322,
+              "returned_health_percent": 100,
+              "recipient_reported": "allies within 10m of the caster",
+              "radius_meters": 10,
+              "returned_portion_bonus_percent_per_blood_union_level": 10,
+              "blood_union_gain": 2,
+              "bonus_basis": null,
+              "return_allocation": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Entwining Vein II",
+      "source_url": "https://vgsoharchive.com/abilities/entwining-vein-ii",
+      "cache": {
+        "path": ".cache/archive/3da2fff5bf76acb922d57a8a1e792d75e1f1d6df97eb0a87442913b288af26a7.txt",
+        "sha256": "4807ba97dd7aaecd207ffa055679a35967a2f7f11379b96839e2312895665f34"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 22,
+          "record_sha256": "8966030883d54a33e70185d20b9006b5c16a9535a7fc2801c1d270817aab3962"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 170 to 182 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+          "literal_sha256": "6627fa24f4f8bbeba92dbbddd98fc692c5b98ce480d8459771c144ea9cc516ac",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_steal_min",
+              "source_value": 170,
+              "extracted_value": 170,
+              "equal": true
+            },
+            {
+              "field": "health_steal_max",
+              "source_value": 182,
+              "extracted_value": 182,
+              "equal": true
+            },
+            {
+              "field": "returned_health_percent",
+              "source_value": 130,
+              "extracted_value": 130,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_bonus_percent_per_blood_union_level",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "bonus_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "blood_union_gain",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your defensive target",
+              "extracted_value": "your defensive target",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_control_health_return_hate_observation",
+              "effect_phrase_recorded": "Steals 170 to 182 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_defensive_target_return",
+              "health_steal_min": 170,
+              "health_steal_max": 182,
+              "returned_health_percent": 130,
+              "recipient_reported": "your defensive target",
+              "returned_portion_bonus_percent_per_blood_union_level": 10,
+              "blood_union_gain": 1,
+              "bonus_basis": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Blood Tribute III",
+      "source_url": "https://vgsoharchive.com/abilities/blood-tribute-iii",
+      "cache": {
+        "path": ".cache/archive/a2cd98993d49d6fa332c4d0c50e62dcf5e05133069da2ff26d12ce9c6b02ce61.txt",
+        "sha256": "4356193422f6fee33657948634ab68c7911eee30b24338c94d6a2da59e9afee1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 30,
+          "record_sha256": "51fe02746d431c90773b4fbaa7e20b8f1b801c53c3b020591c3c9fa7289e5823"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 392 to 414 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.",
+          "literal_sha256": "9b3d90c0ab09e6c12c0d98cf5930264116e027096a70b7a741aa85ff87c14fae",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_min",
+              "source_value": 392,
+              "extracted_value": 392,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_max",
+              "source_value": 414,
+              "extracted_value": 414,
+              "equal": true
+            },
+            {
+              "field": "health_return_percent",
+              "source_value": 100,
+              "extracted_value": 100,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_increase_percent_per_blood_union_level",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "return_scaling_base",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "blood_union_increase",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "allies within 10m of the caster",
+              "extracted_value": "allies within 10m of the caster",
+              "equal": true
+            },
+            {
+              "field": "radius_meters",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "distribution_rule",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_control_party_buffs_health_return_observation",
+              "effect_phrase_recorded": "Steals 392 to 414 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.",
+              "conditions_unparsed": true,
+              "effect_reported": "area_health_steal_return_blood_union_gain",
+              "recipient_reported": "allies within 10m of the caster",
+              "health_stolen_min": 392,
+              "health_stolen_max": 414,
+              "health_return_percent": 100,
+              "radius_meters": 10,
+              "returned_portion_increase_percent_per_blood_union_level": 10,
+              "blood_union_increase": 2,
+              "return_scaling_base": null,
+              "distribution_rule": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Entwining Vein III",
+      "source_url": "https://vgsoharchive.com/abilities/entwining-vein-iii",
+      "cache": {
+        "path": ".cache/archive/f0aa71fe72dc60e6dcaca141a6ddfeda90da7fcb6c47d5cfc8b17c9062785c74.txt",
+        "sha256": "48f8765e06b3d54b12940f8220ab642e77bade1e8e9f5f614856f08cad9e42f0"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 38,
+          "record_sha256": "ec275d18a5ba833eae91834d6f6e6064beac440b68ab0deb8529a317372d3149"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 220 to 234 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+          "literal_sha256": "973a0a522fbe6b6b55185b0715d0d998c1e6bd4c9253263c02f81e476f7d324a",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_min",
+              "source_value": 220,
+              "extracted_value": 220,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_max",
+              "source_value": 234,
+              "extracted_value": 234,
+              "equal": true
+            },
+            {
+              "field": "health_return_percent",
+              "source_value": 130,
+              "extracted_value": 130,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_increase_percent_per_blood_union_level",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "return_scaling_base",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "blood_union_increase",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your defensive target",
+              "extracted_value": "your defensive target",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_symbiote_hate_ritual_union_observation",
+              "effect_phrase_recorded": "Steals 220 to 234 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_defensive_target_return",
+              "recipient_reported": "your defensive target",
+              "health_stolen_min": 220,
+              "health_stolen_max": 234,
+              "health_return_percent": 130,
+              "returned_portion_increase_percent_per_blood_union_level": 10,
+              "blood_union_increase": 1,
+              "return_scaling_base": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Despoil IV",
+      "source_url": "https://vgsoharchive.com/abilities/despoil-iv",
+      "cache": {
+        "path": ".cache/archive/66e14d8f423746779eeec9df04e597739d817f64a2ae6dac574b00d43a47a642.txt",
+        "sha256": "f03091aea5733a289c086be85e9273139b6644f5e13efe928858056e08a010db"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 8,
+          "record_sha256": "ac18775180faee818f6b501f0ad10952bc41c4dcc06164953f6c04aa3e5d7b32"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 234 to 247 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union. Increases your Blood Union by 1.",
+          "literal_sha256": "88bdb344a1e61a7e6ad4d90a5a465034bb45e03b1375a415edf3b62835431646",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_min",
+              "source_value": 234,
+              "extracted_value": 234,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_max",
+              "source_value": 247,
+              "extracted_value": 247,
+              "equal": true
+            },
+            {
+              "field": "health_return_percent",
+              "source_value": 130,
+              "extracted_value": 130,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_increase_percent_per_blood_union_level",
+              "source_value": 25,
+              "extracted_value": 25,
+              "equal": true
+            },
+            {
+              "field": "return_scaling_base",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "blood_union_increase",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "you",
+              "extracted_value": "you",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_steal_damage_conversion_symbiote_healing_observation",
+              "effect_phrase_recorded": "Steals 234 to 247 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union. Increases your Blood Union by 1.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_self_return",
+              "recipient_reported": "you",
+              "health_stolen_min": 234,
+              "health_stolen_max": 247,
+              "health_return_percent": 130,
+              "returned_portion_increase_percent_per_blood_union_level": 25,
+              "blood_union_increase": 1,
+              "return_scaling_base": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Blood Tribute IV",
+      "source_url": "https://vgsoharchive.com/abilities/blood-tribute-iv",
+      "cache": {
+        "path": ".cache/archive/bfbab299cae65d044b249d81cbbd97181b26f116b60ad503660026a2d76e041b.txt",
+        "sha256": "f47efae1979b0f4bb38e95e0633b7459000ffeae553a86c71985d2a21f00cb63"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 31,
+          "record_sha256": "328600a8a4d005f5059e361007167c2777735b1caea7b02e6522a0bd9c204e83"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 485 to 512 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.",
+          "literal_sha256": "2e2bc0336599e491afe94dad812b1650befaaea853b363d82bf20859f67fa8a6",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_min",
+              "source_value": 485,
+              "extracted_value": 485,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_max",
+              "source_value": 512,
+              "extracted_value": 512,
+              "equal": true
+            },
+            {
+              "field": "returned_percent",
+              "source_value": 100,
+              "extracted_value": 100,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_increase_percent_per_blood_union_level",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "scaling_base",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "blood_union_increase",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "allies within 10m of the caster",
+              "extracted_value": "allies within 10m of the caster",
+              "equal": true
+            },
+            {
+              "field": "radius_meters",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "radius_origin",
+              "source_value": "caster",
+              "extracted_value": "caster",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_steal_damage_hate_quickening_observation",
+              "effect_phrase_recorded": "Steals 485 to 512 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_area_return_union_scaling",
+              "health_stolen_min": 485,
+              "health_stolen_max": 512,
+              "returned_percent": 100,
+              "recipient_reported": "allies within 10m of the caster",
+              "radius_meters": 10,
+              "radius_origin": "caster",
+              "returned_portion_increase_percent_per_blood_union_level": 10,
+              "blood_union_increase": 2,
+              "scaling_base": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Entwining Vein IV",
+      "source_url": "https://vgsoharchive.com/abilities/entwining-vein-iv",
+      "cache": {
+        "path": ".cache/archive/6eda12da38fe1684580b2a8c2366e608bd869e1a8a0ba4f19f4439fc198175c1.txt",
+        "sha256": "4e3063aaa2c63cdb9021b0f4a141bb532c1e05bc468c415accd48184a29a99f6"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 39,
+          "record_sha256": "46a4aaac3272eddcd4e138592226a1ba503fff39bfe6075b329fee839539a43d"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 273 to 289 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+          "literal_sha256": "1d1f3b665802d322b5880a6623902e964bef98a70be934c81fe06188ad0befb8",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_min",
+              "source_value": 273,
+              "extracted_value": 273,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_max",
+              "source_value": 289,
+              "extracted_value": 289,
+              "equal": true
+            },
+            {
+              "field": "returned_percent",
+              "source_value": 130,
+              "extracted_value": 130,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_increase_percent_per_blood_union_level",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "scaling_base",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "blood_union_increase",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your defensive target",
+              "extracted_value": "your defensive target",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_steal_damage_hate_quickening_observation",
+              "effect_phrase_recorded": "Steals 273 to 289 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_defensive_target_return_union_scaling",
+              "health_stolen_min": 273,
+              "health_stolen_max": 289,
+              "returned_percent": 130,
+              "recipient_reported": "your defensive target",
+              "returned_portion_increase_percent_per_blood_union_level": 10,
+              "blood_union_increase": 1,
+              "scaling_base": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Despoil V",
+      "source_url": "https://vgsoharchive.com/abilities/despoil-v",
+      "cache": {
+        "path": ".cache/archive/840bf5112dda60ec160d78e918653a55c6414e75292e1043b06fbf925100a454.txt",
+        "sha256": "7310949f3c2633b5403476910ef4e3461fb56dd94c9eacc4dcbf6b7bdcdafbf4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 9,
+          "record_sha256": "a5193198ce60e6fc6c81d4d033a04bbcba025c219c4e57ca6804ced728bad0a5"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 287 to 304 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union. Increases your Blood Union by 1.",
+          "literal_sha256": "235e45f30bea987629251b894df8114d3b8fc18cbfafbbd5bfcfd665743157f8",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_min",
+              "source_value": 287,
+              "extracted_value": 287,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_max",
+              "source_value": 304,
+              "extracted_value": 304,
+              "equal": true
+            },
+            {
+              "field": "returned_percent",
+              "source_value": 130,
+              "extracted_value": 130,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_increase_percent_per_blood_union_level",
+              "source_value": 25,
+              "extracted_value": 25,
+              "equal": true
+            },
+            {
+              "field": "scaling_base",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "blood_union_increase",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "you",
+              "extracted_value": "you",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_ritual_union_return_healing_symbiote_observation",
+              "effect_phrase_recorded": "Steals 287 to 304 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union. Increases your Blood Union by 1.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_self_return_union_scaling",
+              "health_stolen_min": 287,
+              "health_stolen_max": 304,
+              "returned_percent": 130,
+              "recipient_reported": "you",
+              "returned_portion_increase_percent_per_blood_union_level": 25,
+              "blood_union_increase": 1,
+              "scaling_base": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Blood Tribute V",
+      "source_url": "https://vgsoharchive.com/abilities/blood-tribute-v",
+      "cache": {
+        "path": ".cache/archive/e628005e873ebc0479a81c2da944446551f652c7df7666dd61e180796836ac65.txt",
+        "sha256": "7208b745c6dfb4b149e4ef1206f9e4c95162a70cba311409dac144bc63a3e973"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 32,
+          "record_sha256": "4f9fce796ad5bb90e5d9cb67821e89c387c312eeda7f229cdb1f3c27b11f4ee7"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 586 to 618 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.",
+          "literal_sha256": "6dca647eb76e2aed234fb854ed3ba3d872803fece8b71f0908b5f88f55562683",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_min",
+              "source_value": 586,
+              "extracted_value": 586,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_max",
+              "source_value": 618,
+              "extracted_value": 618,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_percent",
+              "source_value": 100,
+              "extracted_value": 100,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_increase_percent_per_blood_union_level",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "percentage_bonus_combination_rule",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "blood_union_gain_points",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "allies within 10m of the caster",
+              "extracted_value": "allies within 10m of the caster",
+              "equal": true
+            },
+            {
+              "field": "radius_meters",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_healing_counter_symbiote_steal_observation",
+              "effect_phrase_recorded": "Steals 586 to 618 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_with_nearby_ally_return",
+              "health_stolen_min": 586,
+              "health_stolen_max": 618,
+              "returned_portion_percent": 100,
+              "recipient_reported": "allies within 10m of the caster",
+              "radius_meters": 10,
+              "returned_portion_increase_percent_per_blood_union_level": 10,
+              "blood_union_gain_points": 2,
+              "percentage_bonus_combination_rule": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Entwining Vein V",
+      "source_url": "https://vgsoharchive.com/abilities/entwining-vein-v",
+      "cache": {
+        "path": ".cache/archive/c2f68967143cdc6639ee3cc678c26f6e197d412a7b17b5c587b19bfaa7aa4798.txt",
+        "sha256": "be0f5e92ca2a466effae5d1d6165204c95fd703ae8f31be96b3fc6dddb888f90"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 40,
+          "record_sha256": "1f8b908be972b2db0f7ff7c711a163a647765699a70b2b1fc0d135fd7ef00efa"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 330 to 350 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+          "literal_sha256": "04278ffc047ee178d7c964bed6bb0e1d36c1e875353e2ff264d71afffbb3f464",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_min",
+              "source_value": 330,
+              "extracted_value": 330,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_max",
+              "source_value": 350,
+              "extracted_value": 350,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_percent",
+              "source_value": 130,
+              "extracted_value": 130,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_increase_percent_per_blood_union_level",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "percentage_bonus_combination_rule",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "blood_union_gain_points",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "defensive target",
+              "extracted_value": "defensive target",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_steal_hate_ritual_rune_healing_observation",
+              "effect_phrase_recorded": "Steals 330 to 350 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_with_defensive_target_return",
+              "health_stolen_min": 330,
+              "health_stolen_max": 350,
+              "returned_portion_percent": 130,
+              "recipient_reported": "defensive target",
+              "returned_portion_increase_percent_per_blood_union_level": 10,
+              "blood_union_gain_points": 1,
+              "percentage_bonus_combination_rule": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Despoil VI",
+      "source_url": "https://vgsoharchive.com/abilities/despoil-vi",
+      "cache": {
+        "path": ".cache/archive/2c16ba62c77c4bc9a5a2a9fb6f0cdffd3138df17772c1d81eb64615216dd7c2f.txt",
+        "sha256": "bd0550764e623f80d5e5dd1b6d52e5c6b3fb131d812f8ba58ca32ec86edbbf82"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 10,
+          "record_sha256": "e5ce1bcacf624f9f0bfc0f9879b500132732ee4a5e79778c0a9809a54d4f84ae"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 344 to 364 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union. Increases your Blood Union by 1.",
+          "literal_sha256": "a4e80e85580314e53c009fe65fb8babffb0f054018ea0c798508655feea63207",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_min",
+              "source_value": 344,
+              "extracted_value": 344,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_max",
+              "source_value": 364,
+              "extracted_value": 364,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_percent",
+              "source_value": 130,
+              "extracted_value": 130,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_increase_percent_per_blood_union_level",
+              "source_value": 25,
+              "extracted_value": 25,
+              "equal": true
+            },
+            {
+              "field": "percentage_bonus_combination_rule",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "blood_union_gain_points",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "self",
+              "extracted_value": "self",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_union_root_steal_symbiote_absorption_observation",
+              "effect_phrase_recorded": "Steals 344 to 364 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union. Increases your Blood Union by 1.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_with_self_return",
+              "health_stolen_min": 344,
+              "health_stolen_max": 364,
+              "returned_portion_percent": 130,
+              "recipient_reported": "self",
+              "returned_portion_increase_percent_per_blood_union_level": 25,
+              "blood_union_gain_points": 1,
+              "percentage_bonus_combination_rule": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Blood Thief",
+      "source_url": "https://vgsoharchive.com/abilities/blood-thief",
+      "cache": {
+        "path": ".cache/archive/fe46cebcbe045e6075c42c2847b3b36b56a7eeef51d12050ef82e0d2c1a85004.txt",
+        "sha256": "00503e50e399831b076577c3f8c000dd368435e935257d829c9d775818bee282"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 29,
+          "record_sha256": "efa3bed45c786a7de5452ab01b5bc24d40e355bf2dbcfc690faba3413b40c7de"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 360 to 381 health from all opponents within 10m and returns 50% of it to you. Increases the returned portion by 10% per level of Blood Union.",
+          "literal_sha256": "ab4ca48edcee70ae6e796bcf94bc9f74611cd65c632f75dd4180b5b9e8333fcd",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_min",
+              "source_value": 360,
+              "extracted_value": 360,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_max",
+              "source_value": 381,
+              "extracted_value": 381,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_percent",
+              "source_value": 50,
+              "extracted_value": 50,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_increase_percent_per_blood_union_level",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "percentage_bonus_combination_rule",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "self",
+              "extracted_value": "self",
+              "equal": true
+            },
+            {
+              "field": "radius_meters",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_transmutation_symbiote_thief_tribute_vein_observation",
+              "effect_phrase_recorded": "Steals 360 to 381 health from all opponents within 10m and returns 50% of it to you. Increases the returned portion by 10% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "area_health_steal_with_self_return",
+              "health_stolen_min": 360,
+              "health_stolen_max": 381,
+              "radius_meters": 10,
+              "returned_portion_percent": 50,
+              "recipient_reported": "self",
+              "returned_portion_increase_percent_per_blood_union_level": 10,
+              "percentage_bonus_combination_rule": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Blood Tribute VI",
+      "source_url": "https://vgsoharchive.com/abilities/blood-tribute-vi",
+      "cache": {
+        "path": ".cache/archive/b610e8c7a3e7bf9fbbdb85861175640aca3758ef74ce221ebf646b61ac975a79.txt",
+        "sha256": "80aeecc5ca350ded3a3f46ba1f61178a772ddf35b2dc5a931f433f92d1144426"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 33,
+          "record_sha256": "ae1062b8da8b2240b5fbe3da9f7fbf17e75de157486b6b8713bc2a009ed4e8b5"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 638 to 673 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.",
+          "literal_sha256": "52ca2c50c2a4d2eb09155530b896c715e21954ee9abcc18b511921c3b3fb3203",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_min",
+              "source_value": 638,
+              "extracted_value": 638,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_max",
+              "source_value": 673,
+              "extracted_value": 673,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_percent",
+              "source_value": 100,
+              "extracted_value": 100,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_increase_percent_per_blood_union_level",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "percentage_bonus_combination_rule",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "blood_union_gain_points",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "allies_within_range",
+              "extracted_value": "allies_within_range",
+              "equal": true
+            },
+            {
+              "field": "radius_meters",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "radius_origin_reported",
+              "source_value": "caster",
+              "extracted_value": "caster",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_transmutation_symbiote_thief_tribute_vein_observation",
+              "effect_phrase_recorded": "Steals 638 to 673 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_with_area_ally_return",
+              "health_stolen_min": 638,
+              "health_stolen_max": 673,
+              "radius_meters": 10,
+              "radius_origin_reported": "caster",
+              "returned_portion_percent": 100,
+              "recipient_reported": "allies_within_range",
+              "returned_portion_increase_percent_per_blood_union_level": 10,
+              "blood_union_gain_points": 2,
+              "percentage_bonus_combination_rule": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Entwining Vein VI",
+      "source_url": "https://vgsoharchive.com/abilities/entwining-vein-vi",
+      "cache": {
+        "path": ".cache/archive/2b59c46a20822f613010c1d2d6353170843128672cabf896b7feaf67d1bf18d4.txt",
+        "sha256": "48ea658ae6b098989521821aa12a59618ea39fe3118fcae1836573c703c38977"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 41,
+          "record_sha256": "e424ebb2dca3b097711587a8f00669581580a984276cafbabee842e09100e04f"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 360 to 381 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+          "literal_sha256": "c96a81a1980de8b6698c7b69d717e70b315ca41fbcbf32beaaa20f1c0b0651d7",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_min",
+              "source_value": 360,
+              "extracted_value": 360,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_max",
+              "source_value": 381,
+              "extracted_value": 381,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_percent",
+              "source_value": 130,
+              "extracted_value": 130,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_increase_percent_per_blood_union_level",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "percentage_bonus_combination_rule",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "blood_union_gain_points",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "defensive_target",
+              "extracted_value": "defensive_target",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_transmutation_symbiote_thief_tribute_vein_observation",
+              "effect_phrase_recorded": "Steals 360 to 381 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_with_defensive_target_return",
+              "health_stolen_min": 360,
+              "health_stolen_max": 381,
+              "returned_portion_percent": 130,
+              "recipient_reported": "defensive_target",
+              "returned_portion_increase_percent_per_blood_union_level": 10,
+              "blood_union_gain_points": 1,
+              "percentage_bonus_combination_rule": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Shadow Vein",
+      "source_url": "https://vgsoharchive.com/abilities/shadow-vein",
+      "cache": {
+        "path": ".cache/archive/4625219ab0e816c4a0aad695de0c633bb8eb1b80315daf91fedaaa2961264384.txt",
+        "sha256": "32114a8acfd3de796633b1284a18c8c3dfafdd5725c0cde6bfbac615df3004f2"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 79,
+          "record_sha256": "324c7841746fb4e701612eccfea72c80bd9c072e81ee15b007266acc5fda80c8"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 240 to 254 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+          "literal_sha256": "2a66eff233e0b6d9a8a12efa95d10c8273fa16d41fe0db1f9c8324dd06aa7aa6",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_min",
+              "source_value": 240,
+              "extracted_value": 240,
+              "equal": true
+            },
+            {
+              "field": "health_stolen_max",
+              "source_value": 254,
+              "extracted_value": 254,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_percent",
+              "source_value": 130,
+              "extracted_value": 130,
+              "equal": true
+            },
+            {
+              "field": "returned_portion_increase_percent_per_blood_union_level",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "percentage_bonus_combination_rule",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "blood_union_gain_points",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "defensive_target",
+              "extracted_value": "defensive_target",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_renewing_ritual_vein_rune_union_observation",
+              "effect_phrase_recorded": "Steals 240 to 254 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_with_defensive_target_return",
+              "health_stolen_min": 240,
+              "health_stolen_max": 254,
+              "returned_portion_percent": 130,
+              "recipient_reported": "defensive_target",
+              "returned_portion_increase_percent_per_blood_union_level": 10,
+              "blood_union_gain_points": 1,
+              "percentage_bonus_combination_rule": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 17,
+    "source_record_hashes_verified": 17,
+    "whole_page_replays": 17,
+    "literal_hashes_verified": 17,
+    "field_comparisons_passed": 180,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 119,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Only explicit current Effect clauses reviewed; full ability, historical and alternate scopes remain pending.",
+    "Literal coverage does not authenticate historical game behavior or establish operative combat formulas.",
+    "Blood Union bonus basis and stacking rules remain unstated and null; no calculated return values are promoted.",
+    "Recipient aliases are explicitly compared as wording only. Area return allocation remains unknown; radius origin is retained only where the source says caster. No canonical IDs or name-only merges introduced."
+  ],
+  "next_step": "Review remaining Blood Mage absorption and damage-sharing observations field by field against cached prose."
+}
