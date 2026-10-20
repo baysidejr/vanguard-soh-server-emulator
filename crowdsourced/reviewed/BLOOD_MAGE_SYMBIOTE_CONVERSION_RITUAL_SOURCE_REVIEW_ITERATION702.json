@@ -1,0 +1,867 @@
+{
+  "review_kind": "blood_mage_symbiote_conversion_ritual_source_review",
+  "parser_version": 91,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION689.json",
+    "sha256": "5727d7e8de3b9e6910f4001703b39947b1b995f326b60f1a74c9ce6ec15acb25"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Cleansing Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/cleansing-symbiote",
+      "cache": {
+        "path": ".cache/archive/6d7d0b6f9f36386a9fce18893abab31a5f4750ff62c04e46656aae14ca03f7e8.txt",
+        "sha256": "79a7ec42a1239092776d924a1bf5443355ee2497ecf8ee8e6b8cc828505c699c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 11,
+          "record_sha256": "4abae5c9f3969079d48a4255dc6976e17c7b8607095bf09d0ed7e3ad1c161979"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a symbiote to an ally, cleansing their body of poison and disease over 15 minutes. Energy Cost: 1 Cleansing Symbiote Cast Time: 1.0 Refresh: None Range: 25 Controlling Symbiote",
+          "literal_sha256": "7174f06587bf3216948c40450401c676f72d018c9e234582243742e52e08fa09",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "poison_disease_cleansing",
+            "recipient_reported": "an ally",
+            "duration_minutes_reported": 15,
+            "cleansing_frequency": null,
+            "conditions_removed_per_tick": null,
+            "component_quantity": null,
+            "cast_time_seconds": null,
+            "range_meters": null,
+            "source_anomaly": "Effect block includes Energy Cost, Cast Time, Refresh, Range and trailing Controlling Symbiote labels; those values are withheld pending structural review.",
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Cleansing Symbiote",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/cleansing-symbiote",
+              "title": "Cleansing Symbiote · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 91,
+          "collected_at": "2026-10-20T00:19:47+00:00",
+          "archive_fields": {
+            "cast then": [
+              "1",
+              "1.0"
+            ],
+            "level in 2007": [
+              "14"
+            ],
+            "level in 2007-2008": [
+              "14"
+            ],
+            "level": [
+              "14"
+            ],
+            "energy cost": [
+              "1"
+            ],
+            "cast time": [
+              "1.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "15 minutes"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "type": [
+              "Alteration"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 14,
+          "rank": null,
+          "category": "Alteration",
+          "cost": {
+            "energy": 1
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": 900,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 14,
+              "raw": "14"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 14,
+              "raw": "14"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032739id_/http://wiki.silkyvenom.com/index.php/Cleansing_Symbiote",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              1
+            ]
+          },
+          "timing_observations": {
+            "duration_seconds": [
+              {
+                "label": "duration",
+                "raw": "15 minutes",
+                "seconds": 900
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "https://web.archive.org/web/20090302072913id_/http://www.tentonhammer.com/node/59450"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mental Transmutation II",
+      "source_url": "https://vgsoharchive.com/abilities/mental-transmutation-ii",
+      "cache": {
+        "path": ".cache/archive/78e70836cbac2d8ca7d5eef39cf68257c174b8c0d654135c55083b9c47dddad7.txt",
+        "sha256": "884ff7fc586e080b6849ac88de80b5819d9510809289f53951bddd50ae4ac577"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 52,
+          "record_sha256": "3e82a14ab371b571add1020fd1c05247c80e99b898ab9207cdbe0c997e434f87"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Transmutes 268 health into 294 energy.",
+          "literal_sha256": "cdd5709c7670858333bb8a77f669d6c52efd8bf3245f692ad3a0154b562e86a9",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "health_to_energy_conversion",
+            "health_consumed": 268,
+            "energy_restored": 294,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Mental Transmutation II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/mental-transmutation-ii",
+              "title": "Mental Transmutation II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 91,
+          "collected_at": "2026-10-20T00:19:47+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "10",
+              "10.0"
+            ],
+            "level in 2007-2008": [
+              "18"
+            ],
+            "energy then": [
+              "268"
+            ],
+            "level": [
+              "18"
+            ],
+            "energy cost": [
+              "268"
+            ],
+            "health cost": [
+              "268"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "10.0s"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon449.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 18,
+          "rank": "II",
+          "category": "Alteration",
+          "cost": {
+            "energy": 268
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 10.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Transmutes 268 health into 294 energy.",
+          "icon_name": "Icon449.png",
+          "ranks": [],
+          "target_recorded": "Self",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 18,
+              "raw": "18"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033059id_/http://wiki.silkyvenom.com/index.php/Mental_Transmutation_II",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              268
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "10.0s",
+                "seconds": 10.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Plated Symbiote I",
+      "source_url": "https://vgsoharchive.com/abilities/plated-symbiote-i",
+      "cache": {
+        "path": ".cache/archive/7c299449b527656a54e7647ba031fba630a6020277b253dae0e36d814959405c.txt",
+        "sha256": "a316f29bead95de088b87741c89bda8a134f52b63c51bac8d0e1dbf41653445d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 55,
+          "record_sha256": "b8a51eb52d1d5e0225b57441c88a71dc1d53fb8dbb5f4fd4adc9ac5b77bcb97c"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a plated symbiote to an ally, transforming their skin into spiky plates that return 29 damage upon their attackers and increases armor class by 54 for 1 hour. Expends 1 Plated Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "3799b756e9537900f907958121490cc2e818a32b3405e4acc5d7b314bb35d684",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "retaliatory_damage_armor_buff",
+            "recipient_reported": "an ally",
+            "returned_damage": 29,
+            "armor_class_increase": 54,
+            "duration_hours_reported": 1,
+            "consumed_component_reported": "Plated Symbiote",
+            "component_quantity": 1,
+            "maximum_symbiotes_per_target": 1,
+            "canonical_component_id": null,
+            "damage_type": null,
+            "trigger_frequency": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Plated Symbiote I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/plated-symbiote-i",
+              "title": "Plated Symbiote I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 91,
+          "collected_at": "2026-10-20T00:19:47+00:00",
+          "archive_fields": {
+            "cast then": [
+              "2",
+              "2.0"
+            ],
+            "level in 2007": [
+              "18"
+            ],
+            "level in 2007-2008": [
+              "18"
+            ],
+            "energy then": [
+              "1"
+            ],
+            "level": [
+              "18"
+            ],
+            "energy cost": [
+              "1"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "requires": [
+              "1 Plated Symbiote"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon648.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 18,
+          "rank": "I",
+          "category": "Alteration",
+          "cost": {
+            "energy": 1
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon648.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 18,
+              "raw": "18"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 18,
+              "raw": "18"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033143id_/http://wiki.silkyvenom.com/index.php/Plated_Symbiote_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              1
+            ]
+          },
+          "trainer": null,
+          "requirements": "1 Plated Symbiote",
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ritual of Gelenia",
+      "source_url": "https://vgsoharchive.com/abilities/ritual-of-gelenia",
+      "cache": {
+        "path": ".cache/archive/b09ba90fe3c03232d14bdfbc9ff7a65bb2efcf746bb13a195fde4294f9234102.txt",
+        "sha256": "b8565088f77fbb5f20eb982c5c4d49da350c31312373496db2e4920810caa1c5"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 59,
+          "record_sha256": "21a03b1826fcaa590c6c83fa293d393336d283afcce8a38056480c58e60da224"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual uses positive energy harnessed from your blood union to heal an ally for 15% of their total life. The amount healed increases for each level of your Blood Union. Removes all Blood Union when used.",
+          "literal_sha256": "b207399ed2ad5cd9948e2fc48dce38055bc4680eb5a55755ccdf6897ed5ba140",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "blood_union_healing_ritual",
+            "recipient_reported": "an ally",
+            "healing_percent_of_total_life": 15,
+            "blood_union_scaling_reported": "amount healed increases for each level",
+            "blood_union_removed_reported": "all",
+            "scaling_per_level": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Ritual of Gelenia",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/ritual-of-gelenia",
+              "title": "Ritual of Gelenia · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 91,
+          "collected_at": "2026-10-20T00:19:47+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "20",
+              "20.0"
+            ],
+            "level in 2007": [
+              "18"
+            ],
+            "level in 2007-2008": [
+              "18"
+            ],
+            "level": [
+              "18"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "20.0s"
+            ],
+            "range": [
+              "30m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon1059.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 18,
+          "rank": null,
+          "category": "Heal",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": 20.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 30,
+            "unit": "m",
+            "raw": "30m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1059.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 18,
+              "raw": "18"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 18,
+              "raw": "18"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034600id_/http://wiki.silkyvenom.com/index.php/Ritual_of_Gelenia",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "20.0s",
+                "seconds": 20.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/ritual-of-gelenia-793.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Union of Blood II",
+      "source_url": "https://vgsoharchive.com/abilities/union-of-blood-ii",
+      "cache": {
+        "path": ".cache/archive/28300ff3447583c4d2284be94584fb5df0c0bbff3dc02271412095ac8def2bb5.txt",
+        "sha256": "4fd37a6e2144369d1d4dc7bacaaffbcc58dcae8dd9cf2859a3d2024131c9d9f8"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 78,
+          "record_sha256": "9a37e1dfe4efd9e811733d6bd5b3c67d7de797c1038c1e5c7249db909552c3aa"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Forms a strong union with your opponent, dealing 423 to 447 damage over 24 sec. Increases Blood Union by 2.",
+          "literal_sha256": "4e356b3a31a078c769caeac309b504444f46e02af24b8580c6b6bad1bcec3c66",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "periodic_damage_blood_union_gain",
+            "recipient_reported": "your opponent",
+            "damage_min": 423,
+            "damage_max": 447,
+            "duration_seconds": 24,
+            "blood_union_gain": 2,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Union of Blood II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/union-of-blood-ii",
+              "title": "Union of Blood II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 91,
+          "collected_at": "2026-10-20T00:19:47+00:00",
+          "archive_fields": {
+            "energy then": [
+              "98 — now 171",
+              "43 — now 171"
+            ],
+            "cast then": [
+              "0",
+              "0"
+            ],
+            "refresh then": [
+              "8",
+              "8.0"
+            ],
+            "level in 2007": [
+              "10 — now 18"
+            ],
+            "level in 2007-2008": [
+              "10 — now 18"
+            ],
+            "level": [
+              "18"
+            ],
+            "health and energy cost": [
+              "171"
+            ],
+            "blood union": [
+              "2"
+            ],
+            "health cost": [
+              "68"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "8.0s"
+            ],
+            "duration": [
+              "24 seconds"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Physical Evocation"
+            ],
+            "icon": [
+              "Icon708.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 18,
+          "rank": "II",
+          "category": "Physical Evocation",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": 8.0,
+          "duration_seconds": 24,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Forms a strong union with your opponent, dealing 423 to 447 damage over 24 sec. Increases Blood Union by 2.",
+          "icon_name": "Icon708.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 10,
+              "raw": "10 — now 18"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 10,
+              "raw": "10 — now 18"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033437id_/http://wiki.silkyvenom.com/index.php/Union_of_Blood_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "8.0s",
+                "seconds": 8.0
+              }
+            ],
+            "duration_seconds": [
+              {
+                "label": "duration",
+                "raw": "24 seconds",
+                "seconds": 24
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process found no collect_archive process",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval_seconds": 60,
+    "network_suspension_preserved": true
+  },
+  "review_accounting": {
+    "previous_numeric_sections_without_patterns": 95,
+    "source_sections_reviewed_here": 5,
+    "remaining_numeric_sections_without_patterns_awaiting_literal_review": 90,
+    "reviewed_sections_awaiting_parser_implementation": 5
+  },
+  "limitations": [
+    "Source review candidates are not typed game facts or operative server mechanics.",
+    "Cleansing Symbiote contains mixed field labels; ambiguous cost, timing and range values are withheld.",
+    "Ritual scaling, damage type and symbiote trigger frequency remain unknown.",
+    "Named symbiote component does not establish a canonical client ID.",
+    "No name-only matching or inferred canonical client IDs; immutable source records retained."
+  ],
+  "next_step": "Implement and test constrained Blood Mage symbiote, conversion and ritual observations for these five reviewed sources, withholding mixed-label Cleansing Symbiote fields."
+}
