@@ -1,0 +1,347 @@
+{
+  "review_kind": "blood_mage_focus_lifetap_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Focus of Gelenia",
+      "source_url": "https://vgsoharchive.com/abilities/focus-of-gelenia",
+      "cache": {
+        "path": ".cache/archive/6909d8ce3cb5bb3c306f07416c4eb35201675c4b4c314d703d6e99a234b4ee90.txt",
+        "sha256": "aa312aad7f73a70fa3eddce9f122249ebfbb349dd0eaeac8cb55b7da7153369a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 20,
+          "record_sha256": "9097d450945b4ebe23e37deba495e1e3856522f841db3d86dffe7dd280e7db3b"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "You sufffer a 5% health loss every 5 seconds, but gain one point of Blood Union. All disease and poison counters are also reset on each tick.",
+          "literal_sha256": "1b30afa173f57fed2582f794953d7ee439103a9986991c294e7d0dc7c9264268",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "periodic_health_loss_and_blood_union_gain",
+              "extracted_value": "periodic_health_loss_and_blood_union_gain",
+              "equal": true
+            },
+            {
+              "field": "health_loss_percent",
+              "source_value": 5,
+              "extracted_value": 5,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": 5,
+              "extracted_value": 5,
+              "equal": true
+            },
+            {
+              "field": "blood_union_gain_points",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "counters_reset_reported",
+              "source_value": [
+                "disease",
+                "poison"
+              ],
+              "extracted_value": [
+                "disease",
+                "poison"
+              ],
+              "equal": true
+            },
+            {
+              "field": "health_loss_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_focus_lifetap_root_observation",
+              "effect_phrase_recorded": "You sufffer a 5% health loss every 5 seconds, but gain one point of Blood Union. All disease and poison counters are also reset on each tick.",
+              "conditions_unparsed": true,
+              "effect_reported": "periodic_health_loss_and_blood_union_gain",
+              "health_loss_percent": 5,
+              "tick_interval_seconds": 5,
+              "blood_union_gain_points": 1,
+              "counters_reset_reported": [
+                "disease",
+                "poison"
+              ],
+              "health_loss_basis": null,
+              "duration_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Lifetap",
+      "source_url": "https://vgsoharchive.com/abilities/lifetap",
+      "cache": {
+        "path": ".cache/archive/6c1470983a6078a031a7d98be9b29c88baa4ae751a2c1a59f9866a80a8b52c23.txt",
+        "sha256": "7f310e88939589a3c8a28c411f252bb3f9cd1ef5c5b1d9ef0c77c66e7fce4b21"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 28,
+          "record_sha256": "f471c745c1100153d744b5a8f81f27e6fe9892705ea098afe6aee9e8b6bffa11"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Lifetaps your opponent, draining their hit points, while adding it to yours. You gain a 20% health bonus for each level of Blood Union you have built up.",
+          "literal_sha256": "8e607188c05cc5cb0befa5700d6e3b7a1f989711f5cd69606ccc18043e9da2fe",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "lifetap",
+              "extracted_value": "lifetap",
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "you",
+              "extracted_value": "you",
+              "equal": true
+            },
+            {
+              "field": "drain_target_reported",
+              "source_value": "your opponent",
+              "extracted_value": "your opponent",
+              "equal": true
+            },
+            {
+              "field": "health_bonus_percent_per_blood_union_level",
+              "source_value": 20,
+              "extracted_value": 20,
+              "equal": true
+            },
+            {
+              "field": "drain_amount",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "bonus_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_focus_lifetap_root_observation",
+              "effect_phrase_recorded": "Lifetaps your opponent, draining their hit points, while adding it to yours. You gain a 20% health bonus for each level of Blood Union you have built up.",
+              "conditions_unparsed": true,
+              "effect_reported": "lifetap",
+              "recipient_reported": "you",
+              "drain_target_reported": "your opponent",
+              "health_bonus_percent_per_blood_union_level": 20,
+              "drain_amount": null,
+              "bonus_basis": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Sanguine Focus",
+      "source_url": "https://vgsoharchive.com/abilities/sanguine-focus",
+      "cache": {
+        "path": ".cache/archive/eed072b81564c65c696d17b49e5802d391297074fb97f8006fdaa2bf9425002f.txt",
+        "sha256": "4239b62b949dfbfdb322df92a27bbb9e6bcf44eafa0acabfaffbd30a466c68ef"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 33,
+          "record_sha256": "37265c6da8c9307fb29e2fbb079dc07a5300965a71ada6d880f607ae3fd7e1cc"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Your healing spells are increased by 25% effectiveness, your mitigation by 15% and you regain health faster than normal. This comes at the cost of reducing your spell damage by 50%, and reducing the effect of healing spells cast on you by 50%.",
+          "literal_sha256": "5daaa4562992e57bc6a8ac4f568d715d475c21acd87037882b192929fa1439d0",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "healing_mitigation_damage_tradeoff",
+              "extracted_value": "healing_mitigation_damage_tradeoff",
+              "equal": true
+            },
+            {
+              "field": "healing_spell_effectiveness_increase_percent",
+              "source_value": 25,
+              "extracted_value": 25,
+              "equal": true
+            },
+            {
+              "field": "mitigation_increase_percent",
+              "source_value": 15,
+              "extracted_value": 15,
+              "equal": true
+            },
+            {
+              "field": "spell_damage_reduction_percent",
+              "source_value": 50,
+              "extracted_value": 50,
+              "equal": true
+            },
+            {
+              "field": "incoming_healing_spell_effect_reduction_percent",
+              "source_value": 50,
+              "extracted_value": 50,
+              "equal": true
+            },
+            {
+              "field": "health_regeneration_increase_amount",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_focus_lifetap_root_observation",
+              "effect_phrase_recorded": "Your healing spells are increased by 25% effectiveness, your mitigation by 15% and you regain health faster than normal. This comes at the cost of reducing your spell damage by 50%, and reducing the effect of healing spells cast on you by 50%.",
+              "conditions_unparsed": true,
+              "effect_reported": "healing_mitigation_damage_tradeoff",
+              "healing_spell_effectiveness_increase_percent": 25,
+              "mitigation_increase_percent": 15,
+              "spell_damage_reduction_percent": 50,
+              "incoming_healing_spell_effect_reduction_percent": 50,
+              "health_regeneration_increase_amount": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 3,
+    "source_record_hashes_verified": 3,
+    "whole_page_replays": 3,
+    "literal_hashes_verified": 3,
+    "field_comparisons_passed": 26,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 74,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Only three current focus/lifetap Effect clauses reviewed; full ability, historical and alternate scopes remain pending.",
+    "Generic archive scaling boilerplate on Focus of Gelenia and Sanguine Focus is excluded from mechanic comparisons; it supplies no formula. No operative promotion occurs.",
+    "Health-loss basis, lifetap bonus basis, regeneration amount and stacking are unstated and remain null; printed percentages are observations, not combat formulas."
+  ],
+  "next_step": "Review remaining Blood Mage resurrection and summoned revival-item observations against cached prose."
+}
