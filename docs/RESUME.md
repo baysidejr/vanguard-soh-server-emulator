@@ -28,7 +28,8 @@ below is committed and pushed to `main` on GitHub (baysidejr/vanguard-soh-server
 
 - Tools set up: Ghidra 12.1.4 (`C:\tools\ghidra`), JDK 21, the ReVa extension and headless MCP server (`ReVa`, user scope), a persistent Ghidra project of the client at `C:\dev\vanguard\ghidra_projects\VGClient`, capstone, the `ralph-loop` plugin. Client files sit at the repo root; `bin/loginserver.txt` is 127.0.0.1; the client hash matches PROTOCOL.md.
 - `check_all.py` 6/6 and the client smoke test PASS on 2026-10-19 (the real save, 8 characters, fingerprint unchanged). Step 1 below is done.
-- B-009 cycle done 2026-10-19 (merge ac58915, review data only; refresh --apply changed nothing).
+- B-009 cycle done 2026-10-19 (merge ac58915, review data only; refresh --apply changed nothing). The owner merged PR #1 on 2026-10-20 (499 scrape commits, d23e75d2); rebased, refresh --apply again changed nothing.
+- 2026-10-20: hand-run items ticked with the UI driver (TESTING.md): Ctrl+click split, Small Pouch, Salvage Kit, jewelry/ore tooltips, Brass Spyglass, banking coins, all five service items. Found and fixed B-029 (the client's camera fade oscillates; the server now pins the view). Remaining single-player items: market Place Item For Sale (scripted click limit), forge smelting steps, the horse inside a house, and the combat/quest/diplomacy lines in TESTING.md.
 - This PC: Windows PowerShell scripts are disabled, so stop servers with `powershell -ExecutionPolicy Bypass -File tools/stop_servers.ps1`.
 
 ## Where exactly I stopped (2026-10-17)
