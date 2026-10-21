@@ -1,6 +1,6 @@
 # Conversion handoff
 
-3400 conversion candidates from 34474 selected source records (60268 raw rows examined). Nothing imported.
+3400 conversion candidates from 34592 selected source records (60386 raw rows examined). Nothing imported.
 
 - items.json: 3384
 - mobs.json: 0

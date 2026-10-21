@@ -1,19 +1,19 @@
 {
   "summary": {
-    "batches": 414,
-    "research_rows": 60361,
-    "normalized_name_groups": 29949,
+    "batches": 415,
+    "research_rows": 60479,
+    "normalized_name_groups": 30067,
     "zones_with_explicit_records": 486,
     "counts": {
-      "creature": 12702,
+      "creature": 12786,
       "item": 5588,
-      "loot": 2329,
-      "npc": 4216,
+      "loot": 2343,
+      "npc": 4232,
       "quest": 11633,
       "zone": 1334,
       "ability": 21637,
       "diplomacy": 6,
-      "merchant": 908,
+      "merchant": 912,
       "recipe": 8
     },
     "errors": 147,
@@ -3285,6 +3285,16 @@
         "creature": 92,
         "loot": 27,
         "npc": 8
+      }
+    },
+    {
+      "batch": "raw\\2026-10-20-210846-624825-archive-bulk",
+      "records": 118,
+      "counts": {
+        "creature": 84,
+        "loot": 14,
+        "merchant": 4,
+        "npc": 16
       }
     },
     {
@@ -955605,6 +955615,1794 @@
     },
     {
       "id": 60349,
+      "type": "creature",
+      "name": "VARKING",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 1,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varking"
+      ],
+      "zones": [
+        "Ruin Falls"
+      ],
+      "level": 53
+    },
+    {
+      "id": 60350,
+      "type": "creature",
+      "name": "VASHREN THE LIBRARIAN",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 2,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vashren-the-librarian"
+      ],
+      "zones": [
+        "Ancient Port Warehouse"
+      ],
+      "level": 53
+    },
+    {
+      "id": 60351,
+      "type": "creature",
+      "name": "Vaelwyn Contaminator",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 3,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaelwyn-contaminator"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 2
+    },
+    {
+      "id": 60352,
+      "type": "creature",
+      "name": "Vaelwyn Hexbringer",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 4,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaelwyn-hexbringer"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 4
+    },
+    {
+      "id": 60353,
+      "type": "creature",
+      "name": "Vaelwyn Plaguehand",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 5,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaelwyn-plaguehand"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 4
+    },
+    {
+      "id": 60354,
+      "type": "creature",
+      "name": "Vaelwyn Provoker",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 6,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaelwyn-provoker"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 6
+    },
+    {
+      "id": 60355,
+      "type": "creature",
+      "name": "Vaelwyn Runner",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 7,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaelwyn-runner"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 3
+    },
+    {
+      "id": 60356,
+      "type": "creature",
+      "name": "Vaelwyn Spitewarden",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 8,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaelwyn-spitewarden"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 3
+    },
+    {
+      "id": 60357,
+      "type": "creature",
+      "name": "Vaelwyn Windcaller",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 9,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaelwyn-windcaller"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 6
+    },
+    {
+      "id": 60358,
+      "type": "creature",
+      "name": "Vaerhur Xale",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 10,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaerhur-xale"
+      ],
+      "zones": [
+        "Ahgram"
+      ],
+      "level": 40
+    },
+    {
+      "id": 60359,
+      "type": "creature",
+      "name": "Vafa Bagheri",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 11,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vafa-bagheri"
+      ],
+      "zones": [],
+      "level": 40
+    },
+    {
+      "id": 60360,
+      "type": "creature",
+      "name": "Vah'Kril",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 12,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vah-kril"
+      ],
+      "zones": [
+        "Skawlra Rock"
+      ],
+      "level": 20
+    },
+    {
+      "id": 60361,
+      "type": "creature",
+      "name": "Vahrl The Lensgrinder",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 13,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vahrl-the-lensgrinder"
+      ],
+      "zones": [
+        "New Targonor"
+      ],
+      "level": 50
+    },
+    {
+      "id": 60362,
+      "type": "creature",
+      "name": "Vahsren the Librarian",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 14,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vahsren-the-librarian"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60363,
+      "type": "creature",
+      "name": "Valagoz The Iceborn",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 15,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valagoz-the-iceborn"
+      ],
+      "zones": [],
+      "level": 51
+    },
+    {
+      "id": 60364,
+      "type": "creature",
+      "name": "Valance Feron",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 16,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valance-feron"
+      ],
+      "zones": [
+        "Tursh Village"
+      ]
+    },
+    {
+      "id": 60365,
+      "type": "creature",
+      "name": "Valdarin The Record Keeper",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 17,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valdarin-the-record-keeper"
+      ],
+      "zones": [],
+      "level": 10
+    },
+    {
+      "id": 60366,
+      "type": "creature",
+      "name": "Vale Crawler",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 18,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vale-crawler"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 3
+    },
+    {
+      "id": 60367,
+      "type": "creature",
+      "name": "Valentina Ryan",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 19,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valentina-ryan"
+      ],
+      "zones": [
+        "New Targonor"
+      ],
+      "level": 40
+    },
+    {
+      "id": 60368,
+      "type": "creature",
+      "name": "Valewood",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 20,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valewood"
+      ],
+      "zones": [
+        "Dead Glade"
+      ],
+      "level": 47
+    },
+    {
+      "id": 60369,
+      "type": "creature",
+      "name": "Valgan Malakade",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 21,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valgan-malakade"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 91
+    },
+    {
+      "id": 60370,
+      "type": "creature",
+      "name": "Valgion The Hateful",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 22,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valgion-the-hateful"
+      ],
+      "zones": [],
+      "level": 18
+    },
+    {
+      "id": 60371,
+      "type": "creature",
+      "name": "Valiant Of Vothdar",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 23,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valiant-of-vothdar"
+      ],
+      "zones": [
+        "Frostshard Lake"
+      ]
+    },
+    {
+      "id": 60372,
+      "type": "creature",
+      "name": "Valien Elgyre",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 24,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valien-elgyre"
+      ],
+      "zones": [
+        "Thelaseen"
+      ],
+      "level": 40
+    },
+    {
+      "id": 60373,
+      "type": "creature",
+      "name": "Valina",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 25,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valina"
+      ],
+      "zones": [
+        "Northern Stonepine Ridge"
+      ],
+      "level": 25
+    },
+    {
+      "id": 60374,
+      "type": "creature",
+      "name": "Valkaran Krosh",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 26,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valkaran-krosh"
+      ],
+      "zones": [
+        "Vault Of Heroes"
+      ],
+      "level": 20
+    },
+    {
+      "id": 60375,
+      "type": "creature",
+      "name": "Valkyre Ghost",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 27,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valkyre-ghost"
+      ],
+      "zones": [
+        "Graystone"
+      ]
+    },
+    {
+      "id": 60376,
+      "type": "creature",
+      "name": "Valley Boar",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 28,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valley-boar"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 29
+    },
+    {
+      "id": 60377,
+      "type": "creature",
+      "name": "Valley Mound",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 29,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valley-mound"
+      ],
+      "zones": [],
+      "level": 30
+    },
+    {
+      "id": 60378,
+      "type": "creature",
+      "name": "Valorant",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 30,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valorant"
+      ],
+      "zones": [
+        "Tawar Galan"
+      ]
+    },
+    {
+      "id": 60379,
+      "type": "creature",
+      "name": "Valorant Gladesworn",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 31,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valorant-gladesworn"
+      ],
+      "zones": [
+        "Tauthien Delta"
+      ]
+    },
+    {
+      "id": 60380,
+      "type": "creature",
+      "name": "Valorn Copperhelm",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 32,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valorn-copperhelm"
+      ],
+      "zones": [
+        "Bordinar's Cleft"
+      ],
+      "level": 20
+    },
+    {
+      "id": 60381,
+      "type": "creature",
+      "name": "Valsir Duval",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 33,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valsir-duval"
+      ],
+      "zones": [],
+      "level": 18
+    },
+    {
+      "id": 60382,
+      "type": "creature",
+      "name": "Vampire Hunter",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 34,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vampire-hunter"
+      ],
+      "zones": [
+        "Misthaven Crossing"
+      ],
+      "level": 25
+    },
+    {
+      "id": 60383,
+      "type": "creature",
+      "name": "Vampire Queen",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 35,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vampire-queen"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60384,
+      "type": "creature",
+      "name": "Vampiric Rebel",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 36,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vampiric-rebel"
+      ],
+      "zones": [
+        "Misthaven Crossing"
+      ],
+      "level": 19
+    },
+    {
+      "id": 60385,
+      "type": "creature",
+      "name": "Vanillice Silverbow",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 37,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vanillice-silverbow"
+      ],
+      "zones": [
+        "Jalen's Crossing"
+      ],
+      "level": 8
+    },
+    {
+      "id": 60386,
+      "type": "creature",
+      "name": "Vanothil Fyth",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 38,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vanothil-fyth"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ]
+    },
+    {
+      "id": 60387,
+      "type": "creature",
+      "name": "Var Efreeti Trader",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 39,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/var-efreeti-trader"
+      ],
+      "zones": [
+        "Rahz Inkur"
+      ],
+      "level": 50
+    },
+    {
+      "id": 60388,
+      "type": "creature",
+      "name": "Var Guardian",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 40,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/var-guardian"
+      ],
+      "zones": [
+        "Afrit"
+      ],
+      "level": 40
+    },
+    {
+      "id": 60389,
+      "type": "creature",
+      "name": "Var Parox",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 41,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/var-parox"
+      ],
+      "zones": [
+        "Afrit"
+      ]
+    },
+    {
+      "id": 60390,
+      "type": "creature",
+      "name": "Var Trader",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 42,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/var-trader"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60391,
+      "type": "creature",
+      "name": "Var Uzzen",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 43,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/var-uzzen"
+      ],
+      "zones": [
+        "Afrit"
+      ],
+      "level": 40
+    },
+    {
+      "id": 60392,
+      "type": "creature",
+      "name": "Var Zulto",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 44,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/var-zulto"
+      ],
+      "zones": [
+        "Afrit"
+      ],
+      "level": 40
+    },
+    {
+      "id": 60393,
+      "type": "creature",
+      "name": "Varaduuk The Gatekeeper",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 45,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varaduuk-the-gatekeeper"
+      ],
+      "zones": [],
+      "level": 45
+    },
+    {
+      "id": 60394,
+      "type": "creature",
+      "name": "Varanjar",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 46,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varanjar"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60395,
+      "type": "creature",
+      "name": "Varanjar Wanderer",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 47,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varanjar-wanderer"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 40
+    },
+    {
+      "id": 60396,
+      "type": "creature",
+      "name": "Varanjari Beast",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 48,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varanjari-beast"
+      ],
+      "zones": [
+        "Halgarad"
+      ],
+      "level": 8
+    },
+    {
+      "id": 60397,
+      "type": "creature",
+      "name": "Varanthari Horse",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 49,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varanthari-horse"
+      ],
+      "zones": [
+        "Strand Of The Ancients"
+      ]
+    },
+    {
+      "id": 60398,
+      "type": "creature",
+      "name": "Varanthari Slave",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 50,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varanthari-slave"
+      ],
+      "zones": [
+        "Afrit"
+      ],
+      "level": 40
+    },
+    {
+      "id": 60399,
+      "type": "creature",
+      "name": "Varg The Cruel",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 51,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varg-the-cruel"
+      ],
+      "zones": [],
+      "level": 9
+    },
+    {
+      "id": 60400,
+      "type": "creature",
+      "name": "Varghor The Mighty",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 52,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varghor-the-mighty"
+      ],
+      "zones": [
+        "Vault Of Heroes"
+      ],
+      "level": 10
+    },
+    {
+      "id": 60401,
+      "type": "creature",
+      "name": "Vari",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 53,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vari"
+      ],
+      "zones": [
+        "Shrine Of The Flame"
+      ],
+      "level": 22
+    },
+    {
+      "id": 60402,
+      "type": "creature",
+      "name": "Variki",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 54,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/variki"
+      ],
+      "zones": [
+        "Swamps Of Rumug"
+      ],
+      "level": 49
+    },
+    {
+      "id": 60403,
+      "type": "creature",
+      "name": "Varimurus The Subjugator",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 55,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varimurus-the-subjugator"
+      ],
+      "zones": [
+        "Ancient Port Warehouse"
+      ],
+      "level": 53
+    },
+    {
+      "id": 60404,
+      "type": "creature",
+      "name": "Varjan, Third Of Battle",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 56,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varjan-third-of-battle"
+      ],
+      "zones": [],
+      "level": 12
+    },
+    {
+      "id": 60405,
+      "type": "creature",
+      "name": "Varlan Majar",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 57,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varlan-majar"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60406,
+      "type": "creature",
+      "name": "Varral Amonak",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 58,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varral-amonak"
+      ],
+      "zones": [],
+      "level": 30
+    },
+    {
+      "id": 60407,
+      "type": "creature",
+      "name": "Varrg Flesh-hound",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 59,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varrg-flesh-hound"
+      ],
+      "zones": [
+        "Old Targonor"
+      ]
+    },
+    {
+      "id": 60408,
+      "type": "creature",
+      "name": "Varrg Pack Leader",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 60,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varrg-pack-leader"
+      ],
+      "zones": [
+        "Old Targonor"
+      ]
+    },
+    {
+      "id": 60409,
+      "type": "creature",
+      "name": "Varrg Stalker",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 61,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varrg-stalker"
+      ],
+      "zones": [
+        "Old Targonor"
+      ]
+    },
+    {
+      "id": 60410,
+      "type": "creature",
+      "name": "Varrgalash",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 62,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varrgalash"
+      ],
+      "zones": [
+        "Old Targonor"
+      ],
+      "level": 47
+    },
+    {
+      "id": 60411,
+      "type": "creature",
+      "name": "Varus The Executioner",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 63,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varus-the-executioner"
+      ],
+      "zones": [
+        "Shoreline Ruins"
+      ],
+      "level": 21
+    },
+    {
+      "id": 60412,
+      "type": "creature",
+      "name": "Vashya",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 64,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vashya"
+      ],
+      "zones": [
+        "Halgarad"
+      ],
+      "level": 10
+    },
+    {
+      "id": 60413,
+      "type": "creature",
+      "name": "Vasinaril Klarisal",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 65,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vasinaril-klarisal"
+      ],
+      "zones": [
+        "Kaon's Rush"
+      ],
+      "level": 17
+    },
+    {
+      "id": 60414,
+      "type": "creature",
+      "name": "Vasler",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 66,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vasler"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 5
+    },
+    {
+      "id": 60415,
+      "type": "creature",
+      "name": "Vass Hago",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 67,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vass-hago"
+      ],
+      "zones": [
+        "The Temple Of Dailuk"
+      ],
+      "level": 35
+    },
+    {
+      "id": 60416,
+      "type": "creature",
+      "name": "Vass Hago's Skirge",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 68,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vass-hago-s-skirge"
+      ],
+      "zones": [],
+      "level": 35
+    },
+    {
+      "id": 60417,
+      "type": "creature",
+      "name": "Vathan Trueblade",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 69,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vathan-trueblade"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 1
+    },
+    {
+      "id": 60418,
+      "type": "creature",
+      "name": "Vatos The Seer",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 70,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vatos-the-seer"
+      ],
+      "zones": [
+        "River Palace"
+      ],
+      "level": 37
+    },
+    {
+      "id": 60419,
+      "type": "creature",
+      "name": "Vault Guardian",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 71,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vault-guardian"
+      ],
+      "zones": [
+        "The Tomb Of Lord Tsang"
+      ],
+      "level": 21
+    },
+    {
+      "id": 60420,
+      "type": "creature",
+      "name": "Vault Sentinel",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 72,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vault-sentinel"
+      ],
+      "zones": [
+        "The Tomb Of Lord Tsang"
+      ],
+      "level": 21
+    },
+    {
+      "id": 60421,
+      "type": "creature",
+      "name": "Vault Sentry",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 73,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vault-sentry"
+      ],
+      "zones": [
+        "The Tomb Of Lord Tsang"
+      ],
+      "level": 21
+    },
+    {
+      "id": 60422,
+      "type": "creature",
+      "name": "Vayin",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 74,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vayin"
+      ],
+      "zones": [
+        "Dead Glade"
+      ],
+      "level": 47
+    },
+    {
+      "id": 60423,
+      "type": "creature",
+      "name": "Vayla Thaelin",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 75,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vayla-thaelin"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ],
+      "level": 50
+    },
+    {
+      "id": 60424,
+      "type": "creature",
+      "name": "Veblon",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 76,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/veblon"
+      ],
+      "zones": [
+        "Martok"
+      ],
+      "level": 9
+    },
+    {
+      "id": 60425,
+      "type": "creature",
+      "name": "Vehement Beast",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 77,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vehement-beast"
+      ],
+      "zones": [
+        "Cragwind Ridge"
+      ]
+    },
+    {
+      "id": 60426,
+      "type": "creature",
+      "name": "Veil Griffon",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 78,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/veil-griffon"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 31
+    },
+    {
+      "id": 60427,
+      "type": "creature",
+      "name": "Veil Griffon Guardian",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 79,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/veil-griffon-guardian"
+      ],
+      "zones": [
+        "Graystone"
+      ],
+      "level": 32
+    },
+    {
+      "id": 60428,
+      "type": "creature",
+      "name": "Veil Griffon Offspring",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 80,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/veil-griffon-offspring"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 28
+    },
+    {
+      "id": 60429,
+      "type": "creature",
+      "name": "Velkatik",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 81,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/velkatik"
+      ],
+      "zones": [
+        "Qa Riverbank"
+      ],
+      "level": 34
+    },
+    {
+      "id": 60430,
+      "type": "creature",
+      "name": "Velok Adult",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 82,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/velok-adult"
+      ],
+      "zones": [
+        "Vursog Moor"
+      ],
+      "level": 45
+    },
+    {
+      "id": 60431,
+      "type": "creature",
+      "name": "Velok Bloodwing",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 83,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/velok-bloodwing"
+      ],
+      "zones": [
+        "Vursog Moor"
+      ],
+      "level": 45
+    },
+    {
+      "id": 60432,
+      "type": "creature",
+      "name": "Velok Hatchling",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\creature.jsonl",
+      "line": 84,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/velok-hatchling"
+      ],
+      "zones": [
+        "Ruin Falls"
+      ],
+      "level": 41
+    },
+    {
+      "id": 60433,
+      "type": "loot",
+      "name": "Vaelwyn Spitewarden",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\loot.jsonl",
+      "line": 1,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaelwyn-spitewarden"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60434,
+      "type": "loot",
+      "name": "Vahsren the Librarian",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\loot.jsonl",
+      "line": 2,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vahsren-the-librarian"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60435,
+      "type": "loot",
+      "name": "Valagoz The Iceborn",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\loot.jsonl",
+      "line": 3,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valagoz-the-iceborn"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60436,
+      "type": "loot",
+      "name": "Vale Crawler",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\loot.jsonl",
+      "line": 4,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vale-crawler"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60437,
+      "type": "loot",
+      "name": "Valewood",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\loot.jsonl",
+      "line": 5,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valewood"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60438,
+      "type": "loot",
+      "name": "Valien Elgyre",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\loot.jsonl",
+      "line": 6,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valien-elgyre"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60439,
+      "type": "loot",
+      "name": "Vampiric Rebel",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\loot.jsonl",
+      "line": 7,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vampiric-rebel"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60440,
+      "type": "loot",
+      "name": "Varanjari Beast",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\loot.jsonl",
+      "line": 8,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varanjari-beast"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60441,
+      "type": "loot",
+      "name": "Varghor The Mighty",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\loot.jsonl",
+      "line": 9,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varghor-the-mighty"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60442,
+      "type": "loot",
+      "name": "Variki",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\loot.jsonl",
+      "line": 10,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/variki"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60443,
+      "type": "loot",
+      "name": "Varimurus The Subjugator",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\loot.jsonl",
+      "line": 11,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varimurus-the-subjugator"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60444,
+      "type": "loot",
+      "name": "Vass Hago",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\loot.jsonl",
+      "line": 12,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vass-hago"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60445,
+      "type": "loot",
+      "name": "Velkatik",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\loot.jsonl",
+      "line": 13,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/velkatik"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60446,
+      "type": "loot",
+      "name": "Velok Adult",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\loot.jsonl",
+      "line": 14,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/velok-adult"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60447,
+      "type": "merchant",
+      "name": "Valas Sorshein",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\merchant.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valas-sorshein"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ]
+    },
+    {
+      "id": 60448,
+      "type": "merchant",
+      "name": "Vali Sabbah",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\merchant.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vali-sabbah"
+      ],
+      "zones": [
+        "Khal"
+      ]
+    },
+    {
+      "id": 60449,
+      "type": "merchant",
+      "name": "Vaxtra Giddle",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\merchant.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaxtra-giddle"
+      ],
+      "zones": [
+        "Martok"
+      ]
+    },
+    {
+      "id": 60450,
+      "type": "merchant",
+      "name": "Vazayen Zexthal",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\merchant.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vazayen-zexthal"
+      ],
+      "zones": [
+        "Afrit"
+      ]
+    },
+    {
+      "id": 60451,
+      "type": "npc",
+      "name": "Vaelwyn Message",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\npc.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaelwyn-message"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ]
+    },
+    {
+      "id": 60452,
+      "type": "npc",
+      "name": "Vaithur Ruethyn",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\npc.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaithur-ruethyn"
+      ],
+      "zones": [
+        "Rahz Inkur"
+      ],
+      "level": 50
+    },
+    {
+      "id": 60453,
+      "type": "npc",
+      "name": "Vala Henson",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\npc.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vala-henson"
+      ],
+      "zones": [
+        "Plains Of Anguish"
+      ],
+      "level": 42
+    },
+    {
+      "id": 60454,
+      "type": "npc",
+      "name": "Valas Sorshein",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\npc.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valas-sorshein"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ],
+      "level": 25
+    },
+    {
+      "id": 60455,
+      "type": "npc",
+      "name": "Valer Thanul",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\npc.jsonl",
+      "line": 5,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/valer-thanul"
+      ],
+      "zones": [
+        "Ahgram"
+      ],
+      "level": 20
+    },
+    {
+      "id": 60456,
+      "type": "npc",
+      "name": "Vali Sabbah",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\npc.jsonl",
+      "line": 6,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vali-sabbah"
+      ],
+      "zones": [
+        "Khal"
+      ],
+      "level": 40
+    },
+    {
+      "id": 60457,
+      "type": "npc",
+      "name": "Vanfar Omatehn",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\npc.jsonl",
+      "line": 7,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vanfar-omatehn"
+      ],
+      "zones": [
+        "Tar Janashir"
+      ],
+      "level": 33
+    },
+    {
+      "id": 60458,
+      "type": "npc",
+      "name": "Varesh Vol'Inara",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\npc.jsonl",
+      "line": 8,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varesh-vol-inara"
+      ],
+      "zones": [
+        "Ruin Falls"
+      ]
+    },
+    {
+      "id": 60459,
+      "type": "npc",
+      "name": "Varies",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\npc.jsonl",
+      "line": 9,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varies"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60460,
+      "type": "npc",
+      "name": "Varlon Majar",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\npc.jsonl",
+      "line": 10,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/varlon-majar"
+      ],
+      "zones": [
+        "Three Rivers Village"
+      ],
+      "level": 40
+    },
+    {
+      "id": 60461,
+      "type": "npc",
+      "name": "Vauga Bebixit",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\npc.jsonl",
+      "line": 11,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vauga-bebixit"
+      ],
+      "zones": [
+        "Mekalia"
+      ],
+      "level": 40
+    },
+    {
+      "id": 60462,
+      "type": "npc",
+      "name": "Vaxtra Giddle",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\npc.jsonl",
+      "line": 12,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaxtra-giddle"
+      ],
+      "zones": [
+        "Martok"
+      ],
+      "level": 20
+    },
+    {
+      "id": 60463,
+      "type": "npc",
+      "name": "Vazayen Zexthal",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\npc.jsonl",
+      "line": 13,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vazayen-zexthal"
+      ],
+      "zones": [
+        "Afrit"
+      ],
+      "level": 40
+    },
+    {
+      "id": 60464,
+      "type": "npc",
+      "name": "Vee",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\npc.jsonl",
+      "line": 14,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vee"
+      ],
+      "zones": [
+        "Ceros Isle"
+      ],
+      "level": 50
+    },
+    {
+      "id": 60465,
+      "type": "npc",
+      "name": "Veer Gilte",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\npc.jsonl",
+      "line": 15,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/veer-gilte"
+      ],
+      "zones": [
+        "Lomshir Plain"
+      ],
+      "level": 15
+    },
+    {
+      "id": 60466,
+      "type": "npc",
+      "name": "Vegard Jokum",
+      "file": "raw\\2026-10-20-210846-624825-archive-bulk\\npc.jsonl",
+      "line": 16,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vegard-jokum"
+      ],
+      "zones": [
+        "Brennan's Stead"
+      ],
+      "level": 10
+    },
+    {
+      "id": 60467,
       "type": "ability",
       "name": "Favor of the Life Giver I",
       "file": "raw\\2026-10-20-iteration761-favor-cache-replay\\ability.jsonl",
@@ -955620,7 +957418,7 @@
       "rank": "I"
     },
     {
-      "id": 60350,
+      "id": 60468,
       "type": "ability",
       "name": "Favor of the Life Giver II",
       "file": "raw\\2026-10-20-iteration761-favor-cache-replay\\ability.jsonl",
@@ -955636,7 +957434,7 @@
       "rank": "II"
     },
     {
-      "id": 60351,
+      "id": 60469,
       "type": "ability",
       "name": "Favor of the Life Giver III",
       "file": "raw\\2026-10-20-iteration761-favor-cache-replay\\ability.jsonl",
@@ -955652,7 +957450,7 @@
       "rank": "III"
     },
     {
-      "id": 60352,
+      "id": 60470,
       "type": "ability",
       "name": "Favor of the Life Giver IV",
       "file": "raw\\2026-10-20-iteration761-favor-cache-replay\\ability.jsonl",
@@ -955668,7 +957466,7 @@
       "rank": "IV"
     },
     {
-      "id": 60353,
+      "id": 60471,
       "type": "ability",
       "name": "Favor of the Life Giver V",
       "file": "raw\\2026-10-20-iteration761-favor-cache-replay\\ability.jsonl",
@@ -955684,7 +957482,7 @@
       "rank": "V"
     },
     {
-      "id": 60354,
+      "id": 60472,
       "type": "ability",
       "name": "Favor of the Life Giver VI",
       "file": "raw\\2026-10-20-iteration761-favor-cache-replay\\ability.jsonl",
@@ -955700,7 +957498,7 @@
       "rank": "VI"
     },
     {
-      "id": 60355,
+      "id": 60473,
       "type": "ability",
       "name": "Favor of the Life Giver I",
       "file": "raw\\2026-10-20-iteration762-favor-cache-replay\\ability.jsonl",
@@ -955716,7 +957514,7 @@
       "rank": "I"
     },
     {
-      "id": 60356,
+      "id": 60474,
       "type": "ability",
       "name": "Favor of the Life Giver II",
       "file": "raw\\2026-10-20-iteration762-favor-cache-replay\\ability.jsonl",
@@ -955732,7 +957530,7 @@
       "rank": "II"
     },
     {
-      "id": 60357,
+      "id": 60475,
       "type": "ability",
       "name": "Favor of the Life Giver III",
       "file": "raw\\2026-10-20-iteration762-favor-cache-replay\\ability.jsonl",
@@ -955748,7 +957546,7 @@
       "rank": "III"
     },
     {
-      "id": 60358,
+      "id": 60476,
       "type": "ability",
       "name": "Favor of the Life Giver IV",
       "file": "raw\\2026-10-20-iteration762-favor-cache-replay\\ability.jsonl",
@@ -955764,7 +957562,7 @@
       "rank": "IV"
     },
     {
-      "id": 60359,
+      "id": 60477,
       "type": "ability",
       "name": "Favor of the Life Giver V",
       "file": "raw\\2026-10-20-iteration762-favor-cache-replay\\ability.jsonl",
@@ -955780,7 +957578,7 @@
       "rank": "V"
     },
     {
-      "id": 60360,
+      "id": 60478,
       "type": "ability",
       "name": "Favor of the Life Giver VI",
       "file": "raw\\2026-10-20-iteration762-favor-cache-replay\\ability.jsonl",
@@ -967008,8 +968806,8 @@
       15366,
       18907,
       22275,
-      60349,
-      60355
+      60467,
+      60473
     ],
     "ability:favor of the life giver ii": [
       1478,
@@ -967019,8 +968817,8 @@
       15367,
       18908,
       22276,
-      60350,
-      60356
+      60468,
+      60474
     ],
     "ability:favor of the life giver iii": [
       1479,
@@ -967030,8 +968828,8 @@
       15368,
       18909,
       22524,
-      60351,
-      60357
+      60469,
+      60475
     ],
     "ability:favor of the life giver iv": [
       1480,
@@ -967041,8 +968839,8 @@
       15369,
       18910,
       23550,
-      60352,
-      60358
+      60470,
+      60476
     ],
     "ability:favor of the life giver v": [
       1481,
@@ -967052,8 +968850,8 @@
       15370,
       18911,
       23551,
-      60353,
-      60359
+      60471,
+      60477
     ],
     "ability:favor of the life giver vi": [
       1482,
@@ -967063,8 +968861,8 @@
       15371,
       18912,
       23552,
-      60354,
-      60360
+      60472,
+      60478
     ],
     "ability:favor of the protector": [
       1483,
@@ -1076055,6 +1077853,360 @@
     ],
     "npc:vaelbeth cameron": [
       60348
+    ],
+    "creature:varking": [
+      60349
+    ],
+    "creature:vashren the librarian": [
+      60350
+    ],
+    "creature:vaelwyn contaminator": [
+      60351
+    ],
+    "creature:vaelwyn hexbringer": [
+      60352
+    ],
+    "creature:vaelwyn plaguehand": [
+      60353
+    ],
+    "creature:vaelwyn provoker": [
+      60354
+    ],
+    "creature:vaelwyn runner": [
+      60355
+    ],
+    "creature:vaelwyn spitewarden": [
+      60356
+    ],
+    "creature:vaelwyn windcaller": [
+      60357
+    ],
+    "creature:vaerhur xale": [
+      60358
+    ],
+    "creature:vafa bagheri": [
+      60359
+    ],
+    "creature:vah'kril": [
+      60360
+    ],
+    "creature:vahrl the lensgrinder": [
+      60361
+    ],
+    "creature:vahsren the librarian": [
+      60362
+    ],
+    "creature:valagoz the iceborn": [
+      60363
+    ],
+    "creature:valance feron": [
+      60364
+    ],
+    "creature:valdarin the record keeper": [
+      60365
+    ],
+    "creature:vale crawler": [
+      60366
+    ],
+    "creature:valentina ryan": [
+      60367
+    ],
+    "creature:valewood": [
+      60368
+    ],
+    "creature:valgan malakade": [
+      60369
+    ],
+    "creature:valgion the hateful": [
+      60370
+    ],
+    "creature:valiant of vothdar": [
+      60371
+    ],
+    "creature:valien elgyre": [
+      60372
+    ],
+    "creature:valina": [
+      60373
+    ],
+    "creature:valkaran krosh": [
+      60374
+    ],
+    "creature:valkyre ghost": [
+      60375
+    ],
+    "creature:valley boar": [
+      60376
+    ],
+    "creature:valley mound": [
+      60377
+    ],
+    "creature:valorant": [
+      60378
+    ],
+    "creature:valorant gladesworn": [
+      60379
+    ],
+    "creature:valorn copperhelm": [
+      60380
+    ],
+    "creature:valsir duval": [
+      60381
+    ],
+    "creature:vampire hunter": [
+      60382
+    ],
+    "creature:vampire queen": [
+      60383
+    ],
+    "creature:vampiric rebel": [
+      60384
+    ],
+    "creature:vanillice silverbow": [
+      60385
+    ],
+    "creature:vanothil fyth": [
+      60386
+    ],
+    "creature:var efreeti trader": [
+      60387
+    ],
+    "creature:var guardian": [
+      60388
+    ],
+    "creature:var parox": [
+      60389
+    ],
+    "creature:var trader": [
+      60390
+    ],
+    "creature:var uzzen": [
+      60391
+    ],
+    "creature:var zulto": [
+      60392
+    ],
+    "creature:varaduuk the gatekeeper": [
+      60393
+    ],
+    "creature:varanjar": [
+      60394
+    ],
+    "creature:varanjar wanderer": [
+      60395
+    ],
+    "creature:varanjari beast": [
+      60396
+    ],
+    "creature:varanthari horse": [
+      60397
+    ],
+    "creature:varanthari slave": [
+      60398
+    ],
+    "creature:varg the cruel": [
+      60399
+    ],
+    "creature:varghor the mighty": [
+      60400
+    ],
+    "creature:vari": [
+      60401
+    ],
+    "creature:variki": [
+      60402
+    ],
+    "creature:varimurus the subjugator": [
+      60403
+    ],
+    "creature:varjan, third of battle": [
+      60404
+    ],
+    "creature:varlan majar": [
+      60405
+    ],
+    "creature:varral amonak": [
+      60406
+    ],
+    "creature:varrg flesh-hound": [
+      60407
+    ],
+    "creature:varrg pack leader": [
+      60408
+    ],
+    "creature:varrg stalker": [
+      60409
+    ],
+    "creature:varrgalash": [
+      60410
+    ],
+    "creature:varus the executioner": [
+      60411
+    ],
+    "creature:vashya": [
+      60412
+    ],
+    "creature:vasinaril klarisal": [
+      60413
+    ],
+    "creature:vasler": [
+      60414
+    ],
+    "creature:vass hago": [
+      60415
+    ],
+    "creature:vass hago's skirge": [
+      60416
+    ],
+    "creature:vathan trueblade": [
+      60417
+    ],
+    "creature:vatos the seer": [
+      60418
+    ],
+    "creature:vault guardian": [
+      60419
+    ],
+    "creature:vault sentinel": [
+      60420
+    ],
+    "creature:vault sentry": [
+      60421
+    ],
+    "creature:vayin": [
+      60422
+    ],
+    "creature:vayla thaelin": [
+      60423
+    ],
+    "creature:veblon": [
+      60424
+    ],
+    "creature:vehement beast": [
+      60425
+    ],
+    "creature:veil griffon": [
+      60426
+    ],
+    "creature:veil griffon guardian": [
+      60427
+    ],
+    "creature:veil griffon offspring": [
+      60428
+    ],
+    "creature:velkatik": [
+      60429
+    ],
+    "creature:velok adult": [
+      60430
+    ],
+    "creature:velok bloodwing": [
+      60431
+    ],
+    "creature:velok hatchling": [
+      60432
+    ],
+    "loot:vaelwyn spitewarden": [
+      60433
+    ],
+    "loot:vahsren the librarian": [
+      60434
+    ],
+    "loot:valagoz the iceborn": [
+      60435
+    ],
+    "loot:vale crawler": [
+      60436
+    ],
+    "loot:valewood": [
+      60437
+    ],
+    "loot:valien elgyre": [
+      60438
+    ],
+    "loot:vampiric rebel": [
+      60439
+    ],
+    "loot:varanjari beast": [
+      60440
+    ],
+    "loot:varghor the mighty": [
+      60441
+    ],
+    "loot:variki": [
+      60442
+    ],
+    "loot:varimurus the subjugator": [
+      60443
+    ],
+    "loot:vass hago": [
+      60444
+    ],
+    "loot:velkatik": [
+      60445
+    ],
+    "loot:velok adult": [
+      60446
+    ],
+    "merchant:valas sorshein": [
+      60447
+    ],
+    "merchant:vali sabbah": [
+      60448
+    ],
+    "merchant:vaxtra giddle": [
+      60449
+    ],
+    "merchant:vazayen zexthal": [
+      60450
+    ],
+    "npc:vaelwyn message": [
+      60451
+    ],
+    "npc:vaithur ruethyn": [
+      60452
+    ],
+    "npc:vala henson": [
+      60453
+    ],
+    "npc:valas sorshein": [
+      60454
+    ],
+    "npc:valer thanul": [
+      60455
+    ],
+    "npc:vali sabbah": [
+      60456
+    ],
+    "npc:vanfar omatehn": [
+      60457
+    ],
+    "npc:varesh vol'inara": [
+      60458
+    ],
+    "npc:varies": [
+      60459
+    ],
+    "npc:varlon majar": [
+      60460
+    ],
+    "npc:vauga bebixit": [
+      60461
+    ],
+    "npc:vaxtra giddle": [
+      60462
+    ],
+    "npc:vazayen zexthal": [
+      60463
+    ],
+    "npc:vee": [
+      60464
+    ],
+    "npc:veer gilte": [
+      60465
+    ],
+    "npc:vegard jokum": [
+      60466
     ]
   },
   "by_kind": {
@@ -1088760,7 +1090912,91 @@
       60310,
       60311,
       60312,
-      60313
+      60313,
+      60349,
+      60350,
+      60351,
+      60352,
+      60353,
+      60354,
+      60355,
+      60356,
+      60357,
+      60358,
+      60359,
+      60360,
+      60361,
+      60362,
+      60363,
+      60364,
+      60365,
+      60366,
+      60367,
+      60368,
+      60369,
+      60370,
+      60371,
+      60372,
+      60373,
+      60374,
+      60375,
+      60376,
+      60377,
+      60378,
+      60379,
+      60380,
+      60381,
+      60382,
+      60383,
+      60384,
+      60385,
+      60386,
+      60387,
+      60388,
+      60389,
+      60390,
+      60391,
+      60392,
+      60393,
+      60394,
+      60395,
+      60396,
+      60397,
+      60398,
+      60399,
+      60400,
+      60401,
+      60402,
+      60403,
+      60404,
+      60405,
+      60406,
+      60407,
+      60408,
+      60409,
+      60410,
+      60411,
+      60412,
+      60413,
+      60414,
+      60415,
+      60416,
+      60417,
+      60418,
+      60419,
+      60420,
+      60421,
+      60422,
+      60423,
+      60424,
+      60425,
+      60426,
+      60427,
+      60428,
+      60429,
+      60430,
+      60431,
+      60432
     ],
     "item": [
       13,
@@ -1096681,7 +1098917,21 @@
       60337,
       60338,
       60339,
-      60340
+      60340,
+      60433,
+      60434,
+      60435,
+      60436,
+      60437,
+      60438,
+      60439,
+      60440,
+      60441,
+      60442,
+      60443,
+      60444,
+      60445,
+      60446
     ],
     "npc": [
       24,
@@ -1100899,7 +1103149,23 @@
       60345,
       60346,
       60347,
-      60348
+      60348,
+      60451,
+      60452,
+      60453,
+      60454,
+      60455,
+      60456,
+      60457,
+      60458,
+      60459,
+      60460,
+      60461,
+      60462,
+      60463,
+      60464,
+      60465,
+      60466
     ],
     "quest": [
       45,
@@ -1135497,18 +1137763,18 @@
       60219,
       60220,
       60221,
-      60349,
-      60350,
-      60351,
-      60352,
-      60353,
-      60354,
-      60355,
-      60356,
-      60357,
-      60358,
-      60359,
-      60360
+      60467,
+      60468,
+      60469,
+      60470,
+      60471,
+      60472,
+      60473,
+      60474,
+      60475,
+      60476,
+      60477,
+      60478
     ],
     "diplomacy": [
       285,
@@ -1136426,7 +1138692,11 @@
       60055,
       60056,
       60057,
-      60097
+      60097,
+      60447,
+      60448,
+      60449,
+      60450
     ],
     "recipe": [
       419,
@@ -1137878,7 +1140148,9 @@
       60092,
       60097,
       60098,
-      60280
+      60280,
+      60396,
+      60412
     ],
     "Ca'ial Brael": [
       5,
@@ -1138466,7 +1140738,16 @@
       60310,
       60311,
       60312,
-      60313
+      60313,
+      60351,
+      60352,
+      60353,
+      60354,
+      60355,
+      60356,
+      60357,
+      60414,
+      60451
     ],
     "Fathesi Coast": [
       37,
@@ -1139122,7 +1141403,10 @@
       59865,
       59866,
       59879,
-      59967
+      59967,
+      60424,
+      60449,
+      60462
     ],
     "Lomshir": [
       51,
@@ -1139762,7 +1142046,8 @@
       60022,
       60023,
       60024,
-      60285
+      60285,
+      60395
     ],
     "Gaxton Village · Martok": [
       67,
@@ -1140940,7 +1143225,8 @@
       59406,
       59446,
       59857,
-      60279
+      60279,
+      60425
     ],
     "Hathor Zhi": [
       102,
@@ -1141502,7 +1143788,8 @@
       59786,
       60025,
       60034,
-      60231
+      60231,
+      60369
     ],
     "Jalen's Crossing": [
       103,
@@ -1141663,7 +1143950,8 @@
       59992,
       60027,
       60030,
-      60346
+      60346,
+      60385
     ],
     "Kaon's Rush": [
       104,
@@ -1141984,7 +1144272,8 @@
       59441,
       59525,
       59745,
-      60032
+      60032,
+      60413
     ],
     "Ksaravi Gulch": [
       105,
@@ -1142687,7 +1144976,9 @@
       60100,
       60228,
       60234,
-      60251
+      60251,
+      60382,
+      60384
     ],
     "Northern Highlands": [
       107,
@@ -1143084,7 +1145375,8 @@
       59627,
       59628,
       60007,
-      60009
+      60009,
+      60429
     ],
     "Renton Keep": [
       109,
@@ -1144203,7 +1146495,8 @@
       58831,
       59138,
       59911,
-      60036
+      60036,
+      60457
     ],
     "Tauthien Delta": [
       114,
@@ -1144357,7 +1146650,8 @@
       60076,
       60077,
       60083,
-      60085
+      60085,
+      60379
     ],
     "The Temple Of Dailuk": [
       115,
@@ -1144731,7 +1147025,8 @@
       59442,
       59498,
       59767,
-      59996
+      59996,
+      60415
     ],
     "Three Rivers Village": [
       116,
@@ -1145185,7 +1147480,11 @@
       59925,
       60002,
       60003,
-      60008
+      60008,
+      60417,
+      60426,
+      60428,
+      60460
     ],
     "Wardship Of The Sleeping Moon": [
       117,
@@ -1145839,7 +1148138,14 @@
       59036,
       59270,
       59728,
-      60287
+      60287,
+      60388,
+      60389,
+      60391,
+      60392,
+      60398,
+      60450,
+      60463
     ],
     "Ahgram": [
       146,
@@ -1146443,7 +1148749,9 @@
       59686,
       59731,
       59878,
-      60061
+      60061,
+      60358,
+      60455
     ],
     "Alyssa's Chance": [
       147,
@@ -1146662,7 +1148970,9 @@
       59435,
       59436,
       59437,
-      59795
+      59795,
+      60350,
+      60403
     ],
     "Anires Point": [
       150,
@@ -1147675,7 +1149985,9 @@
       59973,
       59974,
       60091,
-      60099
+      60099,
+      60366,
+      60380
     ],
     "Brennan's Stead": [
       166,
@@ -1147735,7 +1150047,8 @@
       58318,
       58634,
       58776,
-      59762
+      59762,
+      60466
     ],
     "Bridge Of Destiny": [
       167,
@@ -1148015,7 +1150328,8 @@
       59192,
       59315,
       59416,
-      60026
+      60026,
+      60464
     ],
     "Charbrook Keep": [
       189,
@@ -1149258,7 +1151572,9 @@
       54649,
       57715,
       58779,
-      59641
+      59641,
+      60368,
+      60422
     ],
     "Deeprealm Tunnels": [
       220,
@@ -1150151,7 +1152467,8 @@
       59814,
       59815,
       59816,
-      59864
+      59864,
+      60371
     ],
     "Gardens of Nirashuri": [
       249,
@@ -1150342,7 +1152659,9 @@
       57042,
       57199,
       57217,
-      59255
+      59255,
+      60375,
+      60427
     ],
     "Greencopper Tower": [
       259,
@@ -1153502,7 +1155821,8 @@
       60123,
       60283,
       60289,
-      60292
+      60292,
+      60364
     ],
     "Veskal's Exchange": [
       14036,
@@ -1154641,7 +1156961,11 @@
       60057,
       60064,
       60088,
-      60299
+      60299,
+      60386,
+      60423,
+      60447,
+      60454
     ],
     "Khal": [
       14211,
@@ -1155711,7 +1158035,9 @@
       59543,
       59648,
       59843,
-      59863
+      59863,
+      60448,
+      60456
     ],
     "Lomshir Plain": [
       14231,
@@ -1155999,7 +1158325,8 @@
       59980,
       59989,
       60058,
-      60101
+      60101,
+      60465
     ],
     "Southwatch": [
       14415,
@@ -1156407,7 +1158734,8 @@
       60260,
       60261,
       60266,
-      60268
+      60268,
+      60376
     ],
     "Zarabadi Landing": [
       17653,
@@ -1157024,7 +1159352,9 @@
       59159,
       59261,
       60001,
-      60102
+      60102,
+      60361,
+      60367
     ],
     "Jalen's Retreat": [
       22587,
@@ -1158460,7 +1160790,8 @@
       60082,
       60086,
       60122,
-      60300
+      60300,
+      60461
     ],
     "Merchant": [
       22627,
@@ -1158548,7 +1160879,8 @@
       45521,
       47995,
       50933,
-      51211
+      51211,
+      60373
     ],
     "Nusibe Necropolis": [
       22637,
@@ -1158916,7 +1161248,11 @@
       59500,
       59661,
       60037,
-      60235
+      60235,
+      60407,
+      60408,
+      60409,
+      60410
     ],
     "Orcbane Mines": [
       22644,
@@ -1159323,7 +1161659,8 @@
       60258,
       60267,
       60278,
-      60308
+      60308,
+      60453
     ],
     "Port Aughos": [
       22651,
@@ -1159599,7 +1161936,9 @@
       59007,
       59407,
       59513,
-      59817
+      59817,
+      60387,
+      60452
     ],
     "Rakshasa Citadel": [
       22661
@@ -1159998,7 +1162337,8 @@
       58565,
       58587,
       58588,
-      59004
+      59004,
+      60418
     ],
     "River Valley": [
       22677,
@@ -1160269,7 +1162609,10 @@
       59373,
       59658,
       59666,
-      60262
+      60262,
+      60349,
+      60432,
+      60458
     ],
     "Ruins Of Trengal Keep": [
       22681,
@@ -1161059,7 +1163402,8 @@
       59039,
       59047,
       59685,
-      60062
+      60062,
+      60411
     ],
     "Shores of Darkness": [
       22703,
@@ -1161216,7 +1163560,8 @@
       59330,
       59430,
       59587,
-      60257
+      60257,
+      60401
     ],
     "Shrine of the Eternal Flame": [
       22706,
@@ -1161320,7 +1163665,8 @@
       58664,
       58669,
       59032,
-      59995
+      59995,
+      60360
     ],
     "Skrilien Point": [
       22711,
@@ -1161818,7 +1164164,8 @@
       59623,
       59792,
       60069,
-      60282
+      60282,
+      60397
     ],
     "Stranglewater Cove": [
       22728,
@@ -1162125,7 +1164472,8 @@
       59802,
       59803,
       59804,
-      59905
+      59905,
+      60402
     ],
     "Tanvu Bay": [
       22734
@@ -1162410,7 +1164758,8 @@
       59969,
       59970,
       60056,
-      60063
+      60063,
+      60378
     ],
     "Tehatamani Empire": [
       22738
@@ -1163249,7 +1165598,10 @@
       59636,
       59796,
       59987,
-      60038
+      60038,
+      60419,
+      60420,
+      60421
     ],
     "The Velerium Mines": [
       22765
@@ -1163341,7 +1165693,8 @@
       59945,
       59946,
       59947,
-      59948
+      59948,
+      60372
     ],
     "Thelaseen: Lair of the Drake Riders": [
       22768
@@ -1163759,7 +1166112,9 @@
       59199,
       59862,
       60015,
-      60343
+      60343,
+      60374,
+      60400
     ],
     "Vault of the Hidden": [
       22794
@@ -1163898,7 +1166253,9 @@
       54508,
       55478,
       55929,
-      59744
+      59744,
+      60430,
+      60431
     ],
     "WLT (Qalia)": [
       22807
