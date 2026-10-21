@@ -15,6 +15,12 @@ The server never reads this folder. Records are checked, converted to the server
 | [COLLECTION.md](COLLECTION.md) | Archive inventory, automated collection, background controls, coverage and known extraction gaps. |
 | `imported.md` | A log of what was imported into `server/content/`, from which batch, and when. |
 
+## Current conversion handoff
+
+[reviewed/conversion-handoff/HANDOFF.md](reviewed/conversion-handoff/HANDOFF.md) is the consolidated import-agent handoff. It contains generated server-format candidates, exact raw source file/line pointers, input hashes, withheld-record dispositions and unresolved-reference reports. These are review candidates, not replacement content files or an automatic import.
+
+Rebuild after closed-batch updates with `python -B crowdsourced/build_handoff.py` from the repository root. The builder reads all closed raw batches, selects source replays without merging fields, withholds identity ambiguity, and leaves live server files untouched. Refer to `SUMMARY.json` for current counts, not collection-page totals.
+
 ## Converting a batch
 
 ```

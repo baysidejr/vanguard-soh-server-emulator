@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-10-21T02:23:04.549944+00:00",
+  "raw_rows_examined": 60268,
+  "raw_files_examined": 857,
+  "selected_source_records": 34474,
+  "selected_types": {
+    "ability": 7252,
+    "creature": 11725,
+    "diplomacy": 1,
+    "item": 4873,
+    "loot": 2068,
+    "merchant": 439,
+    "npc": 2936,
+    "quest": 4776,
+    "recipe": 3,
+    "zone": 401
+  },
+  "candidate_counts": {
+    "items.json": 3384,
+    "mobs.json": 0,
+    "quests.json": 16,
+    "loot.json": 0,
+    "merchants.json": 0
+  },
+  "candidate_total": 3400,
+  "withheld_selected_records": 31074,
+  "selection_error_groups": 0,
+  "conversion_issues": 31059,
+  "unresolved_reference_issues": 41,
+  "imported_by_this_tool": 0,
+  "status": "conversion proposals generated; integration and historical review required",
+  "selection_rule": "Same exact type/name/source-URL-set: highest parser version, collection timestamp, batch name. No field merging. Different sources remain separate; equal-rank conflicts withheld.",
+  "limitations": [
+    "No server files are modified. Proposals are merge candidates, not replacement files.",
+    "All candidates need review; unresolved references and _unsupported fields are not import-ready.",
+    "Item/loot icon 443 is an operational fallback, not a recovered historical icon.",
+    "Source observations not represented in server schema remain in referenced raw records.",
+    "Ability, recipe, diplomacy, spawn and other unsupported types are accounted for but withheld.",
+    "Live content was read only for mappings and reference checks; no integrated server test is claimed."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "tests": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+  "test_working_directory": "crowdsourced",
+  "tests_passed": 340,
+  "checks": [
+    "All five proposed JSON files read back and counts matched.",
+    "Disposition converted count reconciles exactly to candidate count.",
+    "Sixteen proposed quest IDs checked unique.",
+    "Regression tests cover source replay selection without field merging, same-name distinct-source withholding, equal-rank conflicts, unpublished-batch exclusion, unsupported-field preservation, and low-confidence disposition."
+  ],
+  "scope": "Converter/handoff tests only. No server files written, no server import or integrated runtime validation claimed."
+}
