@@ -368,6 +368,7 @@ def main():
                 next_move = time.time() + MOVE_TICK
                 guarded(movement_tick, zone_sock, clients, args)
                 guarded(resend_tick, clients, time.time())
+                guarded(timed_sends_tick, clients, time.time())
             if time.time() >= next_tick:
                 next_tick = time.time() + 1
                 guarded(world_tick, zone_sock, clients, args)
@@ -7730,12 +7731,41 @@ def set_off_fireworks(state, item, ability_id, fx=None):
     take_items(state, item[1], 1)
 
 
+FOV_PIN_SECONDS = 0.01             # a "fade" from b to b: holds the view at b (see use_spyglass)
+
+
+def fov_fade(a, b, secs):
+    return zone.zone_event(CAMERA_FOV_FADE, struct.pack("<fff", float(a), float(b), float(secs)))
+
+
+def send_later(state, delay, msg):
+    """Queue a message for `delay` seconds from now; timed_sends_tick (MOVE_TICK, 4 Hz) sends it."""
+    state.setdefault("timed_sends", []).append((time.time() + delay, msg))
+
+
+def timed_sends_tick(clients, now):
+    for state in list(clients.values()):
+        queued = state.get("timed_sends")
+        if not queued or "send" not in state:
+            continue
+        state["timed_sends"] = [(when, m) for when, m in queued if when > now]
+        for when, m in queued:
+            if when <= now:
+                state["send"](m)
+
+
 def use_spyglass(state, spec):
+    """Toggle the zoom. The client's 0x5c7 fade is a ping-pong (FUN_005ddf50: the fade time runs
+    up to `seconds`, then back down to 0, and again, for as long as the duration is not -1), so a
+    plain 90 -> 20 fade keeps swinging between 90 and 20 for ever: screenshots caught the view
+    wide, narrow and half-way with nothing using the spyglass (2026-10-20). So once the fade is
+    over, a second 0x5c7 from `to` to `to` pins the view there."""
     fov, secs = float(spec.get("fov", 20)), float(spec.get("seconds", 1))
     zoomed = not state.get("spyglass")
     state["spyglass"] = zoomed
     a, b = (NORMAL_FOV, fov) if zoomed else (fov, NORMAL_FOV)
-    state["send"](zone.zone_event(CAMERA_FOV_FADE, struct.pack("<fff", a, b, secs)))
+    state["send"](fov_fade(a, b, secs))
+    send_later(state, secs, fov_fade(b, b, FOV_PIN_SECONDS))
 
 
 def take_items(state, name, need):

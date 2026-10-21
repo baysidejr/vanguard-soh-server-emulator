@@ -2,6 +2,7 @@
 (no position, no Unreal channel), against temporary data files."""
 import os
 import struct
+import time
 import tempfile
 import unittest
 from unittest import mock
@@ -914,6 +915,26 @@ class SmallFeatureTests(unittest.TestCase):
         self.assertEqual([struct.unpack_from("<I", m, 2)[0] for m in sent], [0x5C7, 0x5C7])
         self.assertEqual(struct.unpack_from("<fff", sent[0], 10), (90.0, 20.0, 1.0))
         self.assertEqual(struct.unpack_from("<fff", sent[1], 10), (20.0, 90.0, 1.0))
+
+    def test_spyglass_pins_the_view_once_the_fade_is_over(self):
+        # The client's fade swings back and forth for ever (FUN_005ddf50), so a fade from the
+        # target to itself follows once the fade time is up (2026-10-20).
+        sent = []
+        state = {"send": sent.append}
+        login_stub.use_spyglass(state, {"fov": 20, "seconds": 1})
+        self.assertEqual(len(sent), 1)
+        (when, pin), = state["timed_sends"]
+        self.assertAlmostEqual(when, time.time() + 1, delta=0.5)
+        self.assertEqual(struct.unpack_from("<I", pin, 2)[0], 0x5C7)
+        self.assertEqual(struct.unpack_from("<ff", pin, 10), (20.0, 20.0))
+        self.assertAlmostEqual(struct.unpack_from("<f", pin, 18)[0], login_stub.FOV_PIN_SECONDS, places=5)
+        login_stub.timed_sends_tick({("ZONE", 1): state}, time.time() + 0.5)
+        self.assertEqual(len(sent), 1)                       # not due yet
+        login_stub.timed_sends_tick({("ZONE", 1): state}, time.time() + 1.5)
+        self.assertEqual(sent[1], pin)
+        self.assertEqual(state["timed_sends"], [])
+        login_stub.use_spyglass(state, {"fov": 20, "seconds": 1})
+        self.assertEqual(struct.unpack_from("<ff", state["timed_sends"][0][1], 10), (90.0, 90.0))
 
     def test_fireworks_play_and_use_one(self):
         sent = []

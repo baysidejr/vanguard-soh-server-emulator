@@ -227,3 +227,11 @@ Baseline (verified 2026-10-16 from code and content, not copied from STATUS.md):
 - **Quest progress too (live 2026-10-17):** accepted Leafsaw Crawlers in Karibasa, `!visit` to Khal and back, killed a crawler: the tracker updated to "Leafsaw Crawlers Slain (1/8)".
 - **Groups too (scenario, 2026-10-17):** "group survives a chunk change": A and B group, B takes the riftway to Khal, B's group chat (gsay) still reaches A. Fails as expected when B leaves the group first (negative control).
 - **Settled (live 2026-10-17):** a 10-minute effect sent with `!event 0x23a` (effects.effect_add) showed "9m" before the riftway and still "9m" in Khal after it: the client keeps effect icons across a hand-off. No change needed.
+
+## B-029 The spyglass zoom swung back and forth for ever
+- **Priority:** P2 · **Category:** player-facing defect (camera) · **State:** VERIFIED
+- **Evidence:** 2026-10-20, scratch save, UI driver: after a Brass Spyglass right-click, screenshots taken minutes later with nothing touching the spyglass showed the view wide, narrow and half-way; forcing a fade from 90 to 90 stopped it. The client's camera tick FUN_005ddf50 runs the 0x5c7 fade clock up to `seconds`, then back down to 0, and again, for as long as the fade duration is not -1, so a single 90 -> 20 fade oscillates with a period of 2 x seconds.
+- **Paths:** `server/login_stub.py` (`use_spyglass`, `send_later`, `timed_sends_tick`), `server/test_login_hooks.py`, `docs/INVENTORY.md`
+- **Done when:** the view holds at the target after the fade, in both directions, while windows open and close.
+- **Done 2026-10-20:** once the fade time is up the server sends a second 0x5c7 from the target to itself (duration 0.01), queued through a 4 Hz timed-send tick. Live: zoomed view held across Character window open/close, then the wide view held the same way (six screenshots). Unit test `test_spyglass_pins_the_view_once_the_fade_is_over`; unit 308 OK.
+

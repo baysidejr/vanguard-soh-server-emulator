@@ -51,8 +51,24 @@ def window_rect():
     return r.l, r.t, r.r, r.b
 
 
+def fit_window():
+    """Move the game window up when it hangs below the work area (a 1280x1024 client on a 1080p
+    screen): the hotbar and bag bar must be on screen for clicks and screenshots."""
+    hwnd = smoke_test.client_window()
+    if not hwnd:
+        return
+    work, r = RECT(), RECT()
+    u32.SystemParametersInfoW(48, 0, ctypes.byref(work), 0)         # SPI_GETWORKAREA
+    u32.GetWindowRect(hwnd, ctypes.byref(r))
+    shift = r.b - work.b
+    if shift > 0:
+        u32.SetWindowPos(hwnd, 0, r.l, r.t - shift, 0, 0, 0x0001 | 0x0004)   # SWP_NOSIZE | SWP_NOZORDER
+
+
 def shot(out=DEFAULT_SHOT):
     """PNG of the game window; its pixels are the X, Y that click/rclick take."""
+    smoke_test.focus()              # other windows (a terminal) may have come to the front
+    time.sleep(0.5)
     l, t, r, b = window_rect()
     ps = (f"Add-Type -AssemblyName System.Drawing; $bmp = New-Object System.Drawing.Bitmap {r - l}, {b - t}; "
           f"$g = [System.Drawing.Graphics]::FromImage($bmp); $g.CopyFromScreen({l}, {t}, 0, 0, $bmp.Size); "
@@ -114,9 +130,11 @@ def start(free_slot=None):
     while time.time() < end and "character record 0x19" not in _log():
         time.sleep(2)
     time.sleep(8)
+    fit_window()
 
 
 def play():
+    fit_window()
     smoke_test.focus()
     smoke_test.press(0x0D)
     end = time.time() + 120

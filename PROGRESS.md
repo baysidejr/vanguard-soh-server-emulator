@@ -99,6 +99,7 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-20: Hand-run items in the client (UI driver, scratch save): Ctrl+click split, Small Pouch on the bar, Salvage Kit on a Rusted Dagger, jewelry and ore tooltips, Brass Spyglass, banking coins in and out (TESTING.md). B-029 found and fixed: the client's 0x5c7 camera fade oscillates for ever, so the spyglass zoom swung back and forth; the server now pins the view once the fade ends (timed sends, 4 Hz). tools/client_ui.py keeps the game window inside the work area and refocuses it before screenshots.
 - 2026-10-19: Resumed on a new PC: Ghidra 12.1.4 with ReVa (extension and headless MCP), JDK 21, capstone, a persistent Ghidra project of VGClient.exe; client files at the repo root; all checks pass. B-009: merged the scrape branch (ac58915, 15 review-data commits); refresh --apply changed nothing.
 - 2026-10-17: Fixed: a summoned pet was lost on every chunk change; it now follows through (B-027). /walk and sprint speed also survive a chunk change (B-026).
 
