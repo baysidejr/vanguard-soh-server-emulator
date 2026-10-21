@@ -1,0 +1,209 @@
+{
+  "review_kind": "blood_mage_alternate_qualitative_scope_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Entwining Vein I",
+      "source_url": "https://vgsoharchive.com/abilities/entwining-vein-i",
+      "scope": "alternate",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/34ed5200ddde540e9f53c56d6a44c063fd0ffd0fcd56022810acde22e2fc06e7.txt",
+        "sha256": "b3d49942051c1b737c806b5f0ec2273f32ba62d7c85321fc7359798d47efbfaf"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 16,
+          "record_sha256": "bd8e76fe0de2ba96be5a8f3495150db479191687060ec180b671b849fc159584"
+        }
+      ],
+      "literal_sha256": "458e49ad3268dead47fb670f568919c7e6d7518a61e9e44cd87369195ad4f0de",
+      "source_literal": "Life tap which heals your defensive target (increases Blood Union)",
+      "source_html": "<div class=\"tooltip\">Life tap which heals your defensive target (increases Blood Union)</div>",
+      "reviewed_observations": {
+        "effect_literal": "Life tap",
+        "healing_target_literal": "defensive target",
+        "blood_union_direction": "increase",
+        "health_stolen": null,
+        "healing_amount": null,
+        "blood_union_amount": null
+      },
+      "scope_field_review_complete": true,
+      "game_fact": true,
+      "disposition": "alternate_archive_qualitative_claim_only",
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Scarlet Ritual I",
+      "source_url": "https://vgsoharchive.com/abilities/scarlet-ritual-i",
+      "scope": "alternate",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/7716627e8bea2a58c259175e600ad540b4806361b2fa0d107af337fad5553466.txt",
+        "sha256": "796c068dbde3d674f952ea251a1ebeef0bbb620ca6728478b10d84f57ba392f1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 34,
+          "record_sha256": "75eac00d17b41dacc78a1f8d86f5c68e3d7ba4944eb38b83c739284b0f5b5db1"
+        }
+      ],
+      "literal_sha256": "154b3abb316698fc0cda5cf9b0ef4826e995973f85c9c0ce880860c77fa410b2",
+      "source_literal": "Consumes Blood Union causing direct damage (reduces Blood Union)",
+      "source_html": "<div class=\"tooltip\">Consumes Blood Union causing direct damage (reduces Blood Union)</div>",
+      "reviewed_observations": {
+        "consumes_resource_literal": "Blood Union",
+        "damage_delivery_literal": "direct damage",
+        "blood_union_direction": "decrease",
+        "damage_amount": null,
+        "blood_union_cost": null
+      },
+      "scope_field_review_complete": true,
+      "game_fact": true,
+      "disposition": "alternate_archive_qualitative_claim_only",
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Mental Transmutation I",
+      "source_url": "https://vgsoharchive.com/abilities/mental-transmutation-i",
+      "scope": "alternate",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/cda86b8aa6878cf8255761208561ab7708423a70fa5ed56ccfdc5d9b8f84406e.txt",
+        "sha256": "0699fae6f93e2cdcf9fc1589b1e6c980058d95afab33bd80cb5a4fd281655a5c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 30,
+          "record_sha256": "3d53d6e6c5573f0e05cd0262a2087c9199f13faa98f9491d2a36d3778fd87145"
+        }
+      ],
+      "literal_sha256": "36e6d47de963fae9f479bbc67431a201203397c7eb6a131e21abc9f944ac72c5",
+      "source_literal": "Self Convert Health to Mana",
+      "source_html": "<div class=\"tooltip\">Self Convert Health to Mana</div>",
+      "reviewed_observations": {
+        "target_literal": "Self",
+        "converted_from_literal": "Health",
+        "converted_to_literal": "Mana",
+        "conversion_ratio": null,
+        "health_cost": null,
+        "mana_return": null
+      },
+      "scope_field_review_complete": true,
+      "game_fact": true,
+      "disposition": "alternate_archive_qualitative_claim_only",
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Strip Enchantment I",
+      "source_url": "https://vgsoharchive.com/abilities/strip-enchantment-i",
+      "scope": "alternate",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/a922943154ed71ca6634cfff9bb9196a196d5803a02a7c16c7428563baabe415.txt",
+        "sha256": "df2fdfaf1910ef09f66db64ebffd23ecf3b9638f86a68d4b60ac5823c0b99e41"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 70,
+          "record_sha256": "a19ed7bb2b2e6d36782f3089d271911d2a297c9f8c1173385feb7fd66e086835"
+        }
+      ],
+      "literal_sha256": "567fa7c5a6cdbc591b095baa54dc1b4cbe3de8758b48f0c0d1cf69354050e2d6",
+      "source_literal": "Dispell a minor buff from opponent",
+      "source_html": "<div class=\"tooltip\">Dispell a minor buff from opponent</div>",
+      "reviewed_observations": {
+        "action_literal": "Dispell",
+        "effect_removed_literal": "minor buff",
+        "target_literal": "opponent",
+        "number_removed": null,
+        "dispel_chance": null
+      },
+      "scope_field_review_complete": true,
+      "game_fact": true,
+      "disposition": "alternate_archive_qualitative_claim_only",
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Transfusion of Serak I",
+      "source_url": "https://vgsoharchive.com/abilities/transfusion-of-serak-i",
+      "scope": "alternate",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/7de532c9284d1d6d88cf9516c0bf35251fe8105113df0e7a205cb6623bffcd44.txt",
+        "sha256": "1d2b8299ebfe9f3b68870b72cd1b36e2dfe71e638c9bf92b87ac96104a871914"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 71,
+          "record_sha256": "be839d5889dcf4d0f97fc10ec2d086b0afad80e7c429bf0f65209c7a8b7a4df0"
+        }
+      ],
+      "literal_sha256": "9739d7b7dccc4b5c113bbc8c6464a9c5152ddcbd87bb36f413f14d8fc96becf4",
+      "source_literal": "Heal over time spell",
+      "source_html": "<div class=\"tooltip\">Heal over time spell</div>",
+      "reviewed_observations": {
+        "effect_literal": "Heal over time",
+        "healing_amount": null,
+        "duration_seconds": null,
+        "tick_interval_seconds": null,
+        "tick_count": null
+      },
+      "scope_field_review_complete": true,
+      "game_fact": true,
+      "disposition": "alternate_archive_qualitative_claim_only",
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "literal_hashes_verified": 5,
+    "exact_expected_literal_comparisons": 5,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 821,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Alternate descriptions are archive claims, not independent corroboration or authenticated live-era data.",
+    "Qualitative descriptions do not establish magnitudes, timing, scaling or operative formulas. Mana remains the source literal without assuming equivalence to another resource label.",
+    "These rows do not resolve current/historical source collisions or assign canonical IDs."
+  ],
+  "next_step": "Review the remaining historical Blood Mage mechanic and metadata sections against cached sources."
+}

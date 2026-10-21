@@ -1,0 +1,331 @@
+{
+  "review_kind": "blood_mage_spell_counter_healing_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Metamorphism I",
+      "source_url": "https://vgsoharchive.com/abilities/metamorphism-i",
+      "cache": {
+        "path": ".cache/archive/33f7849dc6270252a1019feea47059d1ec91b81b6d525c6a89408ec4cae42264.txt",
+        "sha256": "7fbb280c5818304bae15cfbc6e16cd48fe682350cc8c399e4ffea10320606225"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 12,
+          "record_sha256": "a1365db0d4331b92c7252c33d6643b9b5b37779dc9358e2297541dc02b873819"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Counters a spell being cast and channels the energy into healing power, healing all group members within 10m by 492.",
+          "literal_sha256": "65696d517b6e1f381d4325193aef65072ee3092b49af5076008fd337b6e60a92",
+          "field_comparisons": [
+            {
+              "field": "healing_amount",
+              "source_value": 492,
+              "extracted_value": 492,
+              "equal": true
+            },
+            {
+              "field": "radius_meters",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "all group members",
+              "extracted_value": "all group members",
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "spell_counter_group_healing",
+              "extracted_value": "spell_counter_group_healing",
+              "equal": true
+            },
+            {
+              "field": "counter_success_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "radius_origin",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_group_ritual_counter_healing_observation",
+              "effect_phrase_recorded": "Counters a spell being cast and channels the energy into healing power, healing all group members within 10m by 492.",
+              "conditions_unparsed": true,
+              "effect_reported": "spell_counter_group_healing",
+              "healing_amount": 492,
+              "recipient_reported": "all group members",
+              "radius_meters": 10,
+              "radius_origin": null,
+              "counter_success_rules": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Metamorphism II",
+      "source_url": "https://vgsoharchive.com/abilities/metamorphism-ii",
+      "cache": {
+        "path": ".cache/archive/3d2249aafb4219aeed3b2540eae0dda44442b7d0769ea049e9218bae2dae808d.txt",
+        "sha256": "f180ead69c2a5126853ded09afe672ea8440561528f36929d475a5aceeadf87a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 13,
+          "record_sha256": "e8626e5fc766240c2e1f48a5c5ff712a53107ffd515b3be50421daf39b791340"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Counters a spell being cast and channels the energy into healing power, healing all group members within 10m by 659.",
+          "literal_sha256": "05517f9e42f7f8d6f06203e6376b683772ec0d8c08e8be8873a1cf5d5e9868b2",
+          "field_comparisons": [
+            {
+              "field": "healing_amount",
+              "source_value": 659,
+              "extracted_value": 659,
+              "equal": true
+            },
+            {
+              "field": "radius_meters",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "all group members",
+              "extracted_value": "all group members",
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "spell_counter_with_group_healing",
+              "extracted_value": "spell_counter_with_group_healing",
+              "equal": true
+            },
+            {
+              "field": "counter_restrictions",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_healing_counter_symbiote_steal_observation",
+              "effect_phrase_recorded": "Counters a spell being cast and channels the energy into healing power, healing all group members within 10m by 659.",
+              "conditions_unparsed": true,
+              "effect_reported": "spell_counter_with_group_healing",
+              "healing_amount": 659,
+              "recipient_reported": "all group members",
+              "radius_meters": 10,
+              "counter_restrictions": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Metamorphism III",
+      "source_url": "https://vgsoharchive.com/abilities/metamorphism-iii",
+      "cache": {
+        "path": ".cache/archive/528b5b546cf0dc2cec8c1e6144cb2cd45711391391c7b63f4e1e1a9f43c4d726.txt",
+        "sha256": "773db9cab2408b91469010893ae9aef6cba42fd42fd24b35cecc4f752b3f006a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "807fb41ac63167a3c035684aae35897d78adc711cffeacbdf861dc735a5a78fb"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Counters a spell being cast and channels the energy into healing power, healing all group members within 10m by 747.",
+          "literal_sha256": "64182d383c1136846ef38cd1c905a8d6a5ed362e8d037c4770c01851e4265db8",
+          "field_comparisons": [
+            {
+              "field": "healing_amount",
+              "source_value": 747,
+              "extracted_value": 747,
+              "equal": true
+            },
+            {
+              "field": "radius_meters",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "all_group_members_within_range",
+              "extracted_value": "all_group_members_within_range",
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "spell_counter_with_group_healing",
+              "extracted_value": "spell_counter_with_group_healing",
+              "equal": true
+            },
+            {
+              "field": "counter_eligibility_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_final_numeric_observation",
+              "effect_phrase_recorded": "Counters a spell being cast and channels the energy into healing power, healing all group members within 10m by 747.",
+              "conditions_unparsed": true,
+              "effect_reported": "spell_counter_with_group_healing",
+              "healing_amount": 747,
+              "radius_meters": 10,
+              "recipient_reported": "all_group_members_within_range",
+              "counter_eligibility_rules": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 3,
+    "source_record_hashes_verified": 3,
+    "whole_page_replays": 3,
+    "literal_hashes_verified": 3,
+    "field_comparisons_passed": 25,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 38,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Three current spell-counter healing sections reviewed; full abilities, historical and alternate scopes remain pending.",
+    "Counter eligibility, success restrictions and radius origin remain unknown; group healing does not establish historical or operative behavior.",
+    "No canonical IDs, operative values or historical authentication are inferred."
+  ],
+  "next_step": "Review remaining Blood Mage defensive rune clauses against cached prose."
+}

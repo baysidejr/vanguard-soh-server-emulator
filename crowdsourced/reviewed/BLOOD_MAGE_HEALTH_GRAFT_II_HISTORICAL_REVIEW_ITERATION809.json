@@ -1,0 +1,357 @@
+{
+  "review_kind": "blood_mage_health_graft_ii_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Health Graft II",
+      "source_url": "https://vgsoharchive.com/abilities/health-graft-ii",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/a2353e0eeba29a9318db0ee50b93b5118c1a80a70a33aa209b8e0e4815a7fb25.txt",
+        "sha256": "fd3c7a54f2a312d08eb64ffaec28515d10ec283509f0508407a829be2e7df57b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 23,
+          "record_sha256": "7e472ab8244ece6156b6109d20e8d9f11cd8ed5ca8000533769381648e4f65ed"
+        }
+      ],
+      "literal_sha256": "5c425cc06d45d58ce8e67c121ba433c6f9d3f7227620c187154c5579f74f115c",
+      "source_literal": "Energy then 58 — now 57 Cast then 0",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Energy then</dt>\n<dd>58\r\n                <span class=\"muted\">— now 57</span></dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Energy then",
+          "value_literal": "58 — now 57",
+          "direct_value_literal": "58",
+          "numeric_value": 58,
+          "comparison_literal": "— now 57",
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "0",
+          "direct_value_literal": "0",
+          "numeric_value": 0,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Health Graft II",
+      "source_url": "https://vgsoharchive.com/abilities/health-graft-ii",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/a2353e0eeba29a9318db0ee50b93b5118c1a80a70a33aa209b8e0e4815a7fb25.txt",
+        "sha256": "fd3c7a54f2a312d08eb64ffaec28515d10ec283509f0508407a829be2e7df57b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 23,
+          "record_sha256": "7e472ab8244ece6156b6109d20e8d9f11cd8ed5ca8000533769381648e4f65ed"
+        }
+      ],
+      "literal_sha256": "7909c2203b57f00572ca1c47a20b2090446b20e5485dd286e11f3ace2b7a2db5",
+      "source_literal": "Grafts blood and flesh onto an ally, granting them an additional 190 health for one hour",
+      "source_html": "<div class=\"tooltip\">Grafts blood and flesh onto an ally, granting them an additional 190 health for one hour</div>",
+      "reviewed_observations": {
+        "effect_literal": "Grafts blood and flesh onto an ally, granting them an additional 190 health for one hour",
+        "recipient_literal": "an ally",
+        "additional_health": 190,
+        "duration_literal": "one hour",
+        "duration_seconds": 3600,
+        "health_pool_semantics": null,
+        "operative_recipient": null,
+        "operative_energy_cost": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Health Graft II",
+      "source_url": "https://vgsoharchive.com/abilities/health-graft-ii",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/a2353e0eeba29a9318db0ee50b93b5118c1a80a70a33aa209b8e0e4815a7fb25.txt",
+        "sha256": "fd3c7a54f2a312d08eb64ffaec28515d10ec283509f0508407a829be2e7df57b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 23,
+          "record_sha256": "7e472ab8244ece6156b6109d20e8d9f11cd8ed5ca8000533769381648e4f65ed"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227034225id_/http://wiki.silkyvenom.com/index.php/Health_Graft_II\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227034225id_/http://wiki.silkyvenom.com/index.php/Health_Graft_II"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Health Graft II",
+      "source_url": "https://vgsoharchive.com/abilities/health-graft-ii",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/a2353e0eeba29a9318db0ee50b93b5118c1a80a70a33aa209b8e0e4815a7fb25.txt",
+        "sha256": "fd3c7a54f2a312d08eb64ffaec28515d10ec283509f0508407a829be2e7df57b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 23,
+          "record_sha256": "7e472ab8244ece6156b6109d20e8d9f11cd8ed5ca8000533769381648e4f65ed"
+        }
+      ],
+      "literal_sha256": "f7ffd7db5c495dcf95746a4e605b21b3957104ea335537783cb22499d42f5ff6",
+      "source_literal": "Level in 2007 14",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>14</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007",
+          "value_literal": "14",
+          "direct_value_literal": "14",
+          "numeric_value": 14,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Health Graft II",
+      "source_url": "https://vgsoharchive.com/abilities/health-graft-ii",
+      "scope": "historical",
+      "section_node_index": 5,
+      "cache": {
+        "path": ".cache/archive/a2353e0eeba29a9318db0ee50b93b5118c1a80a70a33aa209b8e0e4815a7fb25.txt",
+        "sha256": "fd3c7a54f2a312d08eb64ffaec28515d10ec283509f0508407a829be2e7df57b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 23,
+          "record_sha256": "7e472ab8244ece6156b6109d20e8d9f11cd8ed5ca8000533769381648e4f65ed"
+        }
+      ],
+      "literal_sha256": "ec2700a42f8cbad9529f5f77f707f28f7de88f3a3fcd8144a67cdd194a84a4d5",
+      "source_literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.vanguardjapan.com",
+          "href": "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Health Graft II",
+      "source_url": "https://vgsoharchive.com/abilities/health-graft-ii",
+      "scope": "historical",
+      "section_node_index": 6,
+      "cache": {
+        "path": ".cache/archive/a2353e0eeba29a9318db0ee50b93b5118c1a80a70a33aa209b8e0e4815a7fb25.txt",
+        "sha256": "fd3c7a54f2a312d08eb64ffaec28515d10ec283509f0508407a829be2e7df57b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 23,
+          "record_sha256": "7e472ab8244ece6156b6109d20e8d9f11cd8ed5ca8000533769381648e4f65ed"
+        }
+      ],
+      "literal_sha256": "8ea0208e82d97d4e7f9bfa701c1ae2330eebee6ef0d6e9b45b2cfab602e6f19e",
+      "source_literal": "Level in 2007-2008 14 Energy then 57",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>14</dd></div>\n<div><dt>Energy then</dt>\n<dd>57</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007-2008",
+          "value_literal": "14",
+          "direct_value_literal": "14",
+          "numeric_value": 14,
+          "comparison_literal": null,
+          "unit": null
+        },
+        {
+          "label": "Energy then",
+          "value_literal": "57",
+          "direct_value_literal": "57",
+          "numeric_value": 57,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Health Graft II",
+      "source_url": "https://vgsoharchive.com/abilities/health-graft-ii",
+      "scope": "historical",
+      "section_node_index": 7,
+      "cache": {
+        "path": ".cache/archive/a2353e0eeba29a9318db0ee50b93b5118c1a80a70a33aa209b8e0e4815a7fb25.txt",
+        "sha256": "fd3c7a54f2a312d08eb64ffaec28515d10ec283509f0508407a829be2e7df57b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 23,
+          "record_sha256": "7e472ab8244ece6156b6109d20e8d9f11cd8ed5ca8000533769381648e4f65ed"
+        }
+      ],
+      "literal_sha256": "9dd9b7ee8b4cda83832b7ea7db1f0a22f43a48a7e0354a2611750cf58db9a6cd",
+      "source_literal": "Grafts blood and flesh onto your defensive target's party, granting them an additional 190 health for 1 hour.",
+      "source_html": "<div class=\"tooltip\">Grafts blood and flesh onto your defensive target's party, granting them an additional 190 health for 1 hour.</div>",
+      "reviewed_observations": {
+        "effect_literal": "Grafts blood and flesh onto your defensive target's party, granting them an additional 190 health for 1 hour.",
+        "recipient_literal": "your defensive target's party",
+        "additional_health": 190,
+        "duration_literal": "1 hour",
+        "duration_seconds": 3600,
+        "health_pool_semantics": null,
+        "operative_recipient": null,
+        "operative_energy_cost": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Health Graft II",
+      "source_url": "https://vgsoharchive.com/abilities/health-graft-ii",
+      "scope": "historical",
+      "section_node_index": 8,
+      "cache": {
+        "path": ".cache/archive/a2353e0eeba29a9318db0ee50b93b5118c1a80a70a33aa209b8e0e4815a7fb25.txt",
+        "sha256": "fd3c7a54f2a312d08eb64ffaec28515d10ec283509f0508407a829be2e7df57b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 23,
+          "record_sha256": "7e472ab8244ece6156b6109d20e8d9f11cd8ed5ca8000533769381648e4f65ed"
+        }
+      ],
+      "literal_sha256": "f27aeaed3d88311d784c8ac3f344512e0529fa572eaed9e8885ba10be11410bd",
+      "source_literal": "Ten Ton Hammer class guides ,\r\n          \r\n          2007-2008 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\r\n          \r\n          2007-2008 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "Ten Ton Hammer class guides",
+          "href": "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 8,
+    "label_value_comparisons": 5,
+    "exact_mechanic_literal_comparisons": 2,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 694,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Historical recipient claims differ: an ally versus the defensive target party. Neither supersedes the other; operative recipient remains null.",
+    "Historical energy claims 58 and 57 remain separate; embedded now 57 is comparison metadata.",
+    "Bare cast zero has no unit or Instant semantics. Additional health does not establish current versus maximum health behavior.",
+    "Attribution links remain metadata; historical authentication and operative values remain null."
+  ],
+  "next_step": "Review Life Husk I historical mechanics and metadata against cached source sections."
+}

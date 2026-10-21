@@ -1,0 +1,4698 @@
+{
+  "review_kind": "blood_mage_nonnumeric_effect_source_review",
+  "parser_version": 112,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION740.json",
+    "sha256": "b2157667784e0cfc82f5435eaa6c3551c2cb7726bf7193587c6bc803d1bd9151"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Favor of the Life Giver I",
+      "source_url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-i",
+      "cache": {
+        "path": ".cache/archive/e9fb87568231c9324b0c8e08e6fe6b5470d356e21cb13212f9a83f3483854763.txt",
+        "sha256": "f1c500ac3671b123366340173a7f955b03265384fcf07aa59a235176e68e907e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 17,
+          "record_sha256": "c2bb4fe74e6fc92da7325776614fec478790724f3e82b56c0e7e90d931660260"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 1,
+          "literal": "Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level — the figures above are the ability's own, not what a\r\n        particular character will see.",
+          "literal_sha256": "3cc40a2ec3fae07648efd8183f9c380bf7e3eaf8722b81f5dafd02bbc026bb5f",
+          "candidate_observation": null,
+          "disposition": "archive_scaling_commentary_not_ability_mechanic",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Favor of the Life Giver I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-i",
+              "title": "Favor of the Life Giver I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level": [
+              "1"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon1052.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 1,
+          "rank": "I",
+          "category": "Alteration",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Fills your targets group with power.\r\n+14 Constitution\r\n+7 Vitality\r\n+16 Intelligence\r\n+11 Wisdom\r\n+150 Hit Points\r\n+2 Hit Point Regeneration\r\n+40 Physical Resistance",
+          "icon_name": "Icon1052.png",
+          "ranks": [],
+          "target_recorded": "Group",
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_group_cleansing_observation",
+                  "effect_phrase_recorded": "Fills your targets group with power.\r\n+14 Constitution\r\n+7 Vitality\r\n+16 Intelligence\r\n+11 Wisdom\r\n+150 Hit Points\r\n+2 Hit Point Regeneration\r\n+40 Physical Resistance",
+                  "conditions_unparsed": true,
+                  "effect_reported": "group_attribute_buff",
+                  "recipient_reported": "your targets group",
+                  "constitution_bonus": 14,
+                  "vitality_bonus": 7,
+                  "intelligence_bonus": 16,
+                  "wisdom_bonus": 11,
+                  "hit_points_bonus": 150,
+                  "hit_point_regeneration_bonus": 2,
+                  "physical_resistance_bonus": 40,
+                  "regeneration_time_basis": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Focus of Gelenia",
+      "source_url": "https://vgsoharchive.com/abilities/focus-of-gelenia",
+      "cache": {
+        "path": ".cache/archive/6909d8ce3cb5bb3c306f07416c4eb35201675c4b4c314d703d6e99a234b4ee90.txt",
+        "sha256": "aa312aad7f73a70fa3eddce9f122249ebfbb349dd0eaeac8cb55b7da7153369a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 20,
+          "record_sha256": "9097d450945b4ebe23e37deba495e1e3856522f841db3d86dffe7dd280e7db3b"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 1,
+          "literal": "Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level — the figures above are the ability's own, not what a\r\n        particular character will see.",
+          "literal_sha256": "3cc40a2ec3fae07648efd8183f9c380bf7e3eaf8722b81f5dafd02bbc026bb5f",
+          "candidate_observation": null,
+          "disposition": "archive_scaling_commentary_not_ability_mechanic",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Focus of Gelenia",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/focus-of-gelenia",
+              "title": "Focus of Gelenia · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level": [
+              "1"
+            ],
+            "duration": [
+              "1 Hour"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 1,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": null,
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_focus_lifetap_root_observation",
+                  "effect_phrase_recorded": "You sufffer a 5% health loss every 5 seconds, but gain one point of Blood Union. All disease and poison counters are also reset on each tick.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "periodic_health_loss_and_blood_union_gain",
+                  "health_loss_percent": 5,
+                  "tick_interval_seconds": 5,
+                  "blood_union_gain_points": 1,
+                  "counters_reset_reported": [
+                    "disease",
+                    "poison"
+                  ],
+                  "health_loss_basis": null,
+                  "duration_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/focus-of-gelenia-762.php"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Sanguine Focus",
+      "source_url": "https://vgsoharchive.com/abilities/sanguine-focus",
+      "cache": {
+        "path": ".cache/archive/eed072b81564c65c696d17b49e5802d391297074fb97f8006fdaa2bf9425002f.txt",
+        "sha256": "4239b62b949dfbfdb322df92a27bbb9e6bcf44eafa0acabfaffbd30a466c68ef"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 33,
+          "record_sha256": "37265c6da8c9307fb29e2fbb079dc07a5300965a71ada6d880f607ae3fd7e1cc"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 1,
+          "literal": "Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level — the figures above are the ability's own, not what a\r\n        particular character will see.",
+          "literal_sha256": "3cc40a2ec3fae07648efd8183f9c380bf7e3eaf8722b81f5dafd02bbc026bb5f",
+          "candidate_observation": null,
+          "disposition": "archive_scaling_commentary_not_ability_mechanic",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Sanguine Focus",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/sanguine-focus",
+              "title": "Sanguine Focus · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level": [
+              "1"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 1,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": null,
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_focus_lifetap_root_observation",
+                  "effect_phrase_recorded": "Your healing spells are increased by 25% effectiveness, your mitigation by 15% and you regain health faster than normal. This comes at the cost of reducing your spell damage by 50%, and reducing the effect of healing spells cast on you by 50%.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "healing_mitigation_damage_tradeoff",
+                  "healing_spell_effectiveness_increase_percent": 25,
+                  "mitigation_increase_percent": 15,
+                  "spell_damage_reduction_percent": 50,
+                  "incoming_healing_spell_effect_reduction_percent": 50,
+                  "health_regeneration_increase_amount": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "original_source_urls": [
+            "http://vg.mmodb.com:80/spells/sanguine-focus-763.php"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Constricting Wisps I",
+      "source_url": "https://vgsoharchive.com/abilities/constricting-wisps-i",
+      "cache": {
+        "path": ".cache/archive/eff22a4670e48a5dcc48420f029925a9715874ab6f195a5b3fedb418f3d7da69.txt",
+        "sha256": "64e88fc2b94e699cd93e1bc975bd690a349f0de71df2241df1404e0339d04ee4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 13,
+          "record_sha256": "da39fd7f8a848c3de72fa7a6bc42759857c0941d69f5dddb81fb6b9603b6bab0"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Roots your opponent in place, preventing movement. It has a chance to break any time they take damage.",
+          "literal_sha256": "be9047921493a21f271dc27c9e58d17ce2d8c24bb5a1b174ee0c2e78e33b5a80",
+          "candidate_observation": {
+            "effect_reported": "root",
+            "recipient_reported": "opponent",
+            "prevents_movement": true,
+            "may_break_on_damage": true,
+            "break_probability": null,
+            "duration_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "qualitative_source_reviewed_parser_implementation_pending",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Constricting Wisps I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/constricting-wisps-i",
+              "title": "Constricting Wisps I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level": [
+              "6"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 6,
+          "rank": "I",
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Roots your opponent in place, preventing movement. It has a chance to break any time they take damage.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/constricting-wisps-i-773.php"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Awaken",
+      "source_url": "https://vgsoharchive.com/abilities/awaken",
+      "cache": {
+        "path": ".cache/archive/e6c81d4e41c1860a51f74151cb0d012eac8fcf7c6bf7744bdbf529b9f0fe17d6.txt",
+        "sha256": "e9fd5f9b2e72cca5b77900cdba96997909906900d5d3eea08505b84e6240ad6b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 1,
+          "record_sha256": "12452eaa3703b1cb8af04d8f9039a40e12e8b588ac688249fdee8a23066d0366"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Restores a fallen ally to life.",
+          "literal_sha256": "c148c5addc9e804b7476a6892ddae78ec2dd9b8bfc561eec803da8ad8e4e803a",
+          "candidate_observation": {
+            "effect_reported": "resurrection",
+            "recipient_reported": "fallen_ally",
+            "restored_health": null,
+            "combat_usable": null,
+            "duration_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "qualitative_source_reviewed_parser_implementation_pending",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Awaken",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/awaken",
+              "title": "Awaken · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "10"
+            ],
+            "level in 2007-2008": [
+              "10"
+            ],
+            "energy then": [
+              "66"
+            ],
+            "cast then": [
+              "5.0"
+            ],
+            "level": [
+              "10"
+            ],
+            "energy cost": [
+              "66"
+            ],
+            "cast time": [
+              "5.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "Instant"
+            ],
+            "range": [
+              "20m"
+            ],
+            "target": [
+              "Player Corpse"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon559.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 10,
+          "rank": null,
+          "category": "Alteration",
+          "cost": {
+            "energy": 66
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": 0,
+          "range": {
+            "value": 20,
+            "unit": "m",
+            "raw": "20m"
+          },
+          "tooltip": "Restores a fallen ally to life.",
+          "icon_name": "Icon559.png",
+          "ranks": [],
+          "target_recorded": "Player Corpse",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 10,
+              "raw": "10"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 10,
+              "raw": "10"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              66
+            ]
+          },
+          "timing_observations": {
+            "duration_seconds": [
+              {
+                "label": "duration",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/awaken-779.php"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Dissolve",
+      "source_url": "https://vgsoharchive.com/abilities/dissolve",
+      "cache": {
+        "path": ".cache/archive/dc1229acd5376f9b43af6f0aa4a857c40f83564774075c90ac2e563c155b2501.txt",
+        "sha256": "b3aaded637c611925a70ec06ff6c6c772f9d4b6fc3ffa1fa66f2ef113c280f31"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "661a654b164d9f88e728ea6539d62bbf9a0dd6fd720c762a2eeda08156213599"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Counters the effects of a spell by dispersing it.",
+          "literal_sha256": "9e65de478e5887b6155533d0cbac22726dea58814b94a49e25b312049414bab5",
+          "candidate_observation": {
+            "effect_reported": "spell_counter",
+            "counter_eligibility_rules": null,
+            "duration_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "qualitative_source_reviewed_parser_implementation_pending",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Dissolve",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/dissolve",
+              "title": "Dissolve · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "energy then": [
+              "134 — now 133",
+              "131 — now 133"
+            ],
+            "level in 2007": [
+              "10"
+            ],
+            "level in 2007-2008": [
+              "10"
+            ],
+            "refresh then": [
+              "25.0"
+            ],
+            "level": [
+              "10"
+            ],
+            "energy cost": [
+              "133"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "25.0s"
+            ],
+            "duration": [
+              "Instant"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Counterspell"
+            ],
+            "icon": [
+              "Icon467.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 10,
+          "rank": null,
+          "category": "Counterspell",
+          "cost": {
+            "energy": 133
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 25.0,
+          "duration_seconds": 0,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Counters the effects of a spell by dispersing it.",
+          "icon_name": "Icon467.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 10,
+              "raw": "10"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 10,
+              "raw": "10"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034137id_/http://wiki.silkyvenom.com/index.php/Dissolve",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              133
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "25.0s",
+                "seconds": 25.0
+              }
+            ],
+            "duration_seconds": [
+              {
+                "label": "duration",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Favor of the Life Giver II",
+      "source_url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-ii",
+      "cache": {
+        "path": ".cache/archive/9b8c61d8b28a036a18e6a9465e8ded6e0f671fa31ec1d141b10b184f31e25398.txt",
+        "sha256": "559e3d13afa491b683426188574360d0dbe0ae51aab566366738267424182c87"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 18,
+          "record_sha256": "5595540641ee4c37a76217d761a8cd914975896310277d8b3f740d91b79a9278"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 1,
+          "literal": "Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level — the figures above are the ability's own, not what a\r\n        particular character will see.",
+          "literal_sha256": "3cc40a2ec3fae07648efd8183f9c380bf7e3eaf8722b81f5dafd02bbc026bb5f",
+          "candidate_observation": null,
+          "disposition": "archive_scaling_commentary_not_ability_mechanic",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Favor of the Life Giver II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-ii",
+              "title": "Favor of the Life Giver II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level": [
+              "10"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon1052.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 10,
+          "rank": "II",
+          "category": "Alteration",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Fills your targets group with power.\r\n+28 Constitution\r\n+14 Vitality\r\n+32 Intelligence\r\n+22 Wisdom\r\n+300 Hit Points\r\n+3 Hit Point Regeneration\r\n+80 Physical Resistance",
+          "icon_name": "Icon1052.png",
+          "ranks": [],
+          "target_recorded": "Group",
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_group_cleansing_observation",
+                  "effect_phrase_recorded": "Fills your targets group with power.\r\n+28 Constitution\r\n+14 Vitality\r\n+32 Intelligence\r\n+22 Wisdom\r\n+300 Hit Points\r\n+3 Hit Point Regeneration\r\n+80 Physical Resistance",
+                  "conditions_unparsed": true,
+                  "effect_reported": "group_attribute_buff",
+                  "recipient_reported": "your targets group",
+                  "constitution_bonus": 28,
+                  "vitality_bonus": 14,
+                  "intelligence_bonus": 32,
+                  "wisdom_bonus": 22,
+                  "hit_points_bonus": 300,
+                  "hit_point_regeneration_bonus": 3,
+                  "physical_resistance_bonus": 80,
+                  "regeneration_time_basis": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Summon Sanguine Shard",
+      "source_url": "https://vgsoharchive.com/abilities/summon-sanguine-shard",
+      "cache": {
+        "path": ".cache/archive/e9134d6ec8fbff1ffc66360eb01147382849678d8f788ab2f3b887d6ff75cad5.txt",
+        "sha256": "ef3e3463e660dddda8e599d6ba9ce4d3734e7c221e6a704d47e76dbeb30696f7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 40,
+          "record_sha256": "49305d56cb5912d41da5197ce7683f61b28d307a378f999b9596d366ab470f0b"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Summons a sanguine shard. This shard can be used to revive you or another Blood Mage, should they be killed.",
+          "literal_sha256": "8a00fd1e4eacbe3f881f405374a5964b3b6a95cfaeae9e4f5cf471c174db429b",
+          "candidate_observation": {
+            "effect_reported": "summon_revival_item",
+            "item_name_reported": "sanguine shard",
+            "revival_recipients_reported": [
+              "self",
+              "another Blood Mage"
+            ],
+            "consumption_rules": null,
+            "duration_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "qualitative_source_reviewed_parser_implementation_pending",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Summon Sanguine Shard",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/summon-sanguine-shard",
+              "title": "Summon Sanguine Shard · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "energy then": [
+              "67 — now 66",
+              "12 — now 66"
+            ],
+            "cast then": [
+              "5",
+              "5.0"
+            ],
+            "level in 2007": [
+              "10"
+            ],
+            "level in 2007-2008": [
+              "10"
+            ],
+            "level": [
+              "10"
+            ],
+            "health and energy cost": [
+              "66"
+            ],
+            "health cost": [
+              "12"
+            ],
+            "cast time": [
+              "5.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "Until Used"
+            ],
+            "range": [
+              "15m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "type": [
+              "Conjuration"
+            ],
+            "icon": [
+              "Icon712.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 10,
+          "rank": null,
+          "category": "Conjuration",
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 15,
+            "unit": "m",
+            "raw": "15m"
+          },
+          "tooltip": "Summons a sanguine shard. This shard can be used to revive you or another Blood Mage, should they be killed.",
+          "icon_name": "Icon712.png",
+          "ranks": [],
+          "target_recorded": "Group",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 10,
+              "raw": "10"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 10,
+              "raw": "10"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033352id_/http://wiki.silkyvenom.com/index.php/Summon_Sanguine_Shard",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/summon-sanguine-shard-781.php"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Grim Harvest",
+      "source_url": "https://vgsoharchive.com/abilities/grim-harvest",
+      "cache": {
+        "path": ".cache/archive/d3b097d5873d6a15afc0941f0c27fcb6d07781d5452ae0de2b295e830c1d80d5.txt",
+        "sha256": "16186f71f42531d5c27ffb1b46e9545fbbf9644fb9d6c14fe84ecc3a40f214bc"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 21,
+          "record_sha256": "a37ef3e3702b835dfa68ddb86f10a4c070a7361e0e82d67e885d9fe5bf6abcb5"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Harvests an organ out of a living body. Which organ it harvests is based on what your opponent has been affected by. Works in conjunction with Union of Blood, Constrict, Exploding Cyst and Blood Letting Ritual.",
+          "literal_sha256": "e80a57d78ee53d419ea151228da864bf1be888309d083686fe43a91f7820edf7",
+          "candidate_observation": {
+            "effect_reported": "harvest_organ_from_living_body",
+            "organ_selection_depends_on": "effects_on_opponent",
+            "related_abilities_reported": [
+              "Union of Blood",
+              "Constrict",
+              "Exploding Cyst",
+              "Blood Letting Ritual"
+            ],
+            "organ_mapping": null,
+            "duration_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "qualitative_source_reviewed_parser_implementation_pending",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Grim Harvest",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/grim-harvest",
+              "title": "Grim Harvest · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "energy then": [
+              "44",
+              "17 — now 44"
+            ],
+            "cast then": [
+              "2",
+              "2.0"
+            ],
+            "refresh then": [
+              "15",
+              "15.0"
+            ],
+            "level in 2007": [
+              "14"
+            ],
+            "level in 2007-2008": [
+              "14"
+            ],
+            "level": [
+              "14"
+            ],
+            "health and energy cost": [
+              "44"
+            ],
+            "health cost": [
+              "17"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "15.0s"
+            ],
+            "duration": [
+              "Instant"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "requires": [
+              "Union of Blood, Constrict, Exploding Cyst or Blood Letting Ritual"
+            ],
+            "type": [
+              "Physical Evocation"
+            ],
+            "icon": [
+              "Icon621.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 14,
+          "rank": null,
+          "category": "Physical Evocation",
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": 15.0,
+          "duration_seconds": 0,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon621.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 14,
+              "raw": "14"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 14,
+              "raw": "14"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032954id_/http://wiki.silkyvenom.com/index.php/Grim_Harvest",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "timing_observations": {
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "15.0s",
+                "seconds": 15.0
+              }
+            ],
+            "duration_seconds": [
+              {
+                "label": "duration",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": "Union of Blood, Constrict, Exploding Cyst or Blood Letting Ritual",
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Health Graft II",
+      "source_url": "https://vgsoharchive.com/abilities/health-graft-ii",
+      "cache": {
+        "path": ".cache/archive/a2353e0eeba29a9318db0ee50b93b5118c1a80a70a33aa209b8e0e4815a7fb25.txt",
+        "sha256": "fd3c7a54f2a312d08eb64ffaec28515d10ec283509f0508407a829be2e7df57b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 23,
+          "record_sha256": "7e472ab8244ece6156b6109d20e8d9f11cd8ed5ca8000533769381648e4f65ed"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "This spell grafts blood and flesh onto you, giving you hit points.",
+          "literal_sha256": "a4caca3b91e103acb0a4c1a0b7a55c6c46b33d08a778c4ca7e3cd19018c61e90",
+          "candidate_observation": {
+            "effect_reported": "self_hit_point_gain",
+            "hit_points_gained": null,
+            "duration_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "qualitative_source_reviewed_parser_implementation_pending",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Health Graft II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/health-graft-ii",
+              "title": "Health Graft II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "energy then": [
+              "58 — now 57",
+              "57"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "level in 2007": [
+              "14"
+            ],
+            "level in 2007-2008": [
+              "14"
+            ],
+            "level": [
+              "14"
+            ],
+            "energy cost": [
+              "57"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "1 Hour"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "type": [
+              "Alteration"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 14,
+          "rank": "II",
+          "category": "Alteration",
+          "cost": {
+            "energy": 57
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "This spell grafts blood and flesh onto you, giving you hit points.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 14,
+              "raw": "14"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 14,
+              "raw": "14"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034225id_/http://wiki.silkyvenom.com/index.php/Health_Graft_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              57
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/health-graft-ii-761.php"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Mental Infusion I",
+      "source_url": "https://vgsoharchive.com/abilities/mental-infusion-i",
+      "cache": {
+        "path": ".cache/archive/a8d2ff34631c9aef001900f9a205f616f4d96d66ce35cfeae6c42c5c4cbd1eb0.txt",
+        "sha256": "73a47ebb3c45c504349ac222c3f4cd5168af821c05fb80b8effaa679e8bd6d4d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 29,
+          "record_sha256": "746a74a14511219a9d86f712c56de9b295a608d296ba85b168083381bcdb2c36"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Increases you and your allies Intelligence and Wisdom.",
+          "literal_sha256": "325fde3203d9fc5fbf129ab8b2c2aa5a359482831d988ee36b29a7af752375ae",
+          "candidate_observation": {
+            "effect_reported": "attribute_increase",
+            "recipients_reported": [
+              "self",
+              "allies"
+            ],
+            "attributes_reported": [
+              "Intelligence",
+              "Wisdom"
+            ],
+            "bonus_amount": null,
+            "duration_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "qualitative_source_reviewed_parser_implementation_pending",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Mental Infusion I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/mental-infusion-i",
+              "title": "Mental Infusion I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "energy then": [
+              "100 — now 90"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "level": [
+              "14"
+            ],
+            "energy cost": [
+              "90"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 14,
+          "rank": "I",
+          "category": null,
+          "cost": {
+            "energy": 90
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Increases you and your allies Intelligence and Wisdom.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034323id_/http://wiki.silkyvenom.com/index.php/Mental_Infusion_I"
+          ],
+          "cost_observations": {
+            "energy": [
+              90
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/mental-infusion-i-786.php"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Regeneration I",
+      "source_url": "https://vgsoharchive.com/abilities/regeneration-i",
+      "cache": {
+        "path": ".cache/archive/b5068632eac068e070183eb6e2ee5d7f18d5c54b8772170aba4fab1bd967ea4f.txt",
+        "sha256": "51efbb2346a63322b142fbe1833b47d471be7a7058c2c6707023ea224934b9a1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 32,
+          "record_sha256": "f96487f7205d6852fec0cdacfc3345eac1d640212ca5cfc70a4e88b90af348aa"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Increases you and your allies health regeneration.",
+          "literal_sha256": "2be56550ba7f3e783a456b8a0c4a08d75d7d57acd467db78f917257be64daea4",
+          "candidate_observation": {
+            "effect_reported": "health_regeneration_increase",
+            "recipients_reported": [
+              "self",
+              "allies"
+            ],
+            "bonus_amount": null,
+            "tick_interval_seconds": null,
+            "duration_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "qualitative_source_reviewed_parser_implementation_pending",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Regeneration I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/regeneration-i",
+              "title": "Regeneration I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "46 — now 16"
+            ],
+            "level": [
+              "16"
+            ],
+            "energy cost": [
+              "143"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 16,
+          "rank": "I",
+          "category": null,
+          "cost": {
+            "energy": 143
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Increases you and your allies health regeneration.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 46,
+              "raw": "46 — now 16"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033224id_/http://wiki.silkyvenom.com/index.php/Regeneration_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              143
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/regeneration-i-788.php"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Mantle I",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-mantle-i",
+      "cache": {
+        "path": ".cache/archive/3299969be3e38ac6015adec42fe105f84bf9c69594f38f4071efe2be805d9838.txt",
+        "sha256": "83b8f6c90482e071ea2458f8e672708869d00ef8de93a558f5b160348a46e700"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 37,
+          "record_sha256": "18ebc36f200efa465ea5b1405982e12afa78807cfb869d30bea9c2ab919ac6bd"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+          "literal_sha256": "7eedcadf5a8db07e2a6be4aa8d0c3263eaed45efb77086c83058adfdc05d7b11",
+          "candidate_observation": {
+            "effect_reported": "self_armor_class_and_health_increase",
+            "scales_with_reported": "adventuring level",
+            "does_not_stack_with_reported": "Construct's Augmentation",
+            "armor_class_bonus": null,
+            "health_bonus": null,
+            "scaling_formula": null,
+            "duration_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "qualitative_source_reviewed_parser_implementation_pending",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Serak's Mantle I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/serak-s-mantle-i",
+              "title": "Serak's Mantle I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "energy then": [
+              "33 — now 66",
+              "33 — now 66"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "level in 2007": [
+              "4 — now 16"
+            ],
+            "level in 2007-2008": [
+              "4 — now 16"
+            ],
+            "level": [
+              "16"
+            ],
+            "energy cost": [
+              "66"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "type": [
+              "Conjuration"
+            ],
+            "icon": [
+              "Icon663.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 16,
+          "rank": "I",
+          "category": "Conjuration",
+          "cost": {
+            "energy": 66
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+          "icon_name": "Icon663.png",
+          "ranks": [],
+          "target_recorded": "Self",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 4,
+              "raw": "4 — now 16"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 4,
+              "raw": "4 — now 16"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034635id_/http://wiki.silkyvenom.com/index.php/Serak's_Mantle_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              66
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://vanguard.fandom.com/wiki/Serak%27s_Mantle"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Mortal Calling",
+      "source_url": "https://vgsoharchive.com/abilities/mortal-calling",
+      "cache": {
+        "path": ".cache/archive/49fe2b04b5ef101c9604f472b14cd71262ab7128728509cab0952daf41f37664.txt",
+        "sha256": "1c1991c0de6f54aad71aecc7a7101addb066ed0fa6a142a7dedece783794b1e1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 53,
+          "record_sha256": "b4ae74c8c22174c2d4606bfb0ae5253b9b8fa306af2a6f270971fdb9d3d595ec"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "This spell summons a group mate to your side. The call's distance is restricted, and you can only call in certain areas.",
+          "literal_sha256": "80753c59e9a28009c6752c5daf80c14c3e9c02900bcf791590ead07abffefa52",
+          "candidate_observation": {
+            "effect_reported": "summon_group_mate",
+            "destination_reported": "caster_side",
+            "distance_restricted": true,
+            "distance_limit": null,
+            "area_restricted": true,
+            "permitted_areas": null,
+            "duration_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "qualitative_source_reviewed_parser_implementation_pending",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Mortal Calling",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/mortal-calling",
+              "title": "Mortal Calling · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "energy then": [
+              "111 — now 110",
+              "22 — now 110"
+            ],
+            "cast then": [
+              "2",
+              "6.0"
+            ],
+            "level in 2007": [
+              "18"
+            ],
+            "level in 2007-2008": [
+              "18"
+            ],
+            "refresh then": [
+              "2.0"
+            ],
+            "level": [
+              "18"
+            ],
+            "health and energy cost": [
+              "110"
+            ],
+            "health cost": [
+              "22"
+            ],
+            "cast time": [
+              "6.0"
+            ],
+            "refresh": [
+              "2.0s"
+            ],
+            "range": [
+              "5000m"
+            ],
+            "target": [
+              "Ally"
+            ],
+            "type": [
+              "Conjuration"
+            ],
+            "icon": [
+              "Icon701.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 18,
+          "rank": null,
+          "category": "Conjuration",
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": 2.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 5000,
+            "unit": "m",
+            "raw": "5000m"
+          },
+          "tooltip": "This spell summons a group mate to your side. The call's distance is restricted, and you can only call in certain areas.",
+          "icon_name": "Icon701.png",
+          "ranks": [],
+          "target_recorded": "Ally",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 18,
+              "raw": "18"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 18,
+              "raw": "18"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033111id_/http://wiki.silkyvenom.com/index.php/Mortal_Calling",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "timing_observations": {
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "2.0s",
+                "seconds": 2.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/mortal-calling-792.php"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Augmentation I",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-augmentation-i",
+      "cache": {
+        "path": ".cache/archive/26a94bb74962a0ce2594464c3329305f34e4d45a37696a77a8850c82ec839214.txt",
+        "sha256": "95a23262d72f5ebff143e80bd89f97b9d6fbef5a74c4f2b915a879edbb4858f9"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 60,
+          "record_sha256": "2d32a1288f374afa0f7f4ec01bbf51c04e6b7a403a0c81a807b51b8ca5ba6fde"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Increases you and your allies Constitution and Physical resistance.",
+          "literal_sha256": "3719004cbf73f798061df120e2f5a5015771fad5ed5dae01e34694768a90ee5b",
+          "candidate_observation": {
+            "effect_reported": "attribute_and_resistance_increase",
+            "recipients_reported": [
+              "self",
+              "allies"
+            ],
+            "attributes_reported": [
+              "Constitution",
+              "Physical resistance"
+            ],
+            "bonus_amount": null,
+            "duration_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "qualitative_source_reviewed_parser_implementation_pending",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Serak's Augmentation I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/serak-s-augmentation-i",
+              "title": "Serak's Augmentation I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "energy then": [
+              "55 — now 57",
+              "57"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "level in 2007": [
+              "14 — now 18"
+            ],
+            "level in 2007-2008": [
+              "14 — now 18"
+            ],
+            "level": [
+              "18"
+            ],
+            "energy cost": [
+              "57"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "Instant"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Devensive Target"
+            ],
+            "type": [
+              "Alteration"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 18,
+          "rank": "I",
+          "category": "Alteration",
+          "cost": {
+            "energy": 57
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": 0,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Increases you and your allies Constitution and Physical resistance.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": "Devensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 14,
+              "raw": "14 — now 18"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 14,
+              "raw": "14 — now 18"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034631id_/http://wiki.silkyvenom.com/index.php/Serak's_Augmentation_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              57
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "duration_seconds": [
+              {
+                "label": "duration",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "http://vg.mmodb.com:80/spells/seraks-augmentation-i-791.php"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Strip Enchantment I",
+      "source_url": "https://vgsoharchive.com/abilities/strip-enchantment-i",
+      "cache": {
+        "path": ".cache/archive/a922943154ed71ca6634cfff9bb9196a196d5803a02a7c16c7428563baabe415.txt",
+        "sha256": "df2fdfaf1910ef09f66db64ebffd23ecf3b9638f86a68d4b60ac5823c0b99e41"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 70,
+          "record_sha256": "a19ed7bb2b2e6d36782f3089d271911d2a297c9f8c1173385feb7fd66e086835"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Strips a minor enchantment from your opponent.",
+          "literal_sha256": "244e93eccf0f4d91a313f2b93c5b32c61cdba9b8337b9c6dc0451a605b54bf4a",
+          "candidate_observation": {
+            "effect_reported": "remove_enchantment",
+            "recipient_reported": "opponent",
+            "enchantment_qualifier_reported": "minor",
+            "eligible_enchantments": null,
+            "duration_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "qualitative_source_reviewed_parser_implementation_pending",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Strip Enchantment I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/strip-enchantment-i",
+              "title": "Strip Enchantment I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "18"
+            ],
+            "level in 2007-2008": [
+              "18"
+            ],
+            "energy then": [
+              "163 — now 165"
+            ],
+            "cast then": [
+              "1.0"
+            ],
+            "level": [
+              "18"
+            ],
+            "energy cost": [
+              "165"
+            ],
+            "cast time": [
+              "1.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon685.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 18,
+          "rank": "I",
+          "category": "Alteration",
+          "cost": {
+            "energy": 165
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Strips a minor enchantment from your opponent.",
+          "icon_name": "Icon685.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 18,
+              "raw": "18"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 18,
+              "raw": "18"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              165
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Favor of the Life Giver III",
+      "source_url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-iii",
+      "cache": {
+        "path": ".cache/archive/1cb5a2e6728feab65b7b8202d7358f56e8fb2bef79f76b10913b83acf8b5bc5e.txt",
+        "sha256": "328274b051fa95a4438c9890f3aae96d7eda07011dfc365bc79cbe9f537f4697"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 23,
+          "record_sha256": "390209ec4bee87a4a78075659333356884e736200007a86935f73b23616a6a78"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 1,
+          "literal": "Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level — the figures above are the ability's own, not what a\r\n        particular character will see.",
+          "literal_sha256": "3cc40a2ec3fae07648efd8183f9c380bf7e3eaf8722b81f5dafd02bbc026bb5f",
+          "candidate_observation": null,
+          "disposition": "archive_scaling_commentary_not_ability_mechanic",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Favor of the Life Giver III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-iii",
+              "title": "Favor of the Life Giver III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level": [
+              "20"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon1052.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 20,
+          "rank": "III",
+          "category": "Alteration",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1052.png",
+          "ranks": [],
+          "target_recorded": "Group",
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_group_ritual_absorption_observation",
+                  "effect_phrase_recorded": "Fills your targets group with power.\r\n+56 Constitution\r\n+28 Vitality\r\n+64 Intelligence\r\n+44 Wisdom\r\n+600 Hit Points\r\n+6 Hit Point Regeneration\r\n+160 Physical Resistance\r\nStacks Best Buff Only",
+                  "conditions_unparsed": true,
+                  "effect_reported": "group_stat_buff",
+                  "recipient_reported": "your targets group",
+                  "constitution_increase": 56,
+                  "vitality_increase": 28,
+                  "intelligence_increase": 64,
+                  "wisdom_increase": 44,
+                  "hit_points_increase": 600,
+                  "hit_point_regeneration_increase": 6,
+                  "physical_resistance_increase": 160,
+                  "regeneration_interval_seconds": null,
+                  "stacking_reported": "Stacks Best Buff Only",
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Reanimate",
+      "source_url": "https://vgsoharchive.com/abilities/reanimate",
+      "cache": {
+        "path": ".cache/archive/07535a46f54a534c7e62616047dd221d5115079c15d8b73225dacb6997b8cfd6.txt",
+        "sha256": "8c0d6558f7d22a57d2620739bf92732a93a833be717ff7e42452ded049024d43"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 78,
+          "record_sha256": "e9c8ee0fd26ebe81ba242de82be968e5254da266651c444ca012cda70f8ee3d0"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Brings a fallen ally back to life with a small amount of health. Can be used in combat.",
+          "literal_sha256": "57317f3f4092c6583fa3f198c834b848202f38ccb6de78117bb78350e23446d9",
+          "candidate_observation": {
+            "effect_reported": "resurrection",
+            "recipient_reported": "fallen_ally",
+            "restored_health_qualifier": "small amount",
+            "restored_health": null,
+            "combat_usable": true,
+            "duration_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "qualitative_source_reviewed_parser_implementation_pending",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Reanimate",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/reanimate",
+              "title": "Reanimate · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "22"
+            ],
+            "level in 2007-2008": [
+              "22"
+            ],
+            "energy then": [
+              "130 — now 132"
+            ],
+            "cast then": [
+              "10.0"
+            ],
+            "refresh then": [
+              "10:00"
+            ],
+            "level": [
+              "22"
+            ],
+            "energy cost": [
+              "132"
+            ],
+            "cast time": [
+              "10.0"
+            ],
+            "refresh": [
+              "2:00s"
+            ],
+            "range": [
+              "20m"
+            ],
+            "target": [
+              "Player Corpse"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon559.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 22,
+          "rank": null,
+          "category": "Alteration",
+          "cost": {
+            "energy": 132
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 20,
+            "unit": "m",
+            "raw": "20m"
+          },
+          "tooltip": "Brings a fallen ally back to life with a small amount of health. Can be used in combat.",
+          "icon_name": "Icon559.png",
+          "ranks": [],
+          "target_recorded": "Player Corpse",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 22,
+              "raw": "22"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 22,
+              "raw": "22"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034521id_/http://wiki.silkyvenom.com/index.php/Reanimate",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              132
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Mantle II",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-mantle-ii",
+      "cache": {
+        "path": ".cache/archive/285296902655b4de3ea63a4a622f1b9c64235f43889946a4cd1f713fd22d0965.txt",
+        "sha256": "8511a5130f86310b549c9cff1eb3df9715c00d19aff0d47ff076bb40c123c10e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 63,
+          "record_sha256": "5a76c429775f4ef96b7fffed3a65656ddddd089b962d15ef47ed3238bd7b46df"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+          "literal_sha256": "7eedcadf5a8db07e2a6be4aa8d0c3263eaed45efb77086c83058adfdc05d7b11",
+          "candidate_observation": {
+            "effect_reported": "self_armor_class_and_health_increase",
+            "scales_with_reported": "adventuring level",
+            "does_not_stack_with_reported": "Construct's Augmentation",
+            "armor_class_bonus": null,
+            "health_bonus": null,
+            "scaling_formula": null,
+            "duration_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "qualitative_source_reviewed_parser_implementation_pending",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Serak's Mantle II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/serak-s-mantle-ii",
+              "title": "Serak's Mantle II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "energy then": [
+              "65 — now 100",
+              "65 — now 100"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "level in 2007": [
+              "16 — now 28"
+            ],
+            "level in 2007-2008": [
+              "16 — now 28"
+            ],
+            "level": [
+              "28"
+            ],
+            "energy cost": [
+              "100"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "type": [
+              "Conjuration"
+            ],
+            "icon": [
+              "Icon663.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 28,
+          "rank": "II",
+          "category": "Conjuration",
+          "cost": {
+            "energy": 100
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+          "icon_name": "Icon663.png",
+          "ranks": [],
+          "target_recorded": "Self",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 16,
+              "raw": "16 — now 28"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 16,
+              "raw": "16 — now 28"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034638id_/http://wiki.silkyvenom.com/index.php/Serak's_Mantle_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              100
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://vg.mmodb.com:80/spells/seraks-mantle-ii-771.php"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Strip Enchantment II",
+      "source_url": "https://vgsoharchive.com/abilities/strip-enchantment-ii",
+      "cache": {
+        "path": ".cache/archive/57b623b85c34ce4a1c0ea0c78bfc955a2a04667e72e654e85dd6cb67d31cfaaf.txt",
+        "sha256": "fdeab524da30f56f96b5bd52899cb6adcca7e1f3495ad1a407f128afdca7f184"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+          "line": 77,
+          "record_sha256": "6a1682884082cf78f6b6769c9108cb3a9b3e325371810a132cce6b063657f037"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Strips a lesser enchantment from your opponent.",
+          "literal_sha256": "485abe80d83ab6b2b672f76ee91d2f04c535b3922e49d1feccc1b472e59c728f",
+          "candidate_observation": {
+            "effect_reported": "remove_enchantment",
+            "recipient_reported": "opponent",
+            "enchantment_qualifier_reported": "lesser",
+            "eligible_enchantments": null,
+            "duration_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "qualitative_source_reviewed_parser_implementation_pending",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Strip Enchantment II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/strip-enchantment-ii",
+              "title": "Strip Enchantment II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "28"
+            ],
+            "level": [
+              "28"
+            ],
+            "energy cost": [
+              "249"
+            ],
+            "cast time": [
+              "1.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon685.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 28,
+          "rank": "II",
+          "category": "Alteration",
+          "cost": {
+            "energy": 249
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Strips a lesser enchantment from your opponent.",
+          "icon_name": "Icon685.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 28,
+              "raw": "28"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              249
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "cure_dispel_tooltip_observation",
+                  "effect_phrase_recorded": "Strips a lesser enchantment from your opponent.",
+                  "conditions_unparsed": true,
+                  "action_reported": "strip_enchantment",
+                  "condition_reported": "enchantment",
+                  "target_reported": "opponent",
+                  "timing_qualifier_reported": null,
+                  "enchantment_qualifier_reported": "lesser",
+                  "cure_count": null,
+                  "pulse_interval_seconds": null,
+                  "duration_seconds": null,
+                  "dispel_strength": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Favor of the Life Giver IV",
+      "source_url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-iv",
+      "cache": {
+        "path": ".cache/archive/95b7c5e6604240136dc289d79299cf69dd16a684f08c30ac772a0a38c57ec8cf.txt",
+        "sha256": "34a1f42d6f99c6c4775cda0fcccb1137916c21fe1d88fef5141154abae19cd1e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 93,
+          "record_sha256": "f910b3680f71205de23b5a877c07c75bbd604a1c547f3c07fdf26677f53fb440"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 1,
+          "literal": "Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level — the figures above are the ability's own, not what a\r\n        particular character will see.",
+          "literal_sha256": "3cc40a2ec3fae07648efd8183f9c380bf7e3eaf8722b81f5dafd02bbc026bb5f",
+          "candidate_observation": null,
+          "disposition": "archive_scaling_commentary_not_ability_mechanic",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Favor of the Life Giver IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-iv",
+              "title": "Favor of the Life Giver IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level": [
+              "30"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon1052.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 30,
+          "rank": "IV",
+          "category": "Alteration",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1052.png",
+          "ranks": [],
+          "target_recorded": "Group",
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_group_ritual_counter_healing_observation",
+                  "effect_phrase_recorded": "Fills your targets group with power.\r\n+85 Constitution\r\n+42 Vitality\r\n+96 Intelligence\r\n+66 Wisdom\r\n+900 Hit Points\r\n+9 Hit Point Regeneration\r\n+240 Physical Resistance\r\nStacks Best Buff Only",
+                  "conditions_unparsed": true,
+                  "effect_reported": "target_group_attribute_buff",
+                  "recipient_reported": "targets group",
+                  "constitution_increase": 85,
+                  "vitality_increase": 42,
+                  "intelligence_increase": 96,
+                  "wisdom_increase": 66,
+                  "hit_points_increase": 900,
+                  "hit_point_regeneration_increase": 9,
+                  "hit_point_regeneration_unit": null,
+                  "physical_resistance_increase": 240,
+                  "stacking_reported": "Stacks Best Buff Only",
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Strip Enchantment III",
+      "source_url": "https://vgsoharchive.com/abilities/strip-enchantment-iii",
+      "cache": {
+        "path": ".cache/archive/e8701423b2c8d966448f40c55dcffdc95a9f460083e8dd832f9277b3b51cd2b3.txt",
+        "sha256": "d4bb1c69e985fe80425ec7ca2e5b80997b0c1fbec7adb6fe57815420a3c6190a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+          "line": 78,
+          "record_sha256": "e105098b591182af8b437c4dd7d47218528e9caf2f73c8e87684ea08c1803950"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Strips an enchantment from your opponent.",
+          "literal_sha256": "82dcdb528a1d9684d453655d9fbce20108b0d0ab6380ceb70234d8585c64778e",
+          "candidate_observation": {
+            "effect_reported": "remove_enchantment",
+            "recipient_reported": "opponent",
+            "enchantment_qualifier_reported": null,
+            "eligible_enchantments": null,
+            "duration_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "qualitative_source_reviewed_parser_implementation_pending",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Strip Enchantment III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/strip-enchantment-iii",
+              "title": "Strip Enchantment III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "38"
+            ],
+            "level": [
+              "38"
+            ],
+            "energy cost": [
+              "334"
+            ],
+            "cast time": [
+              "1.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon685.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 38,
+          "rank": "III",
+          "category": "Alteration",
+          "cost": {
+            "energy": 334
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Strips an enchantment from your opponent.",
+          "icon_name": "Icon685.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 38,
+              "raw": "38"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              334
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "cure_dispel_tooltip_observation",
+                  "effect_phrase_recorded": "Strips an enchantment from your opponent.",
+                  "conditions_unparsed": true,
+                  "action_reported": "strip_enchantment",
+                  "condition_reported": "enchantment",
+                  "target_reported": "opponent",
+                  "timing_qualifier_reported": null,
+                  "enchantment_qualifier_reported": null,
+                  "cure_count": null,
+                  "pulse_interval_seconds": null,
+                  "duration_seconds": null,
+                  "dispel_strength": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Letting",
+      "source_url": "https://vgsoharchive.com/abilities/blood-letting",
+      "cache": {
+        "path": ".cache/archive/349e08c5e267a71c5ce6a85eacfe9aeff066157e2c729efc542593705a07dd0f.txt",
+        "sha256": "b2d9c2a66513e99dbbffbe5af4a69b4b0917008c44c095640529555fa152c897"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 19,
+          "record_sha256": "160fb1197d1cf53a88635d99d313992330351991cc9bf37dcdfb5d229198f2ce"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 1,
+          "literal": "Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level — the figures above are the ability's own, not what a\r\n        particular character will see.",
+          "literal_sha256": "3cc40a2ec3fae07648efd8183f9c380bf7e3eaf8722b81f5dafd02bbc026bb5f",
+          "candidate_observation": null,
+          "disposition": "archive_scaling_commentary_not_ability_mechanic",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Blood Letting",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/blood-letting",
+              "title": "Blood Letting · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level": [
+              "40"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 40,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This ability consumes 25% health and 15% energy, but forms a full Blood Union with your enemy instantly.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_damage_group_buff_ritual_union_observation",
+                  "effect_phrase_recorded": "This ability consumes 25% health and 15% energy, but forms a full Blood Union with your enemy instantly.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "health_energy_consumption_full_blood_union",
+                  "health_consumed_percent": 25,
+                  "energy_consumed_percent": 15,
+                  "blood_union_result_reported": "full",
+                  "blood_union_numeric_result": null,
+                  "consumption_percentage_basis": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/blood-letting-799.php"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Favor of the Life Giver V",
+      "source_url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-v",
+      "cache": {
+        "path": ".cache/archive/0f7b09dbef0f4bf077e7d1d4380abf39ab83c4a3f53643525ee5af1cf5524211.txt",
+        "sha256": "a94673e2ba0c56bc9301170d9c4e032441808bea451f17b294c7cfc681ce23ef"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 94,
+          "record_sha256": "aa4ad557ca666a012dc884dc723bbd5e633b610e38436a8fe0617330bd0baad9"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 1,
+          "literal": "Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level — the figures above are the ability's own, not what a\r\n        particular character will see.",
+          "literal_sha256": "3cc40a2ec3fae07648efd8183f9c380bf7e3eaf8722b81f5dafd02bbc026bb5f",
+          "candidate_observation": null,
+          "disposition": "archive_scaling_commentary_not_ability_mechanic",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Favor of the Life Giver V",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-v",
+              "title": "Favor of the Life Giver V · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level": [
+              "40"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon1052.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 40,
+          "rank": "V",
+          "category": "Alteration",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1052.png",
+          "ranks": [],
+          "target_recorded": "Group",
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_damage_group_buff_ritual_union_observation",
+                  "effect_phrase_recorded": "Fills your targets group with power.\r\n+113 Constitution\r\n+56 Vitality\r\n+128 Intelligence\r\n+88 Wisdom\r\n+1200 Hit Points\r\n+12 Hit Point Regeneration\r\n+320 Physical Resistance\r\nStacks Best Buff Only",
+                  "conditions_unparsed": true,
+                  "effect_reported": "target_group_attribute_buff",
+                  "recipient_reported": "your targets group",
+                  "constitution_increase": 113,
+                  "vitality_increase": 56,
+                  "intelligence_increase": 128,
+                  "wisdom_increase": 88,
+                  "hit_points_increase": 1200,
+                  "hit_point_regeneration_increase": 12,
+                  "regeneration_time_basis": null,
+                  "physical_resistance_increase": 320,
+                  "stacking_reported": "Stacks Best Buff Only",
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Metamorphism II",
+      "source_url": "https://vgsoharchive.com/abilities/metamorphism-ii",
+      "cache": {
+        "path": ".cache/archive/3d2249aafb4219aeed3b2540eae0dda44442b7d0769ea049e9218bae2dae808d.txt",
+        "sha256": "f180ead69c2a5126853ded09afe672ea8440561528f36929d475a5aceeadf87a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 13,
+          "record_sha256": "e8626e5fc766240c2e1f48a5c5ff712a53107ffd515b3be50421daf39b791340"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 1,
+          "literal": "Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level — the figures above are the ability's own, not what a\r\n        particular character will see.",
+          "literal_sha256": "3cc40a2ec3fae07648efd8183f9c380bf7e3eaf8722b81f5dafd02bbc026bb5f",
+          "candidate_observation": null,
+          "disposition": "archive_scaling_commentary_not_ability_mechanic",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Metamorphism II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/metamorphism-ii",
+              "title": "Metamorphism II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level": [
+              "40"
+            ],
+            "energy cost": [
+              "777"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "30.0s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Counterspell"
+            ],
+            "icon": [
+              "Icon726.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 40,
+          "rank": "II",
+          "category": "Counterspell",
+          "cost": {
+            "energy": 777
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 30.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Counters a spell being cast and channels the energy into healing power, healing all group members within 10m by 659.",
+          "icon_name": "Icon726.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "cost_observations": {
+            "energy": [
+              777
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "30.0s",
+                "seconds": 30.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_healing_counter_symbiote_steal_observation",
+                  "effect_phrase_recorded": "Counters a spell being cast and channels the energy into healing power, healing all group members within 10m by 659.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "spell_counter_with_group_healing",
+                  "healing_amount": 659,
+                  "recipient_reported": "all group members",
+                  "radius_meters": 10,
+                  "counter_restrictions": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Mantle III",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-mantle-iii",
+      "cache": {
+        "path": ".cache/archive/82f1065226b2db6d77542df89e8b4abf9b561997fab5c61a93cc62e92630ddea.txt",
+        "sha256": "e4cc4af32bc00b5de34fbd15354999b52d136fd6025cb048a1a2973d6e0984ee"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 64,
+          "record_sha256": "4c537bb6ca85250cc58c37ad5a521b19d2da707ebcc642e5d608da1d8d852127"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+          "literal_sha256": "7eedcadf5a8db07e2a6be4aa8d0c3263eaed45efb77086c83058adfdc05d7b11",
+          "candidate_observation": {
+            "effect_reported": "self_armor_class_and_health_increase",
+            "scales_with_reported": "adventuring level",
+            "does_not_stack_with_reported": "Construct's Augmentation",
+            "armor_class_bonus": null,
+            "health_bonus": null,
+            "scaling_formula": null,
+            "duration_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "qualitative_source_reviewed_parser_implementation_pending",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Serak's Mantle III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/serak-s-mantle-iii",
+              "title": "Serak's Mantle III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "energy then": [
+              "113 — now 134"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "level in 2007": [
+              "28 — now 40"
+            ],
+            "level": [
+              "40"
+            ],
+            "energy cost": [
+              "134"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "type": [
+              "Conjuration"
+            ],
+            "icon": [
+              "Icon663.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 40,
+          "rank": "III",
+          "category": "Conjuration",
+          "cost": {
+            "energy": 134
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+          "icon_name": "Icon663.png",
+          "ranks": [],
+          "target_recorded": "Self",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 28,
+              "raw": "28 — now 40"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034646id_/http://wiki.silkyvenom.com/index.php/Serak's_Mantle_III",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              134
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Call of the Warehouse",
+      "source_url": "https://vgsoharchive.com/abilities/call-of-the-warehouse",
+      "cache": {
+        "path": ".cache/archive/e59c1b60abdf365a0a233d01fd9987f10d585fc3d5abe041ad40094c45a737f9.txt",
+        "sha256": "bc91971e8d1298bacef807158a99a437113725e87baea56a7fa9c34a505e511b"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 8,
+          "record_sha256": "6ebfb02d508876a26d5f379602b47c605fb2ece2e3cc0d4f63e436bc00b87be6"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Summons a group mate to your side within the walls of Ancient Port Warehouse.",
+          "literal_sha256": "8ca12c0f36af7d2792c1c8c805e030025fb43a6887233afc3415902cdf7e249c",
+          "candidate_observation": {
+            "effect_reported": "summon_group_mate",
+            "destination_reported": "caster_side",
+            "location_restriction_reported": "within the walls of Ancient Port Warehouse",
+            "distance_limit": null,
+            "duration_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "qualitative_source_reviewed_parser_implementation_pending",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Call of the Warehouse",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/call-of-the-warehouse",
+              "title": "Call of the Warehouse · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level in 2007-2008": [
+              "48"
+            ],
+            "cast then": [
+              "6"
+            ],
+            "refresh then": [
+              "3600"
+            ],
+            "level": [
+              "48"
+            ],
+            "energy cost": [
+              "137"
+            ],
+            "jin cost": [
+              "0"
+            ],
+            "cast time": [
+              "6.0"
+            ],
+            "refresh": [
+              "1:00:00s"
+            ],
+            "range": [
+              "5000m"
+            ],
+            "target": [
+              "Ally"
+            ],
+            "type": [
+              "Conjuration"
+            ],
+            "learned from": [
+              "Learned Ability"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 48,
+          "rank": null,
+          "category": "Conjuration",
+          "cost": {
+            "energy": 137
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 5000,
+            "unit": "m",
+            "raw": "5000m"
+          },
+          "tooltip": "Summons a group mate to your side within the walls of Ancient Port Warehouse.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": "Ally",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 48,
+              "raw": "48"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59439"
+          ],
+          "cost_observations": {
+            "energy": [
+              137
+            ]
+          },
+          "trainer": "Learned Ability",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://thetelonproject.wikidot.com/abilities:call-of-the-warehouse"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Strip Enchantment IV",
+      "source_url": "https://vgsoharchive.com/abilities/strip-enchantment-iv",
+      "cache": {
+        "path": ".cache/archive/e59f4aa575fb501af2ce28e32ab698c32a4a30311de2591cf7c4d758e5c0f41a.txt",
+        "sha256": "d42bc73db03ceff9f2d9ef8c2d21481fb379ece974e5d63fc86001f72c6872d6"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-023345-346930-archive-bulk/ability.jsonl",
+          "line": 79,
+          "record_sha256": "f9c19d9ac2f510f4fd6034f343c7c519841834913b49935ca8ec6fd7412c04bf"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Strips a greater enchantment from your opponent.",
+          "literal_sha256": "811982a48c8418944243899d594430231753de9f1fb761b2a50da04b71e76827",
+          "candidate_observation": {
+            "effect_reported": "remove_enchantment",
+            "recipient_reported": "opponent",
+            "enchantment_qualifier_reported": "greater",
+            "eligible_enchantments": null,
+            "duration_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "qualitative_source_reviewed_parser_implementation_pending",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Strip Enchantment IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/strip-enchantment-iv",
+              "title": "Strip Enchantment IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "48"
+            ],
+            "level": [
+              "48"
+            ],
+            "energy cost": [
+              "421"
+            ],
+            "cast time": [
+              "1.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon685.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 48,
+          "rank": "IV",
+          "category": "Alteration",
+          "cost": {
+            "energy": 421
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Strips a greater enchantment from your opponent.",
+          "icon_name": "Icon685.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 48,
+              "raw": "48"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              421
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "cure_dispel_tooltip_observation",
+                  "effect_phrase_recorded": "Strips a greater enchantment from your opponent.",
+                  "conditions_unparsed": true,
+                  "action_reported": "strip_enchantment",
+                  "condition_reported": "enchantment",
+                  "target_reported": "opponent",
+                  "timing_qualifier_reported": null,
+                  "enchantment_qualifier_reported": "greater",
+                  "cure_count": null,
+                  "pulse_interval_seconds": null,
+                  "duration_seconds": null,
+                  "dispel_strength": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Favor of the Life Giver VI",
+      "source_url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-vi",
+      "cache": {
+        "path": ".cache/archive/2d9274afa0dc14dd077c6baef568ab6e746399d445b3735741c66d520caa7205.txt",
+        "sha256": "2f8141228cf1fe71d184547e7fab3f2fbd452715f8e314d3c7dc8ec9c3feeec2"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 95,
+          "record_sha256": "229c8f4b112c301fdf45f52b09198a807a7a778a14bef5865afb03469f4f3415"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 1,
+          "literal": "Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level — the figures above are the ability's own, not what a\r\n        particular character will see.",
+          "literal_sha256": "3cc40a2ec3fae07648efd8183f9c380bf7e3eaf8722b81f5dafd02bbc026bb5f",
+          "candidate_observation": null,
+          "disposition": "archive_scaling_commentary_not_ability_mechanic",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Favor of the Life Giver VI",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-vi",
+              "title": "Favor of the Life Giver VI · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level": [
+              "50"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon1052.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 50,
+          "rank": "VI",
+          "category": "Alteration",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1052.png",
+          "ranks": [],
+          "target_recorded": "Group",
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_final_numeric_observation",
+                  "effect_phrase_recorded": "Fills your targets group with power.\r\n+141 Constitution\r\n+70 Vitality\r\n+160 Intelligence\r\n+110 Wisdom\r\n+1500 Hit Points\r\n+15 Hit Point Regeneration\r\n+400 Physical Resistance\r\n+2.27% Flurry Resist @55\r\n+2.27% Rampage Resist @55\r\nStacks Best Buff Only",
+                  "conditions_unparsed": true,
+                  "effect_reported": "target_group_attribute_and_resistance_buff",
+                  "recipient_reported": "targets_group",
+                  "constitution_bonus": 141,
+                  "vitality_bonus": 70,
+                  "intelligence_bonus": 160,
+                  "wisdom_bonus": 110,
+                  "hit_points_bonus": 1500,
+                  "hit_point_regeneration_bonus": 15,
+                  "regeneration_time_unit": null,
+                  "physical_resistance_bonus": 400,
+                  "flurry_resist_percent_at_level_55": 2.27,
+                  "rampage_resist_percent_at_level_55": 2.27,
+                  "stacking_reported": "Best Buff Only",
+                  "resistance_scaling_rule": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Metamorphism III",
+      "source_url": "https://vgsoharchive.com/abilities/metamorphism-iii",
+      "cache": {
+        "path": ".cache/archive/528b5b546cf0dc2cec8c1e6144cb2cd45711391391c7b63f4e1e1a9f43c4d726.txt",
+        "sha256": "773db9cab2408b91469010893ae9aef6cba42fd42fd24b35cecc4f752b3f006a"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "807fb41ac63167a3c035684aae35897d78adc711cffeacbdf861dc735a5a78fb"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 1,
+          "literal": "Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level — the figures above are the ability's own, not what a\r\n        particular character will see.",
+          "literal_sha256": "3cc40a2ec3fae07648efd8183f9c380bf7e3eaf8722b81f5dafd02bbc026bb5f",
+          "candidate_observation": null,
+          "disposition": "archive_scaling_commentary_not_ability_mechanic",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Metamorphism III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/metamorphism-iii",
+              "title": "Metamorphism III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level": [
+              "50"
+            ],
+            "energy cost": [
+              "847"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "30.0s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Counterspell"
+            ],
+            "icon": [
+              "Icon726.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 50,
+          "rank": "III",
+          "category": "Counterspell",
+          "cost": {
+            "energy": 847
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 30.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Counters a spell being cast and channels the energy into healing power, healing all group members within 10m by 747.",
+          "icon_name": "Icon726.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "cost_observations": {
+            "energy": [
+              847
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "30.0s",
+                "seconds": 30.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_final_numeric_observation",
+                  "effect_phrase_recorded": "Counters a spell being cast and channels the energy into healing power, healing all group members within 10m by 747.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "spell_counter_with_group_healing",
+                  "healing_amount": 747,
+                  "radius_meters": 10,
+                  "recipient_reported": "all_group_members_within_range",
+                  "counter_eligibility_rules": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Ritual of Shielding",
+      "source_url": "https://vgsoharchive.com/abilities/ritual-of-shielding",
+      "cache": {
+        "path": ".cache/archive/69287b11d120c17afc8b2694231990e4058993597b6fe61bddf5f87443be5ad9.txt",
+        "sha256": "bc1825051badab2fd2a8e66ebe74a10a9a153dd7caa40a0b7d05daa444225bf2"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020845-278689-archive-bulk/ability.jsonl",
+          "line": 74,
+          "record_sha256": "80111e0ff96554d2de2f48906f5c030f52e3e236b08d1849f5f04ebf24ca3f9c"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Group rune spell (reduces Blood Union) ( learned ability )",
+          "literal_sha256": "75560ea4cde8950bca4947999325a2bcf37898ae5334bd7bc9a2d8fceb4c34ca",
+          "candidate_observation": {
+            "effect_reported": "group_rune",
+            "reduces_resource_reported": "Blood Union",
+            "resource_reduction_amount": null,
+            "learned_ability_reported": true,
+            "absorption_amount": null,
+            "duration_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "qualitative_source_reviewed_parser_implementation_pending",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Ritual of Shielding",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/ritual-of-shielding",
+              "title": "Ritual of Shielding · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level": [
+              "50"
+            ],
+            "source": [
+              "Learned in the world"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "?s"
+            ],
+            "range": [
+              "?m"
+            ],
+            "target": [
+              "unavailable"
+            ],
+            "type": [
+              "unavailable"
+            ],
+            "learned from": [
+              "Rahz"
+            ],
+            "icon": [
+              "Icon1060.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "Zull Flame Maiden",
+              "url": "https://vgsoharchive.com/mobs/zull-flame-maiden"
+            },
+            {
+              "name": "Rahz Inkur",
+              "url": "https://vgsoharchive.com/zones/rahz-inkur"
+            },
+            {
+              "name": "Zull Flare Maiden",
+              "url": "https://vgsoharchive.com/mobs/zull-flare-maiden"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 50,
+          "rank": null,
+          "category": "unavailable",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Group rune spell (reduces Blood Union) ( learned ability )",
+          "icon_name": "Icon1060.png",
+          "ranks": [],
+          "target_recorded": "unavailable",
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034604id_/http://wiki.silkyvenom.com/index.php/Ritual_of_Shielding"
+          ],
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": "Rahz",
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage",
+            "https://vanguard.fandom.com/wiki/Blood_Mage"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Mantle IV",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-mantle-iv",
+      "cache": {
+        "path": ".cache/archive/f593356e5c7c5567dbcb77ed0201d4d6d6edc96814f6ee926aa6cf75c6623142.txt",
+        "sha256": "68352f682bfebf0ab4d36fb21226685969209c214dea488fd25c15ece2a44533"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 65,
+          "record_sha256": "a5b0a69317577f637b888c63084c4292c12395d1e8c99578a72a00098e0615f3"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+          "literal_sha256": "7eedcadf5a8db07e2a6be4aa8d0c3263eaed45efb77086c83058adfdc05d7b11",
+          "candidate_observation": {
+            "effect_reported": "self_armor_class_and_health_increase",
+            "scales_with_reported": "adventuring level",
+            "does_not_stack_with_reported": "Construct's Augmentation",
+            "armor_class_bonus": null,
+            "health_bonus": null,
+            "scaling_formula": null,
+            "duration_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "qualitative_source_reviewed_parser_implementation_pending",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Serak's Mantle IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/serak-s-mantle-iv",
+              "title": "Serak's Mantle IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "level in 2007": [
+              "40 — now 50"
+            ],
+            "level": [
+              "50"
+            ],
+            "energy cost": [
+              "143"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "type": [
+              "Conjuration"
+            ],
+            "icon": [
+              "Icon663.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 50,
+          "rank": "IV",
+          "category": "Conjuration",
+          "cost": {
+            "energy": 143
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Increases your armor class and health. The amount of armor class and health gained increases with your adventuring level. Does not stack with Construct's Augmentation.",
+          "icon_name": "Icon663.png",
+          "ranks": [],
+          "target_recorded": "Self",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 40,
+              "raw": "40 — now 50"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034653id_/http://wiki.silkyvenom.com/index.php/Serak's_Mantle_IV",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              143
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    },
+    {
+      "name": "Shadow Vein",
+      "source_url": "https://vgsoharchive.com/abilities/shadow-vein",
+      "cache": {
+        "path": ".cache/archive/4625219ab0e816c4a0aad695de0c633bb8eb1b80315daf91fedaaa2961264384.txt",
+        "sha256": "32114a8acfd3de796633b1284a18c8c3dfafdd5725c0cde6bfbac615df3004f2"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 79,
+          "record_sha256": "324c7841746fb4e701612eccfea72c80bd9c072e81ee15b007266acc5fda80c8"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 1,
+          "literal": "Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level — the figures above are the ability's own, not what a\r\n        particular character will see.",
+          "literal_sha256": "3cc40a2ec3fae07648efd8183f9c380bf7e3eaf8722b81f5dafd02bbc026bb5f",
+          "candidate_observation": null,
+          "disposition": "archive_scaling_commentary_not_ability_mechanic",
+          "game_fact": false
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Shadow Vein",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/shadow-vein",
+              "title": "Shadow Vein · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:46:07+00:00",
+          "archive_fields": {
+            "level": [
+              "50"
+            ],
+            "energy cost": [
+              "372"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "range": [
+              "25m"
+            ],
+            "causes": [
+              "Lethargic"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Vulnerable"
+            ],
+            "type": [
+              "Shadow Evocation"
+            ],
+            "icon": [
+              "Icon20739.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 50,
+          "rank": null,
+          "category": "Shadow Evocation",
+          "cost": {
+            "energy": 372
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon20739.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "cost_observations": {
+            "energy": [
+              372
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": "Lethargic",
+          "exploits_weakness": "Vulnerable",
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_renewing_ritual_vein_rune_union_observation",
+                  "effect_phrase_recorded": "Steals 240 to 254 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "health_steal_with_defensive_target_return",
+                  "health_stolen_min": 240,
+                  "health_stolen_max": 254,
+                  "returned_portion_percent": 130,
+                  "recipient_reported": "defensive_target",
+                  "returned_portion_increase_percent_per_blood_union_level": 10,
+                  "blood_union_gain_points": 1,
+                  "percentage_bonus_combination_rule": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ],
+      "conversion_ready": false
+    }
+  ],
+  "summary": {
+    "archive_scaling_commentary_not_ability_mechanic": 12,
+    "qualitative_source_reviewed_parser_implementation_pending": 21
+  },
+  "validation": {
+    "cache_hashes_verified": 33,
+    "source_record_hashes_verified": 33,
+    "literal_hashes_verified": 33,
+    "whole_page_replays": 33,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process found no collector",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval_seconds": 60,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Qualitative candidates remain research, not operative facts. Unknown amounts, eligibility, scaling, duration and historical applicability remain null.",
+    "Repeated archive scaling commentary is editorial context, not an additional ability mechanic or a verified combat formula.",
+    "Current Effect section review does not cover historical or alternate sections or resolve class-table wording differences.",
+    "Immutable source records remain unchanged; no name-only merging or canonical client IDs inferred."
+  ],
+  "next_step": "Implement constrained qualitative observations for the reviewed resurrection, root, counter and revival-item sources, excluding archive commentary."
+}

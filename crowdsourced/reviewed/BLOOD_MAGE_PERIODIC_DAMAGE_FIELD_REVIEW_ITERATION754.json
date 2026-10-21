@@ -1,0 +1,784 @@
+{
+  "review_kind": "blood_mage_union_blister_periodic_damage_field_review",
+  "parser_version": 114,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Bursting Blister I",
+      "source_url": "https://vgsoharchive.com/abilities/bursting-blister-i",
+      "cache": {
+        "path": ".cache/archive/c5e88e638e70a7e6b4c206b7352e88d3cb3aaf2702390f36ade1e5b88c23991a.txt",
+        "sha256": "7eff5456d26e9f5e6f5aee9ee399c7992f12cf28972f2d658ccc773906ea2cce"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 6,
+          "record_sha256": "283183b6ef08a6b5009e77d58953f3e64ef60696d8fe6e8d25d9d3299f0fb979"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Deals instant damage, followed by damage over time. Also increases your Blood Union by 1.",
+          "literal_sha256": "40cb405e272651bd65de132f281fe6c367fe97247a9fa6a974e6dcc145f71ad0",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "instant_and_periodic_damage_with_blood_union_gain",
+              "extracted_value": "instant_and_periodic_damage_with_blood_union_gain",
+              "equal": true
+            },
+            {
+              "field": "blood_union_gain_points",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "instant_damage_amount",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "periodic_damage_amount",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_focus_lifetap_root_observation",
+              "effect_phrase_recorded": "Deals instant damage, followed by damage over time. Also increases your Blood Union by 1.",
+              "conditions_unparsed": true,
+              "effect_reported": "instant_and_periodic_damage_with_blood_union_gain",
+              "blood_union_gain_points": 1,
+              "instant_damage_amount": null,
+              "periodic_damage_amount": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Union of Blood I",
+      "source_url": "https://vgsoharchive.com/abilities/union-of-blood-i",
+      "cache": {
+        "path": ".cache/archive/0aa525419c4d8a170d54798e5fe132ef6735ff9b129219826635d47f026af5bc.txt",
+        "sha256": "d7bbb845a13228bb3b8e672df7bd6d0f510fee4c0da0a33f8a5dc16f8106ce52"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 42,
+          "record_sha256": "ea439e6649734b170c7c63ba55618358e96883ae6457c238e7815886e732c880"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Forms a strong union with your opponent, dealing 291 to 309 damage over 24 sec. Increases Blood Union by 2.",
+          "literal_sha256": "fe1c0636d50b3e57560e667b61d715370fea8a7d80a9a1c19129dba2621489b3",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "damage_min",
+              "source_value": 291,
+              "extracted_value": 291,
+              "equal": true
+            },
+            {
+              "field": "damage_max",
+              "source_value": 309,
+              "extracted_value": 309,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 24,
+              "extracted_value": 24,
+              "equal": true
+            },
+            {
+              "field": "blood_union_gain_points",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "damage_school",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "periodic_damage_with_blood_union_gain",
+              "extracted_value": "periodic_damage_with_blood_union_gain",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_transfer_ritual_observation",
+              "effect_phrase_recorded": "Forms a strong union with your opponent, dealing 291 to 309 damage over 24 sec. Increases Blood Union by 2.",
+              "conditions_unparsed": true,
+              "effect_reported": "periodic_damage_with_blood_union_gain",
+              "damage_min": 291,
+              "damage_max": 309,
+              "duration_seconds": 24,
+              "blood_union_gain_points": 2,
+              "damage_school": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Union of Blood II",
+      "source_url": "https://vgsoharchive.com/abilities/union-of-blood-ii",
+      "cache": {
+        "path": ".cache/archive/28300ff3447583c4d2284be94584fb5df0c0bbff3dc02271412095ac8def2bb5.txt",
+        "sha256": "4fd37a6e2144369d1d4dc7bacaaffbcc58dcae8dd9cf2859a3d2024131c9d9f8"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 78,
+          "record_sha256": "9a37e1dfe4efd9e811733d6bd5b3c67d7de797c1038c1e5c7249db909552c3aa"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Forms a strong union with your opponent, dealing 423 to 447 damage over 24 sec. Increases Blood Union by 2.",
+          "literal_sha256": "4e356b3a31a078c769caeac309b504444f46e02af24b8580c6b6bad1bcec3c66",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "damage_min",
+              "source_value": 423,
+              "extracted_value": 423,
+              "equal": true
+            },
+            {
+              "field": "damage_max",
+              "source_value": 447,
+              "extracted_value": 447,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 24,
+              "extracted_value": 24,
+              "equal": true
+            },
+            {
+              "field": "blood_union_gain",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your opponent",
+              "extracted_value": "your opponent",
+              "equal": true
+            },
+            {
+              "field": "damage_type",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "periodic_damage_blood_union_gain",
+              "extracted_value": "periodic_damage_blood_union_gain",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_symbiote_conversion_ritual_observation",
+              "effect_phrase_recorded": "Forms a strong union with your opponent, dealing 423 to 447 damage over 24 sec. Increases Blood Union by 2.",
+              "conditions_unparsed": true,
+              "effect_reported": "periodic_damage_blood_union_gain",
+              "recipient_reported": "your opponent",
+              "damage_min": 423,
+              "damage_max": 447,
+              "duration_seconds": 24,
+              "blood_union_gain": 2,
+              "damage_type": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Bursting Blister II",
+      "source_url": "https://vgsoharchive.com/abilities/bursting-blister-ii",
+      "cache": {
+        "path": ".cache/archive/430396bdd3883a10741ffb8e6caa1144ef49cbb2a3dbe9f31bb2f6d66a7ab45e.txt",
+        "sha256": "cf4ab39e9ac0a63e1672705f9e8a20ee8c40398774c79d04e714036007292a35"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 9,
+          "record_sha256": "56a9ebff694130425f68fc54fb1438de0913538187c9541b3230ab1dda529b84"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Deals instant damage, followed by damage over time. Also increases your Blood Union by 1.",
+          "literal_sha256": "40cb405e272651bd65de132f281fe6c367fe97247a9fa6a974e6dcc145f71ad0",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "instant_and_periodic_damage_with_blood_union_gain",
+              "extracted_value": "instant_and_periodic_damage_with_blood_union_gain",
+              "equal": true
+            },
+            {
+              "field": "blood_union_gain_points",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "instant_damage_amount",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "periodic_damage_amount",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_focus_lifetap_root_observation",
+              "effect_phrase_recorded": "Deals instant damage, followed by damage over time. Also increases your Blood Union by 1.",
+              "conditions_unparsed": true,
+              "effect_reported": "instant_and_periodic_damage_with_blood_union_gain",
+              "blood_union_gain_points": 1,
+              "instant_damage_amount": null,
+              "periodic_damage_amount": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Union of Blood III",
+      "source_url": "https://vgsoharchive.com/abilities/union-of-blood-iii",
+      "cache": {
+        "path": ".cache/archive/62d1cdd822c2cb0bbbba4668a89893616812efe293b389b20f55e959f8fbaae0.txt",
+        "sha256": "fdd1923491f6f4e07fc8028b31d519206fa7aa2a746e84afc159e4824b2b88f3"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 95,
+          "record_sha256": "5d84994a4daf2dca0d34cb01210560838d3194d696909729741d993fc00d710b"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Forms a strong union with your opponent, dealing 569 to 600 damage over 24 sec. Increases Blood Union by 2.",
+          "literal_sha256": "5dfdd9ae81ad54322486332714c78aef998b5251cba5d5fefabceb6026d47b7e",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "damage_over_time_min",
+              "source_value": 569,
+              "extracted_value": 569,
+              "equal": true
+            },
+            {
+              "field": "damage_over_time_max",
+              "source_value": 600,
+              "extracted_value": 600,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 24,
+              "extracted_value": 24,
+              "equal": true
+            },
+            {
+              "field": "blood_union_increase",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your opponent",
+              "extracted_value": "your opponent",
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "damage_over_time_blood_union_gain",
+              "extracted_value": "damage_over_time_blood_union_gain",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_symbiote_hate_ritual_union_observation",
+              "effect_phrase_recorded": "Forms a strong union with your opponent, dealing 569 to 600 damage over 24 sec. Increases Blood Union by 2.",
+              "conditions_unparsed": true,
+              "effect_reported": "damage_over_time_blood_union_gain",
+              "recipient_reported": "your opponent",
+              "damage_over_time_min": 569,
+              "damage_over_time_max": 600,
+              "duration_seconds": 24,
+              "blood_union_increase": 2,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Union of Blood IV",
+      "source_url": "https://vgsoharchive.com/abilities/union-of-blood-iv",
+      "cache": {
+        "path": ".cache/archive/aa6f70b6147fc4aaf98f59976353bf959c73fc2824c9c8903efdf8fc2c5c0ad4.txt",
+        "sha256": "65524e1011630381b3310daca902a7c448172150d548acf8e134d0d6734958ff"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 96,
+          "record_sha256": "26d3de59d3342c9df047ff6d09095f87c57f1d8093c1aaf27463dd3624ad0b3e"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Forms a strong union with your opponent, dealing 721 to 760 damage over 24 sec. Increases Blood Union by 2.",
+          "literal_sha256": "87da58744e461954a3ee2346b1d98eac60a972159af26e3d2308ad7bb7a0d7c8",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "damage_over_duration_min",
+              "source_value": 721,
+              "extracted_value": 721,
+              "equal": true
+            },
+            {
+              "field": "damage_over_duration_max",
+              "source_value": 760,
+              "extracted_value": 760,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 24,
+              "extracted_value": 24,
+              "equal": true
+            },
+            {
+              "field": "blood_union_increase",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "damage_type",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "periodic_damage_blood_union_gain",
+              "extracted_value": "periodic_damage_blood_union_gain",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_ritual_union_return_healing_symbiote_observation",
+              "effect_phrase_recorded": "Forms a strong union with your opponent, dealing 721 to 760 damage over 24 sec. Increases Blood Union by 2.",
+              "conditions_unparsed": true,
+              "effect_reported": "periodic_damage_blood_union_gain",
+              "damage_over_duration_min": 721,
+              "damage_over_duration_max": 760,
+              "duration_seconds": 24,
+              "blood_union_increase": 2,
+              "damage_type": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Union of Blood V",
+      "source_url": "https://vgsoharchive.com/abilities/union-of-blood-v",
+      "cache": {
+        "path": ".cache/archive/854b6e1565ddea2f59d94a85ef8cebb2438b0217c454f8bc6864bc0a730c1ebb.txt",
+        "sha256": "e5a597c584095e09e7e72c80897cc1d1337e532aedff8bccb64cfa78dabb87c0"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 97,
+          "record_sha256": "cb69857e3b5b4fc7701efa613666e7bbf2e31c45534cd76bf4a7b16607276240"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Forms a strong union with your opponent, dealing 889 to 937 damage over 24 sec. Increases Blood Union by 2.",
+          "literal_sha256": "e083d4395af7ec20761c6f2f8fc4398f2d1d62561e919da86b53d9c42465e955",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "damage_min",
+              "source_value": 889,
+              "extracted_value": 889,
+              "equal": true
+            },
+            {
+              "field": "damage_max",
+              "source_value": 937,
+              "extracted_value": 937,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 24,
+              "extracted_value": 24,
+              "equal": true
+            },
+            {
+              "field": "blood_union_gain_points",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "damage_type",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "damage_distribution",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "periodic_damage_with_union_gain",
+              "extracted_value": "periodic_damage_with_union_gain",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_union_root_steal_symbiote_absorption_observation",
+              "effect_phrase_recorded": "Forms a strong union with your opponent, dealing 889 to 937 damage over 24 sec. Increases Blood Union by 2.",
+              "conditions_unparsed": true,
+              "effect_reported": "periodic_damage_with_union_gain",
+              "damage_min": 889,
+              "damage_max": 937,
+              "duration_seconds": 24,
+              "blood_union_gain_points": 2,
+              "damage_distribution": null,
+              "damage_type": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Union of Blood VI",
+      "source_url": "https://vgsoharchive.com/abilities/union-of-blood-vi",
+      "cache": {
+        "path": ".cache/archive/6322778004f5bf5ae953c4c0e3d52e7c62e4c35e7eb7c8f9e3d478fd3328b0ff.txt",
+        "sha256": "b272da672aa4ce45ec7cfc81fa7a47477ab68a5004cba4825a19a37bfbbfe1fb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 98,
+          "record_sha256": "0b296f68b44703f57ee0f6ccd99d61445724a996ffc73bc563c7b398368a904e"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Forms a strong union with your opponent, dealing 974 to 1027 damage over 24 sec. Increases Blood Union by 2.",
+          "literal_sha256": "8a7aa4630f86813a4b1de8c6217ecc584b8649c5fa3d58edc25c4db960ef8ec3",
+          "field_comparisons": [
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "damage_over_time_min",
+              "source_value": 974,
+              "extracted_value": 974,
+              "equal": true
+            },
+            {
+              "field": "damage_over_time_max",
+              "source_value": 1027,
+              "extracted_value": 1027,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 24,
+              "extracted_value": 24,
+              "equal": true
+            },
+            {
+              "field": "blood_union_gain_points",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "damage_type",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "opponent_damage_over_time_with_blood_union_gain",
+              "extracted_value": "opponent_damage_over_time_with_blood_union_gain",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_renewing_ritual_vein_rune_union_observation",
+              "effect_phrase_recorded": "Forms a strong union with your opponent, dealing 974 to 1027 damage over 24 sec. Increases Blood Union by 2.",
+              "conditions_unparsed": true,
+              "effect_reported": "opponent_damage_over_time_with_blood_union_gain",
+              "damage_over_time_min": 974,
+              "damage_over_time_max": 1027,
+              "duration_seconds": 24,
+              "blood_union_gain_points": 2,
+              "damage_type": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 8,
+    "source_record_hashes_verified": 8,
+    "whole_page_replays": 8,
+    "literal_hashes_verified": 8,
+    "field_comparisons_passed": 64,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 107,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Only explicit current Effect clauses reviewed; full ability, historical and alternate scopes remain pending.",
+    "Damage ranges are reported over the printed duration; no per-tick damage or combat formula is inferred.",
+    "Bursting Blister provides no numeric damage or duration. Unknowns remain null; no operative game facts promoted."
+  ],
+  "next_step": "Review remaining Blood Mage direct damage and control observations field by field against cached prose."
+}

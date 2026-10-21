@@ -1,0 +1,162 @@
+{
+  "review_kind": "blood_mage_mental_infusion_i_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Mental Infusion I",
+      "source_url": "https://vgsoharchive.com/abilities/mental-infusion-i",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/a8d2ff34631c9aef001900f9a205f616f4d96d66ce35cfeae6c42c5c4cbd1eb0.txt",
+        "sha256": "73a47ebb3c45c504349ac222c3f4cd5168af821c05fb80b8effaa679e8bd6d4d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 29,
+          "record_sha256": "746a74a14511219a9d86f712c56de9b295a608d296ba85b168083381bcdb2c36"
+        }
+      ],
+      "literal_sha256": "eeab5a94fca0b761ea09ad88c9ef28560fc79dd75802493d060e03a8f0e3f5d3",
+      "source_literal": "Energy then 100 — now 90 Cast then 0",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Energy then</dt>\n<dd>100\r\n                <span class=\"muted\">— now 90</span></dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Energy then",
+          "value_literal": "100 — now 90",
+          "direct_value_literal": "100",
+          "numeric_value": 100,
+          "comparison_literal": "— now 90",
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "0",
+          "direct_value_literal": "0",
+          "numeric_value": 0,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Mental Infusion I",
+      "source_url": "https://vgsoharchive.com/abilities/mental-infusion-i",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/a8d2ff34631c9aef001900f9a205f616f4d96d66ce35cfeae6c42c5c4cbd1eb0.txt",
+        "sha256": "73a47ebb3c45c504349ac222c3f4cd5168af821c05fb80b8effaa679e8bd6d4d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 29,
+          "record_sha256": "746a74a14511219a9d86f712c56de9b295a608d296ba85b168083381bcdb2c36"
+        }
+      ],
+      "literal_sha256": "86e3324d022dd24bba389fc325409536216cd335cef7714ce7d1335b7a8b8feb",
+      "source_literal": "Accelerates the activity in the mind of an ally, increasing intelligence and wisdom by 39",
+      "source_html": "<div class=\"tooltip\">Accelerates the activity in the mind of an ally, increasing intelligence and wisdom by 39</div>",
+      "reviewed_observations": {
+        "effect_literal": "Accelerates the activity in the mind of an ally, increasing intelligence and wisdom by 39",
+        "recipient_literal": "an ally",
+        "intelligence_increase": 39,
+        "wisdom_increase": 39,
+        "duration_seconds": null,
+        "stacking_rules": null,
+        "operative_energy_cost": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Mental Infusion I",
+      "source_url": "https://vgsoharchive.com/abilities/mental-infusion-i",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/a8d2ff34631c9aef001900f9a205f616f4d96d66ce35cfeae6c42c5c4cbd1eb0.txt",
+        "sha256": "73a47ebb3c45c504349ac222c3f4cd5168af821c05fb80b8effaa679e8bd6d4d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 29,
+          "record_sha256": "746a74a14511219a9d86f712c56de9b295a608d296ba85b168083381bcdb2c36"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227034323id_/http://wiki.silkyvenom.com/index.php/Mental_Infusion_I\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227034323id_/http://wiki.silkyvenom.com/index.php/Mental_Infusion_I"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 3,
+    "label_value_comparisons": 2,
+    "exact_mechanic_literal_comparisons": 1,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 683,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Historical energy 100 remains separate from the embedded now 90 comparison.",
+    "Bare cast zero has no unit or Instant semantics. Duration and stacking behavior are unknown.",
+    "Archive attribution remains metadata; historical authentication and operative values remain null."
+  ],
+  "next_step": "Review the next unreviewed historical Blood Mage ability against cached source sections."
+}

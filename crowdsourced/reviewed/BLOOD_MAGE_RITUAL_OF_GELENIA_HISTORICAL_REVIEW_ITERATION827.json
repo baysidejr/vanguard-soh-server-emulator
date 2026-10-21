@@ -1,0 +1,359 @@
+{
+  "review_kind": "blood_mage_ritual_of_gelenia_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Ritual of Gelenia",
+      "source_url": "https://vgsoharchive.com/abilities/ritual-of-gelenia",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/b09ba90fe3c03232d14bdfbc9ff7a65bb2efcf746bb13a195fde4294f9234102.txt",
+        "sha256": "b8565088f77fbb5f20eb982c5c4d49da350c31312373496db2e4920810caa1c5"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 59,
+          "record_sha256": "21a03b1826fcaa590c6c83fa293d393336d283afcce8a38056480c58e60da224"
+        }
+      ],
+      "literal_sha256": "69f41d932b2f810c46fc68f79a2ceb63bf6c11384c58731dff8a3a2e99d83a69",
+      "source_literal": "Cast then 0 Refresh then 20",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>20</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Cast then",
+          "value_literal": "0",
+          "direct_value_literal": "0",
+          "numeric_value": 0,
+          "comparison_literal": null,
+          "unit": null
+        },
+        {
+          "label": "Refresh then",
+          "value_literal": "20",
+          "direct_value_literal": "20",
+          "numeric_value": 20,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Ritual of Gelenia",
+      "source_url": "https://vgsoharchive.com/abilities/ritual-of-gelenia",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/b09ba90fe3c03232d14bdfbc9ff7a65bb2efcf746bb13a195fde4294f9234102.txt",
+        "sha256": "b8565088f77fbb5f20eb982c5c4d49da350c31312373496db2e4920810caa1c5"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 59,
+          "record_sha256": "21a03b1826fcaa590c6c83fa293d393336d283afcce8a38056480c58e60da224"
+        }
+      ],
+      "literal_sha256": "b0338f5734fa1b7995279ff05a8854d3c14e924a62da571bf542679babb0f247",
+      "source_literal": "This ritual uses positive energy harnessed from your blood union to heal an ally for 10% of their total life. Increases the heal by 5% for each level of your Blood Union . Removes all Blood Union when used",
+      "source_html": "<div class=\"tooltip\">This ritual uses positive energy harnessed from your blood union to heal an ally for 10% of their total life. Increases the heal by 5% for each level of your Blood Union . Removes all Blood Union when used</div>",
+      "reviewed_observations": {
+        "effect_literal": "This ritual uses positive energy harnessed from your blood union to heal an ally for 10% of their total life. Increases the heal by 5% for each level of your Blood Union . Removes all Blood Union when used",
+        "recipient_literal": "ally",
+        "base_heal_percent_of_total_life": 10,
+        "additional_heal_percent_per_blood_union_level": 5,
+        "scales_with_blood_union": true,
+        "removes_all_blood_union_on_use": true,
+        "scaling_formula": null,
+        "blood_union_cap": null,
+        "healing_school": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Ritual of Gelenia",
+      "source_url": "https://vgsoharchive.com/abilities/ritual-of-gelenia",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/b09ba90fe3c03232d14bdfbc9ff7a65bb2efcf746bb13a195fde4294f9234102.txt",
+        "sha256": "b8565088f77fbb5f20eb982c5c4d49da350c31312373496db2e4920810caa1c5"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 59,
+          "record_sha256": "21a03b1826fcaa590c6c83fa293d393336d283afcce8a38056480c58e60da224"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227034600id_/http://wiki.silkyvenom.com/index.php/Ritual_of_Gelenia\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227034600id_/http://wiki.silkyvenom.com/index.php/Ritual_of_Gelenia"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Ritual of Gelenia",
+      "source_url": "https://vgsoharchive.com/abilities/ritual-of-gelenia",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/b09ba90fe3c03232d14bdfbc9ff7a65bb2efcf746bb13a195fde4294f9234102.txt",
+        "sha256": "b8565088f77fbb5f20eb982c5c4d49da350c31312373496db2e4920810caa1c5"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 59,
+          "record_sha256": "21a03b1826fcaa590c6c83fa293d393336d283afcce8a38056480c58e60da224"
+        }
+      ],
+      "literal_sha256": "1b197f8c100239f0c4f84f738b983119c30597c192905ac46a14fa2a69408739",
+      "source_literal": "Level in 2007 18",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>18</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007",
+          "value_literal": "18",
+          "direct_value_literal": "18",
+          "numeric_value": 18,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Ritual of Gelenia",
+      "source_url": "https://vgsoharchive.com/abilities/ritual-of-gelenia",
+      "scope": "historical",
+      "section_node_index": 5,
+      "cache": {
+        "path": ".cache/archive/b09ba90fe3c03232d14bdfbc9ff7a65bb2efcf746bb13a195fde4294f9234102.txt",
+        "sha256": "b8565088f77fbb5f20eb982c5c4d49da350c31312373496db2e4920810caa1c5"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 59,
+          "record_sha256": "21a03b1826fcaa590c6c83fa293d393336d283afcce8a38056480c58e60da224"
+        }
+      ],
+      "literal_sha256": "ec2700a42f8cbad9529f5f77f707f28f7de88f3a3fcd8144a67cdd194a84a4d5",
+      "source_literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.vanguardjapan.com",
+          "href": "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Ritual of Gelenia",
+      "source_url": "https://vgsoharchive.com/abilities/ritual-of-gelenia",
+      "scope": "historical",
+      "section_node_index": 6,
+      "cache": {
+        "path": ".cache/archive/b09ba90fe3c03232d14bdfbc9ff7a65bb2efcf746bb13a195fde4294f9234102.txt",
+        "sha256": "b8565088f77fbb5f20eb982c5c4d49da350c31312373496db2e4920810caa1c5"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 59,
+          "record_sha256": "21a03b1826fcaa590c6c83fa293d393336d283afcce8a38056480c58e60da224"
+        }
+      ],
+      "literal_sha256": "ee292e25f32a8479de9177eddda407e547f28cf8fd4e561718979e4e8afbd2c6",
+      "source_literal": "Level in 2007-2008 18 Refresh then 20.0",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>18</dd></div>\n<div><dt>Refresh then</dt><dd>20.0</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007-2008",
+          "value_literal": "18",
+          "direct_value_literal": "18",
+          "numeric_value": 18,
+          "comparison_literal": null,
+          "unit": null
+        },
+        {
+          "label": "Refresh then",
+          "value_literal": "20.0",
+          "direct_value_literal": "20.0",
+          "numeric_value": 20.0,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Ritual of Gelenia",
+      "source_url": "https://vgsoharchive.com/abilities/ritual-of-gelenia",
+      "scope": "historical",
+      "section_node_index": 7,
+      "cache": {
+        "path": ".cache/archive/b09ba90fe3c03232d14bdfbc9ff7a65bb2efcf746bb13a195fde4294f9234102.txt",
+        "sha256": "b8565088f77fbb5f20eb982c5c4d49da350c31312373496db2e4920810caa1c5"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 59,
+          "record_sha256": "21a03b1826fcaa590c6c83fa293d393336d283afcce8a38056480c58e60da224"
+        }
+      ],
+      "literal_sha256": "7ad6c007b9664df93e7815dacc89d80e70159f29666e6bc7ccdd07eeb88c60a3",
+      "source_literal": "This ritual uses positive energy harnessed from your Blood Union to heal an ally for 15% of their total life. The amount healed increases for each level of your Blood Union. Removes all Blood Union when used.",
+      "source_html": "<div class=\"tooltip\">This ritual uses positive energy harnessed from your Blood Union to heal an ally for 15% of their total life. The amount healed increases for each level of your Blood Union. Removes all Blood Union when used.</div>",
+      "reviewed_observations": {
+        "effect_literal": "This ritual uses positive energy harnessed from your Blood Union to heal an ally for 15% of their total life. The amount healed increases for each level of your Blood Union. Removes all Blood Union when used.",
+        "recipient_literal": "ally",
+        "base_heal_percent_of_total_life": 15,
+        "additional_heal_percent_per_blood_union_level": null,
+        "scales_with_blood_union": true,
+        "removes_all_blood_union_on_use": true,
+        "scaling_formula": null,
+        "blood_union_cap": null,
+        "healing_school": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Ritual of Gelenia",
+      "source_url": "https://vgsoharchive.com/abilities/ritual-of-gelenia",
+      "scope": "historical",
+      "section_node_index": 8,
+      "cache": {
+        "path": ".cache/archive/b09ba90fe3c03232d14bdfbc9ff7a65bb2efcf746bb13a195fde4294f9234102.txt",
+        "sha256": "b8565088f77fbb5f20eb982c5c4d49da350c31312373496db2e4920810caa1c5"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 59,
+          "record_sha256": "21a03b1826fcaa590c6c83fa293d393336d283afcce8a38056480c58e60da224"
+        }
+      ],
+      "literal_sha256": "f27aeaed3d88311d784c8ac3f344512e0529fa572eaed9e8885ba10be11410bd",
+      "source_literal": "Ten Ton Hammer class guides ,\r\n          \r\n          2007-2008 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\r\n          \r\n          2007-2008 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "Ten Ton Hammer class guides",
+          "href": "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 8,
+    "label_value_comparisons": 5,
+    "exact_mechanic_literal_comparisons": 2,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 564,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Historical base-heal claims of 10% and 15% remain separate; operative values remain null.",
+    "Only the first tooltip quantifies scaling as 5% per Blood Union level; additive versus multiplicative interpretation remains unresolved.",
+    "The second tooltip reports scaling without an amount; no coefficient is borrowed from the first.",
+    "Bare cast and refresh values retain unknown units. Attribution is an archive claim, not independent historical authentication."
+  ],
+  "next_step": "Review the next unreviewed historical Blood Mage ability against cached source sections."
+}

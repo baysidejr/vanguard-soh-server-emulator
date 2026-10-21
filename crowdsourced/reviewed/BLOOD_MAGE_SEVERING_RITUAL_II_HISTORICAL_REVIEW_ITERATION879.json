@@ -1,0 +1,197 @@
+{
+  "review_kind": "blood_mage_severing_ritual_ii_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Severing Ritual II",
+      "source_url": "https://vgsoharchive.com/abilities/severing-ritual-ii",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/fff62c3025170d5348613eb62b29765a7922ef0806a57b29c91266c4ea0548b2.txt",
+        "sha256": "7be756381fd1460369f73856408e87d002adb1ad377f83e6f04b65729cb492b0"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 72,
+          "record_sha256": "6e4e16af687a489cd82e2109c593765b1f6a8b2eeb32608dd94442db8408261a"
+        }
+      ],
+      "literal_sha256": "ebb19d20e173f980d3b15e997ca1eba397622da0775b0d83191c480a514b93c4",
+      "source_literal": "This ritual severs life from all opponents within 10m, dealing 290 to 310 damage. Reduces Blood Union by 5",
+      "source_html": "<div class=\"tooltip\">This ritual severs life from all opponents within 10m, dealing 290 to 310 damage. Reduces Blood Union by 5</div>",
+      "reviewed_observations": {
+        "effect_literal": "This ritual severs life from all opponents within 10m, dealing 290 to 310 damage. Reduces Blood Union by 5",
+        "damage_min": 290,
+        "damage_max": 310,
+        "radius_meters": 10,
+        "target_literal": "all opponents",
+        "blood_union_reduction": 5,
+        "damage_school": null,
+        "target_cap": null,
+        "scaling_formula": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Severing Ritual II",
+      "source_url": "https://vgsoharchive.com/abilities/severing-ritual-ii",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/fff62c3025170d5348613eb62b29765a7922ef0806a57b29c91266c4ea0548b2.txt",
+        "sha256": "7be756381fd1460369f73856408e87d002adb1ad377f83e6f04b65729cb492b0"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 72,
+          "record_sha256": "6e4e16af687a489cd82e2109c593765b1f6a8b2eeb32608dd94442db8408261a"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227034706id_/http://wiki.silkyvenom.com/index.php/Severing_Ritual_II\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227034706id_/http://wiki.silkyvenom.com/index.php/Severing_Ritual_II"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Severing Ritual II",
+      "source_url": "https://vgsoharchive.com/abilities/severing-ritual-ii",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/fff62c3025170d5348613eb62b29765a7922ef0806a57b29c91266c4ea0548b2.txt",
+        "sha256": "7be756381fd1460369f73856408e87d002adb1ad377f83e6f04b65729cb492b0"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 72,
+          "record_sha256": "6e4e16af687a489cd82e2109c593765b1f6a8b2eeb32608dd94442db8408261a"
+        }
+      ],
+      "literal_sha256": "c889cca9b9fdd92b2698fa4f369cdb5a2fbed4c8eac715befe36d7698255a9b4",
+      "source_literal": "Level in 2007 34",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>34</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007",
+          "value_literal": "34",
+          "direct_value_literal": "34",
+          "numeric_value": 34,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Severing Ritual II",
+      "source_url": "https://vgsoharchive.com/abilities/severing-ritual-ii",
+      "scope": "historical",
+      "section_node_index": 5,
+      "cache": {
+        "path": ".cache/archive/fff62c3025170d5348613eb62b29765a7922ef0806a57b29c91266c4ea0548b2.txt",
+        "sha256": "7be756381fd1460369f73856408e87d002adb1ad377f83e6f04b65729cb492b0"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 72,
+          "record_sha256": "6e4e16af687a489cd82e2109c593765b1f6a8b2eeb32608dd94442db8408261a"
+        }
+      ],
+      "literal_sha256": "ec2700a42f8cbad9529f5f77f707f28f7de88f3a3fcd8144a67cdd194a84a4d5",
+      "source_literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.vanguardjapan.com",
+          "href": "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 4,
+    "label_value_comparisons": 1,
+    "exact_mechanic_literal_comparisons": 1,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 279,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Level 34, damage 290 to 310, radius 10m and Blood Union reduction 5 are archive historical claims. Damage school and target cap remain unknown.",
+    "Historical attribution dates are archive claims, not independently authenticated live-era evidence.",
+    "Attribution and general scaling context remain metadata; operative values remain null."
+  ],
+  "next_step": "Review Union of Blood IV historical source sections against cached evidence.",
+  "review_accounting": {
+    "section_reviews": 4,
+    "newly_covered_scope_nodes": 4
+  }
+}

@@ -1,0 +1,355 @@
+{
+  "review_kind": "blood_mage_vitalize_i_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Vitalize I",
+      "source_url": "https://vgsoharchive.com/abilities/vitalize-i",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/93f758da97ab88c272e815a4aa31a07b3f5be958d99b4bfd6aa32d3aebfc488e.txt",
+        "sha256": "44e14ad1b600e836811b67a6600f85d35901ac3d99085065cd69825627d591db"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 43,
+          "record_sha256": "81e3d1c9d32289b16a73344616e157961929eaecba41fbfc3893c623b8918952"
+        }
+      ],
+      "literal_sha256": "a4c784f53516ff40211f27ff204bacb971e16a9b11aaeae8978209c81efaaaf2",
+      "source_literal": "Energy then 35 — now 41 Cast then 0",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Energy then</dt>\n<dd>35\r\n                <span class=\"muted\">— now 41</span></dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Energy then",
+          "value_literal": "35 — now 41",
+          "direct_value_literal": "35",
+          "numeric_value": 35,
+          "comparison_literal": "— now 41",
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "0",
+          "direct_value_literal": "0",
+          "numeric_value": 0,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only_target_scope_collision_unresolved",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Vitalize I",
+      "source_url": "https://vgsoharchive.com/abilities/vitalize-i",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/93f758da97ab88c272e815a4aa31a07b3f5be958d99b4bfd6aa32d3aebfc488e.txt",
+        "sha256": "44e14ad1b600e836811b67a6600f85d35901ac3d99085065cd69825627d591db"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 43,
+          "record_sha256": "81e3d1c9d32289b16a73344616e157961929eaecba41fbfc3893c623b8918952"
+        }
+      ],
+      "literal_sha256": "31602b2bbd2395120fcc6014db937fd0c37acd32ea2bc64d13db0f8ac0ad05ac",
+      "source_literal": "Fills an ally with life, granting them 23 additional vitality",
+      "source_html": "<div class=\"tooltip\">Fills an ally with life, granting them 23 additional vitality</div>",
+      "reviewed_observations": {
+        "additional_vitality": 23,
+        "target_literal": "an ally",
+        "duration": null,
+        "stacking_rule": null,
+        "embedded_energy_cost_literal": null,
+        "cast_time_literal": null,
+        "refresh_literal": null,
+        "range_literal": null,
+        "range_unit": null,
+        "trailing_literal": null,
+        "operative_target": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only_target_scope_collision_unresolved",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Vitalize I",
+      "source_url": "https://vgsoharchive.com/abilities/vitalize-i",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/93f758da97ab88c272e815a4aa31a07b3f5be958d99b4bfd6aa32d3aebfc488e.txt",
+        "sha256": "44e14ad1b600e836811b67a6600f85d35901ac3d99085065cd69825627d591db"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 43,
+          "record_sha256": "81e3d1c9d32289b16a73344616e157961929eaecba41fbfc3893c623b8918952"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227034803id_/http://wiki.silkyvenom.com/index.php/Vitalize_I\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227034803id_/http://wiki.silkyvenom.com/index.php/Vitalize_I"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Vitalize I",
+      "source_url": "https://vgsoharchive.com/abilities/vitalize-i",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/93f758da97ab88c272e815a4aa31a07b3f5be958d99b4bfd6aa32d3aebfc488e.txt",
+        "sha256": "44e14ad1b600e836811b67a6600f85d35901ac3d99085065cd69825627d591db"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 43,
+          "record_sha256": "81e3d1c9d32289b16a73344616e157961929eaecba41fbfc3893c623b8918952"
+        }
+      ],
+      "literal_sha256": "2ddb9ae17f05208b1deb6255b50694fffbc9303c4c91f659f86063f51e3e2a18",
+      "source_literal": "Level in 2007 8",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>8</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007",
+          "value_literal": "8",
+          "direct_value_literal": "8",
+          "numeric_value": 8,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only_target_scope_collision_unresolved",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Vitalize I",
+      "source_url": "https://vgsoharchive.com/abilities/vitalize-i",
+      "scope": "historical",
+      "section_node_index": 5,
+      "cache": {
+        "path": ".cache/archive/93f758da97ab88c272e815a4aa31a07b3f5be958d99b4bfd6aa32d3aebfc488e.txt",
+        "sha256": "44e14ad1b600e836811b67a6600f85d35901ac3d99085065cd69825627d591db"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 43,
+          "record_sha256": "81e3d1c9d32289b16a73344616e157961929eaecba41fbfc3893c623b8918952"
+        }
+      ],
+      "literal_sha256": "ec2700a42f8cbad9529f5f77f707f28f7de88f3a3fcd8144a67cdd194a84a4d5",
+      "source_literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.vanguardjapan.com",
+          "href": "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Vitalize I",
+      "source_url": "https://vgsoharchive.com/abilities/vitalize-i",
+      "scope": "historical",
+      "section_node_index": 6,
+      "cache": {
+        "path": ".cache/archive/93f758da97ab88c272e815a4aa31a07b3f5be958d99b4bfd6aa32d3aebfc488e.txt",
+        "sha256": "44e14ad1b600e836811b67a6600f85d35901ac3d99085065cd69825627d591db"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 43,
+          "record_sha256": "81e3d1c9d32289b16a73344616e157961929eaecba41fbfc3893c623b8918952"
+        }
+      ],
+      "literal_sha256": "1784f86089c109a73f452d29b41939facc68228405fe97d04e2f6f6c39ec94c6",
+      "source_literal": "Level in 2007-2008 8",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>8</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007-2008",
+          "value_literal": "8",
+          "direct_value_literal": "8",
+          "numeric_value": 8,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only_target_scope_collision_unresolved",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Vitalize I",
+      "source_url": "https://vgsoharchive.com/abilities/vitalize-i",
+      "scope": "historical",
+      "section_node_index": 7,
+      "cache": {
+        "path": ".cache/archive/93f758da97ab88c272e815a4aa31a07b3f5be958d99b4bfd6aa32d3aebfc488e.txt",
+        "sha256": "44e14ad1b600e836811b67a6600f85d35901ac3d99085065cd69825627d591db"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 43,
+          "record_sha256": "81e3d1c9d32289b16a73344616e157961929eaecba41fbfc3893c623b8918952"
+        }
+      ],
+      "literal_sha256": "1d598f3ad07aeb411c34ce5f1e8a2c9e19f1fe64e24dbb41d6e5f2bbd25caabd",
+      "source_literal": "Fills your defensive target's party with life, granting them 23 additional vitality. Energy Cost : 41 Cast Time: Instant Refresh: None Range: 25 Mental Transmutation I",
+      "source_html": "<div class=\"tooltip\">Fills your defensive target's party with life, granting them 23 additional vitality. Energy Cost : 41 Cast Time: Instant Refresh: None Range: 25 Mental Transmutation I</div>",
+      "reviewed_observations": {
+        "additional_vitality": 23,
+        "target_literal": "defensive target's party",
+        "duration": null,
+        "stacking_rule": null,
+        "embedded_energy_cost_literal": "41",
+        "cast_time_literal": "Instant",
+        "refresh_literal": "None",
+        "range_literal": "25",
+        "range_unit": null,
+        "trailing_literal": "Mental Transmutation I",
+        "operative_target": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only_target_scope_collision_unresolved",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Vitalize I",
+      "source_url": "https://vgsoharchive.com/abilities/vitalize-i",
+      "scope": "historical",
+      "section_node_index": 8,
+      "cache": {
+        "path": ".cache/archive/93f758da97ab88c272e815a4aa31a07b3f5be958d99b4bfd6aa32d3aebfc488e.txt",
+        "sha256": "44e14ad1b600e836811b67a6600f85d35901ac3d99085065cd69825627d591db"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 43,
+          "record_sha256": "81e3d1c9d32289b16a73344616e157961929eaecba41fbfc3893c623b8918952"
+        }
+      ],
+      "literal_sha256": "f27aeaed3d88311d784c8ac3f344512e0529fa572eaed9e8885ba10be11410bd",
+      "source_literal": "Ten Ton Hammer class guides ,\r\n          \r\n          2007-2008 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\r\n          \r\n          2007-2008 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "Ten Ton Hammer class guides",
+          "href": "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 8,
+    "label_value_comparisons": 4,
+    "exact_mechanic_literal_comparisons": 2,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 792,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Historical target claims an ally and defensive target's party differ; no operative target scope is selected. Full source-record references and literal evidence are retained.",
+    "Additional vitality 23 is an archive claim; duration, stacking and full stat behavior remain unknown.",
+    "Energy then 35, nested now 41 and embedded Energy Cost 41 remain separate observations. Bare range and cast numbers have unknown units.",
+    "Attribution links were not fetched or independently authenticated. Trailing Mental Transmutation I text does not establish a mechanic relationship. Operative values remain null."
+  ],
+  "next_step": "Review the next unreviewed historical Blood Mage ability against cached source sections."
+}

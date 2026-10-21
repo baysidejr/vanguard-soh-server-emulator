@@ -1,0 +1,785 @@
+{
+  "review_kind": "blood_mage_steal_hate_ritual_rune_healing_source_review",
+  "parser_version": 104,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION689.json",
+    "sha256": "5727d7e8de3b9e6910f4001703b39947b1b995f326b60f1a74c9ce6ec15acb25"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Entwining Vein V",
+      "source_url": "https://vgsoharchive.com/abilities/entwining-vein-v",
+      "cache": {
+        "path": ".cache/archive/c2f68967143cdc6639ee3cc678c26f6e197d412a7b17b5c587b19bfaa7aa4798.txt",
+        "sha256": "be0f5e92ca2a466effae5d1d6165204c95fd703ae8f31be96b3fc6dddb888f90"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 40,
+          "record_sha256": "1f8b908be972b2db0f7ff7c711a163a647765699a70b2b1fc0d135fd7ef00efa"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Steals 330 to 350 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+          "literal_sha256": "04278ffc047ee178d7c964bed6bb0e1d36c1e875353e2ff264d71afffbb3f464",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "health_steal_with_defensive_target_return",
+            "health_stolen_min": 330,
+            "health_stolen_max": 350,
+            "returned_portion_percent": 130,
+            "recipient_reported": "defensive target",
+            "returned_portion_increase_percent_per_blood_union_level": 10,
+            "blood_union_gain_points": 1,
+            "percentage_bonus_combination_rule": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Entwining Vein V",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/entwining-vein-v",
+              "title": "Entwining Vein V · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 104,
+          "collected_at": "2026-10-20T03:05:15+00:00",
+          "archive_fields": {
+            "cast then": [
+              "2"
+            ],
+            "level in 2007": [
+              "42"
+            ],
+            "level": [
+              "42"
+            ],
+            "energy cost": [
+              "349"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "causes": [
+              "Lethargic"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Vulnerable"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "icon": [
+              "Icon620.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 42,
+          "rank": "V",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 349
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon620.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 42,
+              "raw": "42"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032846id_/http://wiki.silkyvenom.com/index.php/Entwining_Vein_V",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              349
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": "Lethargic",
+          "exploits_weakness": "Vulnerable",
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Numb IV",
+      "source_url": "https://vgsoharchive.com/abilities/numb-iv",
+      "cache": {
+        "path": ".cache/archive/fcf6cd4f992001b93246fb941b7511601f0cb06a9f5fb9b87a2a9582216cb950.txt",
+        "sha256": "05248b8c72a74d9b619ba399d8dbeec7a3ca3b32d10d1b6011f4e8faf6b6d7fe"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+          "line": 17,
+          "record_sha256": "c4c6a995d4f2e6c84c80aa3fab1d76b44d87dcd787f85161ce7c12be48fe5235"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Numbs your opponent's mind, lowering your hate by 4542.",
+          "literal_sha256": "63281f589321aa2b7e9fbff6a665819fce7617f02078c75e487d358861943244",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "hate_reduction",
+            "hate_reduction_amount": 4542,
+            "hate_unit": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Numb IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/numb-iv",
+              "title": "Numb IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 104,
+          "collected_at": "2026-10-20T03:05:15+00:00",
+          "archive_fields": {
+            "cast then": [
+              "2"
+            ],
+            "level in 2007": [
+              "42"
+            ],
+            "level": [
+              "42"
+            ],
+            "energy cost": [
+              "134"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon697.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 42,
+          "rank": "IV",
+          "category": "Alteration",
+          "cost": {
+            "energy": 134
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Numbs your opponent's mind, lowering your hate by 4542.",
+          "icon_name": "Icon697.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 42,
+              "raw": "42"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034404id_/http://wiki.silkyvenom.com/index.php/Numb_IV",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              134
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Severing Ritual III",
+      "source_url": "https://vgsoharchive.com/abilities/severing-ritual-iii",
+      "cache": {
+        "path": ".cache/archive/4cc366b8d1913ae858a31926047fc3db0d6355cbcea65c5cdcef586e79857168.txt",
+        "sha256": "1a0cac92455c5c1c3e9ebb9c26e482f2a6f9f2605481b857df456bc8831ab702"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 73,
+          "record_sha256": "66df98464d82a5b28f71b265c10d00dc1856721672fdaf00d5a98a97d7bace5d"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "This ritual severs life from all opponents within 10m, dealing 430 to 454 damage and 591 to 624 over 10 sec. Reduces Blood Union by 3. Only usable from Blood Union 3.",
+          "literal_sha256": "b4c1cf737c777676bad5e8494329ed329de4ae76fef50f55b832b2c03290ea8a",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "area_damage_with_periodic_damage_and_union_cost",
+            "radius_meters": 10,
+            "recipient_reported": "all opponents within 10m",
+            "damage_min": 430,
+            "damage_max": 454,
+            "periodic_damage_min": 591,
+            "periodic_damage_max": 624,
+            "periodic_damage_duration_seconds": 10,
+            "blood_union_cost_points": 3,
+            "required_blood_union_reported": 3,
+            "periodic_damage_distribution": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Severing Ritual III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/severing-ritual-iii",
+              "title": "Severing Ritual III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 104,
+          "collected_at": "2026-10-20T03:05:15+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "42"
+            ],
+            "level": [
+              "42"
+            ],
+            "energy cost": [
+              "3"
+            ],
+            "blood union": [
+              "3"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "10m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "icon": [
+              "Icon532.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 42,
+          "rank": "III",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 3
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 10,
+            "unit": "m",
+            "raw": "10m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon532.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 42,
+              "raw": "42"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033302id_/http://wiki.silkyvenom.com/index.php/Severing_Ritual_III",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              3
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sheltering Rune I",
+      "source_url": "https://vgsoharchive.com/abilities/sheltering-rune-i",
+      "cache": {
+        "path": ".cache/archive/91798c9393e2535e39b011eac5953ea063b0dd49bb74600bdda1813d82c18bbe.txt",
+        "sha256": "ffa36142bc002e03b5996bd07fa1548b73defb8b45fc851f86d1c0de66124705"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 91,
+          "record_sha256": "b4b7effa25c9ab0d99f76783e5c4bca917e92c246320b9ea7707feb3da4ee5ea"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Places a rune of flesh on your defensive target that reduces incoming physical damage and arcane damage by 100%. Lasts for 6 seconds.",
+          "literal_sha256": "447312c609e2c95009cba7025733e61bde7abbd09efd071655f6fa038a0f5de4",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "defensive_target_physical_arcane_damage_reduction",
+            "recipient_reported": "defensive target",
+            "physical_damage_reduction_percent": 100,
+            "arcane_damage_reduction_percent": 100,
+            "duration_seconds": 6,
+            "absorption_limit": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Sheltering Rune I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/sheltering-rune-i",
+              "title": "Sheltering Rune I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 104,
+          "collected_at": "2026-10-20T03:05:15+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "42"
+            ],
+            "level": [
+              "42"
+            ],
+            "energy cost": [
+              "269"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "2:00s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "type": [
+              "Conjuration"
+            ],
+            "icon": [
+              "Icon661.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 42,
+          "rank": "I",
+          "category": "Conjuration",
+          "cost": {
+            "energy": 269
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Places a rune of flesh on your defensive target that reduces incoming physical damage and arcane damage by 100%. Lasts for 6 seconds.",
+          "icon_name": "Icon661.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 42,
+              "raw": "42"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033319id_/http://wiki.silkyvenom.com/index.php/Sheltering_Rune_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              269
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "http://vg.mmodb.com:80/spells/sheltering-rune-i-787.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Transfusion of Serak III",
+      "source_url": "https://vgsoharchive.com/abilities/transfusion-of-serak-iii",
+      "cache": {
+        "path": ".cache/archive/e485a1ab1c8cb69b77cd8e70d6bc7b6e66d8adcf1be2694a7e948aaba6b69abe.txt",
+        "sha256": "bda2fc88463c4c93617e8fd558a846ff2d0e8d4dc367b11b19eaa0c1aba937ea"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 73,
+          "record_sha256": "309bdeeeb436e04a4f7d13bcacbb314a2fe714d5070b5d33aae926733cd1679e"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Heals for 1200 health over 16 seconds.",
+          "literal_sha256": "15cbd571b5b8f6e05e491ed590ed6295cbdc130b5d80a9a6d344f53d42f2e567",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "periodic_healing",
+            "healing_amount": 1200,
+            "duration_seconds": 16,
+            "recipient_reported": null,
+            "healing_distribution": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Transfusion of Serak III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/transfusion-of-serak-iii",
+              "title": "Transfusion of Serak III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 104,
+          "collected_at": "2026-10-20T03:05:15+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "8"
+            ],
+            "level in 2007": [
+              "42"
+            ],
+            "level": [
+              "42"
+            ],
+            "health and energy cost": [
+              "290"
+            ],
+            "health cost": [
+              "65"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "8.0s"
+            ],
+            "range": [
+              "30m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon452.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 42,
+          "rank": "III",
+          "category": "Heal",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": 8.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 30,
+            "unit": "m",
+            "raw": "30m"
+          },
+          "tooltip": "Heals for 1200 health over 16 seconds.",
+          "icon_name": "Icon452.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 42,
+              "raw": "42"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034738id_/http://wiki.silkyvenom.com/index.php/Transfusion_of_Serak_III",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "8.0s",
+                "seconds": 8.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process found no collect_archive process",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval_seconds": 60,
+    "network_suspension_preserved": true
+  },
+  "review_accounting": {
+    "previous_numeric_sections_without_patterns": 30,
+    "source_sections_reviewed_here": 5,
+    "remaining_numeric_sections_without_patterns_awaiting_literal_review": 25,
+    "reviewed_sections_awaiting_parser_implementation": 5
+  },
+  "limitations": [
+    "Source review candidates are not typed game facts or operative server mechanics.",
+    "Five reviewed literals require constrained parser implementation.",
+    "Percentage bonus combination rules, hate units, periodic distribution, unstated healing recipient and unstated mechanics remain null.",
+    "Accounting tracks the original iteration689 review inventory; generic recognition does not establish complete coverage.",
+    "No name-only matching or inferred canonical client IDs; immutable source records retained."
+  ],
+  "next_step": "Implement and test constrained observations for the five reviewed Blood Mage steal, hate, ritual, rune and healing sources."
+}

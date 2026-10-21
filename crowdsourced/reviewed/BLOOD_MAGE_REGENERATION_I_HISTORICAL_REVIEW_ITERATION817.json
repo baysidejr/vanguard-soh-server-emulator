@@ -1,0 +1,191 @@
+{
+  "review_kind": "blood_mage_regeneration_i_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Regeneration I",
+      "source_url": "https://vgsoharchive.com/abilities/regeneration-i",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/b5068632eac068e070183eb6e2ee5d7f18d5c54b8772170aba4fab1bd967ea4f.txt",
+        "sha256": "51efbb2346a63322b142fbe1833b47d471be7a7058c2c6707023ea224934b9a1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 32,
+          "record_sha256": "f96487f7205d6852fec0cdacfc3345eac1d640212ca5cfc70a4e88b90af348aa"
+        }
+      ],
+      "literal_sha256": "5660f47d2065617a35e221303579f660b1c959d575eb6eb0d768dd53bb9e7817",
+      "source_literal": "Increases the health regeneration rate of an ally by 30 for 30 mins",
+      "source_html": "<div class=\"tooltip\">Increases the health regeneration rate of an ally by 30 for 30 mins</div>",
+      "reviewed_observations": {
+        "effect_literal": "Increases the health regeneration rate of an ally by 30 for 30 mins",
+        "health_regeneration_increase": 30,
+        "regeneration_unit": null,
+        "recipient_literal": "an ally",
+        "duration_minutes": 30,
+        "tick_interval_seconds": null,
+        "operative_regeneration": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Regeneration I",
+      "source_url": "https://vgsoharchive.com/abilities/regeneration-i",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/b5068632eac068e070183eb6e2ee5d7f18d5c54b8772170aba4fab1bd967ea4f.txt",
+        "sha256": "51efbb2346a63322b142fbe1833b47d471be7a7058c2c6707023ea224934b9a1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 32,
+          "record_sha256": "f96487f7205d6852fec0cdacfc3345eac1d640212ca5cfc70a4e88b90af348aa"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227033224id_/http://wiki.silkyvenom.com/index.php/Regeneration_I\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227033224id_/http://wiki.silkyvenom.com/index.php/Regeneration_I"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Regeneration I",
+      "source_url": "https://vgsoharchive.com/abilities/regeneration-i",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/b5068632eac068e070183eb6e2ee5d7f18d5c54b8772170aba4fab1bd967ea4f.txt",
+        "sha256": "51efbb2346a63322b142fbe1833b47d471be7a7058c2c6707023ea224934b9a1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 32,
+          "record_sha256": "f96487f7205d6852fec0cdacfc3345eac1d640212ca5cfc70a4e88b90af348aa"
+        }
+      ],
+      "literal_sha256": "81712810e64199174a42b4acc0069eefa0ec4921b7222f1580163fad1d091a77",
+      "source_literal": "Level in 2007 46 — now 16",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>46\r\n                <span class=\"muted\">— now 16</span></dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007",
+          "value_literal": "46 — now 16",
+          "direct_value_literal": "46",
+          "numeric_value": 46,
+          "comparison_literal": "— now 16",
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Regeneration I",
+      "source_url": "https://vgsoharchive.com/abilities/regeneration-i",
+      "scope": "historical",
+      "section_node_index": 5,
+      "cache": {
+        "path": ".cache/archive/b5068632eac068e070183eb6e2ee5d7f18d5c54b8772170aba4fab1bd967ea4f.txt",
+        "sha256": "51efbb2346a63322b142fbe1833b47d471be7a7058c2c6707023ea224934b9a1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 32,
+          "record_sha256": "f96487f7205d6852fec0cdacfc3345eac1d640212ca5cfc70a4e88b90af348aa"
+        }
+      ],
+      "literal_sha256": "ec2700a42f8cbad9529f5f77f707f28f7de88f3a3fcd8144a67cdd194a84a4d5",
+      "source_literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.vanguardjapan.com",
+          "href": "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 4,
+    "label_value_comparisons": 1,
+    "exact_mechanic_literal_comparisons": 1,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 642,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Regeneration increase 30 has no stated unit or tick interval; no per-second or per-tick value is inferred.",
+    "Historical level 46 and the page comparison now 16 remain separate claims.",
+    "Duration 30 mins is explicit; archive attribution does not independently authenticate the historical claim. Operative values remain null."
+  ],
+  "next_step": "Review the next unreviewed historical Blood Mage ability against cached source sections."
+}

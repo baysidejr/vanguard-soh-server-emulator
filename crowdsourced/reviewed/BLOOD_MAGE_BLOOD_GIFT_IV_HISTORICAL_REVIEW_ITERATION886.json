@@ -1,0 +1,241 @@
+{
+  "review_kind": "blood_mage_blood_gift_iv_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Blood Gift IV",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-iv",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/3f18024d41c3f059108cd97db1a1fff57a30bb5b3c22a3ecb4cca742c4eeee39.txt",
+        "sha256": "6fd2fb262ae6f0e00da89ca49f28f670d820e60f530ea81576eb03bce8e8de90"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 16,
+          "record_sha256": "6a708104a282b4dc51beedbb36f03b635d5bf71d258261c6c892678d2c38fc29"
+        }
+      ],
+      "literal_sha256": "7c6f5a43cc87e3b13eb24632b9c80654e60b28e57b3f8cd5d9af9ea437bc1289",
+      "source_literal": "Energy then 361 — now 482 Cast then 3",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Energy then</dt>\n<dd>361\r\n                <span class=\"muted\">— now 482</span></dd></div>\n<div><dt>Cast then</dt><dd>3</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Energy then",
+          "value_literal": "361 — now 482",
+          "direct_value_literal": "361",
+          "numeric_value": 361,
+          "comparison_literal": "— now 482",
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "3",
+          "direct_value_literal": "3",
+          "numeric_value": 3,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Gift IV",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-iv",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/3f18024d41c3f059108cd97db1a1fff57a30bb5b3c22a3ecb4cca742c4eeee39.txt",
+        "sha256": "6fd2fb262ae6f0e00da89ca49f28f670d820e60f530ea81576eb03bce8e8de90"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 16,
+          "record_sha256": "6a708104a282b4dc51beedbb36f03b635d5bf71d258261c6c892678d2c38fc29"
+        }
+      ],
+      "literal_sha256": "fef1dab48515a917bcdb47cd3bc5d1aa2e2fad21ca2b0e37f86c999467a7b646",
+      "source_literal": "You use your blood to heal an ally, other than yourself, for 1867. Heals for an extra 2% per level of Blood Union",
+      "source_html": "<div class=\"tooltip\">You use your blood to heal an ally, other than yourself, for 1867. Heals for an extra 2% per level of Blood Union</div>",
+      "reviewed_observations": {
+        "effect_literal": "You use your blood to heal an ally, other than yourself, for 1867. Heals for an extra 2% per level of Blood Union",
+        "healing_amount": 1867,
+        "target_other_ally": true,
+        "self_target_allowed": false,
+        "extra_healing_percent_per_blood_union_level": 2,
+        "scaling_formula": null,
+        "rounding_rule": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Gift IV",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-iv",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/3f18024d41c3f059108cd97db1a1fff57a30bb5b3c22a3ecb4cca742c4eeee39.txt",
+        "sha256": "6fd2fb262ae6f0e00da89ca49f28f670d820e60f530ea81576eb03bce8e8de90"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 16,
+          "record_sha256": "6a708104a282b4dc51beedbb36f03b635d5bf71d258261c6c892678d2c38fc29"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227033617id_/http://wiki.silkyvenom.com/index.php/Blood_Gift_IV\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227033617id_/http://wiki.silkyvenom.com/index.php/Blood_Gift_IV"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Gift IV",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-iv",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/3f18024d41c3f059108cd97db1a1fff57a30bb5b3c22a3ecb4cca742c4eeee39.txt",
+        "sha256": "6fd2fb262ae6f0e00da89ca49f28f670d820e60f530ea81576eb03bce8e8de90"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 16,
+          "record_sha256": "6a708104a282b4dc51beedbb36f03b635d5bf71d258261c6c892678d2c38fc29"
+        }
+      ],
+      "literal_sha256": "ef45fccd913ad8e66dd52842657e4539c59bf960e8d2b1f6cc2e6f029bdb33e7",
+      "source_literal": "Level in 2007 30 — now 38",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>30\r\n                <span class=\"muted\">— now 38</span></dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007",
+          "value_literal": "30 — now 38",
+          "direct_value_literal": "30",
+          "numeric_value": 30,
+          "comparison_literal": "— now 38",
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Gift IV",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-iv",
+      "scope": "historical",
+      "section_node_index": 5,
+      "cache": {
+        "path": ".cache/archive/3f18024d41c3f059108cd97db1a1fff57a30bb5b3c22a3ecb4cca742c4eeee39.txt",
+        "sha256": "6fd2fb262ae6f0e00da89ca49f28f670d820e60f530ea81576eb03bce8e8de90"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 16,
+          "record_sha256": "6a708104a282b4dc51beedbb36f03b635d5bf71d258261c6c892678d2c38fc29"
+        }
+      ],
+      "literal_sha256": "ec2700a42f8cbad9529f5f77f707f28f7de88f3a3fcd8144a67cdd194a84a4d5",
+      "source_literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.vanguardjapan.com",
+          "href": "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 5,
+    "label_value_comparisons": 3,
+    "exact_mechanic_literal_comparisons": 1,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 247,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Historical healing 1867 and extra 2% per Blood Union level are literal archive claims; the exact scaling formula and rounding remain null.",
+    "Energy then 361 and Cast then 3 retain unknown units; current comparison values are not historical observations.",
+    "The historical level 30 and source attribution dates are archive claims, not independently authenticated live-era evidence.",
+    "Attribution remains metadata; operative values remain null."
+  ],
+  "next_step": "Review the next unreviewed historical Blood Mage ability after Blood Gift IV against cached source evidence.",
+  "review_accounting": {
+    "section_reviews": 5,
+    "newly_covered_scope_nodes": 5
+  }
+}

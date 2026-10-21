@@ -1,0 +1,311 @@
+{
+  "review_kind": "blood_mage_attribute_party_buff_field_review",
+  "parser_version": 114,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Mental Infusion I",
+      "source_url": "https://vgsoharchive.com/abilities/mental-infusion-i",
+      "cache": {
+        "path": ".cache/archive/a8d2ff34631c9aef001900f9a205f616f4d96d66ce35cfeae6c42c5c4cbd1eb0.txt",
+        "sha256": "73a47ebb3c45c504349ac222c3f4cd5168af821c05fb80b8effaa679e8bd6d4d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 29,
+          "record_sha256": "746a74a14511219a9d86f712c56de9b295a608d296ba85b168083381bcdb2c36"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Increases you and your allies Intelligence and Wisdom.",
+          "literal_sha256": "325fde3203d9fc5fbf129ab8b2c2aa5a359482831d988ee36b29a7af752375ae",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "attribute_increase",
+              "extracted_value": "attribute_increase",
+              "equal": true
+            },
+            {
+              "field": "recipients_reported",
+              "source_value": [
+                "self",
+                "allies"
+              ],
+              "extracted_value": [
+                "self",
+                "allies"
+              ],
+              "equal": true
+            },
+            {
+              "field": "attributes_reported",
+              "source_value": [
+                "Intelligence",
+                "Wisdom"
+              ],
+              "extracted_value": [
+                "Intelligence",
+                "Wisdom"
+              ],
+              "equal": true
+            },
+            {
+              "field": "bonus_amount",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_qualitative_support_observation",
+              "effect_phrase_recorded": "Increases you and your allies Intelligence and Wisdom.",
+              "conditions_unparsed": true,
+              "effect_reported": "attribute_increase",
+              "recipients_reported": [
+                "self",
+                "allies"
+              ],
+              "attributes_reported": [
+                "Intelligence",
+                "Wisdom"
+              ],
+              "bonus_amount": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Serak's Augmentation I",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-augmentation-i",
+      "cache": {
+        "path": ".cache/archive/26a94bb74962a0ce2594464c3329305f34e4d45a37696a77a8850c82ec839214.txt",
+        "sha256": "95a23262d72f5ebff143e80bd89f97b9d6fbef5a74c4f2b915a879edbb4858f9"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 60,
+          "record_sha256": "2d32a1288f374afa0f7f4ec01bbf51c04e6b7a403a0c81a807b51b8ca5ba6fde"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Increases you and your allies Constitution and Physical resistance.",
+          "literal_sha256": "3719004cbf73f798061df120e2f5a5015771fad5ed5dae01e34694768a90ee5b",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "attribute_and_resistance_increase",
+              "extracted_value": "attribute_and_resistance_increase",
+              "equal": true
+            },
+            {
+              "field": "recipients_reported",
+              "source_value": [
+                "self",
+                "allies"
+              ],
+              "extracted_value": [
+                "self",
+                "allies"
+              ],
+              "equal": true
+            },
+            {
+              "field": "attributes_reported",
+              "source_value": [
+                "Constitution",
+                "Physical resistance"
+              ],
+              "extracted_value": [
+                "Constitution",
+                "Physical resistance"
+              ],
+              "equal": true
+            },
+            {
+              "field": "bonus_amount",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_qualitative_support_observation",
+              "effect_phrase_recorded": "Increases you and your allies Constitution and Physical resistance.",
+              "conditions_unparsed": true,
+              "effect_reported": "attribute_and_resistance_increase",
+              "recipients_reported": [
+                "self",
+                "allies"
+              ],
+              "attributes_reported": [
+                "Constitution",
+                "Physical resistance"
+              ],
+              "bonus_amount": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Serak's Augmentation II",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-augmentation-ii",
+      "cache": {
+        "path": ".cache/archive/09bba33397c10bd20dd74dd2b3ca44b1eb3cbe84743e07d3382b1734bf831e24.txt",
+        "sha256": "fd4d34984466734541028f7c2ed98d2eea131c2c43cd9cb947086e69f3701aab"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 61,
+          "record_sha256": "251dff1ba5cb8ba7c82196d06bd9b91451c740bc61c7ddb255a986c9c98becda"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Augments the skin of your defensive target's party, granting them 51 constitution and 145 physical resistance.",
+          "literal_sha256": "df2f3a475b1375c43986fd63ce22a424c6a5cd68ffc4272a307b13659ef92318",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "party_constitution_resistance_buff",
+              "extracted_value": "party_constitution_resistance_buff",
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your defensive target's party",
+              "extracted_value": "your defensive target's party",
+              "equal": true
+            },
+            {
+              "field": "constitution_increase",
+              "source_value": 51,
+              "extracted_value": 51,
+              "equal": true
+            },
+            {
+              "field": "physical_resistance_increase",
+              "source_value": 145,
+              "extracted_value": 145,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_control_party_buffs_health_return_observation",
+              "effect_phrase_recorded": "Augments the skin of your defensive target's party, granting them 51 constitution and 145 physical resistance.",
+              "conditions_unparsed": true,
+              "effect_reported": "party_constitution_resistance_buff",
+              "recipient_reported": "your defensive target's party",
+              "constitution_increase": 51,
+              "physical_resistance_increase": 145,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 3,
+    "source_record_hashes_verified": 3,
+    "whole_page_replays": 3,
+    "literal_hashes_verified": 3,
+    "field_comparisons_passed": 17,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 77,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Only three current attribute/party buff Effect clauses reviewed; full ability, historical and alternate scopes remain pending.",
+    "Rank-specific field aliases are retained verbatim; no canonical schema rewrite or operative promotion occurs.",
+    "Bonus amounts for qualitative ranks, party radius, stacking and duration are not established; unstated values remain unknown."
+  ],
+  "next_step": "Review Favor of the Life Giver structured Effect lists and determine whether their fields are retained outside effect_facts."
+}

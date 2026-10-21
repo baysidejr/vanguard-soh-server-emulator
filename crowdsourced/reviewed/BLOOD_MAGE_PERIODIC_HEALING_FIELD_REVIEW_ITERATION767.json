@@ -1,0 +1,715 @@
+{
+  "review_kind": "blood_mage_periodic_healing_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Flesh Mender's Ritual I",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-mender-s-ritual-i",
+      "cache": {
+        "path": ".cache/archive/71df076809a88b455ba8b6216aad7819081c7e2fd0fa507ad2f65d0276671a80.txt",
+        "sha256": "aff423e2b22ce07c0613c424864ec5caa8b7f8c859422813e53efd032e1ff331"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 19,
+          "record_sha256": "a33388bf3060c304170dc2456728a4cb3723d7517b0578b9bd83efbe55121c81"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual heals an ally, other than yourself, for 1224 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.",
+          "literal_sha256": "f0de57020f077303880f2746290d8d56fba0e5a240359015890df9f2a13b22f0",
+          "field_comparisons": [
+            {
+              "field": "health_amount",
+              "source_value": 1224,
+              "extracted_value": 1224,
+              "equal": true
+            },
+            {
+              "field": "blood_union_reduction_points",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "minimum_blood_union_reported",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 20,
+              "extracted_value": 20,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "an ally, other than yourself",
+              "extracted_value": "an ally, other than yourself",
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_transfer_ritual_observation",
+              "effect_phrase_recorded": "This ritual heals an ally, other than yourself, for 1224 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.",
+              "conditions_unparsed": true,
+              "effect_reported": "periodic_healing_with_blood_union_cost",
+              "health_amount": 1224,
+              "duration_seconds": 20,
+              "recipient_reported": "an ally, other than yourself",
+              "blood_union_reduction_points": 3,
+              "minimum_blood_union_reported": 3,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Flesh Mender's Ritual II",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-mender-s-ritual-ii",
+      "cache": {
+        "path": ".cache/archive/56270faf8b271d1baafa3ee5a9f4f1d0e1d5ae778285e3874047c330aa5c8231.txt",
+        "sha256": "f93fd1240385ec3cf447ef6c5217e3d2ded6cd40133ceb04d080f914302de839"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 25,
+          "record_sha256": "fbcef7de2691d9a637bc35c19433e23ec2b215559d307dbc09eb3bdbc70a9ae2"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual heals an ally, other than yourself, for 2112 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.",
+          "literal_sha256": "393443adf2ff8d99d3b3f533f0949acc715cc3e4ef665b023c2b28586c8bca21",
+          "field_comparisons": [
+            {
+              "field": "healing_total",
+              "source_value": 2112,
+              "extracted_value": 2112,
+              "equal": true
+            },
+            {
+              "field": "blood_union_reduction",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "minimum_blood_union",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 20,
+              "extracted_value": 20,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "an ally, other than yourself",
+              "extracted_value": "an ally, other than yourself",
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_group_ritual_absorption_observation",
+              "effect_phrase_recorded": "This ritual heals an ally, other than yourself, for 2112 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.",
+              "conditions_unparsed": true,
+              "effect_reported": "periodic_ally_heal_blood_union_consumption",
+              "recipient_reported": "an ally, other than yourself",
+              "healing_total": 2112,
+              "duration_seconds": 20,
+              "blood_union_reduction": 3,
+              "minimum_blood_union": 3,
+              "healing_per_tick": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Transfusion of Serak I",
+      "source_url": "https://vgsoharchive.com/abilities/transfusion-of-serak-i",
+      "cache": {
+        "path": ".cache/archive/7de532c9284d1d6d88cf9516c0bf35251fe8105113df0e7a205cb6623bffcd44.txt",
+        "sha256": "1d2b8299ebfe9f3b68870b72cd1b36e2dfe71e638c9bf92b87ac96104a871914"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 71,
+          "record_sha256": "be839d5889dcf4d0f97fc10ec2d086b0afad80e7c429bf0f65209c7a8b7a4df0"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Heals for 635 health over 16 seconds.",
+          "literal_sha256": "34171fa3c6fb87e3ea9052362271cbee80ba780936439ccc3ee1dbcc1374df5c",
+          "field_comparisons": [
+            {
+              "field": "health_amount_total",
+              "source_value": 635,
+              "extracted_value": 635,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "periodic_healing",
+              "extracted_value": "periodic_healing",
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 16,
+              "extracted_value": 16,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_damage_pact_levitation_healing_observation",
+              "effect_phrase_recorded": "Heals for 635 health over 16 seconds.",
+              "conditions_unparsed": true,
+              "effect_reported": "periodic_healing",
+              "health_amount_total": 635,
+              "duration_seconds": 16,
+              "healing_per_tick": null,
+              "recipient_reported": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Flesh Mender's Ritual III",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-mender-s-ritual-iii",
+      "cache": {
+        "path": ".cache/archive/60e5719c394a53fd92f556444551018f610f828e56bbb4775f2b2701eddc103a.txt",
+        "sha256": "b2a940088fb0fa57e131ac79f7482d2e013c7155e5c3b152dad1291c8e60990d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 58,
+          "record_sha256": "c7d8301d0a745a875291e9aac00c5591f393ff4bfdd01add24def19dbcc30fd7"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual heals an ally, other than yourself, for 3072 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.",
+          "literal_sha256": "6ed62b86882443728ed8e9d181a0969b6f513878f340ed1625cf1bb4ceec7f8c",
+          "field_comparisons": [
+            {
+              "field": "health_over_duration",
+              "source_value": 3072,
+              "extracted_value": 3072,
+              "equal": true
+            },
+            {
+              "field": "blood_union_reduction",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "minimum_blood_union",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 20,
+              "extracted_value": 20,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "an ally, other than yourself",
+              "extracted_value": "an ally, other than yourself",
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_group_ritual_counter_healing_observation",
+              "effect_phrase_recorded": "This ritual heals an ally, other than yourself, for 3072 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_except_self_periodic_healing_union_cost",
+              "recipient_reported": "an ally, other than yourself",
+              "health_over_duration": 3072,
+              "duration_seconds": 20,
+              "blood_union_reduction": 3,
+              "minimum_blood_union": 3,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Transfusion of Serak II",
+      "source_url": "https://vgsoharchive.com/abilities/transfusion-of-serak-ii",
+      "cache": {
+        "path": ".cache/archive/a33ee75b67367946d6185b5ecc9cda27e7b115d678e83a65270645b2e30241c9.txt",
+        "sha256": "74c4a88160648d50ab553aa6bfa73440744e3780c98080c4c7f36ba4b2a58364"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 72,
+          "record_sha256": "f621a8dbe2cfa529424bc15e03f19b2b94d6433ad2ed04500636b34275c33851"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Heals for 905 health over 16 seconds.",
+          "literal_sha256": "bcf662d42cebefc38b46231b82d2a4a6256de15701f44bd963d3869998ed87b6",
+          "field_comparisons": [
+            {
+              "field": "health_over_duration",
+              "source_value": 905,
+              "extracted_value": 905,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "periodic_healing",
+              "extracted_value": "periodic_healing",
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 16,
+              "extracted_value": 16,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_execute_symbiote_healing_absorption_observation",
+              "effect_phrase_recorded": "Heals for 905 health over 16 seconds.",
+              "conditions_unparsed": true,
+              "effect_reported": "periodic_healing",
+              "health_over_duration": 905,
+              "duration_seconds": 16,
+              "recipient_reported": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Flesh Mender's Ritual IV",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-mender-s-ritual-iv",
+      "cache": {
+        "path": ".cache/archive/355748665d41b2addac8a0bfaf384fdc6849548872ce93a9f5299319f6bd7678.txt",
+        "sha256": "af5937c5caac592200f93607f43608fe31f894416b74a027ca97ede321bb0dd6"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 59,
+          "record_sha256": "369f0cdcbd79881e8ff2f3d0dc70082d9272905eb6ac6d9cc49671d55d80a05c"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual heals an ally, other than yourself, for 4110 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.",
+          "literal_sha256": "ed36208f439bf37d0d2a15795730b1eb2613722b5799c52e73575c3825873f96",
+          "field_comparisons": [
+            {
+              "field": "healing_amount",
+              "source_value": 4110,
+              "extracted_value": 4110,
+              "equal": true
+            },
+            {
+              "field": "blood_union_reduction",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "minimum_blood_union",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 20,
+              "extracted_value": 20,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "an ally, other than yourself",
+              "extracted_value": "an ally, other than yourself",
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_damage_group_buff_ritual_union_observation",
+              "effect_phrase_recorded": "This ritual heals an ally, other than yourself, for 4110 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.",
+              "conditions_unparsed": true,
+              "effect_reported": "other_ally_periodic_healing_union_cost",
+              "recipient_reported": "an ally, other than yourself",
+              "healing_amount": 4110,
+              "duration_seconds": 20,
+              "blood_union_reduction": 3,
+              "minimum_blood_union": 3,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Transfusion of Serak III",
+      "source_url": "https://vgsoharchive.com/abilities/transfusion-of-serak-iii",
+      "cache": {
+        "path": ".cache/archive/e485a1ab1c8cb69b77cd8e70d6bc7b6e66d8adcf1be2694a7e948aaba6b69abe.txt",
+        "sha256": "bda2fc88463c4c93617e8fd558a846ff2d0e8d4dc367b11b19eaa0c1aba937ea"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-025025-411784-archive-bulk/ability.jsonl",
+          "line": 73,
+          "record_sha256": "309bdeeeb436e04a4f7d13bcacbb314a2fe714d5070b5d33aae926733cd1679e"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Heals for 1200 health over 16 seconds.",
+          "literal_sha256": "15cbd571b5b8f6e05e491ed590ed6295cbdc130b5d80a9a6d344f53d42f2e567",
+          "field_comparisons": [
+            {
+              "field": "healing_amount",
+              "source_value": 1200,
+              "extracted_value": 1200,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "periodic_healing",
+              "extracted_value": "periodic_healing",
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 16,
+              "extracted_value": 16,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_steal_hate_ritual_rune_healing_observation",
+              "effect_phrase_recorded": "Heals for 1200 health over 16 seconds.",
+              "conditions_unparsed": true,
+              "effect_reported": "periodic_healing",
+              "healing_amount": 1200,
+              "duration_seconds": 16,
+              "recipient_reported": null,
+              "healing_distribution": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Flesh Mender's Ritual V",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-mender-s-ritual-v",
+      "cache": {
+        "path": ".cache/archive/ebc3a422747d4a5d001ad94a87d41fb9c4817ee47dbbf19c594c454c6e6f95d5.txt",
+        "sha256": "b402ba01e346999dcdfa63859493296920980369341f21309d9be975fa776888"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 60,
+          "record_sha256": "aa603f31e0bdad9ea5ad44a0e90675e13bea3658d917cb4bf57a1a98981a32bf"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual heals an ally, other than yourself, for 4662 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.",
+          "literal_sha256": "90f96cd099f8c2fe767f5255694b306c9459c07ef045f3df0ec537f9d709c61b",
+          "field_comparisons": [
+            {
+              "field": "healing_amount",
+              "source_value": 4662,
+              "extracted_value": 4662,
+              "equal": true
+            },
+            {
+              "field": "blood_union_consumed_points",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "minimum_blood_union",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": 20,
+              "extracted_value": 20,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "ally_other_than_self",
+              "extracted_value": "ally_other_than_self",
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_final_numeric_observation",
+              "effect_phrase_recorded": "This ritual heals an ally, other than yourself, for 4662 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.",
+              "conditions_unparsed": true,
+              "effect_reported": "other_ally_healing_over_time_ritual",
+              "healing_amount": 4662,
+              "duration_seconds": 20,
+              "recipient_reported": "ally_other_than_self",
+              "blood_union_consumed_points": 3,
+              "minimum_blood_union": 3,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 8,
+    "source_record_hashes_verified": 8,
+    "whole_page_replays": 8,
+    "literal_hashes_verified": 8,
+    "field_comparisons_passed": 53,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 52,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Eight current periodic-healing sections reviewed; full abilities, historical and alternate scopes remain pending.",
+    "Tick timing and stacking remain unknown; Transfusion recipient is unspecified. Reported amounts over durations are not inferred per-tick values.",
+    "No canonical IDs, operative values or historical authentication are inferred."
+  ],
+  "next_step": "Review remaining Blood Mage direct healing and Blood Union scaling clauses against cached prose."
+}

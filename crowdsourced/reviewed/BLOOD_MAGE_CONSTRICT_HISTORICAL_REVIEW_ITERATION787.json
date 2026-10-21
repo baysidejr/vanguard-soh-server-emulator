@@ -1,0 +1,361 @@
+{
+  "review_kind": "blood_mage_constrict_historical_mechanic_metadata_and_attribution_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Constrict I",
+      "source_url": "https://vgsoharchive.com/abilities/constrict-i",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/943ab98778e56572df6674cba984006c5e85e2416bcf0a3c574207f04bdb2219.txt",
+        "sha256": "053d8c84388c6f4f7e6fbcf6785b3dd3c44610aa524796a883cb875e6d043bdb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 12,
+          "record_sha256": "6778d0cbcd05ecec9447d0edadada5abeea97d0a534dec6321061b764456fa4c"
+        }
+      ],
+      "literal_sha256": "22c583847034b0aa4d43557bcab53390419e7c66a03a17bd8eb46ff46031a849",
+      "source_literal": "Energy then 29 — now 23 Cast then 2",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Energy then</dt>\n<dd>29\r\n                <span class=\"muted\">— now 23</span></dd></div>\n<div><dt>Cast then</dt><dd>2</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Energy then",
+          "value_literal": "29 — now 23",
+          "direct_value_literal": "29",
+          "numeric_value": 29,
+          "comparison_literal": "— now 23",
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "2",
+          "direct_value_literal": "2",
+          "numeric_value": 2,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_labelled_metadata_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Constrict I",
+      "source_url": "https://vgsoharchive.com/abilities/constrict-i",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/943ab98778e56572df6674cba984006c5e85e2416bcf0a3c574207f04bdb2219.txt",
+        "sha256": "053d8c84388c6f4f7e6fbcf6785b3dd3c44610aa524796a883cb875e6d043bdb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 12,
+          "record_sha256": "6778d0cbcd05ecec9447d0edadada5abeea97d0a534dec6321061b764456fa4c"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227034105id_/http://wiki.silkyvenom.com/index.php/Constrict_I\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227034105id_/http://wiki.silkyvenom.com/index.php/Constrict_I"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Constrict I",
+      "source_url": "https://vgsoharchive.com/abilities/constrict-i",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/943ab98778e56572df6674cba984006c5e85e2416bcf0a3c574207f04bdb2219.txt",
+        "sha256": "053d8c84388c6f4f7e6fbcf6785b3dd3c44610aa524796a883cb875e6d043bdb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 12,
+          "record_sha256": "6778d0cbcd05ecec9447d0edadada5abeea97d0a534dec6321061b764456fa4c"
+        }
+      ],
+      "literal_sha256": "539fd7c7cef422d4568c0969c915b0109487cdf5b8442989e90fa4eeb4d55440",
+      "source_literal": "Level in 2007 6 — now 4",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>6\r\n                <span class=\"muted\">— now 4</span></dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007",
+          "value_literal": "6 — now 4",
+          "direct_value_literal": "6",
+          "numeric_value": 6,
+          "comparison_literal": "— now 4",
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_labelled_metadata_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Constrict I",
+      "source_url": "https://vgsoharchive.com/abilities/constrict-i",
+      "scope": "historical",
+      "section_node_index": 5,
+      "cache": {
+        "path": ".cache/archive/943ab98778e56572df6674cba984006c5e85e2416bcf0a3c574207f04bdb2219.txt",
+        "sha256": "053d8c84388c6f4f7e6fbcf6785b3dd3c44610aa524796a883cb875e6d043bdb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 12,
+          "record_sha256": "6778d0cbcd05ecec9447d0edadada5abeea97d0a534dec6321061b764456fa4c"
+        }
+      ],
+      "literal_sha256": "ec2700a42f8cbad9529f5f77f707f28f7de88f3a3fcd8144a67cdd194a84a4d5",
+      "source_literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.vanguardjapan.com",
+          "href": "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Constrict I",
+      "source_url": "https://vgsoharchive.com/abilities/constrict-i",
+      "scope": "historical",
+      "section_node_index": 6,
+      "cache": {
+        "path": ".cache/archive/943ab98778e56572df6674cba984006c5e85e2416bcf0a3c574207f04bdb2219.txt",
+        "sha256": "053d8c84388c6f4f7e6fbcf6785b3dd3c44610aa524796a883cb875e6d043bdb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 12,
+          "record_sha256": "6778d0cbcd05ecec9447d0edadada5abeea97d0a534dec6321061b764456fa4c"
+        }
+      ],
+      "literal_sha256": "ace0754df9522f6c299bed3a30a7608060ab99e847d9844dab10d8454724a212",
+      "source_literal": "Level in 2007-2008 6 — now 4 Energy then 29 — now 23 Cast then 2.0",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>6\r\n                <span class=\"muted\">— now 4</span></dd></div>\n<div><dt>Energy then</dt>\n<dd>29\r\n                <span class=\"muted\">— now 23</span></dd></div>\n<div><dt>Cast then</dt><dd>2.0</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007-2008",
+          "value_literal": "6 — now 4",
+          "direct_value_literal": "6",
+          "numeric_value": 6,
+          "comparison_literal": "— now 4",
+          "unit": null
+        },
+        {
+          "label": "Energy then",
+          "value_literal": "29 — now 23",
+          "direct_value_literal": "29",
+          "numeric_value": 29,
+          "comparison_literal": "— now 23",
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "2.0",
+          "direct_value_literal": "2.0",
+          "numeric_value": 2.0,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_labelled_metadata_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Constrict I",
+      "source_url": "https://vgsoharchive.com/abilities/constrict-i",
+      "scope": "historical",
+      "section_node_index": 8,
+      "cache": {
+        "path": ".cache/archive/943ab98778e56572df6674cba984006c5e85e2416bcf0a3c574207f04bdb2219.txt",
+        "sha256": "053d8c84388c6f4f7e6fbcf6785b3dd3c44610aa524796a883cb875e6d043bdb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 12,
+          "record_sha256": "6778d0cbcd05ecec9447d0edadada5abeea97d0a534dec6321061b764456fa4c"
+        }
+      ],
+      "literal_sha256": "f27aeaed3d88311d784c8ac3f344512e0529fa572eaed9e8885ba10be11410bd",
+      "source_literal": "Ten Ton Hammer class guides ,\r\n          \r\n          2007-2008 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\r\n          \r\n          2007-2008 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "Ten Ton Hammer class guides",
+          "href": "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Constrict I",
+      "source_url": "https://vgsoharchive.com/abilities/constrict-i",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/943ab98778e56572df6674cba984006c5e85e2416bcf0a3c574207f04bdb2219.txt",
+        "sha256": "053d8c84388c6f4f7e6fbcf6785b3dd3c44610aa524796a883cb875e6d043bdb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 12,
+          "record_sha256": "6778d0cbcd05ecec9447d0edadada5abeea97d0a534dec6321061b764456fa4c"
+        }
+      ],
+      "literal_sha256": "84fe146ae8c13a66a600bd39300c9a03bc47fdbca71481a7851d20f398579372",
+      "source_literal": "Constricts the movement of your opponent, rooting them in place for 30 seconds. Has a 60% chance to break on hit",
+      "source_html": "<div class=\"tooltip\">Constricts the movement of your opponent, rooting them in place for 30 seconds. Has a 60% chance to break on hit</div>",
+      "reviewed_observations": {
+        "effect_literal": "rooting them in place",
+        "duration_seconds": 30,
+        "break_on_hit_chance_percent": 60,
+        "eligible_hit_types": null,
+        "break_roll_frequency": null,
+        "pvp_duration_seconds": null
+      },
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Constrict I",
+      "source_url": "https://vgsoharchive.com/abilities/constrict-i",
+      "scope": "historical",
+      "section_node_index": 7,
+      "cache": {
+        "path": ".cache/archive/943ab98778e56572df6674cba984006c5e85e2416bcf0a3c574207f04bdb2219.txt",
+        "sha256": "053d8c84388c6f4f7e6fbcf6785b3dd3c44610aa524796a883cb875e6d043bdb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 12,
+          "record_sha256": "6778d0cbcd05ecec9447d0edadada5abeea97d0a534dec6321061b764456fa4c"
+        }
+      ],
+      "literal_sha256": "3889435d04dc7278438a4413019f4b72ff70a60b347518813c91e8975cdaaafc",
+      "source_literal": "Constricts the movement of your opponent, rooting them in place for 30 seconds. Has a 60% chance to break on hit.",
+      "source_html": "<div class=\"tooltip\">Constricts the movement of your opponent, rooting them in place for 30 seconds. Has a 60% chance to break on hit.</div>",
+      "reviewed_observations": {
+        "effect_literal": "rooting them in place",
+        "duration_seconds": 30,
+        "break_on_hit_chance_percent": 60,
+        "eligible_hit_types": null,
+        "break_roll_frequency": null,
+        "pvp_duration_seconds": null
+      },
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 8,
+    "label_value_comparisons": 6,
+    "exact_mechanic_literal_comparisons": 2,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 858,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Root duration and break chance are archive historical claims, not independently authenticated live-era mechanics.",
+    "Hit eligibility, roll frequency and PvP duration are unspecified and remain null.",
+    "Energy and level comparisons remain separate from historical direct values; no supersession is inferred.",
+    "Cast values have no explicit units; zero or numeric values are not assigned Instant or seconds semantics.",
+    "Attribution links were not fetched; surrounding prose is not assigned exclusively to any linked source.",
+    "Historical observations remain separate from current values and are not conversion ready."
+  ],
+  "next_step": "Review historical Health Graft I target-scope differences and metadata against cached source sections."
+}

@@ -1,0 +1,353 @@
+{
+  "review_kind": "blood_mage_dissolve_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Dissolve",
+      "source_url": "https://vgsoharchive.com/abilities/dissolve",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/dc1229acd5376f9b43af6f0aa4a857c40f83564774075c90ac2e563c155b2501.txt",
+        "sha256": "b3aaded637c611925a70ec06ff6c6c772f9d4b6fc3ffa1fa66f2ef113c280f31"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "661a654b164d9f88e728ea6539d62bbf9a0dd6fd720c762a2eeda08156213599"
+        }
+      ],
+      "literal_sha256": "23e038f35175379d473ec892ff778edc1e9c45bfb2c036140fccaa961583e09f",
+      "source_literal": "Energy then 134 — now 133",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Energy then</dt>\n<dd>134\r\n                <span class=\"muted\">— now 133</span></dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Energy then",
+          "value_literal": "134 — now 133",
+          "direct_value_literal": "134",
+          "numeric_value": 134,
+          "comparison_literal": "— now 133",
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Dissolve",
+      "source_url": "https://vgsoharchive.com/abilities/dissolve",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/dc1229acd5376f9b43af6f0aa4a857c40f83564774075c90ac2e563c155b2501.txt",
+        "sha256": "b3aaded637c611925a70ec06ff6c6c772f9d4b6fc3ffa1fa66f2ef113c280f31"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "661a654b164d9f88e728ea6539d62bbf9a0dd6fd720c762a2eeda08156213599"
+        }
+      ],
+      "literal_sha256": "df5d95afb8bc1a4831a9dcaef06b47d98c57e1d75ec9bdc6749406c0b22d85d0",
+      "source_literal": "Counters the effects of a spell by dispersing it",
+      "source_html": "<div class=\"tooltip\">Counters the effects of a spell by dispersing it</div>",
+      "reviewed_observations": {
+        "effect_literal": "Counters the effects of a spell by dispersing it",
+        "spell_counter_reported": true,
+        "counterable_spell_types": null,
+        "spell_level_limit": null,
+        "target_scope": null,
+        "dispel_count": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Dissolve",
+      "source_url": "https://vgsoharchive.com/abilities/dissolve",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/dc1229acd5376f9b43af6f0aa4a857c40f83564774075c90ac2e563c155b2501.txt",
+        "sha256": "b3aaded637c611925a70ec06ff6c6c772f9d4b6fc3ffa1fa66f2ef113c280f31"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "661a654b164d9f88e728ea6539d62bbf9a0dd6fd720c762a2eeda08156213599"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227034137id_/http://wiki.silkyvenom.com/index.php/Dissolve\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227034137id_/http://wiki.silkyvenom.com/index.php/Dissolve"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Dissolve",
+      "source_url": "https://vgsoharchive.com/abilities/dissolve",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/dc1229acd5376f9b43af6f0aa4a857c40f83564774075c90ac2e563c155b2501.txt",
+        "sha256": "b3aaded637c611925a70ec06ff6c6c772f9d4b6fc3ffa1fa66f2ef113c280f31"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "661a654b164d9f88e728ea6539d62bbf9a0dd6fd720c762a2eeda08156213599"
+        }
+      ],
+      "literal_sha256": "0a7931f37a14a71463d9df7d74bd1fce5f95e21e4a1d87ce73846d011cdec9c6",
+      "source_literal": "Level in 2007 10",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>10</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007",
+          "value_literal": "10",
+          "direct_value_literal": "10",
+          "numeric_value": 10,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Dissolve",
+      "source_url": "https://vgsoharchive.com/abilities/dissolve",
+      "scope": "historical",
+      "section_node_index": 5,
+      "cache": {
+        "path": ".cache/archive/dc1229acd5376f9b43af6f0aa4a857c40f83564774075c90ac2e563c155b2501.txt",
+        "sha256": "b3aaded637c611925a70ec06ff6c6c772f9d4b6fc3ffa1fa66f2ef113c280f31"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "661a654b164d9f88e728ea6539d62bbf9a0dd6fd720c762a2eeda08156213599"
+        }
+      ],
+      "literal_sha256": "ec2700a42f8cbad9529f5f77f707f28f7de88f3a3fcd8144a67cdd194a84a4d5",
+      "source_literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.vanguardjapan.com",
+          "href": "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Dissolve",
+      "source_url": "https://vgsoharchive.com/abilities/dissolve",
+      "scope": "historical",
+      "section_node_index": 6,
+      "cache": {
+        "path": ".cache/archive/dc1229acd5376f9b43af6f0aa4a857c40f83564774075c90ac2e563c155b2501.txt",
+        "sha256": "b3aaded637c611925a70ec06ff6c6c772f9d4b6fc3ffa1fa66f2ef113c280f31"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "661a654b164d9f88e728ea6539d62bbf9a0dd6fd720c762a2eeda08156213599"
+        }
+      ],
+      "literal_sha256": "31df751bf78446274eab6d9dc1284ca9236350d2b5fa116ce84942f167165e30",
+      "source_literal": "Level in 2007-2008 10 Energy then 131 — now 133 Refresh then 25.0",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>10</dd></div>\n<div><dt>Energy then</dt>\n<dd>131\r\n                <span class=\"muted\">— now 133</span></dd></div>\n<div><dt>Refresh then</dt><dd>25.0</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007-2008",
+          "value_literal": "10",
+          "direct_value_literal": "10",
+          "numeric_value": 10,
+          "comparison_literal": null,
+          "unit": null
+        },
+        {
+          "label": "Energy then",
+          "value_literal": "131 — now 133",
+          "direct_value_literal": "131",
+          "numeric_value": 131,
+          "comparison_literal": "— now 133",
+          "unit": null
+        },
+        {
+          "label": "Refresh then",
+          "value_literal": "25.0",
+          "direct_value_literal": "25.0",
+          "numeric_value": 25.0,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Dissolve",
+      "source_url": "https://vgsoharchive.com/abilities/dissolve",
+      "scope": "historical",
+      "section_node_index": 7,
+      "cache": {
+        "path": ".cache/archive/dc1229acd5376f9b43af6f0aa4a857c40f83564774075c90ac2e563c155b2501.txt",
+        "sha256": "b3aaded637c611925a70ec06ff6c6c772f9d4b6fc3ffa1fa66f2ef113c280f31"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "661a654b164d9f88e728ea6539d62bbf9a0dd6fd720c762a2eeda08156213599"
+        }
+      ],
+      "literal_sha256": "9e65de478e5887b6155533d0cbac22726dea58814b94a49e25b312049414bab5",
+      "source_literal": "Counters the effects of a spell by dispersing it.",
+      "source_html": "<div class=\"tooltip\">Counters the effects of a spell by dispersing it.</div>",
+      "reviewed_observations": {
+        "effect_literal": "Counters the effects of a spell by dispersing it.",
+        "spell_counter_reported": true,
+        "counterable_spell_types": null,
+        "spell_level_limit": null,
+        "target_scope": null,
+        "dispel_count": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Dissolve",
+      "source_url": "https://vgsoharchive.com/abilities/dissolve",
+      "scope": "historical",
+      "section_node_index": 8,
+      "cache": {
+        "path": ".cache/archive/dc1229acd5376f9b43af6f0aa4a857c40f83564774075c90ac2e563c155b2501.txt",
+        "sha256": "b3aaded637c611925a70ec06ff6c6c772f9d4b6fc3ffa1fa66f2ef113c280f31"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "661a654b164d9f88e728ea6539d62bbf9a0dd6fd720c762a2eeda08156213599"
+        }
+      ],
+      "literal_sha256": "f27aeaed3d88311d784c8ac3f344512e0529fa572eaed9e8885ba10be11410bd",
+      "source_literal": "Ten Ton Hammer class guides ,\r\n          \r\n          2007-2008 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\r\n          \r\n          2007-2008 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "Ten Ton Hammer class guides",
+          "href": "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 8,
+    "label_value_comparisons": 5,
+    "exact_mechanic_literal_comparisons": 2,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 771,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Historical energy values 134 and 131 conflict; comparison value 133 is labelled now, not another historical value. All source sections and source records remain separate with no operative selection.",
+    "Refresh 25.0 has no explicit unit; seconds are not inferred.",
+    "Spell counter wording does not establish interrupt versus dispel behavior, counterable types, target scope, count or level limits.",
+    "Attribution links were not fetched; archive attribution is not independent historical authentication. Operative values remain null."
+  ],
+  "next_step": "Review the next unreviewed historical Blood Mage ability against cached source sections."
+}

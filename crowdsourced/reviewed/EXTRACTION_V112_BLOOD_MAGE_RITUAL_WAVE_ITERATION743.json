@@ -1,0 +1,2097 @@
+{
+  "review_kind": "constrained_blood_mage_ritual_wave_extraction",
+  "parser_version": 112,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_PREEXISTING_NUMERIC_COMPLETENESS_ITERATION741.json",
+    "sha256": "2c008f107ccc1c00c22dc39eb0c6aa4e02a4207b0406482a00c5026538f71cc6"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Scarlet Ritual I",
+      "source_url": "https://vgsoharchive.com/abilities/scarlet-ritual-i",
+      "cache": {
+        "path": ".cache/archive/7716627e8bea2a58c259175e600ad540b4806361b2fa0d107af337fad5553466.txt",
+        "sha256": "796c068dbde3d674f952ea251a1ebeef0bbb620ca6728478b10d84f57ba392f1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 34,
+          "record_sha256": "75eac00d17b41dacc78a1f8d86f5c68e3d7ba4944eb38b83c739284b0f5b5db1"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual summons negative energy from the blood union you have forced upon your opponent to deal 170 to 183 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater.",
+          "literal_sha256": "1a06d2556abded78708c4cfc0ea417285a745dde1e9d19f755a532e2ccb60d0b",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_ritual_wave_observation",
+              "effect_phrase_recorded": "This ritual summons negative energy from the blood union you have forced upon your opponent to deal 170 to 183 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater.",
+              "conditions_unparsed": true,
+              "effect_reported": "blood_union_damage_ritual",
+              "recipient_reported": "opponent",
+              "damage_range": [
+                170,
+                183
+              ],
+              "duration_seconds": null,
+              "blood_union_reduction": 4,
+              "minimum_blood_union": 4,
+              "damage_type": null,
+              "tick_interval_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Scarlet Ritual I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/scarlet-ritual-i",
+              "title": "Scarlet Ritual I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:39:30+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "level in 2007": [
+              "6"
+            ],
+            "level in 2007-2008": [
+              "6"
+            ],
+            "level": [
+              "6"
+            ],
+            "energy cost": [
+              "4"
+            ],
+            "blood union": [
+              "4"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "Instant"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "icon": [
+              "Icon1058.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 6,
+          "rank": "I",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 4
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": 0,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1058.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 6,
+              "raw": "6"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 6,
+              "raw": "6"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034611id_/http://wiki.silkyvenom.com/index.php/Scarlet_Ritual_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              4
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "duration_seconds": [
+              {
+                "label": "duration",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_ritual_wave_observation",
+                  "effect_phrase_recorded": "This ritual summons negative energy from the blood union you have forced upon your opponent to deal 170 to 183 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "blood_union_damage_ritual",
+                  "recipient_reported": "opponent",
+                  "damage_range": [
+                    170,
+                    183
+                  ],
+                  "duration_seconds": null,
+                  "blood_union_reduction": 4,
+                  "minimum_blood_union": 4,
+                  "damage_type": null,
+                  "tick_interval_seconds": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                },
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    170,
+                    183
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    189,
+                    202
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    225,
+                    240
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Scarlet Ritual II",
+      "source_url": "https://vgsoharchive.com/abilities/scarlet-ritual-ii",
+      "cache": {
+        "path": ".cache/archive/0eac1897a5aa0b24c176d2e3b75c7b95e6e42554b64332d12d9ce7b05d386e97.txt",
+        "sha256": "222a0bcec5b556ec2db70c34c4884cef8e6fc0da418bc7f406c29c4932796f65"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 35,
+          "record_sha256": "fb919e8ee376d400a32539681bd7cada138f749c4577e3c32f3a9c2a608b3fc7"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual summons negative energy from the blood union you have forced upon your opponent in order to deal 287 to 304 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater.",
+          "literal_sha256": "c86dfbc5725fd62edec7d35faa2bd729a769dfdb7775f502aa2905f930110892",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_ritual_wave_observation",
+              "effect_phrase_recorded": "This ritual summons negative energy from the blood union you have forced upon your opponent in order to deal 287 to 304 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater.",
+              "conditions_unparsed": true,
+              "effect_reported": "blood_union_damage_ritual",
+              "recipient_reported": "opponent",
+              "damage_range": [
+                287,
+                304
+              ],
+              "duration_seconds": null,
+              "blood_union_reduction": 4,
+              "minimum_blood_union": 4,
+              "damage_type": null,
+              "tick_interval_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Scarlet Ritual II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/scarlet-ritual-ii",
+              "title": "Scarlet Ritual II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:39:30+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "level in 2007": [
+              "16"
+            ],
+            "level in 2007-2008": [
+              "16"
+            ],
+            "energy then": [
+              "4"
+            ],
+            "level": [
+              "16"
+            ],
+            "energy cost": [
+              "4"
+            ],
+            "blood union": [
+              "4"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "icon": [
+              "Icon1058.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 16,
+          "rank": "II",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 4
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1058.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 16,
+              "raw": "16"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 16,
+              "raw": "16"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033234id_/http://wiki.silkyvenom.com/index.php/Scarlet_Ritual_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              4
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_ritual_wave_observation",
+                  "effect_phrase_recorded": "This ritual summons negative energy from the blood union you have forced upon your opponent in order to deal 287 to 304 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "blood_union_damage_ritual",
+                  "recipient_reported": "opponent",
+                  "damage_range": [
+                    287,
+                    304
+                  ],
+                  "duration_seconds": null,
+                  "blood_union_reduction": 4,
+                  "minimum_blood_union": 4,
+                  "damage_type": null,
+                  "tick_interval_seconds": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                },
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    287,
+                    304
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    400,
+                    424
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    456,
+                    484
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Scarlet Ritual III",
+      "source_url": "https://vgsoharchive.com/abilities/scarlet-ritual-iii",
+      "cache": {
+        "path": ".cache/archive/3b331e425f0c57911b85755798306037a669c11ad7ef2245688c58413186f23d.txt",
+        "sha256": "bd398e61cff1ad4dcd90e04113c41e4105b0209f599d1f8b5218e04bd6b2e6f4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 13,
+          "record_sha256": "fdc551d8af9c4b41dc6aa026b73442d882e3be4ad3e57c50ba721b5a2dda3b36"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual summons negative energy from the blood union you have forced upon your opponent in order to deal 413 to 436 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater.",
+          "literal_sha256": "9c6677cca1bef02be0ec40753192bf4dc53d080c4743cdad9a30fb4ecc910711",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_ritual_wave_observation",
+              "effect_phrase_recorded": "This ritual summons negative energy from the blood union you have forced upon your opponent in order to deal 413 to 436 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater.",
+              "conditions_unparsed": true,
+              "effect_reported": "blood_union_damage_ritual",
+              "recipient_reported": "opponent",
+              "damage_range": [
+                413,
+                436
+              ],
+              "duration_seconds": null,
+              "blood_union_reduction": 4,
+              "minimum_blood_union": 4,
+              "damage_type": null,
+              "tick_interval_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Scarlet Ritual III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/scarlet-ritual-iii",
+              "title": "Scarlet Ritual III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:39:30+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "level in 2007": [
+              "26"
+            ],
+            "level": [
+              "26"
+            ],
+            "energy cost": [
+              "4"
+            ],
+            "blood union": [
+              "4"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "icon": [
+              "Icon1058.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 26,
+          "rank": "III",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 4
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1058.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 26,
+              "raw": "26"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033239id_/http://wiki.silkyvenom.com/index.php/Scarlet_Ritual_III",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              4
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_ritual_wave_observation",
+                  "effect_phrase_recorded": "This ritual summons negative energy from the blood union you have forced upon your opponent in order to deal 413 to 436 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "blood_union_damage_ritual",
+                  "recipient_reported": "opponent",
+                  "damage_range": [
+                    413,
+                    436
+                  ],
+                  "duration_seconds": null,
+                  "blood_union_reduction": 4,
+                  "minimum_blood_union": 4,
+                  "damage_type": null,
+                  "tick_interval_seconds": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                },
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    413,
+                    436
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    624,
+                    660
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Exsanguinate I",
+      "source_url": "https://vgsoharchive.com/abilities/exsanguinate-i",
+      "cache": {
+        "path": ".cache/archive/73f7441522bc8b74b859e5d073f19ea0b181a62f450ff3b97749dc47dd591e6e.txt",
+        "sha256": "fadce62a92571621bdfe06f7dd42487c39698fb90f3846fa139958f6912a9a8d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 61,
+          "record_sha256": "8fe243b0b0b74b7d665c1b4bcd6f8195b4eb0a24cd103f168fba8bcffb933b91"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Summons forth the blood of your opponent, dealing 7 waves of increasing damage to them over time. The first wave deals 77 to 83 damage and the last wave deals 467 to 492. Increases Blood Union by 1.",
+          "literal_sha256": "c0d03ad39ddf6e9f76f6af35dd0056752eefed2ab6fa543b0cc6dbc47ddd7f1e",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_ritual_wave_observation",
+              "effect_phrase_recorded": "Summons forth the blood of your opponent, dealing 7 waves of increasing damage to them over time. The first wave deals 77 to 83 damage and the last wave deals 467 to 492. Increases Blood Union by 1.",
+              "conditions_unparsed": true,
+              "effect_reported": "increasing_damage_waves",
+              "recipient_reported": "opponent",
+              "wave_count": 7,
+              "first_wave_damage_range": [
+                77,
+                83
+              ],
+              "last_wave_damage_range": [
+                467,
+                492
+              ],
+              "intermediate_wave_damage": null,
+              "wave_scaling_formula": null,
+              "blood_union_increase": 1,
+              "duration_seconds": null,
+              "damage_type": null,
+              "tick_interval_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Exsanguinate I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/exsanguinate-i",
+              "title": "Exsanguinate I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:39:30+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "30"
+            ],
+            "level": [
+              "30"
+            ],
+            "energy cost": [
+              "204"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "1:00s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Physical Finish"
+            ],
+            "icon": [
+              "Icon20736.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 30,
+          "rank": "I",
+          "category": "Physical Finish",
+          "cost": {
+            "energy": 204
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon20736.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 30,
+              "raw": "30"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              204
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_ritual_wave_observation",
+                  "effect_phrase_recorded": "Summons forth the blood of your opponent, dealing 7 waves of increasing damage to them over time. The first wave deals 77 to 83 damage and the last wave deals 467 to 492. Increases Blood Union by 1.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "increasing_damage_waves",
+                  "recipient_reported": "opponent",
+                  "wave_count": 7,
+                  "first_wave_damage_range": [
+                    77,
+                    83
+                  ],
+                  "last_wave_damage_range": [
+                    467,
+                    492
+                  ],
+                  "intermediate_wave_damage": null,
+                  "wave_scaling_formula": null,
+                  "blood_union_increase": 1,
+                  "duration_seconds": null,
+                  "damage_type": null,
+                  "tick_interval_seconds": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                },
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    77,
+                    83
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Scarlet Ritual IV",
+      "source_url": "https://vgsoharchive.com/abilities/scarlet-ritual-iv",
+      "cache": {
+        "path": ".cache/archive/c4b307992b87c751e98ff6b63d941618e109ac0e3b3096b4d26a61672c52d991.txt",
+        "sha256": "549988d048eaceb1d7a04fd8582261883f4a6fa412bbc18a5edfd9bf8716512f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "b4bf4de1fc11b6cdd3de55e29a871a799d008f4cf4aed9c0a546a3e1982efc20"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual summons negative energy from the blood union you have forced upon your opponent in order to deal 551 to 582 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater.",
+          "literal_sha256": "af9d232a43bc2ed16babe043ed3dc233c085f944649f97ca6e2748089250beb4",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_ritual_wave_observation",
+              "effect_phrase_recorded": "This ritual summons negative energy from the blood union you have forced upon your opponent in order to deal 551 to 582 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater.",
+              "conditions_unparsed": true,
+              "effect_reported": "blood_union_damage_ritual",
+              "recipient_reported": "opponent",
+              "damage_range": [
+                551,
+                582
+              ],
+              "duration_seconds": null,
+              "blood_union_reduction": 4,
+              "minimum_blood_union": 4,
+              "damage_type": null,
+              "tick_interval_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Scarlet Ritual IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/scarlet-ritual-iv",
+              "title": "Scarlet Ritual IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:39:30+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "level in 2007": [
+              "36"
+            ],
+            "level": [
+              "36"
+            ],
+            "energy cost": [
+              "4"
+            ],
+            "blood union": [
+              "4"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "icon": [
+              "Icon1058.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 36,
+          "rank": "IV",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 4
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1058.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 36,
+              "raw": "36"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034617id_/http://wiki.silkyvenom.com/index.php/Scarlet_Ritual_IV",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              4
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_ritual_wave_observation",
+                  "effect_phrase_recorded": "This ritual summons negative energy from the blood union you have forced upon your opponent in order to deal 551 to 582 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "blood_union_damage_ritual",
+                  "recipient_reported": "opponent",
+                  "damage_range": [
+                    551,
+                    582
+                  ],
+                  "duration_seconds": null,
+                  "blood_union_reduction": 4,
+                  "minimum_blood_union": 4,
+                  "damage_type": null,
+                  "tick_interval_seconds": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                },
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    551,
+                    582
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    870,
+                    918
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Exsanguinate II",
+      "source_url": "https://vgsoharchive.com/abilities/exsanguinate-ii",
+      "cache": {
+        "path": ".cache/archive/6c044e185c4871534d913e8f03a1d410ef53fa0878c80c97254aae33318906ed.txt",
+        "sha256": "596d3650da9492580dc1e4c6d3c06fdcac6e8cca6b733be779c653fc465483ed"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 62,
+          "record_sha256": "169e223e34646a7fb1bf0ac051e85bfc00c8a233c5313d11cff1be7f00c65cdd"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Summons forth the blood of your opponent, dealing 7 waves of increasing damage to them over time. The first wave deals 98 to 105 damage and the last wave deals 594 to 627. Increases Blood Union by 1.",
+          "literal_sha256": "51939cbcc660e6b7205dc9ccda1b1976e1de8dc77a55641877135c5e4126cb6c",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_ritual_wave_observation",
+              "effect_phrase_recorded": "Summons forth the blood of your opponent, dealing 7 waves of increasing damage to them over time. The first wave deals 98 to 105 damage and the last wave deals 594 to 627. Increases Blood Union by 1.",
+              "conditions_unparsed": true,
+              "effect_reported": "increasing_damage_waves",
+              "recipient_reported": "opponent",
+              "wave_count": 7,
+              "first_wave_damage_range": [
+                98,
+                105
+              ],
+              "last_wave_damage_range": [
+                594,
+                627
+              ],
+              "intermediate_wave_damage": null,
+              "wave_scaling_formula": null,
+              "blood_union_increase": 1,
+              "duration_seconds": null,
+              "damage_type": null,
+              "tick_interval_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Exsanguinate II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/exsanguinate-ii",
+              "title": "Exsanguinate II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:39:30+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "40"
+            ],
+            "level": [
+              "40"
+            ],
+            "energy cost": [
+              "261"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "1:00s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Physical Finish"
+            ],
+            "icon": [
+              "Icon20736.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 40,
+          "rank": "II",
+          "category": "Physical Finish",
+          "cost": {
+            "energy": 261
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon20736.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 40,
+              "raw": "40"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              261
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_ritual_wave_observation",
+                  "effect_phrase_recorded": "Summons forth the blood of your opponent, dealing 7 waves of increasing damage to them over time. The first wave deals 98 to 105 damage and the last wave deals 594 to 627. Increases Blood Union by 1.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "increasing_damage_waves",
+                  "recipient_reported": "opponent",
+                  "wave_count": 7,
+                  "first_wave_damage_range": [
+                    98,
+                    105
+                  ],
+                  "last_wave_damage_range": [
+                    594,
+                    627
+                  ],
+                  "intermediate_wave_damage": null,
+                  "wave_scaling_formula": null,
+                  "blood_union_increase": 1,
+                  "duration_seconds": null,
+                  "damage_type": null,
+                  "tick_interval_seconds": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                },
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    98,
+                    105
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Blood Letting Ritual I",
+      "source_url": "https://vgsoharchive.com/abilities/blood-letting-ritual-i",
+      "cache": {
+        "path": ".cache/archive/2ad388091ce2caf103a3e743852817a9cb956b8cefa62440b86c2212ed072795.txt",
+        "sha256": "219abd859400de9a0ae5d4da8a5f32ca2ec18dbebeef325a1871a5f655fcd837"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 20,
+          "record_sha256": "f31d906a8d2f84f926fe43f77dc85b87f7fa16532cf3ab1494294bfce8cd15ba"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual summons negative energy from the blood union you have forced upon your opponent to deal 1635 to 1720 damage to them over 60 sec. Reduces Blood Union by 1. Only usable from Blood Union 1 or greater.",
+          "literal_sha256": "69f61b340c7d7573d94f43eef4cbc140bac2bf3cd62bc6f79aa76b84b309ea1b",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_ritual_wave_observation",
+              "effect_phrase_recorded": "This ritual summons negative energy from the blood union you have forced upon your opponent to deal 1635 to 1720 damage to them over 60 sec. Reduces Blood Union by 1. Only usable from Blood Union 1 or greater.",
+              "conditions_unparsed": true,
+              "effect_reported": "blood_union_damage_ritual",
+              "recipient_reported": "opponent",
+              "damage_range": [
+                1635,
+                1720
+              ],
+              "duration_seconds": 60,
+              "blood_union_reduction": 1,
+              "minimum_blood_union": 1,
+              "damage_type": null,
+              "tick_interval_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Blood Letting Ritual I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/blood-letting-ritual-i",
+              "title": "Blood Letting Ritual I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:39:30+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "42"
+            ],
+            "level": [
+              "42"
+            ],
+            "energy cost": [
+              "1"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "30.0s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Physical Evocation"
+            ],
+            "icon": [
+              "Icon765.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 42,
+          "rank": "I",
+          "category": "Physical Evocation",
+          "cost": {
+            "energy": 1
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 30.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon765.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 42,
+              "raw": "42"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032650id_/http://wiki.silkyvenom.com/index.php/Blood_Letting_Ritual_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              1
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "30.0s",
+                "seconds": 30.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_ritual_wave_observation",
+                  "effect_phrase_recorded": "This ritual summons negative energy from the blood union you have forced upon your opponent to deal 1635 to 1720 damage to them over 60 sec. Reduces Blood Union by 1. Only usable from Blood Union 1 or greater.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "blood_union_damage_ritual",
+                  "recipient_reported": "opponent",
+                  "damage_range": [
+                    1635,
+                    1720
+                  ],
+                  "duration_seconds": 60,
+                  "blood_union_reduction": 1,
+                  "minimum_blood_union": 1,
+                  "damage_type": null,
+                  "tick_interval_seconds": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                },
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    1635,
+                    1720
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    1748,
+                    1842
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Scarlet Ritual V",
+      "source_url": "https://vgsoharchive.com/abilities/scarlet-ritual-v",
+      "cache": {
+        "path": ".cache/archive/6140247d406b8ba63cd7aae2a5f1d8b12e925904a197f3526a0706ffff18e2a7.txt",
+        "sha256": "3c4438feb463eb08745912d4ffbb3bad9e1fcec88a49f28efa5e43c8e9476b87"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "2282ab7dda1f9310f284b934b36ecca8d725d26add28269cac882bf970773573"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual summons negative energy from the blood union you have forced upon your opponent in order to deal 686 to 724 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater.",
+          "literal_sha256": "8feaf8bc0fc048e1d5ea3762f718ac114c90c39cc0808c74cfa9c2b92d4ebc95",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_ritual_wave_observation",
+              "effect_phrase_recorded": "This ritual summons negative energy from the blood union you have forced upon your opponent in order to deal 686 to 724 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater.",
+              "conditions_unparsed": true,
+              "effect_reported": "blood_union_damage_ritual",
+              "recipient_reported": "opponent",
+              "damage_range": [
+                686,
+                724
+              ],
+              "duration_seconds": null,
+              "blood_union_reduction": 4,
+              "minimum_blood_union": 4,
+              "damage_type": null,
+              "tick_interval_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Scarlet Ritual V",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/scarlet-ritual-v",
+              "title": "Scarlet Ritual V · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:39:30+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "level": [
+              "46"
+            ],
+            "energy cost": [
+              "4"
+            ],
+            "blood union": [
+              "4"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "icon": [
+              "Icon1058.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 46,
+          "rank": "V",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 4
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1058.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034627id_/http://wiki.silkyvenom.com/index.php/Scarlet_Ritual_V"
+          ],
+          "cost_observations": {
+            "energy": [
+              4
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_ritual_wave_observation",
+                  "effect_phrase_recorded": "This ritual summons negative energy from the blood union you have forced upon your opponent in order to deal 686 to 724 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "blood_union_damage_ritual",
+                  "recipient_reported": "opponent",
+                  "damage_range": [
+                    686,
+                    724
+                  ],
+                  "duration_seconds": null,
+                  "blood_union_reduction": 4,
+                  "minimum_blood_union": 4,
+                  "damage_type": null,
+                  "tick_interval_seconds": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                },
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    686,
+                    724
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    1138,
+                    1200
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Blood Letting Ritual II",
+      "source_url": "https://vgsoharchive.com/abilities/blood-letting-ritual-ii",
+      "cache": {
+        "path": ".cache/archive/e7a21c32a32a29005de58a68a27454c10aa07f4340ad289f521add78fe10e7e0.txt",
+        "sha256": "e88247b5d19a7096b6f7b720e9eaa48c92f7fc279a4f986dfcb267a74d095bf8"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 21,
+          "record_sha256": "a3b6dd753e302b6e1fb1c200fa85a306d48572f1511b4caff47ea5a25ff44e3e"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual summons negative energy from the blood union you have forced upon your opponent to deal 1780 to 1874 damage to them over 60 sec. Reduces Blood Union by 1. Only usable from Blood Union 1 or greater.",
+          "literal_sha256": "e9d83deb7d19dc103d6f474e84617fa57034489f3e9f266d5a16a171a63aa8e0",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_ritual_wave_observation",
+              "effect_phrase_recorded": "This ritual summons negative energy from the blood union you have forced upon your opponent to deal 1780 to 1874 damage to them over 60 sec. Reduces Blood Union by 1. Only usable from Blood Union 1 or greater.",
+              "conditions_unparsed": true,
+              "effect_reported": "blood_union_damage_ritual",
+              "recipient_reported": "opponent",
+              "damage_range": [
+                1780,
+                1874
+              ],
+              "duration_seconds": 60,
+              "blood_union_reduction": 1,
+              "minimum_blood_union": 1,
+              "damage_type": null,
+              "tick_interval_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Blood Letting Ritual II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/blood-letting-ritual-ii",
+              "title": "Blood Letting Ritual II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:39:30+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "50"
+            ],
+            "level": [
+              "50"
+            ],
+            "energy cost": [
+              "1"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "30.0s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Physical Evocation"
+            ],
+            "icon": [
+              "Icon765.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 50,
+          "rank": "II",
+          "category": "Physical Evocation",
+          "cost": {
+            "energy": 1
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 30.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon765.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 50,
+              "raw": "50"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034035id_/http://wiki.silkyvenom.com/index.php/Blood_Letting_Ritual_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              1
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "30.0s",
+                "seconds": 30.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_ritual_wave_observation",
+                  "effect_phrase_recorded": "This ritual summons negative energy from the blood union you have forced upon your opponent to deal 1780 to 1874 damage to them over 60 sec. Reduces Blood Union by 1. Only usable from Blood Union 1 or greater.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "blood_union_damage_ritual",
+                  "recipient_reported": "opponent",
+                  "damage_range": [
+                    1780,
+                    1874
+                  ],
+                  "duration_seconds": 60,
+                  "blood_union_reduction": 1,
+                  "minimum_blood_union": 1,
+                  "damage_type": null,
+                  "tick_interval_seconds": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                },
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    1780,
+                    1874
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    2134,
+                    2248
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Exsanguinate III",
+      "source_url": "https://vgsoharchive.com/abilities/exsanguinate-iii",
+      "cache": {
+        "path": ".cache/archive/679ebbf0546766a30068f6ad55d9aa096c33a0d4903c0bd2372168560f6f2bde.txt",
+        "sha256": "10a40dccefa426fbbbb919871ecc277dd1640bb50a8b4c79771f2c02c41f4afd"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 63,
+          "record_sha256": "eee434b19bd7bedfc415a726c5623351e6d801be7b6fade841d6434812ce34a0"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Summons forth the blood of your opponent, dealing 7 waves of increasing damage to them over time. The first wave deals 109 to 118 damage and the last wave deals 662 to 698. Increases Blood Union by 1.",
+          "literal_sha256": "cbc3c7970e6230c9b201a16b4451439bd819fc5519207a079d7686b68189a6bd",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_ritual_wave_observation",
+              "effect_phrase_recorded": "Summons forth the blood of your opponent, dealing 7 waves of increasing damage to them over time. The first wave deals 109 to 118 damage and the last wave deals 662 to 698. Increases Blood Union by 1.",
+              "conditions_unparsed": true,
+              "effect_reported": "increasing_damage_waves",
+              "recipient_reported": "opponent",
+              "wave_count": 7,
+              "first_wave_damage_range": [
+                109,
+                118
+              ],
+              "last_wave_damage_range": [
+                662,
+                698
+              ],
+              "intermediate_wave_damage": null,
+              "wave_scaling_formula": null,
+              "blood_union_increase": 1,
+              "duration_seconds": null,
+              "damage_type": null,
+              "tick_interval_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Exsanguinate III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/exsanguinate-iii",
+              "title": "Exsanguinate III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 112,
+          "collected_at": "2026-10-20T04:39:30+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "50"
+            ],
+            "level": [
+              "50"
+            ],
+            "energy cost": [
+              "284"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "1:00s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Physical Finish"
+            ],
+            "icon": [
+              "Icon20736.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 50,
+          "rank": "III",
+          "category": "Physical Finish",
+          "cost": {
+            "energy": 284
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon20736.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 50,
+              "raw": "50"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              284
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_ritual_wave_observation",
+                  "effect_phrase_recorded": "Summons forth the blood of your opponent, dealing 7 waves of increasing damage to them over time. The first wave deals 109 to 118 damage and the last wave deals 662 to 698. Increases Blood Union by 1.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "increasing_damage_waves",
+                  "recipient_reported": "opponent",
+                  "wave_count": 7,
+                  "first_wave_damage_range": [
+                    109,
+                    118
+                  ],
+                  "last_wave_damage_range": [
+                    662,
+                    698
+                  ],
+                  "intermediate_wave_damage": null,
+                  "wave_scaling_formula": null,
+                  "blood_union_increase": 1,
+                  "duration_seconds": null,
+                  "damage_type": null,
+                  "tick_interval_seconds": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                },
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    109,
+                    118
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 10,
+    "source_record_hashes_verified": 10,
+    "literal_hashes_verified": 10,
+    "whole_page_replays": 10,
+    "issues": 0,
+    "required_unittest_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+    "tests_passed": 328
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process inspection found no Python collector",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60,
+    "network_suspension_preserved": true
+  },
+  "nonnumeric_sections_requiring_literal_review": 33,
+  "reviewed_sections_awaiting_parser_implementation": 0,
+  "limitations": [
+    "Candidates are research observations, not promoted typed game facts.",
+    "Existing generic damage ranges remain incomplete and cannot represent operative mechanics.",
+    "Damage types, tick intervals and historical authentication remain null; intermediate wave damage and scaling are not inferred.",
+    "Current Effect sections only; historical and alternate sections require separate review.",
+    "Other numeric sections with newer patterns still require completeness review; this audit covers only the 20 recognized at the original baseline.",
+    "Exact source observations only; no operative combat values or independent historical authentication."
+  ],
+  "next_step": "Review the 33 nonnumeric Blood Mage effect sections against cached source prose."
+}

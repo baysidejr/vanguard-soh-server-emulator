@@ -1,0 +1,754 @@
+{
+  "review_kind": "blood_mage_gift_rend_burst_infusion_transmutation_source_review",
+  "parser_version": 106,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION689.json",
+    "sha256": "5727d7e8de3b9e6910f4001703b39947b1b995f326b60f1a74c9ce6ec15acb25"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Blood Gift V",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-v",
+      "cache": {
+        "path": ".cache/archive/bf41ee9554ba3b2c673d207f1520070322fdd51d45999eb77c0fe0f1222c3322.txt",
+        "sha256": "c6f0b8b6a872ddf5875461ac443b9857ff3b7f794b0832cbdda8e99c96713206"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 17,
+          "record_sha256": "ecea37c5e098d1a82685f8240af87b520e3397c516704392eec768bc59738b58"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "You use your blood to heal an ally, other than yourself, for 2869. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "fd2c5df6938a30ed0b378207872c9e8c235790c0ad7785a9d7a112205e0d94f4",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "ally_heal_excluding_self",
+            "healing_amount": 2869,
+            "recipient_reported": "ally_other_than_self",
+            "healing_bonus_percent_per_blood_union_level": 2,
+            "health_cost": null,
+            "percentage_bonus_combination_rule": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Blood Gift V",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/blood-gift-v",
+              "title": "Blood Gift V · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 106,
+          "collected_at": "2026-10-20T03:30:35+00:00",
+          "archive_fields": {
+            "cast then": [
+              "3"
+            ],
+            "level": [
+              "46"
+            ],
+            "health and energy cost": [
+              "573"
+            ],
+            "health cost": [
+              "70"
+            ],
+            "cast time": [
+              "3.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "30m"
+            ],
+            "target": [
+              "Ally"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon677.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 46,
+          "rank": "V",
+          "category": "Heal",
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 30,
+            "unit": "m",
+            "raw": "30m"
+          },
+          "tooltip": "You use your blood to heal an ally, other than yourself, for 2869. Heals for an extra 2% per level of Blood Union.",
+          "icon_name": "Icon677.png",
+          "ranks": [],
+          "target_recorded": "Ally",
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033622id_/http://wiki.silkyvenom.com/index.php/Blood_Gift_V"
+          ],
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Flesh Rend V",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-rend-v",
+      "cache": {
+        "path": ".cache/archive/a9665cf4506a759fe4e55f44115894e459837886f615a11ddc8f795c8777ddfe.txt",
+        "sha256": "015eafc5b17c54031a69e7010d3c00b17941b9e65bb7eecebdc2e8e17f625f40"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 65,
+          "record_sha256": "61412c2a183ede5a3a2f028fe21d23746cc4932543a4d7c0334739cebce70081"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Causes the flesh of your opponent to split and tear, dealing 1032 to 1088 damage. Increases Blood Union by 3.",
+          "literal_sha256": "cbdb9fd4c0db9d7c5c4efce71131e71b24ffa5f37d4253086f5f8cfa8af0d7de",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "damage_with_union_gain",
+            "damage_min": 1032,
+            "damage_max": 1088,
+            "blood_union_gain_points": 3,
+            "damage_type": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Flesh Rend V",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/flesh-rend-v",
+              "title": "Flesh Rend V · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 106,
+          "collected_at": "2026-10-20T03:30:35+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "46"
+            ],
+            "level": [
+              "46"
+            ],
+            "energy cost": [
+              "286"
+            ],
+            "blood union": [
+              "3"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "15.0s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Physical Finish"
+            ],
+            "icon": [
+              "Icon20752.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 46,
+          "rank": "V",
+          "category": "Physical Finish",
+          "cost": {
+            "energy": 286
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 15.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Causes the flesh of your opponent to split and tear, dealing 1032 to 1088 damage. Increases Blood Union by 3.",
+          "icon_name": "Icon20752.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 46,
+              "raw": "46"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              286
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "15.0s",
+                "seconds": 15.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Recovering Burst V",
+      "source_url": "https://vgsoharchive.com/abilities/recovering-burst-v",
+      "cache": {
+        "path": ".cache/archive/5261178caac07a15d335cf03398d81d5c526873ee2c156bc3ddec679359ceee5.txt",
+        "sha256": "25d3d2f8d3d5bc99738b28d748feba1c5e0c3c770e0860aa25d254b907df72be"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 86,
+          "record_sha256": "f20f24b470f8b8a09ae7fb95957aa962d75479b7d2f7857a094c224e0784b1ad"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Releases a burst of life, healing all allies within 10m by 1673. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "1cc2c6fcce06572bda7793c2fbeef6c869636be2d58b9f1490f57eaeec943b2d",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "area_ally_healing",
+            "healing_amount": 1673,
+            "radius_meters": 10,
+            "recipient_reported": "all_allies_within_range",
+            "healing_bonus_percent_per_blood_union_level": 2,
+            "percentage_bonus_combination_rule": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Recovering Burst V",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/recovering-burst-v",
+              "title": "Recovering Burst V · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 106,
+          "collected_at": "2026-10-20T03:30:35+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "46"
+            ],
+            "level": [
+              "46"
+            ],
+            "health and energy cost": [
+              "952"
+            ],
+            "health cost": [
+              "282"
+            ],
+            "cast time": [
+              "4.5"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "10m"
+            ],
+            "target": [
+              "Your Group"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon680.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 46,
+          "rank": "V",
+          "category": "Heal",
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 10,
+            "unit": "m",
+            "raw": "10m"
+          },
+          "tooltip": "Releases a burst of life, healing all allies within 10m by 1673. Heals for an extra 2% per level of Blood Union.",
+          "icon_name": "Icon680.png",
+          "ranks": [],
+          "target_recorded": "Your Group",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 46,
+              "raw": "46"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infuse Health VII",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-vii",
+      "cache": {
+        "path": ".cache/archive/ba8c5589190f92944a689ace0eda4285cb7ef54c07175a2a9e31cd476042e482.txt",
+        "sha256": "996b89d5c42e5e5d92868fe469210b3f8137b0fbb9bf380e0296ed4f79bef434"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+          "line": 19,
+          "record_sha256": "72094521fa29ce4e24d502b6c4878fdefc25975c7f0ebaeb7a900bd702b993ea"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Infuses your defensive target with 1530 health. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "6c9de188213b912dbda9fce946d5908bab7052765575c59017b392b62627342e",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "defensive_target_health_infusion",
+            "healing_amount": 1530,
+            "recipient_reported": "defensive_target",
+            "healing_bonus_percent_per_blood_union_level": 2,
+            "percentage_bonus_combination_rule": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Infuse Health VII",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/infuse-health-vii",
+              "title": "Infuse Health VII · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 106,
+          "collected_at": "2026-10-20T03:30:35+00:00",
+          "archive_fields": {
+            "cast then": [
+              "1.5"
+            ],
+            "level in 2007": [
+              "48"
+            ],
+            "level": [
+              "48"
+            ],
+            "energy cost": [
+              "596"
+            ],
+            "cast time": [
+              "1.5"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "30m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon679.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 48,
+          "rank": "VII",
+          "category": "Heal",
+          "cost": {
+            "energy": 596
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 30,
+            "unit": "m",
+            "raw": "30m"
+          },
+          "tooltip": "Infuses your defensive target with 1530 health. Heals for an extra 2% per level of Blood Union.",
+          "icon_name": "Icon679.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 48,
+              "raw": "48"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130606142453id_/http://wiki.silkyvenom.com/index.php/Infuse_Health_VII",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              596
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mental Transmutation V",
+      "source_url": "https://vgsoharchive.com/abilities/mental-transmutation-v",
+      "cache": {
+        "path": ".cache/archive/3b3431750b6c14e48a2e6d5d6fb394b1b6d2075af1b95bae9d9541fc560e703c.txt",
+        "sha256": "e95e153dc80f5435bc2308efab4b93e13542d34f530ee58124772174ebf40f00"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 11,
+          "record_sha256": "35a43e55331b9453d7f39158c9afb82fbc5cca04d4adbdc7980af03c1c99a19f"
+        }
+      ],
+      "observations": [
+        {
+          "existing_fact_kinds": [],
+          "literal": "Transmutes 747 health into 1047 energy.",
+          "literal_sha256": "8e9570ff9b29805f82ea9c6d824fe1559bf96ff902bfd6e8596a2bfacb673025",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "health_to_energy_conversion",
+            "health_consumed": 747,
+            "energy_received": 1047,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Mental Transmutation V",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/mental-transmutation-v",
+              "title": "Mental Transmutation V · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 106,
+          "collected_at": "2026-10-20T03:30:35+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "10"
+            ],
+            "level in 2007": [
+              "48"
+            ],
+            "level": [
+              "48"
+            ],
+            "energy cost": [
+              "747"
+            ],
+            "health cost": [
+              "747"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "10.0s"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon449.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 48,
+          "rank": "V",
+          "category": "Alteration",
+          "cost": {
+            "energy": 747
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 10.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Transmutes 747 health into 1047 energy.",
+          "icon_name": "Icon449.png",
+          "ranks": [],
+          "target_recorded": "Self",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 48,
+              "raw": "48"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034345id_/http://wiki.silkyvenom.com/index.php/Mental_Transmutation_V",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              747
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "10.0s",
+                "seconds": 10.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process found no collect_archive process",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval_seconds": 60,
+    "network_suspension_preserved": true
+  },
+  "review_accounting": {
+    "previous_numeric_sections_without_patterns": 20,
+    "source_sections_reviewed_here": 5,
+    "remaining_numeric_sections_without_patterns_awaiting_literal_review": 15,
+    "reviewed_sections_awaiting_parser_implementation": 5
+  },
+  "limitations": [
+    "Source review candidates are not typed game facts or operative server mechanics.",
+    "Five reviewed literals require constrained parser implementation.",
+    "Health cost, damage type and percentage combination rules remain null when unstated.",
+    "Accounting tracks the original iteration689 review inventory; generic recognition does not establish complete coverage.",
+    "No name-only matching or inferred canonical client IDs; immutable source records retained."
+  ],
+  "next_step": "Implement and test constrained observations for the five reviewed Blood Mage gift, rend, burst, infusion and transmutation sources."
+}

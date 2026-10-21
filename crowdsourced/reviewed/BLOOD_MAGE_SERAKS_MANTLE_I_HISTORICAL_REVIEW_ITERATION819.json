@@ -1,0 +1,355 @@
+{
+  "review_kind": "blood_mage_seraks_mantle_i_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Serak's Mantle I",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-mantle-i",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/3299969be3e38ac6015adec42fe105f84bf9c69594f38f4071efe2be805d9838.txt",
+        "sha256": "83b8f6c90482e071ea2458f8e672708869d00ef8de93a558f5b160348a46e700"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 37,
+          "record_sha256": "18ebc36f200efa465ea5b1405982e12afa78807cfb869d30bea9c2ab919ac6bd"
+        }
+      ],
+      "literal_sha256": "44ea392854ce394b3968d966e928ca33a445e2e2e89dad1a62f8946c51535f76",
+      "source_literal": "Energy then 33 — now 66 Cast then 0",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Energy then</dt>\n<dd>33\r\n                <span class=\"muted\">— now 66</span></dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Energy then",
+          "value_literal": "33 — now 66",
+          "direct_value_literal": "33",
+          "numeric_value": 33,
+          "comparison_literal": "— now 66",
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "0",
+          "direct_value_literal": "0",
+          "numeric_value": 0,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Mantle I",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-mantle-i",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/3299969be3e38ac6015adec42fe105f84bf9c69594f38f4071efe2be805d9838.txt",
+        "sha256": "83b8f6c90482e071ea2458f8e672708869d00ef8de93a558f5b160348a46e700"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 37,
+          "record_sha256": "18ebc36f200efa465ea5b1405982e12afa78807cfb869d30bea9c2ab919ac6bd"
+        }
+      ],
+      "literal_sha256": "97a939b6c669093e1069f6f18bea34c4fe242600b7fa23cac0d7f4a63b8ab417",
+      "source_literal": "Increases your armor class . The amount of armor class given increases with your adventuring level",
+      "source_html": "<div class=\"tooltip\">Increases your armor class . The amount of armor class given increases with your adventuring level</div>",
+      "reviewed_observations": {
+        "effect_literal": "Increases your armor class . The amount of armor class given increases with your adventuring level",
+        "armor_class_increase": null,
+        "scales_with_literal": "adventuring level",
+        "scaling_formula": null,
+        "recipient": null,
+        "duration": null,
+        "operative_armor_class": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Mantle I",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-mantle-i",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/3299969be3e38ac6015adec42fe105f84bf9c69594f38f4071efe2be805d9838.txt",
+        "sha256": "83b8f6c90482e071ea2458f8e672708869d00ef8de93a558f5b160348a46e700"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 37,
+          "record_sha256": "18ebc36f200efa465ea5b1405982e12afa78807cfb869d30bea9c2ab919ac6bd"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227034635id_/http://wiki.silkyvenom.com/index.php/Serak's_Mantle_I\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227034635id_/http://wiki.silkyvenom.com/index.php/Serak's_Mantle_I"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Mantle I",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-mantle-i",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/3299969be3e38ac6015adec42fe105f84bf9c69594f38f4071efe2be805d9838.txt",
+        "sha256": "83b8f6c90482e071ea2458f8e672708869d00ef8de93a558f5b160348a46e700"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 37,
+          "record_sha256": "18ebc36f200efa465ea5b1405982e12afa78807cfb869d30bea9c2ab919ac6bd"
+        }
+      ],
+      "literal_sha256": "ea1fee79edb7cf07f4e2f7abd9ec6d5c8bc944082510ec73b999dd31eb83dd3e",
+      "source_literal": "Level in 2007 4 — now 16",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>4\r\n                <span class=\"muted\">— now 16</span></dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007",
+          "value_literal": "4 — now 16",
+          "direct_value_literal": "4",
+          "numeric_value": 4,
+          "comparison_literal": "— now 16",
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Mantle I",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-mantle-i",
+      "scope": "historical",
+      "section_node_index": 5,
+      "cache": {
+        "path": ".cache/archive/3299969be3e38ac6015adec42fe105f84bf9c69594f38f4071efe2be805d9838.txt",
+        "sha256": "83b8f6c90482e071ea2458f8e672708869d00ef8de93a558f5b160348a46e700"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 37,
+          "record_sha256": "18ebc36f200efa465ea5b1405982e12afa78807cfb869d30bea9c2ab919ac6bd"
+        }
+      ],
+      "literal_sha256": "ec2700a42f8cbad9529f5f77f707f28f7de88f3a3fcd8144a67cdd194a84a4d5",
+      "source_literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.vanguardjapan.com",
+          "href": "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Mantle I",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-mantle-i",
+      "scope": "historical",
+      "section_node_index": 6,
+      "cache": {
+        "path": ".cache/archive/3299969be3e38ac6015adec42fe105f84bf9c69594f38f4071efe2be805d9838.txt",
+        "sha256": "83b8f6c90482e071ea2458f8e672708869d00ef8de93a558f5b160348a46e700"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 37,
+          "record_sha256": "18ebc36f200efa465ea5b1405982e12afa78807cfb869d30bea9c2ab919ac6bd"
+        }
+      ],
+      "literal_sha256": "efcf484b1064c9b77dc5bdc3e6b25c16b2b07355b1618874b32adc971846adca",
+      "source_literal": "Level in 2007-2008 4 — now 16 Energy then 33 — now 66",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>4\r\n                <span class=\"muted\">— now 16</span></dd></div>\n<div><dt>Energy then</dt>\n<dd>33\r\n                <span class=\"muted\">— now 66</span></dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007-2008",
+          "value_literal": "4 — now 16",
+          "direct_value_literal": "4",
+          "numeric_value": 4,
+          "comparison_literal": "— now 16",
+          "unit": null
+        },
+        {
+          "label": "Energy then",
+          "value_literal": "33 — now 66",
+          "direct_value_literal": "33",
+          "numeric_value": 33,
+          "comparison_literal": "— now 66",
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Mantle I",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-mantle-i",
+      "scope": "historical",
+      "section_node_index": 7,
+      "cache": {
+        "path": ".cache/archive/3299969be3e38ac6015adec42fe105f84bf9c69594f38f4071efe2be805d9838.txt",
+        "sha256": "83b8f6c90482e071ea2458f8e672708869d00ef8de93a558f5b160348a46e700"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 37,
+          "record_sha256": "18ebc36f200efa465ea5b1405982e12afa78807cfb869d30bea9c2ab919ac6bd"
+        }
+      ],
+      "literal_sha256": "db0d117b533781d9c110c69774f82ffbd4f1072b4dbaedbe1439f4a77d344e3b",
+      "source_literal": "Increases your armor class. The amount of armor class gained increases with your adventuring level.",
+      "source_html": "<div class=\"tooltip\">Increases your armor class. The amount of armor class gained increases with your adventuring level.</div>",
+      "reviewed_observations": {
+        "effect_literal": "Increases your armor class. The amount of armor class gained increases with your adventuring level.",
+        "armor_class_increase": null,
+        "scales_with_literal": "adventuring level",
+        "scaling_formula": null,
+        "recipient": null,
+        "duration": null,
+        "operative_armor_class": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Serak's Mantle I",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-mantle-i",
+      "scope": "historical",
+      "section_node_index": 8,
+      "cache": {
+        "path": ".cache/archive/3299969be3e38ac6015adec42fe105f84bf9c69594f38f4071efe2be805d9838.txt",
+        "sha256": "83b8f6c90482e071ea2458f8e672708869d00ef8de93a558f5b160348a46e700"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 37,
+          "record_sha256": "18ebc36f200efa465ea5b1405982e12afa78807cfb869d30bea9c2ab919ac6bd"
+        }
+      ],
+      "literal_sha256": "f27aeaed3d88311d784c8ac3f344512e0529fa572eaed9e8885ba10be11410bd",
+      "source_literal": "Ten Ton Hammer class guides ,\r\n          \r\n          2007-2008 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\r\n          \r\n          2007-2008 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "Ten Ton Hammer class guides",
+          "href": "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 8,
+    "label_value_comparisons": 5,
+    "exact_mechanic_literal_comparisons": 2,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 626,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Both historical prose variants claim armor class increases with adventuring level; neither provides an amount or scaling formula.",
+    "Energy then 33 and comparison now 66 remain separate source observations; units and resource interpretation remain unknown. Cast then 0 does not establish instant cast.",
+    "Historical level 4 and comparison now 16 remain distinct claims.",
+    "Attribution links are archive metadata, not independent historical authentication; operative values remain null."
+  ],
+  "next_step": "Review the next unreviewed historical Blood Mage ability against cached source sections."
+}

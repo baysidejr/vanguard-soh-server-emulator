@@ -1,0 +1,920 @@
+{
+  "review_kind": "constrained_blood_mage_steal_damage_conversion_symbiote_healing_extraction",
+  "parser_version": 97,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_STEAL_DAMAGE_CONVERSION_SYMBIOTE_HEALING_SOURCE_REVIEW_ITERATION712.json",
+    "sha256": "1535d1bfd42fa52b0dd58b89e9dd024f6f7655162470ecfacaa43bc201d7b983"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Despoil IV",
+      "source_url": "https://vgsoharchive.com/abilities/despoil-iv",
+      "cache": {
+        "path": ".cache/archive/66e14d8f423746779eeec9df04e597739d817f64a2ae6dac574b00d43a47a642.txt",
+        "sha256": "f03091aea5733a289c086be85e9273139b6644f5e13efe928858056e08a010db"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 8,
+          "record_sha256": "ac18775180faee818f6b501f0ad10952bc41c4dcc06164953f6c04aa3e5d7b32"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 234 to 247 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union. Increases your Blood Union by 1.",
+          "literal_sha256": "88bdb344a1e61a7e6ad4d90a5a465034bb45e03b1375a415edf3b62835431646",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_steal_damage_conversion_symbiote_healing_observation",
+              "effect_phrase_recorded": "Steals 234 to 247 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union. Increases your Blood Union by 1.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_self_return",
+              "recipient_reported": "you",
+              "health_stolen_min": 234,
+              "health_stolen_max": 247,
+              "health_return_percent": 130,
+              "returned_portion_increase_percent_per_blood_union_level": 25,
+              "blood_union_increase": 1,
+              "return_scaling_base": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Despoil IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/despoil-iv",
+              "title": "Despoil IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 97,
+          "collected_at": "2026-10-20T01:29:30+00:00",
+          "archive_fields": {
+            "energy then": [
+              "182 — now 170"
+            ],
+            "cast then": [
+              "2"
+            ],
+            "level in 2007": [
+              "28"
+            ],
+            "level": [
+              "28"
+            ],
+            "energy cost": [
+              "170"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "icon": [
+              "Icon707.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 28,
+          "rank": "IV",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 170
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon707.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 28,
+              "raw": "28"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034119id_/http://wiki.silkyvenom.com/index.php/Despoil_IV",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              170
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_steal_damage_conversion_symbiote_healing_observation",
+                  "effect_phrase_recorded": "Steals 234 to 247 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union. Increases your Blood Union by 1.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "health_steal_self_return",
+                  "recipient_reported": "you",
+                  "health_stolen_min": 234,
+                  "health_stolen_max": 247,
+                  "health_return_percent": 130,
+                  "returned_portion_increase_percent_per_blood_union_level": 25,
+                  "blood_union_increase": 1,
+                  "return_scaling_base": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Flesh Rend II",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-rend-ii",
+      "cache": {
+        "path": ".cache/archive/c2ebe551b25cb05ec6e87baa87328a0e0bd97ab2b8d4f9d584392e3641d320ff.txt",
+        "sha256": "0a612fd72630638c70a8d9713aca8428fe6a121f09cef32a440325111b4d7967"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 62,
+          "record_sha256": "7edd9615353c2eece516df31497ef5b9c689024d0e8d7ff855ef97f4ea53d299"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Causes the flesh of your opponent to split and tear, dealing 666 to 703 damage. Increases Blood Union by 3.",
+          "literal_sha256": "b0f04c8a7e889e0f882bf8b3f638925a02868d29a7b9906eea5f0b9ee4877d43",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_steal_damage_conversion_symbiote_healing_observation",
+              "effect_phrase_recorded": "Causes the flesh of your opponent to split and tear, dealing 666 to 703 damage. Increases Blood Union by 3.",
+              "conditions_unparsed": true,
+              "effect_reported": "direct_damage_blood_union_gain",
+              "recipient_reported": "your opponent",
+              "damage_min": 666,
+              "damage_max": 703,
+              "blood_union_increase": 3,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Flesh Rend II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/flesh-rend-ii",
+              "title": "Flesh Rend II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 97,
+          "collected_at": "2026-10-20T01:29:30+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "28"
+            ],
+            "level": [
+              "28"
+            ],
+            "energy cost": [
+              "182"
+            ],
+            "blood union": [
+              "3"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "15.0s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Physical Finish"
+            ],
+            "icon": [
+              "Icon20752.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 28,
+          "rank": "II",
+          "category": "Physical Finish",
+          "cost": {
+            "energy": 182
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 15.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Causes the flesh of your opponent to split and tear, dealing 666 to 703 damage. Increases Blood Union by 3.",
+          "icon_name": "Icon20752.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 28,
+              "raw": "28"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              182
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "15.0s",
+                "seconds": 15.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_steal_damage_conversion_symbiote_healing_observation",
+                  "effect_phrase_recorded": "Causes the flesh of your opponent to split and tear, dealing 666 to 703 damage. Increases Blood Union by 3.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "direct_damage_blood_union_gain",
+                  "recipient_reported": "your opponent",
+                  "damage_min": 666,
+                  "damage_max": 703,
+                  "blood_union_increase": 3,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mental Transmutation III",
+      "source_url": "https://vgsoharchive.com/abilities/mental-transmutation-iii",
+      "cache": {
+        "path": ".cache/archive/6b8bfbce7040b68214c0bd9d8acaa3da6540793eb7ca4c4ab3d23dc6a02288ff.txt",
+        "sha256": "60e06f640c330813034fa6da8f56fecbcc88e478901a9083282495b5484d501c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-014345-278046-archive-bulk/ability.jsonl",
+          "line": 9,
+          "record_sha256": "7a4929a8226c009c498e5d5c66124b604937ae42d63622f271e57fba31cd41d5"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Transmutes 400 health into 480 energy.",
+          "literal_sha256": "e7ba12e7ead738f4696a1fc74ef8b0b4cdb74bac3bc0baaad234942f32488439",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_steal_damage_conversion_symbiote_healing_observation",
+              "effect_phrase_recorded": "Transmutes 400 health into 480 energy.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_to_energy_conversion",
+              "health_expended": 400,
+              "energy_returned": 480,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Mental Transmutation III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/mental-transmutation-iii",
+              "title": "Mental Transmutation III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 97,
+          "collected_at": "2026-10-20T01:29:30+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "10"
+            ],
+            "level in 2007": [
+              "28"
+            ],
+            "level": [
+              "28"
+            ],
+            "energy cost": [
+              "400"
+            ],
+            "health cost": [
+              "400"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "10.0s"
+            ],
+            "range": [
+              "5m"
+            ],
+            "target": [
+              "Self"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon449.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 28,
+          "rank": "III",
+          "category": "Alteration",
+          "cost": {
+            "energy": 400
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 10.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 5,
+            "unit": "m",
+            "raw": "5m"
+          },
+          "tooltip": "Transmutes 400 health into 480 energy.",
+          "icon_name": "Icon449.png",
+          "ranks": [],
+          "target_recorded": "Self",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 28,
+              "raw": "28"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130606133732id_/http://wiki.silkyvenom.com/index.php/Mental_Transmutation_III",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              400
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "10.0s",
+                "seconds": 10.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_steal_damage_conversion_symbiote_healing_observation",
+                  "effect_phrase_recorded": "Transmutes 400 health into 480 energy.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "health_to_energy_conversion",
+                  "health_expended": 400,
+                  "energy_returned": 480,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Plated Symbiote II",
+      "source_url": "https://vgsoharchive.com/abilities/plated-symbiote-ii",
+      "cache": {
+        "path": ".cache/archive/7dd7df1339c0d1dccc8c5848e6d79523422adc069360675cf4def7ac9c563b4d.txt",
+        "sha256": "7c972bd51d7d419f4475d8249c3ac496000a5a9b46701b4645dcdeedb1c471f3"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+          "line": 75,
+          "record_sha256": "ee71465524bda08cb1afb7af3c3e85715ddd9ed6ac74ab17be7584ff408a0776"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a plated symbiote to an ally, transforming their skin into spiky plates that return 49 damage upon their attackers and increases armor class by 84 for 1 hour. Expends 1 Plated Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "ab27e3d9dd2b9bbd5af75402be07cf2543d43a028d0741539787093f19c98f97",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_steal_damage_conversion_symbiote_healing_observation",
+              "effect_phrase_recorded": "Attaches a plated symbiote to an ally, transforming their skin into spiky plates that return 49 damage upon their attackers and increases armor class by 84 for 1 hour. Expends 1 Plated Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_damage_return_armor_symbiote",
+              "recipient_reported": "an ally",
+              "returned_damage": 49,
+              "armor_class_increase": 84,
+              "duration_seconds": 3600,
+              "expended_item_reported": "Plated Symbiote",
+              "expended_item_count": 1,
+              "symbiote_limit_per_target": 1,
+              "damage_return_trigger_rules": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Plated Symbiote II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/plated-symbiote-ii",
+              "title": "Plated Symbiote II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 97,
+          "collected_at": "2026-10-20T01:29:30+00:00",
+          "archive_fields": {
+            "cast then": [
+              "2"
+            ],
+            "level in 2007": [
+              "28"
+            ],
+            "level": [
+              "28"
+            ],
+            "energy cost": [
+              "1"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "requires": [
+              "1 Plated Symbiote"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon648.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 28,
+          "rank": "II",
+          "category": "Alteration",
+          "cost": {
+            "energy": 1
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon648.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 28,
+              "raw": "28"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130606192841id_/http://wiki.silkyvenom.com/index.php/Plated_Symbiote_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              1
+            ]
+          },
+          "trainer": null,
+          "requirements": "1 Plated Symbiote",
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_steal_damage_conversion_symbiote_healing_observation",
+                  "effect_phrase_recorded": "Attaches a plated symbiote to an ally, transforming their skin into spiky plates that return 49 damage upon their attackers and increases armor class by 84 for 1 hour. Expends 1 Plated Symbiote. Only 1 Symbiote allowed on a target at a time.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "ally_damage_return_armor_symbiote",
+                  "recipient_reported": "an ally",
+                  "returned_damage": 49,
+                  "armor_class_increase": 84,
+                  "duration_seconds": 3600,
+                  "expended_item_reported": "Plated Symbiote",
+                  "expended_item_count": 1,
+                  "symbiote_limit_per_target": 1,
+                  "damage_return_trigger_rules": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Blood Gift III",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-iii",
+      "cache": {
+        "path": ".cache/archive/75822c8987817304f018ebaff714d38d40d93467210bf3b0e55cd0b5e381ead5.txt",
+        "sha256": "f19a24a02bdcb88a1718e5a0db5f7c9a5ef143e67daa2e7a13215c6063cd5d09"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "2aee997a8695c03d4b33271aa0502d77dde285c58bf2cb75cd742c8695c6b4f9"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "You use your blood to heal an ally, other than yourself, for 1830. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "52216542811ec29293c3da772f5da00857015cb5f518d1af8eafde06f067b401",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_steal_damage_conversion_symbiote_healing_observation",
+              "effect_phrase_recorded": "You use your blood to heal an ally, other than yourself, for 1830. Heals for an extra 2% per level of Blood Union.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_except_self_heal",
+              "recipient_reported": "an ally, other than yourself",
+              "health_amount": 1830,
+              "extra_healing_percent_per_blood_union_level": 2,
+              "scaling_base": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Blood Gift III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/blood-gift-iii",
+              "title": "Blood Gift III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 97,
+          "collected_at": "2026-10-20T01:29:30+00:00",
+          "archive_fields": {
+            "energy then": [
+              "256 — now 392",
+              "33 — now 392"
+            ],
+            "cast then": [
+              "3",
+              "3.0"
+            ],
+            "level in 2007": [
+              "22 — now 30"
+            ],
+            "level in 2007-2008": [
+              "22 — now 30"
+            ],
+            "level": [
+              "30"
+            ],
+            "health and energy cost": [
+              "392"
+            ],
+            "health cost": [
+              "44"
+            ],
+            "cast time": [
+              "3.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "30m"
+            ],
+            "target": [
+              "Ally"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon677.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 30,
+          "rank": "III",
+          "category": "Heal",
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 30,
+            "unit": "m",
+            "raw": "30m"
+          },
+          "tooltip": "You use your blood to heal an ally, other than yourself, for 1830. Heals for an extra 2% per level of Blood Union.",
+          "icon_name": "Icon677.png",
+          "ranks": [],
+          "target_recorded": "Ally",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 22,
+              "raw": "22 — now 30"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 22,
+              "raw": "22 — now 30"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032640id_/http://wiki.silkyvenom.com/index.php/Blood_Gift_III",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_steal_damage_conversion_symbiote_healing_observation",
+                  "effect_phrase_recorded": "You use your blood to heal an ally, other than yourself, for 1830. Heals for an extra 2% per level of Blood Union.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "ally_except_self_heal",
+                  "recipient_reported": "an ally, other than yourself",
+                  "health_amount": 1830,
+                  "extra_healing_percent_per_blood_union_level": 2,
+                  "scaling_base": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0,
+    "required_unittest_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+    "tests_passed": 298
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process inspection found no Python collector",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60,
+    "network_suspension_preserved": true
+  },
+  "remaining_numeric_sections_requiring_literal_review": 65,
+  "reviewed_sections_awaiting_parser_implementation": 0,
+  "limitations": [
+    "Health-return and healing scaling bases, damage-return trigger rules, tick intervals and unspecified durations remain null.",
+    "Source text reports a returned-portion bonus without establishing additive or multiplicative scaling.",
+    "No name-only matching or inferred canonical client IDs; immutable source records retained.",
+    "Exact source observations only; no operative combat values or independent historical authentication."
+  ],
+  "next_step": "Review the remaining 65 Blood Mage numeric effect sections against exact cached prose."
+}

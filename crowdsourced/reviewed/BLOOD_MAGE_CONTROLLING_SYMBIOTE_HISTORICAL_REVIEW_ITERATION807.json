@@ -1,0 +1,371 @@
+{
+  "review_kind": "blood_mage_controlling_symbiote_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Controlling Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/controlling-symbiote",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/d55757d08b87ffe7ef82a815373b006a34b40e3bed24689982933870bc4b889b.txt",
+        "sha256": "f04a6b0cc73994dd90261ae7e6334e8ce3d24559141542c69d6a09049f621554"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "335b55c5393325ca3cbb81e3bdb249c3a2ff5db1c3eff89d42fc74b37a0c8316"
+        }
+      ],
+      "literal_sha256": "d18c4f9d756fcb0f008f09ddca3215cc723eb4f560decd9b937dd9b31fe949c5",
+      "source_literal": "Cast then 1",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Cast then</dt><dd>1</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Cast then",
+          "value_literal": "1",
+          "direct_value_literal": "1",
+          "numeric_value": 1,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Controlling Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/controlling-symbiote",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/d55757d08b87ffe7ef82a815373b006a34b40e3bed24689982933870bc4b889b.txt",
+        "sha256": "f04a6b0cc73994dd90261ae7e6334e8ce3d24559141542c69d6a09049f621554"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "335b55c5393325ca3cbb81e3bdb249c3a2ff5db1c3eff89d42fc74b37a0c8316"
+        }
+      ],
+      "literal_sha256": "2c62cb6602923ddffcf4ff7b21c4698fcc6ac56aadeea6ca5ea3456f313ba327",
+      "source_literal": "Attaches a controlling symbiote to an opponent forcing them to obey your commands for 15 seconds. Repeated symbiote uses will be ignored completely. Draconic , undead , construct and elemental targets are immune to suggestion. -Expends 1 Animation Symbiote",
+      "source_html": "<div class=\"tooltip\">Attaches a controlling symbiote to an opponent forcing them to obey your commands for 15 seconds. Repeated symbiote uses will be ignored completely. Draconic , undead , construct and elemental targets are immune to suggestion. -Expends 1 Animation Symbiote</div>",
+      "reviewed_observations": {
+        "effect_literal": "Attaches a controlling symbiote to an opponent forcing them to obey your commands for 15 seconds. Repeated symbiote uses will be ignored completely. Draconic , undead , construct and elemental targets are immune to suggestion. -Expends 1 Animation Symbiote",
+        "target_literal": "an opponent",
+        "command_control_duration_seconds": 15,
+        "repeated_use_literal": "Repeated symbiote uses will be ignored completely.",
+        "suggestion_immune_target_labels": [
+          "Draconic",
+          "undead",
+          "construct",
+          "elemental"
+        ],
+        "expended_item": "Animation Symbiote",
+        "expended_quantity": 1,
+        "repeated_use_reset_seconds": null,
+        "control_break_conditions": null,
+        "operative_energy_cost": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Controlling Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/controlling-symbiote",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/d55757d08b87ffe7ef82a815373b006a34b40e3bed24689982933870bc4b889b.txt",
+        "sha256": "f04a6b0cc73994dd90261ae7e6334e8ce3d24559141542c69d6a09049f621554"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "335b55c5393325ca3cbb81e3bdb249c3a2ff5db1c3eff89d42fc74b37a0c8316"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227032756id_/http://wiki.silkyvenom.com/index.php/Controlling_Symbiote\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227032756id_/http://wiki.silkyvenom.com/index.php/Controlling_Symbiote"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Controlling Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/controlling-symbiote",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/d55757d08b87ffe7ef82a815373b006a34b40e3bed24689982933870bc4b889b.txt",
+        "sha256": "f04a6b0cc73994dd90261ae7e6334e8ce3d24559141542c69d6a09049f621554"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "335b55c5393325ca3cbb81e3bdb249c3a2ff5db1c3eff89d42fc74b37a0c8316"
+        }
+      ],
+      "literal_sha256": "f7ffd7db5c495dcf95746a4e605b21b3957104ea335537783cb22499d42f5ff6",
+      "source_literal": "Level in 2007 14",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>14</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007",
+          "value_literal": "14",
+          "direct_value_literal": "14",
+          "numeric_value": 14,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Controlling Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/controlling-symbiote",
+      "scope": "historical",
+      "section_node_index": 5,
+      "cache": {
+        "path": ".cache/archive/d55757d08b87ffe7ef82a815373b006a34b40e3bed24689982933870bc4b889b.txt",
+        "sha256": "f04a6b0cc73994dd90261ae7e6334e8ce3d24559141542c69d6a09049f621554"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "335b55c5393325ca3cbb81e3bdb249c3a2ff5db1c3eff89d42fc74b37a0c8316"
+        }
+      ],
+      "literal_sha256": "ec2700a42f8cbad9529f5f77f707f28f7de88f3a3fcd8144a67cdd194a84a4d5",
+      "source_literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.vanguardjapan.com",
+          "href": "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Controlling Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/controlling-symbiote",
+      "scope": "historical",
+      "section_node_index": 6,
+      "cache": {
+        "path": ".cache/archive/d55757d08b87ffe7ef82a815373b006a34b40e3bed24689982933870bc4b889b.txt",
+        "sha256": "f04a6b0cc73994dd90261ae7e6334e8ce3d24559141542c69d6a09049f621554"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "335b55c5393325ca3cbb81e3bdb249c3a2ff5db1c3eff89d42fc74b37a0c8316"
+        }
+      ],
+      "literal_sha256": "d723ea7c116eb643a549c1ca00446caa1e9405979dff1e5c8e7c76a2e8a55568",
+      "source_literal": "Level in 2007-2008 14 Energy then 1 Cast then 1.0",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>14</dd></div>\n<div><dt>Energy then</dt>\n<dd>1</dd></div>\n<div><dt>Cast then</dt><dd>1.0</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007-2008",
+          "value_literal": "14",
+          "direct_value_literal": "14",
+          "numeric_value": 14,
+          "comparison_literal": null,
+          "unit": null
+        },
+        {
+          "label": "Energy then",
+          "value_literal": "1",
+          "direct_value_literal": "1",
+          "numeric_value": 1,
+          "comparison_literal": null,
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "1.0",
+          "direct_value_literal": "1.0",
+          "numeric_value": 1.0,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Controlling Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/controlling-symbiote",
+      "scope": "historical",
+      "section_node_index": 7,
+      "cache": {
+        "path": ".cache/archive/d55757d08b87ffe7ef82a815373b006a34b40e3bed24689982933870bc4b889b.txt",
+        "sha256": "f04a6b0cc73994dd90261ae7e6334e8ce3d24559141542c69d6a09049f621554"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "335b55c5393325ca3cbb81e3bdb249c3a2ff5db1c3eff89d42fc74b37a0c8316"
+        }
+      ],
+      "literal_sha256": "76f09a5c0902e4258d2b574df44e55e5ae6b9447b691137c5c58bf95589097e5",
+      "source_literal": "Attaches a controlling symbiote to an opponent forcing them to obey your commands for 15 seconds. Repeated symbiote uses will be ignored completely. Draconic, undead, construct, and elemental targets are immune to suggestion.",
+      "source_html": "<div class=\"tooltip\">Attaches a controlling symbiote to an opponent forcing them to obey your commands for 15 seconds. Repeated symbiote uses will be ignored completely. Draconic, undead, construct, and elemental targets are immune to suggestion.</div>",
+      "reviewed_observations": {
+        "effect_literal": "Attaches a controlling symbiote to an opponent forcing them to obey your commands for 15 seconds. Repeated symbiote uses will be ignored completely. Draconic, undead, construct, and elemental targets are immune to suggestion.",
+        "target_literal": "an opponent",
+        "command_control_duration_seconds": 15,
+        "repeated_use_literal": "Repeated symbiote uses will be ignored completely.",
+        "suggestion_immune_target_labels": [
+          "Draconic",
+          "undead",
+          "construct",
+          "elemental"
+        ],
+        "expended_item": null,
+        "expended_quantity": null,
+        "repeated_use_reset_seconds": null,
+        "control_break_conditions": null,
+        "operative_energy_cost": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Controlling Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/controlling-symbiote",
+      "scope": "historical",
+      "section_node_index": 8,
+      "cache": {
+        "path": ".cache/archive/d55757d08b87ffe7ef82a815373b006a34b40e3bed24689982933870bc4b889b.txt",
+        "sha256": "f04a6b0cc73994dd90261ae7e6334e8ce3d24559141542c69d6a09049f621554"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "335b55c5393325ca3cbb81e3bdb249c3a2ff5db1c3eff89d42fc74b37a0c8316"
+        }
+      ],
+      "literal_sha256": "f27aeaed3d88311d784c8ac3f344512e0529fa572eaed9e8885ba10be11410bd",
+      "source_literal": "Ten Ton Hammer class guides ,\r\n          \r\n          2007-2008 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\r\n          \r\n          2007-2008 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "Ten Ton Hammer class guides",
+          "href": "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 8,
+    "label_value_comparisons": 5,
+    "exact_mechanic_literal_comparisons": 2,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 710,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Historical sections remain archive claims, not independently authenticated live-era evidence. Attribution links are metadata; mirrors do not provide independent corroboration.",
+    "The earlier tooltip explicitly expends one Animation Symbiote; the later tooltip omits a consumable claim. Neither overwrites the other.",
+    "Energy then 1 remains a separate historical labelled observation; no numeric energy cost is inferred from consumable quantity. Bare cast units remain null.",
+    "Repeated-use immunity reset, control break conditions and full mechanics are unknown. Operative values remain null."
+  ],
+  "next_step": "Review the next unreviewed historical Blood Mage ability against cached source sections."
+}

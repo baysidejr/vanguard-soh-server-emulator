@@ -1,0 +1,272 @@
+{
+  "review_kind": "blood_mage_despoil_iv_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Despoil IV",
+      "source_url": "https://vgsoharchive.com/abilities/despoil-iv",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/66e14d8f423746779eeec9df04e597739d817f64a2ae6dac574b00d43a47a642.txt",
+        "sha256": "f03091aea5733a289c086be85e9273139b6644f5e13efe928858056e08a010db"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 8,
+          "record_sha256": "ac18775180faee818f6b501f0ad10952bc41c4dcc06164953f6c04aa3e5d7b32"
+        }
+      ],
+      "literal_sha256": "d76865e19ea31c17d71ee3149d2fe40cbf0e212c3f6e3142cca69e4f4046e219",
+      "source_literal": "Energy then 182 — now 170 Cast then 2",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Energy then</dt>\n<dd>182\r\n                <span class=\"muted\">— now 170</span></dd></div>\n<div><dt>Cast then</dt><dd>2</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Energy then",
+          "value_literal": "182 — now 170",
+          "direct_value_literal": "182",
+          "numeric_value": 182,
+          "comparison_literal": "— now 170",
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "2",
+          "direct_value_literal": "2",
+          "numeric_value": 2,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Despoil IV",
+      "source_url": "https://vgsoharchive.com/abilities/despoil-iv",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/66e14d8f423746779eeec9df04e597739d817f64a2ae6dac574b00d43a47a642.txt",
+        "sha256": "f03091aea5733a289c086be85e9273139b6644f5e13efe928858056e08a010db"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 8,
+          "record_sha256": "ac18775180faee818f6b501f0ad10952bc41c4dcc06164953f6c04aa3e5d7b32"
+        }
+      ],
+      "literal_sha256": "770afb292e6b460471fad423d89685ac5821713583eac45ab3e7d2dfc32beefc",
+      "source_literal": "Steals 269 to 288 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union . Increases your Blood Union by 1",
+      "source_html": "<div class=\"tooltip\">Steals 269 to 288 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union . Increases your Blood Union by 1</div>",
+      "reviewed_observations": {
+        "effect_literal": "Steals 269 to 288 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union . Increases your Blood Union by 1",
+        "health_stolen_min": 269,
+        "health_stolen_max": 288,
+        "returned_health_percent": 130,
+        "returned_portion_increase_percent_per_blood_union": 25,
+        "blood_union_increase": 1,
+        "scaling_combination_formula": null,
+        "rounding_rule": null,
+        "damage_school": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Despoil IV",
+      "source_url": "https://vgsoharchive.com/abilities/despoil-iv",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/66e14d8f423746779eeec9df04e597739d817f64a2ae6dac574b00d43a47a642.txt",
+        "sha256": "f03091aea5733a289c086be85e9273139b6644f5e13efe928858056e08a010db"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 8,
+          "record_sha256": "ac18775180faee818f6b501f0ad10952bc41c4dcc06164953f6c04aa3e5d7b32"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227034119id_/http://wiki.silkyvenom.com/index.php/Despoil_IV\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227034119id_/http://wiki.silkyvenom.com/index.php/Despoil_IV"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Despoil IV",
+      "source_url": "https://vgsoharchive.com/abilities/despoil-iv",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/66e14d8f423746779eeec9df04e597739d817f64a2ae6dac574b00d43a47a642.txt",
+        "sha256": "f03091aea5733a289c086be85e9273139b6644f5e13efe928858056e08a010db"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 8,
+          "record_sha256": "ac18775180faee818f6b501f0ad10952bc41c4dcc06164953f6c04aa3e5d7b32"
+        }
+      ],
+      "literal_sha256": "7ea5efca6941cbc96e275484b6c6fc5f9b14ed34788c4fd5456a5a1057e23ce1",
+      "source_literal": "Level in 2007 28",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>28</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007",
+          "value_literal": "28",
+          "direct_value_literal": "28",
+          "numeric_value": 28,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Despoil IV",
+      "source_url": "https://vgsoharchive.com/abilities/despoil-iv",
+      "scope": "historical",
+      "section_node_index": 5,
+      "cache": {
+        "path": ".cache/archive/66e14d8f423746779eeec9df04e597739d817f64a2ae6dac574b00d43a47a642.txt",
+        "sha256": "f03091aea5733a289c086be85e9273139b6644f5e13efe928858056e08a010db"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 8,
+          "record_sha256": "ac18775180faee818f6b501f0ad10952bc41c4dcc06164953f6c04aa3e5d7b32"
+        }
+      ],
+      "literal_sha256": "ec2700a42f8cbad9529f5f77f707f28f7de88f3a3fcd8144a67cdd194a84a4d5",
+      "source_literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.vanguardjapan.com",
+          "href": "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Despoil IV",
+      "source_url": "https://vgsoharchive.com/abilities/despoil-iv",
+      "scope": "historical",
+      "section_node_index": 6,
+      "cache": {
+        "path": ".cache/archive/66e14d8f423746779eeec9df04e597739d817f64a2ae6dac574b00d43a47a642.txt",
+        "sha256": "f03091aea5733a289c086be85e9273139b6644f5e13efe928858056e08a010db"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 8,
+          "record_sha256": "ac18775180faee818f6b501f0ad10952bc41c4dcc06164953f6c04aa3e5d7b32"
+        }
+      ],
+      "literal_sha256": "3cc40a2ec3fae07648efd8183f9c380bf7e3eaf8722b81f5dafd02bbc026bb5f",
+      "source_literal": "Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level — the figures above are the ability's own, not what a\r\n        particular character will see.",
+      "source_html": "<p class=\"muted small figure-note\">\r\n        Damage, healing and hate in Vanguard scale with your stats, skills and\r\n        level — the figures above are the ability's own, not what a\r\n        particular character will see.\r\n      </p>",
+      "reviewed_observations": [],
+      "attribution_links": [],
+      "disposition": "archive_source_context_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 6,
+    "label_value_comparisons": 3,
+    "exact_mechanic_literal_comparisons": 1,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 392,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "review_accounting": {
+    "section_reviews": 6,
+    "newly_covered_scope_nodes": 5,
+    "previously_covered_context_nodes": 1
+  },
+  "limitations": [
+    "Bare energy and cast numbers retain unknown resource and time units.",
+    "The returned-portion increase is retained literally; additive versus multiplicative scaling and rounding are not established.",
+    "Historical attribution and level are archive claims, not independently authenticated live-era evidence.",
+    "Attribution is metadata; historical authentication and operative values remain null."
+  ],
+  "next_step": "Review the next unreviewed historical Blood Mage ability after Despoil IV against cached source sections."
+}

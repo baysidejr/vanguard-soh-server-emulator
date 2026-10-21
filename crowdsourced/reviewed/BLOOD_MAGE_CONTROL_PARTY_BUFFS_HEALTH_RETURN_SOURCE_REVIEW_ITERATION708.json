@@ -1,0 +1,789 @@
+{
+  "review_kind": "blood_mage_control_party_buffs_health_return_source_review",
+  "parser_version": 94,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION689.json",
+    "sha256": "5727d7e8de3b9e6910f4001703b39947b1b995f326b60f1a74c9ce6ec15acb25"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Constrict II",
+      "source_url": "https://vgsoharchive.com/abilities/constrict-ii",
+      "cache": {
+        "path": ".cache/archive/30addc216845fcae7505f9b4a0a4a4144eb8460261e795505c9b21508f5776d4.txt",
+        "sha256": "b0d10da488bae8dc1bfce1c0ab1d639f46620877c616b23beeeda646e7436588"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 95,
+          "record_sha256": "c962344a557be4c48c080ba8b82271e823c4fd3142b1b5a9d94a099b9fd8a696"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Constricts the movement of your opponent, rooting them in place for 45 seconds. Has a 60% chance to break on hit.",
+          "literal_sha256": "93658715ac091f8a13615dd023709cb245f8b2a3d2bc50dd13a93f02441f1755",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "root_with_break_chance",
+            "recipient_reported": "your opponent",
+            "duration_seconds": 45,
+            "break_on_hit_percent": 60,
+            "break_roll_rules": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Constrict II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/constrict-ii",
+              "title": "Constrict II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 94,
+          "collected_at": "2026-10-20T00:58:07+00:00",
+          "archive_fields": {
+            "cast then": [
+              "2"
+            ],
+            "level in 2007": [
+              "26 — now 24"
+            ],
+            "level": [
+              "24"
+            ],
+            "energy cost": [
+              "100"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "icon": [
+              "Icon704.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 24,
+          "rank": "II",
+          "category": null,
+          "cost": {
+            "energy": 100
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Constricts the movement of your opponent, rooting them in place for 45 seconds. Has a 60% chance to break on hit.",
+          "icon_name": "Icon704.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 26,
+              "raw": "26 — now 24"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032750id_/http://wiki.silkyvenom.com/index.php/Constrict_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              100
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Health Graft III",
+      "source_url": "https://vgsoharchive.com/abilities/health-graft-iii",
+      "cache": {
+        "path": ".cache/archive/d287252e7273b2e25fcc0fe67e4613c868d71e15691ec855113d22298acc6916.txt",
+        "sha256": "748920de64a8deeafa056b541e9d46017684bdb0bce031950facb89b7d82525f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-011845-148132-archive-bulk/ability.jsonl",
+          "line": 20,
+          "record_sha256": "14d2af2ebc7333c1cd953d1ebf23fd2977585e8dfa3cf45e4af596f9010c8c4c"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Grafts blood and flesh onto your defensive target's party, granting them an additional 290 health for 1 hour.",
+          "literal_sha256": "9ccb3dbbe5f4d731b9f8b8c41cd6d4a4ad7cffc7c273d98b892552065537631e",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "party_health_buff",
+            "recipient_reported": "your defensive target's party",
+            "health_increase": 290,
+            "duration_seconds": 3600,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Health Graft III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/health-graft-iii",
+              "title": "Health Graft III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 94,
+          "collected_at": "2026-10-20T00:58:07+00:00",
+          "archive_fields": {
+            "energy then": [
+              "92 — now 84",
+              "84"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "level in 2007": [
+              "24"
+            ],
+            "level in 2007-2008": [
+              "24"
+            ],
+            "level": [
+              "24"
+            ],
+            "energy cost": [
+              "84"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 24,
+          "rank": "III",
+          "category": null,
+          "cost": {
+            "energy": 84
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Grafts blood and flesh onto your defensive target's party, granting them an additional 290 health for 1 hour.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 24,
+              "raw": "24"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 24,
+              "raw": "24"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033004id_/http://wiki.silkyvenom.com/index.php/Health_Graft_III",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              84
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "https://web.archive.org/web/20090302072913id_/http://www.tentonhammer.com/node/59450"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infuse Health IV",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-iv",
+      "cache": {
+        "path": ".cache/archive/157d8ea5943838bf0b7c02d19432e6033c70784635fd57751d0e7a4515d9de94.txt",
+        "sha256": "32e7503e4627b647c8db1f3d6e3c40a2f591acbc1065e66ddf1a0ef80f1b74d1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-012705-066914-archive-bulk/ability.jsonl",
+          "line": 16,
+          "record_sha256": "9a12dc9cfab2f4d4fa8050292a45fbe07f61aec2973b5a5efa75c9f9f7e8c20c"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Infuses 785 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+          "literal_sha256": "9245670cd2b402f188ec1ab27667ea716f30b14c19ae60c53cc9048a2bd93604",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "target_heal_blood_union_scaling",
+            "recipient_reported": "your defensive target",
+            "health_amount": 785,
+            "extra_healing_percent_per_blood_union_level": 2,
+            "scaling_base": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Infuse Health IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/infuse-health-iv",
+              "title": "Infuse Health IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 94,
+          "collected_at": "2026-10-20T00:58:07+00:00",
+          "archive_fields": {
+            "energy then": [
+              "238 — now 339",
+              "333 — now 339"
+            ],
+            "cast then": [
+              "1.5",
+              "1.5",
+              "1.5"
+            ],
+            "level in 2007": [
+              "24"
+            ],
+            "level in 2007-2008": [
+              "24"
+            ],
+            "level": [
+              "24"
+            ],
+            "energy cost": [
+              "339"
+            ],
+            "cast time": [
+              "1.5"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "30m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon679.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 24,
+          "rank": "IV",
+          "category": "Heal",
+          "cost": {
+            "energy": 339
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 30,
+            "unit": "m",
+            "raw": "30m"
+          },
+          "tooltip": "Infuses 785 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+          "icon_name": "Icon679.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 24,
+              "raw": "24"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 24,
+              "raw": "24"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033032id_/http://wiki.silkyvenom.com/index.php/Infuse_Health_IV",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              339
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Serak's Augmentation II",
+      "source_url": "https://vgsoharchive.com/abilities/serak-s-augmentation-ii",
+      "cache": {
+        "path": ".cache/archive/09bba33397c10bd20dd74dd2b3ca44b1eb3cbe84743e07d3382b1734bf831e24.txt",
+        "sha256": "fd4d34984466734541028f7c2ed98d2eea131c2c43cd9cb947086e69f3701aab"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 61,
+          "record_sha256": "251dff1ba5cb8ba7c82196d06bd9b91451c740bc61c7ddb255a986c9c98becda"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Augments the skin of your defensive target's party, granting them 51 constitution and 145 physical resistance.",
+          "literal_sha256": "df2f3a475b1375c43986fd63ce22a424c6a5cd68ffc4272a307b13659ef92318",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "party_constitution_resistance_buff",
+            "recipient_reported": "your defensive target's party",
+            "constitution_increase": 51,
+            "physical_resistance_increase": 145,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Serak's Augmentation II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/serak-s-augmentation-ii",
+              "title": "Serak's Augmentation II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 94,
+          "collected_at": "2026-10-20T00:58:07+00:00",
+          "archive_fields": {
+            "energy then": [
+              "92 — now 84",
+              "84"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "level in 2007": [
+              "24"
+            ],
+            "level in 2007-2008": [
+              "24"
+            ],
+            "level": [
+              "24"
+            ],
+            "energy cost": [
+              "84"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 24,
+          "rank": "II",
+          "category": null,
+          "cost": {
+            "energy": 84
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Augments the skin of your defensive target's party, granting them 51 constitution and 145 physical resistance.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 24,
+              "raw": "24"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 24,
+              "raw": "24"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033244id_/http://wiki.silkyvenom.com/index.php/Serak's_Augmentation_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              84
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "original_source_urls": [
+            "https://web.archive.org/web/20090302072913id_/http://www.tentonhammer.com/node/59450"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Blood Tribute III",
+      "source_url": "https://vgsoharchive.com/abilities/blood-tribute-iii",
+      "cache": {
+        "path": ".cache/archive/a2cd98993d49d6fa332c4d0c50e62dcf5e05133069da2ff26d12ce9c6b02ce61.txt",
+        "sha256": "4356193422f6fee33657948634ab68c7911eee30b24338c94d6a2da59e9afee1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 30,
+          "record_sha256": "51fe02746d431c90773b4fbaa7e20b8f1b801c53c3b020591c3c9fa7289e5823"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 392 to 414 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.",
+          "literal_sha256": "9b3d90c0ab09e6c12c0d98cf5930264116e027096a70b7a741aa85ff87c14fae",
+          "section_node_index": 0,
+          "candidate_observation": {
+            "effect_reported": "area_health_steal_return_blood_union_gain",
+            "recipient_reported": "allies within 10m of the caster",
+            "health_stolen_min": 392,
+            "health_stolen_max": 414,
+            "health_return_percent": 100,
+            "radius_meters": 10,
+            "returned_portion_increase_percent_per_blood_union_level": 10,
+            "blood_union_increase": 2,
+            "return_scaling_base": null,
+            "distribution_rule": null,
+            "duration_seconds": null,
+            "tick_interval_seconds": null,
+            "stacking_rules": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "disposition": "source_reviewed_parser_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Blood Tribute III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/blood-tribute-iii",
+              "title": "Blood Tribute III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 94,
+          "collected_at": "2026-10-20T00:58:07+00:00",
+          "archive_fields": {
+            "energy then": [
+              "173 — now 213"
+            ],
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "5"
+            ],
+            "level in 2007": [
+              "26"
+            ],
+            "level": [
+              "26"
+            ],
+            "energy cost": [
+              "213"
+            ],
+            "blood union": [
+              "2"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Arcane Finish"
+            ],
+            "icon": [
+              "Icon1052.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 26,
+          "rank": "III",
+          "category": "Arcane Finish",
+          "cost": {
+            "energy": 213
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1052.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 26,
+              "raw": "26"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032709id_/http://wiki.silkyvenom.com/index.php/Blood_Tribute_III",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              213
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process found no collect_archive process",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval_seconds": 60,
+    "network_suspension_preserved": true
+  },
+  "review_accounting": {
+    "previous_numeric_sections_without_patterns": 80,
+    "source_sections_reviewed_here": 5,
+    "remaining_numeric_sections_without_patterns_awaiting_literal_review": 75,
+    "reviewed_sections_awaiting_parser_implementation": 5
+  },
+  "limitations": [
+    "Source review candidates are not typed game facts or operative server mechanics.",
+    "Break roll rules, healing scaling basis, health-return allocation and unspecified durations remain null.",
+    "Blood Tribute III preserves the returned-portion bonus without assuming additive or multiplicative scaling.",
+    "No name-only matching or inferred canonical client IDs; immutable source records retained."
+  ],
+  "next_step": "Implement and test constrained Blood Mage control, party buffs and health-return observations for these five reviewed sources."
+}

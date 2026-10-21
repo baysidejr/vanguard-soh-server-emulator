@@ -1,0 +1,289 @@
+{
+  "review_kind": "blood_mage_mental_transmutation_ii_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Mental Transmutation II",
+      "source_url": "https://vgsoharchive.com/abilities/mental-transmutation-ii",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/78e70836cbac2d8ca7d5eef39cf68257c174b8c0d654135c55083b9c47dddad7.txt",
+        "sha256": "884ff7fc586e080b6849ac88de80b5819d9510809289f53951bddd50ae4ac577"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 52,
+          "record_sha256": "3e82a14ab371b571add1020fd1c05247c80e99b898ab9207cdbe0c997e434f87"
+        }
+      ],
+      "literal_sha256": "15924a4f5b16ba5a51a6351f69db9d80fcdd74483e8257240866491b85eaf64d",
+      "source_literal": "Cast then 0 Refresh then 10",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>10</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Cast then",
+          "value_literal": "0",
+          "direct_value_literal": "0",
+          "numeric_value": 0,
+          "comparison_literal": null,
+          "unit": null
+        },
+        {
+          "label": "Refresh then",
+          "value_literal": "10",
+          "direct_value_literal": "10",
+          "numeric_value": 10,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Mental Transmutation II",
+      "source_url": "https://vgsoharchive.com/abilities/mental-transmutation-ii",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/78e70836cbac2d8ca7d5eef39cf68257c174b8c0d654135c55083b9c47dddad7.txt",
+        "sha256": "884ff7fc586e080b6849ac88de80b5819d9510809289f53951bddd50ae4ac577"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 52,
+          "record_sha256": "3e82a14ab371b571add1020fd1c05247c80e99b898ab9207cdbe0c997e434f87"
+        }
+      ],
+      "literal_sha256": "4ba59c6ea085e6c01c7917d8564221ddca1ac6d7ebee8b306063465696a8bede",
+      "source_literal": "Transmutes 15% of your health into energy at a 60% rate",
+      "source_html": "<div class=\"tooltip\">Transmutes 15% of your health into energy at a 60% rate</div>",
+      "reviewed_observations": {
+        "effect_literal": "Transmutes 15% of your health into energy at a 60% rate",
+        "health_percent": 15,
+        "conversion_rate_percent": 60,
+        "health_amount": null,
+        "energy_amount": null,
+        "health_percentage_basis": null,
+        "rounding_rule": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Mental Transmutation II",
+      "source_url": "https://vgsoharchive.com/abilities/mental-transmutation-ii",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/78e70836cbac2d8ca7d5eef39cf68257c174b8c0d654135c55083b9c47dddad7.txt",
+        "sha256": "884ff7fc586e080b6849ac88de80b5819d9510809289f53951bddd50ae4ac577"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 52,
+          "record_sha256": "3e82a14ab371b571add1020fd1c05247c80e99b898ab9207cdbe0c997e434f87"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227033059id_/http://wiki.silkyvenom.com/index.php/Mental_Transmutation_II\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227033059id_/http://wiki.silkyvenom.com/index.php/Mental_Transmutation_II"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Mental Transmutation II",
+      "source_url": "https://vgsoharchive.com/abilities/mental-transmutation-ii",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/78e70836cbac2d8ca7d5eef39cf68257c174b8c0d654135c55083b9c47dddad7.txt",
+        "sha256": "884ff7fc586e080b6849ac88de80b5819d9510809289f53951bddd50ae4ac577"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 52,
+          "record_sha256": "3e82a14ab371b571add1020fd1c05247c80e99b898ab9207cdbe0c997e434f87"
+        }
+      ],
+      "literal_sha256": "82ad5bd697e693ec5331958673ea3c6b1fc9153976329896632e56aa5c910eb0",
+      "source_literal": "Level in 2007-2008 18 Energy then 268 Refresh then 10.0",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>18</dd></div>\n<div><dt>Energy then</dt>\n<dd>268</dd></div>\n<div><dt>Refresh then</dt><dd>10.0</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007-2008",
+          "value_literal": "18",
+          "direct_value_literal": "18",
+          "numeric_value": 18,
+          "comparison_literal": null,
+          "unit": null
+        },
+        {
+          "label": "Energy then",
+          "value_literal": "268",
+          "direct_value_literal": "268",
+          "numeric_value": 268,
+          "comparison_literal": null,
+          "unit": null
+        },
+        {
+          "label": "Refresh then",
+          "value_literal": "10.0",
+          "direct_value_literal": "10.0",
+          "numeric_value": 10.0,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Mental Transmutation II",
+      "source_url": "https://vgsoharchive.com/abilities/mental-transmutation-ii",
+      "scope": "historical",
+      "section_node_index": 5,
+      "cache": {
+        "path": ".cache/archive/78e70836cbac2d8ca7d5eef39cf68257c174b8c0d654135c55083b9c47dddad7.txt",
+        "sha256": "884ff7fc586e080b6849ac88de80b5819d9510809289f53951bddd50ae4ac577"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 52,
+          "record_sha256": "3e82a14ab371b571add1020fd1c05247c80e99b898ab9207cdbe0c997e434f87"
+        }
+      ],
+      "literal_sha256": "cdd5709c7670858333bb8a77f669d6c52efd8bf3245f692ad3a0154b562e86a9",
+      "source_literal": "Transmutes 268 health into 294 energy.",
+      "source_html": "<div class=\"tooltip\">Transmutes 268 health into 294 energy.</div>",
+      "reviewed_observations": {
+        "effect_literal": "Transmutes 268 health into 294 energy.",
+        "health_percent": null,
+        "conversion_rate_percent": null,
+        "health_amount": 268,
+        "energy_amount": 294,
+        "health_percentage_basis": null,
+        "rounding_rule": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Mental Transmutation II",
+      "source_url": "https://vgsoharchive.com/abilities/mental-transmutation-ii",
+      "scope": "historical",
+      "section_node_index": 6,
+      "cache": {
+        "path": ".cache/archive/78e70836cbac2d8ca7d5eef39cf68257c174b8c0d654135c55083b9c47dddad7.txt",
+        "sha256": "884ff7fc586e080b6849ac88de80b5819d9510809289f53951bddd50ae4ac577"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 52,
+          "record_sha256": "3e82a14ab371b571add1020fd1c05247c80e99b898ab9207cdbe0c997e434f87"
+        }
+      ],
+      "literal_sha256": "f27aeaed3d88311d784c8ac3f344512e0529fa572eaed9e8885ba10be11410bd",
+      "source_literal": "Ten Ton Hammer class guides ,\r\n          \r\n          2007-2008 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\r\n          \r\n          2007-2008 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "Ten Ton Hammer class guides",
+          "href": "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 6,
+    "label_value_comparisons": 5,
+    "exact_mechanic_literal_comparisons": 2,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 596,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "The 15% health at a 60% rate claim and fixed 268 health into 294 energy claim remain separate historical observations; operative values are null.",
+    "The percentage health basis and rounding are unknown; no derived energy amount or conversion formula is inferred.",
+    "Bare cast and refresh values have unknown units. The historical Energy then label is retained as printed rather than reinterpreted as a cost.",
+    "Archive attribution is not independent live-era authentication."
+  ],
+  "next_step": "Review the next unreviewed historical Blood Mage ability against cached source sections."
+}

@@ -1,0 +1,369 @@
+{
+  "review_kind": "blood_mage_infuse_health_iii_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Infuse Health III",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-iii",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/5bd74f27812f92557b35cc90cf7119a7023f993908cad9798ee2a0f148793b18.txt",
+        "sha256": "ce7467eb7bcab7b2af9b7c48462feb71e5cd29c92a28edb26bc9c597d20bec58"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 26,
+          "record_sha256": "4a692914e34e92abbf63243d929c60333bd1ca787b219d35e8bb55fbe7e11ad9"
+        }
+      ],
+      "literal_sha256": "251ed484f2e477337396275e9003f8bc133bf0ba26c15fc39020c60cd86f506c",
+      "source_literal": "Energy then 157 — now 248 Cast then 1.5",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Energy then</dt>\n<dd>157\r\n                <span class=\"muted\">— now 248</span></dd></div>\n<div><dt>Cast then</dt><dd>1.5</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Energy then",
+          "value_literal": "157 — now 248",
+          "direct_value_literal": "157",
+          "numeric_value": 157,
+          "comparison_literal": "— now 248",
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "1.5",
+          "direct_value_literal": "1.5",
+          "numeric_value": 1.5,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Infuse Health III",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-iii",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/5bd74f27812f92557b35cc90cf7119a7023f993908cad9798ee2a0f148793b18.txt",
+        "sha256": "ce7467eb7bcab7b2af9b7c48462feb71e5cd29c92a28edb26bc9c597d20bec58"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 26,
+          "record_sha256": "4a692914e34e92abbf63243d929c60333bd1ca787b219d35e8bb55fbe7e11ad9"
+        }
+      ],
+      "literal_sha256": "9fe8bae4f95012a09b5521ffed2c636295edd8b968f3483ec5f85314b6323b44",
+      "source_literal": "Infuses 660 health into your defensive target. Heals for an extra 2% per level of Blood Union",
+      "source_html": "<div class=\"tooltip\">Infuses 660 health into your defensive target. Heals for an extra 2% per level of Blood Union</div>",
+      "reviewed_observations": {
+        "effect_literal": "Infuses 660 health into your defensive target. Heals for an extra 2% per level of Blood Union",
+        "healing_value": 660,
+        "recipient_literal": "defensive target",
+        "additional_healing_percent_per_blood_union_level": 2,
+        "scaling_formula": null,
+        "operative_healing": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Infuse Health III",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-iii",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/5bd74f27812f92557b35cc90cf7119a7023f993908cad9798ee2a0f148793b18.txt",
+        "sha256": "ce7467eb7bcab7b2af9b7c48462feb71e5cd29c92a28edb26bc9c597d20bec58"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 26,
+          "record_sha256": "4a692914e34e92abbf63243d929c60333bd1ca787b219d35e8bb55fbe7e11ad9"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227033025id_/http://wiki.silkyvenom.com/index.php/Infuse_Health_III\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227033025id_/http://wiki.silkyvenom.com/index.php/Infuse_Health_III"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Infuse Health III",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-iii",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/5bd74f27812f92557b35cc90cf7119a7023f993908cad9798ee2a0f148793b18.txt",
+        "sha256": "ce7467eb7bcab7b2af9b7c48462feb71e5cd29c92a28edb26bc9c597d20bec58"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 26,
+          "record_sha256": "4a692914e34e92abbf63243d929c60333bd1ca787b219d35e8bb55fbe7e11ad9"
+        }
+      ],
+      "literal_sha256": "7a8c2bbd8a7bd67825c12fbeeea90609fbdd062f4281ad4a716fc7209c148fd2",
+      "source_literal": "Level in 2007 16 Cast then 1.5",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>16</dd></div>\n<div><dt>Cast then</dt><dd>1.5</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007",
+          "value_literal": "16",
+          "direct_value_literal": "16",
+          "numeric_value": 16,
+          "comparison_literal": null,
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "1.5",
+          "direct_value_literal": "1.5",
+          "numeric_value": 1.5,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Infuse Health III",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-iii",
+      "scope": "historical",
+      "section_node_index": 5,
+      "cache": {
+        "path": ".cache/archive/5bd74f27812f92557b35cc90cf7119a7023f993908cad9798ee2a0f148793b18.txt",
+        "sha256": "ce7467eb7bcab7b2af9b7c48462feb71e5cd29c92a28edb26bc9c597d20bec58"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 26,
+          "record_sha256": "4a692914e34e92abbf63243d929c60333bd1ca787b219d35e8bb55fbe7e11ad9"
+        }
+      ],
+      "literal_sha256": "ec2700a42f8cbad9529f5f77f707f28f7de88f3a3fcd8144a67cdd194a84a4d5",
+      "source_literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.vanguardjapan.com",
+          "href": "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Infuse Health III",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-iii",
+      "scope": "historical",
+      "section_node_index": 6,
+      "cache": {
+        "path": ".cache/archive/5bd74f27812f92557b35cc90cf7119a7023f993908cad9798ee2a0f148793b18.txt",
+        "sha256": "ce7467eb7bcab7b2af9b7c48462feb71e5cd29c92a28edb26bc9c597d20bec58"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 26,
+          "record_sha256": "4a692914e34e92abbf63243d929c60333bd1ca787b219d35e8bb55fbe7e11ad9"
+        }
+      ],
+      "literal_sha256": "a3d48b1ebf85e26b87317cdfbc4a06fbd151a48a66b40094cfc20e2c045873c5",
+      "source_literal": "Level in 2007-2008 16 Energy then 243 — now 248 Cast then 1.5",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>16</dd></div>\n<div><dt>Energy then</dt>\n<dd>243\r\n                <span class=\"muted\">— now 248</span></dd></div>\n<div><dt>Cast then</dt><dd>1.5</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007-2008",
+          "value_literal": "16",
+          "direct_value_literal": "16",
+          "numeric_value": 16,
+          "comparison_literal": null,
+          "unit": null
+        },
+        {
+          "label": "Energy then",
+          "value_literal": "243 — now 248",
+          "direct_value_literal": "243",
+          "numeric_value": 243,
+          "comparison_literal": "— now 248",
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "1.5",
+          "direct_value_literal": "1.5",
+          "numeric_value": 1.5,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Infuse Health III",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-iii",
+      "scope": "historical",
+      "section_node_index": 7,
+      "cache": {
+        "path": ".cache/archive/5bd74f27812f92557b35cc90cf7119a7023f993908cad9798ee2a0f148793b18.txt",
+        "sha256": "ce7467eb7bcab7b2af9b7c48462feb71e5cd29c92a28edb26bc9c597d20bec58"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 26,
+          "record_sha256": "4a692914e34e92abbf63243d929c60333bd1ca787b219d35e8bb55fbe7e11ad9"
+        }
+      ],
+      "literal_sha256": "cde9ad31bf8206b1d229f7da8c4bebe515475fdaf198e1d0364d773763209411",
+      "source_literal": "Infuses 584 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+      "source_html": "<div class=\"tooltip\">Infuses 584 health into your defensive target. Heals for an extra 2% per level of Blood Union.</div>",
+      "reviewed_observations": {
+        "effect_literal": "Infuses 584 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+        "healing_value": 584,
+        "recipient_literal": "defensive target",
+        "additional_healing_percent_per_blood_union_level": 2,
+        "scaling_formula": null,
+        "operative_healing": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Infuse Health III",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-iii",
+      "scope": "historical",
+      "section_node_index": 8,
+      "cache": {
+        "path": ".cache/archive/5bd74f27812f92557b35cc90cf7119a7023f993908cad9798ee2a0f148793b18.txt",
+        "sha256": "ce7467eb7bcab7b2af9b7c48462feb71e5cd29c92a28edb26bc9c597d20bec58"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 26,
+          "record_sha256": "4a692914e34e92abbf63243d929c60333bd1ca787b219d35e8bb55fbe7e11ad9"
+        }
+      ],
+      "literal_sha256": "f27aeaed3d88311d784c8ac3f344512e0529fa572eaed9e8885ba10be11410bd",
+      "source_literal": "Ten Ton Hammer class guides ,\r\n          \r\n          2007-2008 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\r\n          \r\n          2007-2008 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "Ten Ton Hammer class guides",
+          "href": "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 8,
+    "label_value_comparisons": 7,
+    "exact_mechanic_literal_comparisons": 2,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 646,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Historical healing claims 660 and 584 remain separate; no preferred value or reconciliation is inferred.",
+    "Historical energy claims 157 and 243 retain their individual comparison to now 248; comparisons do not establish operative costs.",
+    "Cast then 1.5 has no stated unit. The 2% Blood Union claim does not establish a complete scaling formula.",
+    "Archive attribution is metadata, not independent historical authentication. Operative values remain null."
+  ],
+  "next_step": "Review the next unreviewed historical Blood Mage ability against cached source sections."
+}

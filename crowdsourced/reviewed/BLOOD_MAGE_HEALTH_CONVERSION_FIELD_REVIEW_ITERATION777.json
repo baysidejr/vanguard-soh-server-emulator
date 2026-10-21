@@ -1,0 +1,265 @@
+{
+  "review_kind": "blood_mage_health_conversion_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Physical Transmutation I",
+      "source_url": "https://vgsoharchive.com/abilities/physical-transmutation-i",
+      "cache": {
+        "path": ".cache/archive/807277c4ca233029327a04ede5b0d891badd8434cd85f6ae1b611037c078a06a.txt",
+        "sha256": "1f1652bdca673993b81ae4b353b7d10c7f6a2e0382b565b1411e47e18270bef7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+          "line": 64,
+          "record_sha256": "4e19a4027810e2ef4b611e70e226583d652ce011a875f611b7d669b703734a27"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Draws on your physical power, transmuting 99% of your endurance into health at a 1500% rate. This process takes great toll on your physical power and lowers your damage by 25% for 10 seconds.",
+          "literal_sha256": "4c5588395ab78c4e73dacb2fcdb663e55b2ed0ef27ea64e1b378f1dd7228d8d0",
+          "field_comparisons": [
+            {
+              "field": "endurance_consumed_percent",
+              "source_value": 99,
+              "extracted_value": 99,
+              "equal": true
+            },
+            {
+              "field": "health_conversion_rate_percent",
+              "source_value": 1500,
+              "extracted_value": 1500,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "damage_reduction_percent",
+              "source_value": 25,
+              "extracted_value": 25,
+              "equal": true
+            },
+            {
+              "field": "damage_reduction_duration_seconds",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "conversion_rate_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "conversion_rounding",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_conversion_armor_healing_energy_symbiote_observation",
+              "effect_phrase_recorded": "Draws on your physical power, transmuting 99% of your endurance into health at a 1500% rate. This process takes great toll on your physical power and lowers your damage by 25% for 10 seconds.",
+              "conditions_unparsed": true,
+              "effect_reported": "endurance_to_health_conversion_damage_penalty",
+              "endurance_consumed_percent": 99,
+              "health_conversion_rate_percent": 1500,
+              "conversion_rate_basis": null,
+              "damage_reduction_percent": 25,
+              "damage_reduction_duration_seconds": 10,
+              "conversion_rounding": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Physical Transmutation II",
+      "source_url": "https://vgsoharchive.com/abilities/physical-transmutation-ii",
+      "cache": {
+        "path": ".cache/archive/845e1cb31752d10d9d1809f378050576c497f1a544b563a60ea0faab2ad01372.txt",
+        "sha256": "3fc9c586ef3191873fb9856a5007ed410cc5b99dca21c5ebd1de027020806b2e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+          "line": 65,
+          "record_sha256": "81c41207357d0bf524adf1e0e839593d122f733ce58941c6ce8edbd4fd91e095"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Draws on your physical power, transmuting 99% of your endurance into health at a 2500% rate. This process takes great toll on your physical power and lowers your damage by 25% for 10 seconds.",
+          "literal_sha256": "5b1795b3170ffd05aadacb18bf28d4c5121664c771f0d90d4a2725868d10edcf",
+          "field_comparisons": [
+            {
+              "field": "endurance_consumed_percent",
+              "source_value": 99,
+              "extracted_value": 99,
+              "equal": true
+            },
+            {
+              "field": "health_conversion_rate_percent",
+              "source_value": 2500,
+              "extracted_value": 2500,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "damage_penalty_percent",
+              "source_value": 25,
+              "extracted_value": 25,
+              "equal": true
+            },
+            {
+              "field": "damage_penalty_duration_seconds",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "conversion_formula",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_transmutation_symbiote_thief_tribute_vein_observation",
+              "effect_phrase_recorded": "Draws on your physical power, transmuting 99% of your endurance into health at a 2500% rate. This process takes great toll on your physical power and lowers your damage by 25% for 10 seconds.",
+              "conditions_unparsed": true,
+              "effect_reported": "endurance_to_health_conversion_with_damage_penalty",
+              "endurance_consumed_percent": 99,
+              "health_conversion_rate_percent": 2500,
+              "damage_penalty_percent": 25,
+              "damage_penalty_duration_seconds": 10,
+              "conversion_formula": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 2,
+    "source_record_hashes_verified": 2,
+    "whole_page_replays": 2,
+    "literal_hashes_verified": 2,
+    "field_comparisons_passed": 21,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 8,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Two current Physical Transmutation sections reviewed; full abilities, historical and alternate scopes remain pending.",
+    "Conversion formulas, rounding and stacking remain unknown; printed rates are archive observations, not operative combat values.",
+    "No canonical IDs, operative values or historical authentication are inferred."
+  ],
+  "next_step": "Review remaining Blood Mage current effect sections against cached source prose."
+}

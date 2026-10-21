@@ -1,0 +1,908 @@
+{
+  "review_kind": "constrained_blood_mage_steal_damage_hate_quickening_extraction",
+  "parser_version": 100,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_STEAL_DAMAGE_HATE_QUICKENING_SOURCE_REVIEW_ITERATION718.json",
+    "sha256": "8abc7446a1040c30a8d526a66731d011e52ff4704e4e65307f65dc46a67201ec"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Blood Tribute IV",
+      "source_url": "https://vgsoharchive.com/abilities/blood-tribute-iv",
+      "cache": {
+        "path": ".cache/archive/bfbab299cae65d044b249d81cbbd97181b26f116b60ad503660026a2d76e041b.txt",
+        "sha256": "f47efae1979b0f4bb38e95e0633b7459000ffeae553a86c71985d2a21f00cb63"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 31,
+          "record_sha256": "328600a8a4d005f5059e361007167c2777735b1caea7b02e6522a0bd9c204e83"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 485 to 512 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.",
+          "literal_sha256": "2e2bc0336599e491afe94dad812b1650befaaea853b363d82bf20859f67fa8a6",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_steal_damage_hate_quickening_observation",
+              "effect_phrase_recorded": "Steals 485 to 512 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_area_return_union_scaling",
+              "health_stolen_min": 485,
+              "health_stolen_max": 512,
+              "returned_percent": 100,
+              "recipient_reported": "allies within 10m of the caster",
+              "radius_meters": 10,
+              "radius_origin": "caster",
+              "returned_portion_increase_percent_per_blood_union_level": 10,
+              "blood_union_increase": 2,
+              "scaling_base": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Blood Tribute IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/blood-tribute-iv",
+              "title": "Blood Tribute IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 100,
+          "collected_at": "2026-10-20T02:07:20+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "5"
+            ],
+            "level in 2007": [
+              "34"
+            ],
+            "level": [
+              "34"
+            ],
+            "energy cost": [
+              "267"
+            ],
+            "blood union": [
+              "2"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Arcane Finish"
+            ],
+            "icon": [
+              "Icon1052.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 34,
+          "rank": "IV",
+          "category": "Arcane Finish",
+          "cost": {
+            "energy": 267
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1052.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 34,
+              "raw": "34"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034042id_/http://wiki.silkyvenom.com/index.php/Blood_Tribute_IV",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              267
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_steal_damage_hate_quickening_observation",
+                  "effect_phrase_recorded": "Steals 485 to 512 health from your opponent and returns 100% of it to allies within 10m of the caster. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "health_steal_area_return_union_scaling",
+                  "health_stolen_min": 485,
+                  "health_stolen_max": 512,
+                  "returned_percent": 100,
+                  "recipient_reported": "allies within 10m of the caster",
+                  "radius_meters": 10,
+                  "radius_origin": "caster",
+                  "returned_portion_increase_percent_per_blood_union_level": 10,
+                  "blood_union_increase": 2,
+                  "scaling_base": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Entwining Vein IV",
+      "source_url": "https://vgsoharchive.com/abilities/entwining-vein-iv",
+      "cache": {
+        "path": ".cache/archive/6eda12da38fe1684580b2a8c2366e608bd869e1a8a0ba4f19f4439fc198175c1.txt",
+        "sha256": "4e3063aaa2c63cdb9021b0f4a141bb532c1e05bc468c415accd48184a29a99f6"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 39,
+          "record_sha256": "46a4aaac3272eddcd4e138592226a1ba503fff39bfe6075b329fee839539a43d"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Steals 273 to 289 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+          "literal_sha256": "1d1f3b665802d322b5880a6623902e964bef98a70be934c81fe06188ad0befb8",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_steal_damage_hate_quickening_observation",
+              "effect_phrase_recorded": "Steals 273 to 289 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_steal_defensive_target_return_union_scaling",
+              "health_stolen_min": 273,
+              "health_stolen_max": 289,
+              "returned_percent": 130,
+              "recipient_reported": "your defensive target",
+              "returned_portion_increase_percent_per_blood_union_level": 10,
+              "blood_union_increase": 1,
+              "scaling_base": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Entwining Vein IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/entwining-vein-iv",
+              "title": "Entwining Vein IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 100,
+          "collected_at": "2026-10-20T02:07:20+00:00",
+          "archive_fields": {
+            "cast then": [
+              "2"
+            ],
+            "level in 2007": [
+              "34"
+            ],
+            "level": [
+              "34"
+            ],
+            "energy cost": [
+              "290"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "causes": [
+              "Lethargic"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Vulnerable"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "icon": [
+              "Icon620.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 34,
+          "rank": "IV",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 290
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon620.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 34,
+              "raw": "34"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130606142447id_/http://wiki.silkyvenom.com/index.php/Entwining_Vein_IV",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              290
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": "Lethargic",
+          "exploits_weakness": "Vulnerable",
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_steal_damage_hate_quickening_observation",
+                  "effect_phrase_recorded": "Steals 273 to 289 health from your opponent and returns 130% of it to your defensive target. Increases the returned portion by 10% per level of Blood Union. Increases your Blood Union by 1.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "health_steal_defensive_target_return_union_scaling",
+                  "health_stolen_min": 273,
+                  "health_stolen_max": 289,
+                  "returned_percent": 130,
+                  "recipient_reported": "your defensive target",
+                  "returned_portion_increase_percent_per_blood_union_level": 10,
+                  "blood_union_increase": 1,
+                  "scaling_base": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Flesh Rend III",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-rend-iii",
+      "cache": {
+        "path": ".cache/archive/77796f61dd2c9ad46bd9b9fb2cc94802afd5441c579b8477b66c46a7b71adfce.txt",
+        "sha256": "e1d46c236ca757defe0ab7957d19dfe3b702b52db0e0e0e084a3af4d70f880f4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 63,
+          "record_sha256": "c7a88b0fc8ade9b90de47b9135f001eba86ca94294d4574074a6db96f3d46e68"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Causes the flesh of your opponent to split and tear, dealing 783 to 826 damage. Increases Blood Union by 3.",
+          "literal_sha256": "4ee0630490d8a38c3d06adfc49fe45070c9257175413aa93b6c8c176a3f1d8ca",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_steal_damage_hate_quickening_observation",
+              "effect_phrase_recorded": "Causes the flesh of your opponent to split and tear, dealing 783 to 826 damage. Increases Blood Union by 3.",
+              "conditions_unparsed": true,
+              "effect_reported": "damage_blood_union_gain",
+              "damage_min": 783,
+              "damage_max": 826,
+              "blood_union_increase": 3,
+              "damage_type": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Flesh Rend III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/flesh-rend-iii",
+              "title": "Flesh Rend III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 100,
+          "collected_at": "2026-10-20T02:07:20+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "34"
+            ],
+            "level": [
+              "34"
+            ],
+            "energy cost": [
+              "217"
+            ],
+            "blood union": [
+              "3"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "15.0s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Physical Finish"
+            ],
+            "icon": [
+              "Icon20752.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 34,
+          "rank": "III",
+          "category": "Physical Finish",
+          "cost": {
+            "energy": 217
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 15.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Causes the flesh of your opponent to split and tear, dealing 783 to 826 damage. Increases Blood Union by 3.",
+          "icon_name": "Icon20752.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 34,
+              "raw": "34"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              217
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "15.0s",
+                "seconds": 15.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_steal_damage_hate_quickening_observation",
+                  "effect_phrase_recorded": "Causes the flesh of your opponent to split and tear, dealing 783 to 826 damage. Increases Blood Union by 3.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "damage_blood_union_gain",
+                  "damage_min": 783,
+                  "damage_max": 826,
+                  "blood_union_increase": 3,
+                  "damage_type": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Numb III",
+      "source_url": "https://vgsoharchive.com/abilities/numb-iii",
+      "cache": {
+        "path": ".cache/archive/7313ec85b9f92b221274da773d02fd5552d9fb9f3d1ee3339c1ade274e0fa9dc.txt",
+        "sha256": "1d095cd6758564ce77fda83123fd26809e080c156ebcc9531b66fea1781dd5a3"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+          "line": 16,
+          "record_sha256": "af8317ec3cd9ddf38e80f8a6ea46e21b48d3f6c80361f5cf85d710db53b76cb9"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Numbs your opponent's mind, lowering your hate by 3603.",
+          "literal_sha256": "d325793796dbaef596d5fb0db77e4d3748f9ab0b753afe4b3fd3c0cb1a578c96",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_steal_damage_hate_quickening_observation",
+              "effect_phrase_recorded": "Numbs your opponent's mind, lowering your hate by 3603.",
+              "conditions_unparsed": true,
+              "effect_reported": "hate_reduction",
+              "hate_reduction": 3603,
+              "hate_unit": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Numb III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/numb-iii",
+              "title": "Numb III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 100,
+          "collected_at": "2026-10-20T02:07:20+00:00",
+          "archive_fields": {
+            "cast then": [
+              "2"
+            ],
+            "level in 2007": [
+              "34"
+            ],
+            "level": [
+              "34"
+            ],
+            "energy cost": [
+              "111"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon697.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 34,
+          "rank": "III",
+          "category": "Alteration",
+          "cost": {
+            "energy": 111
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Numbs your opponent's mind, lowering your hate by 3603.",
+          "icon_name": "Icon697.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 34,
+              "raw": "34"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034355id_/http://wiki.silkyvenom.com/index.php/Numb_III",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              111
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_steal_damage_hate_quickening_observation",
+                  "effect_phrase_recorded": "Numbs your opponent's mind, lowering your hate by 3603.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "hate_reduction",
+                  "hate_reduction": 3603,
+                  "hate_unit": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Quickening Symbiote",
+      "source_url": "https://vgsoharchive.com/abilities/quickening-symbiote",
+      "cache": {
+        "path": ".cache/archive/643475ec8b4984d9ed42d7cbb62ba62c30cbd1b75e183834ffd3e946b1b98da7.txt",
+        "sha256": "84c511200e68a9868aa1dc67ddd401e340af5bd3e45a312f2d19c63e2b75218f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-020025-170628-archive-bulk/ability.jsonl",
+          "line": 47,
+          "record_sha256": "3383d5a5a005a86791013ebf91dd38a2a052a025ebbac9fc383494db41303f35"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a quickening symbiote to an ally, this symbiote grants you the use of an ability that doubles your damage for 8 seconds. This symbiote lasts for 1 hour. Expends 1 Quickening Symbiote. Only 1 Symbiote allowed on a target at a time.",
+          "literal_sha256": "172da91eee20b6b5b491f08778c4fc2820ff2f3931fc057eef64c3e56cb0a619",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_steal_damage_hate_quickening_observation",
+              "effect_phrase_recorded": "Attaches a quickening symbiote to an ally, this symbiote grants you the use of an ability that doubles your damage for 8 seconds. This symbiote lasts for 1 hour. Expends 1 Quickening Symbiote. Only 1 Symbiote allowed on a target at a time.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_symbiote_grants_self_damage_doubling_ability",
+              "recipient_reported": "an ally",
+              "granted_ability_recipient_reported": "you",
+              "damage_multiplier": 2,
+              "damage_buff_duration_seconds": 8,
+              "duration_seconds": 3600,
+              "expended_item_reported": "Quickening Symbiote",
+              "expended_item_count": 1,
+              "symbiote_limit_per_target": 1,
+              "granted_ability_name": null,
+              "activation_rules": null,
+              "damage_scaling_basis": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Quickening Symbiote",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/quickening-symbiote",
+              "title": "Quickening Symbiote · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 100,
+          "collected_at": "2026-10-20T02:07:20+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "34"
+            ],
+            "level": [
+              "34"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Defensive Target"
+            ],
+            "requires": [
+              "1 Quickening Symbiote"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon1067.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 34,
+          "rank": null,
+          "category": "Alteration",
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1067.png",
+          "ranks": [],
+          "target_recorded": "Defensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 34,
+              "raw": "34"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "trainer": null,
+          "requirements": "1 Quickening Symbiote",
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_steal_damage_hate_quickening_observation",
+                  "effect_phrase_recorded": "Attaches a quickening symbiote to an ally, this symbiote grants you the use of an ability that doubles your damage for 8 seconds. This symbiote lasts for 1 hour. Expends 1 Quickening Symbiote. Only 1 Symbiote allowed on a target at a time.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "ally_symbiote_grants_self_damage_doubling_ability",
+                  "recipient_reported": "an ally",
+                  "granted_ability_recipient_reported": "you",
+                  "damage_multiplier": 2,
+                  "damage_buff_duration_seconds": 8,
+                  "duration_seconds": 3600,
+                  "expended_item_reported": "Quickening Symbiote",
+                  "expended_item_count": 1,
+                  "symbiote_limit_per_target": 1,
+                  "granted_ability_name": null,
+                  "activation_rules": null,
+                  "damage_scaling_basis": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0,
+    "required_unittest_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+    "tests_passed": 304
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process inspection found no Python collector",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60,
+    "network_suspension_preserved": true
+  },
+  "remaining_numeric_sections_requiring_literal_review": 50,
+  "reviewed_sections_awaiting_parser_implementation": 0,
+  "limitations": [
+    "Unspecified damage type, hate unit, return scaling base, granted ability name and activation rules remain null.",
+    "Quickening distinguishes the ally receiving the symbiote from the self recipient of its granted damage ability.",
+    "No name-only matching or inferred canonical client IDs; immutable source records retained.",
+    "Exact source observations only; no operative combat values or independent historical authentication."
+  ],
+  "next_step": "Review the remaining 50 Blood Mage numeric effect sections against exact cached prose."
+}

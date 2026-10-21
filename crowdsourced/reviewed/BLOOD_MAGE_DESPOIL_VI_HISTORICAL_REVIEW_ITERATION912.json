@@ -1,0 +1,262 @@
+{
+  "review_kind": "blood_mage_despoil_vi_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Despoil VI",
+      "source_url": "https://vgsoharchive.com/abilities/despoil-vi",
+      "scope": "historical",
+      "section_node_index": 0,
+      "cache": {
+        "path": ".cache/archive/2c16ba62c77c4bc9a5a2a9fb6f0cdffd3138df17772c1d81eb64615216dd7c2f.txt",
+        "sha256": "bd0550764e623f80d5e5dd1b6d52e5c6b3fb131d812f8ba58ca32ec86edbbf82"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 10,
+          "record_sha256": "e5ce1bcacf624f9f0bfc0f9879b500132732ee4a5e79778c0a9809a54d4f84ae"
+        }
+      ],
+      "literal_sha256": "898bf19d26cc2706bda947f1964f7c142af6a99214757e757b0e4f1b035d9c7b",
+      "source_literal": "What guides written while Vanguard was running recorded for this\r\n        ability. Kept beside the current figures rather than replacing them\r\n        — the game was rebalanced across its life, so both are right for\r\n        their own year.",
+      "source_html": "<p class=\"muted small\">\r\n        What guides written while Vanguard was running recorded for this\r\n        ability. Kept beside the current figures rather than replacing them\r\n        — the game was rebalanced across its life, so both are right for\r\n        their own year.\r\n      </p>",
+      "reviewed_observations": [],
+      "attribution_links": [],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Despoil VI",
+      "source_url": "https://vgsoharchive.com/abilities/despoil-vi",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/2c16ba62c77c4bc9a5a2a9fb6f0cdffd3138df17772c1d81eb64615216dd7c2f.txt",
+        "sha256": "bd0550764e623f80d5e5dd1b6d52e5c6b3fb131d812f8ba58ca32ec86edbbf82"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 10,
+          "record_sha256": "e5ce1bcacf624f9f0bfc0f9879b500132732ee4a5e79778c0a9809a54d4f84ae"
+        }
+      ],
+      "literal_sha256": "0c30c9e19a9327416d78aa9d03d2ae8978aa215c1f02457873725ec6cea0746c",
+      "source_literal": "Cast then 2",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Cast then</dt><dd>2</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Cast then",
+          "value_literal": "2",
+          "direct_value_literal": "2",
+          "numeric_value": 2,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Despoil VI",
+      "source_url": "https://vgsoharchive.com/abilities/despoil-vi",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/2c16ba62c77c4bc9a5a2a9fb6f0cdffd3138df17772c1d81eb64615216dd7c2f.txt",
+        "sha256": "bd0550764e623f80d5e5dd1b6d52e5c6b3fb131d812f8ba58ca32ec86edbbf82"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 10,
+          "record_sha256": "e5ce1bcacf624f9f0bfc0f9879b500132732ee4a5e79778c0a9809a54d4f84ae"
+        }
+      ],
+      "literal_sha256": "20f0b1f3f2171416c7d5fb32ee0a0b47b9bc12844d10ef975422df274ce3c4f0",
+      "source_literal": "Steals 446 to 474 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union . Increases your Blood Union by 1",
+      "source_html": "<div class=\"tooltip\">Steals 446 to 474 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union . Increases your Blood Union by 1</div>",
+      "reviewed_observations": {
+        "effect_literal": "Steals 446 to 474 health from your opponent and returns 130% of it to you. Increases the returned portion by 25% per level of Blood Union . Increases your Blood Union by 1",
+        "health_stolen_min": 446,
+        "health_stolen_max": 474,
+        "returned_health_percent": 130,
+        "returned_portion_increase_percent_per_blood_union_level": 25,
+        "blood_union_increase": 1,
+        "target_literal": "your opponent",
+        "blood_union_scaling_formula": null,
+        "rounding_rules": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Despoil VI",
+      "source_url": "https://vgsoharchive.com/abilities/despoil-vi",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/2c16ba62c77c4bc9a5a2a9fb6f0cdffd3138df17772c1d81eb64615216dd7c2f.txt",
+        "sha256": "bd0550764e623f80d5e5dd1b6d52e5c6b3fb131d812f8ba58ca32ec86edbbf82"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 10,
+          "record_sha256": "e5ce1bcacf624f9f0bfc0f9879b500132732ee4a5e79778c0a9809a54d4f84ae"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227034129id_/http://wiki.silkyvenom.com/index.php/Despoil_VI\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227034129id_/http://wiki.silkyvenom.com/index.php/Despoil_VI"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Despoil VI",
+      "source_url": "https://vgsoharchive.com/abilities/despoil-vi",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/2c16ba62c77c4bc9a5a2a9fb6f0cdffd3138df17772c1d81eb64615216dd7c2f.txt",
+        "sha256": "bd0550764e623f80d5e5dd1b6d52e5c6b3fb131d812f8ba58ca32ec86edbbf82"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 10,
+          "record_sha256": "e5ce1bcacf624f9f0bfc0f9879b500132732ee4a5e79778c0a9809a54d4f84ae"
+        }
+      ],
+      "literal_sha256": "4be6c6fbb6e90dfb64435a1e747eeb7d0420894fb33b4bc61338cf736b9423b6",
+      "source_literal": "Level in 2007 44",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>44</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007",
+          "value_literal": "44",
+          "direct_value_literal": "44",
+          "numeric_value": 44,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Despoil VI",
+      "source_url": "https://vgsoharchive.com/abilities/despoil-vi",
+      "scope": "historical",
+      "section_node_index": 5,
+      "cache": {
+        "path": ".cache/archive/2c16ba62c77c4bc9a5a2a9fb6f0cdffd3138df17772c1d81eb64615216dd7c2f.txt",
+        "sha256": "bd0550764e623f80d5e5dd1b6d52e5c6b3fb131d812f8ba58ca32ec86edbbf82"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-001536-692271-archive-bulk/ability.jsonl",
+          "line": 10,
+          "record_sha256": "e5ce1bcacf624f9f0bfc0f9879b500132732ee4a5e79778c0a9809a54d4f84ae"
+        }
+      ],
+      "literal_sha256": "ec2700a42f8cbad9529f5f77f707f28f7de88f3a3fcd8144a67cdd194a84a4d5",
+      "source_literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.vanguardjapan.com",
+          "href": "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 6,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 6,
+    "label_value_comparisons": 2,
+    "exact_mechanic_literal_comparisons": 1,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 137,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Historical claims report 446 to 474 stolen health, 130 percent returned, a returned portion increase of 25 percent per Blood Union level, a Blood Union increase of 1 and level 44. The scaling formula and rounding rules remain unknown. Cast 2 has no printed unit, which remains null.",
+    "Historical attribution dates are archive claims, not independently authenticated live-era evidence.",
+    "Attribution and general scaling context remain metadata; operative values remain null."
+  ],
+  "next_step": "Review Frenzied Symbiote IV historical scope nodes against cached evidence.",
+  "review_accounting": {
+    "section_reviews": 6,
+    "newly_covered_scope_nodes": 5
+  }
+}

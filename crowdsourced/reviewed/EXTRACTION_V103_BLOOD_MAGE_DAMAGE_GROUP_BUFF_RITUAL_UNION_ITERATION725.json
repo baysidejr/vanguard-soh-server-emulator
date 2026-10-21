@@ -1,0 +1,752 @@
+{
+  "review_kind": "constrained_blood_mage_damage_group_buff_ritual_union_extraction",
+  "parser_version": 103,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_DAMAGE_GROUP_BUFF_RITUAL_UNION_SOURCE_REVIEW_ITERATION724.json",
+    "sha256": "32052cdf7adb7378ef1c8cc66919ffe350705b834a469aab66fd3f3b3b186ab7"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Bursting Blister II",
+      "source_url": "https://vgsoharchive.com/abilities/bursting-blister-ii",
+      "cache": {
+        "path": ".cache/archive/430396bdd3883a10741ffb8e6caa1144ef49cbb2a3dbe9f31bb2f6d66a7ab45e.txt",
+        "sha256": "cf4ab39e9ac0a63e1672705f9e8a20ee8c40398774c79d04e714036007292a35"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 9,
+          "record_sha256": "56a9ebff694130425f68fc54fb1438de0913538187c9541b3230ab1dda529b84"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Deals instant damage, followed by damage over time. Also increases your Blood Union by 1.",
+          "literal_sha256": "40cb405e272651bd65de132f281fe6c367fe97247a9fa6a974e6dcc145f71ad0",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_focus_lifetap_root_observation",
+              "effect_phrase_recorded": "Deals instant damage, followed by damage over time. Also increases your Blood Union by 1.",
+              "conditions_unparsed": true,
+              "effect_reported": "instant_and_periodic_damage_with_blood_union_gain",
+              "blood_union_gain_points": 1,
+              "instant_damage_amount": null,
+              "periodic_damage_amount": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Bursting Blister II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/bursting-blister-ii",
+              "title": "Bursting Blister II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 103,
+          "collected_at": "2026-10-20T02:46:23+00:00",
+          "archive_fields": {
+            "level": [
+              "20"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 20,
+          "rank": "II",
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "Deals instant damage, followed by damage over time. Also increases your Blood Union by 1.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_focus_lifetap_root_observation",
+                  "effect_phrase_recorded": "Deals instant damage, followed by damage over time. Also increases your Blood Union by 1.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "instant_and_periodic_damage_with_blood_union_gain",
+                  "blood_union_gain_points": 1,
+                  "instant_damage_amount": null,
+                  "periodic_damage_amount": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/bursting-blister-ii-770.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Blood Letting",
+      "source_url": "https://vgsoharchive.com/abilities/blood-letting",
+      "cache": {
+        "path": ".cache/archive/349e08c5e267a71c5ce6a85eacfe9aeff066157e2c729efc542593705a07dd0f.txt",
+        "sha256": "b2d9c2a66513e99dbbffbe5af4a69b4b0917008c44c095640529555fa152c897"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 19,
+          "record_sha256": "160fb1197d1cf53a88635d99d313992330351991cc9bf37dcdfb5d229198f2ce"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ability consumes 25% health and 15% energy, but forms a full Blood Union with your enemy instantly.",
+          "literal_sha256": "9ec4e1e1b7836e09e663a504f82614f08a02d2cc36139fd060728c5e2076aee2",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_damage_group_buff_ritual_union_observation",
+              "effect_phrase_recorded": "This ability consumes 25% health and 15% energy, but forms a full Blood Union with your enemy instantly.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_energy_consumption_full_blood_union",
+              "health_consumed_percent": 25,
+              "energy_consumed_percent": 15,
+              "blood_union_result_reported": "full",
+              "blood_union_numeric_result": null,
+              "consumption_percentage_basis": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Blood Letting",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/blood-letting",
+              "title": "Blood Letting · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 103,
+          "collected_at": "2026-10-20T02:46:23+00:00",
+          "archive_fields": {
+            "level": [
+              "40"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 40,
+          "rank": null,
+          "category": null,
+          "cost": null,
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": null,
+          "tooltip": "This ability consumes 25% health and 15% energy, but forms a full Blood Union with your enemy instantly.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_damage_group_buff_ritual_union_observation",
+                  "effect_phrase_recorded": "This ability consumes 25% health and 15% energy, but forms a full Blood Union with your enemy instantly.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "health_energy_consumption_full_blood_union",
+                  "health_consumed_percent": 25,
+                  "energy_consumed_percent": 15,
+                  "blood_union_result_reported": "full",
+                  "blood_union_numeric_result": null,
+                  "consumption_percentage_basis": null,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "original_source_urls": [
+            "http://vg.mmodb.com/spells/blood-letting-799.php"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Favor of the Life Giver V",
+      "source_url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-v",
+      "cache": {
+        "path": ".cache/archive/0f7b09dbef0f4bf077e7d1d4380abf39ab83c4a3f53643525ee5af1cf5524211.txt",
+        "sha256": "a94673e2ba0c56bc9301170d9c4e032441808bea451f17b294c7cfc681ce23ef"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 94,
+          "record_sha256": "aa4ad557ca666a012dc884dc723bbd5e633b610e38436a8fe0617330bd0baad9"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Fills your targets group with power.\r\n+113 Constitution\r\n+56 Vitality\r\n+128 Intelligence\r\n+88 Wisdom\r\n+1200 Hit Points\r\n+12 Hit Point Regeneration\r\n+320 Physical Resistance\r\nStacks Best Buff Only",
+          "literal_sha256": "fa02151e0ed52890bec1dcfa380c54a053bcbc55ea0877ba0ee3289f014042c8",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_damage_group_buff_ritual_union_observation",
+              "effect_phrase_recorded": "Fills your targets group with power.\r\n+113 Constitution\r\n+56 Vitality\r\n+128 Intelligence\r\n+88 Wisdom\r\n+1200 Hit Points\r\n+12 Hit Point Regeneration\r\n+320 Physical Resistance\r\nStacks Best Buff Only",
+              "conditions_unparsed": true,
+              "effect_reported": "target_group_attribute_buff",
+              "recipient_reported": "your targets group",
+              "constitution_increase": 113,
+              "vitality_increase": 56,
+              "intelligence_increase": 128,
+              "wisdom_increase": 88,
+              "hit_points_increase": 1200,
+              "hit_point_regeneration_increase": 12,
+              "regeneration_time_basis": null,
+              "physical_resistance_increase": 320,
+              "stacking_reported": "Stacks Best Buff Only",
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Favor of the Life Giver V",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-v",
+              "title": "Favor of the Life Giver V · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 103,
+          "collected_at": "2026-10-20T02:46:23+00:00",
+          "archive_fields": {
+            "level": [
+              "40"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Group"
+            ],
+            "type": [
+              "Alteration"
+            ],
+            "icon": [
+              "Icon1052.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 40,
+          "rank": "V",
+          "category": "Alteration",
+          "cost": null,
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1052.png",
+          "ranks": [],
+          "target_recorded": "Group",
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_damage_group_buff_ritual_union_observation",
+                  "effect_phrase_recorded": "Fills your targets group with power.\r\n+113 Constitution\r\n+56 Vitality\r\n+128 Intelligence\r\n+88 Wisdom\r\n+1200 Hit Points\r\n+12 Hit Point Regeneration\r\n+320 Physical Resistance\r\nStacks Best Buff Only",
+                  "conditions_unparsed": true,
+                  "effect_reported": "target_group_attribute_buff",
+                  "recipient_reported": "your targets group",
+                  "constitution_increase": 113,
+                  "vitality_increase": 56,
+                  "intelligence_increase": 128,
+                  "wisdom_increase": 88,
+                  "hit_points_increase": 1200,
+                  "hit_point_regeneration_increase": 12,
+                  "regeneration_time_basis": null,
+                  "physical_resistance_increase": 320,
+                  "stacking_reported": "Stacks Best Buff Only",
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Flesh Mender's Ritual IV",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-mender-s-ritual-iv",
+      "cache": {
+        "path": ".cache/archive/355748665d41b2addac8a0bfaf384fdc6849548872ce93a9f5299319f6bd7678.txt",
+        "sha256": "af5937c5caac592200f93607f43608fe31f894416b74a027ca97ede321bb0dd6"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 59,
+          "record_sha256": "369f0cdcbd79881e8ff2f3d0dc70082d9272905eb6ac6d9cc49671d55d80a05c"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ritual heals an ally, other than yourself, for 4110 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.",
+          "literal_sha256": "ed36208f439bf37d0d2a15795730b1eb2613722b5799c52e73575c3825873f96",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_damage_group_buff_ritual_union_observation",
+              "effect_phrase_recorded": "This ritual heals an ally, other than yourself, for 4110 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.",
+              "conditions_unparsed": true,
+              "effect_reported": "other_ally_periodic_healing_union_cost",
+              "recipient_reported": "an ally, other than yourself",
+              "healing_amount": 4110,
+              "duration_seconds": 20,
+              "blood_union_reduction": 3,
+              "minimum_blood_union": 3,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Flesh Mender's Ritual IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/flesh-mender-s-ritual-iv",
+              "title": "Flesh Mender's Ritual IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review.",
+          "parser_version": 103,
+          "collected_at": "2026-10-20T02:46:23+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "refresh then": [
+              "1"
+            ],
+            "level": [
+              "40"
+            ],
+            "energy cost": [
+              "3"
+            ],
+            "blood union": [
+              "3"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "1:00s"
+            ],
+            "range": [
+              "30m"
+            ],
+            "target": [
+              "Ally"
+            ],
+            "type": [
+              "Heal"
+            ],
+            "icon": [
+              "Icon683.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 40,
+          "rank": "IV",
+          "category": "Heal",
+          "cost": {
+            "energy": 3
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 30,
+            "unit": "m",
+            "raw": "30m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon683.png",
+          "ranks": [],
+          "target_recorded": "Ally",
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034157id_/http://wiki.silkyvenom.com/index.php/Flesh_Mender's_Ritual_IV"
+          ],
+          "cost_observations": {
+            "energy": [
+              3
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_damage_group_buff_ritual_union_observation",
+                  "effect_phrase_recorded": "This ritual heals an ally, other than yourself, for 4110 health over 20 seconds. Reduces Blood Union by 3. Only usable from Blood Union 3 or greater.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "other_ally_periodic_healing_union_cost",
+                  "recipient_reported": "an ally, other than yourself",
+                  "healing_amount": 4110,
+                  "duration_seconds": 20,
+                  "blood_union_reduction": 3,
+                  "minimum_blood_union": 3,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Flesh Rend IV",
+      "source_url": "https://vgsoharchive.com/abilities/flesh-rend-iv",
+      "cache": {
+        "path": ".cache/archive/8ab74430693e5939b3670869ee806a041dfd8eb7d403a1d4cf29ca93e336474a.txt",
+        "sha256": "630a79e790709df2d359f5b167d78404ed5ce59d062a9897905e6ff1a04404ea"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-003216-787407-archive-bulk/ability.jsonl",
+          "line": 64,
+          "record_sha256": "c7ab3a01772b62b5a440acc31f016872944019ee1a71583cb30430c01a5efc3f"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Causes the flesh of your opponent to split and tear, dealing 904 to 953 damage. Increases Blood Union by 3.",
+          "literal_sha256": "6ea605ced6c8569abba74119a7a22b4da91f62af19c3a720ab0a530152b2db1c",
+          "effect_facts": [
+            {
+              "kind": "blood_mage_damage_group_buff_ritual_union_observation",
+              "effect_phrase_recorded": "Causes the flesh of your opponent to split and tear, dealing 904 to 953 damage. Increases Blood Union by 3.",
+              "conditions_unparsed": true,
+              "effect_reported": "damage_with_blood_union_gain",
+              "damage_min": 904,
+              "damage_max": 953,
+              "damage_type": null,
+              "blood_union_gain_points": 3,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ]
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Flesh Rend IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/flesh-rend-iv",
+              "title": "Flesh Rend IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 103,
+          "collected_at": "2026-10-20T02:46:23+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "40"
+            ],
+            "level": [
+              "40"
+            ],
+            "energy cost": [
+              "251"
+            ],
+            "blood union": [
+              "3"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "15.0s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Physical Finish"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 40,
+          "rank": "IV",
+          "category": "Physical Finish",
+          "cost": {
+            "energy": 251
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 15.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": "Causes the flesh of your opponent to split and tear, dealing 904 to 953 damage. Increases Blood Union by 3.",
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 40,
+              "raw": "40"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              251
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "15.0s",
+                "seconds": 15.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "blood_mage_damage_group_buff_ritual_union_observation",
+                  "effect_phrase_recorded": "Causes the flesh of your opponent to split and tear, dealing 904 to 953 damage. Increases Blood Union by 3.",
+                  "conditions_unparsed": true,
+                  "effect_reported": "damage_with_blood_union_gain",
+                  "damage_min": 904,
+                  "damage_max": 953,
+                  "damage_type": null,
+                  "blood_union_gain_points": 3,
+                  "duration_seconds": null,
+                  "tick_interval_seconds": null,
+                  "stacking_rules": null,
+                  "operative_values": null,
+                  "historical_authentication": null
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20090304141809id_/http://www.tentonhammer.com/node/59451"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "literal_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "issues": 0,
+    "required_unittest_command": "python -B -W error::ResourceWarning -m unittest discover -s tests -q",
+    "tests_passed": 310
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process inspection found no Python collector",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval": 60,
+    "network_suspension_preserved": true
+  },
+  "remaining_numeric_sections_requiring_literal_review": 35,
+  "reviewed_sections_awaiting_parser_implementation": 0,
+  "limitations": [
+    "Bursting Blister II already has a constrained generic observation; review does not require duplicate extraction.",
+    "Consumption percentage bases, full Blood Union numeric value, regeneration time basis, damage type and unstated durations remain null.",
+    "Accounting tracks the original iteration689 review inventory; generic recognition does not establish complete coverage.",
+    "No name-only matching or inferred canonical client IDs; immutable source records retained.",
+    "Exact source observations only; no operative combat values or independent historical authentication."
+  ],
+  "next_step": "Review the remaining 35 Blood Mage numeric effect sections against exact cached prose."
+}

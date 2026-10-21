@@ -1,0 +1,241 @@
+{
+  "review_kind": "blood_mage_defensive_rune_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Sheltering Rune I",
+      "source_url": "https://vgsoharchive.com/abilities/sheltering-rune-i",
+      "cache": {
+        "path": ".cache/archive/91798c9393e2535e39b011eac5953ea063b0dd49bb74600bdda1813d82c18bbe.txt",
+        "sha256": "ffa36142bc002e03b5996bd07fa1548b73defb8b45fc851f86d1c0de66124705"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 91,
+          "record_sha256": "b4b7effa25c9ab0d99f76783e5c4bca917e92c246320b9ea7707feb3da4ee5ea"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Places a rune of flesh on your defensive target that reduces incoming physical damage and arcane damage by 100%. Lasts for 6 seconds.",
+          "literal_sha256": "447312c609e2c95009cba7025733e61bde7abbd09efd071655f6fa038a0f5de4",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": 6,
+              "extracted_value": 6,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "defensive target",
+              "extracted_value": "defensive target",
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "defensive_target_physical_arcane_damage_reduction",
+              "extracted_value": "defensive_target_physical_arcane_damage_reduction",
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "physical_damage_reduction_percent",
+              "source_value": 100,
+              "extracted_value": 100,
+              "equal": true
+            },
+            {
+              "field": "arcane_damage_reduction_percent",
+              "source_value": 100,
+              "extracted_value": 100,
+              "equal": true
+            },
+            {
+              "field": "absorption_limit",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_steal_hate_ritual_rune_healing_observation",
+              "effect_phrase_recorded": "Places a rune of flesh on your defensive target that reduces incoming physical damage and arcane damage by 100%. Lasts for 6 seconds.",
+              "conditions_unparsed": true,
+              "effect_reported": "defensive_target_physical_arcane_damage_reduction",
+              "recipient_reported": "defensive target",
+              "physical_damage_reduction_percent": 100,
+              "arcane_damage_reduction_percent": 100,
+              "duration_seconds": 6,
+              "absorption_limit": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Sheltering Rune II",
+      "source_url": "https://vgsoharchive.com/abilities/sheltering-rune-ii",
+      "cache": {
+        "path": ".cache/archive/234c1c31f9fa6fe50d07a367c9aaa50b4a217a5d5596abe6a9e3dbd637d4e60d.txt",
+        "sha256": "0ea92caa91f883607b740b2764a463e32bc3f555fae1402d4f68f1ccd4e4b061"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 92,
+          "record_sha256": "180a715a6274b64a9fe9d4835d4949239065563ccee92d27b7a33ffb88ab49fd"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Places a rune of flesh on your defensive target that reduces incoming physical damage and arcane damage by 100%. Lasts for 8 seconds.",
+          "literal_sha256": "87c78c492c8f840368aefb23547d10babc76221a59ac4d4cc576fe9f89a6b7ee",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": 8,
+              "extracted_value": 8,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "defensive_target",
+              "extracted_value": "defensive_target",
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "defensive_target_physical_and_arcane_damage_reduction",
+              "extracted_value": "defensive_target_physical_and_arcane_damage_reduction",
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "damage_reduction_percent",
+              "source_value": 100,
+              "extracted_value": 100,
+              "equal": true
+            },
+            {
+              "field": "damage_types_reported",
+              "source_value": [
+                "physical",
+                "arcane"
+              ],
+              "extracted_value": [
+                "physical",
+                "arcane"
+              ],
+              "equal": true
+            },
+            {
+              "field": "absorption_cap",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_renewing_ritual_vein_rune_union_observation",
+              "effect_phrase_recorded": "Places a rune of flesh on your defensive target that reduces incoming physical damage and arcane damage by 100%. Lasts for 8 seconds.",
+              "conditions_unparsed": true,
+              "effect_reported": "defensive_target_physical_and_arcane_damage_reduction",
+              "damage_reduction_percent": 100,
+              "damage_types_reported": [
+                "physical",
+                "arcane"
+              ],
+              "duration_seconds": 8,
+              "recipient_reported": "defensive_target",
+              "absorption_cap": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 2,
+    "source_record_hashes_verified": 2,
+    "whole_page_replays": 2,
+    "literal_hashes_verified": 2,
+    "field_comparisons_passed": 16,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 36,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Two current defensive rune sections reviewed; full abilities, historical and alternate scopes remain pending.",
+    "Absorption caps, stacking, and precise damage eligibility remain unknown; printed reduction percentages do not establish historical or operative behavior.",
+    "No canonical IDs, operative values or historical authentication are inferred."
+  ],
+  "next_step": "Review remaining Blood Mage current damage-over-time clauses against cached prose."
+}

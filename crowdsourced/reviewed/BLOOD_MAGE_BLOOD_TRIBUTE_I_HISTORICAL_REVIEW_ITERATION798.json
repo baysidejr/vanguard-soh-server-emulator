@@ -1,0 +1,376 @@
+{
+  "review_kind": "blood_mage_blood_tribute_i_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Blood Tribute I",
+      "source_url": "https://vgsoharchive.com/abilities/blood-tribute-i",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/39b206fc4916c5b167bbb8f91d3a4d0aadc8479a0bd132e08cd1e7cc0b720ff4.txt",
+        "sha256": "dd67e303af2fd7527052e27eaf2d2b7cccbe4b0443aa80f846b91781253a60a8"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 4,
+          "record_sha256": "880e9d0ba1fcaf555cc6f73bbdf2ddc3ccb96ae13689c047eba40d3b8ea62bfa"
+        }
+      ],
+      "literal_sha256": "573db1ae657c186b07b52923be4a3997882abf96c374ea210c1114b0d6e9f9ec",
+      "source_literal": "Energy then 68 — now 106 Cast then 0 Refresh then 5",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Energy then</dt>\n<dd>68\r\n                <span class=\"muted\">— now 106</span></dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n<div><dt>Refresh then</dt><dd>5</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Energy then",
+          "value_literal": "68 — now 106",
+          "direct_value_literal": "68",
+          "numeric_value": 68,
+          "comparison_literal": "— now 106",
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "0",
+          "direct_value_literal": "0",
+          "numeric_value": 0,
+          "comparison_literal": null,
+          "unit": null
+        },
+        {
+          "label": "Refresh then",
+          "value_literal": "5",
+          "direct_value_literal": "5",
+          "numeric_value": 5,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Tribute I",
+      "source_url": "https://vgsoharchive.com/abilities/blood-tribute-i",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/39b206fc4916c5b167bbb8f91d3a4d0aadc8479a0bd132e08cd1e7cc0b720ff4.txt",
+        "sha256": "dd67e303af2fd7527052e27eaf2d2b7cccbe4b0443aa80f846b91781253a60a8"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 4,
+          "record_sha256": "880e9d0ba1fcaf555cc6f73bbdf2ddc3ccb96ae13689c047eba40d3b8ea62bfa"
+        }
+      ],
+      "literal_sha256": "5673f419895555416909540469d89d1996c6c26f5b4b94a374676a65a53fe050",
+      "source_literal": "Steals 237 to 253 health from your opponent and returns 100% of it to surrounding allies. Increases the returned portion by 10% per level of Blood Union . Increases Blood Union by 2",
+      "source_html": "<div class=\"tooltip\">Steals 237 to 253 health from your opponent and returns 100% of it to surrounding allies. Increases the returned portion by 10% per level of Blood Union . Increases Blood Union by 2</div>",
+      "reviewed_observations": {
+        "health_stolen_min": 237,
+        "health_stolen_max": 253,
+        "returned_to_surrounding_allies_percent": 100,
+        "returned_portion_increase_percent_per_blood_union_level": 10,
+        "blood_union_increase": 2,
+        "ally_radius": null,
+        "ally_count_limit": null,
+        "scaling_formula": null,
+        "damage_school": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Tribute I",
+      "source_url": "https://vgsoharchive.com/abilities/blood-tribute-i",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/39b206fc4916c5b167bbb8f91d3a4d0aadc8479a0bd132e08cd1e7cc0b720ff4.txt",
+        "sha256": "dd67e303af2fd7527052e27eaf2d2b7cccbe4b0443aa80f846b91781253a60a8"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 4,
+          "record_sha256": "880e9d0ba1fcaf555cc6f73bbdf2ddc3ccb96ae13689c047eba40d3b8ea62bfa"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227032707id_/http://wiki.silkyvenom.com/index.php/Blood_Tribute_I\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227032707id_/http://wiki.silkyvenom.com/index.php/Blood_Tribute_I"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Tribute I",
+      "source_url": "https://vgsoharchive.com/abilities/blood-tribute-i",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/39b206fc4916c5b167bbb8f91d3a4d0aadc8479a0bd132e08cd1e7cc0b720ff4.txt",
+        "sha256": "dd67e303af2fd7527052e27eaf2d2b7cccbe4b0443aa80f846b91781253a60a8"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 4,
+          "record_sha256": "880e9d0ba1fcaf555cc6f73bbdf2ddc3ccb96ae13689c047eba40d3b8ea62bfa"
+        }
+      ],
+      "literal_sha256": "952c0ead227a62201399ec5e005ec70a345cee7d9bcbeb34a925f6a2ac05accd",
+      "source_literal": "Level in 2007 10 Cast then 0",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>10</dd></div>\n<div><dt>Cast then</dt><dd>0</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007",
+          "value_literal": "10",
+          "direct_value_literal": "10",
+          "numeric_value": 10,
+          "comparison_literal": null,
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "0",
+          "direct_value_literal": "0",
+          "numeric_value": 0,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Tribute I",
+      "source_url": "https://vgsoharchive.com/abilities/blood-tribute-i",
+      "scope": "historical",
+      "section_node_index": 5,
+      "cache": {
+        "path": ".cache/archive/39b206fc4916c5b167bbb8f91d3a4d0aadc8479a0bd132e08cd1e7cc0b720ff4.txt",
+        "sha256": "dd67e303af2fd7527052e27eaf2d2b7cccbe4b0443aa80f846b91781253a60a8"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 4,
+          "record_sha256": "880e9d0ba1fcaf555cc6f73bbdf2ddc3ccb96ae13689c047eba40d3b8ea62bfa"
+        }
+      ],
+      "literal_sha256": "ec2700a42f8cbad9529f5f77f707f28f7de88f3a3fcd8144a67cdd194a84a4d5",
+      "source_literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.vanguardjapan.com",
+          "href": "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Tribute I",
+      "source_url": "https://vgsoharchive.com/abilities/blood-tribute-i",
+      "scope": "historical",
+      "section_node_index": 6,
+      "cache": {
+        "path": ".cache/archive/39b206fc4916c5b167bbb8f91d3a4d0aadc8479a0bd132e08cd1e7cc0b720ff4.txt",
+        "sha256": "dd67e303af2fd7527052e27eaf2d2b7cccbe4b0443aa80f846b91781253a60a8"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 4,
+          "record_sha256": "880e9d0ba1fcaf555cc6f73bbdf2ddc3ccb96ae13689c047eba40d3b8ea62bfa"
+        }
+      ],
+      "literal_sha256": "7ef978bb54f42a60c80b2bc369e3e48c44a1e2028a0602c532f0211e67c0eab3",
+      "source_literal": "Level in 2007-2008 10 Energy then 104 — now 106",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>10</dd></div>\n<div><dt>Energy then</dt>\n<dd>104\r\n                <span class=\"muted\">— now 106</span></dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007-2008",
+          "value_literal": "10",
+          "direct_value_literal": "10",
+          "numeric_value": 10,
+          "comparison_literal": null,
+          "unit": null
+        },
+        {
+          "label": "Energy then",
+          "value_literal": "104 — now 106",
+          "direct_value_literal": "104",
+          "numeric_value": 104,
+          "comparison_literal": "— now 106",
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Tribute I",
+      "source_url": "https://vgsoharchive.com/abilities/blood-tribute-i",
+      "scope": "historical",
+      "section_node_index": 7,
+      "cache": {
+        "path": ".cache/archive/39b206fc4916c5b167bbb8f91d3a4d0aadc8479a0bd132e08cd1e7cc0b720ff4.txt",
+        "sha256": "dd67e303af2fd7527052e27eaf2d2b7cccbe4b0443aa80f846b91781253a60a8"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 4,
+          "record_sha256": "880e9d0ba1fcaf555cc6f73bbdf2ddc3ccb96ae13689c047eba40d3b8ea62bfa"
+        }
+      ],
+      "literal_sha256": "800be89215a443046174e2baab29058bfd04553bdfdf04a37cdad2dff9465c41",
+      "source_literal": "Steals 227 to 244 health from your opponent and returns 100% of it to surrounding allies. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.",
+      "source_html": "<div class=\"tooltip\">Steals 227 to 244 health from your opponent and returns 100% of it to surrounding allies. Increases the returned portion by 10% per level of Blood Union. Increases Blood Union by 2.</div>",
+      "reviewed_observations": {
+        "health_stolen_min": 227,
+        "health_stolen_max": 244,
+        "returned_to_surrounding_allies_percent": 100,
+        "returned_portion_increase_percent_per_blood_union_level": 10,
+        "blood_union_increase": 2,
+        "ally_radius": null,
+        "ally_count_limit": null,
+        "scaling_formula": null,
+        "damage_school": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Tribute I",
+      "source_url": "https://vgsoharchive.com/abilities/blood-tribute-i",
+      "scope": "historical",
+      "section_node_index": 8,
+      "cache": {
+        "path": ".cache/archive/39b206fc4916c5b167bbb8f91d3a4d0aadc8479a0bd132e08cd1e7cc0b720ff4.txt",
+        "sha256": "dd67e303af2fd7527052e27eaf2d2b7cccbe4b0443aa80f846b91781253a60a8"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 4,
+          "record_sha256": "880e9d0ba1fcaf555cc6f73bbdf2ddc3ccb96ae13689c047eba40d3b8ea62bfa"
+        }
+      ],
+      "literal_sha256": "f27aeaed3d88311d784c8ac3f344512e0529fa572eaed9e8885ba10be11410bd",
+      "source_literal": "Ten Ton Hammer class guides ,\r\n          \r\n          2007-2008 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\r\n          \r\n          2007-2008 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "Ten Ton Hammer class guides",
+          "href": "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 8,
+    "label_value_comparisons": 7,
+    "exact_mechanic_literal_comparisons": 2,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 779,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Historical health ranges 237–253 and 227–244 conflict; full source sections and immutable source references are retained separately, with no operative selection.",
+    "Historical energy values 68 and 104 conflict; comparison value 106 is labelled now, not another historical value.",
+    "Bare cast 0 and refresh 5 have unknown units; zero is not promoted to an Instant label.",
+    "Returned portion increases by 10% per Blood Union level, but additive versus multiplicative scaling and recipient radius/count are unresolved.",
+    "Attribution links were not fetched; archive attribution is not independent historical authentication. Operative values remain null."
+  ],
+  "next_step": "Review Dissolve historical mechanics and metadata against cached source sections."
+}

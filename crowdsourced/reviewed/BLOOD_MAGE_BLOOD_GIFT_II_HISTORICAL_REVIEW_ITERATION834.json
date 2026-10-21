@@ -1,0 +1,372 @@
+{
+  "review_kind": "blood_mage_blood_gift_ii_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Blood Gift II",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-ii",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/2ed57cac9acb8dda15a8d0784055bae7652d27704e4bfaecffca1113ac44a5f1.txt",
+        "sha256": "688620ef9190d1cd8b5332d9ddefaac1c5647d632f886890c786eb58c2ae28eb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "da50f53e16003fe2f73563f50072d5607324704d9bdf5e4b127aeb0657396139"
+        }
+      ],
+      "literal_sha256": "200fcd6ba39f403dfd45f73d23cc450fda3a0bf505ec3e18bd646dc58bbafefd",
+      "source_literal": "Energy then 164 — now 303 Cast then 3",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Energy then</dt>\n<dd>164\r\n                <span class=\"muted\">— now 303</span></dd></div>\n<div><dt>Cast then</dt><dd>3</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Energy then",
+          "value_literal": "164 — now 303",
+          "direct_value_literal": "164",
+          "numeric_value": 164,
+          "comparison_literal": "— now 303",
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "3",
+          "direct_value_literal": "3",
+          "numeric_value": 3,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Gift II",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-ii",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/2ed57cac9acb8dda15a8d0784055bae7652d27704e4bfaecffca1113ac44a5f1.txt",
+        "sha256": "688620ef9190d1cd8b5332d9ddefaac1c5647d632f886890c786eb58c2ae28eb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "da50f53e16003fe2f73563f50072d5607324704d9bdf5e4b127aeb0657396139"
+        }
+      ],
+      "literal_sha256": "67448611d8a672510e814cd8a4ceb98285fc9d1871af4c2b2948999a18c4b9bf",
+      "source_literal": "You use your blood to heal an ally, other than yourself, for 1036. Heals for an extra 2% per level of Blood Union",
+      "source_html": "<div class=\"tooltip\">You use your blood to heal an ally, other than yourself, for 1036. Heals for an extra 2% per level of Blood Union</div>",
+      "reviewed_observations": {
+        "effect_literal": "You use your blood to heal an ally, other than yourself, for 1036. Heals for an extra 2% per level of Blood Union",
+        "recipient_literal": "an ally, other than yourself",
+        "healing_base": 1036,
+        "additional_healing_percent_per_blood_union_level": 2,
+        "blood_union_consumption": null,
+        "health_cost": null,
+        "scaling_formula": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Gift II",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-ii",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/2ed57cac9acb8dda15a8d0784055bae7652d27704e4bfaecffca1113ac44a5f1.txt",
+        "sha256": "688620ef9190d1cd8b5332d9ddefaac1c5647d632f886890c786eb58c2ae28eb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "da50f53e16003fe2f73563f50072d5607324704d9bdf5e4b127aeb0657396139"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227032636id_/http://wiki.silkyvenom.com/index.php/Blood_Gift_II\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227032636id_/http://wiki.silkyvenom.com/index.php/Blood_Gift_II"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Gift II",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-ii",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/2ed57cac9acb8dda15a8d0784055bae7652d27704e4bfaecffca1113ac44a5f1.txt",
+        "sha256": "688620ef9190d1cd8b5332d9ddefaac1c5647d632f886890c786eb58c2ae28eb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "da50f53e16003fe2f73563f50072d5607324704d9bdf5e4b127aeb0657396139"
+        }
+      ],
+      "literal_sha256": "9732227000aa5cc5ddefdc4a52c4e198fd53a12351566e27dde3533dd380b894",
+      "source_literal": "Level in 2007 14 — now 22 Cast then 3.0",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>14\r\n                <span class=\"muted\">— now 22</span></dd></div>\n<div><dt>Cast then</dt><dd>3.0</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007",
+          "value_literal": "14 — now 22",
+          "direct_value_literal": "14",
+          "numeric_value": 14,
+          "comparison_literal": "— now 22",
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "3.0",
+          "direct_value_literal": "3.0",
+          "numeric_value": 3.0,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Gift II",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-ii",
+      "scope": "historical",
+      "section_node_index": 5,
+      "cache": {
+        "path": ".cache/archive/2ed57cac9acb8dda15a8d0784055bae7652d27704e4bfaecffca1113ac44a5f1.txt",
+        "sha256": "688620ef9190d1cd8b5332d9ddefaac1c5647d632f886890c786eb58c2ae28eb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "da50f53e16003fe2f73563f50072d5607324704d9bdf5e4b127aeb0657396139"
+        }
+      ],
+      "literal_sha256": "ec2700a42f8cbad9529f5f77f707f28f7de88f3a3fcd8144a67cdd194a84a4d5",
+      "source_literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.vanguardjapan.com",
+          "href": "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Gift II",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-ii",
+      "scope": "historical",
+      "section_node_index": 6,
+      "cache": {
+        "path": ".cache/archive/2ed57cac9acb8dda15a8d0784055bae7652d27704e4bfaecffca1113ac44a5f1.txt",
+        "sha256": "688620ef9190d1cd8b5332d9ddefaac1c5647d632f886890c786eb58c2ae28eb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "da50f53e16003fe2f73563f50072d5607324704d9bdf5e4b127aeb0657396139"
+        }
+      ],
+      "literal_sha256": "3b503a38a2b03db0f45675b19e7a8759d3b55072229287430b8beb19d5066bd7",
+      "source_literal": "Level in 2007-2008 14 — now 22 Energy then 22 — now 303 Cast then 3.0",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>14\r\n                <span class=\"muted\">— now 22</span></dd></div>\n<div><dt>Energy then</dt>\n<dd>22\r\n                <span class=\"muted\">— now 303</span></dd></div>\n<div><dt>Cast then</dt><dd>3.0</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007-2008",
+          "value_literal": "14 — now 22",
+          "direct_value_literal": "14",
+          "numeric_value": 14,
+          "comparison_literal": "— now 22",
+          "unit": null
+        },
+        {
+          "label": "Energy then",
+          "value_literal": "22 — now 303",
+          "direct_value_literal": "22",
+          "numeric_value": 22,
+          "comparison_literal": "— now 303",
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "3.0",
+          "direct_value_literal": "3.0",
+          "numeric_value": 3.0,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Gift II",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-ii",
+      "scope": "historical",
+      "section_node_index": 7,
+      "cache": {
+        "path": ".cache/archive/2ed57cac9acb8dda15a8d0784055bae7652d27704e4bfaecffca1113ac44a5f1.txt",
+        "sha256": "688620ef9190d1cd8b5332d9ddefaac1c5647d632f886890c786eb58c2ae28eb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "da50f53e16003fe2f73563f50072d5607324704d9bdf5e4b127aeb0657396139"
+        }
+      ],
+      "literal_sha256": "a9766af2b43710a79300971450bfa6e18b0a8e6cbd7177fc5eea81e318d3e2f6",
+      "source_literal": "You use your blood to heal an ally, other than yourself, for 980. Heals for an extra 2% per level of Blood Union.",
+      "source_html": "<div class=\"tooltip\">You use your blood to heal an ally, other than yourself, for 980. Heals for an extra 2% per level of Blood Union.</div>",
+      "reviewed_observations": {
+        "effect_literal": "You use your blood to heal an ally, other than yourself, for 980. Heals for an extra 2% per level of Blood Union.",
+        "recipient_literal": "an ally, other than yourself",
+        "healing_base": 980,
+        "additional_healing_percent_per_blood_union_level": 2,
+        "blood_union_consumption": null,
+        "health_cost": null,
+        "scaling_formula": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Blood Gift II",
+      "source_url": "https://vgsoharchive.com/abilities/blood-gift-ii",
+      "scope": "historical",
+      "section_node_index": 8,
+      "cache": {
+        "path": ".cache/archive/2ed57cac9acb8dda15a8d0784055bae7652d27704e4bfaecffca1113ac44a5f1.txt",
+        "sha256": "688620ef9190d1cd8b5332d9ddefaac1c5647d632f886890c786eb58c2ae28eb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "da50f53e16003fe2f73563f50072d5607324704d9bdf5e4b127aeb0657396139"
+        }
+      ],
+      "literal_sha256": "f27aeaed3d88311d784c8ac3f344512e0529fa572eaed9e8885ba10be11410bd",
+      "source_literal": "Ten Ton Hammer class guides ,\r\n          \r\n          2007-2008 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\r\n          \r\n          2007-2008 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "Ten Ton Hammer class guides",
+          "href": "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 8,
+    "label_value_comparisons": 7,
+    "exact_mechanic_literal_comparisons": 2,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 511,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Healing amounts of 1036 and 980 remain separate historical source claims; no operative amount is inferred.",
+    "Energy values of 164 and 22 remain separate historical claims, with the printed current comparison 303 retained.",
+    "Use of blood does not quantify a health cost or establish Blood Union consumption.",
+    "The extra 2 percent per Blood Union level is a literal observation, not a complete stacking or scaling formula.",
+    "Bare cast values retain unknown units. Archive attribution is not independent live-era authentication."
+  ],
+  "next_step": "Review the next unreviewed historical Blood Mage ability after Blood Gift II against cached source sections."
+}

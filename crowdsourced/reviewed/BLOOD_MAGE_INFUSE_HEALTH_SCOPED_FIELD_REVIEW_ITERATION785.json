@@ -1,0 +1,146 @@
+{
+  "review_kind": "blood_mage_infuse_health_historical_alternate_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Infuse Health I",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-i",
+      "scope": "alternate",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/2e2b4e31553e80a405ca3d6d43dbcde8aa246a20af1a339288e75921a40d4281.txt",
+        "sha256": "fbada0c57d46261640830588f9a650bbf0a9ab26cfa4fbaef4c9407a3da8f6b0"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 24,
+          "record_sha256": "49225b9c8560dbe9f21e0a01d29982fffc773487969b2e6acf8cdf5f58a151d4"
+        }
+      ],
+      "literal_sha256": "bbe968f2d9b8e1a319d95c0cc383abfd18cd26288a777a638eb0738e50ba54e4",
+      "source_literal": "Infuses 92 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+      "source_html": "<div class=\"tooltip\">Infuses 92 health into your defensive target. Heals for an extra 2% per level of Blood Union.</div>",
+      "reviewed_observations": {
+        "heal_amount": 92,
+        "target_literal": "defensive target",
+        "extra_healing_percent_per_blood_union_level": 2,
+        "percent_base": null,
+        "blood_union_cap": null,
+        "rounding_rule": null
+      },
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false,
+      "disposition": "scoped_archive_claim_only"
+    },
+    {
+      "name": "Infuse Health I",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-i",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/2e2b4e31553e80a405ca3d6d43dbcde8aa246a20af1a339288e75921a40d4281.txt",
+        "sha256": "fbada0c57d46261640830588f9a650bbf0a9ab26cfa4fbaef4c9407a3da8f6b0"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 24,
+          "record_sha256": "49225b9c8560dbe9f21e0a01d29982fffc773487969b2e6acf8cdf5f58a151d4"
+        }
+      ],
+      "literal_sha256": "e573b99e94fbcff3f8b7111ac15006311fc73bd190cc6c30ea4b81297503f2e6",
+      "source_literal": "Infuses 107 health into your defensive target. Heals for an extra 2% per level of Blood Union",
+      "source_html": "<div class=\"tooltip\">Infuses 107 health into your defensive target. Heals for an extra 2% per level of Blood Union</div>",
+      "reviewed_observations": {
+        "heal_amount": 107,
+        "target_literal": "defensive target",
+        "extra_healing_percent_per_blood_union_level": 2,
+        "percent_base": null,
+        "blood_union_cap": null,
+        "rounding_rule": null
+      },
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false,
+      "disposition": "scoped_archive_claim_only"
+    },
+    {
+      "name": "Infuse Health I",
+      "source_url": "https://vgsoharchive.com/abilities/infuse-health-i",
+      "scope": "historical",
+      "section_node_index": 7,
+      "cache": {
+        "path": ".cache/archive/2e2b4e31553e80a405ca3d6d43dbcde8aa246a20af1a339288e75921a40d4281.txt",
+        "sha256": "fbada0c57d46261640830588f9a650bbf0a9ab26cfa4fbaef4c9407a3da8f6b0"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 24,
+          "record_sha256": "49225b9c8560dbe9f21e0a01d29982fffc773487969b2e6acf8cdf5f58a151d4"
+        }
+      ],
+      "literal_sha256": "bbe968f2d9b8e1a319d95c0cc383abfd18cd26288a777a638eb0738e50ba54e4",
+      "source_literal": "Infuses 92 health into your defensive target. Heals for an extra 2% per level of Blood Union.",
+      "source_html": "<div class=\"tooltip\">Infuses 92 health into your defensive target. Heals for an extra 2% per level of Blood Union.</div>",
+      "reviewed_observations": {
+        "heal_amount": 92,
+        "target_literal": "defensive target",
+        "extra_healing_percent_per_blood_union_level": 2,
+        "percent_base": null,
+        "blood_union_cap": null,
+        "rounding_rule": null
+      },
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false,
+      "disposition": "scoped_archive_claim_only"
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 3,
+    "exact_expected_literal_comparisons": 3,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 872,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "107 and 92 are distinct archive scope observations; neither supersedes the other.",
+    "Historical and alternate labels do not authenticate live-era values or establish independent corroboration.",
+    "Extra 2% per Blood Union level does not identify the percentage base, stacking rule, cap or rounding.",
+    "No operative formula or canonical identifier is inferred."
+  ],
+  "next_step": "Review Infuse Health I historical resource/cast metadata and attribution nodes."
+}

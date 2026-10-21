@@ -1,0 +1,4137 @@
+{
+  "review_kind": "blood_mage_preexisting_numeric_pattern_completeness_review",
+  "parser_version": 110,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION740.json",
+    "sha256": "b2157667784e0cfc82f5435eaa6c3551c2cb7726bf7193587c6bc803d1bd9151"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Burning Cyst I",
+      "source_url": "https://vgsoharchive.com/abilities/burning-cyst-i",
+      "cache": {
+        "path": ".cache/archive/c4317fd9111ce930f3c8896d0a1239fd71fafc6898f2f1da66a4016fd77271ed.txt",
+        "sha256": "9d0ee3f1cc49620989832789c166c126d8d19ac8b2b66c0ee64f9cefaa4fd8f4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 5,
+          "record_sha256": "1b98eea2e3b7108ce7502699b86964da7f43347346ab518f96f36c702f8fbc8a"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Forms a large blister on your opponent and forces it to explode, dealing 51 to 58 damage. If you are at Blood Union 3 or greater it will deal an additional 36 to 41 damage over 12 seconds. Increases Blood Union by 1.",
+          "literal_sha256": "9e93d9b57ceb1c8f3fee75782d0b5c6993da5deaf7cd466dc4118797be8037e8",
+          "existing_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                36,
+                41
+              ],
+              "conditions_unparsed": true
+            }
+          ],
+          "omitted_mechanics": [
+            "initial_damage_range",
+            "additional_damage_duration_seconds",
+            "additional_damage_minimum_blood_union",
+            "blood_union_increase"
+          ],
+          "candidate_observation": {
+            "effect_reported": "conditional_cyst_damage",
+            "recipient_reported": "opponent",
+            "initial_damage_range": [
+              51,
+              58
+            ],
+            "additional_damage_range": [
+              36,
+              41
+            ],
+            "additional_damage_duration_seconds": 12,
+            "additional_damage_minimum_blood_union": 3,
+            "blood_union_increase": 1,
+            "duration_seconds": null,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "coverage_complete": false,
+          "disposition": "partial_extraction_confirmed_constrained_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Burning Cyst I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/burning-cyst-i",
+              "title": "Burning Cyst I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 110,
+          "collected_at": "2026-10-20T04:27:16+00:00",
+          "archive_fields": {
+            "level in 2007-2008": [
+              "1"
+            ],
+            "cast then": [
+              "2.0"
+            ],
+            "level": [
+              "1"
+            ],
+            "energy cost": [
+              "39"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 1,
+          "rank": "I",
+          "category": null,
+          "cost": {
+            "energy": 39
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": null,
+          "ranks": [],
+          "target_recorded": null,
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 1,
+              "raw": "1"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              39
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    36,
+                    41
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    36,
+                    41
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "original_source_urls": [
+            "https://web.archive.org/web/20090302072913id_/http://www.tentonhammer.com/node/59450"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bursting Cyst I",
+      "source_url": "https://vgsoharchive.com/abilities/bursting-cyst-i",
+      "cache": {
+        "path": ".cache/archive/d38c09a5c852390844e2f03b31cfe2ed874a85b3bbdc48f7105f21c282415d6e.txt",
+        "sha256": "52693c5281c0d340af0d5245ba9fc215cd59515395f97ab010875ecd86caf86f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 7,
+          "record_sha256": "769dbeeb9858c055da25516fd0a91043c787dbadcfd44592517877d1a59a9680"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Forms a large blister on your opponent and forces it to explode, dealing 64 to 70 damage. If you are at Blood Union 3 or greater it will deal an additional 42 to 49 damage over 12 seconds. Increases Blood Union by 1.",
+          "literal_sha256": "67d4f01541fe9c77ba897142e87d2a2c8ad0bffe5eb32bd9fb824fad821d7d65",
+          "existing_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                42,
+                49
+              ],
+              "conditions_unparsed": true
+            }
+          ],
+          "omitted_mechanics": [
+            "initial_damage_range",
+            "additional_damage_duration_seconds",
+            "additional_damage_minimum_blood_union",
+            "blood_union_increase"
+          ],
+          "candidate_observation": {
+            "effect_reported": "conditional_cyst_damage",
+            "recipient_reported": "opponent",
+            "initial_damage_range": [
+              64,
+              70
+            ],
+            "additional_damage_range": [
+              42,
+              49
+            ],
+            "additional_damage_duration_seconds": 12,
+            "additional_damage_minimum_blood_union": 3,
+            "blood_union_increase": 1,
+            "duration_seconds": null,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "coverage_complete": false,
+          "disposition": "partial_extraction_confirmed_constrained_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Bursting Cyst I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/bursting-cyst-i",
+              "title": "Bursting Cyst I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 110,
+          "collected_at": "2026-10-20T04:27:16+00:00",
+          "archive_fields": {
+            "energy then": [
+              "39",
+              "39"
+            ],
+            "cast then": [
+              "2",
+              "2.0"
+            ],
+            "level in 2007": [
+              "1"
+            ],
+            "level": [
+              "1"
+            ],
+            "energy cost": [
+              "39"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "duration": [
+              "Instant or 12 seconds"
+            ],
+            "range": [
+              "25m"
+            ],
+            "causes": [
+              "Bleeding"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Afflicted"
+            ],
+            "type": [
+              "Physical Evocation"
+            ],
+            "icon": [
+              "Icon549.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 1,
+          "rank": "I",
+          "category": "Physical Evocation",
+          "cost": {
+            "energy": 39
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon549.png",
+          "ranks": [
+            {
+              "rank": "I",
+              "level_learned": 1,
+              "cost_raw": "39"
+            },
+            {
+              "rank": "II",
+              "level_learned": 6,
+              "cost_raw": "67"
+            }
+          ],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 1,
+              "raw": "1"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032722id_/http://wiki.silkyvenom.com/index.php/Bursting_Cyst_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              39
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": "Bleeding",
+          "exploits_weakness": "Afflicted",
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    42,
+                    49
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    28,
+                    34
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://vanguard.fandom.com/wiki/Bursting_Cyst"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bursting Cyst II",
+      "source_url": "https://vgsoharchive.com/abilities/bursting-cyst-ii",
+      "cache": {
+        "path": ".cache/archive/2ead36f6f2acab1651ee82a0b77989cbcf1d0caaa437eb1d0da650b5eff2b0f5.txt",
+        "sha256": "89e7b89416059a3d9f603dc2c0e934a625fa0525ba9066303af2f05b0f1112f1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 8,
+          "record_sha256": "ff3e26d05f4eb58cbe313e17ff0c8ee94efe3b4d401f199fd1a1cccea080699f"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Forms a large blister on your opponent and forces it to explode, dealing 143 to 154 damage. If you are at Blood Union 3 or greater it will deal an additional 101 to 110 damage over 12 seconds. Increases Blood Union by 1.",
+          "literal_sha256": "4df29fb83e67093b15347b1a8f38a77c8c14ede33772b6913aaf0f32e4c415c9",
+          "existing_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                101,
+                110
+              ],
+              "conditions_unparsed": true
+            }
+          ],
+          "omitted_mechanics": [
+            "initial_damage_range",
+            "additional_damage_duration_seconds",
+            "additional_damage_minimum_blood_union",
+            "blood_union_increase"
+          ],
+          "candidate_observation": {
+            "effect_reported": "conditional_cyst_damage",
+            "recipient_reported": "opponent",
+            "initial_damage_range": [
+              143,
+              154
+            ],
+            "additional_damage_range": [
+              101,
+              110
+            ],
+            "additional_damage_duration_seconds": 12,
+            "additional_damage_minimum_blood_union": 3,
+            "blood_union_increase": 1,
+            "duration_seconds": null,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "coverage_complete": false,
+          "disposition": "partial_extraction_confirmed_constrained_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Bursting Cyst II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/bursting-cyst-ii",
+              "title": "Bursting Cyst II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 110,
+          "collected_at": "2026-10-20T04:27:17+00:00",
+          "archive_fields": {
+            "energy then": [
+              "67 — now 68"
+            ],
+            "cast then": [
+              "2",
+              "2.0",
+              "2.0"
+            ],
+            "level in 2007": [
+              "6"
+            ],
+            "level in 2007-2008": [
+              "6"
+            ],
+            "level": [
+              "6"
+            ],
+            "energy cost": [
+              "68"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "2.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "Instant or 12 seconds"
+            ],
+            "range": [
+              "25m"
+            ],
+            "causes": [
+              "Bleeding"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Afflicted"
+            ],
+            "type": [
+              "Physical Evocation"
+            ],
+            "icon": [
+              "Icon549.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 6,
+          "rank": "II",
+          "category": "Physical Evocation",
+          "cost": {
+            "energy": 68
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon549.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 6,
+              "raw": "6"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 6,
+              "raw": "6"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032724id_/http://wiki.silkyvenom.com/index.php/Bursting_Cyst_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              68
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": "Bleeding",
+          "exploits_weakness": "Afflicted",
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    101,
+                    110
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    65,
+                    73
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    102,
+                    113
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Scarlet Ritual I",
+      "source_url": "https://vgsoharchive.com/abilities/scarlet-ritual-i",
+      "cache": {
+        "path": ".cache/archive/7716627e8bea2a58c259175e600ad540b4806361b2fa0d107af337fad5553466.txt",
+        "sha256": "796c068dbde3d674f952ea251a1ebeef0bbb620ca6728478b10d84f57ba392f1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 34,
+          "record_sha256": "75eac00d17b41dacc78a1f8d86f5c68e3d7ba4944eb38b83c739284b0f5b5db1"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "This ritual summons negative energy from the blood union you have forced upon your opponent to deal 170 to 183 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater.",
+          "literal_sha256": "1a06d2556abded78708c4cfc0ea417285a745dde1e9d19f755a532e2ccb60d0b",
+          "existing_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                170,
+                183
+              ],
+              "conditions_unparsed": true
+            }
+          ],
+          "omitted_mechanics": [
+            "blood_union_reduction",
+            "minimum_blood_union"
+          ],
+          "candidate_observation": {
+            "effect_reported": "blood_union_damage_ritual",
+            "recipient_reported": "opponent",
+            "damage_range": [
+              170,
+              183
+            ],
+            "duration_seconds": null,
+            "blood_union_reduction": 4,
+            "minimum_blood_union": 4,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "coverage_complete": false,
+          "disposition": "partial_extraction_confirmed_constrained_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Scarlet Ritual I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/scarlet-ritual-i",
+              "title": "Scarlet Ritual I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 110,
+          "collected_at": "2026-10-20T04:27:17+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "level in 2007": [
+              "6"
+            ],
+            "level in 2007-2008": [
+              "6"
+            ],
+            "level": [
+              "6"
+            ],
+            "energy cost": [
+              "4"
+            ],
+            "blood union": [
+              "4"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "Instant"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "icon": [
+              "Icon1058.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 6,
+          "rank": "I",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 4
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": 0,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1058.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 6,
+              "raw": "6"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 6,
+              "raw": "6"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034611id_/http://wiki.silkyvenom.com/index.php/Scarlet_Ritual_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              4
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "duration_seconds": [
+              {
+                "label": "duration",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    170,
+                    183
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    189,
+                    202
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    225,
+                    240
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bursting Cyst III",
+      "source_url": "https://vgsoharchive.com/abilities/bursting-cyst-iii",
+      "cache": {
+        "path": ".cache/archive/2ea066eff3ef000059dd1601ffa5dd8542026a763a0f97afabce1c4c4f11c018.txt",
+        "sha256": "568e4116ffaacfabaee24cd1dbe91da4e3ca1c661dab339a14757817940765a3"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 9,
+          "record_sha256": "2efbdf4650fb7e4d780afbe8fc6a36c79aa95d38678e45d58ddc678bb1606e4c"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Forms a large blister on your opponent and forces it to explode, dealing 226 to 240 damage. If you are at Blood Union 3 or greater it will deal an additional 159 to 171 damage over 12 seconds. Increases Blood Union by 1.",
+          "literal_sha256": "01dacdf4c3960824c8aebc78e6a68a37782a0db7b62815aacfd73d6e9e5a0cbd",
+          "existing_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                159,
+                171
+              ],
+              "conditions_unparsed": true
+            }
+          ],
+          "omitted_mechanics": [
+            "initial_damage_range",
+            "additional_damage_duration_seconds",
+            "additional_damage_minimum_blood_union",
+            "blood_union_increase"
+          ],
+          "candidate_observation": {
+            "effect_reported": "conditional_cyst_damage",
+            "recipient_reported": "opponent",
+            "initial_damage_range": [
+              226,
+              240
+            ],
+            "additional_damage_range": [
+              159,
+              171
+            ],
+            "additional_damage_duration_seconds": 12,
+            "additional_damage_minimum_blood_union": 3,
+            "blood_union_increase": 1,
+            "duration_seconds": null,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "coverage_complete": false,
+          "disposition": "partial_extraction_confirmed_constrained_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Bursting Cyst III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/bursting-cyst-iii",
+              "title": "Bursting Cyst III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 110,
+          "collected_at": "2026-10-20T04:27:17+00:00",
+          "archive_fields": {
+            "energy then": [
+              "74 — now 112",
+              "110 — now 112"
+            ],
+            "cast then": [
+              "2",
+              "2.0",
+              "2.5"
+            ],
+            "level in 2007": [
+              "12"
+            ],
+            "level in 2007-2008": [
+              "12"
+            ],
+            "level": [
+              "12"
+            ],
+            "energy cost": [
+              "112"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "2.5"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "duration": [
+              "Instant or 12 seconds"
+            ],
+            "range": [
+              "25m"
+            ],
+            "causes": [
+              "Bleeding"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Afflicted"
+            ],
+            "type": [
+              "Physical Evocation"
+            ],
+            "icon": [
+              "Icon549.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 12,
+          "rank": "III",
+          "category": "Physical Evocation",
+          "cost": {
+            "energy": 112
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon549.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 12,
+              "raw": "12"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 12,
+              "raw": "12"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032730id_/http://wiki.silkyvenom.com/index.php/Bursting_Cyst_III",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              112
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": "Bleeding",
+          "exploits_weakness": "Afflicted",
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    159,
+                    171
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    139,
+                    150
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    181,
+                    194
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Scarlet Ritual II",
+      "source_url": "https://vgsoharchive.com/abilities/scarlet-ritual-ii",
+      "cache": {
+        "path": ".cache/archive/0eac1897a5aa0b24c176d2e3b75c7b95e6e42554b64332d12d9ce7b05d386e97.txt",
+        "sha256": "222a0bcec5b556ec2db70c34c4884cef8e6fc0da418bc7f406c29c4932796f65"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 35,
+          "record_sha256": "fb919e8ee376d400a32539681bd7cada138f749c4577e3c32f3a9c2a608b3fc7"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "This ritual summons negative energy from the blood union you have forced upon your opponent in order to deal 287 to 304 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater.",
+          "literal_sha256": "c86dfbc5725fd62edec7d35faa2bd729a769dfdb7775f502aa2905f930110892",
+          "existing_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                287,
+                304
+              ],
+              "conditions_unparsed": true
+            }
+          ],
+          "omitted_mechanics": [
+            "blood_union_reduction",
+            "minimum_blood_union"
+          ],
+          "candidate_observation": {
+            "effect_reported": "blood_union_damage_ritual",
+            "recipient_reported": "opponent",
+            "damage_range": [
+              287,
+              304
+            ],
+            "duration_seconds": null,
+            "blood_union_reduction": 4,
+            "minimum_blood_union": 4,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "coverage_complete": false,
+          "disposition": "partial_extraction_confirmed_constrained_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Scarlet Ritual II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/scarlet-ritual-ii",
+              "title": "Scarlet Ritual II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 110,
+          "collected_at": "2026-10-20T04:27:17+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "level in 2007": [
+              "16"
+            ],
+            "level in 2007-2008": [
+              "16"
+            ],
+            "energy then": [
+              "4"
+            ],
+            "level": [
+              "16"
+            ],
+            "energy cost": [
+              "4"
+            ],
+            "blood union": [
+              "4"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "icon": [
+              "Icon1058.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 16,
+          "rank": "II",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 4
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1058.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 16,
+              "raw": "16"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 16,
+              "raw": "16"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033234id_/http://wiki.silkyvenom.com/index.php/Scarlet_Ritual_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              4
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    287,
+                    304
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    400,
+                    424
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    456,
+                    484
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bursting Cyst IV",
+      "source_url": "https://vgsoharchive.com/abilities/bursting-cyst-iv",
+      "cache": {
+        "path": ".cache/archive/e75d87bd9435010ad79965b3bb3a7f2f1c84218631f821b3204ecf9468f8c401.txt",
+        "sha256": "c1f317c3ddeb440885d7cab2aeca340937eab277424a28d53ecd1eaec4f47334"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 10,
+          "record_sha256": "b08ae8fb9f11d38fc78ef3be225dfa8de3d6e0ffec0a3cea61f5a2de9f653f9d"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Forms a large blister on your opponent and forces it to explode, dealing 288 to 306 damage. If you are at Blood Union 3 or greater it will deal an additional 203 to 215 damage over 12 seconds. Increases Blood Union by 1.",
+          "literal_sha256": "dab0b0cb91ba454707c055014ba62a2a4a570edb3191ed18516fbce1ee8744ed",
+          "existing_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                203,
+                215
+              ],
+              "conditions_unparsed": true
+            }
+          ],
+          "omitted_mechanics": [
+            "initial_damage_range",
+            "additional_damage_duration_seconds",
+            "additional_damage_minimum_blood_union",
+            "blood_union_increase"
+          ],
+          "candidate_observation": {
+            "effect_reported": "conditional_cyst_damage",
+            "recipient_reported": "opponent",
+            "initial_damage_range": [
+              288,
+              306
+            ],
+            "additional_damage_range": [
+              203,
+              215
+            ],
+            "additional_damage_duration_seconds": 12,
+            "additional_damage_minimum_blood_union": 3,
+            "blood_union_increase": 1,
+            "duration_seconds": null,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "coverage_complete": false,
+          "disposition": "partial_extraction_confirmed_constrained_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Bursting Cyst IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/bursting-cyst-iv",
+              "title": "Bursting Cyst IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 110,
+          "collected_at": "2026-10-20T04:27:17+00:00",
+          "archive_fields": {
+            "energy then": [
+              "111 — now 152",
+              "149 — now 152"
+            ],
+            "cast then": [
+              "2",
+              "2.0",
+              "2.5"
+            ],
+            "level in 2007": [
+              "18"
+            ],
+            "level in 2007-2008": [
+              "18"
+            ],
+            "level": [
+              "18"
+            ],
+            "energy cost": [
+              "152"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "2.5"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "causes": [
+              "Bleeding"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Afflicted"
+            ],
+            "type": [
+              "Physical Evocation"
+            ],
+            "icon": [
+              "Icon549.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 18,
+          "rank": "IV",
+          "category": "Physical Evocation",
+          "cost": {
+            "energy": 152
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon549.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 18,
+              "raw": "18"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 18,
+              "raw": "18"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034059id_/http://wiki.silkyvenom.com/index.php/Bursting_Cyst_IV",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              152
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": "Bleeding",
+          "exploits_weakness": "Afflicted",
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    203,
+                    215
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    190,
+                    205
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    265,
+                    282
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bursting Cyst V",
+      "source_url": "https://vgsoharchive.com/abilities/bursting-cyst-v",
+      "cache": {
+        "path": ".cache/archive/5a3cab57d0086e0c38bee58abafb292a4d82d3f6f3fe57e425352553e9371107.txt",
+        "sha256": "dba5c9c5944c57bacf258caf795cd8dd7a54938e602c57640751aa2a5c0f7dfd"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 3,
+          "record_sha256": "e12d37f720a0f31d7bcf36627ea4d5da22752090abb7352f81ff8f608cb29871"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Forms a large blister on your opponent and explodes it, dealing 375 to 396 damage. If you are at Blood Union 3 or greater it will deal an additional 249 to 264 damage over 12 seconds. Increases Blood Union by 1.",
+          "literal_sha256": "8316bd91866de3a995ad8b9c5cc05fcd0e46ee4463099bfbd78e0793ff94e143",
+          "existing_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                249,
+                264
+              ],
+              "conditions_unparsed": true
+            }
+          ],
+          "omitted_mechanics": [
+            "initial_damage_range",
+            "additional_damage_duration_seconds",
+            "additional_damage_minimum_blood_union",
+            "blood_union_increase"
+          ],
+          "candidate_observation": {
+            "effect_reported": "conditional_cyst_damage",
+            "recipient_reported": "opponent",
+            "initial_damage_range": [
+              375,
+              396
+            ],
+            "additional_damage_range": [
+              249,
+              264
+            ],
+            "additional_damage_duration_seconds": 12,
+            "additional_damage_minimum_blood_union": 3,
+            "blood_union_increase": 1,
+            "duration_seconds": null,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "coverage_complete": false,
+          "disposition": "partial_extraction_confirmed_constrained_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Bursting Cyst V",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/bursting-cyst-v",
+              "title": "Bursting Cyst V · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 110,
+          "collected_at": "2026-10-20T04:27:17+00:00",
+          "archive_fields": {
+            "energy then": [
+              "43 — now 192",
+              "189 — now 192"
+            ],
+            "cast then": [
+              "2",
+              "2.0",
+              "2.5"
+            ],
+            "level in 2007": [
+              "24"
+            ],
+            "level in 2007-2008": [
+              "24"
+            ],
+            "level": [
+              "24"
+            ],
+            "energy cost": [
+              "192"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "2.5"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "causes": [
+              "Bleeding"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Afflicted"
+            ],
+            "type": [
+              "Physical Evocation"
+            ],
+            "icon": [
+              "Icon549.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 24,
+          "rank": "V",
+          "category": "Physical Evocation",
+          "cost": {
+            "energy": 192
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon549.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 24,
+              "raw": "24"
+            },
+            {
+              "scope": "level in 2007-2008",
+              "level_learned": 24,
+              "raw": "24"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130606134958id_/http://wiki.silkyvenom.com/index.php/Bursting_Cyst_V",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage",
+            "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+          ],
+          "cost_observations": {
+            "energy": [
+              192
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": "Bleeding",
+          "exploits_weakness": "Afflicted",
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    249,
+                    264
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    240,
+                    256
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    349,
+                    371
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Scarlet Ritual III",
+      "source_url": "https://vgsoharchive.com/abilities/scarlet-ritual-iii",
+      "cache": {
+        "path": ".cache/archive/3b331e425f0c57911b85755798306037a669c11ad7ef2245688c58413186f23d.txt",
+        "sha256": "bd398e61cff1ad4dcd90e04113c41e4105b0209f599d1f8b5218e04bd6b2e6f4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 13,
+          "record_sha256": "fdc551d8af9c4b41dc6aa026b73442d882e3be4ad3e57c50ba721b5a2dda3b36"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "This ritual summons negative energy from the blood union you have forced upon your opponent in order to deal 413 to 436 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater.",
+          "literal_sha256": "9c6677cca1bef02be0ec40753192bf4dc53d080c4743cdad9a30fb4ecc910711",
+          "existing_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                413,
+                436
+              ],
+              "conditions_unparsed": true
+            }
+          ],
+          "omitted_mechanics": [
+            "blood_union_reduction",
+            "minimum_blood_union"
+          ],
+          "candidate_observation": {
+            "effect_reported": "blood_union_damage_ritual",
+            "recipient_reported": "opponent",
+            "damage_range": [
+              413,
+              436
+            ],
+            "duration_seconds": null,
+            "blood_union_reduction": 4,
+            "minimum_blood_union": 4,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "coverage_complete": false,
+          "disposition": "partial_extraction_confirmed_constrained_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Scarlet Ritual III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/scarlet-ritual-iii",
+              "title": "Scarlet Ritual III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 110,
+          "collected_at": "2026-10-20T04:27:17+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "level in 2007": [
+              "26"
+            ],
+            "level": [
+              "26"
+            ],
+            "energy cost": [
+              "4"
+            ],
+            "blood union": [
+              "4"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "icon": [
+              "Icon1058.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 26,
+          "rank": "III",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 4
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1058.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 26,
+              "raw": "26"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227033239id_/http://wiki.silkyvenom.com/index.php/Scarlet_Ritual_III",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              4
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    413,
+                    436
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    624,
+                    660
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Exploding Cyst I",
+      "source_url": "https://vgsoharchive.com/abilities/exploding-cyst-i",
+      "cache": {
+        "path": ".cache/archive/8267bdfb5c5f41d030a7a3338d6318dd17400427d1839c07644ed174a632f0e0.txt",
+        "sha256": "ec50f949025a54f1c1b272dbae7accdd0526770e6235b02228f5b5b6c83c4d54"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 57,
+          "record_sha256": "bf5966f5e74a8ee6c17dd48fa9fef523cc7913f8c658a8e1d2dbac89f96d3cb2"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Forms a large blister on your opponent and explodes it, dealing 458 to 484 damage. If you are at Blood Union 3 or greater it will deal an additional 296 to 312 damage over 12 seconds. Increases Blood Union by 1.",
+          "literal_sha256": "57dd547b10e546244b6bef67e54313ae5ae79442819f7d8e5dee43d43e462855",
+          "existing_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                296,
+                312
+              ],
+              "conditions_unparsed": true
+            }
+          ],
+          "omitted_mechanics": [
+            "initial_damage_range",
+            "additional_damage_duration_seconds",
+            "additional_damage_minimum_blood_union",
+            "blood_union_increase"
+          ],
+          "candidate_observation": {
+            "effect_reported": "conditional_cyst_damage",
+            "recipient_reported": "opponent",
+            "initial_damage_range": [
+              458,
+              484
+            ],
+            "additional_damage_range": [
+              296,
+              312
+            ],
+            "additional_damage_duration_seconds": 12,
+            "additional_damage_minimum_blood_union": 3,
+            "blood_union_increase": 1,
+            "duration_seconds": null,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "coverage_complete": false,
+          "disposition": "partial_extraction_confirmed_constrained_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Exploding Cyst I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/exploding-cyst-i",
+              "title": "Exploding Cyst I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 110,
+          "collected_at": "2026-10-20T04:27:17+00:00",
+          "archive_fields": {
+            "energy then": [
+              "195 — now 233"
+            ],
+            "cast then": [
+              "3"
+            ],
+            "level in 2007": [
+              "30"
+            ],
+            "level": [
+              "30"
+            ],
+            "energy cost": [
+              "233"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "3.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "causes": [
+              "Bleeding"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Afflicted"
+            ],
+            "type": [
+              "Physical Evocation"
+            ],
+            "icon": [
+              "Icon549.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 30,
+          "rank": "I",
+          "category": "Physical Evocation",
+          "cost": {
+            "energy": 233
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon549.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 30,
+              "raw": "30"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032855id_/http://wiki.silkyvenom.com/index.php/Exploding_Cyst_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              233
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": "Bleeding",
+          "exploits_weakness": "Afflicted",
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    296,
+                    312
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    283,
+                    301
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Exsanguinate I",
+      "source_url": "https://vgsoharchive.com/abilities/exsanguinate-i",
+      "cache": {
+        "path": ".cache/archive/73f7441522bc8b74b859e5d073f19ea0b181a62f450ff3b97749dc47dd591e6e.txt",
+        "sha256": "fadce62a92571621bdfe06f7dd42487c39698fb90f3846fa139958f6912a9a8d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 61,
+          "record_sha256": "8fe243b0b0b74b7d665c1b4bcd6f8195b4eb0a24cd103f168fba8bcffb933b91"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Summons forth the blood of your opponent, dealing 7 waves of increasing damage to them over time. The first wave deals 77 to 83 damage and the last wave deals 467 to 492. Increases Blood Union by 1.",
+          "literal_sha256": "c0d03ad39ddf6e9f76f6af35dd0056752eefed2ab6fa543b0cc6dbc47ddd7f1e",
+          "existing_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                77,
+                83
+              ],
+              "conditions_unparsed": true
+            }
+          ],
+          "omitted_mechanics": [
+            "wave_count",
+            "last_wave_damage_range",
+            "blood_union_increase"
+          ],
+          "candidate_observation": {
+            "effect_reported": "increasing_damage_waves",
+            "recipient_reported": "opponent",
+            "wave_count": 7,
+            "first_wave_damage_range": [
+              77,
+              83
+            ],
+            "last_wave_damage_range": [
+              467,
+              492
+            ],
+            "intermediate_wave_damage": null,
+            "wave_scaling_formula": null,
+            "blood_union_increase": 1,
+            "duration_seconds": null,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "coverage_complete": false,
+          "disposition": "partial_extraction_confirmed_constrained_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Exsanguinate I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/exsanguinate-i",
+              "title": "Exsanguinate I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 110,
+          "collected_at": "2026-10-20T04:27:17+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "30"
+            ],
+            "level": [
+              "30"
+            ],
+            "energy cost": [
+              "204"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "1:00s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Physical Finish"
+            ],
+            "icon": [
+              "Icon20736.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 30,
+          "rank": "I",
+          "category": "Physical Finish",
+          "cost": {
+            "energy": 204
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon20736.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 30,
+              "raw": "30"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              204
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    77,
+                    83
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Exploding Cyst II",
+      "source_url": "https://vgsoharchive.com/abilities/exploding-cyst-ii",
+      "cache": {
+        "path": ".cache/archive/1320fdac96ecc633f9f69ca459aca69fa6547c54dee8f2876287fefb191e64d4.txt",
+        "sha256": "ce8c2d6c7596c8cd027d3782d8a8a51d79ff9435729bdd23183cd1a602b011b4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 58,
+          "record_sha256": "38fb72e4ec53a06f5faf8f844cf7e649a05c666a2d451419857ef7ebc46dda27"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Forms a large blister on your opponent and explodes it, dealing 550 to 580 damage. If you are at Blood Union 3 or greater it will deal an additional 345 to 365 damage over 12 seconds. Increases Blood Union by 1.",
+          "literal_sha256": "ec6fe7a3bad3e3584f98e891132d200bb44df7fada1c362be30e2fb9255ba5cf",
+          "existing_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                345,
+                365
+              ],
+              "conditions_unparsed": true
+            }
+          ],
+          "omitted_mechanics": [
+            "initial_damage_range",
+            "additional_damage_duration_seconds",
+            "additional_damage_minimum_blood_union",
+            "blood_union_increase"
+          ],
+          "candidate_observation": {
+            "effect_reported": "conditional_cyst_damage",
+            "recipient_reported": "opponent",
+            "initial_damage_range": [
+              550,
+              580
+            ],
+            "additional_damage_range": [
+              345,
+              365
+            ],
+            "additional_damage_duration_seconds": 12,
+            "additional_damage_minimum_blood_union": 3,
+            "blood_union_increase": 1,
+            "duration_seconds": null,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "coverage_complete": false,
+          "disposition": "partial_extraction_confirmed_constrained_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Exploding Cyst II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/exploding-cyst-ii",
+              "title": "Exploding Cyst II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 110,
+          "collected_at": "2026-10-20T04:27:17+00:00",
+          "archive_fields": {
+            "cast then": [
+              "3"
+            ],
+            "level in 2007": [
+              "36"
+            ],
+            "level": [
+              "36"
+            ],
+            "energy cost": [
+              "274"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "3.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "causes": [
+              "Bleeding"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Afflicted"
+            ],
+            "type": [
+              "Physical Evocation"
+            ],
+            "icon": [
+              "Icon549.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 36,
+          "rank": "II",
+          "category": "Physical Evocation",
+          "cost": {
+            "energy": 274
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon549.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 36,
+              "raw": "36"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032900id_/http://wiki.silkyvenom.com/index.php/Exploding_Cyst_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              274
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": "Bleeding",
+          "exploits_weakness": "Afflicted",
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    345,
+                    365
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    357,
+                    379
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Scarlet Ritual IV",
+      "source_url": "https://vgsoharchive.com/abilities/scarlet-ritual-iv",
+      "cache": {
+        "path": ".cache/archive/c4b307992b87c751e98ff6b63d941618e109ac0e3b3096b4d26a61672c52d991.txt",
+        "sha256": "549988d048eaceb1d7a04fd8582261883f4a6fa412bbc18a5edfd9bf8716512f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 14,
+          "record_sha256": "b4bf4de1fc11b6cdd3de55e29a871a799d008f4cf4aed9c0a546a3e1982efc20"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "This ritual summons negative energy from the blood union you have forced upon your opponent in order to deal 551 to 582 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater.",
+          "literal_sha256": "af9d232a43bc2ed16babe043ed3dc233c085f944649f97ca6e2748089250beb4",
+          "existing_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                551,
+                582
+              ],
+              "conditions_unparsed": true
+            }
+          ],
+          "omitted_mechanics": [
+            "blood_union_reduction",
+            "minimum_blood_union"
+          ],
+          "candidate_observation": {
+            "effect_reported": "blood_union_damage_ritual",
+            "recipient_reported": "opponent",
+            "damage_range": [
+              551,
+              582
+            ],
+            "duration_seconds": null,
+            "blood_union_reduction": 4,
+            "minimum_blood_union": 4,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "coverage_complete": false,
+          "disposition": "partial_extraction_confirmed_constrained_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Scarlet Ritual IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/scarlet-ritual-iv",
+              "title": "Scarlet Ritual IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 110,
+          "collected_at": "2026-10-20T04:27:17+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "level in 2007": [
+              "36"
+            ],
+            "level": [
+              "36"
+            ],
+            "energy cost": [
+              "4"
+            ],
+            "blood union": [
+              "4"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "icon": [
+              "Icon1058.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 36,
+          "rank": "IV",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 4
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1058.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 36,
+              "raw": "36"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034617id_/http://wiki.silkyvenom.com/index.php/Scarlet_Ritual_IV",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              4
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    551,
+                    582
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    870,
+                    918
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Exsanguinate II",
+      "source_url": "https://vgsoharchive.com/abilities/exsanguinate-ii",
+      "cache": {
+        "path": ".cache/archive/6c044e185c4871534d913e8f03a1d410ef53fa0878c80c97254aae33318906ed.txt",
+        "sha256": "596d3650da9492580dc1e4c6d3c06fdcac6e8cca6b733be779c653fc465483ed"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 62,
+          "record_sha256": "169e223e34646a7fb1bf0ac051e85bfc00c8a233c5313d11cff1be7f00c65cdd"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Summons forth the blood of your opponent, dealing 7 waves of increasing damage to them over time. The first wave deals 98 to 105 damage and the last wave deals 594 to 627. Increases Blood Union by 1.",
+          "literal_sha256": "51939cbcc660e6b7205dc9ccda1b1976e1de8dc77a55641877135c5e4126cb6c",
+          "existing_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                98,
+                105
+              ],
+              "conditions_unparsed": true
+            }
+          ],
+          "omitted_mechanics": [
+            "wave_count",
+            "last_wave_damage_range",
+            "blood_union_increase"
+          ],
+          "candidate_observation": {
+            "effect_reported": "increasing_damage_waves",
+            "recipient_reported": "opponent",
+            "wave_count": 7,
+            "first_wave_damage_range": [
+              98,
+              105
+            ],
+            "last_wave_damage_range": [
+              594,
+              627
+            ],
+            "intermediate_wave_damage": null,
+            "wave_scaling_formula": null,
+            "blood_union_increase": 1,
+            "duration_seconds": null,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "coverage_complete": false,
+          "disposition": "partial_extraction_confirmed_constrained_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Exsanguinate II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/exsanguinate-ii",
+              "title": "Exsanguinate II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 110,
+          "collected_at": "2026-10-20T04:27:17+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "40"
+            ],
+            "level": [
+              "40"
+            ],
+            "energy cost": [
+              "261"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "1:00s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Physical Finish"
+            ],
+            "icon": [
+              "Icon20736.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 40,
+          "rank": "II",
+          "category": "Physical Finish",
+          "cost": {
+            "energy": 261
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon20736.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 40,
+              "raw": "40"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              261
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    98,
+                    105
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Blood Letting Ritual I",
+      "source_url": "https://vgsoharchive.com/abilities/blood-letting-ritual-i",
+      "cache": {
+        "path": ".cache/archive/2ad388091ce2caf103a3e743852817a9cb956b8cefa62440b86c2212ed072795.txt",
+        "sha256": "219abd859400de9a0ae5d4da8a5f32ca2ec18dbebeef325a1871a5f655fcd837"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 20,
+          "record_sha256": "f31d906a8d2f84f926fe43f77dc85b87f7fa16532cf3ab1494294bfce8cd15ba"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "This ritual summons negative energy from the blood union you have forced upon your opponent to deal 1635 to 1720 damage to them over 60 sec. Reduces Blood Union by 1. Only usable from Blood Union 1 or greater.",
+          "literal_sha256": "69f61b340c7d7573d94f43eef4cbc140bac2bf3cd62bc6f79aa76b84b309ea1b",
+          "existing_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                1635,
+                1720
+              ],
+              "conditions_unparsed": true
+            }
+          ],
+          "omitted_mechanics": [
+            "blood_union_reduction",
+            "minimum_blood_union",
+            "duration_seconds"
+          ],
+          "candidate_observation": {
+            "effect_reported": "blood_union_damage_ritual",
+            "recipient_reported": "opponent",
+            "damage_range": [
+              1635,
+              1720
+            ],
+            "duration_seconds": 60,
+            "blood_union_reduction": 1,
+            "minimum_blood_union": 1,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "coverage_complete": false,
+          "disposition": "partial_extraction_confirmed_constrained_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Blood Letting Ritual I",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/blood-letting-ritual-i",
+              "title": "Blood Letting Ritual I · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 110,
+          "collected_at": "2026-10-20T04:27:17+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "42"
+            ],
+            "level": [
+              "42"
+            ],
+            "energy cost": [
+              "1"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "30.0s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Physical Evocation"
+            ],
+            "icon": [
+              "Icon765.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 42,
+          "rank": "I",
+          "category": "Physical Evocation",
+          "cost": {
+            "energy": 1
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 30.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon765.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 42,
+              "raw": "42"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032650id_/http://wiki.silkyvenom.com/index.php/Blood_Letting_Ritual_I",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              1
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "30.0s",
+                "seconds": 30.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    1635,
+                    1720
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    1748,
+                    1842
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Exploding Cyst III",
+      "source_url": "https://vgsoharchive.com/abilities/exploding-cyst-iii",
+      "cache": {
+        "path": ".cache/archive/f4a8fa9663b2b86b70d8b732f1c87d04a95f1f6b619bdb8aee92caf92edaa3f7.txt",
+        "sha256": "8dcac07790a67a5f162077200f54625280941d29ed1e49dcf0c6ddd3541225a1"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 59,
+          "record_sha256": "177bc3d8b7470cb45da96ccc7e6168023e31544454b89f8c1a4ae85dbac88dcc"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Forms a large blister on your opponent and explodes it, dealing 653 to 688 damage. If you are at Blood Union 3 or greater it will deal an additional 399 to 422 damage over 12 seconds. Increases Blood Union by 1.",
+          "literal_sha256": "be0ceb3510467fe85966bc29e32c81877ee7fad58b013a61b57fd98de1657c75",
+          "existing_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                399,
+                422
+              ],
+              "conditions_unparsed": true
+            }
+          ],
+          "omitted_mechanics": [
+            "initial_damage_range",
+            "additional_damage_duration_seconds",
+            "additional_damage_minimum_blood_union",
+            "blood_union_increase"
+          ],
+          "candidate_observation": {
+            "effect_reported": "conditional_cyst_damage",
+            "recipient_reported": "opponent",
+            "initial_damage_range": [
+              653,
+              688
+            ],
+            "additional_damage_range": [
+              399,
+              422
+            ],
+            "additional_damage_duration_seconds": 12,
+            "additional_damage_minimum_blood_union": 3,
+            "blood_union_increase": 1,
+            "duration_seconds": null,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "coverage_complete": false,
+          "disposition": "partial_extraction_confirmed_constrained_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Exploding Cyst III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/exploding-cyst-iii",
+              "title": "Exploding Cyst III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 110,
+          "collected_at": "2026-10-20T04:27:17+00:00",
+          "archive_fields": {
+            "cast then": [
+              "3"
+            ],
+            "level in 2007": [
+              "42"
+            ],
+            "level": [
+              "42"
+            ],
+            "energy cost": [
+              "315"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "3.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "causes": [
+              "Bleeding"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Afflicted"
+            ],
+            "type": [
+              "Physical Evocation"
+            ],
+            "icon": [
+              "Icon549.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 42,
+          "rank": "III",
+          "category": "Physical Evocation",
+          "cost": {
+            "energy": 315
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon549.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 42,
+              "raw": "42"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032906id_/http://wiki.silkyvenom.com/index.php/Exploding_Cyst_III",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              315
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": "Bleeding",
+          "exploits_weakness": "Afflicted",
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    399,
+                    422
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    422,
+                    448
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Scarlet Ritual V",
+      "source_url": "https://vgsoharchive.com/abilities/scarlet-ritual-v",
+      "cache": {
+        "path": ".cache/archive/6140247d406b8ba63cd7aae2a5f1d8b12e925904a197f3526a0706ffff18e2a7.txt",
+        "sha256": "3c4438feb463eb08745912d4ffbb3bad9e1fcec88a49f28efa5e43c8e9476b87"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-021705-240322-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "2282ab7dda1f9310f284b934b36ecca8d725d26add28269cac882bf970773573"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "This ritual summons negative energy from the blood union you have forced upon your opponent in order to deal 686 to 724 damage to them. Reduces Blood Union by 4. Only usable from Blood Union 4 or greater.",
+          "literal_sha256": "8feaf8bc0fc048e1d5ea3762f718ac114c90c39cc0808c74cfa9c2b92d4ebc95",
+          "existing_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                686,
+                724
+              ],
+              "conditions_unparsed": true
+            }
+          ],
+          "omitted_mechanics": [
+            "blood_union_reduction",
+            "minimum_blood_union"
+          ],
+          "candidate_observation": {
+            "effect_reported": "blood_union_damage_ritual",
+            "recipient_reported": "opponent",
+            "damage_range": [
+              686,
+              724
+            ],
+            "duration_seconds": null,
+            "blood_union_reduction": 4,
+            "minimum_blood_union": 4,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "coverage_complete": false,
+          "disposition": "partial_extraction_confirmed_constrained_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Scarlet Ritual V",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/scarlet-ritual-v",
+              "title": "Scarlet Ritual V · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 110,
+          "collected_at": "2026-10-20T04:27:17+00:00",
+          "archive_fields": {
+            "cast then": [
+              "0"
+            ],
+            "level": [
+              "46"
+            ],
+            "energy cost": [
+              "4"
+            ],
+            "blood union": [
+              "4"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Arcane Evocation"
+            ],
+            "icon": [
+              "Icon1058.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 46,
+          "rank": "V",
+          "category": "Arcane Evocation",
+          "cost": {
+            "energy": 4
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon1058.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034627id_/http://wiki.silkyvenom.com/index.php/Scarlet_Ritual_V"
+          ],
+          "cost_observations": {
+            "energy": [
+              4
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    686,
+                    724
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    1138,
+                    1200
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Exploding Cyst IV",
+      "source_url": "https://vgsoharchive.com/abilities/exploding-cyst-iv",
+      "cache": {
+        "path": ".cache/archive/39488c2048bd743d7f11f05cfd57a47d5886bd716399e38e9506ec013c6fd617.txt",
+        "sha256": "c5813ba80e57b427628280e7ca331ef7629b28005e6aec82438c722960c6d55c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 60,
+          "record_sha256": "6776262d5e358e3e19ad40e769e9c1bb48c7636dc4b4131bedefb6919b7c1413"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Forms a large blister on your opponent and explodes it, dealing 751 to 791 damage. If you are at Blood Union 3 or greater it will deal an additional 444 to 469 damage over 12 seconds. Increases Blood Union by 1.",
+          "literal_sha256": "cbddb7a0f47691e95b1b969ec7cbb53e2f5839ba8a67bf328a81a91f32ddc743",
+          "existing_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                444,
+                469
+              ],
+              "conditions_unparsed": true
+            }
+          ],
+          "omitted_mechanics": [
+            "initial_damage_range",
+            "additional_damage_duration_seconds",
+            "additional_damage_minimum_blood_union",
+            "blood_union_increase"
+          ],
+          "candidate_observation": {
+            "effect_reported": "conditional_cyst_damage",
+            "recipient_reported": "opponent",
+            "initial_damage_range": [
+              751,
+              791
+            ],
+            "additional_damage_range": [
+              444,
+              469
+            ],
+            "additional_damage_duration_seconds": 12,
+            "additional_damage_minimum_blood_union": 3,
+            "blood_union_increase": 1,
+            "duration_seconds": null,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "coverage_complete": false,
+          "disposition": "partial_extraction_confirmed_constrained_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Exploding Cyst IV",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/exploding-cyst-iv",
+              "title": "Exploding Cyst IV · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 110,
+          "collected_at": "2026-10-20T04:27:17+00:00",
+          "archive_fields": {
+            "cast then": [
+              "3"
+            ],
+            "level in 2007": [
+              "48"
+            ],
+            "level": [
+              "48"
+            ],
+            "energy cost": [
+              "350"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "3.0"
+            ],
+            "refresh": [
+              "Nones"
+            ],
+            "range": [
+              "25m"
+            ],
+            "causes": [
+              "Bleeding"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "exploits weakness": [
+              "Afflicted"
+            ],
+            "type": [
+              "Physical Evocation"
+            ],
+            "icon": [
+              "Icon549.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 48,
+          "rank": "IV",
+          "category": "Physical Evocation",
+          "cost": {
+            "energy": 350
+          },
+          "cast_time_seconds": null,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon549.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 48,
+              "raw": "48"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227032910id_/http://wiki.silkyvenom.com/index.php/Exploding_Cyst_IV",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              350
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": "Bleeding",
+          "exploits_weakness": "Afflicted",
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    444,
+                    469
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    494,
+                    524
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Blood Letting Ritual II",
+      "source_url": "https://vgsoharchive.com/abilities/blood-letting-ritual-ii",
+      "cache": {
+        "path": ".cache/archive/e7a21c32a32a29005de58a68a27454c10aa07f4340ad289f521add78fe10e7e0.txt",
+        "sha256": "e88247b5d19a7096b6f7b720e9eaa48c92f7fc279a4f986dfcb267a74d095bf8"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 21,
+          "record_sha256": "a3b6dd753e302b6e1fb1c200fa85a306d48572f1511b4caff47ea5a25ff44e3e"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "This ritual summons negative energy from the blood union you have forced upon your opponent to deal 1780 to 1874 damage to them over 60 sec. Reduces Blood Union by 1. Only usable from Blood Union 1 or greater.",
+          "literal_sha256": "e9d83deb7d19dc103d6f474e84617fa57034489f3e9f266d5a16a171a63aa8e0",
+          "existing_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                1780,
+                1874
+              ],
+              "conditions_unparsed": true
+            }
+          ],
+          "omitted_mechanics": [
+            "blood_union_reduction",
+            "minimum_blood_union",
+            "duration_seconds"
+          ],
+          "candidate_observation": {
+            "effect_reported": "blood_union_damage_ritual",
+            "recipient_reported": "opponent",
+            "damage_range": [
+              1780,
+              1874
+            ],
+            "duration_seconds": 60,
+            "blood_union_reduction": 1,
+            "minimum_blood_union": 1,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "coverage_complete": false,
+          "disposition": "partial_extraction_confirmed_constrained_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Blood Letting Ritual II",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/blood-letting-ritual-ii",
+              "title": "Blood Letting Ritual II · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted. Current, alternate and historical effect figures are separate observations; no single historical ruleset selected.",
+          "parser_version": 110,
+          "collected_at": "2026-10-20T04:27:17+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "50"
+            ],
+            "level": [
+              "50"
+            ],
+            "energy cost": [
+              "1"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "30.0s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Physical Evocation"
+            ],
+            "icon": [
+              "Icon765.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 50,
+          "rank": "II",
+          "category": "Physical Evocation",
+          "cost": {
+            "energy": 1
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": 30.0,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon765.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 50,
+              "raw": "50"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "https://web.archive.org/web/20130227034035id_/http://wiki.silkyvenom.com/index.php/Blood_Letting_Ritual_II",
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              1
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ],
+            "refresh_seconds": [
+              {
+                "label": "refresh",
+                "raw": "30.0s",
+                "seconds": 30.0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    1780,
+                    1874
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            },
+            {
+              "scope": "historical",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    2134,
+                    2248
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Exsanguinate III",
+      "source_url": "https://vgsoharchive.com/abilities/exsanguinate-iii",
+      "cache": {
+        "path": ".cache/archive/679ebbf0546766a30068f6ad55d9aa096c33a0d4903c0bd2372168560f6f2bde.txt",
+        "sha256": "10a40dccefa426fbbbb919871ecc277dd1640bb50a8b4c79771f2c02c41f4afd"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 63,
+          "record_sha256": "eee434b19bd7bedfc415a726c5623351e6d801be7b6fade841d6434812ce34a0"
+        }
+      ],
+      "observations": [
+        {
+          "section_node_index": 0,
+          "literal": "Summons forth the blood of your opponent, dealing 7 waves of increasing damage to them over time. The first wave deals 109 to 118 damage and the last wave deals 662 to 698. Increases Blood Union by 1.",
+          "literal_sha256": "cbc3c7970e6230c9b201a16b4451439bd819fc5519207a079d7686b68189a6bd",
+          "existing_facts": [
+            {
+              "kind": "damage_range",
+              "values": [
+                109,
+                118
+              ],
+              "conditions_unparsed": true
+            }
+          ],
+          "omitted_mechanics": [
+            "wave_count",
+            "last_wave_damage_range",
+            "blood_union_increase"
+          ],
+          "candidate_observation": {
+            "effect_reported": "increasing_damage_waves",
+            "recipient_reported": "opponent",
+            "wave_count": 7,
+            "first_wave_damage_range": [
+              109,
+              118
+            ],
+            "last_wave_damage_range": [
+              662,
+              698
+            ],
+            "intermediate_wave_damage": null,
+            "wave_scaling_formula": null,
+            "blood_union_increase": 1,
+            "duration_seconds": null,
+            "damage_type": null,
+            "tick_interval_seconds": null,
+            "operative_values": null,
+            "historical_authentication": null
+          },
+          "coverage_complete": false,
+          "disposition": "partial_extraction_confirmed_constrained_implementation_pending"
+        }
+      ],
+      "replayed_records": [
+        {
+          "name": "Exsanguinate III",
+          "sources": [
+            {
+              "url": "https://vgsoharchive.com/abilities/exsanguinate-iii",
+              "title": "Exsanguinate III · Vanguard Archive",
+              "date": null
+            }
+          ],
+          "confidence": "medium",
+          "notes": "Single archive transcription; historical patch and page date unknown. Unrecorded values remain null. Only explicit numeric fields extracted. Tooltip, timing units, costs and per-rank damage/healing require review. Historical learned levels are separate from the current labelled level; no patch-era value substituted.",
+          "parser_version": 110,
+          "collected_at": "2026-10-20T04:27:17+00:00",
+          "archive_fields": {
+            "level in 2007": [
+              "50"
+            ],
+            "level": [
+              "50"
+            ],
+            "energy cost": [
+              "284"
+            ],
+            "blood union": [
+              "1"
+            ],
+            "cast time": [
+              "Instant"
+            ],
+            "refresh": [
+              "1:00s"
+            ],
+            "range": [
+              "25m"
+            ],
+            "target": [
+              "Offensive Target"
+            ],
+            "type": [
+              "Physical Finish"
+            ],
+            "icon": [
+              "Icon20736.png"
+            ]
+          },
+          "referenced_entities": [
+            {
+              "name": "Blood Mage",
+              "url": "https://vgsoharchive.com/classes/blood-mage"
+            },
+            {
+              "name": "every ability that changed",
+              "url": "https://vgsoharchive.com/abilities/as-it-was"
+            }
+          ],
+          "type": "ability",
+          "class": "Blood Mage",
+          "level_learned": 50,
+          "rank": "III",
+          "category": "Physical Finish",
+          "cost": {
+            "energy": 284
+          },
+          "cast_time_seconds": 0,
+          "refresh_seconds": null,
+          "duration_seconds": null,
+          "range": {
+            "value": 25,
+            "unit": "m",
+            "raw": "25m"
+          },
+          "tooltip": null,
+          "icon_name": "Icon20736.png",
+          "ranks": [],
+          "target_recorded": "Offensive Target",
+          "historical_level_observations": [
+            {
+              "scope": "level in 2007",
+              "level_learned": 50,
+              "raw": "50"
+            }
+          ],
+          "historical_source_urls_recorded": [
+            "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+          ],
+          "cost_observations": {
+            "energy": [
+              284
+            ]
+          },
+          "timing_observations": {
+            "cast_time_seconds": [
+              {
+                "label": "cast time",
+                "raw": "Instant",
+                "seconds": 0
+              }
+            ]
+          },
+          "trainer": null,
+          "requirements": null,
+          "causes_weakness": null,
+          "exploits_weakness": null,
+          "effect_observations": [
+            {
+              "scope": "current",
+              "facts": [
+                {
+                  "kind": "damage_range",
+                  "values": [
+                    109,
+                    118
+                  ],
+                  "conditions_unparsed": true
+                }
+              ]
+            }
+          ],
+          "verification_reported_by_archive": "tooltip read in VGO Emulator; not independently verified by this collector",
+          "original_source_urls": [
+            "https://web.archive.org/web/20221002152639id_/https://vgoplayers.com/wiki/index.php/Blood_Mage"
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "reviewed_sections": 20,
+    "partial_extractions": 20,
+    "families": {
+      "conditional_cyst_damage": 10,
+      "blood_union_damage_ritual": 7,
+      "increasing_damage_waves": 3
+    },
+    "constrained_implementation_pending": 20,
+    "nonnumeric_sections_still_require_review": 33
+  },
+  "validation": {
+    "cache_hashes_verified": 20,
+    "source_record_hashes_verified": 20,
+    "literal_hashes_verified": 20,
+    "whole_page_replays": 20,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "process_inspection": "collection.ps1 Status and Win32_Process found no collector",
+    "run_lock_present": false,
+    "stop_request_preserved": true,
+    "persisted_interval_seconds": 60,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Candidates are research observations, not promoted typed game facts.",
+    "Existing generic damage ranges remain incomplete and cannot represent operative mechanics.",
+    "Damage types, tick intervals and historical authentication remain null; intermediate wave damage and scaling are not inferred.",
+    "Current Effect sections only; historical and alternate sections require separate review.",
+    "Other numeric sections with newer patterns still require completeness review; this audit covers only the 20 recognized at the original baseline."
+  ],
+  "next_step": "Implement and test constrained cyst observations for the ten reviewed cyst sources, preserving initial and conditional damage separately."
+}

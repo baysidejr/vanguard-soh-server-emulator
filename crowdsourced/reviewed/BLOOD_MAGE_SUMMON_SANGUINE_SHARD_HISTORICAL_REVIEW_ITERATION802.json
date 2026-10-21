@@ -1,0 +1,362 @@
+{
+  "review_kind": "blood_mage_summon_sanguine_shard_historical_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_HISTORICAL_ALTERNATE_SCOPE_AUDIT_ITERATION781.json",
+    "sha256": "822ed5fbf989d8e7a3d952c8e62ef45da10373bf387ee6e5d33b51ced80db9ac"
+  },
+  "network_requests": 0,
+  "rows": [
+    {
+      "name": "Summon Sanguine Shard",
+      "source_url": "https://vgsoharchive.com/abilities/summon-sanguine-shard",
+      "scope": "historical",
+      "section_node_index": 1,
+      "cache": {
+        "path": ".cache/archive/e9134d6ec8fbff1ffc66360eb01147382849678d8f788ab2f3b887d6ff75cad5.txt",
+        "sha256": "ef3e3463e660dddda8e599d6ba9ce4d3734e7c221e6a704d47e76dbeb30696f7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 40,
+          "record_sha256": "49305d56cb5912d41da5197ce7683f61b28d307a378f999b9596d366ab470f0b"
+        }
+      ],
+      "literal_sha256": "faa17774125810d04c97593c1e593a01df692bd8fe9a8914db7dcc59b0906d6d",
+      "source_literal": "Energy then 67 — now 66 Cast then 5",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Energy then</dt>\n<dd>67\r\n                <span class=\"muted\">— now 66</span></dd></div>\n<div><dt>Cast then</dt><dd>5</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Energy then",
+          "value_literal": "67 — now 66",
+          "direct_value_literal": "67",
+          "numeric_value": 67,
+          "comparison_literal": "— now 66",
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "5",
+          "direct_value_literal": "5",
+          "numeric_value": 5,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Summon Sanguine Shard",
+      "source_url": "https://vgsoharchive.com/abilities/summon-sanguine-shard",
+      "scope": "historical",
+      "section_node_index": 2,
+      "cache": {
+        "path": ".cache/archive/e9134d6ec8fbff1ffc66360eb01147382849678d8f788ab2f3b887d6ff75cad5.txt",
+        "sha256": "ef3e3463e660dddda8e599d6ba9ce4d3734e7c221e6a704d47e76dbeb30696f7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 40,
+          "record_sha256": "49305d56cb5912d41da5197ce7683f61b28d307a378f999b9596d366ab470f0b"
+        }
+      ],
+      "literal_sha256": "4b8279640e0b35d543024c56bd30fa33bc0bc1f66d04e5ade9079468bd8c98eb",
+      "source_literal": "This ability will summon a sanguine shard , which someone may use to revive you or a different fallen blood mage",
+      "source_html": "<div class=\"tooltip\">This ability will summon a sanguine shard , which someone may use to revive you or a different fallen blood mage</div>",
+      "reviewed_observations": {
+        "effect_literal": "This ability will summon a sanguine shard , which someone may use to revive you or a different fallen blood mage",
+        "summoned_object_name_literal": "sanguine shard",
+        "revival_target_literal": "you or a different fallen blood mage",
+        "summoned_item_identity": null,
+        "revival_health": null,
+        "revival_energy": null,
+        "consumption_requirement": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Summon Sanguine Shard",
+      "source_url": "https://vgsoharchive.com/abilities/summon-sanguine-shard",
+      "scope": "historical",
+      "section_node_index": 3,
+      "cache": {
+        "path": ".cache/archive/e9134d6ec8fbff1ffc66360eb01147382849678d8f788ab2f3b887d6ff75cad5.txt",
+        "sha256": "ef3e3463e660dddda8e599d6ba9ce4d3734e7c221e6a704d47e76dbeb30696f7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 40,
+          "record_sha256": "49305d56cb5912d41da5197ce7683f61b28d307a378f999b9596d366ab470f0b"
+        }
+      ],
+      "literal_sha256": "818e2f694b17c816f196218ac18a13e7ce960873d16ce4331f8801f0828654b5",
+      "source_literal": "wiki.silkyvenom.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/20130227033352id_/http://wiki.silkyvenom.com/index.php/Summon_Sanguine_Shard\" rel=\"noreferrer nofollow\">wiki.silkyvenom.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.silkyvenom.com",
+          "href": "https://web.archive.org/web/20130227033352id_/http://wiki.silkyvenom.com/index.php/Summon_Sanguine_Shard"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Summon Sanguine Shard",
+      "source_url": "https://vgsoharchive.com/abilities/summon-sanguine-shard",
+      "scope": "historical",
+      "section_node_index": 4,
+      "cache": {
+        "path": ".cache/archive/e9134d6ec8fbff1ffc66360eb01147382849678d8f788ab2f3b887d6ff75cad5.txt",
+        "sha256": "ef3e3463e660dddda8e599d6ba9ce4d3734e7c221e6a704d47e76dbeb30696f7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 40,
+          "record_sha256": "49305d56cb5912d41da5197ce7683f61b28d307a378f999b9596d366ab470f0b"
+        }
+      ],
+      "literal_sha256": "0a7931f37a14a71463d9df7d74bd1fce5f95e21e4a1d87ce73846d011cdec9c6",
+      "source_literal": "Level in 2007 10",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007</dt>\n<dd>10</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007",
+          "value_literal": "10",
+          "direct_value_literal": "10",
+          "numeric_value": 10,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Summon Sanguine Shard",
+      "source_url": "https://vgsoharchive.com/abilities/summon-sanguine-shard",
+      "scope": "historical",
+      "section_node_index": 5,
+      "cache": {
+        "path": ".cache/archive/e9134d6ec8fbff1ffc66360eb01147382849678d8f788ab2f3b887d6ff75cad5.txt",
+        "sha256": "ef3e3463e660dddda8e599d6ba9ce4d3734e7c221e6a704d47e76dbeb30696f7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 40,
+          "record_sha256": "49305d56cb5912d41da5197ce7683f61b28d307a378f999b9596d366ab470f0b"
+        }
+      ],
+      "literal_sha256": "ec2700a42f8cbad9529f5f77f707f28f7de88f3a3fcd8144a67cdd194a84a4d5",
+      "source_literal": "wiki.vanguardjapan.com ,\r\n          \r\n          2007 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage\" rel=\"noreferrer nofollow\">wiki.vanguardjapan.com</a>,\r\n          \r\n          2007 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "wiki.vanguardjapan.com",
+          "href": "http://wiki.vanguardjapan.com/index.php?%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%2FBlood%20Mage"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Summon Sanguine Shard",
+      "source_url": "https://vgsoharchive.com/abilities/summon-sanguine-shard",
+      "scope": "historical",
+      "section_node_index": 6,
+      "cache": {
+        "path": ".cache/archive/e9134d6ec8fbff1ffc66360eb01147382849678d8f788ab2f3b887d6ff75cad5.txt",
+        "sha256": "ef3e3463e660dddda8e599d6ba9ce4d3734e7c221e6a704d47e76dbeb30696f7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 40,
+          "record_sha256": "49305d56cb5912d41da5197ce7683f61b28d307a378f999b9596d366ab470f0b"
+        }
+      ],
+      "literal_sha256": "06214a479cdbb575ea8c59e614dd15c90dfeb3544c402d32853b068a4b2fe097",
+      "source_literal": "Level in 2007-2008 10 Energy then 12 — now 66 Cast then 5.0",
+      "source_html": "<dl class=\"facts\">\n<div><dt>Level in 2007-2008</dt>\n<dd>10</dd></div>\n<div><dt>Energy then</dt>\n<dd>12\r\n                <span class=\"muted\">— now 66</span></dd></div>\n<div><dt>Cast then</dt><dd>5.0</dd></div>\n</dl>",
+      "reviewed_observations": [
+        {
+          "label": "Level in 2007-2008",
+          "value_literal": "10",
+          "direct_value_literal": "10",
+          "numeric_value": 10,
+          "comparison_literal": null,
+          "unit": null
+        },
+        {
+          "label": "Energy then",
+          "value_literal": "12 — now 66",
+          "direct_value_literal": "12",
+          "numeric_value": 12,
+          "comparison_literal": "— now 66",
+          "unit": null
+        },
+        {
+          "label": "Cast then",
+          "value_literal": "5.0",
+          "direct_value_literal": "5.0",
+          "numeric_value": 5.0,
+          "comparison_literal": null,
+          "unit": null
+        }
+      ],
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Summon Sanguine Shard",
+      "source_url": "https://vgsoharchive.com/abilities/summon-sanguine-shard",
+      "scope": "historical",
+      "section_node_index": 7,
+      "cache": {
+        "path": ".cache/archive/e9134d6ec8fbff1ffc66360eb01147382849678d8f788ab2f3b887d6ff75cad5.txt",
+        "sha256": "ef3e3463e660dddda8e599d6ba9ce4d3734e7c221e6a704d47e76dbeb30696f7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 40,
+          "record_sha256": "49305d56cb5912d41da5197ce7683f61b28d307a378f999b9596d366ab470f0b"
+        }
+      ],
+      "literal_sha256": "cf9d0f4b879c45bdb9f3b3d37a43b781297d97dbdd222f2c740d6f58cbee50d5",
+      "source_literal": "Summons a sanguine shard, which someone may use to revive you or a different fallen bloodmage.",
+      "source_html": "<div class=\"tooltip\">Summons a sanguine shard, which someone may use to revive you or a different fallen bloodmage.</div>",
+      "reviewed_observations": {
+        "effect_literal": "Summons a sanguine shard, which someone may use to revive you or a different fallen bloodmage.",
+        "summoned_object_name_literal": "sanguine shard",
+        "revival_target_literal": "you or a different fallen bloodmage",
+        "summoned_item_identity": null,
+        "revival_health": null,
+        "revival_energy": null,
+        "consumption_requirement": null
+      },
+      "attribution_links": [],
+      "disposition": "historical_archive_claim_only",
+      "game_fact": true,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    },
+    {
+      "name": "Summon Sanguine Shard",
+      "source_url": "https://vgsoharchive.com/abilities/summon-sanguine-shard",
+      "scope": "historical",
+      "section_node_index": 8,
+      "cache": {
+        "path": ".cache/archive/e9134d6ec8fbff1ffc66360eb01147382849678d8f788ab2f3b887d6ff75cad5.txt",
+        "sha256": "ef3e3463e660dddda8e599d6ba9ce4d3734e7c221e6a704d47e76dbeb30696f7"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 40,
+          "record_sha256": "49305d56cb5912d41da5197ce7683f61b28d307a378f999b9596d366ab470f0b"
+        }
+      ],
+      "literal_sha256": "f27aeaed3d88311d784c8ac3f344512e0529fa572eaed9e8885ba10be11410bd",
+      "source_literal": "Ten Ton Hammer class guides ,\r\n          \r\n          2007-2008 · every ability that changed",
+      "source_html": "<p class=\"muted small\">\n<a href=\"https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450\" rel=\"noreferrer nofollow\">Ten Ton Hammer class guides</a>,\r\n          \r\n          2007-2008 ·\r\n          <a href=\"/abilities/as-it-was\">every ability that changed</a>\n</p>",
+      "reviewed_observations": [],
+      "attribution_links": [
+        {
+          "label": "Ten Ton Hammer class guides",
+          "href": "https://web.archive.org/web/2009id_/http://www.tentonhammer.com/node/59450"
+        },
+        {
+          "label": "every ability that changed",
+          "href": "/abilities/as-it-was"
+        }
+      ],
+      "disposition": "archive_attribution_metadata_only",
+      "game_fact": false,
+      "scope_field_review_complete": true,
+      "historical_authentication": null,
+      "operative_values": null,
+      "conversion_ready": false
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 1,
+    "source_record_hashes_verified": 1,
+    "whole_page_replays": 1,
+    "literal_hashes_verified": 8,
+    "label_value_comparisons": 6,
+    "exact_mechanic_literal_comparisons": 2,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "remaining_scope_nodes": 747,
+  "collector_observation": {
+    "status": "stopped",
+    "actual_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "limitations": [
+    "Historical energy claims 67 and 12 remain distinct unresolved source claims; the now-labelled comparison 66 is not substituted for either. Bare energy and cast values retain unknown units.",
+    "The text identifies a shard used for revival but does not establish canonical item identity, consumption, revival health or energy, or a complete target restriction rule.",
+    "Attribution links were not fetched or independently authenticated; operative values remain null."
+  ],
+  "next_step": "Review the next unreviewed historical Blood Mage ability sections and preserve unresolved source differences."
+}

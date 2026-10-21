@@ -1,0 +1,438 @@
+{
+  "review_kind": "blood_mage_root_counter_field_review",
+  "parser_version": 114,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Constrict I",
+      "source_url": "https://vgsoharchive.com/abilities/constrict-i",
+      "cache": {
+        "path": ".cache/archive/943ab98778e56572df6674cba984006c5e85e2416bcf0a3c574207f04bdb2219.txt",
+        "sha256": "053d8c84388c6f4f7e6fbcf6785b3dd3c44610aa524796a883cb875e6d043bdb"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 12,
+          "record_sha256": "6778d0cbcd05ecec9447d0edadada5abeea97d0a534dec6321061b764456fa4c"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Constricts the movement of your opponent, rooting them in place for 30 seconds. Has a 60% chance to break on hit.",
+          "literal_sha256": "3889435d04dc7278438a4413019f4b72ff70a60b347518813c91e8975cdaaafc",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": 30,
+              "extracted_value": 30,
+              "equal": true
+            },
+            {
+              "field": "break_on_hit_chance_percent",
+              "source_value": 60,
+              "extracted_value": 60,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your opponent",
+              "extracted_value": "your opponent",
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "root",
+              "extracted_value": "root",
+              "equal": true
+            },
+            {
+              "field": "hit_definition",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_focus_lifetap_root_observation",
+              "effect_phrase_recorded": "Constricts the movement of your opponent, rooting them in place for 30 seconds. Has a 60% chance to break on hit.",
+              "conditions_unparsed": true,
+              "effect_reported": "root",
+              "recipient_reported": "your opponent",
+              "duration_seconds": 30,
+              "break_on_hit_chance_percent": 60,
+              "hit_definition": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Constricting Wisps I",
+      "source_url": "https://vgsoharchive.com/abilities/constricting-wisps-i",
+      "cache": {
+        "path": ".cache/archive/eff22a4670e48a5dcc48420f029925a9715874ab6f195a5b3fedb418f3d7da69.txt",
+        "sha256": "64e88fc2b94e699cd93e1bc975bd690a349f0de71df2241df1404e0339d04ee4"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 13,
+          "record_sha256": "da39fd7f8a848c3de72fa7a6bc42759857c0941d69f5dddb81fb6b9603b6bab0"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Roots your opponent in place, preventing movement. It has a chance to break any time they take damage.",
+          "literal_sha256": "be9047921493a21f271dc27c9e58d17ce2d8c24bb5a1b174ee0c2e78e33b5a80",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "root",
+              "extracted_value": "root",
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "opponent",
+              "extracted_value": "opponent",
+              "equal": true
+            },
+            {
+              "field": "prevents_movement",
+              "source_value": true,
+              "extracted_value": true,
+              "equal": true
+            },
+            {
+              "field": "may_break_on_damage",
+              "source_value": true,
+              "extracted_value": true,
+              "equal": true
+            },
+            {
+              "field": "break_probability",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_qualitative_control_revival_observation",
+              "effect_phrase_recorded": "Roots your opponent in place, preventing movement. It has a chance to break any time they take damage.",
+              "conditions_unparsed": true,
+              "effect_reported": "root",
+              "recipient_reported": "opponent",
+              "prevents_movement": true,
+              "may_break_on_damage": true,
+              "break_probability": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Dissolve",
+      "source_url": "https://vgsoharchive.com/abilities/dissolve",
+      "cache": {
+        "path": ".cache/archive/dc1229acd5376f9b43af6f0aa4a857c40f83564774075c90ac2e563c155b2501.txt",
+        "sha256": "b3aaded637c611925a70ec06ff6c6c772f9d4b6fc3ffa1fa66f2ef113c280f31"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "661a654b164d9f88e728ea6539d62bbf9a0dd6fd720c762a2eeda08156213599"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Counters the effects of a spell by dispersing it.",
+          "literal_sha256": "9e65de478e5887b6155533d0cbac22726dea58814b94a49e25b312049414bab5",
+          "field_comparisons": [
+            {
+              "field": "effect_reported",
+              "source_value": "spell_counter",
+              "extracted_value": "spell_counter",
+              "equal": true
+            },
+            {
+              "field": "counter_eligibility_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_qualitative_control_revival_observation",
+              "effect_phrase_recorded": "Counters the effects of a spell by dispersing it.",
+              "conditions_unparsed": true,
+              "effect_reported": "spell_counter",
+              "counter_eligibility_rules": null,
+              "duration_seconds": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Constrict II",
+      "source_url": "https://vgsoharchive.com/abilities/constrict-ii",
+      "cache": {
+        "path": ".cache/archive/30addc216845fcae7505f9b4a0a4a4144eb8460261e795505c9b21508f5776d4.txt",
+        "sha256": "b0d10da488bae8dc1bfce1c0ab1d639f46620877c616b23beeeda646e7436588"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 95,
+          "record_sha256": "c962344a557be4c48c080ba8b82271e823c4fd3142b1b5a9d94a099b9fd8a696"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Constricts the movement of your opponent, rooting them in place for 45 seconds. Has a 60% chance to break on hit.",
+          "literal_sha256": "93658715ac091f8a13615dd023709cb245f8b2a3d2bc50dd13a93f02441f1755",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": 45,
+              "extracted_value": 45,
+              "equal": true
+            },
+            {
+              "field": "break_on_hit_percent",
+              "source_value": 60,
+              "extracted_value": 60,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your opponent",
+              "extracted_value": "your opponent",
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "root_with_break_chance",
+              "extracted_value": "root_with_break_chance",
+              "equal": true
+            },
+            {
+              "field": "break_roll_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_control_party_buffs_health_return_observation",
+              "effect_phrase_recorded": "Constricts the movement of your opponent, rooting them in place for 45 seconds. Has a 60% chance to break on hit.",
+              "conditions_unparsed": true,
+              "effect_reported": "root_with_break_chance",
+              "recipient_reported": "your opponent",
+              "duration_seconds": 45,
+              "break_on_hit_percent": 60,
+              "break_roll_rules": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Constrict III",
+      "source_url": "https://vgsoharchive.com/abilities/constrict-iii",
+      "cache": {
+        "path": ".cache/archive/d78268eca504f892934cd3950baff36b91435c5b43560b8c29a14d9aea2aa174.txt",
+        "sha256": "5bce31240353ce8a52c19a8943b119410c77c7a8b50f051bf7f93db588a62008"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235856-650957-archive-bulk/ability.jsonl",
+          "line": 96,
+          "record_sha256": "a216c9974aa1d29745d372e18624094e2226a6760ca0bf816561d82380f2ddd1"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Constricts the movement of your opponent, rooting them in place for 60 seconds. Has a 60% chance to break on hit.",
+          "literal_sha256": "01eb35b214324ba143b5dd6df8f2a53cf622b8536af30f0e3e9a160a19cc635a",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": 60,
+              "extracted_value": 60,
+              "equal": true
+            },
+            {
+              "field": "break_on_hit_chance_percent",
+              "source_value": 60,
+              "extracted_value": 60,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "opponent",
+              "extracted_value": "opponent",
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "root_with_break_on_hit_chance",
+              "extracted_value": "root_with_break_on_hit_chance",
+              "equal": true
+            },
+            {
+              "field": "hit_definition",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_union_root_steal_symbiote_absorption_observation",
+              "effect_phrase_recorded": "Constricts the movement of your opponent, rooting them in place for 60 seconds. Has a 60% chance to break on hit.",
+              "conditions_unparsed": true,
+              "effect_reported": "root_with_break_on_hit_chance",
+              "duration_seconds": 60,
+              "break_on_hit_chance_percent": 60,
+              "recipient_reported": "opponent",
+              "hit_definition": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "literal_hashes_verified": 5,
+    "field_comparisons_passed": 30,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 102,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Only explicit current Effect clauses reviewed; full ability, historical and alternate scopes remain pending.",
+    "Root break chances retain the printed trigger; hit definitions, roll rules and spell counter eligibility are unspecified.",
+    "Constricting Wisps supplies no numeric break probability or duration. Unknowns remain null; no operative game facts promoted."
+  ],
+  "next_step": "Review remaining Blood Mage symbiote observations field by field, starting with control and cleansing conditions."
+}

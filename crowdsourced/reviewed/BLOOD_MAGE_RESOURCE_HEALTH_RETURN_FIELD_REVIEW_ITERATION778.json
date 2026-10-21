@@ -1,0 +1,342 @@
+{
+  "review_kind": "blood_mage_resource_and_health_return_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Siphon Blood",
+      "source_url": "https://vgsoharchive.com/abilities/siphon-blood",
+      "cache": {
+        "path": ".cache/archive/df85e7623c63412d7c5824f9873ffb13b0209eea7aa810639930e0dd8f249637.txt",
+        "sha256": "cc91a5e1aa992dda07e828869553b05af6e2ab7f93004fe6150dc91149c90e24"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 39,
+          "record_sha256": "09c75a6783abaf523ec94e58fe40e427beed22990c48463cfacb8c98965968ee"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Causes your blood to rise to the surface of your skin so that you may take a vial of it. This process is painful and dangerous, lowering your health by 25%.",
+          "literal_sha256": "cf61cba5cbb2cba50460fb99b34760dabc52abfb2166d0fc551c7246a56cc2bd",
+          "field_comparisons": [
+            {
+              "field": "health_loss_percent",
+              "source_value": 25,
+              "extracted_value": 25,
+              "equal": true
+            },
+            {
+              "field": "health_loss_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "vial_quantity",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_transfer_ritual_observation",
+              "effect_phrase_recorded": "Causes your blood to rise to the surface of your skin so that you may take a vial of it. This process is painful and dangerous, lowering your health by 25%.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_loss_for_blood_vial",
+              "health_loss_percent": 25,
+              "health_loss_basis": null,
+              "vial_quantity": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Blood Feast",
+      "source_url": "https://vgsoharchive.com/abilities/blood-feast",
+      "cache": {
+        "path": ".cache/archive/a9508c5ec1762f21e6e3530282cbc2e469655fb61752e6be77cb424bbe5bb49e.txt",
+        "sha256": "8e1c0c432a31b96eaa39df430d85b611e1bf3587e5fc3d50199a3e73f623b95d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 2,
+          "record_sha256": "a813aaa82314dea07a9f5218c97fe3f4b7ca5fcb9cb537c02f3ac1c9e095e464"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Allows you to gain health equal to 10% of the damage all allies deal within 50m.",
+          "literal_sha256": "bdb1389c2f798a5285872c8f5112c13ca7b8f14089d0ab04319da5a3e9e92599",
+          "field_comparisons": [
+            {
+              "field": "health_gain_percent_of_ally_damage",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "radius_meters",
+              "source_value": 50,
+              "extracted_value": 50,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "you",
+              "extracted_value": "you",
+              "equal": true
+            },
+            {
+              "field": "damage_eligibility",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_control_health_return_hate_observation",
+              "effect_phrase_recorded": "Allows you to gain health equal to 10% of the damage all allies deal within 50m.",
+              "conditions_unparsed": true,
+              "effect_reported": "ally_damage_health_gain",
+              "recipient_reported": "you",
+              "health_gain_percent_of_ally_damage": 10,
+              "radius_meters": 50,
+              "damage_eligibility": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Blood Letting",
+      "source_url": "https://vgsoharchive.com/abilities/blood-letting",
+      "cache": {
+        "path": ".cache/archive/349e08c5e267a71c5ce6a85eacfe9aeff066157e2c729efc542593705a07dd0f.txt",
+        "sha256": "b2d9c2a66513e99dbbffbe5af4a69b4b0917008c44c095640529555fa152c897"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-235036-704173-archive-bulk/ability.jsonl",
+          "line": 19,
+          "record_sha256": "160fb1197d1cf53a88635d99d313992330351991cc9bf37dcdfb5d229198f2ce"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "This ability consumes 25% health and 15% energy, but forms a full Blood Union with your enemy instantly.",
+          "literal_sha256": "9ec4e1e1b7836e09e663a504f82614f08a02d2cc36139fd060728c5e2076aee2",
+          "field_comparisons": [
+            {
+              "field": "health_consumed_percent",
+              "source_value": 25,
+              "extracted_value": 25,
+              "equal": true
+            },
+            {
+              "field": "energy_consumed_percent",
+              "source_value": 15,
+              "extracted_value": 15,
+              "equal": true
+            },
+            {
+              "field": "blood_union_result_reported",
+              "source_value": "full",
+              "extracted_value": "full",
+              "equal": true
+            },
+            {
+              "field": "blood_union_numeric_result",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "consumption_percentage_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_damage_group_buff_ritual_union_observation",
+              "effect_phrase_recorded": "This ability consumes 25% health and 15% energy, but forms a full Blood Union with your enemy instantly.",
+              "conditions_unparsed": true,
+              "effect_reported": "health_energy_consumption_full_blood_union",
+              "health_consumed_percent": 25,
+              "energy_consumed_percent": 15,
+              "blood_union_result_reported": "full",
+              "blood_union_numeric_result": null,
+              "consumption_percentage_basis": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 3,
+    "source_record_hashes_verified": 3,
+    "whole_page_replays": 3,
+    "literal_hashes_verified": 3,
+    "field_comparisons_passed": 27,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 5,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Three resource and health-return sections reviewed; full abilities, historical and alternate scopes remain pending.",
+    "Percentage bases, damage eligibility and numeric full Blood Union remain unknown; printed values are archive observations, not operative combat values.",
+    "No canonical IDs, operative values or historical authentication are inferred."
+  ],
+  "next_step": "Review remaining Blood Mage current effect sections against cached source prose."
+}

@@ -14,7 +14,8 @@ class CureDispelTests(unittest.TestCase):
 
     def test_dispel_qualifiers_are_not_strength(self):
         for article, tier in (('a lesser', 'lesser'), ('an', None), ('a greater', 'greater')):
-            fact, = effect_facts(f'Strips {article} enchantment from your opponent.')
+            fact, = [f for f in effect_facts(f'Strips {article} enchantment from your opponent.')
+                     if f['kind'] == 'cure_dispel_tooltip_observation']
             self.assertEqual(fact['enchantment_qualifier_reported'], tier)
             self.assertEqual(fact['target_reported'], 'opponent')
             self.assertIsNone(fact['dispel_strength'])

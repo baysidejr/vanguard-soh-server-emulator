@@ -1,0 +1,475 @@
+{
+  "review_kind": "blood_mage_numb_hate_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Numb I",
+      "source_url": "https://vgsoharchive.com/abilities/numb-i",
+      "cache": {
+        "path": ".cache/archive/81d36e1a687f4c911ebe356745cb78e7aa3b00da5277a5531e7686c7389db7a4.txt",
+        "sha256": "70040c6b5b41df18c50bafca3bc9d86765c4623a6d6d4738fc8c0076d0d98854"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 54,
+          "record_sha256": "f99e12f7313420eb94aab02487281313dd6d1633cccd252890e66d7e037665e2"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Numbs your opponent's mind, lowering your hate by 1914.",
+          "literal_sha256": "3b256aa8105c639c61f017186d7ee8c074fa2d7f67effece468388c536a7d336",
+          "field_comparisons": [
+            {
+              "field": "hate_reduction_amount",
+              "source_value": 1914,
+              "extracted_value": 1914,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "hate_unit",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your opponent",
+              "extracted_value": "your opponent",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_control_health_return_hate_observation",
+              "effect_phrase_recorded": "Numbs your opponent's mind, lowering your hate by 1914.",
+              "conditions_unparsed": true,
+              "effect_reported": "hate_reduction",
+              "recipient_reported": "your opponent",
+              "hate_reduction_amount": 1914,
+              "hate_unit": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Numb II",
+      "source_url": "https://vgsoharchive.com/abilities/numb-ii",
+      "cache": {
+        "path": ".cache/archive/f4e86d216320ae301aa8a19d7464f72fb9773cdbb5591a56365db6b46de45548.txt",
+        "sha256": "25da3daccf6b68c534efc151690089829fcb5e8e2b2f2ff8279c60780620846f"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+          "line": 15,
+          "record_sha256": "0f9cc44a25fb172017b85d944293486f786aa349f07d59ace557254253f6144c"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Numbs your opponent's mind, lowering your hate by 2729.",
+          "literal_sha256": "6966ad0a22dd2007713bb6dab6ce11d81dccac8522f93d1c42e0c6270c32b1ce",
+          "field_comparisons": [
+            {
+              "field": "hate_reduction",
+              "source_value": 2729,
+              "extracted_value": 2729,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your opponent",
+              "extracted_value": "your opponent",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_symbiote_hate_ritual_union_observation",
+              "effect_phrase_recorded": "Numbs your opponent's mind, lowering your hate by 2729.",
+              "conditions_unparsed": true,
+              "effect_reported": "hate_reduction",
+              "recipient_reported": "your opponent",
+              "hate_reduction": 2729,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Numb III",
+      "source_url": "https://vgsoharchive.com/abilities/numb-iii",
+      "cache": {
+        "path": ".cache/archive/7313ec85b9f92b221274da773d02fd5552d9fb9f3d1ee3339c1ade274e0fa9dc.txt",
+        "sha256": "1d095cd6758564ce77fda83123fd26809e080c156ebcc9531b66fea1781dd5a3"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+          "line": 16,
+          "record_sha256": "af8317ec3cd9ddf38e80f8a6ea46e21b48d3f6c80361f5cf85d710db53b76cb9"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Numbs your opponent's mind, lowering your hate by 3603.",
+          "literal_sha256": "d325793796dbaef596d5fb0db77e4d3748f9ab0b753afe4b3fd3c0cb1a578c96",
+          "field_comparisons": [
+            {
+              "field": "hate_reduction",
+              "source_value": 3603,
+              "extracted_value": 3603,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "hate_unit",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_steal_damage_hate_quickening_observation",
+              "effect_phrase_recorded": "Numbs your opponent's mind, lowering your hate by 3603.",
+              "conditions_unparsed": true,
+              "effect_reported": "hate_reduction",
+              "hate_reduction": 3603,
+              "hate_unit": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Numb IV",
+      "source_url": "https://vgsoharchive.com/abilities/numb-iv",
+      "cache": {
+        "path": ".cache/archive/fcf6cd4f992001b93246fb941b7511601f0cb06a9f5fb9b87a2a9582216cb950.txt",
+        "sha256": "05248b8c72a74d9b619ba399d8dbeec7a3ca3b32d10d1b6011f4e8faf6b6d7fe"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+          "line": 17,
+          "record_sha256": "c4c6a995d4f2e6c84c80aa3fab1d76b44d87dcd787f85161ce7c12be48fe5235"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Numbs your opponent's mind, lowering your hate by 4542.",
+          "literal_sha256": "63281f589321aa2b7e9fbff6a665819fce7617f02078c75e487d358861943244",
+          "field_comparisons": [
+            {
+              "field": "hate_reduction_amount",
+              "source_value": 4542,
+              "extracted_value": 4542,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "hate_unit",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_steal_hate_ritual_rune_healing_observation",
+              "effect_phrase_recorded": "Numbs your opponent's mind, lowering your hate by 4542.",
+              "conditions_unparsed": true,
+              "effect_reported": "hate_reduction",
+              "hate_reduction_amount": 4542,
+              "hate_unit": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Numb V",
+      "source_url": "https://vgsoharchive.com/abilities/numb-v",
+      "cache": {
+        "path": ".cache/archive/de989153ed4494fa722b9c646525ad2b0d4e939fa04676add12217689ab7c869.txt",
+        "sha256": "932af64ec377abb1f61e72491de38e94c09b134042319ff686c017a4dd14a73d"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-015205-122524-archive-bulk/ability.jsonl",
+          "line": 18,
+          "record_sha256": "01413b85b0626d4b612b524de0f77c914d183d8a900b992773fe16e3581e8e6c"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Numbs your opponent's mind, lowering your hate by 5034.",
+          "literal_sha256": "b143aa01e1dba2717aa977ff504cdb8e4e40441100a85509cf127b6d55068f35",
+          "field_comparisons": [
+            {
+              "field": "hate_reduction_amount",
+              "source_value": 5034,
+              "extracted_value": 5034,
+              "equal": true
+            },
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "operative_values",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "historical_authentication",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "hate_unit",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_final_numeric_observation",
+              "effect_phrase_recorded": "Numbs your opponent's mind, lowering your hate by 5034.",
+              "conditions_unparsed": true,
+              "effect_reported": "opponent_hate_reduction",
+              "hate_reduction_amount": 5034,
+              "hate_unit": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 5,
+    "source_record_hashes_verified": 5,
+    "whole_page_replays": 5,
+    "literal_hashes_verified": 5,
+    "field_comparisons_passed": 36,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 10,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Five current Numb sections reviewed; full abilities, historical and alternate scopes remain pending.",
+    "Hate units, scaling formulas and stacking remain unknown; amounts are archive observations, not operative combat values.",
+    "No canonical IDs, operative values or historical authentication are inferred."
+  ],
+  "next_step": "Review remaining Blood Mage current effect sections against cached source prose."
+}

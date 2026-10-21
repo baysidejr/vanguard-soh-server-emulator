@@ -1,0 +1,868 @@
+{
+  "review_kind": "blood_mage_buff_cleansing_field_review",
+  "parser_version": 116,
+  "input": {
+    "path": "reviewed/BLOOD_MAGE_CURRENT_EFFECT_COVERAGE_ITERATION747.json",
+    "sha256": "333db357d14ceb661716408b95e3c693253c4914654e71abb980cf988e9508bc"
+  },
+  "network_requests": 0,
+  "game_facts_promoted": 0,
+  "rows": [
+    {
+      "name": "Favor of the Life Giver I",
+      "source_url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-i",
+      "cache": {
+        "path": ".cache/archive/e9fb87568231c9324b0c8e08e6fe6b5470d356e21cb13212f9a83f3483854763.txt",
+        "sha256": "f1c500ac3671b123366340173a7f955b03265384fcf07aa59a235176e68e907e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 17,
+          "record_sha256": "c2bb4fe74e6fc92da7325776614fec478790724f3e82b56c0e7e90d931660260"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Fills your targets group with power.\r\n+14 Constitution\r\n+7 Vitality\r\n+16 Intelligence\r\n+11 Wisdom\r\n+150 Hit Points\r\n+2 Hit Point Regeneration\r\n+40 Physical Resistance",
+          "literal_sha256": "2d7b59db93d12b11f4a548a032ac107f9f16f82eed4c19a430b7e2454b8d8ebc",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "constitution_bonus",
+              "source_value": 14,
+              "extracted_value": 14,
+              "equal": true
+            },
+            {
+              "field": "vitality_bonus",
+              "source_value": 7,
+              "extracted_value": 7,
+              "equal": true
+            },
+            {
+              "field": "intelligence_bonus",
+              "source_value": 16,
+              "extracted_value": 16,
+              "equal": true
+            },
+            {
+              "field": "wisdom_bonus",
+              "source_value": 11,
+              "extracted_value": 11,
+              "equal": true
+            },
+            {
+              "field": "hit_points_bonus",
+              "source_value": 150,
+              "extracted_value": 150,
+              "equal": true
+            },
+            {
+              "field": "hit_point_regeneration_bonus",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "physical_resistance_bonus",
+              "source_value": 40,
+              "extracted_value": 40,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your targets group",
+              "extracted_value": "your targets group",
+              "equal": true
+            },
+            {
+              "field": "regeneration_time_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_group_cleansing_observation",
+              "effect_phrase_recorded": "Fills your targets group with power.\r\n+14 Constitution\r\n+7 Vitality\r\n+16 Intelligence\r\n+11 Wisdom\r\n+150 Hit Points\r\n+2 Hit Point Regeneration\r\n+40 Physical Resistance",
+              "conditions_unparsed": true,
+              "effect_reported": "group_attribute_buff",
+              "recipient_reported": "your targets group",
+              "constitution_bonus": 14,
+              "vitality_bonus": 7,
+              "intelligence_bonus": 16,
+              "wisdom_bonus": 11,
+              "hit_points_bonus": 150,
+              "hit_point_regeneration_bonus": 2,
+              "physical_resistance_bonus": 40,
+              "regeneration_time_basis": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Favor of the Life Giver II",
+      "source_url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-ii",
+      "cache": {
+        "path": ".cache/archive/9b8c61d8b28a036a18e6a9465e8ded6e0f671fa31ec1d141b10b184f31e25398.txt",
+        "sha256": "559e3d13afa491b683426188574360d0dbe0ae51aab566366738267424182c87"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 18,
+          "record_sha256": "5595540641ee4c37a76217d761a8cd914975896310277d8b3f740d91b79a9278"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Fills your targets group with power.\r\n+28 Constitution\r\n+14 Vitality\r\n+32 Intelligence\r\n+22 Wisdom\r\n+300 Hit Points\r\n+3 Hit Point Regeneration\r\n+80 Physical Resistance",
+          "literal_sha256": "29843833975b3c7b58e208908f1b03a9326fe2e85947b5e51578740ad685476b",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "constitution_bonus",
+              "source_value": 28,
+              "extracted_value": 28,
+              "equal": true
+            },
+            {
+              "field": "vitality_bonus",
+              "source_value": 14,
+              "extracted_value": 14,
+              "equal": true
+            },
+            {
+              "field": "intelligence_bonus",
+              "source_value": 32,
+              "extracted_value": 32,
+              "equal": true
+            },
+            {
+              "field": "wisdom_bonus",
+              "source_value": 22,
+              "extracted_value": 22,
+              "equal": true
+            },
+            {
+              "field": "hit_points_bonus",
+              "source_value": 300,
+              "extracted_value": 300,
+              "equal": true
+            },
+            {
+              "field": "hit_point_regeneration_bonus",
+              "source_value": 3,
+              "extracted_value": 3,
+              "equal": true
+            },
+            {
+              "field": "physical_resistance_bonus",
+              "source_value": 80,
+              "extracted_value": 80,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your targets group",
+              "extracted_value": "your targets group",
+              "equal": true
+            },
+            {
+              "field": "regeneration_time_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_group_cleansing_observation",
+              "effect_phrase_recorded": "Fills your targets group with power.\r\n+28 Constitution\r\n+14 Vitality\r\n+32 Intelligence\r\n+22 Wisdom\r\n+300 Hit Points\r\n+3 Hit Point Regeneration\r\n+80 Physical Resistance",
+              "conditions_unparsed": true,
+              "effect_reported": "group_attribute_buff",
+              "recipient_reported": "your targets group",
+              "constitution_bonus": 28,
+              "vitality_bonus": 14,
+              "intelligence_bonus": 32,
+              "wisdom_bonus": 22,
+              "hit_points_bonus": 300,
+              "hit_point_regeneration_bonus": 3,
+              "physical_resistance_bonus": 80,
+              "regeneration_time_basis": null,
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Translucence",
+      "source_url": "https://vgsoharchive.com/abilities/translucence",
+      "cache": {
+        "path": ".cache/archive/c595d9362524db805bbe3b24fdc903ef6aa36301225ac0e944bcb6c6089b8cec.txt",
+        "sha256": "bb261ea1c30ed30e59776ff75e8febacdac605a90ef4ee54abbf20cdcd27298c"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 41,
+          "record_sha256": "5c83a9bfd47c3fe4530ff9d35b57d24a7f50beb1e98247c9905681aedb8d7fc1"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Diffuses incoming light making you invisible. Lasts 5 minutes, but has a chance to break early.",
+          "literal_sha256": "5d7623a45fe5bff5227ca7f1397d6842ad4e7eabbf01ea2848f62efc36f2395a",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": 300,
+              "extracted_value": 300,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "effect_reported",
+              "source_value": "invisibility_with_early_break_chance",
+              "extracted_value": "invisibility_with_early_break_chance",
+              "equal": true
+            },
+            {
+              "field": "early_break_probability",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "early_break_triggers",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_group_cleansing_observation",
+              "effect_phrase_recorded": "Diffuses incoming light making you invisible. Lasts 5 minutes, but has a chance to break early.",
+              "conditions_unparsed": true,
+              "effect_reported": "invisibility_with_early_break_chance",
+              "duration_seconds": 300,
+              "early_break_probability": null,
+              "early_break_triggers": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Cleansing Leech",
+      "source_url": "https://vgsoharchive.com/abilities/cleansing-leech",
+      "cache": {
+        "path": ".cache/archive/07be0b0772d6f0b72bf08c34da0593fdceb19d59994fbbec6df8c31a2e5ab2f5.txt",
+        "sha256": "997b23cfc9e4958ba74851088fcc621a971e289e9babb9ac3c64b6f29de75d17"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230328-236143-archive-bulk/ability.jsonl",
+          "line": 10,
+          "record_sha256": "33059a5ec273c1e4329ac36086eb374367e2cd1da398f06eb8b1b692ebd1bd30"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Attaches a leech to an ally, removing 8 poison and disease counters every 2 seconds for 10 seconds. Expends 1 Cleansing Leech.",
+          "literal_sha256": "84f57d3738cbe1afa41bb78a8878f8bde6f88ac041be4d44b82e2f857ca570f4",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": 10,
+              "extracted_value": 10,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": 2,
+              "extracted_value": 2,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "counters_removed_reported",
+              "source_value": 8,
+              "extracted_value": 8,
+              "equal": true
+            },
+            {
+              "field": "counter_types_reported",
+              "source_value": [
+                "poison",
+                "disease"
+              ],
+              "extracted_value": [
+                "poison",
+                "disease"
+              ],
+              "equal": true
+            },
+            {
+              "field": "consumed_component_reported",
+              "source_value": "Cleansing Leech",
+              "extracted_value": "Cleansing Leech",
+              "equal": true
+            },
+            {
+              "field": "consumed_component_quantity",
+              "source_value": 1,
+              "extracted_value": 1,
+              "equal": true
+            },
+            {
+              "field": "counters_shared_or_per_type",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "total_counters_removed",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "canonical_component_id",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_group_cleansing_observation",
+              "effect_phrase_recorded": "Attaches a leech to an ally, removing 8 poison and disease counters every 2 seconds for 10 seconds. Expends 1 Cleansing Leech.",
+              "conditions_unparsed": true,
+              "effect_reported": "periodic_poison_disease_counter_removal",
+              "counters_removed_reported": 8,
+              "counter_types_reported": [
+                "poison",
+                "disease"
+              ],
+              "tick_interval_seconds": 2,
+              "duration_seconds": 10,
+              "consumed_component_reported": "Cleansing Leech",
+              "consumed_component_quantity": 1,
+              "counters_shared_or_per_type": null,
+              "total_counters_removed": null,
+              "canonical_component_id": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Favor of the Life Giver III",
+      "source_url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-iii",
+      "cache": {
+        "path": ".cache/archive/1cb5a2e6728feab65b7b8202d7358f56e8fb2bef79f76b10913b83acf8b5bc5e.txt",
+        "sha256": "328274b051fa95a4438c9890f3aae96d7eda07011dfc365bc79cbe9f537f4697"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-13-230725-195129-archive-bulk/ability.jsonl",
+          "line": 23,
+          "record_sha256": "390209ec4bee87a4a78075659333356884e736200007a86935f73b23616a6a78"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Fills your targets group with power.\r\n+56 Constitution\r\n+28 Vitality\r\n+64 Intelligence\r\n+44 Wisdom\r\n+600 Hit Points\r\n+6 Hit Point Regeneration\r\n+160 Physical Resistance\r\nStacks Best Buff Only",
+          "literal_sha256": "a8cd83c356e55949f23d06378a7c5369e19aba38fa3388022506a1303e89ec2d",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "constitution_increase",
+              "source_value": 56,
+              "extracted_value": 56,
+              "equal": true
+            },
+            {
+              "field": "vitality_increase",
+              "source_value": 28,
+              "extracted_value": 28,
+              "equal": true
+            },
+            {
+              "field": "intelligence_increase",
+              "source_value": 64,
+              "extracted_value": 64,
+              "equal": true
+            },
+            {
+              "field": "wisdom_increase",
+              "source_value": 44,
+              "extracted_value": 44,
+              "equal": true
+            },
+            {
+              "field": "hit_points_increase",
+              "source_value": 600,
+              "extracted_value": 600,
+              "equal": true
+            },
+            {
+              "field": "hit_point_regeneration_increase",
+              "source_value": 6,
+              "extracted_value": 6,
+              "equal": true
+            },
+            {
+              "field": "physical_resistance_increase",
+              "source_value": 160,
+              "extracted_value": 160,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your targets group",
+              "extracted_value": "your targets group",
+              "equal": true
+            },
+            {
+              "field": "regeneration_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_reported",
+              "source_value": "Stacks Best Buff Only",
+              "extracted_value": "Stacks Best Buff Only",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_group_ritual_absorption_observation",
+              "effect_phrase_recorded": "Fills your targets group with power.\r\n+56 Constitution\r\n+28 Vitality\r\n+64 Intelligence\r\n+44 Wisdom\r\n+600 Hit Points\r\n+6 Hit Point Regeneration\r\n+160 Physical Resistance\r\nStacks Best Buff Only",
+              "conditions_unparsed": true,
+              "effect_reported": "group_stat_buff",
+              "recipient_reported": "your targets group",
+              "constitution_increase": 56,
+              "vitality_increase": 28,
+              "intelligence_increase": 64,
+              "wisdom_increase": 44,
+              "hit_points_increase": 600,
+              "hit_point_regeneration_increase": 6,
+              "physical_resistance_increase": 160,
+              "regeneration_interval_seconds": null,
+              "stacking_reported": "Stacks Best Buff Only",
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Favor of the Life Giver IV",
+      "source_url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-iv",
+      "cache": {
+        "path": ".cache/archive/95b7c5e6604240136dc289d79299cf69dd16a684f08c30ac772a0a38c57ec8cf.txt",
+        "sha256": "34a1f42d6f99c6c4775cda0fcccb1137916c21fe1d88fef5141154abae19cd1e"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 93,
+          "record_sha256": "f910b3680f71205de23b5a877c07c75bbd604a1c547f3c07fdf26677f53fb440"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Fills your targets group with power.\r\n+85 Constitution\r\n+42 Vitality\r\n+96 Intelligence\r\n+66 Wisdom\r\n+900 Hit Points\r\n+9 Hit Point Regeneration\r\n+240 Physical Resistance\r\nStacks Best Buff Only",
+          "literal_sha256": "64f4fae1e612fc6d736ce338193d633cc808232287ee4a5db0ccdac8362e97d1",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "constitution_increase",
+              "source_value": 85,
+              "extracted_value": 85,
+              "equal": true
+            },
+            {
+              "field": "vitality_increase",
+              "source_value": 42,
+              "extracted_value": 42,
+              "equal": true
+            },
+            {
+              "field": "intelligence_increase",
+              "source_value": 96,
+              "extracted_value": 96,
+              "equal": true
+            },
+            {
+              "field": "wisdom_increase",
+              "source_value": 66,
+              "extracted_value": 66,
+              "equal": true
+            },
+            {
+              "field": "hit_points_increase",
+              "source_value": 900,
+              "extracted_value": 900,
+              "equal": true
+            },
+            {
+              "field": "hit_point_regeneration_increase",
+              "source_value": 9,
+              "extracted_value": 9,
+              "equal": true
+            },
+            {
+              "field": "physical_resistance_increase",
+              "source_value": 240,
+              "extracted_value": 240,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "targets group",
+              "extracted_value": "targets group",
+              "equal": true
+            },
+            {
+              "field": "hit_point_regeneration_unit",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_reported",
+              "source_value": "Stacks Best Buff Only",
+              "extracted_value": "Stacks Best Buff Only",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_group_ritual_counter_healing_observation",
+              "effect_phrase_recorded": "Fills your targets group with power.\r\n+85 Constitution\r\n+42 Vitality\r\n+96 Intelligence\r\n+66 Wisdom\r\n+900 Hit Points\r\n+9 Hit Point Regeneration\r\n+240 Physical Resistance\r\nStacks Best Buff Only",
+              "conditions_unparsed": true,
+              "effect_reported": "target_group_attribute_buff",
+              "recipient_reported": "targets group",
+              "constitution_increase": 85,
+              "vitality_increase": 42,
+              "intelligence_increase": 96,
+              "wisdom_increase": 66,
+              "hit_points_increase": 900,
+              "hit_point_regeneration_increase": 9,
+              "hit_point_regeneration_unit": null,
+              "physical_resistance_increase": 240,
+              "stacking_reported": "Stacks Best Buff Only",
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    },
+    {
+      "name": "Favor of the Life Giver V",
+      "source_url": "https://vgsoharchive.com/abilities/favor-of-the-life-giver-v",
+      "cache": {
+        "path": ".cache/archive/0f7b09dbef0f4bf077e7d1d4380abf39ab83c4a3f53643525ee5af1cf5524211.txt",
+        "sha256": "a94673e2ba0c56bc9301170d9c4e032441808bea451f17b294c7cfc681ce23ef"
+      },
+      "source_references": [
+        {
+          "path": "raw/2026-10-14-002356-762837-archive-bulk/ability.jsonl",
+          "line": 94,
+          "record_sha256": "aa4ad557ca666a012dc884dc723bbd5e633b610e38436a8fe0617330bd0baad9"
+        }
+      ],
+      "observations": [
+        {
+          "literal": "Fills your targets group with power.\r\n+113 Constitution\r\n+56 Vitality\r\n+128 Intelligence\r\n+88 Wisdom\r\n+1200 Hit Points\r\n+12 Hit Point Regeneration\r\n+320 Physical Resistance\r\nStacks Best Buff Only",
+          "literal_sha256": "fa02151e0ed52890bec1dcfa380c54a053bcbc55ea0877ba0ee3289f014042c8",
+          "field_comparisons": [
+            {
+              "field": "duration_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "tick_interval_seconds",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_rules",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "constitution_increase",
+              "source_value": 113,
+              "extracted_value": 113,
+              "equal": true
+            },
+            {
+              "field": "vitality_increase",
+              "source_value": 56,
+              "extracted_value": 56,
+              "equal": true
+            },
+            {
+              "field": "intelligence_increase",
+              "source_value": 128,
+              "extracted_value": 128,
+              "equal": true
+            },
+            {
+              "field": "wisdom_increase",
+              "source_value": 88,
+              "extracted_value": 88,
+              "equal": true
+            },
+            {
+              "field": "hit_points_increase",
+              "source_value": 1200,
+              "extracted_value": 1200,
+              "equal": true
+            },
+            {
+              "field": "hit_point_regeneration_increase",
+              "source_value": 12,
+              "extracted_value": 12,
+              "equal": true
+            },
+            {
+              "field": "physical_resistance_increase",
+              "source_value": 320,
+              "extracted_value": 320,
+              "equal": true
+            },
+            {
+              "field": "recipient_reported",
+              "source_value": "your targets group",
+              "extracted_value": "your targets group",
+              "equal": true
+            },
+            {
+              "field": "regeneration_time_basis",
+              "source_value": null,
+              "extracted_value": null,
+              "equal": true
+            },
+            {
+              "field": "stacking_reported",
+              "source_value": "Stacks Best Buff Only",
+              "extracted_value": "Stacks Best Buff Only",
+              "equal": true
+            }
+          ],
+          "all_extracted_facts": [
+            {
+              "kind": "blood_mage_damage_group_buff_ritual_union_observation",
+              "effect_phrase_recorded": "Fills your targets group with power.\r\n+113 Constitution\r\n+56 Vitality\r\n+128 Intelligence\r\n+88 Wisdom\r\n+1200 Hit Points\r\n+12 Hit Point Regeneration\r\n+320 Physical Resistance\r\nStacks Best Buff Only",
+              "conditions_unparsed": true,
+              "effect_reported": "target_group_attribute_buff",
+              "recipient_reported": "your targets group",
+              "constitution_increase": 113,
+              "vitality_increase": 56,
+              "intelligence_increase": 128,
+              "wisdom_increase": 88,
+              "hit_points_increase": 1200,
+              "hit_point_regeneration_increase": 12,
+              "regeneration_time_basis": null,
+              "physical_resistance_increase": 320,
+              "stacking_reported": "Stacks Best Buff Only",
+              "duration_seconds": null,
+              "tick_interval_seconds": null,
+              "stacking_rules": null,
+              "operative_values": null,
+              "historical_authentication": null
+            }
+          ],
+          "disposition": "explicit_clauses_represented_in_constrained_research_observation",
+          "operative_values": null,
+          "conversion_ready": false,
+          "coverage_complete": null
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "cache_hashes_verified": 7,
+    "source_record_hashes_verified": 7,
+    "whole_page_replays": 7,
+    "literal_hashes_verified": 7,
+    "field_comparisons_passed": 79,
+    "structural_issues": 0
+  },
+  "queue_reconciliation": {
+    "inventory": 104855,
+    "done": 26918,
+    "pending": 77954,
+    "missing": 0,
+    "overlap": 0,
+    "extra_checkpoint_urls": 17,
+    "alternate_pending": 50
+  },
+  "collector_observation": {
+    "status": "stopped",
+    "actual_python_collector_processes": 0,
+    "run_lock_present": false,
+    "persisted_interval_seconds": 60,
+    "stop_request_preserved": true,
+    "network_suspension_preserved": true
+  },
+  "remaining_work": {
+    "current_mechanic_sections_not_field_reviewed": 25,
+    "archive_pending": 77954,
+    "alternate_pending": 50
+  },
+  "limitations": [
+    "Seven current buff and cleansing sections reviewed; full abilities, historical and alternate scopes remain pending.",
+    "Regeneration timing, invisibility break probability and triggers, counter-sharing semantics and total removal remain unknown; no tick-count formula is inferred.",
+    "No canonical IDs, operative values or historical authentication are inferred."
+  ],
+  "next_step": "Review remaining Blood Mage health and vitality buff clauses against cached prose."
+}
