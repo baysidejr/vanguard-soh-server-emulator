@@ -1,22 +1,22 @@
 {
   "summary": {
-    "batches": 391,
-    "research_rows": 60128,
-    "normalized_name_groups": 29735,
+    "batches": 414,
+    "research_rows": 60361,
+    "normalized_name_groups": 29949,
     "zones_with_explicit_records": 486,
     "counts": {
-      "creature": 12610,
-      "item": 5504,
-      "loot": 2302,
-      "npc": 4208,
+      "creature": 12702,
+      "item": 5588,
+      "loot": 2329,
+      "npc": 4216,
       "quest": 11633,
       "zone": 1334,
-      "ability": 21615,
+      "ability": 21637,
       "diplomacy": 6,
       "merchant": 908,
       "recipe": 8
     },
-    "errors": 143,
+    "errors": 147,
     "note": "Rows and name groups are not counts of distinct game entities. Sources and conflicting versions remain separate."
   },
   "batches": [
@@ -3173,6 +3173,133 @@
       "batch": "raw\\2026-10-17-iteration150-alternate-policy-review",
       "records": 0,
       "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration155-bard-instruments",
+      "records": 84,
+      "counts": {
+        "item": 84
+      }
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration156-shaman-spirit-bonds",
+      "records": 10,
+      "counts": {
+        "ability": 10
+      }
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration157-shaman-patrons",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration158-disciple-endowments",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration159-disciple-forms",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration160-disciple-armor-review",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration161-disciple-macros",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration163-monk-armor-review",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration165-class-starting-attributes",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration166-class-gear-navigation-review",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration167-guide-provenance-inventory",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration168-guide-inventory-reconciliation",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration169-ranger-emulator-styles",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration170-bard-emulator-dances",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration171-bard-learned-ability-review",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration172-sorcerer-learned-ability-review",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration173-psionicist-learned-ability-review",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration174-necromancer-learned-ability-review",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration175-druid-learned-ability-review",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-17-iteration178-blood-mage-learned-ability-review",
+      "records": 0,
+      "counts": {}
+    },
+    {
+      "batch": "raw\\2026-10-20-192846-535960-archive-bulk",
+      "records": 127,
+      "counts": {
+        "creature": 92,
+        "loot": 27,
+        "npc": 8
+      }
+    },
+    {
+      "batch": "raw\\2026-10-20-iteration761-favor-cache-replay",
+      "records": 6,
+      "counts": {
+        "ability": 6
+      }
+    },
+    {
+      "batch": "raw\\2026-10-20-iteration762-favor-cache-replay",
+      "records": 6,
+      "counts": {
+        "ability": 6
+      }
     }
   ],
   "records": [
@@ -952390,6 +952517,3283 @@
         "https://vgsoharchive.com/mobs/umber-oak-tree"
       ],
       "zones": []
+    },
+    {
+      "id": 60128,
+      "type": "item",
+      "name": "Resonating Horn",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60129,
+      "type": "item",
+      "name": "Cry of Fozzrock",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60130,
+      "type": "item",
+      "name": "Horn of Resonation",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60131,
+      "type": "item",
+      "name": "Orcish Horn",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60132,
+      "type": "item",
+      "name": "Hollow Antenna",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 5,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60133,
+      "type": "item",
+      "name": "Broken Fang Horn",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 6,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60134,
+      "type": "item",
+      "name": "Abandoned Horn",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 7,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60135,
+      "type": "item",
+      "name": "Horn of the Cave",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 8,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60136,
+      "type": "item",
+      "name": "Brass Horn of the Ettercap",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 9,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60137,
+      "type": "item",
+      "name": "Jin Infused Horn",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 10,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60138,
+      "type": "item",
+      "name": "Ballack's Horn of Command",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 11,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60139,
+      "type": "item",
+      "name": "Beak of Scourge",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 12,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60140,
+      "type": "item",
+      "name": "Horn of Terror",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 13,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60141,
+      "type": "item",
+      "name": "Trumpet of Trengal Keep",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 14,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60142,
+      "type": "item",
+      "name": "Ariezel's Horn of Rage",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 15,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60143,
+      "type": "item",
+      "name": "Blind Eye's Battlecaller",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 16,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60144,
+      "type": "item",
+      "name": "Song of the Sea",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 17,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60145,
+      "type": "item",
+      "name": "Unicorn Horn",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 18,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60146,
+      "type": "item",
+      "name": "Mindcall Horn",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 19,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60147,
+      "type": "item",
+      "name": "Horn of Old",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 20,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60148,
+      "type": "item",
+      "name": "Dirgesong",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 21,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60149,
+      "type": "item",
+      "name": "Hollowed Bone Horn",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 22,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60150,
+      "type": "item",
+      "name": "Krraajar's Horn",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 23,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60151,
+      "type": "item",
+      "name": "Horn of the Cyclops",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 24,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60152,
+      "type": "item",
+      "name": "Hollow Rhino Horn",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 25,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60153,
+      "type": "item",
+      "name": "Herald of Rakshasa",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 26,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60154,
+      "type": "item",
+      "name": "Huntsman's Horn",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 27,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60155,
+      "type": "item",
+      "name": "Ghostly War-Horn",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 28,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60156,
+      "type": "item",
+      "name": "Horn of the Minotaur Lord",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 29,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60157,
+      "type": "item",
+      "name": "Valkyrie's Call",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 30,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60158,
+      "type": "item",
+      "name": "Horgus' Bent Charm",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 31,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60159,
+      "type": "item",
+      "name": "Painted Ocarina",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 32,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60160,
+      "type": "item",
+      "name": "Perjirrax's Skull",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 33,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60161,
+      "type": "item",
+      "name": "Horn of Houndcalling",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 34,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60162,
+      "type": "item",
+      "name": "Voice of the Colossi",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 35,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60163,
+      "type": "item",
+      "name": "Flame Scarred Bone Horn",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 36,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60164,
+      "type": "item",
+      "name": "Rune Etched Bone Horn",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 37,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60165,
+      "type": "item",
+      "name": "Ornate Stone Horn",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 38,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60166,
+      "type": "item",
+      "name": "Minstrel's Drum",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 39,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60167,
+      "type": "item",
+      "name": "Drum of the Redcaps",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 40,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60168,
+      "type": "item",
+      "name": "Martok Wartempo",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 41,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60169,
+      "type": "item",
+      "name": "Mountain Hunter's Drum",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 42,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60170,
+      "type": "item",
+      "name": "Venom Etched Drum",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 43,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60171,
+      "type": "item",
+      "name": "Watch Drum",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 44,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60172,
+      "type": "item",
+      "name": "Resonating Steel Drum",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 45,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60173,
+      "type": "item",
+      "name": "Drum of Slaughter",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 46,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60174,
+      "type": "item",
+      "name": "Ettercap Wardrums",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 47,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60175,
+      "type": "item",
+      "name": "Drums of the Hermit",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 48,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60176,
+      "type": "item",
+      "name": "Onyx Drum",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 49,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60177,
+      "type": "item",
+      "name": "Rhino Hide Drum",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 50,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60178,
+      "type": "item",
+      "name": "Gorgalok Skin Drum",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 51,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60179,
+      "type": "item",
+      "name": "Drum of Zezzexxezzexx",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 52,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60180,
+      "type": "item",
+      "name": "Achbishop's Gong",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 53,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60181,
+      "type": "item",
+      "name": "Drum of Separation",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 54,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60182,
+      "type": "item",
+      "name": "The Whitewind Drum",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 55,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60183,
+      "type": "item",
+      "name": "Minstrel's Lute",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 56,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60184,
+      "type": "item",
+      "name": "Echoing Lute",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 57,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60185,
+      "type": "item",
+      "name": "Wierlaun's Lute of Melodies",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 58,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60186,
+      "type": "item",
+      "name": "Nebulous Lute",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 59,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60187,
+      "type": "item",
+      "name": "Lute of Lao’Jin",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 60,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60188,
+      "type": "item",
+      "name": "Cirel's Sanguine Mandolin",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 61,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60189,
+      "type": "item",
+      "name": "Kheval's Fiddle",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 62,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60190,
+      "type": "item",
+      "name": "Lute of the Vinewalker",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 63,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60191,
+      "type": "item",
+      "name": "Ancient Melody",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 64,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60192,
+      "type": "item",
+      "name": "Jharuu Skin Lute",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 65,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60193,
+      "type": "item",
+      "name": "Lute of the Wind",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 66,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60194,
+      "type": "item",
+      "name": "Khazkal's Lute of Lament",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 67,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60195,
+      "type": "item",
+      "name": "Strung Moss Lute",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 68,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60196,
+      "type": "item",
+      "name": "Orcbane Flute",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 69,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60197,
+      "type": "item",
+      "name": "Waterlogged Piccolo",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 70,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60198,
+      "type": "item",
+      "name": "Skrill Bone Flute",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 71,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60199,
+      "type": "item",
+      "name": "Brownie Voice Imitator",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 72,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60200,
+      "type": "item",
+      "name": "Instrument of Corruption",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 73,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60201,
+      "type": "item",
+      "name": "Flute of Infestation",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 74,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60202,
+      "type": "item",
+      "name": "Bone Flute of the Cur",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 75,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60203,
+      "type": "item",
+      "name": "Flute of Grace",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 76,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60204,
+      "type": "item",
+      "name": "Ebonwood Recorder",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 77,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60205,
+      "type": "item",
+      "name": "Fairybone Flute",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 78,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60206,
+      "type": "item",
+      "name": "Lute of Whispers",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 79,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60207,
+      "type": "item",
+      "name": "Flute of the Beast Tamer",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 80,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60208,
+      "type": "item",
+      "name": "Billagat Bone Flute",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 81,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60209,
+      "type": "item",
+      "name": "Rhino Horn Pipes",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 82,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60210,
+      "type": "item",
+      "name": "Hillsinger's Voice",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 83,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60211,
+      "type": "item",
+      "name": "Swamproot Pipe",
+      "file": "raw\\2026-10-17-iteration155-bard-instruments\\item.jsonl",
+      "line": 84,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/bard/instruments"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60212,
+      "type": "ability",
+      "name": "Mien of the Mystic",
+      "file": "raw\\2026-10-17-iteration156-shaman-spirit-bonds\\ability.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/shaman/spirit-bonds"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60213,
+      "type": "ability",
+      "name": "Weak Spirit Bond: Skamadiz",
+      "file": "raw\\2026-10-17-iteration156-shaman-spirit-bonds\\ability.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/shaman/spirit-bonds"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60214,
+      "type": "ability",
+      "name": "Weak Spirit Bond: Krigus",
+      "file": "raw\\2026-10-17-iteration156-shaman-spirit-bonds\\ability.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/shaman/spirit-bonds"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60215,
+      "type": "ability",
+      "name": "Weak Spirit Bond: Nag-Suul",
+      "file": "raw\\2026-10-17-iteration156-shaman-spirit-bonds\\ability.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/shaman/spirit-bonds"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60216,
+      "type": "ability",
+      "name": "Spirit Bond: Skamadiz",
+      "file": "raw\\2026-10-17-iteration156-shaman-spirit-bonds\\ability.jsonl",
+      "line": 5,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/shaman/spirit-bonds"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60217,
+      "type": "ability",
+      "name": "Spirit Bond: Krigus",
+      "file": "raw\\2026-10-17-iteration156-shaman-spirit-bonds\\ability.jsonl",
+      "line": 6,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/shaman/spirit-bonds"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60218,
+      "type": "ability",
+      "name": "Spirit Bond: Nag-Suul",
+      "file": "raw\\2026-10-17-iteration156-shaman-spirit-bonds\\ability.jsonl",
+      "line": 7,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/shaman/spirit-bonds"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60219,
+      "type": "ability",
+      "name": "Strong Spirit Bond: Skamadiz",
+      "file": "raw\\2026-10-17-iteration156-shaman-spirit-bonds\\ability.jsonl",
+      "line": 8,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/shaman/spirit-bonds"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60220,
+      "type": "ability",
+      "name": "Strong Spirit Bond: Krigus",
+      "file": "raw\\2026-10-17-iteration156-shaman-spirit-bonds\\ability.jsonl",
+      "line": 9,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/shaman/spirit-bonds"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60221,
+      "type": "ability",
+      "name": "Strong Spirit Bond: Nag-Suul",
+      "file": "raw\\2026-10-17-iteration156-shaman-spirit-bonds\\ability.jsonl",
+      "line": 10,
+      "confidence": "medium",
+      "parser_version": null,
+      "source_urls": [
+        "https://vgsoharchive.com/classes/shaman/spirit-bonds"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60222,
+      "type": "creature",
+      "name": "Umber Palm Tree",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 1,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/umber-palm-tree"
+      ],
+      "zones": [],
+      "level": 1
+    },
+    {
+      "id": 60223,
+      "type": "creature",
+      "name": "Umber Pine Tree",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 2,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/umber-pine-tree"
+      ],
+      "zones": [],
+      "level": 1
+    },
+    {
+      "id": 60224,
+      "type": "creature",
+      "name": "Umber Root",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 3,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/umber-root"
+      ],
+      "zones": [
+        "Sepulchral Chasm"
+      ],
+      "level": 1
+    },
+    {
+      "id": 60225,
+      "type": "creature",
+      "name": "Umber Tangleleaf Tree",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 4,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/umber-tangleleaf-tree"
+      ],
+      "zones": [],
+      "level": 1
+    },
+    {
+      "id": 60226,
+      "type": "creature",
+      "name": "Umbral Pan",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 5,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/umbral-pan"
+      ],
+      "zones": [
+        "Blighted Lands"
+      ],
+      "level": 16
+    },
+    {
+      "id": 60227,
+      "type": "creature",
+      "name": "Umbral Seer",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 6,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/umbral-seer"
+      ],
+      "zones": [],
+      "level": 16
+    },
+    {
+      "id": 60228,
+      "type": "creature",
+      "name": "Umjarkin The Ruptured",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 7,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/umjarkin-the-ruptured"
+      ],
+      "zones": [
+        "Misthaven Crossing"
+      ],
+      "level": 17
+    },
+    {
+      "id": 60229,
+      "type": "creature",
+      "name": "Unagi",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 8,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unagi"
+      ],
+      "zones": [
+        "Tanvu"
+      ],
+      "level": 1
+    },
+    {
+      "id": 60230,
+      "type": "creature",
+      "name": "Unattuned Imperial Construct",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 9,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unattuned-imperial-construct"
+      ],
+      "zones": [],
+      "level": 13
+    },
+    {
+      "id": 60231,
+      "type": "creature",
+      "name": "Unblood Surom",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 10,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unblood-surom"
+      ],
+      "zones": [
+        "Hathor Zhi"
+      ],
+      "level": 6
+    },
+    {
+      "id": 60232,
+      "type": "creature",
+      "name": "Unbroken Jug",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 11,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unbroken-jug"
+      ],
+      "zones": [
+        "Silverlake"
+      ],
+      "level": 1
+    },
+    {
+      "id": 60233,
+      "type": "creature",
+      "name": "Uncanny Frog",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 12,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/uncanny-frog"
+      ],
+      "zones": [],
+      "level": 10
+    },
+    {
+      "id": 60234,
+      "type": "creature",
+      "name": "Unclelord",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 13,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unclelord"
+      ],
+      "zones": [
+        "Misthaven Crossing"
+      ]
+    },
+    {
+      "id": 60235,
+      "type": "creature",
+      "name": "Undead Acolyte",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 14,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-acolyte"
+      ],
+      "zones": [
+        "Old Targonor"
+      ],
+      "level": 42
+    },
+    {
+      "id": 60236,
+      "type": "creature",
+      "name": "Undead Archer",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 15,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-archer"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 34
+    },
+    {
+      "id": 60237,
+      "type": "creature",
+      "name": "Undead Bear",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 16,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-bear"
+      ],
+      "zones": [
+        "Plains Of Anguish"
+      ],
+      "level": 37
+    },
+    {
+      "id": 60238,
+      "type": "creature",
+      "name": "Undead Behemoth",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 17,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-behemoth"
+      ],
+      "zones": [
+        "Darkened Edge"
+      ],
+      "level": 48
+    },
+    {
+      "id": 60239,
+      "type": "creature",
+      "name": "Undead Bonemage",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 18,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-bonemage"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 35
+    },
+    {
+      "id": 60240,
+      "type": "creature",
+      "name": "Undead Cadet",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 19,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-cadet"
+      ],
+      "zones": [
+        "Plains Of Anguish"
+      ]
+    },
+    {
+      "id": 60241,
+      "type": "creature",
+      "name": "Undead Captain",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 20,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-captain"
+      ],
+      "zones": [
+        "Temple Of Tehatamani"
+      ],
+      "level": 49
+    },
+    {
+      "id": 60242,
+      "type": "creature",
+      "name": "Undead Cartheon Officer",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 21,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-cartheon-officer"
+      ],
+      "zones": [
+        "Plains Of Anguish"
+      ]
+    },
+    {
+      "id": 60243,
+      "type": "creature",
+      "name": "Undead Combatant",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 22,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-combatant"
+      ],
+      "zones": [
+        "Plains Of Anguish"
+      ]
+    },
+    {
+      "id": 60244,
+      "type": "creature",
+      "name": "Undead Commander Bosk",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 23,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-commander-bosk"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60245,
+      "type": "creature",
+      "name": "Undead Commander Kratos",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 24,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-commander-kratos"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60246,
+      "type": "creature",
+      "name": "Undead Commander Seracek",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 25,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-commander-seracek"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60247,
+      "type": "creature",
+      "name": "Undead Commander Vralek",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 26,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-commander-vralek"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60248,
+      "type": "creature",
+      "name": "Undead Commander Zlixin",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 27,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-commander-zlixin"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60249,
+      "type": "creature",
+      "name": "Undead Construct",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 28,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-construct"
+      ],
+      "zones": [
+        "Renton Keep"
+      ]
+    },
+    {
+      "id": 60250,
+      "type": "creature",
+      "name": "Undead Diviner",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 29,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-diviner"
+      ],
+      "zones": [
+        "Plains Of Anguish"
+      ]
+    },
+    {
+      "id": 60251,
+      "type": "creature",
+      "name": "Undead Envoy",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 30,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-envoy"
+      ],
+      "zones": [
+        "Misthaven Crossing"
+      ]
+    },
+    {
+      "id": 60252,
+      "type": "creature",
+      "name": "Undead Gulgrethor Knight",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 31,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-gulgrethor-knight"
+      ],
+      "zones": [
+        "Sundering Wastelands"
+      ],
+      "level": 16
+    },
+    {
+      "id": 60253,
+      "type": "creature",
+      "name": "Undead Gulgrethor Mauler",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 32,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-gulgrethor-mauler"
+      ],
+      "zones": [
+        "Sundering Wastelands"
+      ],
+      "level": 18
+    },
+    {
+      "id": 60254,
+      "type": "creature",
+      "name": "Undead Gulgrethor Sentinel",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 33,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-gulgrethor-sentinel"
+      ],
+      "zones": [
+        "Sundering Wastelands"
+      ],
+      "level": 15
+    },
+    {
+      "id": 60255,
+      "type": "creature",
+      "name": "Undead Heretic",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 34,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-heretic"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 34
+    },
+    {
+      "id": 60256,
+      "type": "creature",
+      "name": "Undead Infantryman",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 35,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-infantryman"
+      ],
+      "zones": [
+        "Plains Of Anguish"
+      ]
+    },
+    {
+      "id": 60257,
+      "type": "creature",
+      "name": "Undead Infiltrator",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 36,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-infiltrator"
+      ],
+      "zones": [
+        "Shrine Of The Flame"
+      ],
+      "level": 30
+    },
+    {
+      "id": 60258,
+      "type": "creature",
+      "name": "Undead Legionnaire",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 37,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-legionnaire"
+      ],
+      "zones": [
+        "Plains Of Anguish"
+      ],
+      "level": 34
+    },
+    {
+      "id": 60259,
+      "type": "creature",
+      "name": "Undead Mender",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 38,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-mender"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 35
+    },
+    {
+      "id": 60260,
+      "type": "creature",
+      "name": "Undead Reaper",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 39,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-reaper"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 34
+    },
+    {
+      "id": 60261,
+      "type": "creature",
+      "name": "Undead Reviver",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 40,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-reviver"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 33
+    },
+    {
+      "id": 60262,
+      "type": "creature",
+      "name": "Undead Rock Troll",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 41,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-rock-troll"
+      ],
+      "zones": [
+        "Ruin Falls"
+      ]
+    },
+    {
+      "id": 60263,
+      "type": "creature",
+      "name": "Undead Servant",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 42,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-servant"
+      ],
+      "zones": [],
+      "level": 40
+    },
+    {
+      "id": 60264,
+      "type": "creature",
+      "name": "Undead Shinak Scrapper",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 43,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-shinak-scrapper"
+      ],
+      "zones": [
+        "Sundering Wastelands"
+      ]
+    },
+    {
+      "id": 60265,
+      "type": "creature",
+      "name": "Undead Shinak Soldier",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 44,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-shinak-soldier"
+      ],
+      "zones": [
+        "Sundering Wastelands"
+      ]
+    },
+    {
+      "id": 60266,
+      "type": "creature",
+      "name": "Undead Soldier",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 45,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-soldier"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 45
+    },
+    {
+      "id": 60267,
+      "type": "creature",
+      "name": "Undead Spellbinder",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 46,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-spellbinder"
+      ],
+      "zones": [
+        "Plains Of Anguish"
+      ]
+    },
+    {
+      "id": 60268,
+      "type": "creature",
+      "name": "Undead Stalker",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 47,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-stalker"
+      ],
+      "zones": [
+        "Southwatch"
+      ],
+      "level": 35
+    },
+    {
+      "id": 60269,
+      "type": "creature",
+      "name": "Undead Town Guard",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 48,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-town-guard"
+      ],
+      "zones": [
+        "Beranid Hills"
+      ],
+      "level": 36
+    },
+    {
+      "id": 60270,
+      "type": "creature",
+      "name": "Undead Troll",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 49,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-troll"
+      ],
+      "zones": [
+        "Glade Of Shadows"
+      ],
+      "level": 46
+    },
+    {
+      "id": 60271,
+      "type": "creature",
+      "name": "Undead Troll Garzonag",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 50,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-troll-garzonag"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60272,
+      "type": "creature",
+      "name": "Undead Wolf",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 51,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-wolf"
+      ],
+      "zones": [
+        "Gorgalog"
+      ],
+      "level": 45
+    },
+    {
+      "id": 60273,
+      "type": "creature",
+      "name": "Underling Sh'rel",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 52,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/underling-sh-rel"
+      ],
+      "zones": [
+        "Skrilien Point"
+      ],
+      "level": 23
+    },
+    {
+      "id": 60274,
+      "type": "creature",
+      "name": "Underpriest Linek",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 53,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/underpriest-linek"
+      ],
+      "zones": [
+        "Infineum Plateau"
+      ],
+      "level": 26
+    },
+    {
+      "id": 60275,
+      "type": "creature",
+      "name": "Underpriest Phoeb",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 54,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/underpriest-phoeb"
+      ],
+      "zones": [
+        "Infineum Plateau"
+      ],
+      "level": 26
+    },
+    {
+      "id": 60276,
+      "type": "creature",
+      "name": "Underpriest Trisyl",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 55,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/underpriest-trisyl"
+      ],
+      "zones": [
+        "Infineum Plateau"
+      ],
+      "level": 26
+    },
+    {
+      "id": 60277,
+      "type": "creature",
+      "name": "Undulating Ooze",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 56,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undulating-ooze"
+      ],
+      "zones": [
+        "River Valley"
+      ],
+      "level": 30
+    },
+    {
+      "id": 60278,
+      "type": "creature",
+      "name": "Undying Grizzly",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 57,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undying-grizzly"
+      ],
+      "zones": [
+        "Plains Of Anguish"
+      ]
+    },
+    {
+      "id": 60279,
+      "type": "creature",
+      "name": "Unearthly Deposit",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 58,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unearthly-deposit"
+      ],
+      "zones": [
+        "Cragwind Ridge"
+      ],
+      "level": 33
+    },
+    {
+      "id": 60280,
+      "type": "creature",
+      "name": "Unidentifiable Body",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 59,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unidentifiable-body"
+      ],
+      "zones": [
+        "Halgarad"
+      ],
+      "level": 1
+    },
+    {
+      "id": 60281,
+      "type": "creature",
+      "name": "Unloj",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 60,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unloj"
+      ],
+      "zones": [
+        "Zossyr Hakrel"
+      ]
+    },
+    {
+      "id": 60282,
+      "type": "creature",
+      "name": "Unmarked Chest",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 61,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unmarked-chest"
+      ],
+      "zones": [
+        "Strand Of The Ancients"
+      ],
+      "level": 1
+    },
+    {
+      "id": 60283,
+      "type": "creature",
+      "name": "Unnatural Beast",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 62,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unnatural-beast"
+      ],
+      "zones": [
+        "Tursh Village"
+      ],
+      "level": 2
+    },
+    {
+      "id": 60284,
+      "type": "creature",
+      "name": "Unpainted Rock",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 63,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unpainted-rock"
+      ],
+      "zones": [
+        "Dahknarg"
+      ],
+      "level": 1
+    },
+    {
+      "id": 60285,
+      "type": "creature",
+      "name": "Unspoken",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 64,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unspoken"
+      ],
+      "zones": [
+        "Lomshir"
+      ],
+      "level": 18
+    },
+    {
+      "id": 60286,
+      "type": "creature",
+      "name": "Unstable Elemental",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 65,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unstable-elemental"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60287,
+      "type": "creature",
+      "name": "Unstable Flareling",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 66,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unstable-flareling"
+      ],
+      "zones": [
+        "Afrit"
+      ]
+    },
+    {
+      "id": 60288,
+      "type": "creature",
+      "name": "Untamed Ravager",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 67,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/untamed-ravager"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60289,
+      "type": "creature",
+      "name": "Untamed Tome",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 68,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/untamed-tome"
+      ],
+      "zones": [
+        "Tursh Village"
+      ],
+      "level": 2
+    },
+    {
+      "id": 60290,
+      "type": "creature",
+      "name": "Untrenz",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 69,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/untrenz"
+      ],
+      "zones": [
+        "Abammisi Lake"
+      ],
+      "level": 49
+    },
+    {
+      "id": 60291,
+      "type": "creature",
+      "name": "Unusual Crystal",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 70,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unusual-crystal"
+      ],
+      "zones": [
+        "Beranid Hills"
+      ],
+      "level": 1
+    },
+    {
+      "id": 60292,
+      "type": "creature",
+      "name": "Upton Quincel",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 71,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/upton-quincel"
+      ],
+      "zones": [
+        "Tursh Village"
+      ],
+      "level": 40
+    },
+    {
+      "id": 60293,
+      "type": "creature",
+      "name": "Urdo the Large",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 72,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/urdo-the-large"
+      ],
+      "zones": [
+        "Beranid Hills"
+      ],
+      "level": 40
+    },
+    {
+      "id": 60294,
+      "type": "creature",
+      "name": "Urdro The Mighty",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 73,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/urdro-the-mighty"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60295,
+      "type": "creature",
+      "name": "Urdro the Large",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 74,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/urdro-the-large"
+      ],
+      "zones": [
+        "Beranid Hills"
+      ],
+      "level": 40
+    },
+    {
+      "id": 60296,
+      "type": "creature",
+      "name": "Urfarosh Madari",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 75,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/urfarosh-madari"
+      ],
+      "zones": [
+        "Dragon's Backbone"
+      ]
+    },
+    {
+      "id": 60297,
+      "type": "creature",
+      "name": "Urogog Shambler",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 76,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/urogog-shambler"
+      ],
+      "zones": [],
+      "level": 12
+    },
+    {
+      "id": 60298,
+      "type": "creature",
+      "name": "Urogog Shambler Whelp",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 77,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/urogog-shambler-whelp"
+      ],
+      "zones": [],
+      "level": 10
+    },
+    {
+      "id": 60299,
+      "type": "creature",
+      "name": "Ursagor",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 78,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ursagor"
+      ],
+      "zones": [
+        "Leth Nurae"
+      ]
+    },
+    {
+      "id": 60300,
+      "type": "creature",
+      "name": "Urst Sabil",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 79,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/urst-sabil"
+      ],
+      "zones": [
+        "Mekalia"
+      ]
+    },
+    {
+      "id": 60301,
+      "type": "creature",
+      "name": "Urugog Gnawer",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 80,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/urugog-gnawer"
+      ],
+      "zones": [],
+      "level": 12
+    },
+    {
+      "id": 60302,
+      "type": "creature",
+      "name": "Urugog Gnawer Whelp",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 81,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/urugog-gnawer-whelp"
+      ],
+      "zones": [],
+      "level": 10
+    },
+    {
+      "id": 60303,
+      "type": "creature",
+      "name": "Urugog Rockchewer",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 82,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/urugog-rockchewer"
+      ],
+      "zones": [],
+      "level": 12
+    },
+    {
+      "id": 60304,
+      "type": "creature",
+      "name": "Urugog Rockchewer Whelp",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 83,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/urugog-rockchewer-whelp"
+      ],
+      "zones": [],
+      "level": 10
+    },
+    {
+      "id": 60305,
+      "type": "creature",
+      "name": "Utnayan Wench",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 84,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/utnayan-wench"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60306,
+      "type": "creature",
+      "name": "Utrenz",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 85,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/utrenz"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60307,
+      "type": "creature",
+      "name": "Uukaha Sentry",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 86,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/uukaha-sentry"
+      ],
+      "zones": [
+        "Nusibe Necropolis"
+      ],
+      "level": 45
+    },
+    {
+      "id": 60308,
+      "type": "creature",
+      "name": "Vaela Traxis",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 87,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaela-traxis"
+      ],
+      "zones": [
+        "Plains Of Anguish"
+      ],
+      "level": 44
+    },
+    {
+      "id": 60309,
+      "type": "creature",
+      "name": "Vaelwyn Anathema",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 88,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaelwyn-anathema"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 3
+    },
+    {
+      "id": 60310,
+      "type": "creature",
+      "name": "Vaelwyn Blightwitch",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 89,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaelwyn-blightwitch"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 6
+    },
+    {
+      "id": 60311,
+      "type": "creature",
+      "name": "Vaelwyn Caudron",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 90,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaelwyn-caudron"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 1
+    },
+    {
+      "id": 60312,
+      "type": "creature",
+      "name": "Vaelwyn Cauldron",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 91,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaelwyn-cauldron"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 1
+    },
+    {
+      "id": 60313,
+      "type": "creature",
+      "name": "Vaelwyn Chest",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\creature.jsonl",
+      "line": 92,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaelwyn-chest"
+      ],
+      "zones": [
+        "Ca'ial Brael"
+      ],
+      "level": 1
+    },
+    {
+      "id": 60314,
+      "type": "loot",
+      "name": "Umber Palm Tree",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 1,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/umber-palm-tree"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60315,
+      "type": "loot",
+      "name": "Umber Pine Tree",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 2,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/umber-pine-tree"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60316,
+      "type": "loot",
+      "name": "Umber Root",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 3,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/umber-root"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60317,
+      "type": "loot",
+      "name": "Umber Tangleleaf Tree",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 4,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/umber-tangleleaf-tree"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60318,
+      "type": "loot",
+      "name": "Undead Bear",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 5,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-bear"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60319,
+      "type": "loot",
+      "name": "Undead Captain",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 6,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undead-captain"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60320,
+      "type": "loot",
+      "name": "Undulating Ooze",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 7,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/undulating-ooze"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60321,
+      "type": "loot",
+      "name": "Unearthly Deposit",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 8,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unearthly-deposit"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60322,
+      "type": "loot",
+      "name": "Unmarked Chest",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 9,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unmarked-chest"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60323,
+      "type": "loot",
+      "name": "Unnatural Beast",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 10,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unnatural-beast"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60324,
+      "type": "loot",
+      "name": "Unspoken",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 11,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unspoken"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60325,
+      "type": "loot",
+      "name": "Unstable Elemental",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 12,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unstable-elemental"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60326,
+      "type": "loot",
+      "name": "Untamed Tome",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 13,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/untamed-tome"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60327,
+      "type": "loot",
+      "name": "Untrenz",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 14,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/untrenz"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60328,
+      "type": "loot",
+      "name": "Unusual Crystal",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 15,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unusual-crystal"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60329,
+      "type": "loot",
+      "name": "Urdo the Large",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 16,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/urdo-the-large"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60330,
+      "type": "loot",
+      "name": "Urdro the Large",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 17,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/urdro-the-large"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60331,
+      "type": "loot",
+      "name": "Urogog Shambler",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 18,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/urogog-shambler"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60332,
+      "type": "loot",
+      "name": "Urogog Shambler Whelp",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 19,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/urogog-shambler-whelp"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60333,
+      "type": "loot",
+      "name": "Urugog Gnawer",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 20,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/urugog-gnawer"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60334,
+      "type": "loot",
+      "name": "Urugog Gnawer Whelp",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 21,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/urugog-gnawer-whelp"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60335,
+      "type": "loot",
+      "name": "Urugog Rockchewer",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 22,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/urugog-rockchewer"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60336,
+      "type": "loot",
+      "name": "Urugog Rockchewer Whelp",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 23,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/urugog-rockchewer-whelp"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60337,
+      "type": "loot",
+      "name": "Vaela Traxis",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 24,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaela-traxis"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60338,
+      "type": "loot",
+      "name": "Vaelwyn Anathema",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 25,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaelwyn-anathema"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60339,
+      "type": "loot",
+      "name": "Vaelwyn Cauldron",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 26,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaelwyn-cauldron"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60340,
+      "type": "loot",
+      "name": "Vaelwyn Chest",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\loot.jsonl",
+      "line": 27,
+      "confidence": "low",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaelwyn-chest"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60341,
+      "type": "npc",
+      "name": "Ungorik the Exile",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\npc.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/ungorik-the-exile"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60342,
+      "type": "npc",
+      "name": "Unk",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\npc.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/unk"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60343,
+      "type": "npc",
+      "name": "Uric Onuss",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\npc.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/uric-onuss"
+      ],
+      "zones": [
+        "Vault Of Heroes"
+      ],
+      "level": 20
+    },
+    {
+      "id": 60344,
+      "type": "npc",
+      "name": "Uuvari",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\npc.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/uuvari"
+      ],
+      "zones": []
+    },
+    {
+      "id": 60345,
+      "type": "npc",
+      "name": "Uuvari Jhael",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\npc.jsonl",
+      "line": 5,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/uuvari-jhael"
+      ],
+      "zones": [
+        "Karrus Hakrel"
+      ],
+      "level": 30
+    },
+    {
+      "id": 60346,
+      "type": "npc",
+      "name": "Uvela",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\npc.jsonl",
+      "line": 6,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/uvela"
+      ],
+      "zones": [
+        "Jalen's Crossing"
+      ],
+      "level": 10
+    },
+    {
+      "id": 60347,
+      "type": "npc",
+      "name": "Uzien",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\npc.jsonl",
+      "line": 7,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/uzien"
+      ],
+      "zones": [],
+      "level": 5
+    },
+    {
+      "id": 60348,
+      "type": "npc",
+      "name": "Vaelbeth Cameron",
+      "file": "raw\\2026-10-20-192846-535960-archive-bulk\\npc.jsonl",
+      "line": 8,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/mobs/vaelbeth-cameron"
+      ],
+      "zones": [
+        "Silverlake"
+      ],
+      "level": 40
+    },
+    {
+      "id": 60349,
+      "type": "ability",
+      "name": "Favor of the Life Giver I",
+      "file": "raw\\2026-10-20-iteration761-favor-cache-replay\\ability.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 115,
+      "source_urls": [
+        "https://vgsoharchive.com/abilities/favor-of-the-life-giver-i"
+      ],
+      "zones": [],
+      "class": "Blood Mage",
+      "level_learned": 1,
+      "rank": "I"
+    },
+    {
+      "id": 60350,
+      "type": "ability",
+      "name": "Favor of the Life Giver II",
+      "file": "raw\\2026-10-20-iteration761-favor-cache-replay\\ability.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 115,
+      "source_urls": [
+        "https://vgsoharchive.com/abilities/favor-of-the-life-giver-ii"
+      ],
+      "zones": [],
+      "class": "Blood Mage",
+      "level_learned": 10,
+      "rank": "II"
+    },
+    {
+      "id": 60351,
+      "type": "ability",
+      "name": "Favor of the Life Giver III",
+      "file": "raw\\2026-10-20-iteration761-favor-cache-replay\\ability.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": 115,
+      "source_urls": [
+        "https://vgsoharchive.com/abilities/favor-of-the-life-giver-iii"
+      ],
+      "zones": [],
+      "class": "Blood Mage",
+      "level_learned": 20,
+      "rank": "III"
+    },
+    {
+      "id": 60352,
+      "type": "ability",
+      "name": "Favor of the Life Giver IV",
+      "file": "raw\\2026-10-20-iteration761-favor-cache-replay\\ability.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": 115,
+      "source_urls": [
+        "https://vgsoharchive.com/abilities/favor-of-the-life-giver-iv"
+      ],
+      "zones": [],
+      "class": "Blood Mage",
+      "level_learned": 30,
+      "rank": "IV"
+    },
+    {
+      "id": 60353,
+      "type": "ability",
+      "name": "Favor of the Life Giver V",
+      "file": "raw\\2026-10-20-iteration761-favor-cache-replay\\ability.jsonl",
+      "line": 5,
+      "confidence": "medium",
+      "parser_version": 115,
+      "source_urls": [
+        "https://vgsoharchive.com/abilities/favor-of-the-life-giver-v"
+      ],
+      "zones": [],
+      "class": "Blood Mage",
+      "level_learned": 40,
+      "rank": "V"
+    },
+    {
+      "id": 60354,
+      "type": "ability",
+      "name": "Favor of the Life Giver VI",
+      "file": "raw\\2026-10-20-iteration761-favor-cache-replay\\ability.jsonl",
+      "line": 6,
+      "confidence": "medium",
+      "parser_version": 115,
+      "source_urls": [
+        "https://vgsoharchive.com/abilities/favor-of-the-life-giver-vi"
+      ],
+      "zones": [],
+      "class": "Blood Mage",
+      "level_learned": 50,
+      "rank": "VI"
+    },
+    {
+      "id": 60355,
+      "type": "ability",
+      "name": "Favor of the Life Giver I",
+      "file": "raw\\2026-10-20-iteration762-favor-cache-replay\\ability.jsonl",
+      "line": 1,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/abilities/favor-of-the-life-giver-i"
+      ],
+      "zones": [],
+      "class": "Blood Mage",
+      "level_learned": 1,
+      "rank": "I"
+    },
+    {
+      "id": 60356,
+      "type": "ability",
+      "name": "Favor of the Life Giver II",
+      "file": "raw\\2026-10-20-iteration762-favor-cache-replay\\ability.jsonl",
+      "line": 2,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/abilities/favor-of-the-life-giver-ii"
+      ],
+      "zones": [],
+      "class": "Blood Mage",
+      "level_learned": 10,
+      "rank": "II"
+    },
+    {
+      "id": 60357,
+      "type": "ability",
+      "name": "Favor of the Life Giver III",
+      "file": "raw\\2026-10-20-iteration762-favor-cache-replay\\ability.jsonl",
+      "line": 3,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/abilities/favor-of-the-life-giver-iii"
+      ],
+      "zones": [],
+      "class": "Blood Mage",
+      "level_learned": 20,
+      "rank": "III"
+    },
+    {
+      "id": 60358,
+      "type": "ability",
+      "name": "Favor of the Life Giver IV",
+      "file": "raw\\2026-10-20-iteration762-favor-cache-replay\\ability.jsonl",
+      "line": 4,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/abilities/favor-of-the-life-giver-iv"
+      ],
+      "zones": [],
+      "class": "Blood Mage",
+      "level_learned": 30,
+      "rank": "IV"
+    },
+    {
+      "id": 60359,
+      "type": "ability",
+      "name": "Favor of the Life Giver V",
+      "file": "raw\\2026-10-20-iteration762-favor-cache-replay\\ability.jsonl",
+      "line": 5,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/abilities/favor-of-the-life-giver-v"
+      ],
+      "zones": [],
+      "class": "Blood Mage",
+      "level_learned": 40,
+      "rank": "V"
+    },
+    {
+      "id": 60360,
+      "type": "ability",
+      "name": "Favor of the Life Giver VI",
+      "file": "raw\\2026-10-20-iteration762-favor-cache-replay\\ability.jsonl",
+      "line": 6,
+      "confidence": "medium",
+      "parser_version": 116,
+      "source_urls": [
+        "https://vgsoharchive.com/abilities/favor-of-the-life-giver-vi"
+      ],
+      "zones": [],
+      "class": "Blood Mage",
+      "level_learned": 50,
+      "rank": "VI"
     }
   ],
   "by_name": {
@@ -963603,7 +967007,9 @@
       11606,
       15366,
       18907,
-      22275
+      22275,
+      60349,
+      60355
     ],
     "ability:favor of the life giver ii": [
       1478,
@@ -963612,7 +967018,9 @@
       11607,
       15367,
       18908,
-      22276
+      22276,
+      60350,
+      60356
     ],
     "ability:favor of the life giver iii": [
       1479,
@@ -963621,7 +967029,9 @@
       11608,
       15368,
       18909,
-      22524
+      22524,
+      60351,
+      60357
     ],
     "ability:favor of the life giver iv": [
       1480,
@@ -963630,7 +967040,9 @@
       11609,
       15369,
       18910,
-      23550
+      23550,
+      60352,
+      60358
     ],
     "ability:favor of the life giver v": [
       1481,
@@ -963639,7 +967051,9 @@
       11610,
       15370,
       18911,
-      23551
+      23551,
+      60353,
+      60359
     ],
     "ability:favor of the life giver vi": [
       1482,
@@ -963648,7 +967062,9 @@
       11611,
       15371,
       18912,
-      23552
+      23552,
+      60354,
+      60360
     ],
     "ability:favor of the protector": [
       1483,
@@ -981960,7 +985376,8 @@
       10179,
       13607,
       17367,
-      20908
+      20908,
+      60214
     ],
     "ability:weak spirit bond: nag-suul": [
       3479,
@@ -981969,7 +985386,8 @@
       10180,
       13608,
       17368,
-      20909
+      20909,
+      60215
     ],
     "ability:weak spirit bond: skamadiz": [
       3480,
@@ -981978,7 +985396,8 @@
       10181,
       13609,
       17369,
-      20910
+      20910,
+      60213
     ],
     "ability:weapon shield": [
       3481,
@@ -1007982,7 +1011401,8 @@
       37056
     ],
     "item:abandoned horn": [
-      36940
+      36940,
+      60134
     ],
     "item:abandoned parrying dagger": [
       36941
@@ -1011914,7 +1015334,8 @@
       38412
     ],
     "item:ancient melody": [
-      38413
+      38413,
+      60191
     ],
     "item:ancient mordebi bow": [
       38414
@@ -1014148,7 +1017569,8 @@
       39153
     ],
     "item:ariezel's horn of rage": [
-      39154
+      39154,
+      60142
     ],
     "item:ark of aanak vor'dan": [
       39155
@@ -1017017,7 +1020439,8 @@
       40107
     ],
     "item:ballack's horn of command": [
-      40108
+      40108,
+      60138
     ],
     "item:ballack's surprising heavy pendant": [
       40109
@@ -1071990,6 +1075413,648 @@
     ],
     "loot:umber oak tree": [
       60127
+    ],
+    "item:resonating horn": [
+      60128
+    ],
+    "item:cry of fozzrock": [
+      60129
+    ],
+    "item:horn of resonation": [
+      60130
+    ],
+    "item:orcish horn": [
+      60131
+    ],
+    "item:hollow antenna": [
+      60132
+    ],
+    "item:broken fang horn": [
+      60133
+    ],
+    "item:horn of the cave": [
+      60135
+    ],
+    "item:brass horn of the ettercap": [
+      60136
+    ],
+    "item:jin infused horn": [
+      60137
+    ],
+    "item:beak of scourge": [
+      60139
+    ],
+    "item:horn of terror": [
+      60140
+    ],
+    "item:trumpet of trengal keep": [
+      60141
+    ],
+    "item:blind eye's battlecaller": [
+      60143
+    ],
+    "item:song of the sea": [
+      60144
+    ],
+    "item:unicorn horn": [
+      60145
+    ],
+    "item:mindcall horn": [
+      60146
+    ],
+    "item:horn of old": [
+      60147
+    ],
+    "item:dirgesong": [
+      60148
+    ],
+    "item:hollowed bone horn": [
+      60149
+    ],
+    "item:krraajar's horn": [
+      60150
+    ],
+    "item:horn of the cyclops": [
+      60151
+    ],
+    "item:hollow rhino horn": [
+      60152
+    ],
+    "item:herald of rakshasa": [
+      60153
+    ],
+    "item:huntsman's horn": [
+      60154
+    ],
+    "item:ghostly war-horn": [
+      60155
+    ],
+    "item:horn of the minotaur lord": [
+      60156
+    ],
+    "item:valkyrie's call": [
+      60157
+    ],
+    "item:horgus' bent charm": [
+      60158
+    ],
+    "item:painted ocarina": [
+      60159
+    ],
+    "item:perjirrax's skull": [
+      60160
+    ],
+    "item:horn of houndcalling": [
+      60161
+    ],
+    "item:voice of the colossi": [
+      60162
+    ],
+    "item:flame scarred bone horn": [
+      60163
+    ],
+    "item:rune etched bone horn": [
+      60164
+    ],
+    "item:ornate stone horn": [
+      60165
+    ],
+    "item:minstrel's drum": [
+      60166
+    ],
+    "item:drum of the redcaps": [
+      60167
+    ],
+    "item:martok wartempo": [
+      60168
+    ],
+    "item:mountain hunter's drum": [
+      60169
+    ],
+    "item:venom etched drum": [
+      60170
+    ],
+    "item:watch drum": [
+      60171
+    ],
+    "item:resonating steel drum": [
+      60172
+    ],
+    "item:drum of slaughter": [
+      60173
+    ],
+    "item:ettercap wardrums": [
+      60174
+    ],
+    "item:drums of the hermit": [
+      60175
+    ],
+    "item:onyx drum": [
+      60176
+    ],
+    "item:rhino hide drum": [
+      60177
+    ],
+    "item:gorgalok skin drum": [
+      60178
+    ],
+    "item:drum of zezzexxezzexx": [
+      60179
+    ],
+    "item:achbishop's gong": [
+      60180
+    ],
+    "item:drum of separation": [
+      60181
+    ],
+    "item:the whitewind drum": [
+      60182
+    ],
+    "item:minstrel's lute": [
+      60183
+    ],
+    "item:echoing lute": [
+      60184
+    ],
+    "item:wierlaun's lute of melodies": [
+      60185
+    ],
+    "item:nebulous lute": [
+      60186
+    ],
+    "item:lute of lao’jin": [
+      60187
+    ],
+    "item:cirel's sanguine mandolin": [
+      60188
+    ],
+    "item:kheval's fiddle": [
+      60189
+    ],
+    "item:lute of the vinewalker": [
+      60190
+    ],
+    "item:jharuu skin lute": [
+      60192
+    ],
+    "item:lute of the wind": [
+      60193
+    ],
+    "item:khazkal's lute of lament": [
+      60194
+    ],
+    "item:strung moss lute": [
+      60195
+    ],
+    "item:orcbane flute": [
+      60196
+    ],
+    "item:waterlogged piccolo": [
+      60197
+    ],
+    "item:skrill bone flute": [
+      60198
+    ],
+    "item:brownie voice imitator": [
+      60199
+    ],
+    "item:instrument of corruption": [
+      60200
+    ],
+    "item:flute of infestation": [
+      60201
+    ],
+    "item:bone flute of the cur": [
+      60202
+    ],
+    "item:flute of grace": [
+      60203
+    ],
+    "item:ebonwood recorder": [
+      60204
+    ],
+    "item:fairybone flute": [
+      60205
+    ],
+    "item:lute of whispers": [
+      60206
+    ],
+    "item:flute of the beast tamer": [
+      60207
+    ],
+    "item:billagat bone flute": [
+      60208
+    ],
+    "item:rhino horn pipes": [
+      60209
+    ],
+    "item:hillsinger's voice": [
+      60210
+    ],
+    "item:swamproot pipe": [
+      60211
+    ],
+    "ability:mien of the mystic": [
+      60212
+    ],
+    "ability:spirit bond: skamadiz": [
+      60216
+    ],
+    "ability:spirit bond: krigus": [
+      60217
+    ],
+    "ability:spirit bond: nag-suul": [
+      60218
+    ],
+    "ability:strong spirit bond: skamadiz": [
+      60219
+    ],
+    "ability:strong spirit bond: krigus": [
+      60220
+    ],
+    "ability:strong spirit bond: nag-suul": [
+      60221
+    ],
+    "creature:umber palm tree": [
+      60222
+    ],
+    "creature:umber pine tree": [
+      60223
+    ],
+    "creature:umber root": [
+      60224
+    ],
+    "creature:umber tangleleaf tree": [
+      60225
+    ],
+    "creature:umbral pan": [
+      60226
+    ],
+    "creature:umbral seer": [
+      60227
+    ],
+    "creature:umjarkin the ruptured": [
+      60228
+    ],
+    "creature:unagi": [
+      60229
+    ],
+    "creature:unattuned imperial construct": [
+      60230
+    ],
+    "creature:unblood surom": [
+      60231
+    ],
+    "creature:unbroken jug": [
+      60232
+    ],
+    "creature:uncanny frog": [
+      60233
+    ],
+    "creature:unclelord": [
+      60234
+    ],
+    "creature:undead acolyte": [
+      60235
+    ],
+    "creature:undead archer": [
+      60236
+    ],
+    "creature:undead bear": [
+      60237
+    ],
+    "creature:undead behemoth": [
+      60238
+    ],
+    "creature:undead bonemage": [
+      60239
+    ],
+    "creature:undead cadet": [
+      60240
+    ],
+    "creature:undead captain": [
+      60241
+    ],
+    "creature:undead cartheon officer": [
+      60242
+    ],
+    "creature:undead combatant": [
+      60243
+    ],
+    "creature:undead commander bosk": [
+      60244
+    ],
+    "creature:undead commander kratos": [
+      60245
+    ],
+    "creature:undead commander seracek": [
+      60246
+    ],
+    "creature:undead commander vralek": [
+      60247
+    ],
+    "creature:undead commander zlixin": [
+      60248
+    ],
+    "creature:undead construct": [
+      60249
+    ],
+    "creature:undead diviner": [
+      60250
+    ],
+    "creature:undead envoy": [
+      60251
+    ],
+    "creature:undead gulgrethor knight": [
+      60252
+    ],
+    "creature:undead gulgrethor mauler": [
+      60253
+    ],
+    "creature:undead gulgrethor sentinel": [
+      60254
+    ],
+    "creature:undead heretic": [
+      60255
+    ],
+    "creature:undead infantryman": [
+      60256
+    ],
+    "creature:undead infiltrator": [
+      60257
+    ],
+    "creature:undead legionnaire": [
+      60258
+    ],
+    "creature:undead mender": [
+      60259
+    ],
+    "creature:undead reaper": [
+      60260
+    ],
+    "creature:undead reviver": [
+      60261
+    ],
+    "creature:undead rock troll": [
+      60262
+    ],
+    "creature:undead servant": [
+      60263
+    ],
+    "creature:undead shinak scrapper": [
+      60264
+    ],
+    "creature:undead shinak soldier": [
+      60265
+    ],
+    "creature:undead soldier": [
+      60266
+    ],
+    "creature:undead spellbinder": [
+      60267
+    ],
+    "creature:undead stalker": [
+      60268
+    ],
+    "creature:undead town guard": [
+      60269
+    ],
+    "creature:undead troll": [
+      60270
+    ],
+    "creature:undead troll garzonag": [
+      60271
+    ],
+    "creature:undead wolf": [
+      60272
+    ],
+    "creature:underling sh'rel": [
+      60273
+    ],
+    "creature:underpriest linek": [
+      60274
+    ],
+    "creature:underpriest phoeb": [
+      60275
+    ],
+    "creature:underpriest trisyl": [
+      60276
+    ],
+    "creature:undulating ooze": [
+      60277
+    ],
+    "creature:undying grizzly": [
+      60278
+    ],
+    "creature:unearthly deposit": [
+      60279
+    ],
+    "creature:unidentifiable body": [
+      60280
+    ],
+    "creature:unloj": [
+      60281
+    ],
+    "creature:unmarked chest": [
+      60282
+    ],
+    "creature:unnatural beast": [
+      60283
+    ],
+    "creature:unpainted rock": [
+      60284
+    ],
+    "creature:unspoken": [
+      60285
+    ],
+    "creature:unstable elemental": [
+      60286
+    ],
+    "creature:unstable flareling": [
+      60287
+    ],
+    "creature:untamed ravager": [
+      60288
+    ],
+    "creature:untamed tome": [
+      60289
+    ],
+    "creature:untrenz": [
+      60290
+    ],
+    "creature:unusual crystal": [
+      60291
+    ],
+    "creature:upton quincel": [
+      60292
+    ],
+    "creature:urdo the large": [
+      60293
+    ],
+    "creature:urdro the mighty": [
+      60294
+    ],
+    "creature:urdro the large": [
+      60295
+    ],
+    "creature:urfarosh madari": [
+      60296
+    ],
+    "creature:urogog shambler": [
+      60297
+    ],
+    "creature:urogog shambler whelp": [
+      60298
+    ],
+    "creature:ursagor": [
+      60299
+    ],
+    "creature:urst sabil": [
+      60300
+    ],
+    "creature:urugog gnawer": [
+      60301
+    ],
+    "creature:urugog gnawer whelp": [
+      60302
+    ],
+    "creature:urugog rockchewer": [
+      60303
+    ],
+    "creature:urugog rockchewer whelp": [
+      60304
+    ],
+    "creature:utnayan wench": [
+      60305
+    ],
+    "creature:utrenz": [
+      60306
+    ],
+    "creature:uukaha sentry": [
+      60307
+    ],
+    "creature:vaela traxis": [
+      60308
+    ],
+    "creature:vaelwyn anathema": [
+      60309
+    ],
+    "creature:vaelwyn blightwitch": [
+      60310
+    ],
+    "creature:vaelwyn caudron": [
+      60311
+    ],
+    "creature:vaelwyn cauldron": [
+      60312
+    ],
+    "creature:vaelwyn chest": [
+      60313
+    ],
+    "loot:umber palm tree": [
+      60314
+    ],
+    "loot:umber pine tree": [
+      60315
+    ],
+    "loot:umber root": [
+      60316
+    ],
+    "loot:umber tangleleaf tree": [
+      60317
+    ],
+    "loot:undead bear": [
+      60318
+    ],
+    "loot:undead captain": [
+      60319
+    ],
+    "loot:undulating ooze": [
+      60320
+    ],
+    "loot:unearthly deposit": [
+      60321
+    ],
+    "loot:unmarked chest": [
+      60322
+    ],
+    "loot:unnatural beast": [
+      60323
+    ],
+    "loot:unspoken": [
+      60324
+    ],
+    "loot:unstable elemental": [
+      60325
+    ],
+    "loot:untamed tome": [
+      60326
+    ],
+    "loot:untrenz": [
+      60327
+    ],
+    "loot:unusual crystal": [
+      60328
+    ],
+    "loot:urdo the large": [
+      60329
+    ],
+    "loot:urdro the large": [
+      60330
+    ],
+    "loot:urogog shambler": [
+      60331
+    ],
+    "loot:urogog shambler whelp": [
+      60332
+    ],
+    "loot:urugog gnawer": [
+      60333
+    ],
+    "loot:urugog gnawer whelp": [
+      60334
+    ],
+    "loot:urugog rockchewer": [
+      60335
+    ],
+    "loot:urugog rockchewer whelp": [
+      60336
+    ],
+    "loot:vaela traxis": [
+      60337
+    ],
+    "loot:vaelwyn anathema": [
+      60338
+    ],
+    "loot:vaelwyn cauldron": [
+      60339
+    ],
+    "loot:vaelwyn chest": [
+      60340
+    ],
+    "npc:ungorik the exile": [
+      60341
+    ],
+    "npc:unk": [
+      60342
+    ],
+    "npc:uric onuss": [
+      60343
+    ],
+    "npc:uuvari": [
+      60344
+    ],
+    "npc:uuvari jhael": [
+      60345
+    ],
+    "npc:uvela": [
+      60346
+    ],
+    "npc:uzien": [
+      60347
+    ],
+    "npc:vaelbeth cameron": [
+      60348
     ]
   },
   "by_kind": {
@@ -1084603,7 +1088668,99 @@
       60122,
       60123,
       60124,
-      60125
+      60125,
+      60222,
+      60223,
+      60224,
+      60225,
+      60226,
+      60227,
+      60228,
+      60229,
+      60230,
+      60231,
+      60232,
+      60233,
+      60234,
+      60235,
+      60236,
+      60237,
+      60238,
+      60239,
+      60240,
+      60241,
+      60242,
+      60243,
+      60244,
+      60245,
+      60246,
+      60247,
+      60248,
+      60249,
+      60250,
+      60251,
+      60252,
+      60253,
+      60254,
+      60255,
+      60256,
+      60257,
+      60258,
+      60259,
+      60260,
+      60261,
+      60262,
+      60263,
+      60264,
+      60265,
+      60266,
+      60267,
+      60268,
+      60269,
+      60270,
+      60271,
+      60272,
+      60273,
+      60274,
+      60275,
+      60276,
+      60277,
+      60278,
+      60279,
+      60280,
+      60281,
+      60282,
+      60283,
+      60284,
+      60285,
+      60286,
+      60287,
+      60288,
+      60289,
+      60290,
+      60291,
+      60292,
+      60293,
+      60294,
+      60295,
+      60296,
+      60297,
+      60298,
+      60299,
+      60300,
+      60301,
+      60302,
+      60303,
+      60304,
+      60305,
+      60306,
+      60307,
+      60308,
+      60309,
+      60310,
+      60311,
+      60312,
+      60313
     ],
     "item": [
       13,
@@ -1090109,7 +1094266,91 @@
       42909,
       42910,
       42911,
-      42912
+      42912,
+      60128,
+      60129,
+      60130,
+      60131,
+      60132,
+      60133,
+      60134,
+      60135,
+      60136,
+      60137,
+      60138,
+      60139,
+      60140,
+      60141,
+      60142,
+      60143,
+      60144,
+      60145,
+      60146,
+      60147,
+      60148,
+      60149,
+      60150,
+      60151,
+      60152,
+      60153,
+      60154,
+      60155,
+      60156,
+      60157,
+      60158,
+      60159,
+      60160,
+      60161,
+      60162,
+      60163,
+      60164,
+      60165,
+      60166,
+      60167,
+      60168,
+      60169,
+      60170,
+      60171,
+      60172,
+      60173,
+      60174,
+      60175,
+      60176,
+      60177,
+      60178,
+      60179,
+      60180,
+      60181,
+      60182,
+      60183,
+      60184,
+      60185,
+      60186,
+      60187,
+      60188,
+      60189,
+      60190,
+      60191,
+      60192,
+      60193,
+      60194,
+      60195,
+      60196,
+      60197,
+      60198,
+      60199,
+      60200,
+      60201,
+      60202,
+      60203,
+      60204,
+      60205,
+      60206,
+      60207,
+      60208,
+      60209,
+      60210,
+      60211
     ],
     "loot": [
       23,
@@ -1092413,7 +1096654,34 @@
       60095,
       60096,
       60126,
-      60127
+      60127,
+      60314,
+      60315,
+      60316,
+      60317,
+      60318,
+      60319,
+      60320,
+      60321,
+      60322,
+      60323,
+      60324,
+      60325,
+      60326,
+      60327,
+      60328,
+      60329,
+      60330,
+      60331,
+      60332,
+      60333,
+      60334,
+      60335,
+      60336,
+      60337,
+      60338,
+      60339,
+      60340
     ],
     "npc": [
       24,
@@ -1096623,7 +1100891,15 @@
       60098,
       60099,
       60100,
-      60101
+      60101,
+      60341,
+      60342,
+      60343,
+      60344,
+      60345,
+      60346,
+      60347,
+      60348
     ],
     "quest": [
       45,
@@ -1131210,7 +1135486,29 @@
       37736,
       37737,
       37738,
-      37739
+      37739,
+      60212,
+      60213,
+      60214,
+      60215,
+      60216,
+      60217,
+      60218,
+      60219,
+      60220,
+      60221,
+      60349,
+      60350,
+      60351,
+      60352,
+      60353,
+      60354,
+      60355,
+      60356,
+      60357,
+      60358,
+      60359,
+      60360
     ],
     "diplomacy": [
       285,
@@ -1132405,7 +1136703,12 @@
       59031,
       59141,
       59808,
-      59809
+      59809,
+      60252,
+      60253,
+      60254,
+      60264,
+      60265
     ],
     "Wildgrowth Forest": [
       2,
@@ -1133574,7 +1137877,8 @@
       60059,
       60092,
       60097,
-      60098
+      60098,
+      60280
     ],
     "Ca'ial Brael": [
       5,
@@ -1134157,7 +1138461,12 @@
       59856,
       59861,
       60031,
-      60089
+      60089,
+      60309,
+      60310,
+      60311,
+      60312,
+      60313
     ],
     "Fathesi Coast": [
       37,
@@ -1135452,7 +1139761,8 @@
       60021,
       60022,
       60023,
-      60024
+      60024,
+      60285
     ],
     "Gaxton Village · Martok": [
       67,
@@ -1135727,7 +1140037,11 @@
       59362,
       59363,
       59408,
-      59812
+      59812,
+      60269,
+      60291,
+      60293,
+      60295
     ],
     "Blighted Lands": [
       99,
@@ -1136000,7 +1140314,8 @@
       60118,
       60119,
       60120,
-      60121
+      60121,
+      60226
     ],
     "Coterie Infineum Sanctuary": [
       100,
@@ -1136624,7 +1140939,8 @@
       59404,
       59406,
       59446,
-      59857
+      59857,
+      60279
     ],
     "Hathor Zhi": [
       102,
@@ -1137185,7 +1141501,8 @@
       59769,
       59786,
       60025,
-      60034
+      60034,
+      60231
     ],
     "Jalen's Crossing": [
       103,
@@ -1137345,7 +1141662,8 @@
       59991,
       59992,
       60027,
-      60030
+      60030,
+      60346
     ],
     "Kaon's Rush": [
       104,
@@ -1138366,7 +1142684,10 @@
       59848,
       60055,
       60060,
-      60100
+      60100,
+      60228,
+      60234,
+      60251
     ],
     "Northern Highlands": [
       107,
@@ -1139084,7 +1143405,8 @@
       59788,
       59851,
       59921,
-      59981
+      59981,
+      60249
     ],
     "Seawatch Coast": [
       110,
@@ -1139564,7 +1143886,9 @@
       59294,
       59321,
       59522,
-      59844
+      59844,
+      60232,
+      60348
     ],
     "Tar Janashir": [
       113,
@@ -1141153,7 +1145477,8 @@
       59528,
       59529,
       59603,
-      59763
+      59763,
+      60281
     ],
     "Nerail Tharazen": [
       122,
@@ -1141237,7 +1145562,8 @@
       56933,
       57009,
       57146,
-      59696
+      59696,
+      60290
     ],
     "Abella Cove": [
       140,
@@ -1141512,7 +1145838,8 @@
       58925,
       59036,
       59270,
-      59728
+      59728,
+      60287
     ],
     "Ahgram": [
       146,
@@ -1144524,7 +1148851,8 @@
       59390,
       59534,
       59630,
-      59761
+      59761,
+      60284
     ],
     "Dahknarg Village": [
       211,
@@ -1144766,7 +1149094,8 @@
       57036,
       57046,
       57048,
-      57050
+      57050,
+      60238
     ],
     "Darksea Crag": [
       216,
@@ -1145141,7 +1149470,8 @@
       59429,
       59634,
       59922,
-      59965
+      59965,
+      60296
     ],
     "Dragons Maw": [
       227,
@@ -1145902,7 +1150232,8 @@
       56654,
       57049,
       57232,
-      59272
+      59272,
+      60270
     ],
     "Glade Of The Lost": [
       256,
@@ -1145940,7 +1150271,8 @@
       58856,
       58857,
       58858,
-      58861
+      58861,
+      60272
     ],
     "Graystone": [
       258,
@@ -1146646,7 +1150978,10 @@
       59301,
       59371,
       59455,
-      59775
+      59775,
+      60274,
+      60275,
+      60276
     ],
     "Infineum Sanctuary": [
       549,
@@ -1148262,7 +1152597,8 @@
       59511,
       59635,
       59771,
-      60107
+      60107,
+      60229
     ],
     "Tursh Village": [
       14023,
@@ -1149163,7 +1153499,10 @@
       59975,
       59978,
       60011,
-      60123
+      60123,
+      60283,
+      60289,
+      60292
     ],
     "Veskal's Exchange": [
       14036,
@@ -1150301,7 +1154640,8 @@
       60029,
       60057,
       60064,
-      60088
+      60088,
+      60299
     ],
     "Khal": [
       14211,
@@ -1152059,7 +1156399,15 @@
       59040,
       59147,
       59915,
-      60012
+      60012,
+      60236,
+      60239,
+      60255,
+      60259,
+      60260,
+      60261,
+      60266,
+      60268
     ],
     "Zarabadi Landing": [
       17653,
@@ -1153187,7 +1157535,8 @@
       59311,
       59312,
       59523,
-      59806
+      59806,
+      60345
     ],
     "Keejay Cove": [
       22600,
@@ -1154110,7 +1158459,8 @@
       60081,
       60082,
       60086,
-      60122
+      60122,
+      60300
     ],
     "Merchant": [
       22627,
@@ -1154359,7 +1158709,8 @@
       59663,
       59798,
       59799,
-      59801
+      59801,
+      60307
     ],
     "Oathbreaker (Red Swallow) Caves": [
       22638
@@ -1154564,7 +1158915,8 @@
       59399,
       59500,
       59661,
-      60037
+      60037,
+      60235
     ],
     "Orcbane Mines": [
       22644,
@@ -1154961,7 +1159313,17 @@
       58762,
       58765,
       59438,
-      59601
+      59601,
+      60237,
+      60240,
+      60242,
+      60243,
+      60250,
+      60256,
+      60258,
+      60267,
+      60278,
+      60308
     ],
     "Port Aughos": [
       22651,
@@ -1155760,7 +1160122,8 @@
       58736,
       58737,
       58977,
-      59418
+      59418,
+      60277
     ],
     "Rockspine Lair": [
       22678,
@@ -1155905,7 +1160268,8 @@
       59335,
       59373,
       59658,
-      59666
+      59666,
+      60262
     ],
     "Ruins Of Trengal Keep": [
       22681,
@@ -1156412,7 +1160776,8 @@
       48561,
       48675,
       54314,
-      55835
+      55835,
+      60224
     ],
     "Serpent of Sihari (Lomshir)": [
       22694,
@@ -1156850,7 +1161215,8 @@
       58718,
       59330,
       59430,
-      59587
+      59587,
+      60257
     ],
     "Shrine of the Eternal Flame": [
       22706,
@@ -1157067,7 +1161433,8 @@
       58426,
       58529,
       58980,
-      59688
+      59688,
+      60273
     ],
     "Smuggler's Bend": [
       22712,
@@ -1157450,7 +1161817,8 @@
       59622,
       59623,
       59792,
-      60069
+      60069,
+      60282
     ],
     "Stranglewater Cove": [
       22728,
@@ -1158373,7 +1162741,8 @@
       59640,
       59665,
       59982,
-      60014
+      60014,
+      60241
     ],
     "Temple of Ghalnn": [
       22742
@@ -1159389,7 +1163758,8 @@
       58995,
       59199,
       59862,
-      60015
+      60015,
+      60343
     ],
     "Vault of the Hidden": [
       22794
@@ -1161073,6 +1165443,26 @@
     {
       "file": "raw\\2026-10-17-iteration148-wiki-cache-review\\article_observations.jsonl",
       "line": 1,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration161-disciple-macros\\observations.jsonl",
+      "line": 1,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration161-disciple-macros\\observations.jsonl",
+      "line": 2,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration161-disciple-macros\\observations.jsonl",
+      "line": 3,
+      "issue": "missing record identity"
+    },
+    {
+      "file": "raw\\2026-10-17-iteration161-disciple-macros\\observations.jsonl",
+      "line": 4,
       "issue": "missing record identity"
     }
   ]
