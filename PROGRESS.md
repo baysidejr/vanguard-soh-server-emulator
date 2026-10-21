@@ -10,6 +10,7 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Last test results
 
+- 2026-10-20 (after PR #2 promotion and B-030): tools/check_all.py 6 of 6 (unit 310, content, 26 scenarios, load p95 10.6 ms, server log, fuzzing clean); crowdsourced tests 335 OK from inside crowdsourced/; real save database untouched (scratch copies only).
 - 2026-10-19 (new PC, tools reinstalled): tools/check_all.py 6 of 6 (unit 307, content, 26 scenarios, load p95 10.8 ms, server log, fuzzing clean) and the client smoke test PASS (logged in, entered the world, 49 commands); real save database fingerprint unchanged (8 characters).
 - 2026-10-17 (late, at the pause): check_all --client 6 of 7: unit 307, content, scenarios, load p95 11.6 ms, server log, fuzzing passed; the client smoke test failed before Play with no server error (scripted input, PC in use). Re-run with the PC idle (docs/RESUME.md).
 - 2026-10-17 (after the owner decisions, imports, chunk moves and death checks): 50 bots for 120 s in Khal on a scratch copy: 50/50 joined, 5,582 steady-state pings median 10.6 ms, p95 11.4 ms, max 22.5 ms, no lost packets, 0 server errors, memory 150 MB under load (as the 15-minute soak). check_all 6/6 (unit 297), --client 7/7 earlier today; many hand-run items checked in the client with tools/client_ui.py (TESTING.md).
@@ -99,6 +100,7 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-20 (later): Owner merged the scrape branch again (PR #2, the first new raw batch: 127 records). Rebased; crowdsourced tests 335 OK; refresh --apply promoted 4 creature templates, 6 spawns, 2 kill quests (placeholder camps) and 1 disabled delivery; 101 of 101 quests finishable. B-030 found while reviewing the batch and fixed: loot rows named from URL slugs had lost their apostrophe ("Zelser s Hoop"); the importer now uses the item page title or restores the "'s", and 131 existing loot rows were renamed. PowerShell execution policy set by the owner; the bypass flag is no longer needed.
 - 2026-10-20: Service items checked live (Gender Change, Character Rename incl. a refused taken name, Experience Debt Clearance with and without a tombstone, Unbinding Tool on a Bind On Equip ring, Race Change). Owner merged the scrape branch (PR #1); rebased, refresh --apply changed nothing.
 - 2026-10-20: Hand-run items in the client (UI driver, scratch save): Ctrl+click split, Small Pouch on the bar, Salvage Kit on a Rusted Dagger, jewelry and ore tooltips, Brass Spyglass, banking coins in and out (TESTING.md). B-029 found and fixed: the client's 0x5c7 camera fade oscillates for ever, so the spyglass zoom swung back and forth; the server now pins the view once the fade ends (timed sends, 4 Hz). tools/client_ui.py keeps the game window inside the work area and refocuses it before screenshots.
 - 2026-10-19: Resumed on a new PC: Ghidra 12.1.4 with ReVa (extension and headless MCP), JDK 21, capstone, a persistent Ghidra project of VGClient.exe; client files at the repo root; all checks pass. B-009: merged the scrape branch (ac58915, 15 review-data commits); refresh --apply changed nothing.

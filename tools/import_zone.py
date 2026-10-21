@@ -709,7 +709,52 @@ def write(path, doc):
         f.write("\n")
 
 
-def attach_loot(mobs, loot_recs, content=CONTENT):
+def archive_item_names(raw=None):
+    """URL slug -> name of every collected item page; loot rows named from a slug are fixed
+    from it (editor.archive_item_name, backlog B-030)."""
+    names = {}
+    for r in archive_npcs(raw, kind="item").values():
+        for src in r.get("sources") or []:
+            u = (src.get("url") or "").rstrip("/")
+            if "/items/" in u:
+                names[u.rsplit("/", 1)[-1]] = r["name"]
+    return names
+
+
+def fix_loot_names(apply, content=CONTENT, raw=None):
+    """Put the possessive back into loot.json rows the archive named from a URL slug ("Zelser s
+    Hoop"; backlog B-030): the collected item page's title when there is one, else "'s". Returns
+    how many rows change; rewrites loot.json only with apply."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import editor
+    item_names = archive_item_names(raw)
+    urls = {}
+    for rec in archive_npcs(raw, kind="loot").values():
+        for d in rec.get("drops") or []:
+            if d.get("item") and d.get("url"):
+                urls.setdefault(d["item"], d["url"])
+    path = os.path.join(content, "loot.json")
+    loot = load(path, {})
+    items = load(os.path.join(content, "items.json"), {})
+    changed = 0
+    for rows in loot.values():
+        for row in rows if isinstance(rows, list) else []:
+            if not isinstance(row, dict) or not row.get("name"):
+                continue
+            new = editor.archive_item_name(row["name"], urls.get(row["name"]), item_names)
+            if new == row["name"]:
+                continue
+            row["name"] = new
+            icon = (items.get(new) or {}).get("icon") if isinstance(items.get(new), dict) else None
+            if icon is not None and "icon" not in row:
+                row["icon"] = icon
+            changed += 1
+    if changed and apply:
+        write(path, loot)
+    return changed
+
+
+def attach_loot(mobs, loot_recs, content=CONTENT, item_names=None):
     """Give imported creatures the archive's drops: a loot.json table per creature that has a loot
     record (editor.loot_draft: chance from the archive's percentage, icon from items.json),
     created once, and the template's "loot". Returns the number of tables added."""
@@ -722,7 +767,9 @@ def attach_loot(mobs, loot_recs, content=CONTENT):
         rec = loot_recs.get(t.get("name"))
         if rec is None or not t.get("aggro_radius") and "damage" not in t:
             continue
-        d = editor.loot_draft(rec, (rec.get("sources") or [{}])[0].get("url"), lambda n: key, content)
+        if item_names is None:
+            item_names = archive_item_names()
+        d = editor.loot_draft(rec, (rec.get("sources") or [{}])[0].get("url"), lambda n: key, content, item_names)
         if "error" in d:
             continue
         table = key + "_drops"

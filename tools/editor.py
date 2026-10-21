@@ -455,11 +455,29 @@ def placeholders(content_dir):
     return out
 
 
-def loot_draft(rec, src, slug, content_dir=None):
+SLUG_POSSESSIVE = re.compile(r"(?<=[A-Za-z]) s (?=[A-Z0-9])")
+
+
+def archive_item_name(name, url=None, item_names=None):
+    """The archive's loot rows nobody has seen drop carry names rebuilt from the item page's URL
+    slug, which loses the possessive apostrophe ("Undro s Leggings" from undro-s-leggings; backlog
+    B-030). The item's own page title is used when the scrape collected it (item_names: URL slug
+    -> name); otherwise the apostrophe goes back (every collected item page spells it "X's Y",
+    none "X s Y")."""
+    if not name:
+        return name
+    slug = (url or "").rstrip("/").rsplit("/", 1)[-1]
+    if item_names and slug and item_names.get(slug):
+        return item_names[slug]
+    return SLUG_POSSESSIVE.sub("'s ", name)
+
+
+def loot_draft(rec, src, slug, content_dir=None, item_names=None):
     """A loot.json table from an archive loot record: one row per drop with its chance (the
     archive's percentage / 100) and the item's icon from items.json when we have the item. Loot
     tables are lists, so what to check goes in "needs" beside the rows. Chances observed over a
-    few kills ("33.3% 1/3") are flagged."""
+    few kills ("33.3% 1/3") are flagged. Item names come through archive_item_name (item_names:
+    URL slug -> collected item page name)."""
     try:
         with open(os.path.join(content_dir or CONTENT, "items.json"), encoding="utf-8") as f:
             items = json.load(f)
@@ -467,7 +485,7 @@ def loot_draft(rec, src, slug, content_dir=None):
         items = {}
     rows, needs = [], []
     for d in rec.get("drops") or []:
-        name = d.get("item")
+        name = archive_item_name(d.get("item"), d.get("url"), item_names)
         if not name:
             continue
         row = {"name": name}

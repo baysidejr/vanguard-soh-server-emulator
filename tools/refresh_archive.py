@@ -36,6 +36,8 @@ def main(argv=None):
     import_zone.SOURCES.append(f"branch {a.branch}")
     print("== zones ==")
     import_zone.import_all(a.apply, set() if a.all_zones else set(KEEP))
+    print("== loot names ==")
+    print(f"{import_zone.fix_loot_names(a.apply)} loot rows named from a URL slug get their apostrophe back (B-030)")
     print("== quest targets ==")
     quests, world, chunks = (import_zone.archive_npcs(kind="quest"), quest_readiness.zone_world(),
                              import_zone.zone_chunks())

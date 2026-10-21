@@ -10924,5 +10924,83 @@
     "requires": [
       "arch_magi_hold_epilogue"
     ]
+  },
+  "arch_exacting_revenge": {
+    "id": 5494,
+    "name": "Exacting Revenge",
+    "level": 38,
+    "giver": "arch_landon_beasley",
+    "steps": [
+      {
+        "objective": "Undead Town Guards",
+        "kill": {
+          "arch_undead_town_guard": 15
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/exacting-revenge",
+    "greeting": "I could use some help. (Exacting Revenge: the archive has no dialogue yet.)",
+    "description": "Landon Beasley has asked you to help: slay 15 Undead Town Guards.",
+    "summary": "Slay 15 Undead Town Guards for Landon Beasley.",
+    "accept_text": "You agree to help Landon Beasley.",
+    "reward": {
+      "xp": 3800
+    }
+  },
+  "arch_the_bears_of_beranid_downs": {
+    "id": 5495,
+    "name": "The Bears of Beranid Downs",
+    "level": 40,
+    "giver": "arch_betsy_gallow",
+    "turn_in": "arch_betsy_gallow",
+    "steps": [
+      {
+        "objective": "Undead Bears Slain",
+        "kill": {
+          "arch_undead_bear": 25
+        }
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/the-bears-of-beranid-downs",
+    "greeting": "I could use some help. (The Bears of Beranid Downs: the archive has no dialogue yet.)",
+    "description": "Betsy Gallow has asked you to help: slay 25 Undead Bears.",
+    "summary": "Slay 25 Undead Bears for Betsy Gallow.",
+    "accept_text": "You agree to help Betsy Gallow.",
+    "reward": {
+      "xp": 4000
+    }
+  },
+  "arch_work_with_uuvari": {
+    "id": 5496,
+    "name": "Work With Uuvari",
+    "level": 30,
+    "giver": "arch_mercenary_hemika",
+    "turn_in": "arch_uuvari_jhael",
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/work-with-uuvari",
+    "steps": [
+      {
+        "objective": "Speak with Uuvari Jhael",
+        "talk": "arch_uuvari_jhael"
+      }
+    ],
+    "greeting": "I could use some help. (Work With Uuvari: the archive has no dialogue yet.)",
+    "description": "Mercenary Hemika has asked you to help: speak with Uuvari Jhael.",
+    "summary": "Speak with Uuvari Jhael for Mercenary Hemika.",
+    "accept_text": "You agree to help Mercenary Hemika.",
+    "reward": {
+      "xp": 750
+    },
+    "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
+    "disabled": true,
+    "_disabled": "B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again."
   }
 }

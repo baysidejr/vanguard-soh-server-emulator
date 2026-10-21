@@ -6352,7 +6352,8 @@
     "level": 9,
     "health": 460,
     "model": 0,
-    "_source": "https://vgsoharchive.com/quests/island-in-the-sky"
+    "_source": "https://vgsoharchive.com/quests/island-in-the-sky",
+    "difficulty": 4
   },
   "arch_foruil_gladesworn": {
     "name": "Foruil Gladesworn",
@@ -16361,7 +16362,8 @@
     "level": 10,
     "health": 500,
     "model": 3,
-    "_source": "https://vgsoharchive.com/quests/visiting-knights"
+    "_source": "https://vgsoharchive.com/quests/visiting-knights",
+    "difficulty": 3
   },
   "arch_aenorul_hydran": {
     "name": "Aenorul Hydran",
@@ -29782,5 +29784,84 @@
     "health": 900,
     "model": 0,
     "_source": "https://vgsoharchive.com/mobs/naji-sevenblade"
+  },
+  "arch_urdro_the_large": {
+    "name": "Urdro the Large",
+    "pawn_class": "SGONPCPawn",
+    "race": 250,
+    "level": 40,
+    "health": 4250,
+    "damage": [
+      40,
+      200
+    ],
+    "aggro_radius": 600,
+    "difficulty": 4,
+    "_source": "https://vgsoharchive.com/mobs/urdro-the-large",
+    "loot": "arch_urdro_the_large_drops"
+  },
+  "arch_uuvari_jhael": {
+    "name": "Uuvari Jhael",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 30,
+    "health": 1300,
+    "difficulty": 1,
+    "model": 1,
+    "_source": "https://vgsoharchive.com/mobs/uuvari-jhael"
+  },
+  "arch_unspoken": {
+    "name": "Unspoken",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 18,
+    "health": 1230,
+    "damage": [
+      18,
+      54
+    ],
+    "aggro_radius": 600,
+    "difficulty": 2,
+    "_source": "https://vgsoharchive.com/mobs/unspoken",
+    "loot": "arch_unspoken_drops"
+  },
+  "arch_untamed_tome": {
+    "name": "Untamed Tome",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 2,
+    "health": 180,
+    "damage": [
+      2,
+      4
+    ],
+    "difficulty": 1,
+    "_source": "https://vgsoharchive.com/mobs/untamed-tome",
+    "loot": "arch_untamed_tome_drops"
+  },
+  "arch_undead_town_guard": {
+    "name": "Undead Town Guard",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 36,
+    "health": 1540,
+    "damage": [
+      36,
+      72
+    ],
+    "_source": "https://vgsoharchive.com/mobs/undead-town-guard"
+  },
+  "arch_undead_bear": {
+    "name": "Undead Bear",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 37,
+    "health": 1580,
+    "damage": [
+      37,
+      74
+    ],
+    "_source": "https://vgsoharchive.com/mobs/undead-bear",
+    "loot": "arch_undead_bear_drops"
   }
 }

@@ -1942,6 +1942,55 @@ class ArchiveDraftTests(unittest.TestCase):
         self.assertNotIn("chance", d["value"][1])
         self.assertEqual(len(d["needs"]), 3)                       # small sample, unknown item, no chance
 
+    def test_loot_draft_restores_slug_possessives(self):
+        # B-030: unobserved drops are named from the URL slug ("Undro s Leggings"); the collected
+        # item page's title wins, else the apostrophe goes back. Observed rows are left alone.
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import editor
+        rec = {"name": "Urdro the Large", "drops": [
+            {"item": "Urdro's Oversized Girdle", "chance": "4.0%", "observed_sample": "4.0% 1/25",
+             "url": "https://vgsoharchive.com/items/urdro-s-oversized-girdle"},
+            {"item": "Undro s Leggings", "chance": None, "url": "https://vgsoharchive.com/items/undro-s-leggings"},
+            {"item": "Acarak s Carapace", "chance": None, "url": "https://vgsoharchive.com/items/acarak-s-carapace"}]}
+        d = editor.loot_draft(rec, "u", lambda n: "urdro", item_names={"acarak-s-carapace": "Acarak's Carapace"})
+        self.assertEqual([r["name"] for r in d["value"]],
+                         ["Urdro's Oversized Girdle", "Undro's Leggings", "Acarak's Carapace"])
+        self.assertEqual(editor.archive_item_name("Mind s Eye Ring"), "Mind's Eye Ring")
+        self.assertEqual(editor.archive_item_name("Bows and Arrows"), "Bows and Arrows")
+        self.assertEqual(editor.archive_item_name("Zelser's Journal: Page 1"), "Zelser's Journal: Page 1")
+
+    def test_fix_loot_names_rewrites_existing_tables(self):
+        import sys
+        import tempfile
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+        with tempfile.TemporaryDirectory() as tmp:
+            content, raw = os.path.join(tmp, "content"), os.path.join(tmp, "raw")
+            os.makedirs(os.path.join(raw, "batch"))
+            os.makedirs(content)
+            with open(os.path.join(raw, "batch", "item.jsonl"), "w", encoding="utf-8") as f:
+                f.write(json.dumps({"name": "Zelser's Hoop", "sources": [{"url": "https://vgsoharchive.com/items/zelser-s-hoop"}]}) + "\n")
+            with open(os.path.join(raw, "batch", "loot.jsonl"), "w", encoding="utf-8") as f:
+                f.write(json.dumps({"name": "Professor Zelser", "drops": [
+                    {"item": "Zelser s Hoop", "url": "https://vgsoharchive.com/items/zelser-s-hoop"},
+                    {"item": "Kekvar s Stud of War", "url": "https://vgsoharchive.com/items/kekvar-s-stud-of-war"}]}) + "\n")
+            with open(os.path.join(content, "items.json"), "w", encoding="utf-8") as f:
+                json.dump({"Kekvar's Stud of War": {"icon": 7}}, f)
+            with open(os.path.join(content, "loot.json"), "w", encoding="utf-8") as f:
+                json.dump({"_comment": "x", "zelser_drops": [{"name": "Zelser s Hoop", "quantity": [1, 1]},
+                                                             {"name": "Kekvar s Stud of War", "quantity": [1, 1]},
+                                                             {"name": "Copper Ore", "quantity": [1, 1]}]}, f)
+            self.assertEqual(import_zone.fix_loot_names(False, content, [raw]), 2)
+            with open(os.path.join(content, "loot.json"), encoding="utf-8") as f:
+                self.assertEqual(json.load(f)["zelser_drops"][0]["name"], "Zelser s Hoop")      # report only
+            self.assertEqual(import_zone.fix_loot_names(True, content, [raw]), 2)
+            with open(os.path.join(content, "loot.json"), encoding="utf-8") as f:
+                rows = json.load(f)["zelser_drops"]
+            self.assertEqual([r["name"] for r in rows], ["Zelser's Hoop", "Kekvar's Stud of War", "Copper Ore"])
+            self.assertEqual(rows[1]["icon"], 7)                          # the fixed name is in items.json
+            self.assertEqual(import_zone.fix_loot_names(True, content, [raw]), 0)
+
     def test_quest_draft_maps_known_names(self):
         import sys
         sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
