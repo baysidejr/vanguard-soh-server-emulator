@@ -10,6 +10,7 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Last test results
 
+- 2026-10-20 (after the conversion-handoff merge and 19 handoff items): tools/check_all.py 6 of 6 (unit 311, content, 26 scenarios, load p95 10.6 ms, server log, fuzzing clean); crowdsourced tests 340 OK; real save database untouched.
 - 2026-10-20 (after PR #2 promotion and B-030): tools/check_all.py 6 of 6 (unit 310, content, 26 scenarios, load p95 10.6 ms, server log, fuzzing clean); crowdsourced tests 335 OK from inside crowdsourced/; real save database untouched (scratch copies only).
 - 2026-10-19 (new PC, tools reinstalled): tools/check_all.py 6 of 6 (unit 307, content, 26 scenarios, load p95 10.8 ms, server log, fuzzing clean) and the client smoke test PASS (logged in, entered the world, 49 commands); real save database fingerprint unchanged (8 characters).
 - 2026-10-17 (late, at the pause): check_all --client 6 of 7: unit 307, content, scenarios, load p95 11.6 ms, server log, fuzzing passed; the client smoke test failed before Play with no server error (scripted input, PC in use). Re-run with the PC idle (docs/RESUME.md).
@@ -100,6 +101,7 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-20 (later still): Merged the scrape branch's conversion handoff (3,384 item and 16 quest candidates; additions only, 340 crowdsourced tests OK). refresh_archive gained a handoff step: 19 items that loot, quests or merchants already name came in with slot icons; the rest stay out until referenced. The handoff quests are unfinishable collect quests, not promoted.
 - 2026-10-20 (later): Owner merged the scrape branch again (PR #2, the first new raw batch: 127 records). Rebased; crowdsourced tests 335 OK; refresh --apply promoted 4 creature templates, 6 spawns, 2 kill quests (placeholder camps) and 1 disabled delivery; 101 of 101 quests finishable. B-030 found while reviewing the batch and fixed: loot rows named from URL slugs had lost their apostrophe ("Zelser s Hoop"); the importer now uses the item page title or restores the "'s", and 131 existing loot rows were renamed. PowerShell execution policy set by the owner; the bypass flag is no longer needed.
 - 2026-10-20: Service items checked live (Gender Change, Character Rename incl. a refused taken name, Experience Debt Clearance with and without a tombstone, Unbinding Tool on a Bind On Equip ring, Race Change). Owner merged the scrape branch (PR #1); rebased, refresh --apply changed nothing.
 - 2026-10-20: Hand-run items in the client (UI driver, scratch save): Ctrl+click split, Small Pouch on the bar, Salvage Kit on a Rusted Dagger, jewelry and ore tooltips, Brass Spyglass, banking coins in and out (TESTING.md). B-029 found and fixed: the client's 0x5c7 camera fade oscillates for ever, so the spyglass zoom swung back and forth; the server now pins the view once the fade ends (timed sends, 4 Hz). tools/client_ui.py keeps the game window inside the work area and refocuses it before screenshots.

@@ -1991,6 +1991,49 @@ class ArchiveDraftTests(unittest.TestCase):
             self.assertEqual(rows[1]["icon"], 7)                          # the fixed name is in items.json
             self.assertEqual(import_zone.fix_loot_names(True, content, [raw]), 0)
 
+    def test_import_handoff_items_adds_only_referenced_candidates(self):
+        # The scrape's conversion handoff proposes thousands of items; only those the world refers
+        # to (loot, quests, merchants) and that the handoff did not withhold come in, with a slot icon.
+        import sys
+        import tempfile
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        import import_zone
+
+        def dump(parts, doc):
+            with open(os.path.join(*parts), "w", encoding="utf-8") as f:
+                json.dump(doc, f)
+
+        def read(parts):
+            with open(os.path.join(*parts), encoding="utf-8") as f:
+                return json.load(f)
+        with tempfile.TemporaryDirectory() as tmp:
+            content, handoff = os.path.join(tmp, "content"), os.path.join(tmp, "handoff")
+            os.makedirs(os.path.join(handoff, "proposed"))
+            os.makedirs(content)
+            dump((handoff, "proposed", "items.json"), {
+                "Abettors Belt": {"type": "armor", "slot": "WAIST", "armor": 26, "icon": 443, "_source": "u1"},
+                "Horn of the Cave": {"rarity": "common", "icon": 443, "_source": "u2"},
+                "Lonely Candidate": {"type": "weapon", "icon": 443, "_source": "u3"},
+                "Rusty Key": {"icon": 443, "_source": "u4"},
+                "Copper Ore": {"icon": 443, "_source": "u5"}})
+            dump((handoff, "DISPOSITION.json"), [{"type": "item", "name": "Horn of the Cave", "status": "withheld"}])
+            dump((content, "items.json"), {"Copper Ore": {"icon": 9}})
+            dump((content, "loot.json"), {"x_drops": [{"name": "Abettors Belt", "quantity": [1, 1]},
+                                                      {"name": "Copper Ore", "quantity": [1, 1]}]})
+            dump((content, "quests.json"), {"q": {"steps": [{"collect": {"Horn of the Cave": 1}}],
+                                                  "reward": {"items": ["Unknown Thing"]}}})
+            dump((content, "merchants.json"), {"shop": {"stock": [{"item": "Rusty Key", "price": 5}]}})
+            self.assertEqual(import_zone.import_handoff_items(False, content, handoff), 2)
+            self.assertEqual(list(read((content, "items.json"))), ["Copper Ore"])         # report only
+            self.assertEqual(import_zone.import_handoff_items(True, content, handoff), 2)
+            items = read((content, "items.json"))
+            self.assertEqual(items["Abettors Belt"]["icon"], import_zone.SLOT_ICONS["WAIST"])
+            self.assertEqual(items["Rusty Key"]["icon"], import_zone.NO_ICON)
+            self.assertNotIn("Horn of the Cave", items)                 # withheld by the handoff
+            self.assertNotIn("Lonely Candidate", items)                 # nothing refers to it
+            self.assertEqual(items["Copper Ore"], {"icon": 9})          # existing items untouched
+            self.assertEqual(import_zone.import_handoff_items(True, content, handoff), 0)
+
     def test_quest_draft_maps_known_names(self):
         import sys
         sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))

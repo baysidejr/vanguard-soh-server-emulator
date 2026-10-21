@@ -939,6 +939,71 @@ def fix_placeholder_icons(content=CONTENT):
     return n
 
 
+HANDOFF = os.path.join(ROOT, "crowdsourced", "reviewed", "conversion-handoff")
+
+
+def referenced_item_names(content=CONTENT):
+    """Every item name the world refers to: loot rows, quest collect steps and rewards, merchant
+    stock entries."""
+    names = set()
+    for rows in load(os.path.join(content, "loot.json"), {}).values():
+        for r in rows if isinstance(rows, list) else []:
+            if isinstance(r, dict) and isinstance(r.get("name"), str):
+                names.add(r["name"])
+    for q in load(os.path.join(content, "quests.json"), {}).values():
+        if not isinstance(q, dict):
+            continue
+        for st in q.get("steps") or []:
+            names.update(k for k in (st.get("collect") or {}) if isinstance(k, str))
+        rw = q.get("reward") or {}
+        for it in list(rw.get("items") or []) + list(rw.get("choice") or []):
+            name = it if isinstance(it, str) else (it or {}).get("name") if isinstance(it, dict) else None
+            if isinstance(name, str):
+                names.add(name)
+
+    def walk(o):
+        if isinstance(o, dict):
+            for k, v in o.items():
+                if k == "item" and isinstance(v, str):
+                    names.add(v)
+                walk(v)
+        elif isinstance(o, list):
+            for x in o:
+                walk(x)
+    walk(load(os.path.join(content, "merchants.json"), {}))
+    return names
+
+
+def import_handoff_items(apply, content=CONTENT, handoff=HANDOFF):
+    """Items the world already refers to but items.json lacks, taken from the scrape's conversion
+    handoff (crowdsourced/reviewed/conversion-handoff/proposed/items.json: the converter's output
+    per archive item page, same schema as the archive items already in items.json) when it has a
+    candidate it did not withhold. Only that referenced subset: the thousands of other candidates
+    would be dead weight until something drops, sells or rewards them. The handoff's icon 443 is a
+    fallback, so the icon comes from slot_icon. Returns how many items were added; writes only
+    with apply."""
+    cands = load(os.path.join(handoff, "proposed", "items.json"), {})
+    if not isinstance(cands, dict) or not cands:
+        return 0
+    withheld = {d.get("name") for d in load(os.path.join(handoff, "DISPOSITION.json"), [])
+                if isinstance(d, dict) and d.get("type") == "item" and d.get("status") == "withheld"}
+    path = os.path.join(content, "items.json")
+    items = load(path, {})
+    added = 0
+    for name in sorted(referenced_item_names(content)):
+        it = cands.get(name)
+        if name in items or not isinstance(it, dict) or name in withheld:
+            continue
+        it = dict(it)
+        if it.get("icon") in (None, 443):
+            it["icon"] = slot_icon(items, it.get("slot"), name)
+        items[name] = it
+        added += 1
+    if added and apply:
+        write(path, items)
+    return added
+
+
 def stock_merchants(content=CONTENT):
     """Give imported merchants on the shared "general_goods" (or on another role stock) the role
     stock matching their title, creating the stock (merchants.json) and its items (items.json, via

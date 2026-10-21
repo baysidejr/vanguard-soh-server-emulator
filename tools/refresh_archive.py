@@ -38,6 +38,8 @@ def main(argv=None):
     import_zone.import_all(a.apply, set() if a.all_zones else set(KEEP))
     print("== loot names ==")
     print(f"{import_zone.fix_loot_names(a.apply)} loot rows named from a URL slug get their apostrophe back (B-030)")
+    print("== handoff items ==")
+    print(f"{import_zone.import_handoff_items(a.apply)} items the world refers to come from the scrape's conversion handoff")
     print("== quest targets ==")
     quests, world, chunks = (import_zone.archive_npcs(kind="quest"), quest_readiness.zone_world(),
                              import_zone.zone_chunks())
