@@ -1577,6 +1577,14 @@ class EditorPageTests(unittest.TestCase):
         import subprocess, sys, tempfile, threading
         sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
         import editor
+        # An Edge updated while the browser is open (new msedge.exe, old process running) exits at
+        # once with no output for any page until it is restarted; that says nothing about the editor.
+        with tempfile.TemporaryDirectory() as prof:
+            probe = subprocess.run([EDGE, "--headless=new", "--disable-gpu", f"--user-data-dir={prof}",
+                                    "--dump-dom", "data:text/html,<p>probe</p>"],
+                                   capture_output=True, text=True, timeout=90).stdout
+        if "probe" not in probe:
+            self.skipTest("headless Edge renders nothing, even a data: page (restart Edge to finish its update)")
         httpd = editor.http.server.ThreadingHTTPServer(("127.0.0.1", 0), editor.Handler)
         threading.Thread(target=httpd.serve_forever, daemon=True).start()
         try:
