@@ -10,6 +10,7 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Last test results
 
+- 2026-10-31 (after the rank-I ability fill, editor test probe): tools/check_all.py 6 of 6 (unit 311 with the editor page test skipped: headless Edge broken until restarted, content, 26 scenarios, load p95 10.8 ms, server log, fuzzing clean).
 - 2026-10-31 (after merging scrape commit 7f834e35 and its refresh): tools/check_all.py 5 of 6 (unit 310 of 311, content, 26 scenarios, load p95 10.7 ms, server log, fuzzing clean); the one failure, test_forms_round_trip, is headless Edge returning an empty page for any URL since its update to 156.0.4314.58 (restart Edge / the PC to finish the update, then re-run); crowdsourced tests 340 OK; real save database untouched.
 - 2026-10-20 (after the conversion-handoff merge and 19 handoff items): tools/check_all.py 6 of 6 (unit 311, content, 26 scenarios, load p95 10.6 ms, server log, fuzzing clean); crowdsourced tests 340 OK; real save database untouched.
 - 2026-10-20 (after PR #2 promotion and B-030): tools/check_all.py 6 of 6 (unit 310, content, 26 scenarios, load p95 10.6 ms, server log, fuzzing clean); crowdsourced tests 335 OK from inside crowdsourced/; real save database untouched (scratch copies only).
@@ -102,6 +103,7 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-31: 117 more class abilities got archive data (71 icons, 80 tooltips, 53 refresh times): the client names single-rank abilities "X I" where the archive page is plain "X"; editor.archive_ability now takes that page when the class matches and no ranked "X II" page exists. Total with archive data: 472 of 808. Logged in crowdsourced/imported.md.
 - 2026-10-31: B-009 cycle: merged scrape commit 7f834e35 (one raw batch, 118 records, data only); refresh --apply added 5 templates, 7 spawns and 2 kill quests (103 of 103 enabled quests finishable).
 - 2026-10-20 (later still): Merged the scrape branch's conversion handoff (3,384 item and 16 quest candidates; additions only, 340 crowdsourced tests OK). refresh_archive gained a handoff step: 19 items that loot, quests or merchants already name came in with slot icons; the rest stay out until referenced. The handoff quests are unfinishable collect quests, not promoted.
 - 2026-10-20 (later): Owner merged the scrape branch again (PR #2, the first new raw batch: 127 records). Rebased; crowdsourced tests 335 OK; refresh --apply promoted 4 creature templates, 6 spawns, 2 kill quests (placeholder camps) and 1 disabled delivery; 101 of 101 quests finishable. B-030 found while reviewing the batch and fixed: loot rows named from URL slugs had lost their apostrophe ("Zelser s Hoop"); the importer now uses the item page title or restores the "'s", and 131 existing loot rows were renamed. PowerShell execution policy set by the owner; the bypass flag is no longer needed.

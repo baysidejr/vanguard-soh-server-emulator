@@ -620,10 +620,27 @@ def class_abilities_list():
     return out
 
 
-def ability_from_archive(name):
+def archive_ability(name, klass=None):
+    """The archive record for a client ability name. The client tags single-rank abilities "X I"
+    where the archive page is plain "X"; that page stands for rank I only when it is the same
+    class's and the archive has no "X II" (etc.) page that would make the plain one ambiguous."""
+    idx = archive_index()
+    rec = idx.get(("ability", name))
+    if rec is not None or klass is None or not name.endswith(" I"):
+        return rec
+    plain = name[:-2]
+    rec = idx.get(("ability", plain))
+    if rec is None or rec.get("class") != klass:
+        return None
+    if any(("ability", f"{plain} {r}") in idx for r in ("I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X")):
+        return None
+    return rec
+
+
+def ability_from_archive(name, klass=None):
     """abilities.json fields the archive record for this ability name has: icon (the archive's
     icon file number is the client's icon number), description (the tooltip), cast, refresh."""
-    rec = archive_index().get(("ability", name))
+    rec = archive_ability(name, klass)
     if rec is None:
         return {}
     out = {}
@@ -649,7 +666,7 @@ def ability_fill(directory):
     out = {}
     for a in class_abilities_list():
         have = current.get(a["name"]) or {}
-        new = {k: v for k, v in ability_from_archive(a["name"]).items() if k not in have}
+        new = {k: v for k, v in ability_from_archive(a["name"], a["class"]).items() if k not in have}
         if any(k != "_source" for k in new):
             out[a["name"]] = new
     return out

@@ -2201,6 +2201,17 @@ class AbilityArchiveTests(unittest.TestCase):
             self.assertEqual(editor.ability_from_archive("Kick I"),
                              {"icon": 516, "description": "Kicks.", "refresh": 12.0, "_source": "https://example.org/kick"})
             self.assertEqual(editor.ability_from_archive("Nope"), {})
+            # The client's "X I" falls back to the archive's plain "X" page: same class only, and
+            # not when the archive also has ranked "X II" pages.
+            plain = {"type": "ability", "name": "Diehard", "class": "Warrior", "refresh_seconds": 180,
+                     "sources": [{"url": "https://example.org/diehard"}]}
+            editor._ARCHIVE[:] = [{("ability", "Diehard"): plain}]
+            self.assertEqual(editor.ability_from_archive("Diehard I", "Warrior"),
+                             {"refresh": 180.0, "_source": "https://example.org/diehard"})
+            self.assertEqual(editor.ability_from_archive("Diehard I"), {})
+            self.assertEqual(editor.ability_from_archive("Diehard I", "Cleric"), {})
+            editor._ARCHIVE[0][("ability", "Diehard II")] = dict(plain, name="Diehard II")
+            self.assertEqual(editor.ability_from_archive("Diehard I", "Warrior"), {})
         finally:
             editor._ARCHIVE[:] = saved_a
             editor._ICON_INDEX.clear()

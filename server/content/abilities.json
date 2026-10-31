@@ -110,7 +110,10 @@
         6,
         11
       ]
-    }
+    },
+    "icon": 493,
+    "description": "Summons a spirit attendant. This attendant is a trusted lieutenant of Hayatet and will serve you until it is dismissed.",
+    "_source": "https://vgsoharchive.com/abilities/summon-attendant-of-hayatet"
   },
   "Summon Attendant of Rakurr I": {
     "kind": "pet",
@@ -125,7 +128,10 @@
         6,
         11
       ]
-    }
+    },
+    "icon": 644,
+    "description": "Summon a spirit attendant. This attendant is a trusted lieutenant of Rakurr and will serve you until it is dismissed.",
+    "_source": "https://vgsoharchive.com/abilities/summon-attendant-of-rakurr"
   },
   "Summon Attendant of Tuurgin I": {
     "kind": "pet",
@@ -140,7 +146,10 @@
         6,
         11
       ]
-    }
+    },
+    "icon": 457,
+    "description": "Summons a spirit attendant. This attendant is a trusted lieutenant of Tuurgin and will serve you until it is dismissed.",
+    "_source": "https://vgsoharchive.com/abilities/summon-attendant-of-tuurgin"
   },
   "Simulacrum I": {
     "icon": 413,
@@ -1927,5 +1936,545 @@
     "icon": 595,
     "description": "Recalls you to your House",
     "_source": "https://vgsoharchive.com/abilities/recall-to-house"
+  },
+  "Diehard I": {
+    "description": "Toughens you so that you are harder to kill. When your life drops below 15%, you gain a 25% increase in mitigation.",
+    "refresh": 180.0,
+    "_source": "https://vgsoharchive.com/abilities/diehard"
+  },
+  "Disarm I": {
+    "refresh": 60.0,
+    "_source": "https://vgsoharchive.com/abilities/disarm"
+  },
+  "Blade Storm I": {
+    "description": "A finishing attack which hits up to 6 targets adjacent to you, inflicting melee damage plus 359. Only available after performing Steel Tempest.",
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/blade-storm"
+  },
+  "Offensive Stance I": {
+    "description": "Rage guides your weapon, increasing your damage by 20% and your accuracy by 10% while reducing hate gain by 25%.",
+    "_source": "https://vgsoharchive.com/abilities/offensive-stance"
+  },
+  "Defensive Stance I": {
+    "description": "You focus on defense, gaining Commander's Presence, 15% melee mitigation and 45% more hate generation. While dual-wielding weapons, you also gain 28% chance to block.",
+    "_source": "https://vgsoharchive.com/abilities/defensive-stance"
+  },
+  "Zeal I": {
+    "icon": 534,
+    "description": "Fills you with a righteous zeal, striking twice with every special melee attack and causing all attacks to cost half of the normal endurance.",
+    "_source": "https://vgsoharchive.com/abilities/zeal"
+  },
+  "Final Stand I": {
+    "icon": 411,
+    "description": "Surrounds you with an impenetrable barrier and increases your damage by 50% for 15 seconds.",
+    "_source": "https://vgsoharchive.com/abilities/final-stand"
+  },
+  "Shadowy Veil I": {
+    "description": "You cover your body in a veil of shadows that renders you invisible and increases your movement by 15% for 60 sec.",
+    "_source": "https://vgsoharchive.com/abilities/shadowy-veil"
+  },
+  "Aphotic Shield I": {
+    "description": "Blocks 100% of incoming damage for the next 10 sec.",
+    "_source": "https://vgsoharchive.com/abilities/aphotic-shield"
+  },
+  "Vile Howl I": {
+    "description": "Causes opponents around you to flee at 10% movement speed for 10 sec.",
+    "_source": "https://vgsoharchive.com/abilities/vile-howl"
+  },
+  "Bane I": {
+    "description": "Consumes your opponent's fear and uses it to deal 3821 to 4020 spiritual damage. Only usable in Dreadful Countenance 5.",
+    "_source": "https://vgsoharchive.com/abilities/bane"
+  },
+  "Hatred Incarnate I": {
+    "description": "Increases damage by 100% and reduces endurance costs by 75% for 30 sec.",
+    "_source": "https://vgsoharchive.com/abilities/hatred-incarnate"
+  },
+  "Shadow Step I": {
+    "refresh": 15.0,
+    "_source": "https://vgsoharchive.com/abilities/shadow-step"
+  },
+  "Terror Incarnate I": {
+    "description": "You become embodiment of terror, increasing your Dreadful Countenance to its highest levels.",
+    "_source": "https://vgsoharchive.com/abilities/terror-incarnate"
+  },
+  "Forage I": {
+    "icon": 494,
+    "description": "Forages in your surrounding area for supplies to use while adventuring.",
+    "refresh": 15.0,
+    "_source": "https://vgsoharchive.com/abilities/forage"
+  },
+  "Summer Cloak I": {
+    "icon": 652,
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/summer-cloak"
+  },
+  "Nature's Guise I": {
+    "icon": 559,
+    "description": "Blends you into your environment making you stealthy",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/natures-guise-ranger"
+  },
+  "Tiger Talisman I": {
+    "description": "Increases melee damage by 15% and melee critical chance by 5%. You may only have one Talisman active at a time.",
+    "refresh": 10.0,
+    "_source": "https://vgsoharchive.com/abilities/tiger-talisman"
+  },
+  "Panther Talisman I": {
+    "refresh": 10.0,
+    "_source": "https://vgsoharchive.com/abilities/panther-talisman"
+  },
+  "Hawk Talisman I": {
+    "description": "Increases ranged damage by 15% and increases ranged critical chance by 5%. You may only have one Talisman active at a time.",
+    "refresh": 10.0,
+    "_source": "https://vgsoharchive.com/abilities/hawk-talisman"
+  },
+  "Wind Talisman I": {
+    "icon": 534,
+    "refresh": 10.0,
+    "_source": "https://vgsoharchive.com/abilities/wind-talisman"
+  },
+  "Calm Creature I": {
+    "description": "Allows you to calm the mind of a creature or fey, preventing it from assisting allies for 25 seconds. Only usable on Creatures and Fey.",
+    "_source": "https://vgsoharchive.com/abilities/calm-creature"
+  },
+  "Feral Strike I": {
+    "description": "Counterattack. 200% weapon damage. Next 5 attacks against opponent have 50% chance to score a critical hit.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/feral-strike"
+  },
+  "Bark Shield I": {
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/bark-shield"
+  },
+  "Plunder I": {
+    "refresh": 4.5,
+    "_source": "https://vgsoharchive.com/abilities/plunder-i"
+  },
+  "Blinding Flash I": {
+    "refresh": 13.5,
+    "_source": "https://vgsoharchive.com/abilities/blinding-flash"
+  },
+  "Smoke Bomb I": {
+    "icon": 653,
+    "refresh": 22.5,
+    "_source": "https://vgsoharchive.com/abilities/smoke-bomb"
+  },
+  "Ploy I": {
+    "icon": 404,
+    "description": "You feint, preventing your target from attacking for 4 attacks and making them vulnerable to back stab attacks for 6 sec.",
+    "refresh": 18.0,
+    "_source": "https://vgsoharchive.com/abilities/ploy"
+  },
+  "Relentless I": {
+    "icon": 20754,
+    "description": "Increases your max endurance by 40 and restores 20 endurance every second. This effect lasts for 30 sec.",
+    "_source": "https://vgsoharchive.com/abilities/relentless"
+  },
+  "Clout I": {
+    "icon": 564,
+    "description": "Clouts your offensive target, stunning it for 6 sec. The same target can only be affected by clout once every 30 sec.",
+    "refresh": 54.0,
+    "_source": "https://vgsoharchive.com/abilities/clout"
+  },
+  "Quickblade I": {
+    "icon": 20743,
+    "_source": "https://vgsoharchive.com/abilities/quickblade"
+  },
+  "Escape I": {
+    "icon": 659,
+    "_source": "https://vgsoharchive.com/abilities/escape"
+  },
+  "Fade I": {
+    "icon": 559,
+    "description": "After a successful feint, you fade from combat, greatly lowering your offensive target's hatred of you.",
+    "refresh": 54.0,
+    "_source": "https://vgsoharchive.com/abilities/fade"
+  },
+  "Eviscerate I": {
+    "icon": 1054,
+    "description": "A massive strike that deals 450% weapon damage and causes 4692 to 4936 damage over 30 sec.",
+    "refresh": 40.5,
+    "_source": "https://vgsoharchive.com/abilities/eviscerate"
+  },
+  "Smoke Trick I": {
+    "icon": 667,
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/smoke-trick"
+  },
+  "Bladedancer's Focus I": {
+    "icon": 420,
+    "_source": "https://vgsoharchive.com/abilities/bladedancer-s-focus"
+  },
+  "Fence I": {
+    "description": "Raises your chance to parry incoming attacks by 100% for 60 seconds or until you parry. This turns off your auto-attack.",
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/fence"
+  },
+  "Pushing Hands I": {
+    "description": "Forcefully pushes your opponent out of whatever stance they are in. This ability only works on NPCs.",
+    "_source": "https://vgsoharchive.com/abilities/pushing-hands"
+  },
+  "Nerve Strike I": {
+    "icon": 449,
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/nerve-strike-i"
+  },
+  "Iron Skin I": {
+    "description": "Hardens your skin for a short period of time, increasing mitigation by 75 and granting immunity to most stuns and knockbacks for 15 sec.",
+    "_source": "https://vgsoharchive.com/abilities/iron-skin"
+  },
+  "Purity I": {
+    "description": "Purifies ally's body, increasing heals on your defensive target by 300 for the next 2 minutes.",
+    "_source": "https://vgsoharchive.com/abilities/purity"
+  },
+  "Astral Walk I": {
+    "description": "This ability calls one of your allies across the astral plane to your spot in the temporal world.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/astral-walk"
+  },
+  "Fleeting Feet I": {
+    "description": "Enables you to increase your movement by 50% and makes you immune to movement debuffs for 20 sec.",
+    "refresh": 45.0,
+    "_source": "https://vgsoharchive.com/abilities/fleeting-feet"
+  },
+  "Divert Tenacity I": {
+    "description": "This ability counters a spell cast upon your, and turns it into Endurance gain.",
+    "_source": "https://vgsoharchive.com/abilities/divert-tenacity"
+  },
+  "Clarity I": {
+    "description": "Clears your mind, allowing your special melee attacks to have a 100% chance to score critical hits for the next 5 sec.",
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/clarity"
+  },
+  "Stance Wheel I": {
+    "description": "Forcefully pushes your opponent out of whatever stance they are in.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/stance-wheel"
+  },
+  "Awakening I": {
+    "description": "Brings a fallen ally back to life with a small amount of health. Can be used in combat.",
+    "_source": "https://vgsoharchive.com/abilities/awakening"
+  },
+  "Divine Chains I": {
+    "description": "Binds your enemy's feet with chains, rooting them in place for 18-24 sec. Incoming damage has a chance to break the chains.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/divine-chains"
+  },
+  "Lull I": {
+    "icon": 685,
+    "refresh": 10.0,
+    "_source": "https://vgsoharchive.com/abilities/lull"
+  },
+  "Sacrifice I": {
+    "icon": 20754,
+    "_source": "https://vgsoharchive.com/abilities/sacrifice"
+  },
+  "Spirit of Rakurr I": {
+    "description": "This Rakurr patron ability increases your movement speed.",
+    "_source": "https://vgsoharchive.com/abilities/spirit-of-rakurr"
+  },
+  "Spirit Call I": {
+    "icon": 676,
+    "description": "Recalls an ally back from the afterlife. Cannot be used while in combat.",
+    "_source": "https://vgsoharchive.com/abilities/spirit-call"
+  },
+  "Weak Spirit Bond: Krigus I": {
+    "description": "Forms a bond with Krigus the Fly, reducing your spell casting and melee refresh times.",
+    "_source": "https://vgsoharchive.com/abilities/weak-spirit-bond-krigus"
+  },
+  "Weak Spirit Bond: Nag-Suul I": {
+    "description": "Forms a bond with Nag-Suul, granting increased spell damage. This spell is rewarded from the Viper's Bite quest.",
+    "_source": "https://vgsoharchive.com/abilities/weak-spirit-bond-nag-suul"
+  },
+  "Boon of Boqobol I": {
+    "icon": 654,
+    "description": "Grants your target's group the ability to breathe underwater for 1 hour.",
+    "_source": "https://vgsoharchive.com/abilities/boon-of-boqobol"
+  },
+  "Shield of Mortality I": {
+    "icon": 582,
+    "_source": "https://vgsoharchive.com/abilities/shield-of-mortality-i"
+  },
+  "Fiery Shield I": {
+    "icon": 513,
+    "_source": "https://vgsoharchive.com/abilities/fiery-shield"
+  },
+  "Hunter's Shroud I": {
+    "icon": 703,
+    "description": "This Rakurr patron ability allows you to enter into stalking mode while in wolf form. This grants stealth, as if you were a rogue.",
+    "_source": "https://vgsoharchive.com/abilities/hunter-s-shroud"
+  },
+  "Frenzy I": {
+    "icon": 647,
+    "_source": "https://vgsoharchive.com/abilities/frenzy"
+  },
+  "Purging Flames I": {
+    "description": "Poison/Disease Cure over 15 Minutes",
+    "_source": "https://vgsoharchive.com/abilities/purging-flames"
+  },
+  "Totemic Union I": {
+    "icon": 562,
+    "description": "Forms a link between you and the attendant of your patron. All damage done by the attendant will be returned to you as healing.",
+    "_source": "https://vgsoharchive.com/abilities/totemic-union"
+  },
+  "Kiss of Nag-Suul I": {
+    "icon": 655,
+    "description": "A virulent poison races through your opponent's veins, dealing 3293 to 3464 damage over 48 seconds.",
+    "refresh": 10.0,
+    "_source": "https://vgsoharchive.com/abilities/kiss-of-nag-suul"
+  },
+  "Spirit Union I": {
+    "icon": 401,
+    "_source": "https://vgsoharchive.com/abilities/spirit-union"
+  },
+  "Avatar of the Phoenix I": {
+    "icon": 20753,
+    "_source": "https://vgsoharchive.com/abilities/avatar-of-the-phoenix"
+  },
+  "Avatar of the Great Bear I": {
+    "icon": 666,
+    "description": "Grants immunity to cold and causes you to go into a frenzy (60 sec)",
+    "refresh": 900.0,
+    "_source": "https://vgsoharchive.com/abilities/avatar-of-the-great-bear"
+  },
+  "Avatar of the Hunter I": {
+    "icon": 666,
+    "_source": "https://vgsoharchive.com/abilities/avatar-of-the-hunter"
+  },
+  "Dissipate I": {
+    "icon": 556,
+    "description": "Disperses a spell your opponent is casting.",
+    "refresh": 20.0,
+    "_source": "https://vgsoharchive.com/abilities/dissipate"
+  },
+  "Vanishing Winds I": {
+    "icon": 617,
+    "_source": "https://vgsoharchive.com/abilities/vanishing-winds"
+  },
+  "Speed of the Wolf I": {
+    "icon": 644,
+    "description": "Increases movement speed by 30% and mounted speed by 5% for your defensive target's party.",
+    "_source": "https://vgsoharchive.com/abilities/speed-of-the-wolf"
+  },
+  "Wolfshape I": {
+    "icon": 644,
+    "description": "Transforms you into a wolf for 1 hour.",
+    "_source": "https://vgsoharchive.com/abilities/wolfshape-i"
+  },
+  "Speed of the Pack I": {
+    "description": "Increases the movement speed of all allies within 10 meters by 60%.",
+    "_source": "https://vgsoharchive.com/abilities/speed-of-the-pack"
+  },
+  "Gillberries I": {
+    "icon": 20126,
+    "description": "Summons a bunch of gillberries for your target's group that can be used 3 times to allow you to breathe underwater for 30 minutes.",
+    "_source": "https://vgsoharchive.com/abilities/gillberries"
+  },
+  "Star Mantle I": {
+    "icon": 547,
+    "description": "Summons 3 star familiars that have a chance to deal arcane damage to an opponent when your target is hit.",
+    "_source": "https://vgsoharchive.com/abilities/star-mantle"
+  },
+  "Treeshape I": {
+    "icon": 464,
+    "_source": "https://vgsoharchive.com/abilities/treeshape"
+  },
+  "Brilliant Aurora I": {
+    "icon": 529,
+    "_source": "https://vgsoharchive.com/abilities/brilliant-aurora"
+  },
+  "Upheaval I": {
+    "icon": 611,
+    "description": "The earth explodes beneath your enemy, dealing 902 to 951 damage to up to 10 opponents nearby.",
+    "_source": "https://vgsoharchive.com/abilities/upheaval"
+  },
+  "See Invisibility I": {
+    "description": "Grants the ability to see invisible opponents to your defensive target's party.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/see-invisibility"
+  },
+  "Gather Energy I": {
+    "description": "Enables you to gather energy from the air around you. You will stop gathering energy if you move or are attacked.",
+    "_source": "https://vgsoharchive.com/abilities/gather-energy"
+  },
+  "Necropsy I": {
+    "icon": 853,
+    "description": "Allows you to harvest the recently dead for body parts that will be useful to your abomination.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/necropsy"
+  },
+  "Annul Magic I": {
+    "icon": 699,
+    "description": "This counter spell reduces an incoming spell to nothingness.",
+    "refresh": 20.0,
+    "_source": "https://vgsoharchive.com/abilities/annul-magic"
+  },
+  "Underworld Journey I": {
+    "icon": 617,
+    "description": "Allows you and your allies (within 20 meters) to travel through the underworld, leading them to the nearest safe point.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/underworld-journey"
+  },
+  "Hollow Breath I": {
+    "icon": 654,
+    "description": "Your target group stops drawing breath, becoming like the dead.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/hollow-breath"
+  },
+  "Transmogrify I": {
+    "icon": 702,
+    "description": "Enables you to slowly convert your life into mana. Prolonged use of this ability without healing can cause death.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/transmogrify"
+  },
+  "Ritual of the Guardian I": {
+    "icon": 676,
+    "description": "Performs a ritual that raises a guardian to serve you. Guardians will defend you fervently, but only if you are attacked.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/ritual-of-the-guardian"
+  },
+  "Ritual of the Slayer I": {
+    "icon": 712,
+    "description": "Performs a ritual that raises a slayer to serve you. Slayers viciously attack your enemies with all the strength they possess.",
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/ritual-of-the-slayer"
+  },
+  "Wail of the Banshee I": {
+    "icon": 1056,
+    "description": "Instills fear in your target, causing it to run away from you for 8 sec.\n\nThis ability does not function in player versus player combat.",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/wail-of-the-banshee"
+  },
+  "Rite of the Master I": {
+    "icon": 677,
+    "description": "Drains the remaining life from your abomination and heals you with its life force.",
+    "refresh": 8.0,
+    "_source": "https://vgsoharchive.com/abilities/rite-of-the-master"
+  },
+  "Deathwalk I": {
+    "icon": 668,
+    "description": "Partially transforms your target into an incorporeal undead, granting them physical resistance, levitation and removes their need to breathe.",
+    "_source": "https://vgsoharchive.com/abilities/deathwalk"
+  },
+  "Death Touch I": {
+    "icon": 592,
+    "description": "Snuffs out the life of a target that is below 10% life. Some opponents will be immune.",
+    "_source": "https://vgsoharchive.com/abilities/death-touch"
+  },
+  "Shadowmaster's Pact I": {
+    "icon": 680,
+    "description": "Drains life from your body and infuses an ally with your blood, healing them for the amount of life you lose.",
+    "_source": "https://vgsoharchive.com/abilities/shadowmaster-s-pact"
+  },
+  "Mirage I": {
+    "icon": 449,
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/mirage"
+  },
+  "Nullifying Field I": {
+    "icon": 415,
+    "description": "This power summons a dispersion field that nullifies the effects of an incoming spell or psychic ability.",
+    "refresh": 15.0,
+    "_source": "https://vgsoharchive.com/abilities/nullifying-field"
+  },
+  "Acceleration I": {
+    "icon": 518,
+    "description": "Increases your movement by 40% for 60 sec. Increases mounted speed by 10%.",
+    "_source": "https://vgsoharchive.com/abilities/acceleration"
+  },
+  "Vast Psyche I": {
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/vast-psyche"
+  },
+  "Second Sight I": {
+    "refresh": 0.0,
+    "_source": "https://vgsoharchive.com/abilities/second-sight"
+  },
+  "Mindspy: Preservation I": {
+    "description": "Looks into the mind of your opponent, searching the primal part of it's brain for an ability to use.",
+    "refresh": 60.0,
+    "_source": "https://vgsoharchive.com/abilities/mindspy-preservation"
+  },
+  "Psychic Mutation I": {
+    "description": "Disperses the effects of an incoming spell or psionic power and converts it into usable energy for your group.",
+    "refresh": 30.0,
+    "_source": "https://vgsoharchive.com/abilities/psychic-mutation"
+  },
+  "Mass Amnesia I": {
+    "description": "Causes all opponents to completely forget about you.",
+    "_source": "https://vgsoharchive.com/abilities/mass-amnesia"
+  },
+  "Mutation Shield I": {
+    "description": "Causes a countershield to surround your defensive target. This shield converts the next incoming spell into energy.",
+    "refresh": 20.0,
+    "_source": "https://vgsoharchive.com/abilities/mutation-shield"
+  },
+  "Lure I": {
+    "description": "Causes all opponents within 10 meters to attack your thrall for 4 attacks.",
+    "_source": "https://vgsoharchive.com/abilities/lure"
+  },
+  "Siphon Blood I": {
+    "icon": 20147,
+    "_source": "https://vgsoharchive.com/abilities/siphon-blood"
+  },
+  "Awaken I": {
+    "icon": 559,
+    "description": "Restores a fallen ally to life.",
+    "_source": "https://vgsoharchive.com/abilities/awaken"
+  },
+  "Mortal Calling I": {
+    "icon": 701,
+    "description": "This spell summons a group mate to your side. The call's distance is restricted, and you can only call in certain areas.",
+    "refresh": 2.0,
+    "_source": "https://vgsoharchive.com/abilities/mortal-calling"
+  },
+  "Summon Sanguine Shard I": {
+    "icon": 712,
+    "description": "Summons a sanguine shard. This shard can be used to revive you or another Blood Mage, should they be killed.",
+    "_source": "https://vgsoharchive.com/abilities/summon-sanguine-shard"
+  },
+  "Dissolve I": {
+    "icon": 467,
+    "description": "Counters the effects of a spell by dispersing it.",
+    "refresh": 25.0,
+    "_source": "https://vgsoharchive.com/abilities/dissolve"
+  },
+  "Scarring Pact I": {
+    "icon": 543,
+    "_source": "https://vgsoharchive.com/abilities/scarring-pact"
+  },
+  "Blood Pact I": {
+    "icon": 682,
+    "_source": "https://vgsoharchive.com/abilities/blood-pact"
+  },
+  "Steal Mortality I": {
+    "description": "Has a chance to kill an opponent who is under 5% health. The chance to kill them increases for each level of Blood Union.",
+    "_source": "https://vgsoharchive.com/abilities/steal-mortality"
+  },
+  "Ritual of Gelenia I": {
+    "icon": 1059,
+    "refresh": 20.0,
+    "_source": "https://vgsoharchive.com/abilities/ritual-of-gelenia"
+  },
+  "Hollow Symbiote I": {
+    "icon": 650,
+    "_source": "https://vgsoharchive.com/abilities/hollow-symbiote"
+  },
+  "Ritual of Awakening I": {
+    "icon": 443,
+    "_source": "https://vgsoharchive.com/abilities/ritual-of-awakening"
+  },
+  "Vitalizing Symbiote I": {
+    "icon": 1063,
+    "_source": "https://vgsoharchive.com/abilities/vitalizing-symbiote"
+  },
+  "Quickening Symbiote I": {
+    "icon": 1067,
+    "_source": "https://vgsoharchive.com/abilities/quickening-symbiote"
+  },
+  "Grim Harvest I": {
+    "icon": 621,
+    "refresh": 15.0,
+    "_source": "https://vgsoharchive.com/abilities/grim-harvest"
   }
 }
