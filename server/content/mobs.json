@@ -2123,7 +2123,9 @@
     "level": 31,
     "health": 1340,
     "model": 2,
-    "_source": "https://vgsoharchive.com/quests/a-true-qalian-crafter-blacksmith"
+    "_source": "https://vgsoharchive.com/quests/a-true-qalian-crafter-blacksmith",
+    "difficulty": 2,
+    "title": "Trainer - Blacksmith"
   },
   "arch_nehi_sekamqa": {
     "name": "Nehi Sekamqa",
@@ -8009,7 +8011,10 @@
     "level": 1,
     "health": 140,
     "model": 3,
-    "_source": "https://vgsoharchive.com/quests/harvesting-loves-company"
+    "_source": "https://vgsoharchive.com/quests/harvesting-loves-company",
+    "difficulty": 4,
+    "title": "Harvesting Supply Vendor",
+    "merchant": "general_goods"
   },
   "arch_mina": {
     "name": "Mina",
@@ -12265,7 +12270,8 @@
     "level": 41,
     "health": 1740,
     "model": 3,
-    "_source": "https://vgsoharchive.com/quests/infusium-core"
+    "_source": "https://vgsoharchive.com/quests/infusium-core",
+    "difficulty": 5
   },
   "arch_ilarae_derlin": {
     "name": "Ilarae Derlin",
@@ -22300,7 +22306,8 @@
     "level": 20,
     "health": 900,
     "model": 0,
-    "_source": "https://vgsoharchive.com/zones/lomshir-plain"
+    "_source": "https://vgsoharchive.com/zones/lomshir-plain",
+    "title": "Flower Collector"
   },
   "arch_andryran_resh": {
     "name": "Andryran Resh",
@@ -23527,7 +23534,8 @@
     "race": 6,
     "level": 20,
     "health": 900,
-    "_source": "https://vgsoharchive.com/zones/mekalia"
+    "_source": "https://vgsoharchive.com/zones/mekalia",
+    "title": "Bloodmage Instructor"
   },
   "arch_agent_genaro": {
     "name": "Agent Genaro",
@@ -24247,7 +24255,8 @@
     "level": 20,
     "health": 900,
     "model": 1,
-    "_source": "https://vgsoharchive.com/zones/three-rivers-village"
+    "_source": "https://vgsoharchive.com/zones/three-rivers-village",
+    "difficulty": 4
   },
   "arch_barsagal": {
     "name": "Barsagal",
@@ -29863,5 +29872,92 @@
     ],
     "_source": "https://vgsoharchive.com/mobs/undead-bear",
     "loot": "arch_undead_bear_drops"
+  },
+  "arch_vazayen_zexthal": {
+    "name": "Vazayen Zexthal",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 40,
+    "health": 1700,
+    "model": 3,
+    "title": "Merchant - General Goods",
+    "merchant": "general_goods",
+    "presence_station": "outsider",
+    "_source": "https://vgsoharchive.com/mobs/vazayen-zexthal"
+  },
+  "arch_vaelwyn_contaminator": {
+    "name": "Vaelwyn Contaminator",
+    "pawn_class": "SGONPCPawn",
+    "race": 12,
+    "level": 2,
+    "health": 180,
+    "damage": [
+      2,
+      4
+    ],
+    "difficulty": 1,
+    "_source": "https://vgsoharchive.com/mobs/vaelwyn-contaminator"
+  },
+  "arch_vala_henson": {
+    "name": "Vala Henson",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 42,
+    "health": 1780,
+    "model": 2,
+    "title": "Banker",
+    "banker": true,
+    "_source": "https://vgsoharchive.com/mobs/vala-henson"
+  },
+  "arch_vanfar_omatehn": {
+    "name": "Vanfar Omatehn",
+    "pawn_class": "SGONPCPawn",
+    "race": 13,
+    "level": 33,
+    "health": 1420,
+    "model": 0,
+    "title": "Crafting Instructor",
+    "_source": "https://vgsoharchive.com/mobs/vanfar-omatehn"
+  },
+  "arch_valien_elgyre": {
+    "name": "Valien Elgyre",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 40,
+    "health": 3400,
+    "damage": [
+      40,
+      160
+    ],
+    "aggro_radius": 600,
+    "difficulty": 3,
+    "_source": "https://vgsoharchive.com/mobs/valien-elgyre",
+    "loot": "arch_valien_elgyre_drops"
+  },
+  "arch_vaelwyn_anathema": {
+    "name": "Vaelwyn Anathema",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 3,
+    "health": 220,
+    "damage": [
+      3,
+      6
+    ],
+    "_source": "https://vgsoharchive.com/mobs/vaelwyn-anathema",
+    "loot": "arch_vaelwyn_anathema_drops"
+  },
+  "arch_vaelwyn_spitewarden": {
+    "name": "Vaelwyn Spitewarden",
+    "pawn_class": "SGONPCPawn",
+    "race": 14,
+    "level": 3,
+    "health": 220,
+    "damage": [
+      3,
+      6
+    ],
+    "_source": "https://vgsoharchive.com/mobs/vaelwyn-spitewarden",
+    "loot": "arch_vaelwyn_spitewarden_drops"
   }
 }

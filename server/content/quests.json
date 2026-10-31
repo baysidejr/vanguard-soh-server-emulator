@@ -11002,5 +11002,63 @@
     "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
     "disabled": true,
     "_disabled": "B-007 (owner decision C, 2026-10-17): the archive records no objectives and nothing points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again."
+  },
+  "arch_scouting_the_vaelwyn_citadel": {
+    "id": 5497,
+    "name": "Scouting The Vaelwyn Citadel",
+    "level": 3,
+    "giver": "arch_celahir_greybranch",
+    "steps": [
+      {
+        "objective": "Vaelwyn Anathema Slain",
+        "kill": {
+          "arch_vaelwyn_anathema": 10
+        }
+      },
+      {
+        "objective": "Vaelwyn Spitewarden Slain",
+        "kill": {
+          "arch_vaelwyn_spitewarden": 5
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '30' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/scouting-the-vaelwyn-citadel",
+    "greeting": "I could use some help. (Scouting The Vaelwyn Citadel: the archive has no dialogue yet.)",
+    "description": "Celahir Greybranch has asked you to help: slay 10 Vaelwyn Anathema, then slay 5 Vaelwyn Spitewarden.",
+    "summary": "Slay 10 Vaelwyn Anathema; Slay 5 Vaelwyn Spitewarden for Celahir Greybranch.",
+    "accept_text": "You agree to help Celahir Greybranch.",
+    "reward": {
+      "xp": 300
+    }
+  },
+  "arch_the_purification_of_fullmoon_spring": {
+    "id": 5498,
+    "name": "The Purification of Fullmoon Spring",
+    "level": 2,
+    "giver": "arch_gilfir_whitefawn",
+    "steps": [
+      {
+        "objective": "Vaelwyn Contaminators Slain",
+        "kill": {
+          "arch_vaelwyn_contaminator": 10
+        }
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '20' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/the-purification-of-fullmoon-spring",
+    "greeting": "I could use some help. (The Purification of Fullmoon Spring: the archive has no dialogue yet.)",
+    "description": "Gilfir Whitefawn has asked you to help: slay 10 Vaelwyn Contaminators.",
+    "summary": "Slay 10 Vaelwyn Contaminators for Gilfir Whitefawn.",
+    "accept_text": "You agree to help Gilfir Whitefawn.",
+    "reward": {
+      "xp": 200
+    }
   }
 }

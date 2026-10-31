@@ -33,3 +33,4 @@ One line per import into `server/content/`: date, batch folder, records imported
 | 2026-10-17 | raw batches + branch origin/crowdsourced/archive-collection (all zones, skipping Sundering Wastelands, Wildgrowth Forest) | 54 spawns, 51 templates | server/content via tools/import_zone.py --all |
 | 2026-10-17 | raw batches + branch origin/crowdsourced/archive-collection (all zones, skipping Sundering Wastelands, Wildgrowth Forest) | 1 spawns, 1 templates | server/content via tools/import_zone.py --all |
 | 2026-10-20 | raw batches + branch origin/crowdsourced/archive-collection (all zones, skipping Sundering Wastelands, Wildgrowth Forest) | 6 spawns, 4 templates | server/content via tools/import_zone.py --all |
+| 2026-10-31 | raw batches + branch origin/crowdsourced/archive-collection (all zones, skipping Sundering Wastelands, Wildgrowth Forest) | 7 spawns, 5 templates | server/content via tools/import_zone.py --all |
