@@ -11,7 +11,7 @@ The code is in `server/effects.py` and `login_stub.use_ability` / `apply_buff` /
 
 ## What an ability does
 
-Real ability data (costs, damage, durations) was server-side. The emulator guesses an ability's kind from its name (`effects.KEYWORDS`):
+Real ability data (costs, damage, durations) was server-side. The emulator first reads the kind from the ability's archive tooltip (the `description` in abilities.json, `effects.from_description`): "heals an ally" is a heal, "damage over 30 seconds" a dot (ticks from the time), "run away" / "flee" a fear (duration from the text), "increases your ... for 12 sec" a buff (duration, and on yourself when it says "your"), damage alone a strike. It reads only the kind and timings: the tooltips' amounts are a top rank's. Tooltips that mix damage with a buff, mention stuns or roots, or say nothing clear fall through to the name guess (`effects.KEYWORDS`):
 - **dot** if the name contains words like rend, venom or decimate
 - **heal** for heal, mend or restore
 - **buff** for might, ward, style, shield and similar words

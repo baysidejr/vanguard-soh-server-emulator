@@ -16,6 +16,7 @@ Combat text: 0x27b {eid64 source, eid64 target, i32 instance, bool8 heal, u8 kin
   -> "Your Rend hits X for N damage." / "Your Mend heals you for N hit points."
 Stat buffs: 0x2d4 with current = base + bonus (vgmsg.stat_update)."""
 import itertools
+import re
 import struct
 
 _instances = itertools.count(0x7000000)
@@ -35,9 +36,47 @@ DEFAULTS = {
 }
 
 
+_SECONDS = r"(\d+(?:\.\d+)?)(?:\s*-\s*\d+(?:\.\d+)?)?\s*(secs?|seconds?|mins?|minutes?)\b"
+
+
+def _seconds(match):
+    return float(match.group(1)) * (60 if match.group(2).startswith("min") else 1)
+
+
+def from_description(text):
+    """What an archive tooltip says an ability does: {"kind", and "duration" / "ticks" / "self"
+    where it says} or {} when it isn't clear. Only the kind and timings are read: the tooltips'
+    amounts are a top rank's, not rank I's."""
+    low = " ".join((text or "").lower().split())
+    damages = re.search(r"\b(deals?|dealing|inflicts?|inflicting|causes?|causing|strikes?)\b[^.]*\bdamage\b", low) \
+        or "weapon damage" in low
+    hostile = re.search(r"\b(opponents?|enem(y|ies)|foes?|stuns?|stunning|roots?|rooting)\b", low)
+    over = re.search(r"\bdamage over " + _SECONDS, low)
+    grants = re.search(r"\b(increases?|increasing|raises?|grants?|granting|improves?|gaining)\b", low)
+    timed = re.search(r"\bfor (?:the next )?" + _SECONDS, low)
+    if re.search(r"\b(flee|flees|run away|runs away)\b", low):
+        return {"kind": "fear", **({"duration": _seconds(timed)} if timed else {})}
+    if over:
+        return {"kind": "dot", "ticks": max(1, round(_seconds(over) / DEFAULTS["dot"]["interval"]))}
+    if re.search(r"\b(heals?|healing) (yourself|you|your|an?|all|them|it|for|the)\b", low) and "damage" not in low:
+        return {"kind": "heal"}
+    if damages and not grants:
+        return {"kind": "strike"}
+    if grants and timed and not damages and not hostile:
+        spec = {"kind": "buff", "duration": _seconds(timed)}
+        if re.match(r"(you |(increases?|raises?|grants?|improves?) your\b)", low):
+            spec["self"] = True
+        return spec
+    return {}
+
+
 def classify(name, overrides=None):
-    """The effect spec for an ability name: {"kind": "strike"|"dot"|"heal"|"buff", ...}."""
+    """The effect spec for an ability name: {"kind": "strike"|"dot"|"heal"|"buff", ...}. An
+    explicit "kind" wins; then what the ability's description says; then name keywords."""
     spec = dict((overrides or {}).get(name, {}))
+    if "kind" not in spec:
+        for k, v in from_description(spec.get("description")).items():
+            spec.setdefault(k, v)
     if "kind" not in spec:
         low = name.lower()
         spec["kind"] = next((kind for words, kind in KEYWORDS if any(w in low for w in words)), "strike")

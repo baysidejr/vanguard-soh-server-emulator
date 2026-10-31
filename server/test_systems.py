@@ -1579,7 +1579,7 @@ class EditorPageTests(unittest.TestCase):
         import editor
         # An Edge updated while the browser is open (new msedge.exe, old process running) exits at
         # once with no output for any page until it is restarted; that says nothing about the editor.
-        with tempfile.TemporaryDirectory() as prof:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as prof:
             probe = subprocess.run([EDGE, "--headless=new", "--disable-gpu", f"--user-data-dir={prof}",
                                     "--dump-dom", "data:text/html,<p>probe</p>"],
                                    capture_output=True, text=True, timeout=90).stdout
@@ -1588,7 +1588,7 @@ class EditorPageTests(unittest.TestCase):
         httpd = editor.http.server.ThreadingHTTPServer(("127.0.0.1", 0), editor.Handler)
         threading.Thread(target=httpd.serve_forever, daemon=True).start()
         try:
-            with tempfile.TemporaryDirectory() as prof:
+            with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as prof:
                 dom = subprocess.run([EDGE, "--headless=new", "--disable-gpu", f"--user-data-dir={prof}",
                                       "--virtual-time-budget=8000", "--dump-dom",
                                       f"http://127.0.0.1:{httpd.server_address[1]}/#selftest"],
@@ -2216,6 +2216,33 @@ class AbilityArchiveTests(unittest.TestCase):
             editor._ARCHIVE[:] = saved_a
             editor._ICON_INDEX.clear()
             editor._ICON_INDEX.update(saved_i)
+
+
+class AbilityDescriptionTests(unittest.TestCase):
+    def test_kind_from_the_archive_tooltip(self):
+        """effects.classify reads the kind (and timings) from an ability's description before
+        falling back to name keywords; an explicit kind still wins."""
+        import effects
+        d = effects.from_description
+        self.assertEqual(d("Heals an ally for 627."), {"kind": "heal"})
+        self.assertEqual(d("Cuts your foe deeply, causing 620 to 654 damage over 30 seconds."), {"kind": "dot", "ticks": 10})
+        self.assertEqual(d("Shoots a poisoned arrow that deals 1855 to 1953 damage over 20 secs."), {"kind": "dot", "ticks": 7})
+        self.assertEqual(d("Instills fear in your target, causing it to run away from you for 8 sec."), {"kind": "fear", "duration": 8.0})
+        self.assertEqual(d("Raises your chance to parry incoming attacks by 100% for 60 seconds."),
+                         {"kind": "buff", "duration": 60.0, "self": True})
+        self.assertEqual(d("Purifies ally's body, increasing heals on your defensive target by 300 for the next 2 minutes."),
+                         {"kind": "buff", "duration": 120.0})
+        self.assertEqual(d("A finishing attack which deals 42 to 49 damage and reduces your enemy's armor by 35%."), {"kind": "strike"})
+        # Unclear: damage plus a self buff, a stun, life-to-mana prose, nothing at all.
+        self.assertEqual(d("Deals 33 to 37 damage to your target and increases your strength by 15 for 5 minutes."), {})
+        self.assertEqual(d("Stuns your opponent for 2 sec or 2 hits. Increases your Dreadful Countenance."), {})
+        self.assertEqual(d("Slowly convert your life into mana. Use without healing can cause death."), {})
+        self.assertEqual(d(None), {})
+        over = {"Astral Wind I": {"description": "Heals an ally for 627."},
+                "Rend I": {"description": "Heals an ally for 5.", "kind": "dot"}}
+        self.assertEqual(effects.classify("Astral Wind I", over)["kind"], "heal")
+        self.assertEqual(effects.classify("Rend I", over)["kind"], "dot")
+        self.assertEqual(effects.classify("Healing Touch I", {})["kind"], "heal")
 
 
 class AbilityNameTests(unittest.TestCase):
