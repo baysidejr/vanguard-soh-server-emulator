@@ -258,6 +258,11 @@ def apply(ready, world, chunks, content=z.CONTENT, steps_for=None):
             quests[key]["_placeholder_steps"] = ("the archive records no objectives; played as a delivery to "
                                                  "the hand-in NPC")
             mark_delivery(quests[key], rec.get("zone"))
+            if carried_items(rec) and "_placeholder_delivery" in quests[key]:
+                note = ("the archive records only the item carried from the giver; played as a delivery to the "
+                        "hand-in NPC")
+                quests[key]["_placeholder_steps"] = note
+                quests[key]["_placeholder_delivery"] = MARKED_DELIVERY.split(":")[0] + ": " + note
             reward = quests[key].setdefault("reward", {})
             if reward.get("xp") == 100 * int(rec.get("level") or 1):     # the placeholder, not the archive's
                 reward["xp"] = 25 * int(rec.get("level") or 1)              # one conversation: a quarter
@@ -336,12 +341,19 @@ def delivery_plan(quests, world, chunks, content=z.CONTENT):
               for s in z.load(fn, {}).get("spawns", [])}
     recs, steps_for = [], {}
     for q in quests.values():
-        if readiness(q, world, chunks) != "no steps":
-            continue
+        status = readiness(q, world, chunks)
         turn_in = (q.get("turn_in") or "").strip()
         if not turn_in or turn_in.lower() in ((q.get("giver") or "").lower(), "unknown"):
             continue
         key = z.key_for(turn_in)
+        carried = carried_items(q) if status == "giver" and q.get("zone") in DELIVERY_PLACEHOLDER_ZONES else None
+        if carried and key in placed:
+            # "Lix Luckkin's Report (0/1)" from the giver to someone else: carry it over (marked).
+            recs.append(q)
+            steps_for[q["name"]] = [{"objective": f"Deliver {', '.join(carried)} to {turn_in}", "talk": key}]
+            continue
+        if status != "no steps":
+            continue
         if key in placed:
             recs.append(q)
             steps = [{"objective": f"Speak with {turn_in}", "talk": key}]
@@ -353,6 +365,19 @@ def delivery_plan(quests, world, chunks, content=z.CONTENT):
                 steps = [{"objective": drops[i.lower()][0], "collect": {drops[i.lower()][0]: 1}} for i in need] + steps
             steps_for[q["name"]] = steps
     return recs, steps_for
+
+
+def carried_items(q):
+    """The item names when every recorded objective is a single item ("Lix Luckkin's Report (0/1)")
+    rather than kills or a count to gather; else None."""
+    names = []
+    for s in q.get("candidate_steps") or []:
+        o = (s.get("objective") or "").strip()
+        m = re.fullmatch(r"(.+?)\s*\(0/1\)", o)
+        if not m or s.get("kind") == "kill" or re.search(r"\b(slain|killed|closed|rescued|poisoned)\b", o, re.I):
+            return None
+        names.append(m.group(1).lstrip("*").strip())
+    return names or None
 
 
 PLACEHOLDER_DISTANCE = 1500     # how far from the quest giver an invented camp stands

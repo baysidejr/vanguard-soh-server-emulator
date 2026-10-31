@@ -2359,6 +2359,11 @@ class QuestReadinessTests(unittest.TestCase):
         self.assertNotIn("disabled", on)
         self.assertIn("PLACEHOLDER", on["_placeholder_delivery"])
         self.assertTrue(off["disabled"])
+        carry = lambda *o: self.qr.carried_items({"candidate_steps": [{"objective": x} for x in o]})
+        self.assertEqual(carry("Lix Luckkin's Report (0/1)"), ["Lix Luckkin's Report"])
+        self.assertIsNone(carry("Portals Closed (0/3)"))
+        self.assertIsNone(carry("Ulvari Warlock Slain (0/1)"))
+        self.assertIsNone(carry("Lumber (1)"))
 
     def test_steps(self):
         status, steps = self.qr.plan_steps(self.quest(("Timber Wolves Slain (12)", "kill", 12),

@@ -5311,7 +5311,10 @@
       "xp": 175
     },
     "_placeholder_steps": "the archive records no objectives; played as a delivery to the hand-in NPC",
-    "_placeholder_delivery": "PLACEHOLDER (owner decision 2026-10-31, B-019): the archive records no objectives; offered as a delivery to the hand-in NPC until real objectives are found"
+    "_placeholder_delivery": "PLACEHOLDER (owner decision 2026-10-31, B-019): the archive records no objectives; offered as a delivery to the hand-in NPC until real objectives are found",
+    "requires": [
+      "arch_discoveries_found"
+    ]
   },
   "arch_inform_the_southwatch_gate": {
     "id": 5289,
@@ -11396,5 +11399,61 @@
     "reward": {
       "xp": 3000
     }
+  },
+  "arch_discoveries_found": {
+    "id": 5510,
+    "name": "Discoveries Found",
+    "level": 7,
+    "giver": "arch_lix_luckkin",
+    "turn_in": "arch_elder_wen_starbrook",
+    "steps": [
+      {
+        "objective": "Deliver Lix Luckkin's Report to Elder Wen Starbrook",
+        "talk": "arch_elder_wen_starbrook"
+      }
+    ],
+    "_needs": [
+      "description",
+      "coin reward (the archive says '70' with no unit)"
+    ],
+    "_source": "https://vgsoharchive.com/quests/discoveries-found",
+    "greeting": "I could use some help. (Discoveries Found: the archive has no dialogue yet.)",
+    "description": "Lix Luckkin has asked you to help: deliver Lix Luckkin's Report to Elder Wen Starbrook.",
+    "summary": "Deliver Lix Luckkin's Report to Elder Wen Starbrook for Lix Luckkin.",
+    "accept_text": "You agree to help Lix Luckkin.",
+    "reward": {
+      "xp": 175
+    },
+    "_placeholder_steps": "the archive records only the item carried from the giver; played as a delivery to the hand-in NPC",
+    "_placeholder_delivery": "PLACEHOLDER (owner decision 2026-10-31, B-019): the archive records only the item carried from the giver; played as a delivery to the hand-in NPC"
+  },
+  "arch_seek_out_lix_luckkin": {
+    "id": 5511,
+    "name": "Seek Out Lix Luckkin",
+    "level": 6,
+    "giver": "arch_elder_wen_starbrook",
+    "turn_in": "arch_lix_luckkin",
+    "requires": [
+      "arch_return_to_elder_wen_starbrook"
+    ],
+    "steps": [
+      {
+        "objective": "Deliver Corrupted Hobgoblin Blood to Lix Luckkin",
+        "talk": "arch_lix_luckkin"
+      }
+    ],
+    "_needs": [
+      "description"
+    ],
+    "_source": "https://vgsoharchive.com/quests/seek-out-lix-luckkin",
+    "greeting": "I could use some help. (Seek Out Lix Luckkin: the archive has no dialogue yet.)",
+    "description": "Elder Wen Starbrook has asked you to help: deliver Corrupted Hobgoblin Blood to Lix Luckkin.",
+    "summary": "Deliver Corrupted Hobgoblin Blood to Lix Luckkin for Elder Wen Starbrook.",
+    "accept_text": "You agree to help Elder Wen Starbrook.",
+    "reward": {
+      "xp": 150
+    },
+    "_placeholder_steps": "the archive records only the item carried from the giver; played as a delivery to the hand-in NPC",
+    "_placeholder_delivery": "PLACEHOLDER (owner decision 2026-10-31, B-019): the archive records only the item carried from the giver; played as a delivery to the hand-in NPC"
   }
 }
