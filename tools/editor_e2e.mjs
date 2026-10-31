@@ -5,9 +5,10 @@
 //     node tools/editor_e2e.mjs <url> <steps.json>
 //
 // steps.json is a list: a string is a JavaScript expression evaluated in the page (awaited),
-// a number is a wait in milliseconds. Each result is printed as one JSON line; the exit code is 1
-// if any step threw.
-import { spawn } from "node:child_process";
+// a number is a wait in milliseconds, {"until": expression, "timeout": ms} waits (default 15 s)
+// until the expression is truthy, polling every 100 ms. Each result is printed as one JSON line;
+// the exit code is 1 if any step threw or timed out.
+import { spawn, spawnSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -38,6 +39,17 @@ try {
   await sleep(2500);
   for (const step of steps) {
     if (typeof step === "number") { await sleep(step); continue; }
+    if (step && typeof step === "object") {
+      const end = Date.now() + (step.timeout || 15000);
+      let ok = false;
+      while (!ok && Date.now() < end) {
+        const r = (await send("Runtime.evaluate", { expression: step.until, returnByValue: true })).result;
+        ok = !r.exceptionDetails && !!r.result.value;
+        if (!ok) await sleep(100);
+      }
+      if (!ok) { failed = true; console.log(JSON.stringify({ error: `timed out waiting for ${step.until}` })); }
+      continue;
+    }
     const r = (await send("Runtime.evaluate", { expression: step, awaitPromise: true, returnByValue: true })).result;
     if (r.exceptionDetails) {
       failed = true;
@@ -48,6 +60,23 @@ try {
   }
   ws.close();
 } finally {
-  edge.kill();
+  // edge.kill() ends only the launcher, which on Windows has already handed over to a browser
+  // process that is not its child: that browser and its GPU and renderer processes lived on
+  // (hundreds of them, gigabytes of memory, after a day of test runs). Ask the browser itself to
+  // close (DevTools Browser.close), then end whatever is left of the launcher's tree.
+  try {
+    const browser = await (await fetch(`http://127.0.0.1:${port}/json/version`)).json();
+    const bws = new WebSocket(browser.webSocketDebuggerUrl);
+    await Promise.race([new Promise(r => { bws.onopen = r; }), sleep(2000)]);
+    bws.send(JSON.stringify({ id: 1, method: "Browser.close" }));
+    for (let i = 0; i < 30; i++) {
+      await sleep(100);
+      try { await fetch(`http://127.0.0.1:${port}/json/version`); } catch { break; }   // gone
+    }
+  } catch {}
+  if (process.platform === "win32") spawnSync("taskkill", ["/pid", String(edge.pid), "/T", "/F"], { stdio: "ignore" });
+  else edge.kill();
+  await sleep(500);
+  try { fs.rmSync(profile, { recursive: true, force: true }); } catch {}
 }
 process.exit(failed ? 1 : 0);

@@ -299,9 +299,29 @@ def strike(player, npc, what, visual, lo, hi, rng=random):
         player.pending_rewards.append(kill_xp(player, npc))
     else:
         add_hate(npc, player, dmg)                # fights back from the tick (npc_turns)
+        lines += hit_while_held(npc, dmg, rng)
         if maybe_flee(npc):
             lines.append((f"{npc.name} turns to flee!", "combat"))
     return lines, npc
+
+
+def hit_while_held(npc, dmg, rng=random, now=None):
+    """A damaging hit on a stunned or rooted NPC: a stun "for 7 sec or 2 hits" ends on its last
+    hit (npc.stun_hits), a root with "a 50% chance to break" may break (npc.root_break).
+    Returns chat lines for what broke."""
+    now = time.time() if now is None else now
+    if dmg <= 0:
+        return []
+    lines = []
+    if now < getattr(npc, "stunned_until", 0) and getattr(npc, "stun_hits", 0):
+        npc.stun_hits -= 1
+        if npc.stun_hits <= 0:
+            npc.stunned_until = 0
+            lines.append((f"{npc.name} is no longer stunned.", "combat"))
+    if now < getattr(npc, "rooted_until", 0) and rng.random() < getattr(npc, "root_break", 0):
+        npc.rooted_until = 0
+        lines.append((f"{npc.name} breaks free!", "combat"))
+    return lines
 
 
 FLEE_SECONDS = 4.0

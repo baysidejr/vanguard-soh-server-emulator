@@ -54,6 +54,12 @@ def from_description(text):
         m = re.search(r"\b(?:" + words + r")\b(?:(?!\.).)*?\bfor " + _SECONDS, held)
         if m and not re.search(r"chance to (" + words + r")\b", held):     # an unknown chance: not every time
             spec[key] = _seconds(re.search(_SECONDS, m.group(0)))
+    hits = re.search(r"\bfor " + _SECONDS + r" or (\d+) hits?\b", held)
+    if "stun" in spec and hits:
+        spec["stun_hits"] = int(hits.group(3))
+    breaks = re.search(r"\b(\d+)% chance to break\b", held)
+    if "root" in spec and breaks:
+        spec["root_break"] = int(breaks.group(1)) / 100
     return spec
 
 

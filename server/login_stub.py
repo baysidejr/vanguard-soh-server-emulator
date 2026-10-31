@@ -1069,6 +1069,7 @@ def stun_or_root(state, player, npc, name, spec, now):
     send = state["send"]
     if spec.get("stun"):
         npc.stunned_until = max(getattr(npc, "stunned_until", 0), now + float(spec["stun"]))
+        npc.stun_hits = int(spec.get("stun_hits", 0))
         c = npc.casting
         if c is not None and c["victim"] is player:
             npc.casting = None
@@ -1080,6 +1081,7 @@ def stun_or_root(state, player, npc, name, spec, now):
         send(build_system_text(f"{npc.name} is stunned!", SYSTEM_TEXT_COMBAT))
     if spec.get("root"):
         npc.rooted_until = max(getattr(npc, "rooted_until", 0), now + float(spec["root"]))
+        npc.root_break = float(spec.get("root_break", 0))
         send(build_system_text(f"{npc.name} is rooted in place!", SYSTEM_TEXT_COMBAT))
     print(f"  {player.name}'s {name}: {npc.name} " + ", ".join(
         f"{k}ned {spec[k]:g}s" if k == "stun" else f"{k}ed {spec[k]:g}s" for k in ("stun", "root") if spec.get(k)))
@@ -1218,6 +1220,7 @@ def effects_tick(state, args, now):
                 player.pending_rewards.append(combat.kill_xp(player, npc))
             else:
                 combat.add_hate(npc, player, dmg)
+                lines += combat.hit_while_held(npc, dmg, now=now)
             for m in combat_results(state, args, player, lines, npc, player.health > 0, player.auto_attack):
                 send(m)
             if e["ticks"] == 0 or not npc.alive:
