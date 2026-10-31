@@ -9,6 +9,10 @@ known word itself) is split into known words, picking the most likely split by w
 the client's VGClient.int and the archive text ("Formofthespiritdragon" -> "Form of the Spirit
 Dragon"). A word is left alone when any piece would be unknown. Those entries have the source
 "word split".
+A third pass restores small words the tags drop ("SHOUT_FURY_I" is the archive's "Shout of Fury I"):
+the names must match once those words (of, the, on, a, an, to, 's), punctuation and case are ignored,
+and the archive record must be the same class's and the only such match. Those entries have the
+archive page as source and "words": "restored".
 Output: {tag name: {"name": proper name, "source": url}}. Run from the repository root:
 
     python tools/ability_names.py
@@ -35,6 +39,30 @@ def key(name):
 def split_rank(name):
     m = RANK.search(name.strip())
     return (name[:m.start()].strip(), m.group(1)) if m else (name.strip(), "")
+
+
+FILLER = {"of", "the", "on", "a", "an", "to", "s"}
+
+
+def filler_key(name):
+    return tuple(w for w in re.findall(r"[a-z0-9]+", name.lower()) if w not in FILLER)
+
+
+def archive_names_by_class():
+    """(class, filler-free key of the base name) -> {spelling: source url}, medium/high confidence."""
+    found = {}
+    for fn in sorted(glob.glob(os.path.join(ROOT, "crowdsourced", "raw", "*", "ability.jsonl"))):
+        with open(fn, encoding="utf-8") as f:
+            for line in f:
+                if not line.strip():
+                    continue
+                r = json.loads(line)
+                if r.get("confidence") not in ("medium", "high") or not r.get("name") or not r.get("class"):
+                    continue
+                base, _ = split_rank(r["name"])
+                url = (r.get("sources") or [{}])[0].get("url", "")
+                found.setdefault((r["class"], filler_key(base)), {}).setdefault(base, url)
+    return found
 
 
 def archive_names():
@@ -115,11 +143,12 @@ def respace(name, vocab, total):
 def main():
     archive = archive_names()
     out, ambiguous = {}, []
-    tags = set()
+    tags, classes = set(), {}
     for klass in races_classes.ADVENTURING_CLASSES:
         for _aid, tag in class_abilities.package_abilities(ROOT, class_abilities.CLASS_PREFIX.get(klass, "")) \
                 if class_abilities.CLASS_PREFIX.get(klass) else []:
             tags.add(class_abilities.raw_display_name(tag))
+            classes.setdefault(class_abilities.raw_display_name(tag), set()).add(races_classes.class_name(klass))
     for tag_name in sorted(tags):
         base, rank = split_rank(tag_name)
         spellings = archive.get(key(base), {})
@@ -131,6 +160,19 @@ def main():
             full = f"{proper} {rank}".strip()
             if full != tag_name:
                 out[tag_name] = {"name": full, "source": url}
+    by_class = archive_names_by_class()
+    restored = 0
+    for tag_name in sorted(tags):
+        if tag_name in out or archive.get(key(split_rank(tag_name)[0])):
+            continue
+        base, rank = split_rank(tag_name)
+        spellings = {}
+        for klass in classes.get(tag_name, ()):
+            spellings.update(by_class.get((klass, filler_key(base)), {}))
+        if len(spellings) == 1:
+            (proper, url), = spellings.items()
+            out[tag_name] = {"name": f"{proper} {rank}".strip(), "source": url, "words": "restored"}
+            restored += 1
     vocab = vocabulary()
     total = sum(vocab.values())
     split = 0
@@ -146,7 +188,8 @@ def main():
                                "re-spaced class ability names (tag name -> proper name). Source \"word split\": "
                                "split into known words by the tool, not seen spelled that way. Do not edit by hand."}
                   | dict(sorted(out.items())), f, indent=2, ensure_ascii=False)
-    print(f"tag names: {len(tags)}; re-spaced: {len(out)} ({split} by word split); ambiguous: {len(ambiguous)}")
+    print(f"tag names: {len(tags)}; re-spaced: {len(out)} ({restored} with small words restored, {split} by word split); "
+          f"ambiguous: {len(ambiguous)}")
     for t, s in ambiguous[:8]:
         print(f"  ambiguous: {t}: {s}")
 

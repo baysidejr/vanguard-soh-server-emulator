@@ -103,6 +103,7 @@ Content: 93 regions, about 2,100 NPCs and 300 creatures from the archive (tools/
 
 ## Done
 
+- 2026-10-31: Ability names: tools/ability_names.py restores the small words the client tags drop (64 names, "Shout Fury I" -> "Shout of Fury I", same-class unique archive match only; chains.json Ranger chain renamed), plus 12 re-spacings from newer batches. The corrected names matched 61 more archive pages (23 icons, 44 tooltips, 39 refresh times): 533 of 808 class abilities now carry archive data. check_all 6/6 (unit 312).
 - 2026-10-31: 117 more class abilities got archive data (71 icons, 80 tooltips, 53 refresh times): the client names single-rank abilities "X I" where the archive page is plain "X"; editor.archive_ability now takes that page when the class matches and no ranked "X II" page exists. Total with archive data: 472 of 808. Logged in crowdsourced/imported.md.
 - 2026-10-31: B-009 cycle: merged scrape commit 7f834e35 (one raw batch, 118 records, data only); refresh --apply added 5 templates, 7 spawns and 2 kill quests (103 of 103 enabled quests finishable).
 - 2026-10-20 (later still): Merged the scrape branch's conversion handoff (3,384 item and 16 quest candidates; additions only, 340 crowdsourced tests OK). refresh_archive gained a handoff step: 19 items that loot, quests or merchants already name came in with slot icons; the rest stay out until referenced. The handoff quests are unfinishable collect quests, not promoted.

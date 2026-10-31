@@ -2218,6 +2218,18 @@ class AbilityArchiveTests(unittest.TestCase):
             editor._ICON_INDEX.update(saved_i)
 
 
+class AbilityNameTests(unittest.TestCase):
+    def test_restored_small_words(self):
+        """tools/ability_names.py matches tag names to archive names ignoring the small words tags drop."""
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+        from ability_names import filler_key
+        self.assertEqual(filler_key("Shout Fury"), filler_key("Shout of Fury"))
+        self.assertEqual(filler_key("Judgment Impure"), filler_key("Judgment of the Impure"))
+        self.assertEqual(filler_key("Command Attack"), filler_key("Command: Attack"))
+        self.assertNotEqual(filler_key("Hand Censure Pulse"), filler_key("Hand of Censure"))
+
+
 class JournalRecipeTests(unittest.TestCase):
     def test_details_and_missing_steps(self):
         import craft
