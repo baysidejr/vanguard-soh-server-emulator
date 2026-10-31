@@ -41,7 +41,28 @@ def singulars(name):
     for plural, single in (("ies", "y"), ("ves", "f"), ("men", "man"), ("es", ""), ("s", "")):
         if last.endswith(plural):
             out.append(pre + last[: -len(plural)] + single)
+    for extra in (singular_name(name),):
+        if extra not in out:
+            out.append(extra)
     return out
+
+
+def _single(word):
+    if len(word) < 4 or not word.endswith("s") or word.endswith("ss"):
+        return word
+    if word.endswith("ies"):
+        return word[:-3] + "y"
+    if word.endswith(("shes", "ches", "xes", "sses")):
+        return word[:-2]
+    return word[:-1]
+
+
+def singular_name(name):
+    """The singular creature name of a plural objective target: every word before an "of" made
+    singular ("hobgoblins overseers" -> "hobgoblin overseer", "eyes of pain" -> "eye of pain")."""
+    words = name.split()
+    cut = words.index("of") if "of" in words else len(words)
+    return " ".join([_single(w) for w in words[:cut]] + words[cut:])
 
 
 def zone_world(content=z.CONTENT):
@@ -191,9 +212,21 @@ NO_DELIVERY_EVIDENCE = ("B-007 (owner decision C, 2026-10-17): the archive recor
                         "points to a delivery; not offered. Remove \"disabled\" to play it as a delivery again.")
 
 
-def mark_delivery(q):
-    """Keep a delivery placeholder playable only with title evidence; switch it off otherwise."""
-    if DELIVERY_TITLE.search(q.get("name", "")) and q.get("giver") != q.get("turn_in"):
+# Zones whose evidence-less delivery placeholders are offered anyway, marked (owner decision
+# 2026-10-31, B-019: the Isle of Dawn start would otherwise have almost nothing to do).
+DELIVERY_PLACEHOLDER_ZONES = ("Isle of Dawn",)
+MARKED_DELIVERY = ("PLACEHOLDER (owner decision 2026-10-31, B-019): the archive records no objectives; offered as "
+                   "a delivery to the hand-in NPC until real objectives are found")
+
+
+def mark_delivery(q, zone=None):
+    """Keep a delivery placeholder playable only with title evidence (or in a zone where the owner
+    wants them offered, marked); switch it off otherwise."""
+    if zone in DELIVERY_PLACEHOLDER_ZONES:
+        q["_placeholder_delivery"] = MARKED_DELIVERY
+        q.pop("disabled", None)
+        q.pop("_disabled", None)
+    elif DELIVERY_TITLE.search(q.get("name", "")) and q.get("giver") != q.get("turn_in"):
         q["_delivery_evidence"] = DELIVERY_EVIDENCE
         q.pop("disabled", None)
         q.pop("_disabled", None)
@@ -224,7 +257,7 @@ def apply(ready, world, chunks, content=z.CONTENT, steps_for=None):
             quests[key]["turn_in"] = steps[-1]["talk"]
             quests[key]["_placeholder_steps"] = ("the archive records no objectives; played as a delivery to "
                                                  "the hand-in NPC")
-            mark_delivery(quests[key])
+            mark_delivery(quests[key], rec.get("zone"))
             reward = quests[key].setdefault("reward", {})
             if reward.get("xp") == 100 * int(rec.get("level") or 1):     # the placeholder, not the archive's
                 reward["xp"] = 25 * int(rec.get("level") or 1)              # one conversation: a quarter
@@ -243,6 +276,27 @@ def apply(ready, world, chunks, content=z.CONTENT, steps_for=None):
     if added_i:
         z.write(ipath, items)
     return added_q, added_i
+
+
+def enable_zone_deliveries(do_apply, chunks, content=z.CONTENT):
+    """Switch back on the delivery placeholders B-007 switched off whose giver stands in a
+    DELIVERY_PLACEHOLDER_ZONES zone (marked). Returns the quest names."""
+    qpath = os.path.join(content, "quests.json")
+    quests = z.load(qpath, {})
+    givers = set()
+    for zone in DELIVERY_PLACEHOLDER_ZONES:
+        if zone in chunks:
+            givers |= {sp["mob"] for sp in z.existing_spawns(z.level_name(*chunks[zone]), content)}
+    names = []
+    for q in quests.values():
+        if isinstance(q, dict) and q.get("_disabled") == NO_DELIVERY_EVIDENCE and q.get("giver") in givers:
+            q["_placeholder_delivery"] = MARKED_DELIVERY
+            q.pop("disabled", None)
+            q.pop("_disabled", None)
+            names.append(q.get("name"))
+    if names and do_apply:
+        z.write(qpath, quests)
+    return sorted(names)
 
 
 def link_chains(archive_quests, content=z.CONTENT):
@@ -337,7 +391,7 @@ def z_root():
     return z.ROOT
 
 
-def placeholder_camps(quests, world, chunks, creatures, content=z.CONTENT):
+def placeholder_camps(quests, world, chunks, creatures, content=z.CONTENT, invent_zones=()):
     """For quests whose giver is placed and whose only missing objectives are kills of creatures the
     archive knows (same zone, a level) but doesn't locate: a camp of three of each such creature
     PLACEHOLDER_DISTANCE from the giver, on the terrain (the giver's height in a city off the
@@ -355,6 +409,8 @@ def placeholder_camps(quests, world, chunks, creatures, content=z.CONTENT):
             t = objective_target(objective)
             rec = next((by_name[s] for s in singulars(t) if s in by_name), None)
             if rec is None or rec.get("zone") != q.get("zone") or not rec.get("level") or z.is_object(rec):
+                rec = invented_creature(objective, q) if q.get("zone") in invent_zones else None
+            if rec is None:
                 targets = []
                 break
             need = next((int(st.get("count") or 1) for st in q.get("candidate_steps") or []
@@ -391,8 +447,56 @@ def placeholder_camps(quests, world, chunks, creatures, content=z.CONTENT):
                     break
             if camp is None:
                 continue
-            out.setdefault(level, []).append((key, z.creature_template(rec, None), camp))
+            tpl = invented_template(rec) if rec.get("_invented") else z.creature_template(rec, None)
+            out.setdefault(level, []).append((key, tpl, camp))
     return out
+
+
+# Zones where a kill target with no archive page at all becomes a placeholder creature named from the
+# quest objective (owner decision 2026-10-31, B-019: the Isle of Dawn's common creatures have no pages).
+INVENT_ZONES = ("Isle of Dawn",)
+# Stand-in looks where no client race carries the creature's name (placeholders, like the rest).
+STAND_IN_LOOKS = {"gataro": "lizardman", "imp": "fireelemental", "eye": "wingedeye", "dervish": "rockdervish"}
+
+
+def invented_creature(objective, quest):
+    """A record for a kill target the archive has no page for: its name from the objective
+    ("Gataro Podlings Slain (0/5)" -> "Gataro Podling"), the quest's level; None when the
+    objective is not a plain "<creatures> Slain" ("Ulvari Slain at Hobgoblin Camp")."""
+    if not re.search(r"\b(slain|killed|defeated|destroyed)\s*(\([^)]*\))?\s*$", objective.strip(), re.I):
+        return None
+    t = objective_target(objective)
+    if not re.fullmatch(r"[a-z' -]+", t) or set(t.split()) & {"slain", "in", "at", "inside", "from", "near"}:
+        return None
+    name = " ".join(w if w == "of" else w[:1].upper() + w[1:] for w in singular_name(t).split())
+    return {"name": name, "level": int(quest.get("level") or 1), "zone": quest.get("zone"), "_invented": quest["name"]}
+
+
+def invented_race(name):
+    """A client race for an invented creature: a race named like the whole name or one of its
+    words ("Hobgoblin Overseer" -> hobgoblin), else a stand-in look; else the default."""
+    if not z._RACES:
+        z.creature_race({}, None)
+    convert, races = z._RACES[0]
+    words = [w.lower() for w in name.split() if w.lower() != "of"]
+    for text in [name] + words[::-1]:
+        race = convert.find_race(races, text)
+        if race is not None:
+            return race
+    for w in words[::-1]:
+        if w in STAND_IN_LOOKS and STAND_IN_LOOKS[w] in races:
+            return races[STAND_IN_LOOKS[w]]
+    return z.DEFAULT_RACE
+
+
+def invented_template(rec):
+    """A placeholder mob for an invented creature: the quest's level, health and damage scaled as
+    for archive creatures of two dots, not aggressive (a newcomer's first fights)."""
+    level = rec["level"]
+    return {"name": rec["name"], "pawn_class": "SGONPCPawn", "race": invented_race(rec["name"]), "level": level,
+            "health": 100 + 40 * level, "damage": [max(1, level), max(2, 2 * level)],
+            "_placeholder": f"creature invented from an objective of the quest {rec['_invented']} (owner decision "
+                            "2026-10-31): the archive has no page for it; look, level and stats are guesses"}
 
 
 def main(argv=None):

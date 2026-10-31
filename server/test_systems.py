@@ -549,6 +549,20 @@ class FearTests(unittest.TestCase):
         combat.chase_step(npc, (500.0, 0.0, 0.0), 0.5, now=101.0)
         self.assertGreater(npc.location[0], 0.0)                # free again
 
+    def test_stun_hits_and_root_breaks(self):
+        npc = combat.Npc(1, "Wolf", None, "x", max_health=100, location=(0.0, 0.0, 0.0))
+        npc.stunned_until, npc.stun_hits = 100.0, 2              # "for 7 sec or 2 hits"
+        self.assertEqual(combat.hit_while_held(npc, 5, now=10.0), [])
+        self.assertEqual(combat.hit_while_held(npc, 0, now=10.0), [])           # a miss doesn't count
+        self.assertEqual(combat.hit_while_held(npc, 5, now=10.0), [("Wolf is no longer stunned.", "combat")])
+        self.assertEqual(npc.stunned_until, 0)
+        npc.rooted_until, npc.root_break = 100.0, 0.5             # "a 50% chance to break"
+        held = types.SimpleNamespace(random=lambda: 0.7)
+        self.assertEqual(combat.hit_while_held(npc, 5, held, now=10.0), [])
+        broke = types.SimpleNamespace(random=lambda: 0.3)
+        self.assertEqual(combat.hit_while_held(npc, 5, broke, now=10.0), [("Wolf breaks free!", "combat")])
+        self.assertEqual(npc.rooted_until, 0)
+
 
 class FishComboTests(unittest.TestCase):
     def test_combo(self):
@@ -1625,7 +1639,7 @@ class EditorSaveTests(unittest.TestCase):
         tools = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools")
         sys.path.insert(0, tools)
         import editor
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             c = os.path.join(d, "content")
             shutil.copytree(os.path.join(os.path.dirname(os.path.abspath(__file__)), "content"), c)
             before = {f: open(os.path.join(c, f), encoding="utf-8").read() for f in ("factions.json", "recipes.json")}
@@ -1633,14 +1647,17 @@ class EditorSaveTests(unittest.TestCase):
             httpd = editor.http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
             threading.Thread(target=httpd.serve_forever, daemon=True).start()
             base = f"http://127.0.0.1:{httpd.server_address[1]}/"
+            saved = {"until": "document.getElementById('problems').innerText.includes('Saved')"}
             cases = [("#factions", [
+                {"until": "[...document.querySelectorAll('#facTable tr')].some(t=>t.cells[0]&&t.cells[0].textContent==='1003')"},
                 "(() => { const tr=[...document.querySelectorAll('#facTable tr')].find(t=>t.cells[0]&&t.cells[0].textContent==='1003');"
                 " const k=tr.querySelector('[data-k=kill]'); k.value='-12'; k.dispatchEvent(new Event('change')); return 1; })()",
-                "document.getElementById('saveFactions').click(), 1", 1500,
+                "document.getElementById('saveFactions').click(), 1", saved,
                 "document.getElementById('problems').innerText"]),
                 ("#recipes=copper_ingot", [
+                {"until": "document.querySelector('#recBody [data-f=xp]')"},
                 "(() => { const i=document.querySelector('#recBody [data-f=xp]'); i.value='121'; i.dispatchEvent(new Event('input')); return 1; })()",
-                "document.getElementById('saveRecipes').click(), 1", 1500,
+                "document.getElementById('saveRecipes').click(), 1", saved,
                 "document.getElementById('problems').innerText"])]
             try:
                 for hash_, steps in cases:
@@ -2253,7 +2270,7 @@ class AbilityDescriptionTests(unittest.TestCase):
         self.assertEqual(d("A finishing attack which deals 42 to 49 damage and reduces your enemy's armor by 35%."), {"kind": "strike"})
         # Unclear: damage plus a self buff, a stun, life-to-mana prose, nothing at all.
         self.assertEqual(d("Deals 33 to 37 damage to your target and increases your strength by 15 for 5 minutes."), {})
-        self.assertEqual(d("Stuns your opponent for 2 sec or 2 hits. Increases your Dreadful Countenance."), {"stun": 2.0})
+        self.assertEqual(d("Stuns your opponent for 2 sec or 2 hits. Increases your Dreadful Countenance."), {"stun": 2.0, "stun_hits": 2})
         self.assertEqual(d("Slowly convert your life into mana. Use without healing can cause death."), {})
         self.assertEqual(d(None), {})
         # Stuns and roots (seconds), for the landed hit; not on "immunity to stuns" or an unknown chance.
@@ -2263,6 +2280,9 @@ class AbilityDescriptionTests(unittest.TestCase):
         self.assertEqual(d("Binds your enemy's feet with chains, rooting them in place for 18-24 sec."), {"root": 18.0})
         self.assertEqual(d("A crushing kick that inflicts 17 to 21 damage and has a chance to stun for 1 sec."), {"kind": "strike"})
         self.assertNotIn("stun", d("Hardens your skin, granting immunity to most stuns and knockbacks for 15 sec."))
+        self.assertEqual(d("Stuns your opponent for 7 sec or 2 hits."), {"stun": 7.0, "stun_hits": 2})
+        self.assertEqual(d("Roots your opponent in place for 40 seconds. Has a 50% chance to break when your opponent is hit."),
+                         {"root": 40.0, "root_break": 0.5})
         over = {"Astral Wind I": {"description": "Heals an ally for 627."},
                 "Rend I": {"description": "Heals an ally for 5.", "kind": "dot"}}
         self.assertEqual(effects.classify("Astral Wind I", over)["kind"], "heal")
@@ -2313,6 +2333,32 @@ class QuestReadinessTests(unittest.TestCase):
         self.assertEqual(self.qr.objective_target("- Loamite Sludgemongers Slain (7/10)"), "loamite sludgemongers")
         self.assertIn("timber wolf", self.qr.singulars("timber wolves"))
         self.assertEqual([self.qr.coin_copper(t) for t in ("1s 40c", "55 c", "17", "0")], [140, 55, None, None])
+        self.assertIn("hobgoblin overseer", self.qr.singulars("hobgoblins overseers"))
+        self.assertIn("oracle of dust", self.qr.singulars("oracles of dust"))
+        self.assertIn("stone dervish", self.qr.singulars("stone dervishes"))
+
+    def test_invented_creatures(self):
+        """Owner decision 2026-10-31: in INVENT_ZONES a kill target the archive has no page for
+        becomes a placeholder creature named from the objective; odd objectives are left alone."""
+        q = {"name": "Warming Up", "level": 1, "zone": "Isle of Dawn"}
+        rec = self.qr.invented_creature("Gataro Podlings Slain (0/5)", q)
+        self.assertEqual((rec["name"], rec["level"], rec["_invented"]), ("Gataro Podling", 1, "Warming Up"))
+        self.assertEqual(self.qr.invented_creature("Eyes of Pain Slain (0/6)", q)["name"], "Eye of Pain")
+        self.assertIsNone(self.qr.invented_creature("Ulvari Slain at Hobgoblin Camp (0/10)", q))
+        self.assertIsNone(self.qr.invented_creature("Portals Closed (0/3)", q))
+        t = self.qr.invented_template(rec)
+        self.assertIn("_placeholder", t)
+        self.assertNotIn("aggro_radius", t)
+        self.assertEqual(self.qr.invented_race("Hobgoblin Overseer"), self.qr.invented_race("Hobgoblin"))
+        self.assertIn("Isle of Dawn", self.qr.INVENT_ZONES)
+
+    def test_marked_deliveries_by_zone(self):
+        on, off = {"name": "Life of a Crafter", "giver": "a", "turn_in": "b"}, {"name": "Life of a Crafter", "giver": "a", "turn_in": "b"}
+        self.qr.mark_delivery(on, "Isle of Dawn")
+        self.qr.mark_delivery(off, "Leth Nurae")
+        self.assertNotIn("disabled", on)
+        self.assertIn("PLACEHOLDER", on["_placeholder_delivery"])
+        self.assertTrue(off["disabled"])
 
     def test_steps(self):
         status, steps = self.qr.plan_steps(self.quest(("Timber Wolves Slain (12)", "kill", 12),
@@ -2556,7 +2602,8 @@ class DisabledQuestTests(unittest.TestCase):
                            encoding="utf-8"))
         placeholders = [v for v in q.values() if isinstance(v, dict) and v.get("_placeholder_steps")]
         kept = [v for v in placeholders if not v.get("disabled")]
-        self.assertTrue(all(v.get("_delivery_evidence") for v in kept))       # only with evidence
+        # Only with evidence, or marked in a zone where the owner wants them offered (B-019, 2026-10-31).
+        self.assertTrue(all(v.get("_delivery_evidence") or v.get("_placeholder_delivery") for v in kept))
         self.assertTrue(all(v.get("_disabled") for v in placeholders if v.get("disabled")))
 
 

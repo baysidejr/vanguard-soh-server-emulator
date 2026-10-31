@@ -43,7 +43,8 @@ def main(argv=None):
     print("== quest targets ==")
     quests, world, chunks = (import_zone.archive_npcs(kind="quest"), quest_readiness.zone_world(),
                              import_zone.zone_chunks())
-    camps = quest_readiness.placeholder_camps(quests, world, chunks, import_zone.archive_npcs(kind="creature"))
+    camps = quest_readiness.placeholder_camps(quests, world, chunks, import_zone.archive_npcs(kind="creature"),
+                                              invent_zones=quest_readiness.INVENT_ZONES)
     print(f"{sum(len(v) for v in camps.values())} kill targets without a location get a placeholder camp near the giver")
     if a.apply:
         loot = import_zone.archive_npcs(kind="loot")
@@ -62,6 +63,9 @@ def main(argv=None):
         print("added %d quests and %d items" % quest_readiness.apply(ready, world, chunks))
         print("added %d delivery quests (%d items)" % quest_readiness.apply(deliveries, world, chunks, steps_for=steps_for))
         print("linked %d quests to the quest before them in their chain" % quest_readiness.link_chains(quests))
+        on = quest_readiness.enable_zone_deliveries(True, chunks)
+        print(f"{len(on)} delivery placeholders offered again, marked, in "
+              + ", ".join(quest_readiness.DELIVERY_PLACEHOLDER_ZONES) + (": " + ", ".join(on) if on else ""))
         # Archive zone labels are sometimes wrong (Tracker Nok stood in the sea): move spawns whose
         # recorded height only fits a neighbouring chunk (backlog B-020), then check every offered
         # quest can still be finished (B-018).

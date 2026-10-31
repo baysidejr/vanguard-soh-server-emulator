@@ -21,6 +21,7 @@ below is committed and pushed to `main` on GitHub (baysidejr/vanguard-soh-server
 - **B-007 delivery placeholders: C.** Keep only deliveries with evidence (title), switch the rest off reversibly. Done (18 kept, 294 disabled).
 - **B-008 camp-zone NPCs: YES.** Imported. Done.
 - **B-009 scrape branch: review and merge verified, non-destructive work regularly.** Merged five times today (latest 7697232). Repeat the cycle: `git fetch`, review paths/deletions/conflicts, run `crowdsourced/tests`, merge, `python tools/refresh_archive.py` (report) then `--apply`, review the diff.
+- **B-019 Isle of Dawn quests (2026-10-31):** kill targets with no archive page become marked placeholder creatures named from the objective (Isle of Dawn only); the island's delivery placeholders are offered again, marked.
 - **B-010 parley presence: A.** Unrestricted until evidence. Deferred.
 - Standing rules: never invent original game data; test on scratch copies, never the real `server/vanguard.db`; commit and push verified work; keep going after each task; only stop for true owner decisions (record them as `BLOCKED: OWNER DECISION`).
 
@@ -57,7 +58,7 @@ below is committed and pushed to `main` on GitHub (baysidejr/vanguard-soh-server
 
 ## Open owner decision
 
-- **B-019:** the Isle of Dawn (default start) offers no quests (its 10 were evidence-less deliveries, switched off; the archive's 127 island quests record no objectives). Options: (a) wait for the scrape, (b) send "trial island" picks to the home town until then, (c) re-enable the 10 placeholders, marked.
+- **B-019:** decided 2026-10-31 (see Owner decisions above): placeholder kill targets and marked deliveries on the Isle of Dawn; 18 island quests offered now.
 
 ## Practical notes
 
