@@ -137,7 +137,7 @@ def validate(directory=CONTENT_DIR):
             continue
         if "kind" in a and a["kind"] not in kinds:
             problems.append(f"ability {name}: kind must be one of {', '.join(kinds)}")
-        for k in ("refresh", "cast", "icon", "duration", "bonus", "ticks", "interval", "speed"):
+        for k in ("refresh", "cast", "icon", "duration", "bonus", "ticks", "interval", "speed", "stun", "root"):
             if k in a and not num(a[k]):
                 problems.append(f"ability {name}: {k} must be a number")
         for k in ("damage", "amount"):

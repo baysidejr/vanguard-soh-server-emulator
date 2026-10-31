@@ -45,14 +45,26 @@ def _seconds(match):
 
 def from_description(text):
     """What an archive tooltip says an ability does: {"kind", and "duration" / "ticks" / "self"
-    where it says} or {} when it isn't clear. Only the kind and timings are read: the tooltips'
-    amounts are a top rank's, not rank I's."""
+    / "stun" / "root" (seconds) where it says} or {} when it isn't clear. Only the kind and
+    timings are read: the tooltips' amounts are a top rank's, not rank I's."""
     low = " ".join((text or "").lower().split())
+    spec = _kind_from(low)
+    held = re.sub(r"[^.]*immun[^.]*", "", low)          # "immunity to most stuns" holds nobody
+    for key, words in (("stun", r"stuns?|stunning|stunned"), ("root", r"roots?|rooting|rooted")):
+        m = re.search(r"\b(?:" + words + r")\b(?:(?!\.).)*?\bfor " + _SECONDS, held)
+        if m and not re.search(r"chance to (" + words + r")\b", held):     # an unknown chance: not every time
+            spec[key] = _seconds(re.search(_SECONDS, m.group(0)))
+    return spec
+
+
+def _kind_from(low):
     damages = re.search(r"\b(deals?|dealing|inflicts?|inflicting|causes?|causing|strikes?)\b[^.]*\bdamage\b", low) \
         or "weapon damage" in low
     hostile = re.search(r"\b(opponents?|enem(y|ies)|foes?|stuns?|stunning|roots?|rooting)\b", low)
     over = re.search(r"\bdamage over " + _SECONDS, low)
-    grants = re.search(r"\b(increases?|increasing|raises?|grants?|granting|improves?|gaining)\b", low)
+    # "Greatly increases your hate" is about the enemy's attention, not a buff.
+    grants = re.search(r"\b(increases?|increasing|raises?|grants?|granting|improves?|gaining)\b",
+                       re.sub(r"\b(greatly )?increas\w* (your |the )?(hate|hatred)\b", "", low))
     timed = re.search(r"\bfor (?:the next )?" + _SECONDS, low)
     if re.search(r"\b(flee|flees|run away|runs away)\b", low):
         return {"kind": "fear", **({"duration": _seconds(timed)} if timed else {})}

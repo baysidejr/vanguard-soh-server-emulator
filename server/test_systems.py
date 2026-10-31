@@ -531,6 +531,24 @@ class FearTests(unittest.TestCase):
         npc.aggro_on, npc.next_attack, npc.casting = p, 0, None
         self.assertEqual(combat.npc_turns(p, 10.0), [])         # no swing while feared
 
+    def test_stunned_and_rooted_npcs_hold_still(self):
+        npc = combat.Npc(1, "Wolf", None, "x", max_health=100, location=(0.0, 0.0, 0.0))
+        npc.aggro, npc.moving = True, True
+        npc.stunned_until = 100.0
+        stop = combat.chase_step(npc, (500.0, 0.0, 0.0), 0.5, now=10.0)
+        self.assertEqual((npc.location[0], stop["Velocity"], npc.moving), (0.0, (0.0, 0.0, 0.0), False))
+        self.assertIsNone(combat.chase_step(npc, (500.0, 0.0, 0.0), 0.5, now=10.5))
+        p = types.SimpleNamespace(health=100, live_position=(1.0, 0.0, 0.0), npcs={1: npc}, last_combat=0)
+        npc.aggro_on, npc.next_attack, npc.casting = p, 0, None
+        self.assertEqual(combat.npc_turns(p, 10.0), [])         # stunned: no swing
+        npc.stunned_until, npc.rooted_until = 0, 100.0
+        combat.chase_step(npc, (500.0, 0.0, 0.0), 0.5, now=10.0)
+        self.assertEqual(npc.location[0], 0.0)                  # rooted: doesn't chase ...
+        with unittest.mock.patch.object(combat, "npc_attacks", return_value=[]):
+            self.assertEqual(len(combat.npc_turns(p, 10.0)), 1)  # ... but swings at someone in reach
+        combat.chase_step(npc, (500.0, 0.0, 0.0), 0.5, now=101.0)
+        self.assertGreater(npc.location[0], 0.0)                # free again
+
 
 class FishComboTests(unittest.TestCase):
     def test_combo(self):
@@ -2235,9 +2253,16 @@ class AbilityDescriptionTests(unittest.TestCase):
         self.assertEqual(d("A finishing attack which deals 42 to 49 damage and reduces your enemy's armor by 35%."), {"kind": "strike"})
         # Unclear: damage plus a self buff, a stun, life-to-mana prose, nothing at all.
         self.assertEqual(d("Deals 33 to 37 damage to your target and increases your strength by 15 for 5 minutes."), {})
-        self.assertEqual(d("Stuns your opponent for 2 sec or 2 hits. Increases your Dreadful Countenance."), {})
+        self.assertEqual(d("Stuns your opponent for 2 sec or 2 hits. Increases your Dreadful Countenance."), {"stun": 2.0})
         self.assertEqual(d("Slowly convert your life into mana. Use without healing can cause death."), {})
         self.assertEqual(d(None), {})
+        # Stuns and roots (seconds), for the landed hit; not on "immunity to stuns" or an unknown chance.
+        self.assertEqual(d("Clouts your offensive target, stunning it for 6 sec."), {"stun": 6.0})
+        self.assertEqual(d("You bash the target with your shield, dealing 34 to 40 damage and stunning them for "
+                           "2 seconds. Greatly increases your hate."), {"kind": "strike", "stun": 2.0})
+        self.assertEqual(d("Binds your enemy's feet with chains, rooting them in place for 18-24 sec."), {"root": 18.0})
+        self.assertEqual(d("A crushing kick that inflicts 17 to 21 damage and has a chance to stun for 1 sec."), {"kind": "strike"})
+        self.assertNotIn("stun", d("Hardens your skin, granting immunity to most stuns and knockbacks for 15 sec."))
         over = {"Astral Wind I": {"description": "Heals an ally for 627."},
                 "Rend I": {"description": "Heals an ally for 5.", "kind": "dot"}}
         self.assertEqual(effects.classify("Astral Wind I", over)["kind"], "heal")

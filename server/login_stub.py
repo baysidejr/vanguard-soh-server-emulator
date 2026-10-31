@@ -775,6 +775,8 @@ def use_ability(state, args, player, ability):
         lines, npc = combat.use_ability(player, ability)
         for m in combat_results(state, args, player, lines, npc, was_alive, attacking):
             send(m)
+        if npc is not None and npc.alive and player.last_combat >= now and (spec.get("stun") or spec.get("root")):
+            stun_or_root(state, player, npc, name, spec, now)
         if spec["kind"] == "dot" and npc is not None and npc.alive and player.last_combat >= now:
             apply_dot(state, player, npc, name, spec, now)
         elif npc is None or player.last_combat < now:
@@ -1058,6 +1060,29 @@ def counter_cast(state, npc):
     send(reactions.incoming_result(2))
     send(build_system_text(f"You counter {npc.name}'s {c['spell']['name']}!", SYSTEM_TEXT_COMBAT))
     print(f"  {state['player'].name} countered {npc.name}'s {c['spell']['name']}")
+
+
+def stun_or_root(state, player, npc, name, spec, now):
+    """A landed ability with "stun" / "root" seconds (abilities.json, or read from its archive
+    tooltip): the NPC stands still (combat.chase_step); stunned, it also stops swinging and a
+    spell it is casting at this player is interrupted."""
+    send = state["send"]
+    if spec.get("stun"):
+        npc.stunned_until = max(getattr(npc, "stunned_until", 0), now + float(spec["stun"]))
+        c = npc.casting
+        if c is not None and c["victim"] is player:
+            npc.casting = None
+            if c["rid"] is not None and state.get("reactions", {}).pop(c["rid"], None) is not None:
+                send(reactions.close_reaction(c["rid"]))
+            send(reactions.row_in_flight_done(npc.entity_id, c["fid"]) if c.get("row")
+                 else reactions.in_flight_result(c["fid"], reactions.CAST_INTERRUPTED))
+            send(reactions.incoming_result(reactions.CAST_INTERRUPTED))
+        send(build_system_text(f"{npc.name} is stunned!", SYSTEM_TEXT_COMBAT))
+    if spec.get("root"):
+        npc.rooted_until = max(getattr(npc, "rooted_until", 0), now + float(spec["root"]))
+        send(build_system_text(f"{npc.name} is rooted in place!", SYSTEM_TEXT_COMBAT))
+    print(f"  {player.name}'s {name}: {npc.name} " + ", ".join(
+        f"{k}ned {spec[k]:g}s" if k == "stun" else f"{k}ed {spec[k]:g}s" for k in ("stun", "root") if spec.get(k)))
 
 
 def effect_id(player, name):

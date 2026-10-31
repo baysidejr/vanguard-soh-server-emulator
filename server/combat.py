@@ -401,8 +401,8 @@ def npc_turns(player, now, rng=random):
     for npc in player.npcs.values():
         if not (npc.alive and npc.aggro and npc.aggro_on is player) or now < npc.next_attack or npc.casting:
             continue
-        if now < getattr(npc, "feared_until", 0):
-            continue                       # running away in terror
+        if now < getattr(npc, "feared_until", 0) or now < getattr(npc, "stunned_until", 0):
+            continue                       # running away in terror, or stunned
         if player.health <= 0:
             npc.aggro, npc.aggro_on, npc.moving = False, None, False
             npc.hate = {}
@@ -656,6 +656,12 @@ def chase_step(npc, target, dt, rng=random, now=None):
         d = math.hypot(dx, dy) or 1.0
         away = (npc.location[0] + dx / d * FLEE_STEP, npc.location[1] + dy / d * FLEE_STEP)
         return move_toward(npc, away, dt, NPC_SPEED * FLEE_SPEED, 1.0)
+    if now < max(getattr(npc, "stunned_until", 0), getattr(npc, "rooted_until", 0)):
+        # Stunned or rooted by a player: stands where it is (a rooted one still swings in reach).
+        if not npc.moving:
+            return None
+        npc.moving = False
+        return {"Velocity": (0.0, 0.0, 0.0), "PawnPosition": (npc.location, (0, npc.yaw, 0), (0.0, 0.0, 0.0))}
     if npc.aggro and target is not None:
         if math.hypot(npc.location[0] - npc.home[0], npc.location[1] - npc.home[1]) > LEASH:
             give_up(npc)
