@@ -167,6 +167,9 @@ def coin_copper(text):
     return sum(int(n) * {"p": 1000000, "g": 10000, "s": 100, "c": 1}[u] for n, u in parts)
 
 
+VERBS = {"Slay", "Gather", "Speak", "Hear", "Deliver"}      # task lines that start with a verb read on lower-case
+
+
 def to_quest(rec, steps, quest_id, content=z.CONTENT):
     """A quests.json entry for a ready archive quest."""
     import editor
@@ -179,10 +182,11 @@ def to_quest(rec, steps, quest_id, content=z.CONTENT):
     tasks = [(f"Gather {n} {name}" if "collect" in s else
               f"Slay {n} " + re.sub(r"\s+(slain|killed|defeated|destroyed)$", "", s["objective"], flags=re.I))
              for s in steps if "talk" not in s and "use" not in s for name, n in (s.get("collect") or s.get("kill")).items()]
-    tasks += [s["objective"] for s in steps if "talk" in s or "use" in s]   # "Speak with ...", "Portals Closed"
+    tasks += [s["objective"] for s in steps if "talk" in s]          # "Speak with ..." (delivery_plan)
+    tasks += [f"{s['objective']} ({sum(s['use'].values())})" for s in steps if "use" in s]   # "Portals Closed (3)"
     q.setdefault("greeting", f"I could use some help. ({rec['name']}: the archive has no dialogue yet.)")
     q.setdefault("description", f"{giver_name} has asked you to help: " + ", then ".join(
-        t[0].lower() + t[1:] for t in tasks) + ".")
+        t[0].lower() + t[1:] if t.split()[0] in VERBS else t for t in tasks) + ".")
     q.setdefault("summary", "; ".join(tasks) + f" for {giver_name}.")
     q.setdefault("accept_text", f"You agree to help {giver_name}.")
     if (rec.get("turn_in") or "").strip().lower() == "unknown":
