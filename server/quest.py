@@ -96,7 +96,8 @@ def options(npc_eid, opts):
 
 def steps(q):
     """A quest's steps, in order. Each step is one of {"kill": {mob: n}},
-    {"collect": {item: n}} or {"talk": mob}, plus "objective" (tracker text).
+    {"collect": {item: n}}, {"talk": mob} or {"use": {object mob: n}} (right-click / Use a placed
+    object n times), plus "objective" (tracker text).
     A quest with a top-level "kill" is one kill step."""
     return q.get("steps") or [{"objective": q.get("objective", ""), "kill": q.get("kill", {})}]
 
@@ -107,7 +108,7 @@ def turn_in(q):
 
 
 def step_need(step):
-    return sum((step.get("kill") or step.get("collect") or {}).values()) or 1
+    return sum((step.get("kill") or step.get("collect") or step.get("use") or {}).values()) or 1
 
 
 def step_count(step, prog, have):

@@ -1974,7 +1974,7 @@ function showQuest() {
   $("rFaction").value = Object.entries(r.faction || {}).map(([k, v]) => `${k}:${v}`).join(", ");
   drawSteps();
 }
-function stepKind(s) { return s.kill ? "kill" : s.collect ? "collect" : "talk"; }
+function stepKind(s) { return s.kill ? "kill" : s.collect ? "collect" : s.use ? "use" : "talk"; }
 function drawSteps() {
   const t = $("stepTable");
   t.innerHTML = "<tr style='color:#b9ae9b;font-size:12px;text-align:left'><th>Kind</th><th>Target</th><th>Count</th><th>Objective (tracker)</th><th>Says (talk)</th><th></th></tr>";
@@ -1984,7 +1984,7 @@ function drawSteps() {
     const count = kind === "talk" ? "" : Object.values(s[kind] || {})[0] || 1;
     const mobOpts = Object.keys(questMobs).filter(k => !k.startsWith("_")).sort().map(k => `<option value="${k}" ${k === target ? "selected" : ""}>${k}</option>`).join("");
     const tr = document.createElement("tr");
-    tr.innerHTML = `<td><select data-k="kind">${["kill", "collect", "talk"].map(k => `<option ${k === kind ? "selected" : ""}>${k}</option>`).join("")}</select></td>
+    tr.innerHTML = `<td><select data-k="kind">${["kill", "collect", "talk", "use"].map(k => `<option ${k === kind ? "selected" : ""}>${k}</option>`).join("")}</select></td>
       <td>${kind === "collect" ? `<input data-k="target" list="itemNames" value="${target.replace(/"/g, "&quot;")}">` : `<select data-k="target">${mobOpts}</select>`}</td>
       <td><input data-k="count" type="number" min="1" value="${count}" ${kind === "talk" ? "disabled" : ""} style="width:70px"></td>
       <td><input data-k="objective" value="${(s.objective || "").replace(/"/g, "&quot;")}"></td>

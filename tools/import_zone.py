@@ -281,6 +281,12 @@ def template(rec):
 QUEST_LOC = re.compile(r"(-?\d+(?:\.\d+)?),\s*(-?\d+(?:\.\d+)?),\s*(-?\d+(?:\.\d+)?)(?:.*\((-?\d+),\s*(-?\d+)\))?")
 
 
+def chunk_exists(x, y):
+    """Whether the client has a map for chunk (x, y). The archive labels many Isle of Dawn spots
+    "(-21, 1)", a chunk with no map, beside givers it labels (-26, 1) in the same coordinates."""
+    return os.path.exists(os.path.join(ROOT, "Assets", "Maps", level_name(x, y) + ".vgr"))
+
+
 def has_npc_page(q):
     """Whether the quest record links its giver to an archive NPC page (/mobs/...)."""
     g = (q.get("giver") or "").strip().lower()
@@ -288,10 +294,11 @@ def has_npc_page(q):
                for e in q.get("referenced_entities") or [])
 
 
-def quest_giver_spots(zone, quests, chunk):
+def quest_giver_spots(zone, quests, chunk, every=False):
     """giver name -> ((x, y, z), quest record) from the zone's quest records: a quest's archive
     "location" is where it starts, i.e. where its giver stands ("33289, -95029, 2936 in Khal
-    (-13, -9)"). Only spots in the zone's own chunk; the first quest of each giver wins."""
+    (-13, -9)"). Only spots in the zone's own chunk; the first quest of each giver wins (every=True:
+    giver name -> [(spot, quest record)], all of them, first first)."""
     out = {}
     for q in sorted(quests.values(), key=lambda r: r["name"]):
         if q.get("zone") != zone or not q.get("giver") or "," in q["giver"]:
@@ -302,9 +309,13 @@ def quest_giver_spots(zone, quests, chunk):
             m = QUEST_LOC.search(str(loc))
             if not m:
                 continue
-            if m.group(4) is not None and (int(m.group(4)), int(m.group(5))) != chunk:
-                continue
-            out.setdefault(q["giver"], (tuple(float(m.group(i)) for i in (1, 2, 3)), q))
+            if m.group(4) is not None and (int(m.group(4)), int(m.group(5))) != chunk                     and chunk_exists(int(m.group(4)), int(m.group(5))):
+                continue                  # another chunk's spot (a label naming no chunk is a typo)
+            spot = (tuple(float(m.group(i)) for i in (1, 2, 3)), q)
+            if every:
+                out.setdefault(q["giver"], []).append(spot)
+            else:
+                out.setdefault(q["giver"], spot)
             break
     return out
 
@@ -401,14 +412,33 @@ def plan(zone, recs, chunks, quests=None, continent=None, creatures=None, zone_r
         key = key_for(rec["name"])
         mobs[key] = template(rec)
         spawns.append({"mob": key, "x": round(pos[0]), "y": round(pos[1]), "z": round(pos[2]), "yaw": 0})
-    for giver, (pos, q) in quest_giver_spots(zone, quests or {}, chunks[zone]).items():
+    for giver, spots in quest_giver_spots(zone, quests or {}, chunks[zone], every=True).items():
         key = key_for(giver)
         if key in mobs:
             continue
-        if giver not in recs and not has_npc_page(q):
+        if giver not in recs and not has_npc_page(spots[0][1]):
             continue          # no NPC record and no NPC page: a parsing leftover such as "Then", not a person
-        if any(abs(s["x"] - pos[0]) < 50 and abs(s["y"] - pos[1]) < 50 and abs(s["z"] - pos[2]) < 100 for s in spawns):
-            continue          # someone already stands there: the same person under another spelling
+        taken = lambda p: any(abs(s["x"] - p[0]) < 50 and abs(s["y"] - p[1]) < 50 and abs(s["z"] - p[2]) < 100
+                              for s in spawns)
+        if taken(spots[0][0]) and len(spots) == 1:
+            pos, q = spots[0]
+            there = [mobs.get(s["mob"], {}).get("name", "") for s in spawns if abs(s["x"] - pos[0]) < 50 and abs(s["y"] - pos[1]) < 50]
+            if any(set(n.lower().split()) & set(giver.lower().split()) for n in there):
+                continue      # someone already stands there: the same person under another spelling
+            # A different person (Ki the Fiend Hunter at Sukai Sunrain's spot): beside them, marked.
+            rec = dict(recs.get(giver) or {"name": giver, "level": q.get("level"), "zone": zone})
+            rec.setdefault("sources", q.get("sources"))
+            rec.setdefault("continent", continent)
+            mobs[key] = template(rec)
+            spawns.append({"mob": key, "x": round(pos[0]) + 150, "y": round(pos[1]), "z": round(pos[2]), "yaw": 0,
+                           "_placeholder": f"the archive gives {giver} the same spot as {there[0]}: placed beside them"})
+            continue
+        # A quest page can copy another giver's spot (Kiri Tentrees' "Listen To Kiri Tentrees" gives
+        # Tan Fen Greatcloud's): then her other quests' start, if one is free.
+        free = [sp for sp in spots if not taken(sp[0])]
+        if not free:
+            continue
+        pos, q = free[0]
         rec = dict(recs.get(giver) or {"name": giver, "level": q.get("level"), "zone": zone})
         rec.setdefault("sources", q.get("sources"))
         rec.setdefault("continent", continent)          # the zone's, for the placeholder race

@@ -30,6 +30,15 @@ class Npc:
                     or getattr(self, "broker", None) or getattr(self, "dialog", None)
                     or getattr(self, "assembly_trainer", None))
 
+    def talks_besides_use(self):
+        """Whether it has a dialogue of its own: a quest giver, hand-in or talk target (not only an
+        object some quest step uses), a merchant, a trainer...."""
+        uses = getattr(self, "use_only", False)
+        return bool((self.quests and not uses) or self.merchant or self.trainer or self.banker or self.parley
+                    or self.repairs or getattr(self, "task_master", False) or getattr(self, "recipe_trainer", None)
+                    or getattr(self, "broker", None) or getattr(self, "dialog", None)
+                    or getattr(self, "assembly_trainer", None))
+
     def service(self):
         """A vendor, trainer, node, station...: can't be attacked."""
         return bool(self.talks() or self.harvest or self.station or self.prop

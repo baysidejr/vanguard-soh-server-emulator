@@ -41,7 +41,7 @@ def main(argv=None):
     print("== handoff items ==")
     print(f"{import_zone.import_handoff_items(a.apply)} items the world refers to come from the scrape's conversion handoff")
     print("== quest targets ==")
-    quests, world, chunks = (import_zone.archive_npcs(kind="quest"), quest_readiness.zone_world(),
+    quests, world, chunks = (quest_readiness.alias_givers(import_zone.archive_npcs(kind="quest")), quest_readiness.zone_world(),
                              import_zone.zone_chunks())
     camps = quest_readiness.placeholder_camps(quests, world, chunks, import_zone.archive_npcs(kind="creature"),
                                               invent_zones=quest_readiness.INVENT_ZONES)
@@ -53,6 +53,16 @@ def main(argv=None):
             import_zone.attach_loot(mobs, loot)
             import_zone.apply(level, mobs, [sp for _, _, camp in entries for sp in camp])
         world = quest_readiness.zone_world()
+    print("== placeholder objectives ==")
+    objs, obj_steps, obj_recs = quest_readiness.placeholder_objectives(quests, world, chunks)
+    print(f"{len(obj_recs)} quests in " + ", ".join(quest_readiness.INVENT_ZONES) + " get placeholder objects or "
+          f"creatures for the objectives nothing places ({sum(len(v) for v in objs.values())} new templates)")
+    if a.apply:
+        for level, entries in objs.items():
+            import_zone.apply(level, {k: t for k, t, _ in entries}, [sp for _, _, camp in entries for sp in camp])
+        world = quest_readiness.zone_world()
+        print("added %d quests with placeholder objectives" % quest_readiness.add_placeholder_quests(
+            obj_recs, obj_steps, world, chunks))
     print("== quests ==")
     ready = sorted((q for q in quests.values() if quest_readiness.readiness(q, world, chunks) == "ready"),
                    key=lambda q: (q.get("zone") or "", q["name"]))
@@ -63,6 +73,10 @@ def main(argv=None):
         print("added %d quests and %d items" % quest_readiness.apply(ready, world, chunks))
         print("added %d delivery quests (%d items)" % quest_readiness.apply(deliveries, world, chunks, steps_for=steps_for))
         print("linked %d quests to the quest before them in their chain" % quest_readiness.link_chains(quests))
+        talks, talk_steps = quest_readiness.conversation_plan(quests, quest_readiness.zone_world(), chunks)
+        print("added %d conversation placeholders (no recorded objectives) in %s" % (quest_readiness.apply(
+            talks, quest_readiness.zone_world(), chunks, steps_for=talk_steps)[0],
+            ", ".join(quest_readiness.DELIVERY_PLACEHOLDER_ZONES)))
         on = quest_readiness.enable_zone_deliveries(True, chunks)
         print(f"{len(on)} delivery placeholders offered again, marked, in "
               + ", ".join(quest_readiness.DELIVERY_PLACEHOLDER_ZONES) + (": " + ", ".join(on) if on else ""))

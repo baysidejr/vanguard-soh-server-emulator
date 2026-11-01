@@ -6910,6 +6910,9 @@ def npc_dialog(state, npc):
     log = player.quests
     out, opts, greeting = [], [], None
     tpl = npc.template_id
+    used = quest_use(state, npc)
+    if used is not None:
+        return used
     greeting = quest_talk(state, npc)
     have = have_items(player)
     for key, q in content_.quests.items():
@@ -7402,6 +7405,37 @@ def quest_kill(state, npc):
             continue
         prog["count"] += 1
         quest_advance(state, key, q, npc.entity_id)
+
+
+USE_AGAIN_SECONDS = 60          # one player can use the same placed object again after this
+
+
+def quest_use(state, npc):
+    """Using a placed object (a "use" step: close a portal, search a cache) counts toward the
+    current step of the player's active quests. Returns the messages to send instead of a
+    dialogue, or None when the NPC isn't an object for any of them."""
+    player, now = state["player"], time.time()
+    wanted = []
+    for key, prog in list(player.quests.active.items()):
+        q = ARGS.content.quests.get(key)
+        st = quest.steps(q) if q else []
+        if prog["step"] < len(st) and npc.template_id in (st[prog["step"]].get("use") or {})                 and prog["count"] < quest.step_need(st[prog["step"]]):
+            wanted.append((key, q, prog, st[prog["step"]]))
+    if not wanted:
+        return None if npc.talks_besides_use() else [build_system_text(
+            f"You have no reason to use the {npc.name} now.", SYSTEM_TEXT_ERROR)]
+    used_by = npc.__dict__.setdefault("used_by", {})
+    if used_by.get(player.char_id, 0) > now:
+        return [build_system_text(f"You have already used this {npc.name}. Find another.", SYSTEM_TEXT_ERROR)]
+    used_by[player.char_id] = now + USE_AGAIN_SECONDS
+    out = []
+    for key, q, prog, step in wanted:
+        prog["count"] += 1
+        out.append(build_system_text(f"{step.get('objective', npc.name)}: {prog['count']}/{quest.step_need(step)}",
+                                     SYSTEM_TEXT_WHITE))
+        quest_advance(state, key, q, npc.entity_id)
+    print(f"  {player.name} used {npc.name}")
+    return out
 
 
 def quest_talk(state, npc):

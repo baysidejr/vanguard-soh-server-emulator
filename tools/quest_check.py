@@ -76,6 +76,8 @@ def problems(q, mobs, where, sources):
             placed(key, f"step {n} kill target")
         if step.get("talk"):
             placed(step["talk"], f"step {n} talk target")
+        for key in step.get("use") or {}:
+            placed(key, f"step {n} object to use")
         for item in step.get("collect") or {}:
             if item not in sources:
                 out.append(f"step {n}: nothing placed drops, sells or gives {item!r}")

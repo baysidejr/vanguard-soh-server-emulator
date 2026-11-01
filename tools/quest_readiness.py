@@ -48,7 +48,7 @@ def singulars(name):
 
 
 def _single(word):
-    if len(word) < 4 or not word.endswith("s") or word.endswith("ss"):
+    if len(word) < 4 or not word.endswith("s") or word.endswith(("ss", "'s")):
         return word
     if word.endswith("ies"):
         return word[:-3] + "y"
@@ -178,8 +178,8 @@ def to_quest(rec, steps, quest_id, content=z.CONTENT):
     giver_name = rec.get("giver")
     tasks = [(f"Gather {n} {name}" if "collect" in s else
               f"Slay {n} " + re.sub(r"\s+(slain|killed|defeated|destroyed)$", "", s["objective"], flags=re.I))
-             for s in steps if "talk" not in s for name, n in (s.get("collect") or s.get("kill")).items()]
-    tasks += [s["objective"] for s in steps if "talk" in s]          # "Speak with ..." (delivery_plan)
+             for s in steps if "talk" not in s and "use" not in s for name, n in (s.get("collect") or s.get("kill")).items()]
+    tasks += [s["objective"] for s in steps if "talk" in s or "use" in s]   # "Speak with ...", "Portals Closed"
     q.setdefault("greeting", f"I could use some help. ({rec['name']}: the archive has no dialogue yet.)")
     q.setdefault("description", f"{giver_name} has asked you to help: " + ", then ".join(
         t[0].lower() + t[1:] for t in tasks) + ".")
@@ -522,6 +522,206 @@ def invented_template(rec):
             "health": 100 + 40 * level, "damage": [max(1, level), max(2, 2 * level)],
             "_placeholder": f"creature invented from an objective of the quest {rec['_invented']} (owner decision "
                             "2026-10-31): the archive has no page for it; look, level and stats are guesses"}
+
+
+# Objectives the archive names but nothing places ("Portals Closed (0/3)", "Lumber (1)",
+# "Villagers Rescued (0/5)"): in INVENT_ZONES (owner decision 2026-10-31, "get the Isle of Dawn
+# complete") a placeholder object of that name near the giver is used (right-click) instead.
+PERSON_WORDS = {"villager", "refugee", "logger", "supporter", "citizen", "prisoner", "captive", "worker"}
+OBJECT_LOOKS = {"portal": 767, "food": 1087, "fire": 1087, "flame": 1087, "banner": 631}   # prop races
+OBJECT_LOOK = 1072                                                                        # a crate / chest
+PLACEHOLDER_OBJECTIVES = ("objectives the archive names but nothing places are played with placeholder objects "
+                          "and creatures near the giver (owner decision 2026-10-31)")
+
+
+def _title(text):
+    return " ".join(w if w in ("of", "from", "to", "the") else w[:1].upper() + w[1:] for w in text.split())
+
+
+def object_name(objective, need):
+    """'Portals Closed (0/3)' -> 'Portal', 'Convince 4 Magistrate Supporters to Stop (4)' ->
+    'Magistrate Supporter', "*Ring of Zalaz (0/1)" -> 'Ring of Zalaz'."""
+    t = re.sub(r"\s*\([^)]*\)\s*$", "", objective).strip().lstrip("*").strip()
+    t = re.sub(r"^(convince|collect|gather|find|recover)\s+\d+\s+", "", t, flags=re.I)
+    t = re.sub(r"\s+to stop$", "", t, flags=re.I)
+    t = re.sub(r"\s+(closed|rescued|poisoned|found|collected|recovered|destroyed|captured)$", "", t, flags=re.I)
+    words = t.split()
+    if need > 1:            # the head noun only, as written: "Tentrees Tools" -> "Tentrees Tool"
+        cut = next((i for i, w in enumerate(words) if w.lower() in ("of", "from")), len(words))
+        if cut:
+            words[cut - 1] = _single(words[cut - 1])
+    return " ".join(w if w.lower() in ("of", "from", "to", "the") else w[:1].upper() + w[1:] for w in words)
+
+
+def qualified_kill(objective, quest):
+    """'Hobgoblins slain in Gai's Nousa (0/5)' / 'Hobgoblins in Farmlands Slain (0/8)' -> a record
+    for an invented "Gai's Nousa Hobgoblin" at the quest's level; else None."""
+    t = re.sub(r"\s*\([^)]*\)\s*$", "", objective).strip()
+    m = (re.fullmatch(r"(.+?)\s+(?:slain|killed)\s+(?:at|in|inside)\s+(.+)", t, re.I)
+         or re.fullmatch(r"(.+?)\s+(?:at|in|inside)\s+(.+?)\s+(?:slain|killed)", t, re.I))
+    if not m:
+        return None
+    name = _title(f"{m.group(2).lower()} {singular_name(m.group(1).lower())}")
+    return {"name": name, "level": int(quest.get("level") or 1), "zone": quest.get("zone"), "_invented": quest["name"]}
+
+
+def object_template(name, quest, person_race=None):
+    low = name.lower().split()
+    person = bool(PERSON_WORDS & set(low))
+    t = {"name": name, "pawn_class": "SGONPCPawn", "level": int(quest.get("level") or 1), "health": 100, "damage": [0, 0],
+         "_placeholder": f"object invented for an objective of the quest {quest['name']} (owner decision 2026-10-31): "
+                         "the archive names it but places nothing; used with a right-click"}
+    if person:
+        t["race"] = person_race or z.ZONE_RACE.get(quest.get("zone")) or z.DEFAULT_RACE
+    else:
+        t["race"] = next((r for w, r in OBJECT_LOOKS.items() if w in low), OBJECT_LOOK)
+        t["prop"] = True
+    return t
+
+
+def _ring(level, giver, name, size, quest_name, radius):
+    """size spawns of name in a ring PLACEHOLDER_DISTANCE from the giver, the first direction not under
+    water (marked "_placeholder"); None when every direction is wet."""
+    import hashlib
+    import math
+    key = z.key_for(name)
+    a0 = int(hashlib.md5(name.encode()).hexdigest(), 16) % 360 * math.pi / 180
+    for k in range(8):
+        a = a0 + k * math.pi / 4
+        cx, cy = giver["x"] + PLACEHOLDER_DISTANCE * math.cos(a), giver["y"] + PLACEHOLDER_DISTANCE * math.sin(a)
+        trial = []
+        for i in range(size):
+            b = 2 * math.pi * i / max(size, 1)
+            r = radius if size > 1 else 0
+            trial.append({"mob": key, "x": round(cx + r * math.cos(b)), "y": round(cy + r * math.sin(b)), "yaw": 0,
+                          "_placeholder": f"position invented for the quest {quest_name}"})
+        if giver.get("z") is not None and abs(giver["z"] - _ground(level, giver["x"], giver["y"])) > 400:
+            for sp in trial:
+                sp["z"] = giver["z"]
+        if not any(_wet(level, sp["x"], sp["y"], sp.get("z")) for sp in trial):
+            return trial
+    return None
+
+
+def placeholder_objectives(quests, world, chunks, content=z.CONTENT, zones=INVENT_ZONES):
+    """Quests in zones whose giver is placed but some objectives aren't: every such objective gets a
+    placeholder (an invented creature to kill, else an object to use). Returns
+    ({level: [(template key, template, spawns)]}, {quest name: steps}, [quest records])."""
+    mobs = z.load(os.path.join(content, "mobs.json"), {})
+    have = {v.get("name", "").lower() for v in z.load(os.path.join(content, "quests.json"), {}).values()
+            if isinstance(v, dict)}
+    out, steps_for, recs, made = {}, {}, [], set()
+    for q in sorted(quests.values(), key=lambda r: r["name"]):
+        if q.get("zone") not in zones or readiness(q, world, chunks) != "giver" or q["name"].lower() in have:
+            continue
+        level = z.level_name(*chunks[q["zone"]])
+        names, drops = world[level]
+        giver = next((s for s in z.existing_spawns(level, content) if s["mob"] == names.get((q.get("giver") or "").lower())), None)
+        if giver is None:
+            continue
+        steps, entries = [], []
+        for s in q.get("candidate_steps") or []:
+            objective = (s.get("objective") or "").strip()
+            label = re.sub(r"\s*\([^)]*\)\s*$", "", objective.lstrip("- ")).strip()
+            need = int(s.get("count") or 1)
+            t = objective_target(objective)
+            mob = next((names[n] for n in singulars(t) if n in names), None)
+            if s.get("kind") != "kill" and t in drops:
+                steps.append({"objective": label, "collect": {drops[t][0]: need}})
+                continue
+            if s.get("kind") != "collect" and mob and t != (q.get("giver") or "").lower():
+                steps.append({"objective": label, "kill": {mob: need}})
+                continue
+            rec = invented_creature(objective, q) or qualified_kill(objective, q)
+            if rec is not None:
+                key = z.key_for(rec["name"])
+                tpl, size, radius = invented_template(rec), 3, 250
+                steps.append({"objective": label, "kill": {key: need}})
+            else:
+                name = object_name(objective, need)
+                key, tpl, size, radius = (z.key_for(name), object_template(name, q, mobs.get(giver["mob"], {}).get("race")),
+                                          min(need, 5), 150)
+                steps.append({"objective": label, "use": {key: need}})
+            if key not in mobs and key not in made and key not in names.values():
+                camp = _ring(level, giver, tpl["name"], size, q["name"], radius)
+                if camp is None:
+                    steps = None
+                    break
+                entries.append((key, tpl, camp))
+                made.add(key)
+        if not steps:
+            continue
+        steps_for[q["name"]] = steps
+        recs.append(q)
+        out.setdefault(level, []).extend(entries)
+    return out, steps_for, recs
+
+
+# Givers the archive names two ways, the placed spelling (zone, quest page's name) -> placed name.
+GIVER_ALIASES = {("Isle of Dawn", "Kimaso Blackleaf"): "Veteran Kimaso Blackleaf"}   # "Veteran" is a title
+
+
+def alias_givers(quests):
+    """Use the placed spelling of a giver named two ways (GIVER_ALIASES), in place."""
+    for q in quests.values():
+        alias = GIVER_ALIASES.get((q.get("zone"), (q.get("giver") or "").strip()))
+        if alias:
+            q["giver"] = alias
+    return quests
+
+
+def conversation_plan(quests, world, chunks, content=z.CONTENT, zones=DELIVERY_PLACEHOLDER_ZONES):
+    """The quests in zones that record no objectives and no other placed hand-in NPC (delivery_plan
+    takes those): "speak with" the giver of the next quest in the chain when that one is placed,
+    else with the giver again (a conversation placeholder). Returns (records, {name: steps})."""
+    have = {v.get("name", "").lower() for v in z.load(os.path.join(content, "quests.json"), {}).values()
+            if isinstance(v, dict)}
+    taken = set(delivery_plan(quests, world, chunks, content)[1])
+    recs, steps_for = [], {}
+    for q in sorted(quests.values(), key=lambda r: r["name"]):
+        if q.get("zone") not in zones or q["name"] in taken or q["name"].lower() in have \
+                or readiness(q, world, chunks) != "no steps":
+            continue
+        names = world[z.level_name(*chunks[q["zone"]])][0]
+        giver = (q.get("giver") or "").strip()
+        nxt = quests.get(q.get("chain_next") or "") or {}
+        to = (nxt.get("giver") or "").strip()
+        if to and to.lower() != giver.lower() and to.lower() in names:
+            steps = [{"objective": f"Speak with {to}", "talk": names[to.lower()]}]
+        else:
+            steps = [{"objective": f"Hear {giver} out", "talk": names[giver.lower()]}]
+        recs.append(q)
+        steps_for[q["name"]] = steps
+    return recs, steps_for
+
+
+def add_placeholder_quests(recs, steps_for, world, chunks, content=z.CONTENT):
+    """Add the quests placeholder_objectives planned (never overwrites). Returns how many."""
+    qpath = os.path.join(content, "quests.json")
+    quests = z.load(qpath, {})
+    names = {q.get("name", "").lower() for q in quests.values() if isinstance(q, dict)}
+    next_id = max([QUEST_ID_BASE - 1] + [q.get("id", 0) for q in quests.values() if isinstance(q, dict)]) + 1
+    level_names = {lv: n for lv, (n, _d) in world.items()}
+    added = 0
+    for rec in recs:
+        key = "arch_" + z.key_for(rec["name"])[5:]
+        if key in quests or rec["name"].lower() in names:
+            continue
+        q = to_quest(rec, steps_for[rec["name"]], next_id, content)
+        placed = level_names.get(z.level_name(*chunks[rec["zone"]]), {})
+        turn_in = placed.get((rec.get("turn_in") or "").strip().lower())
+        if turn_in:
+            q["turn_in"] = turn_in
+        elif q.get("turn_in") not in placed.values():
+            q.pop("turn_in", None)                     # hand back to the giver
+            q.pop("_turn_in_name", None)
+        q["_placeholder_steps"] = PLACEHOLDER_OBJECTIVES
+        quests[key] = q
+        next_id += 1
+        added += 1
+    if added:
+        z.write(qpath, quests)
+    return added
 
 
 def main(argv=None):

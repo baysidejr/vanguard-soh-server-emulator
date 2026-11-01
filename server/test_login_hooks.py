@@ -1301,6 +1301,10 @@ class ArchiveQuestPlayTests(unittest.TestCase):
                                 login_stub.quest_kill(state, npc)
                         if step.get("talk"):
                             login_stub.quest_talk(state, mock.Mock(template_id=step["talk"], entity_id=98))
+                        for mob, need in step.get("use", {}).items():
+                            for i in range(need):          # a different placed object each time
+                                out = login_stub.quest_use(state, mock.Mock(template_id=mob, entity_id=200 + i))
+                                self.assertTrue(out)
                         for name, need in step.get("collect", {}).items():
                             player.items.append((100 + n, name, 442, need, n))
                             login_stub.quest_advance(state, key, q, 0)
@@ -1309,6 +1313,33 @@ class ArchiveQuestPlayTests(unittest.TestCase):
                     login_stub.finish_quest(state, key, q)
                 self.assertIn(key, player.quests.done)
                 self.assertFalse(any(i[1] in {nm for s in quest.steps(q) for nm in s.get("collect", {})} for i in player.items))
+
+
+class QuestUseTests(unittest.TestCase):
+    """A "use" step: right-clicking a placed object counts once; the same object again only after
+    USE_AGAIN_SECONDS; an object no active quest wants says so instead of opening a dialogue."""
+
+    def test_use_counts_once_per_object(self):
+        q = {"id": 9001, "name": "Gateway Termination", "giver": "g", "steps": [{"objective": "Portals Closed", "use": {"portal": 2}}]}
+        args = mock.Mock(quest_feedback=False)
+        args.content.quests = {"gt": q}
+        player = zone.Player(name="T", char_id=7, level="c")
+        player.items, player.coins = [], 0
+        player.quests.active["gt"] = {"step": 0, "count": 0}
+        sent = []
+        state = {"player": player, "send": sent.append}
+        a, b = mock.Mock(template_id="portal", entity_id=1), mock.Mock(template_id="portal", entity_id=2)
+        a.name = b.name = "Portal"
+        with mock.patch.object(login_stub, "ARGS", args, create=True),                 mock.patch.object(login_stub, "save_character_field"):
+            self.assertTrue(login_stub.quest_use(state, a))
+            self.assertEqual(player.quests.active["gt"]["count"], 1)
+            login_stub.quest_use(state, a)                       # the same portal again: refused
+            self.assertEqual(player.quests.active["gt"]["count"], 1)
+            login_stub.quest_use(state, b)
+            self.assertEqual(player.quests.active["gt"]["count"], 2)
+            other = mock.Mock(template_id="crate", entity_id=3)
+            other.talks_besides_use.return_value = True
+            self.assertIsNone(login_stub.quest_use(state, other))  # a real NPC: its dialogue as usual
 
 
 class ParleyLevelTests(unittest.TestCase):

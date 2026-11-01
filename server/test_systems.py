@@ -2352,6 +2352,22 @@ class QuestReadinessTests(unittest.TestCase):
         self.assertEqual(self.qr.invented_race("Hobgoblin Overseer"), self.qr.invented_race("Hobgoblin"))
         self.assertIn("Isle of Dawn", self.qr.INVENT_ZONES)
 
+    def test_placeholder_objective_names(self):
+        q = {"name": "The Village", "level": 5, "zone": "Isle of Dawn"}
+        self.assertEqual(self.qr.object_name("Portals Closed (0/3)", 3), "Portal")
+        self.assertEqual(self.qr.object_name("Convince 4 Magistrate Supporters to Stop (4)", 4), "Magistrate Supporter")
+        self.assertEqual(self.qr.object_name("*Ring of Zalaz (0/1)", 1), "Ring of Zalaz")
+        self.assertEqual(self.qr.object_name("Hadin's Tools (4)", 4), "Hadin's Tool")
+        self.assertEqual(self.qr.object_name("Death Poem of Loss-Noaru (0/1)", 1), "Death Poem of Loss-Noaru")
+        self.assertEqual(self.qr.qualified_kill("Hobgoblins slain in Gai's Nousa (0/5)", q)["name"], "Gai's Nousa Hobgoblin")
+        self.assertEqual(self.qr.qualified_kill("Hobgoblins in Farmlands Slain (0/8)", q)["name"], "Farmlands Hobgoblin")
+        self.assertIsNone(self.qr.qualified_kill("Gataro Podlings Slain (0/5)", q))
+        self.assertFalse(self.qr.object_template("Supply Cache", q).get("race") is None)
+        self.assertTrue(self.qr.object_template("Supply Cache", q)["prop"])
+        self.assertNotIn("prop", self.qr.object_template("Villager", q, person_race=12))
+        quests = {"Kimaso": {"zone": "Isle of Dawn", "giver": "Kimaso Blackleaf"}}
+        self.assertEqual(self.qr.alias_givers(quests)["Kimaso"]["giver"], "Veteran Kimaso Blackleaf")
+
     def test_marked_deliveries_by_zone(self):
         on, off = {"name": "Life of a Crafter", "giver": "a", "turn_in": "b"}, {"name": "Life of a Crafter", "giver": "a", "turn_in": "b"}
         self.qr.mark_delivery(on, "Isle of Dawn")
@@ -2608,7 +2624,9 @@ class DisabledQuestTests(unittest.TestCase):
         placeholders = [v for v in q.values() if isinstance(v, dict) and v.get("_placeholder_steps")]
         kept = [v for v in placeholders if not v.get("disabled")]
         # Only with evidence, or marked in a zone where the owner wants them offered (B-019, 2026-10-31).
-        self.assertTrue(all(v.get("_delivery_evidence") or v.get("_placeholder_delivery") for v in kept))
+        # (Placeholder objects for named objectives are marked their own way, not as deliveries.)
+        self.assertTrue(all(v.get("_delivery_evidence") or v.get("_placeholder_delivery")
+                            or v["_placeholder_steps"].startswith("objectives the archive names") for v in kept))
         self.assertTrue(all(v.get("_disabled") for v in placeholders if v.get("disabled")))
 
 

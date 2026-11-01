@@ -265,7 +265,12 @@ def npc_from_template(w, args, eid, spawn, template, n=0):
     npc.template_id = spawn["mob"]
     npc.quests = [k for k, q in args.content.quests.items()
                   if spawn["mob"] in (q.get("giver"), quest.turn_in(q))
-                  or any(s.get("talk") == spawn["mob"] for s in quest.steps(q))]
+                  or any(s.get("talk") == spawn["mob"] or spawn["mob"] in (s.get("use") or {})
+                         for s in quest.steps(q))]
+    # An object only some quest step uses (a portal to close): no dialogue of its own.
+    npc.use_only = bool(npc.quests) and not any(
+        spawn["mob"] in (q.get("giver"), quest.turn_in(q)) or any(s.get("talk") == spawn["mob"] for s in quest.steps(q))
+        for q in (args.content.quests[k] for k in npc.quests))
     npc.wander = float(spawn.get("wander", 0))
     npc.path = [tuple(p[:2]) for p in spawn.get("path", [])]
     npc.path_pause = float(spawn.get("pause", 2.0))

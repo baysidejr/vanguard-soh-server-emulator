@@ -326,10 +326,10 @@ def validate(directory=CONTENT_DIR):
             problems.append(f"quest {qid}: unknown turn_in {q.get('turn_in')}")
         steps = q.get("steps") or [{"kill": q.get("kill")}]
         for n, step in enumerate(steps):
-            kinds = [k for k in ("kill", "collect", "talk") if step.get(k)]
+            kinds = [k for k in ("kill", "collect", "talk", "use") if step.get(k)]
             if len(kinds) != 1:
-                problems.append(f"quest {qid} step {n}: needs exactly one of kill, collect, talk")
-            for mob in list(step.get("kill") or {}) + ([step["talk"]] if step.get("talk") else []):
+                problems.append(f"quest {qid} step {n}: needs exactly one of kill, collect, talk, use")
+            for mob in list(step.get("kill") or {}) + list(step.get("use") or {}) + ([step["talk"]] if step.get("talk") else []):
                 if mob not in c.mobs:
                     problems.append(f"quest {qid} step {n}: unknown mob {mob}")
             for name in step.get("collect") or {}:
